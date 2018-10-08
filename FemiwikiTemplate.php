@@ -394,60 +394,11 @@ class FemiwikiTemplate extends BaseTemplate
     }
 
     function getToolbox() {
-        $toolbox = [];
+        $toolbox = parent::getToolbox();
 
-        if ( isset( $this->data['nav_urls']['whatlinkshere'] )
-            && $this->data['nav_urls']['whatlinkshere']
-        ) {
-            $toolbox['whatlinkshere'] = $this->data['nav_urls']['whatlinkshere'];
-            $toolbox['whatlinkshere']['id'] = 't-whatlinkshere';
-        }
-        if ( isset( $this->data['nav_urls']['recentchangeslinked'] )
-            && $this->data['nav_urls']['recentchangeslinked']
-        ) {
-            $toolbox['recentchangeslinked'] = $this->data['nav_urls']['recentchangeslinked'];
-            $toolbox['recentchangeslinked']['msg'] = 'recentchangeslinked-toolbox';
-            $toolbox['recentchangeslinked']['id'] = 't-recentchangeslinked';
-        }
-        if ( isset( $this->data['nav_urls']['print'] ) && $this->data['nav_urls']['print'] ) {
-            $toolbox['print'] = $this->data['nav_urls']['print'];
-            $toolbox['print']['id'] = 't-print';
-            $toolbox['print']['rel'] = 'alternate';
-            $toolbox['print']['msg'] = 'printableversion';
-        }
-        if ( isset( $this->data['nav_urls']['permalink'] ) && $this->data['nav_urls']['permalink'] ) {
-            $toolbox['permalink'] = $this->data['nav_urls']['permalink'];
-            if ( $toolbox['permalink']['href'] === '' ) {
-                unset( $toolbox['permalink']['href'] );
-                $toolbox['ispermalink']['tooltiponly'] = true;
-                $toolbox['ispermalink']['id'] = 't-ispermalink';
-                $toolbox['ispermalink']['msg'] = 'permalink';
-            } else {
-                $toolbox['permalink']['id'] = 't-permalink';
-            }
-        }
-        if ( isset( $this->data['nav_urls']['info'] ) && $this->data['nav_urls']['info'] ) {
-            $toolbox['info'] = $this->data['nav_urls']['info'];
-            $toolbox['info']['id'] = 't-info';
-        }
-        if ( isset( $this->data['feeds'] ) && $this->data['feeds'] ) {
-            $toolbox['feeds']['id'] = 'feedlinks';
-            $toolbox['feeds']['links'] = [];
-            foreach ( $this->data['feeds'] as $key => $feed ) {
-                $toolbox['feeds']['links'][$key] = $feed;
-                $toolbox['feeds']['links'][$key]['id'] = "feed-$key";
-                $toolbox['feeds']['links'][$key]['rel'] = 'alternate';
-                $toolbox['feeds']['links'][$key]['type'] = "application/{$key}+xml";
-                $toolbox['feeds']['links'][$key]['class'] = 'feedlink';
-            }
-        }
-        foreach ( [ 'contributions', 'log', 'blockip', 'emailuser',
-            'userrights'] as $special
-        ) {
-            if ( isset( $this->data['nav_urls'][$special] ) && $this->data['nav_urls'][$special] ) {
-                $toolbox[$special] = $this->data['nav_urls'][$special];
-                $toolbox[$special]['id'] = "t-$special";
-            }
+        foreach ( [ 'upload', 'specialpages' ] as $special ) {
+            if ( isset( $toolbox[$special] ) )
+                unset( $toolbox[$special] );
         }
 
         return $toolbox;
