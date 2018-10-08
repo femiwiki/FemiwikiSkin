@@ -7,7 +7,6 @@
  */
 class FemiwikiTemplate extends BaseTemplate
 {
-    protected static $googleApiKey = 'AIzaSyC3vDxqg6zA-f8qU--V488nngsBYnZZgPc';
     /**
      * Outputs the entire contents of the page
      */
