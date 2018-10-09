@@ -1,7 +1,6 @@
 @import "variables.less";
 
 * {
-	box-sizing: border-box;
 	-webkit-text-size-adjust: none;
 	-moz-text-size-adjust: none;
 	text-size-adjust: none;
@@ -9,15 +8,14 @@
 
 html {
 	font-size: 16.5px;
-	line-height: 1.9;
 	font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕', 'Noto Sans CJK KR', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕', NanumGothic, '맑은고딕', 'Malgun Gothic', Arial, Dotum, sans-serif;
-	font-weight: normal;
-	color: #252525;
 }
 
 body {
 	margin: 0;
 	padding: 0;
+	color: #252525;
+	line-height: 1.9;
 }
 
 :focus {
@@ -34,21 +32,6 @@ a {
 
 a:visited {
 	color: #5144a3;
-}
-
-a.external {
-	color: #5144a3;
-}
-
-a.new {
-	color: #c0081f;
-}
-
-pre {
-	font-family: inherit;
-	overflow: hidden;
-	border: none;
-	background-color: #f0f0f0;
 }
 
 input:focus {
@@ -94,12 +77,6 @@ input[type="reset"] {
 	padding: 0.2rem 0.5rem;
 }
 
-#content .btn,
-#content .btn:hover,
-#content .btn:visited,
-.btn,
-.btn:hover,
-.btn:visited,
 input[type="submit"],
 button {
 	padding: 0.2rem 0.5rem;
@@ -110,6 +87,7 @@ button {
 }
 
 #p-navigation-and-watch {
+	box-sizing: border-box;
 	max-width: 50rem;
 	padding: 0 1.3rem;
 	margin: 2.3rem auto 0.5rem;
@@ -169,156 +147,48 @@ button {
 	}
 }
 
-#content #p-header {
-
-	#p-title-and-tb{
-
-		#p-actions-and-toolbox {
-			display: none;
-			clear: right;
-			text-align: right;
-			overflow: hidden;
-			border-bottom: 1px solid #aca6e4;
-
-			#p-actions,
-			#p-page-tb,
-			#p-share-tb,
-			#p-site-tb {
-				float: right;
-				min-width: 8.8rem;
-				margin: 0.6rem 0.8rem 0.6rem 0;
-				display: inline-block;
-				vertical-align: top;
-				text-align: left;
-
-				h3 {
-					margin: 0;
-					font-weight: normal;
-					font-size: 1rem;
-					border-bottom: 1px solid #b9b5d9;
-					margin-bottom: 0.4rem;
-				}
-
-				ul {
-					padding: 0;
-					margin: 0;
-				}
-
-				li {
-					list-style-type: none;
-					margin: 0;
-				}
-
-				a {
-					display: block;
-				}
-			}
-
-			div + div {
-				margin-right: 1em;
-			}
-		}
-
-		h1.firstHeading {
-			font-size: 1.714rem;
-			margin-bottom: 0;
-			display: inline-block;
-			margin-top: 0;
-		}
-
-		#p-title-buttons {
-			float: right;
-			margin: 0;
-			padding: 0;
-
-			.p-title-button {
-				display: inline-block;
-				float: right;
-				margin: .4em;
-			}
-
-			.p-title-button:first-child {
-				margin-right: 0em;
-			}
-		}
-
-		.fw-icon {
-			min-width: 1.5em;
-			min-height: 1.5em;
-		}
-
-		.fw-icon:before {
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			background-size: 100% auto;
-			float: left;
-			display: block;
-			min-width: 1.5em;
-			min-height: 1.5em;
-			content: '';
-		}
-
-		.fw-icon-ellipsis:before {
-				background-image: url("/resources/lib/oojs-ui/themes/wikimediaui/images/icons/ellipsis.png");
-		}
-
-		.fw-icon-share:before {
-				background-image: url("images/icon-share.png");
-		}
-	}
-	#lastmod-and-views {
-		font-size: 0.75rem;
-		overflow: hidden;
-		clear: both;
-
-		#p-views {
-			h3 {
-				display: none;
-			}
-
-			ul {
-				padding: 0;
-				margin: 0;
-
-				li {
-					margin: 0;
-					display: block;
-				}
-
-				li.selected a {
-					font-weight: bold;
-				}
-			}
-
-			li#ca-view.selected {
-				display: none;
-			}
-		}
-
-		#p-views {
-			float: right;
-
-			li{
-				float: left;
-			}
-
-			li + li {
-				margin-left: 1em;
-			}
-		}
-
-		#lastmod {
-			font-size: 0.8rem;
-		}
-	}
-}
-
 /* Content */
 #content {
+	box-sizing: border-box;
 	position: relative;
 	padding: 0 1.3rem;
 	max-width: 50rem;
 	margin: 0 auto;
+	
+	a.external {
+		color: #5144a3;
+	}
+	
+	a.new {
+		color: #c0081f;
+	}
+
+	a.stub {
+		color: #723;
+	}
+	
+	/* Headings */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		position: relative;
+		margin: 3.8rem 0 1.6rem;
+		padding: 0;
+		border-bottom: 0;
+		font-weight: normal;
+		color: #252525;
+		border-bottom: none;
+	}
+	
+	pre {
+		font-family: inherit;
+		overflow: hidden;
+		border: none;
+		background-color: #f0f0f0;
+	}
 
 	.mw-indicators {
 		float: right;
@@ -339,19 +209,261 @@ button {
 		}
 	}
 
-	/* Headings */
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		position: relative;
-		margin: 3.8rem 0 1.6rem;
+	.catlinks,
+	.fw-catlinks {
 		padding: 0;
-		border-bottom: 0;
-		font-weight: normal;
-		color: #252525;
+		border-width: 0;
+		background-color: transparent;
+
+		ul {
+			display: inline;
+			margin: 0;
+		}
+
+		li {
+			display: inline;
+			border-width: 0;
+			margin: 0;
+			padding: 0;
+			font-size: inherit;
+			line-height: inherit;
+		}
+
+		li:not(:first-child):before {
+			content: "|";
+			margin: 0 0.3rem;
+		}
+
+		.fw-catlinks-toggle {
+			float: right;
+			font-size: .7rem;
+			color: #797979;
+			background-color: transparent;
+		}
+	}
+
+	.patrollink {
+		font-size: inherit;
+	}
+
+	.mw-category-generated {
+		#mw-subcategories ul,
+		#mw-pages .mw-category-group ul {
+			-webkit-columns: 16em 2;
+			-moz-columns: 16em 2;
+			columns: 16em 2;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	.btn,
+	.btn:hover,
+	.btn:visited {
+		padding: 0.2rem 0.5rem;
+		color: #fff;
+		background-color: #aca7e2;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	#p-header {
+		#p-title-and-tb{
+			#p-actions-and-toolbox {
+				display: none;
+				clear: right;
+				text-align: right;
+				overflow: hidden;
+				border-bottom: 1px solid #aca6e4;
+	
+				#p-actions,
+				#p-page-tb,
+				#p-share-tb,
+				#p-site-tb {
+					min-width: 8.8rem;
+					margin: 0.6rem 0.8rem 0.6rem 0;
+					float: right;
+					vertical-align: top;
+					text-align: left;
+	
+					h3 {
+						margin: 0;
+						font-weight: normal;
+						font-size: 1rem;
+						border-bottom: 1px solid #b9b5d9;
+						margin-bottom: 0.4rem;
+					}
+	
+					ul {
+						padding: 0;
+						margin: 0;
+					}
+	
+					li {
+						list-style: none;
+						margin: 0;
+					}
+	
+					a {
+						display: block;
+					}
+				}
+	
+				div + div {
+					margin-right: 1em;
+				}
+			}
+	
+			h1.firstHeading {
+				font-size: 1.714rem;
+				margin-bottom: 0;
+				display: inline-block;
+				margin-top: 0;
+				line-height: 1.2em;
+				border-bottom: none;
+				padding: 0;
+			}
+	
+			#p-title-buttons {
+				float: right;
+				margin: 0;
+				padding: 0;
+	
+				.p-title-button {
+					list-style: none;
+					float: right;
+					margin: .4em;;
+				}
+	
+				.p-title-button:first-child {
+					margin-right: 0em;
+				}
+			}
+	
+			.fw-icon {
+				min-width: 1.5em;
+				min-height: 1.5em;
+			}
+	
+			.fw-icon:before {
+				background-position: 50% 50%;
+				background-repeat: no-repeat;
+				background-size: 100% auto;
+				float: left;
+				display: block;
+				min-width: 1.5em;
+				min-height: 1.5em;
+				content: '';
+			}
+	
+			.fw-icon-ellipsis:before {
+					background-image: url("/resources/lib/oojs-ui/themes/wikimediaui/images/icons/ellipsis.png");
+			}
+	
+			.fw-icon-share:before {
+					background-image: url("images/icon-share.png");
+			}
+		}
+		#lastmod-and-views {
+			font-size: 0.75rem;
+			overflow: hidden;
+			clear: both;
+	
+			#p-views {
+				h3 {
+					display: none;
+				}
+	
+				ul {
+					padding: 0;
+					margin: 0;
+	
+					li {
+						margin: 0;
+						display: block;
+					}
+	
+					li.selected a {
+						font-weight: bold;
+					}
+				}
+	
+				li#ca-view.selected {
+					display: none;
+				}
+			}
+	
+			#p-views {
+				float: right;
+	
+				li{
+					float: left;
+				}
+	
+				li + li {
+					margin-left: 1em;
+				}
+			}
+	
+			#lastmod {
+				font-size: 0.8rem;
+			}
+		}
+	}
+
+	/* Search */
+	.mw-search-results {
+		max-width: 100%;
+
+		div.searchresult {
+			width: inherit;
+			max-width: 38em;
+		}
+	}
+
+	#mw-search-top-table {
+		#searchText {
+			input {
+				box-sizing: border-box;
+			}
+		}
+	}
+	.mw-search-profile-tabs {
+		font-size: 14px;
+
+		div.search-types {
+			ul {
+				margin: 0;
+				list-style: none;
+			}
+
+			ul li {
+				list-style: none;
+
+				a {
+					padding: 0.2rem 0.3rem;
+				}
+			}
+
+			ul li.current {
+				font-weight: bold;
+			}
+		}
+	}
+
+	/* VisualEditor */
+	.ve-init-mw-desktopArticleTarget-toolbar,
+	.ve-init-mw-desktopArticleTarget-toolbarPlaceholder {
+		margin: 0;
+	}
+}
+
+.mw-parser-output {
+	clear: both;
+	margin-bottom: 4.8rem;
+
+	ul li {
+		list-style-type: disc;
 	}
 
 	h2 {
@@ -381,16 +493,6 @@ button {
 		content: ".";
 	}
 
-	/* Paragraph */
-	#mw-content-text {
-		clear: both;
-		margin-bottom: 4.8rem;
-	}
-
-	#mw-content-text > p:first-child {
-		margin-top: 2.8rem;
-	}
-
 	p {
 		margin: 1.6rem 0;
 	}
@@ -418,10 +520,6 @@ button {
 	ul {
 		margin: 1.6rem 0 1.6rem;
 		padding-left: 1.2rem;
-	}
-
-	ul li {
-		list-style-type: disc;
 	}
 
 	li {
@@ -580,7 +678,7 @@ button {
 		}
 
 		li {
-			list-style-type: none;
+			list-style: none;
 		}
 
 		li.toclevel-1 {
@@ -650,66 +748,10 @@ button {
 	.fw-catlinks {
 		display: none;
 	}
-
-	.catlinks,
-	.fw-catlinks {
-		padding: 0;
-		border-width: 0;
-		background-color: transparent;
-
-		ul {
-			display: inline;
-			margin: 0;
-		}
-
-		li {
-			display: inline;
-			border-width: 0;
-			margin: 0;
-			padding: 0;
-			font-size: inherit;
-			line-height: inherit;
-		}
-
-		li:not(:first-child):before {
-			content: "|";
-			margin: 0 0.3rem;
-		}
-
-		.fw-catlinks-toggle {
-			float: right;
-			font-size: .7rem;
-			color: #797979;
-			background-color: transparent;
-		}
-	}
-
-	.patrollink {
-		font-size: inherit;
-	}
-
-	.mw-category-generated {
-		#mw-subcategories ul,
-		#mw-pages .mw-category-group ul {
-			-webkit-columns: 16em 2;
-			-moz-columns: 16em 2;
-			columns: 16em 2;
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-	}
 }
 
-/* 
- * Discussion
- * Do not make the layout more compact on Talk (ns-1) and User_Talk (ns-3)
- */
-body.ns-1,
-body.ns-3 {
-	div#content.mw-body {
-		margin-right: auto;
-		padding: 0 1.3rem;
-	}
+#mw-content-text > p:first-child {
+	margin-top: 2.8rem;
 }
 
 /* Footer */
@@ -722,7 +764,7 @@ body.ns-3 {
 		margin: 0;
 
 		li {
-			list-style-type: none;
+			list-style: none;
 		}
 	}
 
@@ -770,7 +812,8 @@ ul#preftoc {
 	padding: 0;
 
 	li {
-		list-style-type: none;
+		list-style: none;
+		margin-bottom: 0.5rem;
 	}
 }
 
@@ -804,10 +847,6 @@ ul#preftoc {
 
 /* Source Editor */
 body.action-edit {
-	#content .mw-editsection {
-		display: none;
-	}
-
 	#siteNotice {
 		display: none;
 	}
@@ -828,23 +867,21 @@ body.action-edit {
 		display: none;
 	}
 
-	/* Show femiwiki category */
-	#content .fw-catlinks {
-		display: block;
+	#content {
+		.mw-editsection {
+			display: none;
+		}
+
+		/* Show femiwiki category */
+		.fw-catlinks {
+			display: block;
+		}
 	}
 }
 
-/* Source Editor */
 body.action-submit #content .fw-catlinks {
 	display: block;
 }
-
-/* VisualEditor */
-#content .ve-init-mw-desktopArticleTarget-toolbar,
-#content .ve-init-mw-desktopArticleTarget-toolbarPlaceholder {
-	margin: 0;
-}
-
 
 html.ve-active {
 	#siteNotice {
@@ -881,46 +918,6 @@ html.ve-active {
 	}
 }
 
-/* Search */
-#content .mw-search-results {
-	max-width: 100%;
-
-	div.searchresult {
-		width: inherit;
-		max-width: 38em;
-	}
-}
-
-#content #mw-search-top-table {
-	#searchText {
-		input {
-			box-sizing: border-box;
-		}
-	}
-}
-#content .mw-search-profile-tabs {
-	font-size: 14px;
-
-	div.search-types {
-		ul {
-			margin: 0;
-			list-style-type: none;
-		}
-
-		ul li {
-			list-style-type: none;
-
-			a {
-				padding: 0.2rem 0.3rem;
-			}
-		}
-
-		ul li.current {
-			font-weight: bold;
-		}
-	}
-}
-
 #powersearch {
 	font-size: 14px;
 
@@ -943,14 +940,6 @@ html.ve-active {
 	#mw-footer {
 		padding-left: 0.85rem;
 		padding-right: 0.85rem;
-	}
-
-	body.ns-1,
-	body.ns-3 {
-		div#content.mw-body {
-			padding-left: 0.85rem;
-			padding-right: 0.85rem;
-		}
 	}
 }
 
