@@ -1,130 +1,5 @@
 @import "variables.less";
 
-#content .fw-recentchanges {
-  .rows {
-    margin: 0;
-    padding: 0;
-
-    .row {
-      list-style-type: none;
-      margin: 0;
-      border-top: 1px solid #DDD;
-      &:last-child {
-        border-bottom: 1px solid #DDD;
-      }
-      &:nth-child(even) {
-        background-color: #F8F8F8;
-      }
-
-      .cols {
-        position: relative;
-        margin: 0;
-        padding: 0 0.5rem 1.2rem;
-
-        .col {
-          list-style-type: none;
-          display: inline-block;
-          margin: 0;
-        }
-        .col.flags {
-          position: absolute;
-          left: 0;
-          right: 0;
-
-          & > span {
-            display: block;
-            float: left;
-            margin-right: 0.5rem;
-            padding: 0.1rem 0.2rem;
-            border-radius: 0 0 2px 2px;
-            color: white;
-            font-size: 0.8rem;
-            line-height: 1.2rem;
-            height: 1.2rem;
-          }
-          .type-new,
-          .type-log.logtype-newusers,
-          .type-log.logtype-upload {
-            background-color: #a5c831;
-          }
-          .type-log.logtype-move {
-            background-color: #BBB;
-          }
-          .type-log.logtype-delete,
-          .type-log.logtype-block {
-            background-color: #d62728;
-          }
-          .type-log.logtype-rights,
-          .type-log.logtype-protect {
-            background-color: #3366cc;
-          }
-        }
-
-        .col.timestamp {
-          font-size: 0.8rem;
-          white-space: nowrap;
-          opacity: 0.6;
-          margin-top: 1.5rem;
-          margin-right: 1rem;
-
-          a {
-            color: inherit;
-          }
-        }
-        .col.sizes {
-          font-size: 0.8rem;
-          opacity: 0.6;
-          margin-top: 1.5rem;
-
-          &.added {
-            color: green;
-          }
-          &.deleted {
-            color: red;
-          }
-
-          a {
-            color: inherit;
-          }
-        }
-        .col.user {
-          position: absolute;
-          top: 0;
-          right: 0.3rem;
-          text-align: right;
-          font-size: 0.8rem;
-          white-space: nowrap;
-          opacity: 0.9;
-        }
-        .col.title {
-          display: block;
-        }
-        .col.parsedcomment {
-          font-size: 0.8rem;
-          opacity: 0.6;
-          padding-left: 1rem;
-          overflow: hidden;
-          word-break: break-all;
-        }
-      }
-    }
-
-    .row.muted {
-      .cols {
-        display: none;
-      }
-
-      padding: 0.5rem 0;
-      text-align: center;
-    }
-    .row.muted:after {
-      content: "가려짐";
-      font-size: 0.8rem;
-      opacity: 0.6;
-    }
-  }
-}
-
 .mw-special-Recentchanges #content {
   #mw-indicator-mw-helplink,
   .mw-specialpage-summary,
@@ -309,4 +184,130 @@
 
 .mw-rcfilters-ui-filterWrapperWidget-bottom {
   flex-wrap: wrap;
+}
+
+// legacy styles for [[페미위키:바뀐글]]
+#content .fw-recentchanges {
+  .rows {
+    margin: 0;
+    padding: 0;
+
+    .row {
+      list-style-type: none;
+      margin: 0;
+      border-top: 1px solid #DDD;
+      &:last-child {
+        border-bottom: 1px solid #DDD;
+      }
+      &:nth-child(even) {
+        background-color: #F8F8F8;
+      }
+
+      .cols {
+        position: relative;
+        margin: 0;
+        padding: 0 0.5rem 1.2rem;
+
+        .col {
+          list-style-type: none;
+          display: inline-block;
+          margin: 0;
+        }
+        .col.flags {
+          position: absolute;
+          left: 0;
+          right: 0;
+
+          & > span {
+            display: block;
+            float: left;
+            margin-right: 0.5rem;
+            padding: 0.1rem 0.2rem;
+            border-radius: 0 0 2px 2px;
+            color: white;
+            font-size: 0.8rem;
+            line-height: 1.2rem;
+            height: 1.2rem;
+          }
+          .type-new,
+          .type-log.logtype-newusers,
+          .type-log.logtype-upload {
+            background-color: #a5c831;
+          }
+          .type-log.logtype-move {
+            background-color: #BBB;
+          }
+          .type-log.logtype-delete,
+          .type-log.logtype-block {
+            background-color: #d62728;
+          }
+          .type-log.logtype-rights,
+          .type-log.logtype-protect {
+            background-color: #3366cc;
+          }
+        }
+
+        .col.timestamp {
+          font-size: 0.8rem;
+          white-space: nowrap;
+          opacity: 0.6;
+          margin-top: 1.5rem;
+          margin-right: 1rem;
+
+          a {
+            color: inherit;
+          }
+        }
+        .col.sizes {
+          font-size: 0.8rem;
+          opacity: 0.6;
+          margin-top: 1.5rem;
+
+          &.added {
+            color: green;
+          }
+          &.deleted {
+            color: red;
+          }
+
+          a {
+            color: inherit;
+          }
+        }
+        .col.user {
+          position: absolute;
+          top: 0;
+          right: 0.3rem;
+          text-align: right;
+          font-size: 0.8rem;
+          white-space: nowrap;
+          opacity: 0.9;
+        }
+        .col.title {
+          display: block;
+        }
+        .col.parsedcomment {
+          font-size: 0.8rem;
+          opacity: 0.6;
+          padding-left: 1rem;
+          overflow: hidden;
+          word-break: break-all;
+        }
+      }
+    }
+
+    .row.muted {
+      .cols {
+        display: none;
+      }
+
+      padding: 0.5rem 0;
+      text-align: center;
+    }
+    .row.muted:after {
+      content: "가려짐";
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+  }
 }
