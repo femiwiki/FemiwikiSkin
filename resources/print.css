@@ -1,1 +1,24 @@
 /* Styles for print view and printing */
+
+.nav-bar,
+#fw-menu,
+#p-navigation-and-watch,
+#p-title-buttons,
+#p-actions-and-toolbox,
+.mw-portlet,
+#p-views,
+#footer-icons,
+.toctoggle
+{
+    display: none !important;
+}
+
+#footer-info,
+#fw-footer-menu {
+    margin: 0;
+    padding: 0;
+}
+
+#footer-info-copyright {
+    list-style-type: none;
+}
