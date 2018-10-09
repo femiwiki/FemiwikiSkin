@@ -10,15 +10,15 @@
 #footer-icons,
 .toctoggle
 {
-    display: none !important;
+	display: none !important;
 }
 
 #footer-info,
 #fw-footer-menu {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #footer-info-copyright {
-    list-style-type: none;
+	list-style-type: none;
 }
