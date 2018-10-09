@@ -38,3 +38,22 @@
 		}
 	}
 }
+
+/* Do not make the layout more compact on Talk (ns-1) and User_Talk (ns-3) */
+body.ns-1,
+body.ns-3 {
+	div#content.mw-body {
+		margin-right: auto;
+		padding: 0 1.3rem;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	body.ns-1,
+	body.ns-3 {
+		div#content.mw-body {
+			padding-left: 0.85rem;
+			padding-right: 0.85rem;
+		}
+	}
+}
