@@ -86,14 +86,12 @@ button {
 	cursor: pointer;
 }
 
-#p-navigation-and-watch {
+#p-header {
 	box-sizing: border-box;
-	max-width: 50rem;
-	padding: 0 1.3rem;
 	margin: 2.3rem auto 0.5rem;
-	overflow: hidden;
+	padding: 0 1.3rem;
+	max-width: 50rem;
 	clear: both;
-	font-size:0.75rem;
 
 	h3 {
 		display: none;
@@ -105,6 +103,12 @@ button {
 		margin: 0;
 		display: block;
 		overflow:hidden;
+	}
+
+	#p-namespaces,
+	#ca-watch {
+		overflow: hidden;
+		font-size:0.75rem;
 	}
 
 	#siteNotice {
@@ -121,6 +125,7 @@ button {
 
 	#p-namespaces {
 		float: left;
+		margin-bottom: 0.5rem;
 
 		ul {
 			float: left;
@@ -144,6 +149,151 @@ button {
 	#ca-watch,
 	#p-watch {
 		float: left;
+	}
+
+	#p-title-and-tb{
+		clear: both;
+
+		#p-actions-and-toolbox {
+			display: none;
+			clear: right;
+			text-align: right;
+			overflow: hidden;
+			border-bottom: 1px solid #aca6e4;
+
+			#p-actions,
+			#p-page-tb,
+			#p-share-tb,
+			#p-site-tb {
+				min-width: 8.8rem;
+				margin: 0.6rem 0.8rem 0.6rem 0;
+				float: right;
+				vertical-align: top;
+				text-align: left;
+
+				h3 {
+					margin: 0;
+					font-weight: normal;
+					font-size: 1rem;
+					border-bottom: 1px solid #b9b5d9;
+					margin-bottom: 0.4rem;
+				}
+
+				ul {
+					padding: 0;
+					margin: 0;
+				}
+
+				li {
+					list-style: none;
+					margin: 0;
+				}
+
+				a {
+					display: block;
+				}
+			}
+
+			div + div {
+				margin-right: 1em;
+			}
+		}
+
+		h1.firstHeading {
+			font-size: 1.714rem;
+			margin-bottom: 0;
+			display: inline-block;
+			margin-top: 0;
+			line-height: 1.2em;
+			border-bottom: none;
+			padding: 0;
+			color: #252525;
+		}
+
+		#p-title-buttons {
+			float: right;
+			margin: 0;
+			padding: 0;
+
+			.p-title-button {
+				list-style: none;
+				float: right;
+				margin: .4em;;
+			}
+
+			.p-title-button:first-child {
+				margin-right: 0em;
+			}
+		}
+
+		.fw-icon {
+			min-width: 1.5em;
+			min-height: 1.5em;
+		}
+
+		.fw-icon:before {
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			background-size: 100% auto;
+			float: left;
+			display: block;
+			min-width: 1.5em;
+			min-height: 1.5em;
+			content: '';
+		}
+
+		.fw-icon-ellipsis:before {
+				background-image: url("/resources/lib/oojs-ui/themes/wikimediaui/images/icons/ellipsis.png");
+		}
+
+		.fw-icon-share:before {
+				background-image: url("images/icon-share.png");
+		}
+	}
+	#lastmod-and-views {
+		font-size: 0.75rem;
+		overflow: hidden;
+		clear: both;
+
+		#p-views {
+			h3 {
+				display: none;
+			}
+
+			ul {
+				padding: 0;
+				margin: 0;
+
+				li {
+					margin: 0;
+					display: block;
+				}
+
+				li.selected a {
+					font-weight: bold;
+				}
+			}
+
+			li#ca-view.selected {
+				display: none;
+			}
+		}
+
+		#p-views {
+			float: right;
+
+			li{
+				float: left;
+			}
+
+			li + li {
+				margin-left: 1em;
+			}
+		}
+
+		#lastmod {
+			font-size: 0.8rem;
+		}
 	}
 }
 
@@ -265,150 +415,6 @@ button {
 		background-color: #aca7e2;
 		text-decoration: none;
 		cursor: pointer;
-	}
-
-	#p-header {
-		#p-title-and-tb{
-			#p-actions-and-toolbox {
-				display: none;
-				clear: right;
-				text-align: right;
-				overflow: hidden;
-				border-bottom: 1px solid #aca6e4;
-
-				#p-actions,
-				#p-page-tb,
-				#p-share-tb,
-				#p-site-tb {
-					min-width: 8.8rem;
-					margin: 0.6rem 0.8rem 0.6rem 0;
-					float: right;
-					vertical-align: top;
-					text-align: left;
-
-					h3 {
-						margin: 0;
-						font-weight: normal;
-						font-size: 1rem;
-						border-bottom: 1px solid #b9b5d9;
-						margin-bottom: 0.4rem;
-					}
-
-					ul {
-						padding: 0;
-						margin: 0;
-					}
-
-					li {
-						list-style: none;
-						margin: 0;
-					}
-
-					a {
-						display: block;
-					}
-				}
-
-				div + div {
-					margin-right: 1em;
-				}
-			}
-
-			h1.firstHeading {
-				font-size: 1.714rem;
-				margin-bottom: 0;
-				display: inline-block;
-				margin-top: 0;
-				line-height: 1.2em;
-				border-bottom: none;
-				padding: 0;
-			}
-
-			#p-title-buttons {
-				float: right;
-				margin: 0;
-				padding: 0;
-
-				.p-title-button {
-					list-style: none;
-					float: right;
-					margin: .4em;;
-				}
-
-				.p-title-button:first-child {
-					margin-right: 0em;
-				}
-			}
-
-			.fw-icon {
-				min-width: 1.5em;
-				min-height: 1.5em;
-			}
-
-			.fw-icon:before {
-				background-position: 50% 50%;
-				background-repeat: no-repeat;
-				background-size: 100% auto;
-				float: left;
-				display: block;
-				min-width: 1.5em;
-				min-height: 1.5em;
-				content: '';
-			}
-
-			.fw-icon-ellipsis:before {
-					background-image: url("/resources/lib/oojs-ui/themes/wikimediaui/images/icons/ellipsis.png");
-			}
-
-			.fw-icon-share:before {
-					background-image: url("images/icon-share.png");
-			}
-		}
-		#lastmod-and-views {
-			font-size: 0.75rem;
-			overflow: hidden;
-			clear: both;
-
-			#p-views {
-				h3 {
-					display: none;
-				}
-
-				ul {
-					padding: 0;
-					margin: 0;
-
-					li {
-						margin: 0;
-						display: block;
-					}
-
-					li.selected a {
-						font-weight: bold;
-					}
-				}
-
-				li#ca-view.selected {
-					display: none;
-				}
-			}
-
-			#p-views {
-				float: right;
-
-				li{
-					float: left;
-				}
-
-				li + li {
-					margin-left: 1em;
-				}
-			}
-
-			#lastmod {
-				font-size: 0.8rem;
-			}
-		}
 	}
 
 	/* Search */
@@ -886,10 +892,6 @@ body.action-submit #content .fw-catlinks {
 html.ve-active {
 	#siteNotice {
 		display: none;
-	}
-
-	#p-navigation-and-watch #p-namespaces ul li.selected {
-		display: block;
 	}
 
 	#content {

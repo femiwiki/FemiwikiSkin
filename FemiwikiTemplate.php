@@ -64,39 +64,29 @@ class FemiwikiTemplate extends BaseTemplate
 
             echo Html::openElement(
                 'div',
-                array( 'id' => 'p-navigation-and-watch' )
+                array( 'id' => 'p-header' )
             );
-            if ( $this->data['sitenotice'] ) {
-                echo Html::rawElement(
-                    'div',
-                    array( 'id' => 'siteNotice' ),
-                    $this->get( 'sitenotice' )
-                );
-            }
-            if ( $this->data['newtalk'] ) {
-                echo Html::rawElement(
-                    'div',
-                    array( 'class' => 'usermessage' ),
-                    $this->get( 'newtalk' )
-                );
-            }
-            //echo $this->getIndicators();
-            echo $this->getPortlet( array(
-                'id' => 'p-namespaces',
-                'headerMessage' => 'namespaces',
-                'content' => $this->data['content_navigation']['namespaces'],
-            ));
-            echo $this->getWatch();
-            echo Html::closeElement( 'div' );
-            ?>
-
-            <div id="content" class="mw-body" role="main">
-                <?php
-                echo Html::openElement(
-                    'div',
-                    array( 'id' => 'p-header' )
-                );
-
+                if ( $this->data['sitenotice'] ) {
+                    echo Html::rawElement(
+                        'div',
+                        array( 'id' => 'siteNotice' ),
+                        $this->get( 'sitenotice' )
+                    );
+                }
+                if ( $this->data['newtalk'] ) {
+                    echo Html::rawElement(
+                        'div',
+                        array( 'class' => 'usermessage' ),
+                        $this->get( 'newtalk' )
+                    );
+                }
+                //echo $this->getIndicators();
+                echo $this->getPortlet( array(
+                    'id' => 'p-namespaces',
+                    'headerMessage' => 'namespaces',
+                    'content' => $this->data['content_navigation']['namespaces'],
+                ));
+                echo $this->getWatch();
 
                 echo Html::openElement(
                     'div',
@@ -119,7 +109,7 @@ class FemiwikiTemplate extends BaseTemplate
                         echo '<li id="p-share" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-share" title="공유하기"></span></a></li>'
                     ?>
                 </ul>
-                
+
                 <?php
                 echo Html::openElement(
                     'div',
@@ -155,11 +145,11 @@ class FemiwikiTemplate extends BaseTemplate
                     'headerMessage' => 'views',
                     'content' => $this->data['content_navigation']['views'],
                 ) );
-                
+
                 echo Html::closeElement( 'div' );
                 echo Html::closeElement( 'div' );
                 ?>
-
+            <div id="content" class="mw-body" role="main">
                 <div class="mw-body-content" id="bodyContent">
                     <?php
                     echo Html::openElement(
@@ -339,7 +329,7 @@ class FemiwikiTemplate extends BaseTemplate
             $attrs = [];
             $attrs['class'] = 'mw-portlet';
             $attrs['id'] = 'ca-watch';
-            
+
             return Html::rawElement( 'span', $attrs, $this->makeLink( $mode, $item, [] ) );
         }
     }
