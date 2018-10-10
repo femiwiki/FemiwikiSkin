@@ -102,12 +102,10 @@ button {
 	li {
 		margin: 0;
 		display: block;
-		overflow:hidden;
 	}
 
 	#p-namespaces,
 	#ca-watch {
-		overflow: hidden;
 		font-size:0.75rem;
 	}
 
@@ -124,15 +122,13 @@ button {
 	}
 
 	#p-namespaces {
-		float: left;
+		display: inline-block;
 		margin-bottom: 0.5rem;
 
 		ul {
-			float: left;
 
 			li {
-				display: block;
-				float: left;
+				display: inline-block;
 				margin-right: 0.5rem;
 			}
 
@@ -146,9 +142,9 @@ button {
 		}
 	}
 
-	#ca-watch,
-	#p-watch {
-		float: left;
+	#ca-watch {
+		display: inline-block;
+		margin-bottom: 0.5rem;
 	}
 
 	#p-title-and-tb{
@@ -987,7 +983,7 @@ html.ve-active {
 
 		.nav-bar,
 		.mw-indicators,
-		#p-navigation-and-watch,
+		#p-header,
 		#p-title-and-tb,
 		#lastmod-and-views,
 		#contentSub,
@@ -1057,6 +1053,7 @@ html.ve-active {
 			padding: 0;
 			margin-top: 0;
 			margin-bottom: 0;
+			overflow: hidden;
 		}
 
 		.ve-init-mw-desktopArticleTarget-originalContent,
@@ -1065,7 +1062,8 @@ html.ve-active {
 		}
 
 		.nav-bar,
-		#mw-footer {
+		#mw-footer,
+		#p-header {
 			display: none;
 		}
 
