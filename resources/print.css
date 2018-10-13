@@ -22,3 +22,7 @@
 #footer-info-copyright {
 	list-style-type: none;
 }
+
+.skin-fw-unprintable {
+	display: none;
+}
