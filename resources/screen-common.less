@@ -1091,29 +1091,3 @@ html.ve-active {
 		}
 	}
 }
-
-@media screen and (min-width: 640px) {
-	#content {
-		.two-cols {
-			& > * {
-				width: 50%;
-				float: left;
-			}
-
-			& > *:nth-child(odd) {
-				clear: both;
-				padding-right: 1.4rem;
-			}
-
-			& > *:nth-child(even) {
-				padding-left: 1.4rem;
-			}
-		}
-
-		.two-cols:after {
-			content: "";
-			display: block;
-			clear: both;
-		}
-	}
-}
