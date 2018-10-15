@@ -72,7 +72,11 @@
   },
   "AutoloadClasses": {
     "SkinFemiwiki": "Femiwiki.skin.php",
+    "SkinFemiwikiHooks": "Femiwiki.hooks.php",
     "FemiwikiTemplate": "FemiwikiTemplate.php"
+  },
+  "Hooks": {
+    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent"
   },
   "SkinOOUIThemes": {
     "femiwiki": "WikimediaUI"
