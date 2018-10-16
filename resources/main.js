@@ -22,7 +22,7 @@ $(function () {
       itemMargin
         =parseFloat($('#'+divId+' > div').css('margin-left'))
         +parseFloat($('#'+divId+' > div').css('margin-right')),
-      itemActualMinWidth = 
+      itemActualMinWidth =
         parseFloat($('#'+divId+' > div').css('min-width'))
         +itemPadding+itemMargin,
       itemLength = $('#'+divId+' > div').filter(function() {
