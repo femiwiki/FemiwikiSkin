@@ -37,4 +37,16 @@ class SkinFemiwikiHooks
 
         return true;
     }
+
+	/**
+	 * export static key and id to JavaScript
+	 */
+	public static function onResourceLoaderGetConfigVars( &$vars ) {
+		global $wgFirebaseKey, $wgFacebookAppId;
+
+		$vars['wgFirebaseKey'] = $wgFirebaseKey;
+		$vars['wgFacebookAppId'] = $wgFacebookAppId;
+
+		return true;
+	}
 }

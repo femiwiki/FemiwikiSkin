@@ -1,8 +1,7 @@
 ( function() {
-	const firebaseKey = 'AIzaSyCmc0RONpZQLy22clpSsE7jVbGmKQ8pZC8';
-	const facebookAppId = '1937597133150935';
+	var facebookAppId = mw.config.get( 'wgFacebookAppId' );
+	var firebaseKey = mw.config.get( 'wgFirebaseKey' );
 	var longURL, shortURL;
-
 	var $editorEl = $(
 		'<div id="share" class="dialog" style="display: none;">' +
 		'<ul class="share-list">' +
@@ -89,35 +88,35 @@
 		shortURL = undefined;
 
 		var params = {
-		"dynamicLinkInfo": {
-			"dynamicLinkDomain": "fmwk.page.link",
-			"link": longURL,
-			"analyticsInfo": {
-				"googlePlayAnalytics": {
-					"utmCampaign": "share"
+			"dynamicLinkInfo": {
+				"dynamicLinkDomain": "fmwk.page.link",
+				"link": longURL,
+				"analyticsInfo": {
+					"googlePlayAnalytics": {
+						"utmCampaign": "share"
+					}
 				}
+			},
+			"suffix": {
+				"option": "SHORT"
 			}
-		},
-		"suffix": {
-			"option": "SHORT"
-		}
-	};
+		};
 
-	$.ajax( {
-		url: 'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=' + firebaseKey,
-		type: 'POST',
-		data: JSON.stringify( params ),
-		contentType: "application/json",
-		success: function ( response ) {
-				if ( longURL != window.location.href )
-					return;
-				shortURL = response.shortLink;
-				updateURL( shortURL );
-		},
-		error: function ( request, status, error ) {
-				console.log( request.responseText );
-		}
-} );
+		$.ajax( {
+			url: 'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=' + firebaseKey,
+			type: 'POST',
+			data: JSON.stringify( params ),
+			contentType: "application/json",
+			success: function ( response ) {
+					if ( longURL != window.location.href )
+						return;
+					shortURL = response.shortLink;
+					updateURL( shortURL );
+			},
+			error: function ( request, status, error ) {
+					console.log( request.responseText );
+			}
+		} );
 	}
 
 	// Init UI

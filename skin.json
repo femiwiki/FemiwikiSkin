@@ -76,8 +76,14 @@
     "FemiwikiTemplate": "FemiwikiTemplate.php"
   },
   "Hooks": {
-    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent"
+    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
+    "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars"
   },
+	"config": {
+		"FirebaseKey": "",
+		"FacebookAppId": "",
+		"GoogleAnalyticsTrackingID": ""
+	},
   "SkinOOUIThemes": {
     "femiwiki": "WikimediaUI"
   },
