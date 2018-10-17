@@ -1025,7 +1025,9 @@ html.ve-active {
 				margin-right: 0;
 			}
 
-			.wikiEditor-ui textarea {
+			.wikiEditor-ui textarea,
+			.mw-editfont-monospace,
+			.wikiEditor-ui .CodeMirror {
 				padding: 0.5rem;
 				height: 19rem;
 				font-size: 1rem;
@@ -1059,6 +1061,10 @@ html.ve-active {
 			background-color: transparent;
 			border-width: 0;
 		}
+	}
+
+	.client-js .mw-editform > #wpTextbox1#wpTextbox1 {
+		margin-top: 0;
 	}
 
 	/* VisualEditor */
