@@ -329,7 +329,7 @@ button {
 		border-bottom: none;
 	}
 
-	*:not(.mw-highlight) > pre {
+	*:not(.mw-highlight) > pre:not(.CodeMirror-line) {
 		font-family: inherit;
 		overflow: hidden;
 		border: none;
@@ -896,6 +896,22 @@ body.action-submit #content .fw-catlinks {
 	display: block;
 }
 
+/* Visual Editor */
+
+/*
+ * Prevent Code mirror glitch
+ * @See https://github.com/femiwiki/skin/issues/52
+ */
+.skin-femiwiki .ve-init-mw-desktopArticleTarget {
+	.CodeMirror-code {
+		line-height: 1.5em;
+	}
+
+	.CodeMirror {
+		padding: 0;
+	}
+}
+
 html.ve-active {
 	#siteNotice {
 		display: none;
@@ -942,7 +958,7 @@ html.ve-active {
 @media screen and (max-width: 480px) {
 	/* Content */
 	#content {
-		pre,
+		*:not(.mw-highlight) > pre:not(.CodeMirror-line),
 		.mw-gallery-traditional,
 		.mw-changeslist div {
 			box-sizing: border-box;
