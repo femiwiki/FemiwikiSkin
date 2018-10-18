@@ -34,6 +34,16 @@ a:visited {
 	color: #5144a3;
 }
 
+/* Quote */
+blockquote {
+	position: relative;
+	padding: 1em;
+	margin: 1em 0;
+	overflow: hidden;
+	border: none;
+	background-color: #f0f0f0;
+}
+
 input:focus {
 	outline: 1px solid #474186;
 }
@@ -313,9 +323,14 @@ button {
 		color: #723;
 	}
 
-	*:not(.mw-highlight) > pre:not(.CodeMirror-line),
-	blockquote {
+	*:not(.mw-highlight) > pre:not(.CodeMirror-line) {
 		font-family: inherit;
+		overflow: hidden;
+		border: none;
+		background-color: #f0f0f0;
+	}
+
+	.mw-highlight > pre {
 		overflow: hidden;
 		border: none;
 		background-color: #f0f0f0;
@@ -491,7 +506,8 @@ button {
 		content: ".";
 	}
 
-	p {
+	:not(blockquote) > p,
+	blockquote[class] > p {
 		margin: 1.6rem 0;
 	}
 
@@ -541,27 +557,6 @@ button {
 
 	dd {
 		margin-left: 0.6em;
-	}
-
-	/* Quote */
-	blockquote {
-		margin: 1.6rem 1rem 1.6rem 1.2rem;
-		position: relative;
-		overflow: hidden;
-	}
-
-	blockquote::before {
-		/* Unicode for Left Double Quote */
-		content: "\201C";
-		/* Font */
-		font-family: Georgia, serif;
-		font-size: 2rem;
-		font-weight: bold;
-		color: #999;
-		/* Positioning */
-		position: absolute;
-		left: -1.3rem;
-		top: -1rem;
 	}
 
 	/* Links */
@@ -959,7 +954,7 @@ html.ve-active {
 @media screen and (max-width: 480px) {
 	/* Content */
 	#content {
-		*:not(.mw-highlight) > pre:not(.CodeMirror-line),
+		pre:not(.CodeMirror-line),
 		blockquote,
 		.mw-gallery-traditional,
 		.mw-changeslist div {
