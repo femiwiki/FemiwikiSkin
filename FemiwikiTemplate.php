@@ -124,14 +124,14 @@ class FemiwikiTemplate extends BaseTemplate
                 );
 
                 if( isset( $this->data['content_navigation']['views']['history']['href'] ) )
-                echo Html::rawElement(
+                    echo Html::rawElement(
                         'a',
-                        array(
+                        [
                             'id' => 'lastmod',
                             'href' => $this->data['content_navigation']['views']['history']['href']
-                        ),
+                        ],
                         $this->get( 'lastmod' )
-                        );
+                    );
 
                 unset( $this->data['content_navigation']['views']['history'] );
                 echo $this->getPortlet( array(
