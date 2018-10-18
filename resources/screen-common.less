@@ -313,7 +313,8 @@ button {
 		color: #723;
 	}
 
-	*:not(.mw-highlight) > pre:not(.CodeMirror-line) {
+	*:not(.mw-highlight) > pre:not(.CodeMirror-line),
+	blockquote {
 		font-family: inherit;
 		overflow: hidden;
 		border: none;
@@ -959,6 +960,7 @@ html.ve-active {
 	/* Content */
 	#content {
 		*:not(.mw-highlight) > pre:not(.CodeMirror-line),
+		blockquote,
 		.mw-gallery-traditional,
 		.mw-changeslist div {
 			box-sizing: border-box;
