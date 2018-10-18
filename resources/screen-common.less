@@ -506,9 +506,16 @@ button {
 		content: ".";
 	}
 
-	:not(blockquote) > p,
-	blockquote[class] > p {
+	p {
 		margin: 1.6rem 0;
+	}
+
+	blockquote:not([class]) p:first-child {
+		margin-top: 0;
+	}
+
+	blockquote:not([class]) p:last-child {
+		margin-bottom: 0;
 	}
 
 	/* word breaks */
