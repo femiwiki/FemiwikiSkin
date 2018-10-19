@@ -748,6 +748,15 @@ button {
 	margin-top: 2.8rem;
 }
 
+/* Prevent copy of the question from ConfirmEdit/QuestyCaptcha  */
+body.mw-special-CreateAccount .mw-htmlform-field-HTMLInfoField.mw-ui-vform-field > div.mw-input {
+	font-weight: bold;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 /* Footer */
 #mw-footer {
 	padding: 0.4rem 1.3rem 0;
