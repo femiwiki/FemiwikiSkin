@@ -26,9 +26,6 @@
         "resources/screen-common.less": {
           "media": "screen"
         },
-        "resources/oojs-ui-core-femiwiki.css": {
-          "media": "screen"
-        },
         "resources/screen-dialog.less": {
           "media": "screen"
         },
