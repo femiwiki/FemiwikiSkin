@@ -133,7 +133,6 @@ class FemiwikiTemplate extends BaseTemplate
                         $this->get( 'lastmod' )
                     );
 
-                unset( $this->data['content_navigation']['views']['history'] );
                 echo $this->getPortlet( array(
                     'id' => 'p-views',
                     'headerMessage' => 'views',
