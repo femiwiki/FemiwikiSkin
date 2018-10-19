@@ -78,8 +78,7 @@
   },
 	"config": {
 		"FirebaseKey": "",
-		"FacebookAppId": "",
-		"GoogleAnalyticsTrackingID": ""
+		"FacebookAppId": ""
 	},
   "SkinOOUIThemes": {
     "femiwiki": "WikimediaUI"
