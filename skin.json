@@ -56,7 +56,6 @@
       "position": "bottom",
       "scripts": [
         "resources/main.js",
-        "resources/mute.js",
         "resources/share.js",
         "resources/recentchanges.js",
         "resources/bbs.js"
