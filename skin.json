@@ -5,7 +5,7 @@
   "url": "https://github.com/femiwiki/femiwiki.com/tree/master/www/skins/Femiwiki",
   "descriptionmsg": "femiwiki-desc",
   "namemsg": "skinname-femiwiki",
-  "license-name": "CC0-1.0",
+  "license-name": "AGPL-3.0-or-later",
   "type": "skin",
   "ValidSkinNames": {
     "femiwiki": "Femiwiki"
