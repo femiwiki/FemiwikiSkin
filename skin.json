@@ -81,7 +81,8 @@
   "AutoloadClasses": {
     "SkinFemiwiki": "SkinFemiwiki.php",
     "SkinFemiwikiHooks": "SkinFemiwikiHooks.php",
-    "FemiwikiTemplate": "FemiwikiTemplate.php"
+    "FemiwikiTemplate": "FemiwikiTemplate.php",
+		"OOUI\\FemiwikiTheme": "FemiwikiTheme.php"
   },
   "Hooks": {
     "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
@@ -94,8 +95,15 @@
     "FemiwikiTwitterAccount": false,
     "FemiwikiHeadItems": false
   },
+	"OOUIThemePaths": {
+		"Femiwiki": {
+			"scripts": "resources/ooui/oojs-ui-femiwiki.js",
+			"styles": "resources/ooui/oojs-ui-{module}-femiwiki.css",
+			"images": "resources/ooui/{module}.json"
+		}
+	},
   "SkinOOUIThemes": {
-    "femiwiki": "WikimediaUI"
+    "femiwiki": "Femiwiki"
   },
   "manifest_version": 1
 }
