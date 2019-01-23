@@ -1,0 +1,49 @@
+{
+	"selectorWithoutVariant": ".oo-ui-icon-{name}",
+	"selectorWithVariant": ".oo-ui-image-{variant}.oo-ui-icon-{name}",
+	"intro": "@import '../../../../src/styles/common';",
+	"variants": {
+		"progressive": {
+			"color": "#aca7e2",
+			"global": true
+		}
+	},
+	"images": {
+		"book": {
+			"file":  {
+				"ltr": "images/icons/book-ltr.svg",
+				"rtl": "images/icons/book-rtl.svg"
+			}
+		},
+		"journal": {
+			"file": {
+				"ltr": "images/icons/journal-ltr.svg",
+				"rtl": "images/icons/journal-rtl.svg"
+			}
+		},
+		"newspaper": {
+			"file": {
+				"ltr": "images/icons/newspaper-ltr.svg",
+				"rtl": "images/icons/newspaper-rtl.svg"
+			}
+		},
+		"web": {
+			"file": "images/icons/web.svg"
+		},
+		"reference": {
+			"file": "images/icons/reference.svg"
+		},
+		"referenceExisting": {
+			"file": {
+				"ltr": "images/icons/referenceExisting-ltr.svg",
+				"rtl": "images/icons/referenceExisting-rtl.svg"
+			}
+		},
+		"references": {
+			"file": {
+				"ltr": "images/icons/references-ltr.svg",
+				"rtl": "images/icons/references-rtl.svg"
+			}
+		}
+	}
+}
