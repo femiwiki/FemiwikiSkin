@@ -6,16 +6,15 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
-      all: ["**/*.js", "!node_modules/**"]
+      all: ["**/*.js", "!node_modules/**", "!vendor/**"]
     },
     banana: {
       all: "i18n/"
     },
     jsonlint: {
-      all: ["**/*.json", "!node_modules/**"]
+      all: ["**/*.json", "!node_modules/**", "!vendor/**"]
     }
   });
 
-  grunt.registerTask("test", ["jshint", "jsonlint", "banana"]);
-  grunt.registerTask("default", "test");
+  grunt.registerTask("default", ["jshint", "jsonlint", "banana"]);
 };
