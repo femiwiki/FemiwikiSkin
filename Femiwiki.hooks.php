@@ -4,8 +4,7 @@
  * SkinFemiwikiHooks class for the Femiwiki skin hooks
  *
  */
-class SkinFemiwikiHooks
-{
+class SkinFemiwikiHooks {
 
 	/**
 	 * Echo(REL1_31)'s contant values
@@ -24,8 +23,9 @@ class SkinFemiwikiHooks
 	 * Modifing HTML mails sent from Echo.
 	 */
 	public static function onUserMailerTransformContent( $to, $from, &$body, &$error ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) || !is_array( $body ) || !isset( $body['html'] ) )
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) || !is_array( $body ) || !isset( $body['html'] ) ) {
 			return;
+		}
 
 		$body['html'] = str_replace(
 			[ self::PRIMARY_LINK_STYLE,

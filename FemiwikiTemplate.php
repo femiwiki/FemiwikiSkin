@@ -5,13 +5,11 @@
  *
  * @ingroup Skins
  */
-class FemiwikiTemplate extends BaseTemplate
-{
+class FemiwikiTemplate extends BaseTemplate {
 	/**
 	 * Outputs the entire contents of the page
 	 */
-	public function execute()
-	{
+	public function execute() {
 		$this->html( 'headelement' );
 		?>
 
@@ -58,40 +56,40 @@ class FemiwikiTemplate extends BaseTemplate
 
 			echo Html::openElement(
 				'div',
-				array( 'id' => 'p-header' )
+				[ 'id' => 'p-header' ]
 			);
 				if ( $this->data['sitenotice'] ) {
 					echo Html::rawElement(
 						'div',
-						array( 'id' => 'siteNotice' ),
+						[ 'id' => 'siteNotice' ],
 						$this->get( 'sitenotice' )
 					);
 				}
 				if ( $this->data['newtalk'] ) {
 					echo Html::rawElement(
 						'div',
-						array( 'class' => 'usermessage' ),
+						[ 'class' => 'usermessage' ],
 						$this->get( 'newtalk' )
 					);
 				}
-				//echo $this->getIndicators();
-				echo $this->getPortlet( array(
+				// echo $this->getIndicators();
+				echo $this->getPortlet( [
 					'id' => 'p-namespaces',
 					'headerMessage' => 'namespaces',
 					'content' => $this->data['content_navigation']['namespaces'],
-				));
+				] );
 				echo $this->getWatch();
 
 				echo Html::openElement(
 					'div',
-					array( 'id' => 'p-title-and-tb' )
+					[ 'id' => 'p-title-and-tb' ]
 				);
 				echo Html::rawElement(
 					'h1',
-					array(
+					[
 						'class' => 'firstHeading',
 						'lang' => $this->get( 'pageLanguage' )
-					),
+					],
 					$this->get( 'title' )
 				);
 				?>
@@ -99,31 +97,32 @@ class FemiwikiTemplate extends BaseTemplate
 				<ul id='p-title-buttons'>
 					<li id="p-menu-toggle" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-ellipsis" title="더 보기"></span></a></li>
 					<?php
-					if ( isset( $this->data['articleid']) && $this->data['articleid'] != 0 )
-						echo '<li id="p-share" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-share" title="공유하기"></span></a></li>'
+					if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
+						echo '<li id="p-share" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-share" title="공유하기"></span></a></li>';
+					}
 					?>
 				</ul>
 
 				<?php
 				echo Html::openElement(
 					'div',
-					array( 'id' => 'p-actions-and-toolbox' )
+					[ 'id' => 'p-actions-and-toolbox' ]
 				);
 				echo $this->renderPortal( 'page-tb', $this->getToolbox(), 'toolbox' );
-				echo $this->getPortlet( array(
+				echo $this->getPortlet( [
 					'id' => 'p-actions',
 					'headerMessage' => 'actions',
 					'content' => $this->data['content_navigation']['actions'],
-				) );
+				] );
 
 				echo Html::closeElement( 'div' );
 				echo Html::closeElement( 'div' );
 				echo Html::openElement(
 					'div',
-					array( 'id' => 'lastmod-and-views' )
+					[ 'id' => 'lastmod-and-views' ]
 				);
 
-				if( isset( $this->data['content_navigation']['views']['history']['href'] ) )
+				if ( isset( $this->data['content_navigation']['views']['history']['href'] ) ) {
 					echo Html::rawElement(
 						'a',
 						[
@@ -132,12 +131,13 @@ class FemiwikiTemplate extends BaseTemplate
 						],
 						$this->get( 'lastmod' )
 					);
+				}
 
-				echo $this->getPortlet( array(
+				echo $this->getPortlet( [
 					'id' => 'p-views',
 					'headerMessage' => 'views',
 					'content' => $this->data['content_navigation']['views'],
-				) );
+				] );
 
 				echo Html::closeElement( 'div' );
 				echo Html::closeElement( 'div' );
@@ -147,7 +147,7 @@ class FemiwikiTemplate extends BaseTemplate
 					<?php
 					echo Html::openElement(
 						'div',
-						array( 'id' => 'contentSub' )
+						[ 'id' => 'contentSub' ]
 					);
 					if ( $this->data['subtitle'] ) {
 						echo Html::rawelement(
@@ -167,7 +167,7 @@ class FemiwikiTemplate extends BaseTemplate
 					$this->clear();
 					echo Html::rawElement(
 						'div',
-						array( 'class' => 'printfooter' ),
+						[ 'class' => 'printfooter' ],
 						$this->get( 'printfooter' )
 					);
 					$this->html( 'catlinks' );
@@ -183,17 +183,17 @@ class FemiwikiTemplate extends BaseTemplate
 				<?php
 				echo Html::openElement(
 					'ul',
-					array(
+					[
 						'id' => 'footer-icons',
 						'role' => 'contentinfo'
-					)
+					]
 				);
 				foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
 					echo Html::openElement(
 						'li',
-						array(
+						[
 							'id' => 'footer-' . Sanitizer::escapeId( $blockName ) . 'ico'
-						)
+						]
 					);
 					foreach ( $footerIcons as $icon ) {
 						echo $this->getSkin()->makeFooterIcon( $icon );
@@ -205,18 +205,19 @@ class FemiwikiTemplate extends BaseTemplate
 				foreach ( $this->getFooterLinks() as $category => $links ) {
 					echo Html::openElement(
 						'ul',
-						array(
+						[
 							'id' => 'footer-' . Sanitizer::escapeId( $category ),
 							'role' => 'contentinfo'
-						)
+						]
 					);
 					foreach ( $links as $key ) {
-						if( $key === 'lastmod' ) continue;
+						if ( $key === 'lastmod' ) { continue;
+						}
 						echo Html::rawElement(
 							'li',
-							array(
+							[
 								'id' => 'footer-' . Sanitizer::escapeId( $category . '-' . $key )
-							),
+							],
 							$this->get( $key )
 						);
 					}
@@ -239,24 +240,23 @@ class FemiwikiTemplate extends BaseTemplate
 	 * Generates a single sidebar portlet of any kind
 	 * @return string html
 	 */
-	private function getPortlet( $box )
-	{
+	private function getPortlet( $box ) {
 		if ( !$box['content'] ) {
 			return;
 		}
 
 		$html = Html::openElement(
 			'div',
-			array(
+			[
 				'role' => 'navigation',
 				'class' => 'mw-portlet',
 				'id' => Sanitizer::escapeId( $box['id'] )
-			) + Linker::tooltipAndAccesskeyAttribs( $box['id'] )
+			] + Linker::tooltipAndAccesskeyAttribs( $box['id'] )
 		);
 		$html .= Html::element(
 			'h3',
 			[],
-			isset( $box['headerMessage'] ) ? $this->getMsg( $box['headerMessage'] )->text() : $box['header']);
+			isset( $box['headerMessage'] ) ? $this->getMsg( $box['headerMessage'] )->text() : $box['header'] );
 		if ( is_array( $box['content'] ) ) {
 			$html .= Html::openElement( 'ul' );
 			foreach ( $box['content'] as $key => $item ) {
@@ -275,31 +275,30 @@ class FemiwikiTemplate extends BaseTemplate
 	 * Generates the logo and (optionally) site title
 	 * @return string html
 	 */
-	private function getLogo( $id = 'p-logo', $imageOnly = false )
-	{
+	private function getLogo( $id = 'p-logo', $imageOnly = false ) {
 		$html = Html::openElement(
 			'div',
-			array(
+			[
 				'id' => $id,
 				'class' => 'mw-portlet',
 				'role' => 'banner'
-			)
+			]
 		);
 		$html .= Html::element(
 			'a',
-			array(
+			[
 				'href' => $this->data['nav_urls']['mainpage']['href'],
 				'class' => 'mw-wiki-logo',
-			) + Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
+			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
 		);
 		if ( !$imageOnly ) {
 			$html .= Html::element(
 				'a',
-				array(
+				[
 					'id' => 'p-banner',
 					'class' => 'mw-wiki-title',
 					'href' => $this->data['nav_urls']['mainpage']['href']
-				) + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
+				] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
 				$this->getMsg( 'sitetitle' )->escaped()
 			);
 		}
@@ -331,16 +330,15 @@ class FemiwikiTemplate extends BaseTemplate
 	 * Generates the search form
 	 * @return string html
 	 */
-	private function getSearch()
-	{
+	private function getSearch() {
 		$html = Html::openElement(
 			'form',
-			array(
+			[
 				'action' => htmlspecialchars( $this->get( 'wgScript' ) ),
 				'role' => 'search',
 				'class' => 'mw-portlet',
 				'id' => 'p-search'
-			)
+			]
 		);
 		$html .= Html::hidden( 'title', htmlspecialchars( $this->get( 'searchtitle' ) ) );
 		$html .= Html::rawelement(
@@ -348,16 +346,16 @@ class FemiwikiTemplate extends BaseTemplate
 			[],
 			Html::label( $this->getMsg( 'search' )->escaped(), 'searchInput' )
 		);
-		$html .= $this->makeSearchInput( array( 'id' => 'searchInput' ) );
+		$html .= $this->makeSearchInput( [ 'id' => 'searchInput' ] );
 		$html .= Html::rawelement(
 			'button',
 			[
-				'id'=>'searchClearButton',
+				'id' => 'searchClearButton',
 				'type' => 'button'
 			],
 			'×'
 		);
-		$html .= $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) );
+		$html .= $this->makeSearchButton( 'go', [ 'id' => 'searchGoButton', 'class' => 'searchButton' ] );
 		$html .= Html::closeElement( 'form' );
 
 		return $html;
@@ -370,7 +368,7 @@ class FemiwikiTemplate extends BaseTemplate
 			'placeholder' => wfMessage( 'searchsuggest-search' )->text(),
 			'value' => $this->get( 'search', '' ),
 		];
-		//if ( $realAttrs[value]==null ) $realAttrs[value] = str_replace( '_', ' ', $this->get( 'titleprefixeddbkey' ));
+		// if ( $realAttrs[value]==null ) $realAttrs[value] = str_replace( '_', ' ', $this->get( 'titleprefixeddbkey' ));
 		$realAttrs = array_merge( $realAttrs, Linker::tooltipAndAccesskeyAttribs( 'search' ), $attrs );
 		return Html::element( 'input', $realAttrs );
 	}
@@ -379,8 +377,9 @@ class FemiwikiTemplate extends BaseTemplate
 		$toolbox = parent::getToolbox();
 
 		foreach ( [ 'upload', 'specialpages' ] as $special ) {
-			if ( isset( $toolbox[$special] ) )
+			if ( isset( $toolbox[$special] ) ) {
 				unset( $toolbox[$special] );
+			}
 		}
 
 		return $toolbox;
@@ -390,28 +389,26 @@ class FemiwikiTemplate extends BaseTemplate
 	 * Generates user tools menu
 	 * @return string html
 	 */
-	private function getUserLinks()
-	{
-		return $this->getPortlet( array(
+	private function getUserLinks() {
+		return $this->getPortlet( [
 			'id' => 'p-personal',
 			'headerMessage' => 'personaltools',
 			'content' => $this->getPersonalTools(),
-		) );
+		] );
 	}
 
 	/**
 	 * Outputs a css clear using the core visualClear class
 	 */
-	private function clear()
-	{
+	private function clear() {
 		echo '<div class="visualClear"></div>';
 	}
 
 	  /**
-   * Render a series of portals
-   *
-   * @param array $portals
-   */
+	   * Render a series of portals
+	   *
+	   * @param array $portals
+	   */
   protected function renderPortals( $portals ) {
 	// Render portals
 	foreach ( $portals as $name => $content ) {
@@ -432,8 +429,7 @@ class FemiwikiTemplate extends BaseTemplate
 	 * @param null|string $msg
 	 * @param null|string|array $hook
 	 */
-	protected function renderPortal( $name, $content, $msg = null, $hook = null )
-	{
+	protected function renderPortal( $name, $content, $msg = null, $hook = null ) {
 		if ( $msg === null ) {
 			$msg = $name;
 		}
