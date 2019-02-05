@@ -1,0 +1,65 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6af7376fee92a15321b05a1a3d1fa9ce",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "jakub-onderka/php-parallel-lint",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JakubOnderka/PHP-Parallel-Lint.git",
+                "reference": "1b693fb455201cacf595163c92bfb1adfa2158d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Parallel-Lint/zipball/1b693fb455201cacf595163c92bfb1adfa2158d8",
+                "reference": "1b693fb455201cacf595163c92bfb1adfa2158d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "jakub-onderka/php-console-highlighter": "~0.3",
+                "nette/tester": "~1.3"
+            },
+            "suggest": {
+                "jakub-onderka/php-console-highlighter": "Highlight syntax in code snippet"
+            },
+            "bin": [
+                "parallel-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Onderka",
+                    "email": "jakub.onderka@gmail.com"
+                }
+            ],
+            "description": "This tool check syntax of PHP files about 20x faster than serial check.",
+            "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
+            "time": "2015-06-16T10:17:07+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
