@@ -1,0 +1,11 @@
+dist: xenial
+language: generic
+
+cache:
+  directories:
+    - vendor
+
+install:
+  - composer install -n
+script:
+  - composer test
