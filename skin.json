@@ -67,8 +67,8 @@
     "remoteSkinPath": "Femiwiki"
   },
   "AutoloadClasses": {
-    "SkinFemiwiki": "Femiwiki.skin.php",
-    "SkinFemiwikiHooks": "Femiwiki.hooks.php",
+    "SkinFemiwiki": "SkinFemiwiki.php",
+    "SkinFemiwikiHooks": "SkinFemiwikiHooks.php",
     "FemiwikiTemplate": "FemiwikiTemplate.php"
   },
   "Hooks": {
