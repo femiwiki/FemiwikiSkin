@@ -1,63 +1,63 @@
 @import "variables.less";
 
 .flow-board-page {
-	.flow-ui-newTopicWidget-title.oo-ui-textInputWidget input {
-		font-size: 1em;
-	}
+  .flow-ui-newTopicWidget-title.oo-ui-textInputWidget input {
+    font-size: 1em;
+  }
 
-	.flow-topic-titlebar {
-		padding: 0.5em;
-	}
+  .flow-topic-titlebar {
+    padding: 0.5em;
+  }
 
-	.flow-topic-title {
-		font-weight: normal;
-	}
+  .flow-topic-title {
+    font-weight: normal;
+  }
 }
 
 #content li.ve-ce-branchNode > .ve-ce-paragraphNode {
-	margin-top: 0;
-	margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 480px) {
-	.flow-board {
-		.flow-topic-titlebar
-		{
-			width: 100%;
-			margin-left: -1.3rem;
-			padding: 0.5em 1.3rem;
-		}
+  .flow-board {
+    .flow-topic-titlebar
+    {
+      width: 100%;
+      margin-left: -1.3rem;
+      padding: 0.5em 1.3rem;
+    }
 
-		div.oo-ui-popupWidget-popup {
-			min-width: 16rem;
-			min-height: 10rem;
-		}
+    div.oo-ui-popupWidget-popup {
+      min-width: 16rem;
+      min-height: 10rem;
+    }
 
-		div.oo-ui-menuLayout-menu {
-			width: 3rem;
-		}
+    div.oo-ui-menuLayout-menu {
+      width: 3rem;
+    }
 
-		div.oo-ui-menuLayout-content {
-			left: 3rem;
-		}
-	}
+    div.oo-ui-menuLayout-content {
+      left: 3rem;
+    }
+  }
 }
 
 /* Do not make the layout more compact on Talk (ns-1) and User_Talk (ns-3) */
 body.ns-1,
 body.ns-3 {
-	div#content.mw-body {
-		margin-right: auto;
-		padding: 0 1.3rem;
-	}
+  div#content.mw-body {
+    margin-right: auto;
+    padding: 0 1.3rem;
+  }
 }
 
 @media screen and (max-width: 360px) {
-	body.ns-1,
-	body.ns-3 {
-		div#content.mw-body {
-			padding-left: 0.85rem;
-			padding-right: 0.85rem;
-		}
-	}
+  body.ns-1,
+  body.ns-3 {
+    div#content.mw-body {
+      padding-left: 0.85rem;
+      padding-right: 0.85rem;
+    }
+  }
 }

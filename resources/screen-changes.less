@@ -1,334 +1,334 @@
 @import "variables.less";
 
 .mw-special-Recentchanges #content {
-	#mw-indicator-mw-helplink,
-	.mw-specialpage-summary,
-	.mw-changeslist-legend {
-		display: none;
-	}
+  #mw-indicator-mw-helplink,
+  .mw-specialpage-summary,
+  .mw-changeslist-legend {
+    display: none;
+  }
 
-	td {
-		border-width: 0;
-	}
+  td {
+    border-width: 0;
+  }
 
-	fieldset.rcoptions {
-		border: 0;
-		margin: 0;
-		padding: 0;
+  fieldset.rcoptions {
+    border: 0;
+    margin: 0;
+    padding: 0;
 
-	}
+  }
 
-	.rclistfrom {
-		display: block;
-		margin-top: 1rem;
-	}
+  .rclistfrom {
+    display: block;
+    margin-top: 1rem;
+  }
 
-	.mw-changeslist-legend {
-		display: none;
-	}
+  .mw-changeslist-legend {
+    display: none;
+  }
 
-	.rcshowhide {
-		display: block;
-		margin-top: 1rem;
-	}
+  .rcshowhide {
+    display: block;
+    margin-top: 1rem;
+  }
 
-	.mw-recentchanges-table {
-		tr {
-			display: block;
-		}
+  .mw-recentchanges-table {
+    tr {
+      display: block;
+    }
 
-		td {
-			display: block;
-		}
+    td {
+      display: block;
+    }
 
-		.mw-label {
-			margin-top: 1rem;
-			text-align: left;
-		}
-	}
+    .mw-label {
+      margin-top: 1rem;
+      text-align: left;
+    }
+  }
 
-	#bodyContent div.mw-changeslist {
-		overflow-wrap: break-word;
-		word-wrap: break-word;
-		-webkit-hyphens: auto;
-		-ms-hyphens: auto;
-		-moz-hyphens: auto;
-		hyphens: auto;
+  #bodyContent div.mw-changeslist {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 
-		h4 {
-			font-size: 1rem;
-			font-weight: normal;
-			margin: 2rem 0 1rem;
-		}
+    h4 {
+      font-size: 1rem;
+      font-weight: normal;
+      margin: 2rem 0 1rem;
+    }
 
-		.mw-title {
-			font-weight: normal;
-		}
+    .mw-title {
+      font-weight: normal;
+    }
 
-		& > div > table {
-			margin-bottom: 1rem;
-		}
+    & > div > table {
+      margin-bottom: 1rem;
+    }
 
-		& > div > table:nth-child(odd) {
-			background-color: #f6f6f6;
-		}
+    & > div > table:nth-child(odd) {
+      background-color: #f6f6f6;
+    }
 
-		/* Entries (common) */
-		& > div > table {
-			/* arrow, "new" flag, timestamp */
-			.newpage,
-			.minoredit,
-			.unpatrolled {
-				float: right;
-			}
+    /* Entries (common) */
+    & > div > table {
+      /* arrow, "new" flag, timestamp */
+      .newpage,
+      .minoredit,
+      .unpatrolled {
+        float: right;
+      }
 
-			.unpatrolled {
-				margin-right: 0.5rem;
-			}
+      .unpatrolled {
+        margin-right: 0.5rem;
+      }
 
-			.mw-enhancedchanges-arrow-space {
-				display: none;
-			}
-		}
+      .mw-enhancedchanges-arrow-space {
+        display: none;
+      }
+    }
 
-		/* Entries (individual) */
-		& > div > table:not(.mw-collapsible) {
-			font-size: 0.8rem;
+    /* Entries (individual) */
+    & > div > table:not(.mw-collapsible) {
+      font-size: 0.8rem;
 
-			.mw-changeslist-title {
-				font-size: 1rem;
-			}
+      .mw-changeslist-title {
+        font-size: 1rem;
+      }
 
-			& > tbody > tr {
-				position: relative;
+      & > tbody > tr {
+        position: relative;
 
-				/* title and tools */
-				& > td:nth-child(2) {
-					padding-left: 0.9rem;
-				}
-			}
-		}
+        /* title and tools */
+        & > td:nth-child(2) {
+          padding-left: 0.9rem;
+        }
+      }
+    }
 
-		/* Entries (nested) */
-		& > div > table.mw-collapsible {
-			font-size: 0.8rem;
+    /* Entries (nested) */
+    & > div > table.mw-collapsible {
+      font-size: 0.8rem;
 
-			.mw-changeslist-title,
-			.mw-enhanced-rc-time {
-				font-size: 1rem;
-			}
+      .mw-changeslist-title,
+      .mw-enhanced-rc-time {
+        font-size: 1rem;
+      }
 
-			& > tbody > tr {
-				position: relative;
+      & > tbody > tr {
+        position: relative;
 
-				/* title and tools */
-				& > td:nth-child(3) {
-					padding-left: 0.9rem;
-				}
-			}
+        /* title and tools */
+        & > td:nth-child(3) {
+          padding-left: 0.9rem;
+        }
+      }
 
-			& > tbody > tr:first-child {
-				padding-left: 0;
-			}
+      & > tbody > tr:first-child {
+        padding-left: 0;
+      }
 
-			& > tbody > tr {
-				padding-left: 1rem;
-			}
-		}
+      & > tbody > tr {
+        padding-left: 1rem;
+      }
+    }
 
-		.mw-changeslist-line {
-			padding: .7rem 1.3rem;
-		}
+    .mw-changeslist-line {
+      padding: .7rem 1.3rem;
+    }
 
-		table.mw-enhanced-rc {
-			display: block;
+    table.mw-enhanced-rc {
+      display: block;
 
-			tbody,
-			tr,
-			td {
-				display: block;
-			}
+      tbody,
+      tr,
+      td {
+        display: block;
+      }
 
-			.mw-changeslist-separator {
-				display: none;
-			}
+      .mw-changeslist-separator {
+        display: none;
+      }
 
-			.mw-collapsible-toggle {
-				float: left;
-				display: block;
-			}
+      .mw-collapsible-toggle {
+        float: left;
+        display: block;
+      }
 
-			.mw-userlink {
-			}
+      .mw-userlink {
+      }
 
-			.mw-usertoollinks {
-				display: none;
-			}
+      .mw-usertoollinks {
+        display: none;
+      }
 
-			.comment {
-				display: block;
-				opacity: 0.6;
-			}
+      .comment {
+        display: block;
+        opacity: 0.6;
+      }
 
-			.mw-plusminus-pos,
-			.mw-plusminus-neg,
-			.mw-plusminus-null {
-				font-weight: inherit;
-			}
+      .mw-plusminus-pos,
+      .mw-plusminus-neg,
+      .mw-plusminus-null {
+        font-weight: inherit;
+      }
 
-			/* Cell contains timestamp */
-			&.mw-collapsible {
+      /* Cell contains timestamp */
+      &.mw-collapsible {
 
-			}
+      }
 
-			/* Hide nested table's cell */
-			&.mw-collapsible tr:first-child td:nth-child(2) {
-				display: block;
-			}
+      /* Hide nested table's cell */
+      &.mw-collapsible tr:first-child td:nth-child(2) {
+        display: block;
+      }
 
-			&.mw-collapsible tr td:nth-child(2) {
-				display: none;
-			}
-		}
-	}
+      &.mw-collapsible tr td:nth-child(2) {
+        display: none;
+      }
+    }
+  }
 }
 
 .client-js .mw-changeslist ul,
 .client-js .mw-changeslist table.mw-enhanced-rc {
-	margin-left: auto;
+  margin-left: auto;
 }
 
 .mw-rcfilters-ui-filterWrapperWidget-bottom {
-	flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 /* '지정한 조건과 일치하는 주어진 기간 동안 바뀜이 없습니다.' repeadted class for priority */
 .mw-rcfilters-ui-changesListWrapperWidget-results.mw-rcfilters-ui-changesListWrapperWidget-results {
-	width: auto;
+  width: auto;
 }
 
 /* legacy styles for [[페미위키:바뀐글]] */
 #content .fw-recentchanges {
-	.rows {
-		margin: 0;
-		padding: 0;
+  .rows {
+    margin: 0;
+    padding: 0;
 
-		.row {
-			list-style-type: none;
-			margin: 0;
-			border-top: 1px solid #ddd;
-			&:last-child {
-				border-bottom: 1px solid #ddd;
-			}
-			&:nth-child(even) {
-				background-color: #f8f8f8;
-			}
+    .row {
+      list-style-type: none;
+      margin: 0;
+      border-top: 1px solid #ddd;
+      &:last-child {
+        border-bottom: 1px solid #ddd;
+      }
+      &:nth-child(even) {
+        background-color: #f8f8f8;
+      }
 
-			.cols {
-				position: relative;
-				margin: 0;
-				padding: 0 0.5rem 1.2rem;
+      .cols {
+        position: relative;
+        margin: 0;
+        padding: 0 0.5rem 1.2rem;
 
-				.col {
-					list-style-type: none;
-					display: inline-block;
-					margin: 0;
-				}
-				.col.flags {
-					position: absolute;
-					left: 0;
-					right: 0;
+        .col {
+          list-style-type: none;
+          display: inline-block;
+          margin: 0;
+        }
+        .col.flags {
+          position: absolute;
+          left: 0;
+          right: 0;
 
-					& > span {
-						display: block;
-						float: left;
-						margin-right: 0.5rem;
-						padding: 0.1rem 0.2rem;
-						border-radius: 0 0 2px 2px;
-						color: white;
-						font-size: 0.8rem;
-						line-height: 1.2rem;
-						height: 1.2rem;
-					}
-					.type-new,
-					.type-log.logtype-newusers,
-					.type-log.logtype-upload {
-						background-color: #a5c831;
-					}
-					.type-log.logtype-move {
-						background-color: #bbb;
-					}
-					.type-log.logtype-delete,
-					.type-log.logtype-block {
-						background-color: #d62728;
-					}
-					.type-log.logtype-rights,
-					.type-log.logtype-protect {
-						background-color: #3366cc;
-					}
-				}
+          & > span {
+            display: block;
+            float: left;
+            margin-right: 0.5rem;
+            padding: 0.1rem 0.2rem;
+            border-radius: 0 0 2px 2px;
+            color: white;
+            font-size: 0.8rem;
+            line-height: 1.2rem;
+            height: 1.2rem;
+          }
+          .type-new,
+          .type-log.logtype-newusers,
+          .type-log.logtype-upload {
+            background-color: #a5c831;
+          }
+          .type-log.logtype-move {
+            background-color: #bbb;
+          }
+          .type-log.logtype-delete,
+          .type-log.logtype-block {
+            background-color: #d62728;
+          }
+          .type-log.logtype-rights,
+          .type-log.logtype-protect {
+            background-color: #3366cc;
+          }
+        }
 
-				.col.timestamp {
-					font-size: 0.8rem;
-					white-space: nowrap;
-					opacity: 0.6;
-					margin-top: 1.5rem;
-					margin-right: 1rem;
+        .col.timestamp {
+          font-size: 0.8rem;
+          white-space: nowrap;
+          opacity: 0.6;
+          margin-top: 1.5rem;
+          margin-right: 1rem;
 
-					a {
-						color: inherit;
-					}
-				}
-				.col.sizes {
-					font-size: 0.8rem;
-					opacity: 0.6;
-					margin-top: 1.5rem;
+          a {
+            color: inherit;
+          }
+        }
+        .col.sizes {
+          font-size: 0.8rem;
+          opacity: 0.6;
+          margin-top: 1.5rem;
 
-					&.added {
-						color: green;
-					}
-					&.deleted {
-						color: red;
-					}
+          &.added {
+            color: green;
+          }
+          &.deleted {
+            color: red;
+          }
 
-					a {
-						color: inherit;
-					}
-				}
-				.col.user {
-					position: absolute;
-					top: 0;
-					right: 0.3rem;
-					text-align: right;
-					font-size: 0.8rem;
-					white-space: nowrap;
-					opacity: 0.9;
-				}
-				.col.title {
-					display: block;
-				}
-				.col.parsedcomment {
-					font-size: 0.8rem;
-					opacity: 0.6;
-					padding-left: 1rem;
-					overflow: hidden;
-					word-break: break-all;
-				}
-			}
-		}
+          a {
+            color: inherit;
+          }
+        }
+        .col.user {
+          position: absolute;
+          top: 0;
+          right: 0.3rem;
+          text-align: right;
+          font-size: 0.8rem;
+          white-space: nowrap;
+          opacity: 0.9;
+        }
+        .col.title {
+          display: block;
+        }
+        .col.parsedcomment {
+          font-size: 0.8rem;
+          opacity: 0.6;
+          padding-left: 1rem;
+          overflow: hidden;
+          word-break: break-all;
+        }
+      }
+    }
 
-		.row.muted {
-			.cols {
-				display: none;
-			}
+    .row.muted {
+      .cols {
+        display: none;
+      }
 
-			padding: 0.5rem 0;
-			text-align: center;
-		}
-		.row.muted:after {
-			content: "가려짐";
-			font-size: 0.8rem;
-			opacity: 0.6;
-		}
-	}
+      padding: 0.5rem 0;
+      text-align: center;
+    }
+    .row.muted:after {
+      content: "가려짐";
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+  }
 }
