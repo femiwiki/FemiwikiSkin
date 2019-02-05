@@ -21,10 +21,15 @@ class SkinFemiwikiHooks {
 
 	/**
 	 * Modifing HTML mails sent from Echo.
+	 * @param MailAddress[] $to Array of recipients' email addresses
+	 * @param MailAddress $from Sender's email
+	 * @param string|string[] &$body Email's text or Array of two strings to be the text and html bodies
+	 * @param false &$error 이 함수가 false를 반환하고, true로 평가되는 값을 이 변수에 집어넣으면 에러메시지에 이 변수가 출력된다
+	 * @return bool
 	 */
-	public static function onUserMailerTransformContent( $to, $from, &$body, &$error ) {
+	public static function onUserMailerTransformContent( array $to, $from, &$body, &$error ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) || !is_array( $body ) || !isset( $body['html'] ) ) {
-			return;
+			return false;
 		}
 
 		$body['html'] = str_replace(
@@ -40,6 +45,8 @@ class SkinFemiwikiHooks {
 
 	/**
 	 * export static key and id to JavaScript
+	 * @param array &$vars Array of variables to be added into the output of the startup module.
+	 * @return true
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
 		global $wgFirebaseKey, $wgFacebookAppId;

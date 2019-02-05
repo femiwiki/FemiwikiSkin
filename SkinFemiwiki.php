@@ -12,7 +12,7 @@ class SkinFemiwiki extends SkinTemplate {
 	/**
 	 * Add CSS via ResourceLoader
 	 *
-	 * @param $out OutputPage
+	 * @param OutputPage $out
 	 */
 	public function initPage( OutputPage $out ) {
 		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
@@ -32,7 +32,7 @@ class SkinFemiwiki extends SkinTemplate {
 		$out->addHeadItem( "fav7", "<link rel='apple-touch-icon' sizes='144x144' href='/fw-resources/favicons/apple-icon-144x144.png'>" );
 		$out->addHeadItem( "fav8", "<link rel='apple-touch-icon' sizes='152x152' href='/fw-resources/favicons/apple-icon-152x152.png'>" );
 		$out->addHeadItem( "fav9", "<link rel='apple-touch-icon' sizes='180x180' href='/fw-resources/favicons/apple-icon-180x180.png'>" );
-		$out->addHeadItem( "fav10", "<link rel='icon' type='image/png' sizes='192x192'  href='/fw-resources/favicons/android-icon-192x192.png'>" );
+		$out->addHeadItem( "fav10", "<link rel='icon' type='image/png' sizes='192x192' href='/fw-resources/favicons/android-icon-192x192.png'>" );
 		$out->addHeadItem( "fav11", "<link rel='icon' type='image/png' sizes='32x32' href='/fw-resources/favicons/favicon-32x32.png'>" );
 		$out->addHeadItem( "fav12", "<link rel='icon' type='image/png' sizes='96x96' href='/fw-resources/favicons/favicon-96x96.png'>" );
 		$out->addHeadItem( "fav13", "<link rel='icon' type='image/png' sizes='16x16' href='/fw-resources/favicons/favicon-16x16.png'>" );
@@ -52,9 +52,10 @@ class SkinFemiwiki extends SkinTemplate {
 	}
 
 	/**
-	 * @param $out OutputPage
+	 * Overrides https://doc.wikimedia.org/mediawiki-core/REL1_31/php/classSkinTemplate.html#a8f0695e80dec37e0c122e31e3141506a
+	 * @param OutputPage $out
 	 */
-	function setupSkinUserCss( OutputPage $out ) {
+	public function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
 	}
 }

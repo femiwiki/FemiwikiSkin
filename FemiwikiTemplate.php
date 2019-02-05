@@ -361,7 +361,12 @@ class FemiwikiTemplate extends BaseTemplate {
 		return $html;
 	}
 
-	function makeSearchInput( $attrs = [] ) {
+	/**
+	 * Override of https://doc.wikimedia.org/mediawiki-core/master/php/classBaseTemplate.html#ad2b95d3e6cd1595ed50a29068374b156
+	 * @param array $attrs
+	 * @return string
+	 */
+	public function makeSearchInput( $attrs = [] ) {
 		$realAttrs = [
 			'type' => 'search',
 			'name' => 'search',
@@ -373,7 +378,11 @@ class FemiwikiTemplate extends BaseTemplate {
 		return Html::element( 'input', $realAttrs );
 	}
 
-	function getToolbox() {
+	/**
+	 * Override of https://doc.wikimedia.org/mediawiki-core/master/php/classBaseTemplate.html#a3148d2373b5ffe603348430207b1042d
+	 * @return array
+	 */
+	public function getToolbox() {
 		$toolbox = parent::getToolbox();
 
 		foreach ( [ 'upload', 'specialpages' ] as $special ) {
@@ -404,32 +413,31 @@ class FemiwikiTemplate extends BaseTemplate {
 		echo '<div class="visualClear"></div>';
 	}
 
-	  /**
-	   * Render a series of portals
-	   *
-	   * @param array $portals
-	   */
-  protected function renderPortals( $portals ) {
-	// Render portals
-	foreach ( $portals as $name => $content ) {
-		if ( $content === false ) {
-			continue;
+	/**
+	 * Render a series of portals
+	 *
+	 * @param array $portals
+	 */
+	protected function renderPortals( $portals ) {
+		// Render portals
+		foreach ( $portals as $name => $content ) {
+			if ( $content === false ) {
+				continue;
+			}
+
+			// Numeric strings gets an integer when set as key, cast back - T73639
+			$name = (string)$name;
+
+			$this->renderPortal( $name, $content );
 		}
-
-		// Numeric strings gets an integer when set as key, cast back - T73639
-		$name = (string)$name;
-
-		$this->renderPortal( $name, $content );
 	}
-  }
 
 	/**
 	 * @param string $name
 	 * @param array $content
 	 * @param null|string $msg
-	 * @param null|string|array $hook
 	 */
-	protected function renderPortal( $name, $content, $msg = null, $hook = null ) {
+	protected function renderPortal( $name, $content, $msg = null ) {
 		if ( $msg === null ) {
 			$msg = $name;
 		}
@@ -453,14 +461,12 @@ class FemiwikiTemplate extends BaseTemplate {
 						foreach ( $content as $key => $val ) {
 							echo $this->makeListItem( $key, $val );
 						}
-						if ( $hook !== null ) {
-							Hooks::run( $hook, [ &$this, true ] );
-						}
 						?>
 					</ul>
 					<?php
 				} else {
-					echo $content; /* Allow raw HTML block to be defined by extensions */
+					# Allow raw HTML block to be defined by extensions
+					echo $content;
 				}
 
 				$this->renderAfterPortlet( $name );
