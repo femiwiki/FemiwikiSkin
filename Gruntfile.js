@@ -1,27 +1,21 @@
 /*jshint node:true */
-module.exports = function ( grunt ) {
-  grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-  grunt.loadNpmTasks( 'grunt-jsonlint' );
-  grunt.loadNpmTasks( 'grunt-banana-checker' );
+module.exports = function(grunt) {
+  grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-jsonlint");
+  grunt.loadNpmTasks("grunt-banana-checker");
 
-  grunt.initConfig( {
+  grunt.initConfig({
     jshint: {
-      all: [
-        '**/*.js',
-        '!node_modules/**'
-      ]
+      all: ["**/*.js", "!node_modules/**"]
     },
     banana: {
-      all: 'i18n/'
+      all: "i18n/"
     },
     jsonlint: {
-      all: [
-        '**/*.json',
-        '!node_modules/**'
-      ]
+      all: ["**/*.json", "!node_modules/**"]
     }
-  } );
+  });
 
-  grunt.registerTask( 'test', [ 'jshint', 'jsonlint', 'banana' ] );
-  grunt.registerTask( 'default', 'test' );
+  grunt.registerTask("test", ["jshint", "jsonlint", "banana"]);
+  grunt.registerTask("default", "test");
 };

@@ -1,6 +1,6 @@
-$(function () {
-  var listElement = document.querySelector('.fw-bbs-list');
-  if(listElement) {
+$(function() {
+  var listElement = document.querySelector(".fw-bbs-list");
+  if (listElement) {
     handleListPage(listElement);
     return;
   }
@@ -8,8 +8,8 @@ $(function () {
   var $body = $(document.body);
   var nsId = document.body.className.match(/\bns-(\d+)\b/);
   nsId = nsId ? +nsId[1] : -1;
-  var isEditPage = $body.hasClass('action-edit');
-  if(!isEditPage && _FW.BBS_NS.indexOf(nsId) !== -1) {
+  var isEditPage = $body.hasClass("action-edit");
+  if (!isEditPage && _FW.BBS_NS.indexOf(nsId) !== -1) {
     handleReadPage();
   }
 
@@ -17,22 +17,27 @@ $(function () {
     var nsId = +element.dataset.nsid;
     var nsName = element.dataset.nsname;
 
-    fetchList(nsId, function (data) {
+    fetchList(nsId, function(data) {
       var menu = renderMenu();
       var list = renderList(data);
 
       element.innerHTML = menu + list;
-      $(element).find('a.write').on('click', onClickWrite);
+      $(element)
+        .find("a.write")
+        .on("click", onClickWrite);
     });
 
     function onClickWrite(e) {
       e.preventDefault();
-      var title = window.prompt('새 글의 제목을 입력해주세요');
-      if(!title) return;
+      var title = window.prompt("새 글의 제목을 입력해주세요");
+      if (!title) return;
 
       // append timestamp to the title in order to avoid name conflict
       var timestamp = Date.now().toString(16);
-      location.href = '/index.php?title=' + encodeTitle(nsName + ':' + title + '_(' + timestamp + ')') + '&action=edit&classes=bbs';
+      location.href =
+        "/index.php?title=" +
+        encodeTitle(nsName + ":" + title + "_(" + timestamp + ")") +
+        "&action=edit&classes=bbs";
     }
 
     /**
@@ -42,7 +47,9 @@ $(function () {
      * @param callback
      */
     function fetchList(nsId, callback) {
-      var url = '/w/api.php?action=query&list=recentchanges&rctype=new|edit&rcprop=title|ids|user|timestamp&rcstart=19700101000000&rclimit=100&rctoponly=1&format=json&rcnamespace=' + nsId;
+      var url =
+        "/w/api.php?action=query&list=recentchanges&rctype=new|edit&rcprop=title|ids|user|timestamp&rcstart=19700101000000&rclimit=100&rctoponly=1&format=json&rcnamespace=" +
+        nsId;
       $.get(url, callback);
     }
 
@@ -55,38 +62,52 @@ $(function () {
       var buffer = [];
 
       buffer.push('<ul class="rows">');
-      rows.forEach(function (row) {
+      rows.forEach(function(row) {
         buffer.push(renderRow(row));
       });
-      buffer.push('</ul>');
+      buffer.push("</ul>");
 
-      return buffer.join('');
+      return buffer.join("");
     }
 
     function renderRow(row) {
       row.timestamp = new Date(row.timestamp);
-      row.timestampStr = (
-        zeropad(row.timestamp.getMonth() + 1) + '-' +
-        zeropad(row.timestamp.getDate()) + ' ' +
-        zeropad(row.timestamp.getHours()) + ':' +
-        zeropad(row.timestamp.getMinutes())
-      );
+      row.timestampStr =
+        zeropad(row.timestamp.getMonth() + 1) +
+        "-" +
+        zeropad(row.timestamp.getDate()) +
+        " " +
+        zeropad(row.timestamp.getHours()) +
+        ":" +
+        zeropad(row.timestamp.getMinutes());
 
       try {
         row.displayTitle = row.title.match(/^.+?:(.+) \([a-f0-9]+\)$/)[1];
       } catch (e) {
         // ignore article with invalid title
-        return '';
+        return "";
       }
 
       return (
-        '<li class="row type-' + row.type + '">' +
+        '<li class="row type-' +
+        row.type +
+        '">' +
         '<ul class="cols">' +
-        '<li class="col timestamp">' + row.timestampStr + '</li>' +
-        '<li class="col user"><a href="/w/' + encodeTitle('사용자:' + row.user) + '">' + escapeEntity(row.user) + '</a></li>' +
-        '<li class="col title"><a href="/w/' + encodeTitle(row.title) + '">' + escapeEntity(row.displayTitle) + '</a></li>' +
-        '</ul>' +
-        '</li>'
+        '<li class="col timestamp">' +
+        row.timestampStr +
+        "</li>" +
+        '<li class="col user"><a href="/w/' +
+        encodeTitle("사용자:" + row.user) +
+        '">' +
+        escapeEntity(row.user) +
+        "</a></li>" +
+        '<li class="col title"><a href="/w/' +
+        encodeTitle(row.title) +
+        '">' +
+        escapeEntity(row.displayTitle) +
+        "</a></li>" +
+        "</ul>" +
+        "</li>"
       );
     }
 
@@ -94,14 +115,14 @@ $(function () {
       return (
         '<ul class="menu">' +
         '<li><a href="#" class="write btn">글쓰기</a></li>' +
-        '</ul>'
+        "</ul>"
       );
     }
   }
 
   function handleReadPage() {
     // Replace title
-    var titleEl = document.querySelector('.firstHeading');
+    var titleEl = document.querySelector(".firstHeading");
     var unparsedTitle = titleEl.childNodes[0].nodeValue;
     var match = unparsedTitle.match(/^(.+?):(.+?)( \([a-f0-9]+\))?$/);
     var nsName = match[1];
@@ -110,102 +131,140 @@ $(function () {
     titleEl.childNodes[0].nodeValue = title;
 
     // Render BBS menu
-    $('#bodyContent').prepend('<div id="#contentSub"><p><span class="subpages">&lt; <a href="#" class="list">글목록</a></span></p></div>');
-    $('#fw-footer-menu').prepend('<li><a href="#" class="list">글목록</a></li>');
-    $('a.list').on('click', onClickList);
+    $("#bodyContent").prepend(
+      '<div id="#contentSub"><p><span class="subpages">&lt; <a href="#" class="list">글목록</a></span></p></div>'
+    );
+    $("#fw-footer-menu").prepend(
+      '<li><a href="#" class="list">글목록</a></li>'
+    );
+    $("a.list").on("click", onClickList);
 
     // Render comments
     renderComments(nsName, title, hash, function($commentList) {
       var $commentSection = $('<div id="fw-bbs-comment-section">');
-      var editable = mw.config.get('wgIsProbablyEditable');
+      var editable = mw.config.get("wgIsProbablyEditable");
 
       $commentSection.append(
         '<form id="fw-bbs-new-comment-form">' +
-        '<label for="fw-bbs-new-comment">새 댓글 쓰기:</label>' +
-        '<textarea id="fw-bbs-new-comment" ' + (editable ? '' : 'disabled') + ' placeholder="' + (editable ? '댓글' : '권한 없음') + '"></textarea>' +
-        '<input type="submit" value="댓글 저장">' +
-        '</form>'
+          '<label for="fw-bbs-new-comment">새 댓글 쓰기:</label>' +
+          '<textarea id="fw-bbs-new-comment" ' +
+          (editable ? "" : "disabled") +
+          ' placeholder="' +
+          (editable ? "댓글" : "권한 없음") +
+          '"></textarea>' +
+          '<input type="submit" value="댓글 저장">' +
+          "</form>"
       );
       $commentSection.append($commentList);
-      $('#content').append($commentSection);
+      $("#content").append($commentSection);
 
-      $('#fw-bbs-new-comment-form').on('submit', onComment);
+      $("#fw-bbs-new-comment-form").on("submit", onComment);
 
       // Rerun mathjax for comments
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
     });
 
     // Done
-    $('body, #mw-wrapper').addClass('bbs-read');
+    $("body, #mw-wrapper").addClass("bbs-read");
 
     function onComment(e) {
       e.preventDefault();
-      var $comment = $('#fw-bbs-new-comment');
+      var $comment = $("#fw-bbs-new-comment");
       var comment = $comment.val();
-      $comment.val('');
+      $comment.val("");
 
-      if(!comment) return;
+      if (!comment) return;
 
       // Generate comment wikitext
-      var userName = mw.config.get('wgUserName');
+      var userName = mw.config.get("wgUserName");
       var now = new Date();
-      var $newComment = $('<p><span class="ts"></span> <span class="user"></span> <span class="text"></span></p>');
-      $newComment.find('.ts').text(
-        now.getFullYear() + '-' +
-        zeropad(now.getMonth() + 1) + '-' +
-        zeropad(now.getDate()) + ' ' +
-        zeropad(now.getHours()) + ':' +
-        zeropad(now.getMinutes()) + ':' +
-        zeropad(now.getSeconds())
+      var $newComment = $(
+        '<p><span class="ts"></span> <span class="user"></span> <span class="text"></span></p>'
       );
-      $newComment.find('.user').text('[[사용자:' + userName + '|' + userName + ']]');
-      $newComment.find('.text').html(comment.replace(/\n/g, '<br>'));
+      $newComment
+        .find(".ts")
+        .text(
+          now.getFullYear() +
+            "-" +
+            zeropad(now.getMonth() + 1) +
+            "-" +
+            zeropad(now.getDate()) +
+            " " +
+            zeropad(now.getHours()) +
+            ":" +
+            zeropad(now.getMinutes()) +
+            ":" +
+            zeropad(now.getSeconds())
+        );
+      $newComment
+        .find(".user")
+        .text("[[사용자:" + userName + "|" + userName + "]]");
+      $newComment.find(".text").html(comment.replace(/\n/g, "<br>"));
       var commentWikimarkup = $newComment.html();
 
       // Prepend comment
-      $.getJSON('/w/api.php?action=query&meta=tokens&format=json', function(json) {
+      $.getJSON("/w/api.php?action=query&meta=tokens&format=json", function(
+        json
+      ) {
         var token = json.query.tokens.csrftoken;
-        var discussionTitle = nsName + '토론:' + title + ' ' + hash;
-        $.post('/w/api.php?action=edit', {summary: '댓글: ' + comment, title: discussionTitle, prependtext: '* ' + commentWikimarkup + '\n', token: token}, function() {
-          // reload comment
-          renderComments(nsName, title, hash, function($commentList) {
-            $('#fw-bbs-comment-list').html($commentList.html());
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
-          });
-        });
+        var discussionTitle = nsName + "토론:" + title + " " + hash;
+        $.post(
+          "/w/api.php?action=edit",
+          {
+            summary: "댓글: " + comment,
+            title: discussionTitle,
+            prependtext: "* " + commentWikimarkup + "\n",
+            token: token
+          },
+          function() {
+            // reload comment
+            renderComments(nsName, title, hash, function($commentList) {
+              $("#fw-bbs-comment-list").html($commentList.html());
+              MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            });
+          }
+        );
       });
     }
 
     function onClickList(e) {
       e.preventDefault();
 
-      location.href = '/w/' + encodeTitle('페미위키:' + nsName) + '?classes=bbs-list';
+      location.href =
+        "/w/" + encodeTitle("페미위키:" + nsName) + "?classes=bbs-list";
     }
 
     function renderComments(nsName, title, hash, callback) {
       var $commentList = $('<ol id="fw-bbs-comment-list" />');
-      $commentList.load(getDiscussionUrl(nsName, title, hash) + ' #mw-content-text > ul > li', function(res, status, xhr) {
-        callback($commentList);
-      });
+      $commentList.load(
+        getDiscussionUrl(nsName, title, hash) + " #mw-content-text > ul > li",
+        function(res, status, xhr) {
+          callback($commentList);
+        }
+      );
     }
 
     function getDiscussionUrl(nsName, title, hash) {
-      var unparsedTitle = nsName + '토론:' + title + ' ' + hash + '';
-      return '/w/' + encodeTitle(unparsedTitle);
+      var unparsedTitle = nsName + "토론:" + title + " " + hash + "";
+      return "/w/" + encodeTitle(unparsedTitle);
     }
   }
 
   function encodeTitle(title) {
-    return title.split('/').map(function(path) {return encodeURIComponent(path);}).join('/')
+    return title
+      .split("/")
+      .map(function(path) {
+        return encodeURIComponent(path);
+      })
+      .join("/");
   }
 
   function escapeEntity(text) {
-    return text.replace(/</g, '&lt;')
+    return text.replace(/</g, "&lt;");
   }
 
   function zeropad(num) {
-    var padded = '0' + num;
+    var padded = "0" + num;
     return padded.length === 2 ? padded : padded.substr(1);
   }
-})
-;
+});

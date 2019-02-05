@@ -11,9 +11,7 @@
     "femiwiki": "Femiwiki"
   },
   "MessagesDirs": {
-    "Femiwiki": [
-      "i18n"
-    ]
+    "Femiwiki": ["i18n"]
   },
   "ResourceModules": {
     "skins.femiwiki": {
