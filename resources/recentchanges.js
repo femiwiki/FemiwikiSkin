@@ -48,7 +48,7 @@ $(function() {
       ":" +
       zeropad(row.timestamp.getMinutes());
     row.diff = row.newlen - row.oldlen;
-    row["flags"] = assignFlags(row);
+    row.flags = assignFlags(row);
 
     // Link comment to article page instead of discussion page
     var url;
@@ -74,11 +74,11 @@ $(function() {
       var flag = row.flags[i];
       flags.push(
         '<span class="flag type-' +
-          flag["type"] +
+          flag.type +
           " logtype-" +
-          flag["logtype"] +
+          flag.logtype +
           '">' +
-          flag["text"] +
+          flag.text +
           "</span>"
       );
     }
@@ -132,28 +132,28 @@ $(function() {
     var textMap = [
       [
         function(row) {
-          return row["type"] === "log" && row["logtype"] === "newusers";
+          return row.type === "log" && row.logtype === "newusers";
         },
         "가입"
       ],
       [
         function(row) {
-          return row["type"] === "log" && row["logtype"] === "protect";
+          return row.type === "log" && row.logtype === "protect";
         },
         "문서 보호"
       ],
       [
         function(row) {
-          return row["type"] === "log" && row["logtype"] === "rights";
+          return row.type === "log" && row.logtype === "rights";
         },
         "권한 변경"
       ],
       [
         function(row) {
           return (
-            row["type"] === "log" &&
-            row["logtype"] === "delete" &&
-            row["logaction"] === "revision"
+            row.type === "log" &&
+            row.logtype === "delete" &&
+            row.logaction === "revision"
           );
         },
         "리비전 삭제"
@@ -161,9 +161,9 @@ $(function() {
       [
         function(row) {
           return (
-            row["type"] === "log" &&
-            row["logtype"] === "delete" &&
-            row["logaction"] === "delete"
+            row.type === "log" &&
+            row.logtype === "delete" &&
+            row.logaction === "delete"
           );
         },
         "문서 삭제"
@@ -171,34 +171,34 @@ $(function() {
       [
         function(row) {
           return (
-            row["type"] === "log" &&
-            row["logtype"] === "block" &&
-            row["logaction"] === "block"
+            row.type === "log" &&
+            row.logtype === "block" &&
+            row.logaction === "block"
           );
         },
         "이용자 차단"
       ],
       [
         function(row) {
-          return row["type"] === "log" && row["logtype"] === "move";
+          return row.type === "log" && row.logtype === "move";
         },
         "문서 이동"
       ],
       [
         function(row) {
-          return row["type"] === "log" && row["logtype"] === "upload";
+          return row.type === "log" && row.logtype === "upload";
         },
         "파일 업로드"
       ],
       [
         function(row) {
-          return row["type"] === "log";
+          return row.type === "log";
         },
         "기타 로그"
       ],
       [
         function(row) {
-          return row["type"] === "new";
+          return row.type === "new";
         },
         "새 문서"
       ]
@@ -215,9 +215,9 @@ $(function() {
 
     return [
       {
-        type: row["type"],
-        logtype: row["logtype"] || "null",
-        logaction: row["logaction"] || "null",
+        type: row.type,
+        logtype: row.logtype || "null",
+        logaction: row.logaction || "null",
         text: text
       }
     ];
