@@ -3,5 +3,6 @@
     "authors": ["..."]
   },
   "skinname-femiwiki": "{{optional}}",
-  "femiwiki-desc": "{{desc|what=skin|name=Femiwiki|url=https://www.mediawiki.org/wiki/Skin:Femiwiki}}"
+  "femiwiki-desc": "{{desc|what=skin|name=Femiwiki|url=https://www.mediawiki.org/wiki/Skin:Femiwiki}}",
+  "femiwiki-page-menu": "Description of the button used to expand/collapse menu of a page"
 }

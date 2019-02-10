@@ -224,6 +224,8 @@ button {
       padding: 0;
 
       .p-title-button {
+        min-width: 1.5em;
+        min-height: 1.5em;
         list-style: none;
         float: right;
         margin: 0.4em;
@@ -232,11 +234,16 @@ button {
       .p-title-button:first-child {
         margin-right: 0em;
       }
-    }
 
-    .fw-icon {
-      min-width: 1.5em;
-      min-height: 1.5em;
+      #p-menu-toggle {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      #p-menu-toggle .oo-ui-buttonElement-button {
+        border: none;
+        box-shadow: none;
+      }
     }
 
     .fw-icon:before {
@@ -248,10 +255,6 @@ button {
       min-width: 1.5em;
       min-height: 1.5em;
       content: "";
-    }
-
-    .fw-icon-ellipsis:before {
-      background-image: url("/resources/lib/oojs-ui/themes/wikimediaui/images/icons/ellipsis.png");
     }
 
     .fw-icon-share:before {

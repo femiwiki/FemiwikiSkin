@@ -95,7 +95,18 @@ class FemiwikiTemplate extends BaseTemplate {
 				?>
 
 				<ul id='p-title-buttons'>
-					<li id="p-menu-toggle" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-ellipsis" title="더 보기"></span></a></li>
+					<li id="p-menu-toggle" class="p-title-button">
+					<?php
+					echo (new OOUI\ButtonWidget(
+						[
+							'icon' => 'ellipsis',
+							'title' => $this->getMsg( 'femiwiki-page-menu' )->escaped(),
+							'framed' => false,
+							'invisibleLabel' => true
+						]
+					) );
+					?>
+					</li>
 					<?php
 					if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
 						echo '<li id="p-share" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-share" title="공유하기"></span></a></li>';
