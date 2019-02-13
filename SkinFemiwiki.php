@@ -49,6 +49,9 @@ class SkinFemiwiki extends SkinTemplate {
 		$out->addModules( [
 			'skins.femiwiki.js'
 		] );
+
+		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
+		$out->enableOOUI();
 	}
 
 	/**
