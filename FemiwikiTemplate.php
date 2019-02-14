@@ -97,7 +97,7 @@ class FemiwikiTemplate extends BaseTemplate {
 				<ul id='p-title-buttons'>
 					<li id="p-menu-toggle" class="p-title-button">
 					<?php
-					echo (new OOUI\ButtonWidget(
+					echo ( new OOUI\ButtonWidget(
 						[
 							'icon' => 'ellipsis',
 							'title' => $this->getMsg( 'femiwiki-page-menu' )->escaped(),
