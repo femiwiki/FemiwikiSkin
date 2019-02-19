@@ -36,9 +36,6 @@
         "resources/screen-changes.less": {
           "media": "screen"
         },
-        "resources/screen-bbs.less": {
-          "media": "screen"
-        },
         "resources/screen-category.less": {
           "media": "screen"
         },
@@ -55,8 +52,7 @@
       "scripts": [
         "resources/main.js",
         "resources/share.js",
-        "resources/recentchanges.js",
-        "resources/bbs.js"
+        "resources/recentchanges.js"
       ]
     }
   },
