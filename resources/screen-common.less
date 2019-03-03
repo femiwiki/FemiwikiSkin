@@ -146,12 +146,8 @@ button {
       li.selected {
         display: none;
       }
-
-      li > a:after {
-        content: " 보기";
       }
     }
-  }
 
   #ca-watch {
     display: inline-block;
@@ -494,6 +490,10 @@ button {
   .ve-init-mw-desktopArticleTarget-toolbarPlaceholder {
     margin: 0;
   }
+}
+
+html[lang="ko"] #p-header #p-namespaces a:after {
+  content: " 보기";
 }
 
 #mw-content-text {
