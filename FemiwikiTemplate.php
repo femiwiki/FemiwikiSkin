@@ -213,6 +213,8 @@ class FemiwikiTemplate extends BaseTemplate {
 				}
 				echo Html::closeElement( 'ul' );
 
+				echo $this->renderPortal( 'lang', $this->data['language_urls'], 'otherlanguages' );
+
 				foreach ( $this->getFooterLinks() as $category => $links ) {
 					echo Html::openElement(
 						'ul',
