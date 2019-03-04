@@ -257,6 +257,16 @@
   display: block;
 }
 
+/*
+ * Hide notificationBadgeButtonPopupWidget's title text which is just an error message
+ * ('echo-notification-all-text-only' message is used but does not exist)
+ */
+.mw-echo-ui-notificationBadgeButtonPopupWidget-popup
+  .oo-ui-popupWidget-head
+  > .oo-ui-labelElement-label {
+  display: none;
+}
+
 @media screen and (min-width: 640px) {
   .nav-bar {
     #mw-navigation {

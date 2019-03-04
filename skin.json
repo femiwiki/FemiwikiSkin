@@ -51,6 +51,7 @@
       "position": "bottom",
       "scripts": [
         "resources/main.js",
+        "resources/init.js",
         "resources/share.js",
         "resources/recentchanges.js"
       ]
@@ -67,7 +68,8 @@
   },
   "Hooks": {
     "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
-    "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars"
+    "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars",
+    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls"
   },
   "config": {
     "FirebaseKey": "",
