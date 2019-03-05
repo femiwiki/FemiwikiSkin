@@ -18,18 +18,47 @@ $(function() {
         parseFloat($("#" + divId + " > div").css("min-width")) +
         itemPadding +
         itemMargin,
-      itemLength = $("#" + divId + " > div").filter(function() {
+      items = $("#" + divId + " > div").filter(function() {
         return $(this).css("display") !== "none";
-      }).length,
-      horizontalCapacity = Math.min(
-        Math.floor(containerWidth / itemActualMinWidth),
-        itemLength
-      );
+      }),
+      itemLength = items.length;
 
+    // Fit width of elements to parent
+    var horizontalCapacity = Math.min(
+      Math.floor(containerWidth / itemActualMinWidth),
+      itemLength
+    );
+    if (
+      itemLength % 2 == 0 &&
+      horizontalCapacity > 1 &&
+      horizontalCapacity % 2 != 0
+    ) {
+      // Always place the same number of elements in all rows.
+      horizontalCapacity -= 1;
+    }
     $("#" + divId + " > div").css(
       "width",
       Math.floor(containerWidth / horizontalCapacity - itemPadding - itemMargin)
     );
+
+    // Let elements in each row has the same height.
+    if (horizontalCapacity > 1) {
+      for (var i = 0; i < itemLength; i += horizontalCapacity) {
+        var maxHeight = 0;
+        for (var j = 0; j < horizontalCapacity; j++) {
+          var height = parseFloat(items.eq(i + j).css("height"));
+
+          if (height > maxHeight) {
+            maxHeight = height;
+          }
+        }
+        for (var j = 0; j < horizontalCapacity; j++) {
+          items.eq(i + j).css("height", maxHeight);
+        }
+      }
+    } else {
+      items.css("height", "auto");
+    }
   }
 
   var searchInput = $("#searchInput"),
