@@ -4,5 +4,6 @@
   },
   "skinname-femiwiki": "Femiwiki",
   "femiwiki-desc": "Femiwiki skin",
-  "femiwiki-page-menu": "Menu"
+  "skin-femiwiki-page-menu-tooltip": "Menu",
+  "skin-femiwiki-share-tooltip": "Share this article"
 }

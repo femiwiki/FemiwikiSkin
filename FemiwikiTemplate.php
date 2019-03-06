@@ -100,7 +100,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					echo ( new OOUI\ButtonWidget(
 						[
 							'icon' => 'ellipsis',
-							'title' => $this->getMsg( 'femiwiki-page-menu' )->escaped(),
+							'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
 							'framed' => false,
 							'invisibleLabel' => true
 						]
@@ -109,7 +109,9 @@ class FemiwikiTemplate extends BaseTemplate {
 					</li>
 					<?php
 					if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
-						echo '<li id="p-share" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-share" title="공유하기"></span></a></li>';
+						echo '<li id="p-share" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-share" title="' .
+							$this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped() .
+							'"></span></a></li>';
 					}
 					?>
 				</ul>

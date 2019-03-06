@@ -4,5 +4,6 @@
   },
   "skinname-femiwiki": "{{optional}}",
   "femiwiki-desc": "{{desc|what=skin|name=Femiwiki|url=https://www.mediawiki.org/wiki/Skin:Femiwiki}}",
-  "femiwiki-page-menu": "Description of the button used to expand/collapse menu of a page"
+  "skin-femiwiki-page-menu-tooltip": "Description of the button used to expand/collapse menu of a page",
+  "skin-femiwiki-share-tooltip": "Button to share article tooltip"
 }
