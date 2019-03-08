@@ -5,5 +5,8 @@
   "skinname-femiwiki": "페미위키",
   "femiwiki-desc": "페미위키 스킨",
   "skin-femiwiki-page-menu-tooltip": "메뉴",
-  "skin-femiwiki-share-tooltip": "공유"
+  "skin-femiwiki-share-tooltip": "문서 공유하기",
+  "skin-femiwiki-share-dismiss": "닫기",
+  "skin-femiwiki-share-facebook": "페이스북",
+  "skin-femiwiki-share-twitter": "트위터"
 }

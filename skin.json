@@ -48,12 +48,26 @@
       }
     },
     "skins.femiwiki.js": {
-      "position": "bottom",
-      "scripts": [
-        "resources/main.js",
-        "resources/init.js",
-        "resources/share.js",
-        "resources/recentchanges.js"
+      "scripts": ["resources/main.js", "resources/recentchanges.js"],
+      "dependencies": ["oojs"]
+    },
+    "skins.femiwiki.notifications": {
+      "scripts": ["resources/skins.femiwiki.notifications/init.js"]
+    },
+    "skins.femiwiki.dm": {
+      "scripts": ["resources/mw.fw.js"]
+    },
+    "skins.femiwiki.share": {
+      "scripts": ["resources/skins.femiwiki.share/init.js"],
+      "dependencies": ["oojs", "oojs-ui-windows"]
+    },
+    "skins.femiwiki.share.ui": {
+      "scripts": ["resources/skins.femiwiki.share/mw.fw.ShareDialog.js"],
+      "dependencies": ["skins.femiwiki.dm", "oojs", "oojs-ui-windows"],
+      "messages": [
+        "skin-femiwiki-share-dismiss",
+        "skin-femiwiki-share-facebook",
+        "skin-femiwiki-share-twitter"
       ]
     }
   },

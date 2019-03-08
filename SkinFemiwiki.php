@@ -46,12 +46,15 @@ class SkinFemiwiki extends SkinTemplate {
 			'mediawiki.skinning.content.externallinks',
 			'skins.femiwiki'
 		] );
-		$out->addModules( [
-			'skins.femiwiki.js'
-		] );
 
-		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
-		$out->enableOOUI();
+		$modules = [
+			'skins.femiwiki.js',
+			'skins.femiwiki.notifications'
+		];
+		if ( $this->canUseWikiPage() && $this->getWikiPage()->getId() != 0 ) {
+			$modules[] = 'skins.femiwiki.share';
+		}
+		$out->addModules( $modules );
 	}
 
 	/**

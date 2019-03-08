@@ -5,5 +5,8 @@
   "skinname-femiwiki": "Femiwiki",
   "femiwiki-desc": "Femiwiki skin",
   "skin-femiwiki-page-menu-tooltip": "Menu",
-  "skin-femiwiki-share-tooltip": "Share this article"
+  "skin-femiwiki-share-tooltip": "Share this article",
+  "skin-femiwiki-share-dismiss": "Dismiss",
+  "skin-femiwiki-share-facebook": "Facebook",
+  "skin-femiwiki-share-twitter": "Twitter"
 }
