@@ -92,31 +92,37 @@ class FemiwikiTemplate extends BaseTemplate {
 					],
 					$this->get( 'title' )
 				);
-				?>
 
-				<ul id='p-title-buttons'>
-					<li id="p-menu-toggle" class="p-title-button">
-					<?php
-					echo ( new OOUI\ButtonWidget(
-						[
-							'icon' => 'ellipsis',
-							'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
-							'framed' => false,
-							'invisibleLabel' => true
-						]
-					) );
-					?>
-					</li>
-					<?php
-					if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
-						echo '<li id="p-share" class="p-title-button"><a href="#"><span class="fw-icon fw-icon-share" title="' .
-							$this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped() .
-							'"></span></a></li>';
-					}
-					?>
-				</ul>
+				// Make title buttons
+				$titleButtons = [];
 
-				<?php
+				if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
+					$titleButtons[] = new OOUI\ButtonWidget( [
+						'id' => 'p-share',
+						'infusable' => true,
+						# icon is used as a dummy
+						'icon' => 'browser',
+						'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
+						'framed' => false,
+						'invisibleLabel' => true
+					] );
+				}
+				$titleButtons[] = new OOUI\ButtonWidget( [
+					'id' => 'p-menu-toggle',
+					'infusable' => true,
+					'icon' => 'ellipsis',
+					'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
+					'framed' => false,
+					'invisibleLabel' => true
+				] );
+
+				echo ( new OOUI\ButtonGroupWidget(
+					[
+						'id' => 'p-title-buttons',
+						'items' => $titleButtons
+					]
+				) );
+
 				echo Html::openElement(
 					'div',
 					[ 'id' => 'p-actions-and-toolbox' ]

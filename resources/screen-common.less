@@ -217,44 +217,16 @@ button {
     #p-title-buttons {
       float: right;
       margin: 0;
-      padding: 0;
 
-      .p-title-button {
-        min-width: 1.5em;
-        min-height: 1.5em;
-        list-style: none;
-        float: right;
-        margin: 0.4em;
-      }
-
-      .p-title-button:first-child {
-        margin-right: 0em;
-      }
-
-      #p-menu-toggle {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      #p-menu-toggle .oo-ui-buttonElement-button {
+      // Remove highlighting
+      .oo-ui-buttonElement-button {
         border: none;
         box-shadow: none;
       }
-    }
 
-    .fw-icon:before {
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: 100% auto;
-      float: left;
-      display: block;
-      min-width: 1.5em;
-      min-height: 1.5em;
-      content: "";
-    }
-
-    .fw-icon-share:before {
-      background-image: url("images/icon-share.png");
+      #p-share .oo-ui-iconElement-icon {
+        background-image: url("images/icon-share.png");
+      }
     }
   }
   #lastmod-and-views {
