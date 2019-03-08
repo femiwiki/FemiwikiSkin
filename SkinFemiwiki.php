@@ -48,13 +48,18 @@ class SkinFemiwiki extends SkinTemplate {
 		] );
 
 		$modules = [
-			'skins.femiwiki.js',
-			'skins.femiwiki.notifications'
+			'skins.femiwiki.js'
 		];
+		if ( $out->getUser()->isLoggedIn() ) {
+			$modules[] = 'skins.femiwiki.notifications';
+		}
 		if ( $this->canUseWikiPage() && $this->getWikiPage()->getId() != 0 ) {
 			$modules[] = 'skins.femiwiki.share';
 		}
 		$out->addModules( $modules );
+
+		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
+		$out->enableOOUI();
 	}
 
 	/**
