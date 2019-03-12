@@ -51,7 +51,7 @@
       }
     },
     "skins.femiwiki.js": {
-      "scripts": ["resources/main.js", "resources/recentchanges.js"],
+      "scripts": ["resources/main.js"],
       "dependencies": ["oojs"]
     },
     "skins.femiwiki.notifications": {
