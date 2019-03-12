@@ -30,12 +30,6 @@
     });
     // Make SNS Buttons
     var items = [];
-    this.twitterButton = new OO.ui.ButtonWidget({
-      framed: false,
-      icon: "newWindow",
-      label: mw.msg("skin-femiwiki-share-twitter")
-    });
-    items.push(this.twitterButton);
     if (this.facebookAppId) {
       this.facebookButton = new OO.ui.ButtonWidget({
         framed: false,
@@ -50,6 +44,12 @@
         click: "onFacebookButtonClick"
       });
     }
+    this.twitterButton = new OO.ui.ButtonWidget({
+      framed: false,
+      icon: "newWindow",
+      label: mw.msg("skin-femiwiki-share-twitter")
+    });
+    items.push(this.twitterButton);
     this.mediaButtonGroup = new OO.ui.ButtonGroupWidget({
       items: items
     });
