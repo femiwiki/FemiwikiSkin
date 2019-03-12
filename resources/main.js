@@ -53,11 +53,11 @@ $(function() {
           }
         }
         for (var j = 0; j < horizontalCapacity; j++) {
-          items.eq(i + j).css("height", maxHeight);
+          items.eq(i + j).css("min-height", maxHeight);
         }
       }
     } else {
-      items.css("height", "auto");
+      items.css("min-height", "auto");
     }
   }
 
