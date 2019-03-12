@@ -24,9 +24,6 @@
         "resources/screen-common.less": {
           "media": "screen"
         },
-        "resources/screen-dialog.less": {
-          "media": "screen"
-        },
         "resources/screen-table.less": {
           "media": "screen"
         },
