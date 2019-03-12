@@ -67,6 +67,10 @@ class SkinFemiwikiHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
+		if ( !$sk instanceof SkinFemiwiki ) {
+			return;
+		}
+
 		$user = $sk->getUser();
 		if ( $user->isAnon() ) {
 			return true;
