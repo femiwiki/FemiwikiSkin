@@ -21,22 +21,22 @@
         "resources/libraries/normalise.css": {
           "media": "screen"
         },
+        "resources/table.less": {
+          "media": "screen"
+        },
+        "resources/gnb.less": {
+          "media": "screen"
+        },
+        "resources/changes.less": {
+          "media": "screen"
+        },
+        "resources/category.less": {
+          "media": "screen"
+        },
+        "resources/flow.less": {
+          "media": "screen"
+        },
         "resources/screen-common.less": {
-          "media": "screen"
-        },
-        "resources/screen-table.less": {
-          "media": "screen"
-        },
-        "resources/screen-gnb.less": {
-          "media": "screen"
-        },
-        "resources/screen-changes.less": {
-          "media": "screen"
-        },
-        "resources/screen-category.less": {
-          "media": "screen"
-        },
-        "resources/screen-flow.less": {
           "media": "screen"
         },
         "resources/screen-mobile.less": {
