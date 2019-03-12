@@ -42,6 +42,12 @@
         "resources/screen-flow.less": {
           "media": "screen"
         },
+        "resources/screen-mobile.less": {
+          "media": "screen and (max-width: 480px)"
+        },
+        "resources/screen-mobile-small.less": {
+          "media": "screen and (max-width: 360px)"
+        },
         "resources/print.css": {
           "media": "print"
         }
