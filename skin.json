@@ -89,8 +89,12 @@
     "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls"
   },
   "config": {
-    "FirebaseKey": "",
-    "FacebookAppId": ""
+    "FemiwikiFirebaseKey": "",
+    "FemiwikiFacebookAppId": "",
+    "FemiwikiUseSimpleSearch": true,
+    "VectorUseIconWatch": true,
+    "VectorResponsive": false,
+    "VectorPrintLogo": false
   },
   "SkinOOUIThemes": {
     "femiwiki": "WikimediaUI"

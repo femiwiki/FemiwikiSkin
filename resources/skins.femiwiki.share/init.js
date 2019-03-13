@@ -6,8 +6,9 @@
 
     OO.ui.infuse("p-share").on("click", function() {
       mw.loader.using(["skins.femiwiki.share.ui"]).done(function() {
-        facebookAppId = facebookAppId || mw.config.get("wgFacebookAppId");
-        firebaseKey = firebaseKey || mw.config.get("wgFirebaseKey");
+        facebookAppId =
+          facebookAppId || mw.config.get("wgFemiwikiFacebookAppId");
+        firebaseKey = firebaseKey || mw.config.get("wgFemiwikiFirebaseKey");
         windowManager = windowManager || OO.ui.getWindowManager();
         if (shareDialog === undefined) {
           shareDialog = new mw.fw.ShareDialog({
