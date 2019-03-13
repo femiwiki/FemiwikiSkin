@@ -90,11 +90,7 @@
   },
   "config": {
     "FemiwikiFirebaseKey": "",
-    "FemiwikiFacebookAppId": "",
-    "FemiwikiUseSimpleSearch": true,
-    "VectorUseIconWatch": true,
-    "VectorResponsive": false,
-    "VectorPrintLogo": false
+    "FemiwikiFacebookAppId": ""
   },
   "SkinOOUIThemes": {
     "femiwiki": "WikimediaUI"
