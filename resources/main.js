@@ -88,9 +88,9 @@ $(function() {
   });
 
   // Notification badge
-  var alerts = +$("#pt-notifications-alert a").attr("data-counter-num");
-  var notice = +$("#pt-notifications-notice a").attr("data-counter-num");
-  var badge = alerts + notice;
+  var badge = +$("#pt-notifications-echo .mw-echo-notifications-badge").attr(
+    "data-counter-num"
+  );
   if (!isNaN(badge) && badge !== 0) {
     $("#fw-menu-toggle .badge")
       .addClass("active")
