@@ -696,13 +696,21 @@ html[lang="ko"] #p-header #p-namespaces a:after {
 
 /* Prevent copy of the question from ConfirmEdit/QuestyCaptcha  */
 body.mw-special-CreateAccount
+  .mw-htmlform-field-HTMLInfoField.mw-ui-vform-field {
+  & > label,
+  & > div.mw-input {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+/* Omit the question included in the other message */
+html[lang="ko"]
+  body.mw-special-CreateAccount
   .mw-htmlform-field-HTMLInfoField.mw-ui-vform-field
   > div.mw-input {
-  font-weight: bold;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  display: none;
 }
 
 /* https://github.com/femiwiki/skin/issues/76 */
