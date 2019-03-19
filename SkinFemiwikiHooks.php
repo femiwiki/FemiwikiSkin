@@ -29,7 +29,7 @@ class SkinFemiwikiHooks {
 	 */
 	public static function onUserMailerTransformContent( array $to, $from, &$body, &$error ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) || !is_array( $body ) || !isset( $body['html'] ) ) {
-			return false;
+			return true;
 		}
 
 		$body['html'] = str_replace(
