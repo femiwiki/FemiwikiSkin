@@ -40,6 +40,15 @@
       left: 3rem;
     }
   }
+
+  /*
+   * @See https://github.com/femiwiki/skin/issues/83
+   */
+  #content .flow-post-content pre:not(.CodeMirror-line),
+  #content .flow-post-content blockquote {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 /* Do not make the layout more compact on Talk (ns-1) and User_Talk (ns-3) */
