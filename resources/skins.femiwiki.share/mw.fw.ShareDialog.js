@@ -43,7 +43,7 @@
       this.facebookButton.connect(this, {
         click: "onFacebookButtonClick"
       });
-      this.facebookButton.$element.addClass("mw-fw-ui-twitterButton");
+      this.facebookButton.$element.addClass("mw-fw-ui-facebookButton");
     }
     this.twitterButton = new OO.ui.ButtonWidget({
       framed: false,
@@ -51,7 +51,7 @@
       label: mw.msg("skin-femiwiki-share-twitter")
     });
     items.push(this.twitterButton);
-    this.twitterButton.$element.addClass("mw-fw-ui-facebookButton");
+    this.twitterButton.$element.addClass("mw-fw-ui-twitterButton");
     this.mediaButtonGroup = new OO.ui.ButtonGroupWidget({
       items: items
     });
