@@ -96,40 +96,4 @@ $(function() {
       .addClass("active")
       .text(badge > 10 ? "+9" : badge);
   }
-
-  // Set Mathjax linebreaks configuration
-  if (typeof MathJax !== "undefined") {
-    MathJax.Hub.Config({
-      CommonHTML: { linebreaks: { automatic: true } },
-      "HTML-CSS": { linebreaks: { automatic: true } },
-      SVG: { linebreaks: { automatic: true } }
-    });
-
-    // Center single Mathjax line
-    MathJax.Hub.Queue(function() {
-      $(
-        "#content p > span:only-child > span.MathJax, " +
-          "#content p > span.mathjax-wrapper:only-child > div"
-      ).each(function() {
-        if (
-          !$(this)
-            .parent()
-            .parent()
-            .clone()
-            .children()
-            .remove()
-            .end()
-            .text()
-            .trim().length
-        ) {
-          $(this)
-            .parent()
-            .css("display", "block");
-          $(this)
-            .parent()
-            .css("text-align", "center");
-        }
-      });
-    });
-  }
 });
