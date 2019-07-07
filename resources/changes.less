@@ -70,16 +70,20 @@
       font-weight: normal;
     }
 
-    & > div > table {
+    li.mw-changeslist-line {
+      list-style-type: none;
+    }
+
+    .mw-changeslist-line:not(tr) {
       margin-bottom: 1rem;
     }
 
-    & > div > table:nth-child(odd) {
+    .mw-changeslist-line:not(tr):nth-child(odd) {
       background-color: #f6f6f6;
     }
 
     /* Entries (common) */
-    & > div > table {
+    .mw-changeslist-line:not(tr) {
       /* arrow, "new" flag, timestamp */
       .newpage,
       .minoredit,
@@ -97,7 +101,7 @@
     }
 
     /* Entries (individual) */
-    & > div > table:not(.mw-collapsible) {
+    .mw-changeslist-line:not(tr):not(.mw-collapsible) {
       font-size: 0.8rem;
 
       .mw-changeslist-title {
@@ -115,7 +119,7 @@
     }
 
     /* Entries (nested) */
-    & > div > table.mw-collapsible {
+    .mw-changeslist-line.mw-collapsible {
       font-size: 0.8rem;
 
       .mw-changeslist-title,
@@ -145,7 +149,7 @@
       padding: 0.7rem 1.3rem;
     }
 
-    table.mw-enhanced-rc {
+    .mw-changeslist-line:not(tr) {
       display: block;
 
       tbody,
@@ -163,9 +167,6 @@
         display: block;
       }
 
-      .mw-userlink {
-      }
-
       .mw-usertoollinks {
         display: none;
       }
@@ -179,10 +180,6 @@
       .mw-plusminus-neg,
       .mw-plusminus-null {
         font-weight: inherit;
-      }
-
-      /* Cell contains timestamp */
-      &.mw-collapsible {
       }
 
       /* Hide nested table's cell */
