@@ -32,6 +32,9 @@ class SkinFemiwiki extends SkinTemplate {
 			'skins.femiwiki'
 		] );
 
+		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
+		$out->enableOOUI();
+
 		$modules = [
 			'skins.femiwiki.js'
 		];
@@ -42,9 +45,6 @@ class SkinFemiwiki extends SkinTemplate {
 			$modules[] = 'skins.femiwiki.share';
 		}
 		$out->addModules( $modules );
-
-		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
-		$out->enableOOUI();
 	}
 
 	/**
