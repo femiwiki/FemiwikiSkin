@@ -281,7 +281,7 @@ button {
 #content {
   box-sizing: border-box;
   position: relative;
-  padding: 0 1.3rem;
+  padding: 0 1.3rem 1.2rem;
   max-width: 50rem;
   margin: 0 auto;
 
@@ -712,12 +712,29 @@ body.mw-special-CreateAccount label[for="mw-input-femiwikiOpenSesame"] {
   width: auto;
 }
 
+/* End of content */
+hr#content-end-bar {
+  border-width: 1px;
+  border-color: #b9b5d9;
+  max-width: 47.4em;
+  margin: 0 auto;
+  height: 1px;
+}
+
 /* Footer */
 #mw-footer {
   box-sizing: border-box;
-  padding: 0.4rem 1.3rem 0;
+  padding: 0.8rem 1.3rem 0;
   max-width: 50rem;
   margin: 0 auto 3.2rem;
+
+  .read-more-container {
+    margin: 0;
+
+    .ra-read-more {
+      padding: 0 0 1em;
+    }
+  }
 
   ul {
     margin: 0;
@@ -725,11 +742,6 @@ body.mw-special-CreateAccount label[for="mw-input-femiwikiOpenSesame"] {
     li {
       list-style: none;
     }
-  }
-
-  #mw-footer-bar {
-    border-top: 1px solid #b9b5d9;
-    padding-top: 0.8rem;
   }
 
   #fw-footer-menu,

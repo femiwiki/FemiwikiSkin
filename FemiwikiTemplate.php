@@ -194,9 +194,9 @@ class FemiwikiTemplate extends BaseTemplate {
 					?>
 				</div>
 			</div>
+			<hr id="content-end-bar" />
 
-			<div id="mw-footer">
-				<div id="mw-footer-bar"></div>
+			<div id="mw-footer" class="footer-content">
 
 				<ul id="fw-footer-menu"></ul>
 				<?php
