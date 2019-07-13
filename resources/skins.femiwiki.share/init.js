@@ -56,13 +56,5 @@
     });
   }
 
-  // Early execute of init
-  if (
-    document.readyState === "interactive" ||
-    document.readyState === "complete"
-  ) {
-    init();
-  } else {
-    $(init);
-  }
+  $(init);
 })();
