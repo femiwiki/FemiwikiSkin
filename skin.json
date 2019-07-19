@@ -52,7 +52,7 @@
     },
     "skins.femiwiki.js": {
       "scripts": ["resources/main.js"],
-      "dependencies": ["oojs"]
+      "dependencies": ["oojs", "oojs-ui-core"]
     },
     "skins.femiwiki.notifications": {
       "scripts": ["resources/skins.femiwiki.notifications/init.js"]
