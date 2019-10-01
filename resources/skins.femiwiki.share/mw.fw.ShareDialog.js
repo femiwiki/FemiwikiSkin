@@ -115,7 +115,11 @@
     this.urlWidget.setValue(url);
 
     var tweet =
-      mw.config.get("wgPageName").replace(/_/g, " ") + " " + url + " #페미위키";
+      mw.config.get("wgPageName").replace(/_/g, " ") +
+      " " +
+      url +
+      " #" +
+      mw.config.get("wgSiteName");
 
     this.twitterButton.setHref(
       "https://twitter.com/intent/tweet?text=" + encodeURIComponent(tweet)
