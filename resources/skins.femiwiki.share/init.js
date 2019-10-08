@@ -25,10 +25,10 @@
               appId: facebookAppId,
               autoLogAppEvents: true,
               xfbml: true,
-              version: "v2.10"
+              version: "v4.0"
             });
-            FB.AppEvents.logPageView();
           };
+          // below snippet is from https://developers.facebook.com/docs/php/howto/example_access_token_from_javascript
           (function(d, s, id) {
             var js,
               fjs = d.getElementsByTagName(s)[0];
@@ -37,7 +37,7 @@
             }
             js = d.createElement(s);
             js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
           })(document, "script", "facebook-jssdk");
         }
