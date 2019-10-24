@@ -1,12 +1,14 @@
 {
-  "@metadata": {
-    "authors": ["..."]
-  },
-  "skinname-femiwiki": "{{optional}}",
-  "femiwiki-desc": "{{desc|what=skin|name=Femiwiki|url=https://www.mediawiki.org/wiki/Skin:Femiwiki}}",
-  "skin-femiwiki-page-menu-tooltip": "Tooltip for button used to expand/collapse menu of a page",
-  "skin-femiwiki-share-tooltip": "Tooltip for button to share a article",
-  "skin-femiwiki-share-dismiss": "Label for share dialog dismiss button",
-  "skin-femiwiki-share-facebook": "Label for button that posts to Facebook",
-  "skin-femiwiki-share-twitter": "Label for button that posts to Twitter"
+	"@metadata": {
+		"authors": [
+			"..."
+		]
+	},
+	"skinname-femiwiki": "{{optional}}",
+	"femiwiki-desc": "{{desc|what=skin|name=Femiwiki|url=https://www.mediawiki.org/wiki/Skin:Femiwiki}}",
+	"skin-femiwiki-page-menu-tooltip": "Tooltip for button used to expand/collapse menu of a page",
+	"skin-femiwiki-share-tooltip": "Tooltip for button to share a article",
+	"skin-femiwiki-share-dismiss": "Label for share dialog dismiss button",
+	"skin-femiwiki-share-facebook": "Label for button that posts to Facebook",
+	"skin-femiwiki-share-twitter": "Label for button that posts to Twitter"
 }
