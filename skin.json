@@ -91,6 +91,7 @@
   "config": {
     "FemiwikiFirebaseKey": "",
     "FemiwikiFacebookAppId": "",
+    "FemiwikiTwitterAccount": false,
     "FemiwikiHeadItems": false
   },
   "SkinOOUIThemes": {

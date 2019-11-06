@@ -15,13 +15,16 @@ class SkinFemiwiki extends SkinTemplate {
 	 * @param OutputPage $out
 	 */
 	public function initPage( OutputPage $out ) {
-		global $wgFemiwikiHeadItems;
+		global $wgFemiwikiHeadItems, $wgFemiwikiTwitterAccount;
 
 		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
 
 		// Twitter card
 		$out->addMeta( 'twitter:card', 'summary_large_image' );
-		$out->addMeta( 'twitter:site', '@femiwikidotcome' );
+
+		if ( $wgFemiwikiTwitterAccount ) {
+			$out->addMeta( 'twitter:site', "@$wgFemiwikiTwitterAccount" );
+		}
 
 		// Favicons
 		$out->addHeadItems( $wgFemiwikiHeadItems );
