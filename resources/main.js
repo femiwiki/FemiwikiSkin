@@ -78,7 +78,7 @@ $(function() {
     menuResize("fw-menu");
     $("#fw-menu-toggle .badge").removeClass("active");
   });
-  OO.ui.infuse("p-menu-toggle").on("click", function() {
+  OO.ui.infuse($("#p-menu-toggle")).on("click", function() {
     $("#p-actions-and-toolbox").toggle();
     menuResize("p-actions-and-toolbox");
   });

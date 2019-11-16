@@ -4,7 +4,7 @@
   function init() {
     var facebookAppId, firebaseKey, windowManager, shareDialog;
 
-    OO.ui.infuse("p-share").on("click", function() {
+    OO.ui.infuse($("#p-share")).on("click", function() {
       mw.loader.using(["skins.femiwiki.share.ui"]).done(function() {
         facebookAppId =
           facebookAppId || mw.config.get("wgFemiwikiFacebookAppId");
