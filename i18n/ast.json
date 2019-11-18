@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Piel Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menú",
+	"skin-femiwiki-share-tooltip": "Compartir esti artículu",
+	"skin-femiwiki-share-dismiss": "Descartar",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
+}
