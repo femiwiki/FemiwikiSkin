@@ -14,7 +14,7 @@
   }
 }
 
-#content li.ve-ce-branchNode > .ve-ce-paragraphNode {
+.mw-body li.ve-ce-branchNode > .ve-ce-paragraphNode {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -44,8 +44,8 @@
   /*
    * @See https://github.com/femiwiki/skin/issues/83
    */
-  #content .flow-post-content pre:not(.CodeMirror-line),
-  #content .flow-post-content blockquote {
+  .mw-body .flow-post-content pre:not(.CodeMirror-line),
+  .mw-body .flow-post-content blockquote {
     width: 100%;
     margin-left: 0;
   }
@@ -54,7 +54,7 @@
 /* Do not make the layout more compact on Talk (ns-1) and User_Talk (ns-3) */
 body.ns-1,
 body.ns-3 {
-  div#content.mw-body {
+  div.mw-body {
     margin-right: auto;
     padding: 0 1.3rem;
   }
@@ -63,7 +63,7 @@ body.ns-3 {
 @media screen and (max-width: 360px) {
   body.ns-1,
   body.ns-3 {
-    div#content.mw-body {
+    div.mw-body {
       padding-left: 0.85rem;
       padding-right: 0.85rem;
     }

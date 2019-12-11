@@ -278,7 +278,7 @@ button {
 }
 
 /* Content */
-#content {
+.mw-body {
   box-sizing: border-box;
   position: relative;
   padding: 0 1.3rem 1.2rem;
@@ -489,7 +489,7 @@ html[lang="ko"] #p-header #p-namespaces a:after {
 }
 
 /* Table of contents */
-#content .mw-parser-output {
+.mw-body .mw-parser-output {
   .toc {
     margin: 3.2rem 0;
     padding: 0;
@@ -843,7 +843,7 @@ ul#preftoc {
  * Search
  * @See https://github.com/femiwiki/mediawiki/issues/131
  */
-#content #mw-search-top-table {
+.mw-body #mw-search-top-table {
   #searchText {
     input {
       box-sizing: border-box;
@@ -898,7 +898,7 @@ body.action-edit {
     display: none;
   }
 
-  #content {
+  .mw-body {
     .mw-editsection {
       display: none;
     }
@@ -910,7 +910,7 @@ body.action-edit {
   }
 }
 
-body.action-submit #content .fw-catlinks {
+body.action-submit .mw-body .fw-catlinks {
   display: block;
 }
 
@@ -937,7 +937,7 @@ html.ve-deactivating {
     display: none;
   }
 
-  #content {
+  .mw-body {
     .mw-editsection {
       display: none;
     }
