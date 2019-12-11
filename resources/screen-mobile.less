@@ -1,16 +1,16 @@
 @import "variables.less";
 
+.mw-parser-output pre:not(.CodeMirror-line),
+.mw-parser-output blockquote,
+.mw-changeslist div:not(.mw-changeslist-links),
+.mw-changeslist ul {
+  box-sizing: border-box;
+  width: ~"calc(100% + 2.6rem)";
+  margin-left: -1.3rem;
+}
+
 /* Content */
 #content {
-  pre:not(.CodeMirror-line),
-  blockquote,
-  .mw-changeslist div:not(.mw-changeslist-links),
-  .mw-changeslist ul {
-    box-sizing: border-box;
-    width: ~"calc(100% + 2.6rem)";
-    margin-left: -1.3rem;
-  }
-
   .thumb {
     float: none;
     margin: 1rem auto;
