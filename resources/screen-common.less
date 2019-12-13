@@ -202,18 +202,6 @@ button {
       }
     }
 
-    h1.firstHeading {
-      font-size: 1.714rem;
-      margin-bottom: 0;
-      display: inline-block;
-      margin-top: 0;
-      line-height: 1.2em;
-      border-bottom: none;
-      padding: 0;
-      color: #252525;
-      font-weight: bold;
-    }
-
     #p-title-buttons {
       float: right;
       margin: 0;
@@ -277,8 +265,23 @@ button {
   }
 }
 
-/* Content */
-.mw-body {
+/* firstHeading and its preivew output of VisualEditor*/
+#p-header #p-title-and-tb h1.firstHeading,
+.oo-ui-window .mw-body-content h1.firstHeading {
+  font-size: 1.714rem;
+  margin-bottom: 0;
+  display: inline-block;
+  margin-top: 0;
+  line-height: 1.2em;
+  border-bottom: none;
+  padding: 0;
+  color: #252525;
+  font-weight: bold;
+}
+
+/* Content and preview output of Visualeditor*/
+.mw-body,
+.oo-ui-window .mw-body-content {
   box-sizing: border-box;
   position: relative;
   padding: 0 1.3rem 1.2rem;
@@ -960,11 +963,5 @@ html.ve-deactivating {
 
   .oo-ui-toolbar {
     font-size: 12px;
-  }
-
-  /* Preview output of Visual editor*/
-  .oo-ui-windowManager .mw-body-content.mw-parser-output {
-    max-width: 50rem;
-    margin: auto;
   }
 }
