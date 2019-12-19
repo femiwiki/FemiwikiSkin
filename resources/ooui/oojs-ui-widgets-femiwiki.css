@@ -1,12 +1,12 @@
 /*!
- * OOUI v0.30.2
+ * OOUI v0.34.1
  * https://www.mediawiki.org/wiki/OOUI
  *
  * Copyright 2011–2019 OOUI Team and other contributors.
  * Released under the MIT license
  * http://oojs.mit-license.org
  *
- * Date: 2019-01-24T00:02:49Z
+ * Date: 2019-12-19T11:29:39Z
  */
 .oo-ui-draggableElement-handle:not( .oo-ui-draggableElement-undraggable ).oo-ui-widget {
   cursor: move;
@@ -401,73 +401,13 @@
   background-color: #fff;
 }
 
-.oo-ui-selectFileWidget {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
-  max-width: 50em;
-  margin-right: 0.5em;
-}
-.oo-ui-selectFileWidget-selectButton {
-  display: table-cell;
-}
-.oo-ui-selectFileWidget-selectButton > .oo-ui-buttonElement-button {
-  position: relative;
-  overflow: hidden;
-}
-.oo-ui-selectFileWidget-selectButton > .oo-ui-buttonElement-button > [type='file'] {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  z-index: 1;
-  cursor: pointer;
-  padding-top: 100px;
-}
-.oo-ui-selectFileWidget-selectButton.oo-ui-widget-disabled > .oo-ui-buttonElement-button > [type='file'] {
-  display: none;
-}
-.oo-ui-selectFileWidget-info {
-  width: 100%;
-  display: table-cell;
-  vertical-align: middle;
-  position: relative;
-  overflow: hidden;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.oo-ui-widget-disabled .oo-ui-selectFileWidget-info {
-  cursor: default;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.oo-ui-selectFileWidget-label {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-overflow: ellipsis;
-}
-.oo-ui-selectFileWidget-clearButton {
-  position: absolute;
-  z-index: 2;
-}
 .oo-ui-selectFileWidget-dropTarget {
   position: relative;
   cursor: default;
   height: 8.815em;
 }
 .oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-dropLabel,
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-selectButton {
+.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-selectButton {
   display: none;
 }
 .oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-thumbnail {
@@ -480,145 +420,58 @@
   background-repeat: no-repeat;
   background-size: contain;
 }
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-thumbnail.oo-ui-pendingElement-pending {
-  background-repeat: repeat;
-  background-size: auto;
-}
 .oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-thumbnail > .oo-ui-selectFileWidget-noThumbnail-icon {
   opacity: 0.4;
   height: 7.815em;
   width: 7.815em;
 }
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-info {
+.oo-ui-selectFileWidget-dropTarget .oo-ui-pendingElement-pending {
+  background-repeat: repeat;
+}
+.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-info {
   display: block;
   height: 100%;
   width: auto;
   margin-left: 8.815em;
-  border: 0;
+  margin-right: 0;
 }
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-label {
+.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-label {
   display: block;
   position: relative;
   top: inherit;
 }
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-fileName {
+.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-fileName {
   display: block;
 }
-.oo-ui-selectFileWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-thumbnail,
-.oo-ui-selectFileWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-info {
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-selectFileWidget-dropTarget {
+  text-align: center;
+}
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-thumbnail,
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-info {
   display: none;
 }
-.oo-ui-selectFileWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-selectButton {
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileInputWidget-selectButton {
   display: block;
   margin: 2.2em 1em 1em;
 }
-.oo-ui-selectFileWidget-empty.oo-ui-selectFileWidget-dropTarget,
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget {
-  text-align: center;
-}
-.oo-ui-selectFileWidget-empty.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-info,
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-info {
-  margin: 0;
-}
-.oo-ui-selectFileWidget-empty .oo-ui-selectFileWidget-clearButton,
-.oo-ui-selectFileWidget-notsupported .oo-ui-selectFileWidget-clearButton {
-  display: none;
-}
-.oo-ui-selectFileWidget-empty.oo-ui-widget-enabled .oo-ui-selectFileWidget-label {
-  cursor: default;
-}
-.oo-ui-selectFileWidget-empty.oo-ui-widget-enabled .oo-ui-selectFileWidget-dropLabel {
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-enabled .oo-ui-selectFileWidget-dropLabel {
   display: block;
 }
-.oo-ui-selectFileWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget,
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget {
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-.oo-ui-selectFileWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget,
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget,
-.oo-ui-selectFileWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button,
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button {
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget,
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget .oo-ui-buttonElement-button {
   cursor: no-drop;
-}
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget {
-  height: auto;
-}
-.oo-ui-selectFileWidget:last-child {
-  margin-right: 0;
-}
-.oo-ui-selectFileWidget-selectButton > .oo-ui-buttonElement-button {
-  border-radius: 0 0 0 0;
-}
-.oo-ui-selectFileWidget-info {
-  background-color: #fff;
-  border: 1px solid #a2a9b1;
-  border-radius: 0 0 0 0;
-  border-right-width: 0;
-}
-.oo-ui-selectFileWidget-info > .oo-ui-iconElement-icon {
-  top: -1px;
-  left: 0.57142857em;
-  min-height: 2.28571429em;
-  margin-left: -1px;
-}
-.oo-ui-selectFileWidget-info > .oo-ui-indicatorElement-indicator {
-  top: -1px;
-  right: 0.85714286em;
-  min-height: 2.28571429em;
-}
-.oo-ui-selectFileWidget-label {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: block;
-  right: 2.85714286em;
-  padding-top: 0.57142857em;
-  padding-left: 0.57142857em;
-  padding-bottom: 0.5em;
-  white-space: nowrap;
-}
-.oo-ui-selectFileWidget.oo-ui-labelElement .oo-ui-selectFileWidget-label {
-  line-height: 1.07142857em;
-}
-.oo-ui-selectFileWidget-fileName {
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.oo-ui-selectFileWidget-clearButton {
-  top: 0;
-  right: 0;
-  margin-right: 0;
-  padding-left: 0;
-}
-.oo-ui-selectFileWidget-clearButton > .oo-ui-buttonElement-button {
-  padding-top: 2em;
-}
-.oo-ui-selectFileWidget-clearButton .oo-ui-iconElement-icon {
-  background-position: center center;
-  background-size: 12px 12px;
-  height: 2em;
-}
-.oo-ui-selectFileWidget-empty .oo-ui-selectFileWidget-label {
-  color: #72777d;
-}
-.oo-ui-selectFileWidget.oo-ui-iconElement .oo-ui-selectFileWidget-label {
-  left: 2.64285714em;
-}
-.oo-ui-selectFileWidget.oo-ui-indicatorElement .oo-ui-selectFileWidget-label {
-  right: 4.57142857em;
-  padding-left: 0;
-}
-.oo-ui-selectFileWidget.oo-ui-indicatorElement .oo-ui-selectFileWidget-clearButton {
-  right: 2.28571429em;
-}
-.oo-ui-selectFileWidget-empty.oo-ui-indicatorElement .oo-ui-selectFileWidget-label,
-.oo-ui-selectFileWidget-notsupported.oo-ui-indicatorElement .oo-ui-selectFileWidget-label {
-  right: 2em;
 }
 .oo-ui-selectFileWidget-dropTarget {
   background-color: #fff;
@@ -627,67 +480,39 @@
   vertical-align: middle;
   overflow: hidden;
 }
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-selectButton > .oo-ui-buttonElement-button {
-  border-radius: 0;
-}
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-label {
-  overflow: inherit;
-  white-space: normal;
-}
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-fileName {
-  padding-right: 2.64285714em;
-}
-.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-clearButton {
-  top: 0;
-}
-.oo-ui-selectFileWidget-empty.oo-ui-widget-enabled.oo-ui-selectFileWidget-dropTarget {
-  background-color: #fff;
+.oo-ui-selectFileWidget-dropTarget.oo-ui-selectFileInputWidget-empty {
   border-style: dashed;
+}
+.oo-ui-selectFileWidget-dropTarget .oo-ui-pendingElement-pending {
+  background-size: 1.42857143em 1.42857143em;
+}
+.oo-ui-selectFileWidget-buttonOnly {
+  width: auto;
+  max-width: none;
+}
+.oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-dropTarget {
+  background-color: #fff;
   -webkit-transition: background-color 250ms, color 250ms, border-color 250ms;
   -moz-transition: background-color 250ms, color 250ms, border-color 250ms;
   transition: background-color 250ms, color 250ms, border-color 250ms;
 }
-.oo-ui-selectFileWidget-empty.oo-ui-widget-enabled.oo-ui-selectFileWidget-dropTarget:hover {
+.oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-dropTarget:hover {
   border-color: #72777d;
 }
-.oo-ui-selectFileWidget-supported.oo-ui-widget-enabled.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget {
+.oo-ui-selectFileWidget.oo-ui-widget-enabled .oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
+  -webkit-transition: background-color 250ms, color 250ms;
+  -moz-transition: background-color 250ms, color 250ms;
+  transition: background-color 250ms, color 250ms;
+}
+.oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-canDrop.oo-ui-selectFileWidget-dropTarget,
+.oo-ui-selectFileWidget.oo-ui-widget-enabled.oo-ui-selectFileWidget-canDrop .oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
   background-color: #746ccb;
   color: #aca6e4;
 }
-.oo-ui-selectFileWidget.oo-ui-widget-disabled .oo-ui-selectFileWidget-info,
-.oo-ui-selectFileWidget-empty.oo-ui-widget-disabled .oo-ui-selectFileWidget-info {
-  background-color: #eaecf0;
-  color: #72777d;
-  border-color: #c8ccd1;
-  text-shadow: 0 1px 1px #fff;
-}
-.oo-ui-selectFileWidget.oo-ui-widget-disabled .oo-ui-selectFileWidget-info > .oo-ui-iconElement-icon,
-.oo-ui-selectFileWidget-empty.oo-ui-widget-disabled .oo-ui-selectFileWidget-info > .oo-ui-iconElement-icon {
-  opacity: 0.51;
-}
-.oo-ui-selectFileWidget.oo-ui-widget-disabled .oo-ui-selectFileWidget-info > .oo-ui-indicatorElement-indicator,
-.oo-ui-selectFileWidget-empty.oo-ui-widget-disabled .oo-ui-selectFileWidget-info > .oo-ui-indicatorElement-indicator {
-  opacity: 0.15;
-}
 .oo-ui-selectFileWidget.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget,
-.oo-ui-selectFileWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget {
+.oo-ui-selectFileWidget.oo-ui-selectFileInputWidget-empty.oo-ui-widget-disabled.oo-ui-selectFileWidget-dropTarget {
   background-color: #eaecf0;
   border-color: #c8ccd1;
-}
-.oo-ui-selectFileWidget-notsupported .oo-ui-selectFileWidget-info {
-  background-color: #eaecf0;
-  color: #222;
-  border-color: #c8ccd1;
-}
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget {
-  background-color: #eaecf0;
-  border-color: #c8ccd1;
-}
-.oo-ui-selectFileWidget-notsupported.oo-ui-selectFileWidget-dropTarget .oo-ui-selectFileWidget-label {
-  padding: 1em 0.85714286em;
-}
-.oo-ui-widget-disabled .oo-ui-selectFileWidget-dropLabel {
-  display: none;
 }
 
 .oo-ui-outlineSelectWidget {
@@ -703,7 +528,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding: 1em 0.85714286em 0.92857143em;
+  padding: 0.85714286em 0.85714286em;
   -webkit-transition: background-color 100ms, color 100ms;
   -moz-transition: background-color 100ms, color 100ms;
   transition: background-color 100ms, color 100ms;
@@ -779,8 +604,42 @@
   text-align: left;
   overflow-x: auto;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: auto;
+}
+.oo-ui-tabSelectWidget-mobile {
+  white-space: nowrap;
+}
+.oo-ui-tabSelectWidget-framed {
   background-color: #eaecf0;
+}
+.oo-ui-tabSelectWidget-frameless {
+  box-shadow: inset 0 -1px 0 0 #a2a9b1;
+}
+.oo-ui-tabSelectWidget-mobile:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 1.28571429em;
+  height: 2.28571429em;
+  pointer-events: none;
+}
+.oo-ui-tabSelectWidget-mobile.oo-ui-tabSelectWidget-framed:after {
+  background-color: #eaecf0;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(234, 236, 240, 0)), color-stop(100%, #eaecf0));
+  background-image: -webkit-linear-gradient(left, rgba(234, 236, 240, 0) 0, #eaecf0 100%);
+  background-image: -moz-linear-gradient(left, rgba(234, 236, 240, 0) 0, #eaecf0 100%);
+  background-image: linear-gradient(to right, rgba(234, 236, 240, 0) 0, #eaecf0 100%);
+  background-color: transparent;
+}
+.oo-ui-tabSelectWidget-mobile.oo-ui-tabSelectWidget-frameless:after {
+  background-color: #ffffff;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(255, 255, 255, 0)), color-stop(100%, #fff));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0, #fff 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
+  background-color: transparent;
+  bottom: 0.14285714em;
 }
 .oo-ui-tabSelectWidget.oo-ui-widget-enabled:focus {
   outline: 0;
@@ -794,12 +653,9 @@
   vertical-align: bottom;
   color: #444;
   margin: 0.42857143em 0 0 0.42857143em;
+  padding: 0 0.57142857em;
   border-color: transparent;
   border-style: solid;
-  border-width: 1px 1px 0 1px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  padding: 0 0.57142857em;
   font-weight: bold;
   line-height: 1;
   -webkit-transition: background-color 100ms, color 100ms, border-color 100ms;
@@ -807,34 +663,71 @@
   transition: background-color 100ms, color 100ms, border-color 100ms;
 }
 .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
-  background-color: #fff;
-  color: #000;
   cursor: default;
 }
-.oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
-  border-bottom-color: #fff;
-}
 .oo-ui-tabOptionWidget .oo-ui-labelElement-label {
+  padding: 0.42857143em 0.35714286em;
+  line-height: 1.28571429em;
+}
+.oo-ui-tabSelectWidget-mobile .oo-ui-tabOptionWidget:last-child {
+  margin-right: 1.28571429em;
+}
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget {
+  border-width: 1px 1px 0 1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget .oo-ui-labelElement-label {
   border-bottom: 2px solid transparent;
-  padding: 0.57142857em 0.35714286em 0.35714286em;
-  line-height: 1.07142857em;
+  padding: 0.42857143em 0.35714286em 0.28571429em;
   -webkit-transition: border-color 100ms;
   -moz-transition: border-color 100ms;
   transition: border-color 100ms;
 }
-.oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover {
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
+  background-color: #fff;
+  color: #000;
+}
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
+  border-bottom-color: #fff;
+}
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover {
   background-color: rgba(255, 255, 255, 0.3);
   color: #222;
 }
-.oo-ui-tabOptionWidget.oo-ui-widget-enabled:active {
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled:active {
   background-color: rgba(255, 255, 255, 0.8);
   color: #000;
 }
-.oo-ui-tabOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-selected:hover {
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-selected:hover {
   background-color: #fff;
 }
-.oo-ui-tabSelectWidget.oo-ui-widget-enabled:focus .oo-ui-tabOptionWidget.oo-ui-widget-enabled.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
+.oo-ui-tabSelectWidget-framed.oo-ui-widget-enabled:focus .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
   border-bottom-color: #aca6e4;
+}
+.oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget {
+  margin: 0.42857143em 0.42857143em -1px 0;
+  border-width: 1px 0;
+  box-shadow: inset 0 0 0 0 #aca6e4;
+  -webkit-transition: color 100ms, box-shadow 100ms;
+  -moz-transition: color 100ms, box-shadow 100ms;
+  transition: color 100ms, box-shadow 100ms;
+}
+.oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
+  color: #aca6e4;
+  box-shadow: inset 0 -2px 0 0 #aca6e4;
+}
+.oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover {
+  color: #aca6e4;
+  box-shadow: inset 0 -2px 0 0 #aca6e4;
+}
+.oo-ui-tabSelectWidget-frameless .oo-ui-tabOptionWidget.oo-ui-widget-enabled:active {
+  color: #746ccb;
+  box-shadow: inset 0 -2px 0 0 #746ccb;
+}
+.oo-ui-tabSelectWidget-frameless.oo-ui-widget-enabled:focus .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
+  border-radius: 0;
+  box-shadow: inset 0 0 0 2px #aca6e4;
 }
 
 .oo-ui-tagMultiselectWidget {
@@ -895,11 +788,15 @@
 .oo-ui-tagMultiselectWidget-handle > .oo-ui-tagMultiselectWidget-content > input {
   background-color: transparent;
   color: #000;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 2.14285714em;
   border: 0;
-  padding: 0.57142857em 0 0.5em 0.57142857em;
+  padding: 0.42857143em 0 0.42857143em 0.57142857em;
   font-family: inherit;
   font-size: inherit;
-  line-height: 1.07142857em;
+  line-height: 1.28571429em;
   vertical-align: top;
 }
 .oo-ui-tagMultiselectWidget-handle > .oo-ui-tagMultiselectWidget-content > input::-webkit-input-placeholder {
@@ -1014,7 +911,7 @@
   border: 1px solid #a2a9b1;
   border-radius: 1.57142857em;
   padding: 0 0.57142857em;
-  line-height: 1.57142857em;
+  line-height: 1.42857143em;
   vertical-align: middle;
 }
 .oo-ui-tagItemWidget.oo-ui-labelElement .oo-ui-labelElement-label {
@@ -1082,7 +979,7 @@
   background-color: #c8ccd1;
 }
 .oo-ui-tagItemWidget.oo-ui-widget-enabled .oo-ui-buttonElement-button .oo-ui-icon-close {
-  left: 0.28571429em;
+  left: 0.21428571em;
   min-width: 14px;
   width: 1em;
 }
