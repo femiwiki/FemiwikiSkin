@@ -226,22 +226,17 @@
   }
 
   .mw-echo-notifications-badge {
-    position: auto;
     width: auto;
     height: auto;
     margin: auto;
     top: auto;
     cursor: pointer;
     line-height: unset;
+    /* Disable background icon and counter */
+    background: none;
 
     &.mw-echo-notifications-badge-all-read {
       opacity: unset;
-    }
-
-    /* Disable background icon and counter */
-    &:before,
-    &:after {
-      content: none;
     }
   }
 

@@ -32,7 +32,8 @@ class SkinFemiwiki extends SkinTemplate {
 		$out->addModuleStyles( [
 			'mediawiki.skinning.interface',
 			'mediawiki.skinning.content.externallinks',
-			'skins.femiwiki'
+			'skins.femiwiki',
+			'oojs-ui.styles.icons-interactions'
 		] );
 
 		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class

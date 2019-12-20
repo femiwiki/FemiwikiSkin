@@ -97,7 +97,7 @@ class FemiwikiTemplate extends BaseTemplate {
 				$titleButtons = [];
 
 				if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
-					$titleButtons[] = new OOUI\ButtonWidget( [
+					$titleButtons[] = new \OOUI\ButtonWidget( [
 						'id' => 'p-share',
 						'infusable' => true,
 						# icon is used as a dummy
@@ -107,7 +107,7 @@ class FemiwikiTemplate extends BaseTemplate {
 						'invisibleLabel' => true
 					] );
 				}
-				$titleButtons[] = new OOUI\ButtonWidget( [
+				$titleButtons[] = new \OOUI\ButtonWidget( [
 					'id' => 'p-menu-toggle',
 					'infusable' => true,
 					'icon' => 'ellipsis',
@@ -116,7 +116,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					'invisibleLabel' => true
 				] );
 
-				echo ( new OOUI\ButtonGroupWidget(
+				echo ( new \OOUI\ButtonGroupWidget(
 					[
 						'id' => 'p-title-buttons',
 						'items' => $titleButtons
