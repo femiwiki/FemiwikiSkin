@@ -18,6 +18,10 @@ body {
   padding: 0;
   color: #252525;
   line-height: 1.7;
+
+  /* Word breaks shouldn't be used for CJK text */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 :focus {

@@ -1,5 +1,11 @@
 /* Styles for print view and printing */
 
+body {
+  /* Word breaks shouldn't be used for CJK text */
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 .nav-bar,
 #fw-menu,
 #p-navigation-and-watch,
