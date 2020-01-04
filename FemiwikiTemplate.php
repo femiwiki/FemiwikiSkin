@@ -34,8 +34,8 @@ class FemiwikiTemplate extends BaseTemplate {
 					</button>
 
 					<ul id="site-navigation">
-						<li class="changes"><a href="/w/Special:RecentChanges" title="<?php echo $this->getMsg( 'tooltip-n-recentchanges' )->text() ?>"><span class="text"><?php echo $this->getMsg( 'recentchanges' )->text() ?></span></a></li>
-						<li class="random"><a href="/w/Special:RandomPage" title="<?php echo $this->getMsg( 'tooltip-n-randompage' )->text() ?>"><span class="text"><?php echo $this->getMsg( 'randompage' )->text() ?></span></a></li>
+						<li class="changes"><a href="/w/Special:RecentChanges" title="<?=$this->getMsg( 'tooltip-n-recentchanges' )->text() ?>"><span class="text"><?php echo $this->getMsg( 'recentchanges' )->text() ?></span></a></li>
+						<li class="random"><a href="/w/Special:RandomPage" title="<?=$this->getMsg( 'tooltip-n-randompage' )->text() ?>"><span class="text"><?php echo $this->getMsg( 'randompage' )->text() ?></span></a></li>
 					</ul>
 
 					<?php
