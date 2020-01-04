@@ -2,6 +2,7 @@
 <ruleset name="MediaWiki">
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Generic.Files.LineLength.TooLong"/>
+		<exclude name="Generic.PHP.DisallowShortOpenTag"/>
 	</rule>
 	<file>.</file>
 	<arg name="encoding" value="UTF-8"/>
