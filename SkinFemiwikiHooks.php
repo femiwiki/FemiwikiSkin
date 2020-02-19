@@ -67,7 +67,7 @@ class SkinFemiwikiHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
-		if ( !$sk instanceof SkinFemiwiki ) {
+		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
 
