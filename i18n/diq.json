@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Mirzali",
-			"Orbot707"
+			"Orbot707",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
 	"femiwiki-desc": "Asayışê Femiwiki",
 	"skin-femiwiki-page-menu-tooltip": "Menu",
+	"skin-femiwiki-share-tooltip": "Enê meqaley bıvılaynê",
 	"skin-femiwiki-share-dismiss": "Red ke",
 	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter"
