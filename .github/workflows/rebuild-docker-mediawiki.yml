@@ -1,4 +1,4 @@
-name: Rebuild Docker-MediaWiki
+name: Submit a PR to docker-mediawiki repository
 
 on:
   push:
@@ -21,7 +21,6 @@ jobs:
               "event_type": "bump-extension",
               "client_payload": {
                 "extension": "Femiwiki",
-                "version": "${{ github.sha }}",
-                "commits_url": "https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+                "version": "${{ github.sha }}"
               }
             }'
