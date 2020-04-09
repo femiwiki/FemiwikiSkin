@@ -1,5 +1,7 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": []
+	},
 	"femiwiki-desc": "Femiwiki tema",
 	"skin-femiwiki-page-menu-tooltip": "Meni",
 	"skin-femiwiki-share-tooltip": "Podeli ovaj članak",
