@@ -6,255 +6,74 @@
  * @ingroup Skins
  */
 class FemiwikiTemplate extends BaseTemplate {
+
+	/** @var TemplateParser */
+	private $templateParser;
+
+	/**
+	 * @param Config|null $config
+	 */
+	public function __construct( Config $config = null ) {
+		parent::__construct( $config );
+		$this->templateParser = new TemplateParser( __DIR__ . '/templates' );
+	}
+
 	/**
 	 * Outputs the entire contents of the page
 	 */
 	public function execute() {
 		$this->html( 'headelement' );
-		?>
 
-		<div id="mw-wrapper">
-			<div class="nav-bar">
-				<div id="mw-navigation">
-					<h1 id="p-logo">
-						<a href="/" class="mw-wiki-logo"><img src="/skins/Femiwiki/images/logo-long.png" alt="Femiwiki"></a>
-					</h1>
+		echo Html::openElement(
+			'div',
+			[ 'id' => 'mw-wrapper' ]
+		);
 
-					<?php
-					echo Html::rawElement(
-						'h2',
-						[],
-						$this->getMsg( 'navigation-heading' )->parse()
-					);
-					?>
+		echo $this->templateParser->processTemplate( 'NavigationBar', [
+			'navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
+			'tooltip-n-recentchanges' => $this->getMsg( 'tooltip-n-recentchanges' )->text(),
+			'recentchanges-label' => $this->getMsg( 'recentchanges' )->text(),
+			'tooltip-n-randompage' => $this->getMsg( 'tooltip-n-randompage' )->text(),
+			'randompage-label' => $this->getMsg( 'randompage' )->text(),
+			'search' => $this->getSearch()
+		] );
 
-					<button id="fw-menu-toggle">
-						<span class="icon"></span>
-						<span class="badge"></span>
-					</button>
+		echo Html::openElement(
+			'div',
+			[ 'id' => 'fw-menu' ]
+		);
+		// User profile links
+		echo $this->getUserLinks();
+		echo $this->getPortals( $this->data['sidebar'] );
+		echo Html::closeElement( 'div' );
 
-					<ul id="site-navigation">
-						<li class="changes"><a href="/w/Special:RecentChanges" title="<?=$this->getMsg( 'tooltip-n-recentchanges' )->text() ?>"><span class="text"><?php echo $this->getMsg( 'recentchanges' )->text() ?></span></a></li>
-						<li class="random"><a href="/w/Special:RandomPage" title="<?=$this->getMsg( 'tooltip-n-randompage' )->text() ?>"><span class="text"><?php echo $this->getMsg( 'randompage' )->text() ?></span></a></li>
-					</ul>
+		$this->renderHeader();
 
-					<?php
-					echo $this->getSearch();
-					?>
-				</div>
-			</div>
+		$contentProps = [
+			'subtitle' => '',
+			'undelete' => $this->get( 'undelete' ),
+			'bodycontent' => $this->get( 'bodycontent' ),
+			'printfooter' => $this->get( 'printfooter' ),
+			'catlinks' => $this->get( 'catlinks' ),
+			'data-after-content' => $this->get( 'dataAfterContent' ),
+		];
 
-			<div id="fw-menu">
-				<?php
-				// User profile links
-				echo $this->getUserLinks();
-				$this->renderPortals( $this->data['sidebar'] );
-				?>
-			</div>
-
-			<?php
-
-			echo Html::openElement(
-				'div',
-				[ 'id' => 'p-header' ]
+		if ( $this->data['subtitle'] ) {
+			$contentProps['subtitle'] = Html::rawelement(
+				'p',
+				[],
+				$this->get( 'subtitle' )
 			);
-				if ( $this->data['sitenotice'] ) {
-					echo Html::rawElement(
-						'div',
-						[ 'id' => 'siteNotice' ],
-						$this->get( 'sitenotice' )
-					);
-				}
-				if ( $this->data['newtalk'] ) {
-					echo Html::rawElement(
-						'div',
-						[ 'class' => 'usermessage' ],
-						$this->get( 'newtalk' )
-					);
-				}
-				// echo $this->getIndicators();
-				echo $this->getPortlet( [
-					'id' => 'p-namespaces',
-					'headerMessage' => 'namespaces',
-					'content' => $this->data['content_navigation']['namespaces'],
-				] );
-				echo $this->getWatch();
+		}
 
-				echo Html::openElement(
-					'div',
-					[ 'id' => 'p-title-and-tb' ]
-				);
-				echo Html::rawElement(
-					'h1',
-					[
-						'class' => 'firstHeading',
-						'lang' => $this->get( 'pageLanguage' )
-					],
-					$this->get( 'title' )
-				);
+		echo $this->templateParser->processTemplate( 'Content', $contentProps );
 
-				// Make title buttons
-				$titleButtons = [];
+		$this->renderFooter();
 
-				if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
-					$titleButtons[] = new \OOUI\ButtonWidget( [
-						'id' => 'p-share',
-						'infusable' => true,
-						# icon is used as a dummy
-						'icon' => 'browser',
-						'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
-						'framed' => false,
-						'invisibleLabel' => true
-					] );
-				}
-				$titleButtons[] = new \OOUI\ButtonWidget( [
-					'id' => 'p-menu-toggle',
-					'infusable' => true,
-					'icon' => 'ellipsis',
-					'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
-					'framed' => false,
-					'invisibleLabel' => true
-				] );
+		echo Html::closeElement( 'div' );
 
-				echo ( new \OOUI\ButtonGroupWidget(
-					[
-						'id' => 'p-title-buttons',
-						'items' => $titleButtons
-					]
-				) );
-
-				echo Html::openElement(
-					'div',
-					[ 'id' => 'p-actions-and-toolbox' ]
-				);
-				echo $this->renderPortal( 'page-tb', $this->getToolbox(), 'toolbox' );
-				echo $this->getPortlet( [
-					'id' => 'p-actions',
-					'headerMessage' => 'actions',
-					'content' => $this->data['content_navigation']['actions'],
-				] );
-
-				echo Html::closeElement( 'div' );
-				echo Html::closeElement( 'div' );
-				echo Html::openElement(
-					'div',
-					[ 'id' => 'lastmod-and-views' ]
-				);
-
-				if ( isset( $this->data['content_navigation']['views']['history']['href'] ) ) {
-					echo Html::rawElement(
-						'a',
-						[
-							'id' => 'lastmod',
-							'href' => $this->data['content_navigation']['views']['history']['href']
-						],
-						$this->get( 'lastmod' )
-					);
-				}
-
-				echo $this->getPortlet( [
-					'id' => 'p-views',
-					'headerMessage' => 'views',
-					'content' => $this->data['content_navigation']['views'],
-				] );
-
-				echo Html::closeElement( 'div' );
-				echo Html::closeElement( 'div' );
-				?>
-			<div id="content" class="mw-body" role="main">
-				<div class="mw-body-content" id="bodyContent">
-					<?php
-					echo Html::openElement(
-						'div',
-						[ 'id' => 'contentSub' ]
-					);
-					if ( $this->data['subtitle'] ) {
-						echo Html::rawelement(
-							'p',
-							[],
-							$this->get( 'subtitle' )
-						);
-					}
-					echo Html::rawelement(
-						'p',
-						[],
-						$this->get( 'undelete' )
-					);
-					echo Html::closeElement( 'div' );
-
-					$this->html( 'bodycontent' );
-					$this->clear();
-					echo Html::rawElement(
-						'div',
-						[ 'class' => 'printfooter' ],
-						$this->get( 'printfooter' )
-					);
-					$this->html( 'catlinks' );
-					$this->html( 'dataAfterContent' );
-					?>
-				</div>
-			</div>
-			<hr id="content-end-bar" />
-
-			<div id="mw-footer" class="footer-content">
-
-				<ul id="fw-footer-menu"></ul>
-				<?php
-				echo Html::openElement(
-					'ul',
-					[
-						'id' => 'footer-icons',
-						'role' => 'contentinfo'
-					]
-				);
-				foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
-					echo Html::openElement(
-						'li',
-						[
-							'id' => 'footer-' . Sanitizer::escapeId( $blockName ) . 'ico'
-						]
-					);
-					foreach ( $footerIcons as $icon ) {
-						echo $this->getSkin()->makeFooterIcon( $icon );
-					}
-					echo Html::closeElement( 'li' );
-				}
-				echo Html::closeElement( 'ul' );
-
-				echo $this->renderPortal( 'lang', $this->data['language_urls'], 'otherlanguages' );
-
-				foreach ( $this->getFooterLinks() as $category => $links ) {
-					echo Html::openElement(
-						'ul',
-						[
-							'id' => 'footer-' . Sanitizer::escapeId( $category ),
-							'role' => 'contentinfo'
-						]
-					);
-					foreach ( $links as $key ) {
-						if ( $key === 'lastmod' ) { continue;
-						}
-						echo Html::rawElement(
-							'li',
-							[
-								'id' => 'footer-' . Sanitizer::escapeId( $category . '-' . $key )
-							],
-							$this->get( $key )
-						);
-					}
-					echo Html::closeElement( 'ul' );
-				}
-				$this->clear();
-				?>
-			</div>
-		</div>
-
-		<?php $this->printTrail() ?>
-
-		</body>
-		</html>
-
-		<?php
+		$this->printTrail();
+		echo '</body></html>';
 	}
 
 	/**
@@ -328,6 +147,9 @@ class FemiwikiTemplate extends BaseTemplate {
 		return $html;
 	}
 
+	/**
+	 * @return null|string
+	 */
 	private function getWatch() {
 		$nav = $this->data['content_navigation'];
 		$mode = $this->getSkin()->getUser()->isWatched( $this->getSkin()->getRelevantTitle() )
@@ -345,6 +167,7 @@ class FemiwikiTemplate extends BaseTemplate {
 
 			return Html::rawElement( 'span', $attrs, $this->makeLink( $mode, $item, [] ) );
 		}
+		return null;
 	}
 
 	/**
@@ -436,19 +259,13 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Outputs a css clear using the core visualClear class
-	 */
-	private function clear() {
-		echo '<div class="visualClear"></div>';
-	}
-
-	/**
-	 * Render a series of portals
+	 * Get a series of portals
 	 *
 	 * @param array $portals
+	 * @return string
 	 */
-	protected function renderPortals( $portals ) {
-		// Render portals
+	protected function getPortals( $portals ) {
+		$html = '';
 		foreach ( $portals as $name => $content ) {
 			if ( $content === false ) {
 				continue;
@@ -457,50 +274,190 @@ class FemiwikiTemplate extends BaseTemplate {
 			// Numeric strings gets an integer when set as key, cast back - T73639
 			$name = (string)$name;
 
-			$this->renderPortal( $name, $content );
+			$html .= $this->getPortal( $name, $content );
 		}
+
+		return $html;
+	}
+
+	/**
+	 * Render a header of a page
+	 * @return string
+	 */
+	protected function renderHeader() {
+		$props = [
+			'sitenotice' => '',
+			'newtalk' => '',
+			'namespaces' => $this->getPortlet( [
+				'id' => 'p-namespaces',
+				'headerMessage' => 'namespaces',
+				'content' => $this->data['content_navigation']['namespaces'],
+			] ),
+			'watch' => $this->getWatch(),
+			'language' => $this->get( 'pageLanguage' ),
+			'title' => $this->get( 'title' ),
+			'title-buttons' => '',
+			'toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
+			'actions' => $this->getPortlet( [
+				'id' => 'p-actions',
+				'headerMessage' => 'actions',
+				'content' => $this->data['content_navigation']['actions'],
+			] ),
+			'views' => $this->getPortlet( [
+				'id' => 'p-views',
+				'headerMessage' => 'views',
+				'content' => $this->data['content_navigation']['views'],
+			] )
+		];
+
+		if ( $this->data['sitenotice'] ) {
+			$props['sitenotice'] = Html::rawElement(
+				'div',
+				[ 'id' => 'siteNotice' ],
+				$this->get( 'sitenotice' )
+			);
+		}
+		if ( $this->data['newtalk'] ) {
+			$props['newtalk'] = Html::rawElement(
+				'div',
+				[ 'class' => 'usermessage' ],
+				$this->get( 'newtalk' )
+			);
+		}
+
+		// Make title buttons
+		$titleButtons = [];
+
+		if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
+			$titleButtons[] = new \OOUI\ButtonWidget( [
+				'id' => 'p-share',
+				'infusable' => true,
+				# icon is used as a dummy
+				'icon' => 'browser',
+				'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
+				'framed' => false,
+				'invisibleLabel' => true
+			] );
+		}
+		$titleButtons[] = new \OOUI\ButtonWidget( [
+			'id' => 'p-menu-toggle',
+			'infusable' => true,
+			'icon' => 'ellipsis',
+			'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
+			'framed' => false,
+			'invisibleLabel' => true
+		] );
+
+		$props['title-buttons'] = new \OOUI\ButtonGroupWidget(
+			[
+				'id' => 'p-title-buttons',
+				'items' => $titleButtons
+			]
+		);
+
+		if ( isset( $this->data['content_navigation']['views']['history']['href'] ) ) {
+			$props['lastmod'] = Html::rawElement(
+				'a',
+				[
+					'id' => 'lastmod',
+					'href' => $this->data['content_navigation']['views']['history']['href']
+				],
+				$this->get( 'lastmod' )
+			);
+		}
+
+		echo $this->templateParser->processTemplate( 'Header', $props );
+	}
+
+	/**
+	 * Render a foorter of a page
+	 * @return string
+	 */
+	protected function renderFooter() {
+		$props = [
+			'footer-icons' => '',
+			'language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
+			'footer-links' => '',
+		];
+
+		$props['foorter-icons'] = Html::openElement(
+			'ul',
+			[
+				'id' => 'footer-icons',
+				'role' => 'contentinfo'
+			]
+		);
+		foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
+			$props['foorter-icons'] .= Html::openElement(
+				'li',
+				[ 'id' => 'footer-' . Sanitizer::escapeId( $blockName ) . 'ico' ]
+			);
+			foreach ( $footerIcons as $icon ) {
+				$props['foorter-icons'] .= $this->getSkin()->makeFooterIcon( $icon );
+			}
+			$props['foorter-icons'] .= Html::closeElement( 'li' );
+		}
+		$props['foorter-icons'] .= Html::closeElement( 'ul' );
+
+		foreach ( $this->getFooterLinks() as $category => $links ) {
+			$props['footer-links'] .= Html::openElement(
+				'ul',
+				[
+					'id' => 'footer-' . Sanitizer::escapeId( $category ),
+					'role' => 'contentinfo'
+				]
+			);
+			foreach ( $links as $key ) {
+				if ( $key === 'lastmod' ) { continue;
+				}
+				$props['footer-links'] .= Html::rawElement(
+					'li',
+					[
+						'id' => 'footer-' . Sanitizer::escapeId( $category . '-' . $key )
+					],
+					$this->get( $key )
+				);
+			}
+			$props['footer-links'] .= Html::closeElement( 'ul' );
+		}
+
+		echo $this->templateParser->processTemplate( 'Footer', $props );
 	}
 
 	/**
 	 * @param string $name
 	 * @param array $content
 	 * @param null|string $msg
+	 * @return null|string
 	 */
-	protected function renderPortal( $name, $content, $msg = null ) {
+	protected function getPortal( $name, $content, $msg = null ) {
 		if ( $msg === null ) {
 			$msg = $name;
 		}
-		$msgObj = wfMessage( $msg );
-		$labelId = Sanitizer::escapeId( "p-$name-label" );
-		?><div class="portal" role="navigation" id='<?php
-		echo Sanitizer::escapeId( "p-$name" )
-		?>'<?php
-		echo Linker::tooltip( 'p-' . $name )
-		?> aria-labelledby='<?php echo $labelId ?>'>
-			<h3<?php $this->html( 'userlangattributes' ) ?> id='<?php echo $labelId ?>'><?php
-				echo htmlspecialchars( $msgObj->exists() ? $msgObj->text() : $msg );
-				?></h3>
 
-			<div class="body">
-				<?php
-				if ( is_array( $content ) ) {
-					?>
-					<ul>
-						<?php
-						foreach ( $content as $key => $val ) {
-							echo $this->makeListItem( $key, $val );
-						}
-						?>
-					</ul>
-					<?php
-				} else {
-					# Allow raw HTML block to be defined by extensions
-					echo $content;
-				}
+		$msgObj = $this->getMsg( $msg );
 
-				$this->renderAfterPortlet( $name );
-				?>
-			</div>
-		</div><?php
+		$props = [
+			'portal-id' => "p-$name",
+			'html-tooltip' => Linker::tooltip( 'p-' . $name ),
+			'msg-label' => $msgObj->exists() ? $msgObj->text() : $msg,
+			'msg-label-id' => "p-$name-label",
+			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
+			'html-portal-content' => '',
+			'html-after-portal' => $this->getAfterPortlet( $name ),
+		];
+
+		if ( is_array( $content ) ) {
+			$props['html-portal-content'] .= '<ul>';
+			foreach ( $content as $key => $val ) {
+				$props['html-portal-content'] .= $this->makeListItem( $key, $val );
+			}
+			$props['html-portal-content'] .= '</ul>';
+		} else {
+			// Allow raw HTML block to be defined by extensions
+			$props['html-portal-content'] = $content;
+		}
+
+		return $this->templateParser->processTemplate( 'Portal', $props );
 	}
 }

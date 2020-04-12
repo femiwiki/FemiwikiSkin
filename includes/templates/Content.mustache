@@ -1,0 +1,26 @@
+{{!
+  string|null subtitle
+  string undelete
+  string bodycontent
+  string printfooter
+  string catlinks
+  string data-after-content
+}}
+
+<div id="content" class="mw-body" role="main">
+  <div class="mw-body-content" id="bodyContent">
+    <div id="contentSub">
+      {{{subtitle}}}
+      <p>{{undelete}}</p>
+    </div>
+    {{{bodycontent}}}
+    {{! Outputs a css clear using the core visualClear class}}
+    <div class="visualClear"></div>
+    <div class="printfooter">
+      {{{printfooter}}}
+    </div>
+    {{{catlinks}}}
+    {{{data-after-content}}}
+  </div>
+</div>
+<hr id="content-end-bar" />

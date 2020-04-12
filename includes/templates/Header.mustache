@@ -1,0 +1,31 @@
+{{!
+  string|null sitenotice
+  string|null newtalk
+  string namespaces
+  string|null watch
+  string language
+  string title
+  string|null title-buttons
+  string toolbox
+  string actions
+  string|null lastmod
+  string|null views
+}}
+
+<div id="p-header">
+  {{{sitenotice}}}
+  {{{newtalk}}}
+  {{{namespaces}}}
+  <div id="p-title-and-tb">
+    <h1 class="firstHeading" lang="{{language}}">{{title}}</h1>
+    {{{title-buttons}}}
+    <div id="p-actions-and-toolbox">
+      {{{toolbox}}}
+      {{{actions}}}
+    </div>
+  </div>
+  <div id="lastmod-and-views">
+    {{{lastmod}}}
+    {{{views}}}
+  </div>
+</div>

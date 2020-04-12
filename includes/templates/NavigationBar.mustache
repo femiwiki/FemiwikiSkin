@@ -1,0 +1,39 @@
+{{!
+  string navigation-heading
+  string tooltip-n-recentchanges
+  string recentchanges-label
+  string tooltip-n-randompage
+  string randompage-label
+  string search
+}}
+
+<div class="nav-bar">
+  <div id="mw-navigation">
+    <h1 id="p-logo">
+      <a href="/" class="mw-wiki-logo">
+        <img src="/skins/Femiwiki/images/logo-long.png" alt="Femiwiki">
+      </a>
+    </h1>
+    <h2>{{navigation-heading}}</h2>
+
+    <button id="fw-menu-toggle">
+      <span class="icon"></span>
+      <span class="badge"></span>
+    </button>
+
+    <ul id="site-navigation">
+      <li class="changes">
+        <a href="/w/Special:RecentChanges" title="{{tooltip-n-recentchanges}}">
+          <span class="text">{{recentchanges-label}}</span>
+        </a>
+      </li>
+      <li class="random">
+        <a href="/w/Special:RandomPage" title="<?= ?>">
+          <span class="text">{{randompage-label}}</span>
+        </a>
+      </li>
+    </ul>
+
+    {{{search}}}
+  </div>
+</div>
