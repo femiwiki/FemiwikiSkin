@@ -82,10 +82,10 @@
     "remoteSkinPath": "Femiwiki"
   },
   "AutoloadClasses": {
-    "SkinFemiwiki": "SkinFemiwiki.php",
-    "SkinFemiwikiHooks": "SkinFemiwikiHooks.php",
-    "FemiwikiTemplate": "FemiwikiTemplate.php",
-		"OOUI\\FemiwikiTheme": "FemiwikiTheme.php"
+    "SkinFemiwiki": "includes/SkinFemiwiki.php",
+    "SkinFemiwikiHooks": "includes/SkinFemiwikiHooks.php",
+    "FemiwikiTemplate": "includes/FemiwikiTemplate.php",
+		"OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php"
   },
   "Hooks": {
     "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
