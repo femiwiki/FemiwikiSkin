@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Okras",
 			"PlushBoy"
 		]
 	},
 	"skin-femiwiki-page-menu-tooltip": "Меню",
-	"skin-femiwiki-share-facebook": "Facebook"
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
 }
