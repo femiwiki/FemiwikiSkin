@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"01miki10"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Femiwikin ulkoasu",
+	"skin-femiwiki-page-menu-tooltip": "Valikko",
+	"skin-femiwiki-share-tooltip": "Jaa tämä artikkeli",
+	"skin-femiwiki-share-dismiss": "Hylkää",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
+}
