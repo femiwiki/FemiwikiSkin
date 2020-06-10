@@ -1,15 +1,13 @@
-@import "variables.less";
+@import "../variables.less";
 
-.mw-parser-output pre:not(.CodeMirror-line),
-.mw-parser-output blockquote,
-.mw-changeslist div:not(.mw-changeslist-links),
-.mw-changeslist ul {
-  box-sizing: border-box;
-  width: ~"calc(100% + 2.6rem)";
-  margin-left: -1.3rem;
+.mw-parser-output {
+  pre:not(.CodeMirror-line),
+  blockquote {
+    .full-width();
+  }
 }
 
-/* Content */
+// Content
 .mw-body {
   .thumb {
     float: none;
@@ -31,7 +29,7 @@
     }
   }
 
-  /* Special:UploadWizard */
+  // Special:UploadWizard
   #upload-wizard {
     min-width: inherit;
 
@@ -52,7 +50,7 @@
   }
 }
 
-/* Wiki Editor */
+// Wiki Editor
 body.action-edit {
   .mw-body {
     padding: 0;
@@ -132,7 +130,7 @@ body.action-edit {
   margin-top: 0;
 }
 
-/* VisualEditor */
+// VisualEditor
 html.ve-active,
 html.ve-activated,
 html.ve-deactivated {

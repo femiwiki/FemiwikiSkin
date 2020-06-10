@@ -1,4 +1,4 @@
-@import "variables.less";
+@import "../variables.less";
 
 .mw-special-Recentchanges .mw-body,
 .mw-special-Recentchangeslinked .mw-body,
@@ -13,14 +13,14 @@
     border-width: 0;
   }
 
-  /* Head for the modern ("enhanced") version of recent chanegs */
+  // Head for the modern ("enhanced") version of recent chanegs
   .rcfilters-head {
     .mw-rcfilters-ui-filterWrapperWidget-bottom {
       flex-wrap: wrap;
     }
   }
 
-  /* Head for the earlier version of recent changes */
+  // Head for the earlier version of recent changes
   fieldset.rcoptions {
     border: 0;
     margin: 0;
@@ -63,7 +63,9 @@
     h4 {
       font-size: 1rem;
       font-weight: normal;
+      color: #252525;
       margin: 2rem 0 1rem;
+      padding: 0;
     }
 
     .mw-title {
@@ -82,9 +84,9 @@
       background-color: #f6f6f6;
     }
 
-    /* Entries (common) */
+    // Entries (common)
     .mw-changeslist-line:not(tr) {
-      /* arrow, "new" flag, timestamp */
+      // arrow, "new" flag, timestamp
       .newpage,
       .minoredit,
       .unpatrolled {
@@ -100,7 +102,7 @@
       }
     }
 
-    /* Entries (individual) */
+    // Entries (individual)
     .mw-changeslist-line:not(tr):not(.mw-collapsible) {
       font-size: 0.8rem;
 
@@ -113,7 +115,7 @@
       }
     }
 
-    /* Entries (nested) */
+    // Entries (nested)
     .mw-changeslist-line.mw-collapsible {
       font-size: 0.8rem;
 
@@ -176,7 +178,7 @@
         font-weight: inherit;
       }
 
-      /* Hide nested table's cell */
+      // Hide nested table's cell
       &.mw-collapsible tr:first-child td:nth-child(2) {
         display: block;
       }
@@ -193,7 +195,7 @@
   margin-left: auto;
 }
 
-/* '지정한 조건과 일치하는 주어진 기간 동안 바뀜이 없습니다.' repeadted class for priority */
+// '지정한 조건과 일치하는 주어진 기간 동안 바뀜이 없습니다.' repeadted class for priority
 .mw-rcfilters-ui-changesListWrapperWidget-results.mw-rcfilters-ui-changesListWrapperWidget-results {
   width: auto;
 }

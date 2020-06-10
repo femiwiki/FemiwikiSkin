@@ -1,10 +1,10 @@
 {{!
-  string navigation-heading
-  string tooltip-n-recentchanges
-  string recentchanges-label
-  string tooltip-n-randompage
-  string randompage-label
-  string search
+  string msg-navigation-heading
+  string msg-tooltip-n-recentchanges
+  string msg-recentchanges-label
+  string msg-tooltip-n-randompage
+  string msg-randompage-label
+  string html-search
 }}
 
 <div class="nav-bar">
@@ -14,7 +14,7 @@
         <img src="/skins/Femiwiki/images/logo-long.png" alt="Femiwiki">
       </a>
     </h1>
-    <h2>{{navigation-heading}}</h2>
+    <h2>{{msg-navigation-heading}}</h2>
 
     <button id="fw-menu-toggle">
       <span class="icon"></span>
@@ -23,17 +23,17 @@
 
     <ul id="site-navigation">
       <li class="changes">
-        <a href="/w/Special:RecentChanges" title="{{tooltip-n-recentchanges}}">
-          <span class="text">{{recentchanges-label}}</span>
+        <a href="/w/Special:RecentChanges" title="{{msg-tooltip-n-recentchanges}}">
+          <span class="text">{{msg-recentchanges-label}}</span>
         </a>
       </li>
       <li class="random">
-        <a href="/w/Special:RandomPage" title="{{tooltip-n-randompage}}">
-          <span class="text">{{randompage-label}}</span>
+        <a href="/w/Special:RandomPage" title="{{msg-tooltip-n-randompage}}">
+          <span class="text">{{msg-randompage-label}}</span>
         </a>
       </li>
     </ul>
 
-    {{{search}}}
+    {{{html-search}}}
   </div>
 </div>
