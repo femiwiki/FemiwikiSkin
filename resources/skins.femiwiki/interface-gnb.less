@@ -1,22 +1,18 @@
-@import "variables.less";
+@import "../variables.less";
 
 .nav-bar {
   left: 0;
   top: 0;
   right: 0;
   height: 2.4rem;
-  background-color: #aca6e4;
+  background-color: @color1;
 
   #mw-navigation {
     position: relative;
     max-width: 48.7rem;
     margin: 0 auto;
 
-    h2 {
-      display: none;
-    }
-
-    /* Logo */
+    // Logo
     #p-logo {
       position: absolute;
       left: 0;
@@ -26,24 +22,40 @@
       width: 2.4rem;
       height: 2.4rem;
       border: none;
+      font-weight: normal;
+      color: #000000;
+      overflow: hidden;
 
-      a {
+      .mw-wiki-logo {
         position: absolute;
         display: block;
         width: 100%;
         height: 100%;
+        font-weight: normal;
+        text-decoration: none;
 
         /* @embed */
-        background: url("images/logo-icon.png") top left no-repeat;
+        background: url("../images/logo-icon.png") top left no-repeat;
         background-size: 2.4rem 2.4rem;
-      }
 
-      img {
-        display: none;
+        img {
+          display: none;
+          vertical-align: middle;
+        }
       }
     }
 
-    /* Recent changes and random pages */
+    h2 {
+      display: none;
+      border-bottom: 1px solid #a2a9b1;
+      color: #000000;
+      font-weight: normal;
+      margin: 0 0 0.9rem;
+      overflow: hidden;
+      padding: 0.75rem 0 0.255rem;
+    }
+
+    // Recent changes and random pages
     #site-navigation {
       position: absolute;
       top: 0;
@@ -68,12 +80,12 @@
       }
       .changes a {
         /* @embed */
-        background: url("images/icon-changes.png") no-repeat;
+        background: url("../images/icon-changes.png") no-repeat;
         background-size: 2.4rem 2.4rem;
       }
       .random a {
         /* @embed */
-        background: url("images/icon-random.png") no-repeat;
+        background: url("../images/icon-random.png") no-repeat;
         background-size: 2.4rem 2.4rem;
       }
       .text {
@@ -90,7 +102,7 @@
       }
     }
 
-    /* Menu button */
+    // Menu button
     #fw-menu-toggle {
       position: absolute;
       top: 0;
@@ -102,7 +114,7 @@
       border-width: 0;
       background-color: inherit;
       /* @embed */
-      background: url("images/icon-bars.png") 0.3rem 0.3rem no-repeat;
+      background: url("../images/icon-bars.png") 0.3rem 0.3rem no-repeat;
       background-size: 1.8rem 1.8rem;
 
       .badge {
@@ -140,7 +152,7 @@
       }
     }
 
-    /* Search form */
+    // Search form
     #p-search {
       position: absolute;
       top: 0;
@@ -150,7 +162,17 @@
       display: block;
 
       h3 {
+        font-size: 1.28rem;
+        margin: 0 0 0.384rem;
+        overflow: hidden;
+        padding: 0.64rem 0 0.2176rem;
         display: none;
+        color: #000000;
+
+        label {
+          border-color: #000000;
+          color: #000000;
+        }
       }
 
       #searchGoButton {
@@ -162,7 +184,7 @@
         width: ~"calc(100% - 1rem - 2px)";
         font-size: 1rem;
         height: ~"calc(2.4rem - 2px)";
-        border: 1px solid #aca6e4;
+        border: 1px solid @color1;
         padding: 0 0.5rem;
       }
 
@@ -188,7 +210,7 @@
   margin: 0.6rem auto 0;
   padding: 0.85rem;
   max-width: 48.7rem;
-  border-bottom: 1px solid #aca6e4;
+  border-bottom: 1px solid @color1;
   box-sizing: border-box;
   overflow: hidden;
 
@@ -200,14 +222,20 @@
     float: right;
 
     h3 {
-      font-weight: normal;
       font-size: 1rem;
-      border-bottom: 1px solid #b9b5d9;
+      color: #000;
+      margin-top: 0;
       margin-bottom: 0.4rem;
+      border-bottom: 1px solid #b9b5d9;
+      padding-top: 0.5rem;
+      padding-bottom: 0.17rem;
+      font-weight: normal;
+      overflow: hidden;
     }
 
     ul {
       margin: 0;
+      padding: 0;
     }
 
     li {
@@ -217,33 +245,40 @@
 
     a {
       display: block;
+      text-decoration: none;
     }
   }
 
-  /* Hide less-frequently used links */
+  // Hide less-frequently used links
   #ca-addsection {
     display: none;
   }
 
-  .mw-echo-notifications-badge {
-    width: auto;
-    height: auto;
-    margin: auto;
-    top: auto;
-    cursor: pointer;
-    line-height: unset;
-    /* Disable background icon and counter */
-    background: none;
-
-    &.mw-echo-notifications-badge-all-read {
-      opacity: unset;
+  #p-personal {
+    a.new {
+      color: #ba0000;
     }
-  }
 
-  .mw-echo-alert {
-    background-color: #a5c831;
-    color: #fff;
-    border-radius: 0.3em;
+    .mw-echo-notifications-badge {
+      width: auto;
+      height: auto;
+      margin: auto;
+      top: auto;
+      cursor: pointer;
+      line-height: unset;
+      // Disable background icon and counter
+      background: none;
+
+      &.mw-echo-notifications-badge-all-read {
+        opacity: unset;
+      }
+    }
+
+    .mw-echo-alert {
+      background-color: #a5c831;
+      color: #fff;
+      border-radius: 0.3em;
+    }
   }
 }
 
@@ -251,60 +286,10 @@
   display: block;
 }
 
-/*
- * Hide notificationBadgeButtonPopupWidget's title text which is just an error message
- * ('echo-notification-all-text-only' message is used but does not exist)
- */
+// Hide notificationBadgeButtonPopupWidget's title text which is just an error message
+// ('echo-notification-all-text-only' message is used but does not exist)
 .mw-echo-ui-notificationBadgeButtonPopupWidget-popup
   .oo-ui-popupWidget-head
   > .oo-ui-labelElement-label {
   display: none;
-}
-
-@media screen and (min-width: 640px) {
-  .nav-bar {
-    #mw-navigation {
-      #p-logo {
-        width: 7.7rem;
-
-        a {
-          /* @embed */
-          background: url("images/logo-long.png") 0.6rem 0.4rem no-repeat;
-          background-size: 6.5rem 1.8rem;
-        }
-      }
-
-      #p-search {
-        left: 7.8rem;
-        right: 13.3rem;
-      }
-
-      #site-navigation {
-        .changes a {
-          /* @embed */
-          background: url("images/icon-changes-notext.png") 0.4rem 0.4rem
-            no-repeat;
-          background-size: 1.6rem 1.6rem;
-        }
-
-        .random a {
-          /* @embed */
-          background: url("images/icon-random-notext.png") 0.4rem 0.4rem
-            no-repeat;
-          background-size: 1.6rem 1.6rem;
-        }
-
-        a {
-          width: 5.4rem;
-          font-size: 0.8rem;
-        }
-
-        .text {
-          display: inline-block;
-          padding-left: 1.2rem;
-          padding-top: 0.5rem;
-        }
-      }
-    }
-  }
 }

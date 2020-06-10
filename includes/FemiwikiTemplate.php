@@ -22,6 +22,9 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the page
 	 */
 	public function execute() {
+		$skin = $this->getSkin();
+		$out = $skin->getOutput();
+
 		$this->html( 'headelement' );
 
 		echo Html::openElement(
@@ -30,12 +33,12 @@ class FemiwikiTemplate extends BaseTemplate {
 		);
 
 		echo $this->templateParser->processTemplate( 'NavigationBar', [
-			'navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
-			'tooltip-n-recentchanges' => $this->getMsg( 'tooltip-n-recentchanges' )->text(),
-			'recentchanges-label' => $this->getMsg( 'recentchanges' )->text(),
-			'tooltip-n-randompage' => $this->getMsg( 'tooltip-n-randompage' )->text(),
-			'randompage-label' => $this->getMsg( 'randompage' )->text(),
-			'search' => $this->getSearch()
+			'msg-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
+			'msg-tooltip-n-recentchanges' => $this->getMsg( 'tooltip-n-recentchanges' )->text(),
+			'msg-recentchanges-label' => $this->getMsg( 'recentchanges' )->text(),
+			'msg-tooltip-n-randompage' => $this->getMsg( 'tooltip-n-randompage' )->text(),
+			'msg-randompage-label' => $this->getMsg( 'randompage' )->text(),
+			'html-search' => $this->getSearch()
 		] );
 
 		echo Html::openElement(
@@ -47,24 +50,17 @@ class FemiwikiTemplate extends BaseTemplate {
 		echo $this->getPortals( $this->data['sidebar'] );
 		echo Html::closeElement( 'div' );
 
-		$this->renderHeader();
+		$this->renderHeader( $out );
 
 		$contentProps = [
-			'subtitle' => '',
-			'undelete' => $this->get( 'undelete' ),
-			'bodycontent' => $this->get( 'bodycontent' ),
-			'printfooter' => $this->get( 'printfooter' ),
-			'catlinks' => $this->get( 'catlinks' ),
-			'data-after-content' => $this->get( 'dataAfterContent' ),
+			// Always returns string, cast to null if empty.
+			'html-subtitle' => $this->get( 'subtitle' ) ?: null,
+			'html-undelete' => $this->get( 'undelete' ),
+			'html-bodycontent' => $this->get( 'bodycontent' ),
+			'html-printfooter' => $this->get( 'printfooter' ),
+			'html-catlinks' => $this->get( 'catlinks' ),
+			'html-data-after-content' => $this->get( 'dataAfterContent' ),
 		];
-
-		if ( $this->data['subtitle'] ) {
-			$contentProps['subtitle'] = Html::rawelement(
-				'p',
-				[],
-				$this->get( 'subtitle' )
-			);
-		}
 
 		echo $this->templateParser->processTemplate( 'Content', $contentProps );
 
@@ -282,89 +278,61 @@ class FemiwikiTemplate extends BaseTemplate {
 
 	/**
 	 * Render a header of a page
+	 * @param OutputPage $out
 	 * @return string
 	 */
-	protected function renderHeader() {
+	protected function renderHeader( $out ) {
 		$props = [
-			'sitenotice' => '',
-			'newtalk' => '',
-			'namespaces' => $this->getPortlet( [
+			'html-sitenotice' => $this->get( 'sitenotice', null ),
+			'html-newtalk' => $this->get( 'newtalk' ) ?: null,
+			'html-namespaces' => $this->getPortlet( [
 				'id' => 'p-namespaces',
 				'headerMessage' => 'namespaces',
 				'content' => $this->data['content_navigation']['namespaces'],
 			] ),
-			'watch' => $this->getWatch(),
-			'language' => $this->get( 'pageLanguage' ),
-			'title' => $this->get( 'title' ),
-			'title-buttons' => '',
-			'toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
-			'actions' => $this->getPortlet( [
+			'html-watch' => $this->getWatch(),
+			'page-language' => $this->get( 'pageLanguage' ),
+			'html-title' => version_compare( MW_VERSION, '1.35', '<' )
+				? $this->get( 'title', '' )
+				: $out->getPageTitle(),
+			'html-title-buttons' => new \OOUI\ButtonGroupWidget(
+				[
+					'id' => 'p-title-buttons',
+					'items' => array_filter( [
+						isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
+							'id' => 'p-share',
+							'infusable' => true,
+							# icon is used as a dummy
+							'icon' => 'browser',
+							'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
+							'framed' => false,
+							'invisibleLabel' => true
+						] ) : null,
+						new \OOUI\ButtonWidget( [
+							'id' => 'p-menu-toggle',
+							'infusable' => true,
+							'icon' => 'ellipsis',
+							'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
+							'framed' => false,
+							'invisibleLabel' => true
+						] )
+					] )
+				]
+			),
+			'html-toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
+			'html-actions' => $this->getPortlet( [
 				'id' => 'p-actions',
 				'headerMessage' => 'actions',
 				'content' => $this->data['content_navigation']['actions'],
 			] ),
-			'views' => $this->getPortlet( [
+			'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
+			'page-lastmod' => $this->get( 'lastmod', null ),
+			'html-views' => $this->getPortlet( [
 				'id' => 'p-views',
 				'headerMessage' => 'views',
 				'content' => $this->data['content_navigation']['views'],
 			] )
 		];
-
-		if ( $this->data['sitenotice'] ) {
-			$props['sitenotice'] = Html::rawElement(
-				'div',
-				[ 'id' => 'siteNotice' ],
-				$this->get( 'sitenotice' )
-			);
-		}
-		if ( $this->data['newtalk'] ) {
-			$props['newtalk'] = Html::rawElement(
-				'div',
-				[ 'class' => 'usermessage' ],
-				$this->get( 'newtalk' )
-			);
-		}
-
-		// Make title buttons
-		$titleButtons = [];
-
-		if ( isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ) {
-			$titleButtons[] = new \OOUI\ButtonWidget( [
-				'id' => 'p-share',
-				'infusable' => true,
-				# icon is used as a dummy
-				'icon' => 'browser',
-				'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
-				'framed' => false,
-				'invisibleLabel' => true
-			] );
-		}
-		$titleButtons[] = new \OOUI\ButtonWidget( [
-			'id' => 'p-menu-toggle',
-			'infusable' => true,
-			'icon' => 'ellipsis',
-			'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
-			'framed' => false,
-			'invisibleLabel' => true
-		] );
-
-		$props['title-buttons'] = new \OOUI\ButtonGroupWidget(
-			[
-				'id' => 'p-title-buttons',
-				'items' => $titleButtons
-			]
-		);
-
-		if ( isset( $this->data['content_navigation']['views']['history']['href'] ) ) {
-			$props['lastmod'] = Html::rawElement(
-				'a',
-				[
-					'id' => 'lastmod',
-					'href' => $this->data['content_navigation']['views']['history']['href']
-				],
-				$this->get( 'lastmod' )
-			);
-		}
 
 		echo $this->templateParser->processTemplate( 'Header', $props );
 	}
@@ -375,12 +343,12 @@ class FemiwikiTemplate extends BaseTemplate {
 	 */
 	protected function renderFooter() {
 		$props = [
-			'footer-icons' => '',
-			'language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
-			'footer-links' => '',
+			'html-footer-icons' => '',
+			'html-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
+			'html-footer-links' => '',
 		];
 
-		$props['foorter-icons'] = Html::openElement(
+		$props['html-foorter-icons'] = Html::openElement(
 			'ul',
 			[
 				'id' => 'footer-icons',
@@ -388,19 +356,19 @@ class FemiwikiTemplate extends BaseTemplate {
 			]
 		);
 		foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
-			$props['foorter-icons'] .= Html::openElement(
+			$props['html-foorter-icons'] .= Html::openElement(
 				'li',
 				[ 'id' => 'footer-' . Sanitizer::escapeId( $blockName ) . 'ico' ]
 			);
 			foreach ( $footerIcons as $icon ) {
-				$props['foorter-icons'] .= $this->getSkin()->makeFooterIcon( $icon );
+				$props['html-foorter-icons'] .= $this->getSkin()->makeFooterIcon( $icon );
 			}
-			$props['foorter-icons'] .= Html::closeElement( 'li' );
+			$props['html-foorter-icons'] .= Html::closeElement( 'li' );
 		}
-		$props['foorter-icons'] .= Html::closeElement( 'ul' );
+		$props['html-foorter-icons'] .= Html::closeElement( 'ul' );
 
 		foreach ( $this->getFooterLinks() as $category => $links ) {
-			$props['footer-links'] .= Html::openElement(
+			$props['html-footer-links'] .= Html::openElement(
 				'ul',
 				[
 					'id' => 'footer-' . Sanitizer::escapeId( $category ),
@@ -410,7 +378,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			foreach ( $links as $key ) {
 				if ( $key === 'lastmod' ) { continue;
 				}
-				$props['footer-links'] .= Html::rawElement(
+				$props['html-footer-links'] .= Html::rawElement(
 					'li',
 					[
 						'id' => 'footer-' . Sanitizer::escapeId( $category . '-' . $key )
@@ -418,7 +386,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					$this->get( $key )
 				);
 			}
-			$props['footer-links'] .= Html::closeElement( 'ul' );
+			$props['html-footer-links'] .= Html::closeElement( 'ul' );
 		}
 
 		echo $this->templateParser->processTemplate( 'Footer', $props );

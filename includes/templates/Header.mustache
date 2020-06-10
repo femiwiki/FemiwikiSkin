@@ -1,31 +1,36 @@
 {{!
-  string|null sitenotice
-  string|null newtalk
-  string namespaces
-  string|null watch
-  string language
-  string title
-  string|null title-buttons
-  string toolbox
-  string actions
-  string|null lastmod
-  string|null views
+  string|null html-sitenotice
+  string|null html-newtalk
+  string html-namespaces
+  string|null html-watch
+  string page-language
+  string html-title
+  string|null html-title-buttons
+  string html-toolbox
+  string html-actions
+  string|null page-history
+  string|null page-lastmod
+  string|null html-views
 }}
 
 <div id="p-header">
-  {{{sitenotice}}}
-  {{{newtalk}}}
-  {{{namespaces}}}
+  {{#html-sitenotice}}
+  <div id="siteNotice">{{{html-sitenotice}}}</div>
+  {{/html-sitenotice}}
+  {{#html-newtalk}}<div class="usermessage">{{{html-newtalk}}}</div>{{/html-newtalk}}
+  {{{html-namespaces}}}
   <div id="p-title-and-tb">
-    <h1 class="firstHeading" lang="{{language}}">{{title}}</h1>
-    {{{title-buttons}}}
+    <h1 class="firstHeading" lang="{{language}}">{{{html-title}}}</h1>
+    {{{html-title-buttons}}}
     <div id="p-actions-and-toolbox">
-      {{{toolbox}}}
-      {{{actions}}}
+      {{{html-toolbox}}}
+      {{{html-actions}}}
     </div>
   </div>
   <div id="lastmod-and-views">
-    {{{lastmod}}}
-    {{{views}}}
+    {{#page-history}}
+    <a id="lastmod" href="{{page-history}}">{{{page-lastmod}}}</a>
+    {{/page-history}}
+    {{{html-views}}}
   </div>
 </div>

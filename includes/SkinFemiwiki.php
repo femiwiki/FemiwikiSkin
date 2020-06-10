@@ -30,7 +30,6 @@ class SkinFemiwiki extends SkinTemplate {
 		$out->addHeadItems( $wgFemiwikiHeadItems );
 
 		$out->addModuleStyles( [
-			'mediawiki.skinning.interface',
 			'mediawiki.skinning.content.externallinks',
 			'skins.femiwiki',
 			'oojs-ui.styles.icons-interactions'
@@ -47,6 +46,8 @@ class SkinFemiwiki extends SkinTemplate {
 		}
 		if ( $this->canUseWikiPage() && $this->getWikiPage()->getId() != 0 ) {
 			$modules[] = 'skins.femiwiki.share';
+		} else {
+			$out->addModuleStyles( 'skins.femiwiki.special' );
 		}
 		$out->addModules( $modules );
 	}
