@@ -74,6 +74,7 @@ class FemiwikiTemplate extends BaseTemplate {
 
 	/**
 	 * Generates a single sidebar portlet of any kind
+	 * @param array $box
 	 * @return string html
 	 */
 	private function getPortlet( $box ) {
@@ -109,6 +110,8 @@ class FemiwikiTemplate extends BaseTemplate {
 
 	/**
 	 * Generates the logo and (optionally) site title
+	 * @param string $id
+	 * @param bool $imageOnly
 	 * @return string html
 	 */
 	private function getLogo( $id = 'p-logo', $imageOnly = false ) {
