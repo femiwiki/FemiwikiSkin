@@ -8,8 +8,8 @@
  *
  * Date: 2019-01-22T09:48:04Z
  */
-(function(OO) {
-  "use strict";
+(function (OO) {
+  'use strict';
 
   /**
    * @class
@@ -31,7 +31,7 @@
   /**
    * @inheritdoc
    */
-  OO.ui.FemiwikiTheme.prototype.getElementClasses = function(element) {
+  OO.ui.FemiwikiTheme.prototype.getElementClasses = function (element) {
     // Parent method
     var variant,
       isFramed,
@@ -41,7 +41,7 @@
         warning: false,
         invert: false,
         progressive: false,
-        destructive: false
+        destructive: false,
       },
       // Parent method
       classes = OO.ui.FemiwikiTheme.parent.prototype.getElementClasses.call(
@@ -51,13 +51,13 @@
 
     if (
       element instanceof OO.ui.IconWidget &&
-      element.$element.hasClass("oo-ui-checkboxInputWidget-checkIcon")
+      element.$element.hasClass('oo-ui-checkboxInputWidget-checkIcon')
     ) {
       // Icon on CheckboxInputWidget
       variants.invert = true;
-    } else if (element.supports(["hasFlag"])) {
-      isFramed = element.supports(["isFramed"]) && element.isFramed();
-      isActive = element.supports(["isActive"]) && element.isActive();
+    } else if (element.supports(['hasFlag'])) {
+      isFramed = element.supports(['isFramed']) && element.isFramed();
+      isActive = element.supports(['isActive']) && element.isActive();
       isToolOrGroup =
         // Check if the class exists, as classes that are not in the 'core' module may not be loaded
         (OO.ui.Tool && element instanceof OO.ui.Tool) ||
@@ -65,9 +65,9 @@
       if (
         // Button with a dark background
         (isFramed &&
-          (isActive || element.isDisabled() || element.hasFlag("primary"))) ||
+          (isActive || element.isDisabled() || element.hasFlag('primary'))) ||
         // Toolbar with a dark background
-        (isToolOrGroup && element.hasFlag("primary"))
+        (isToolOrGroup && element.hasFlag('primary'))
       ) {
         // … use white icon / indicator, regardless of other flags
         variants.invert = true;
@@ -77,7 +77,7 @@
       } else if (!element.isDisabled()) {
         // Any other kind of button, use the right colored icon / indicator if available
         variants.progressive =
-          element.hasFlag("progressive") ||
+          element.hasFlag('progressive') ||
           // Active tools/toolgroups
           (isToolOrGroup && isActive) ||
           // Pressed or selected outline/menu option widgets
@@ -87,13 +87,13 @@
               element instanceof OO.ui.OutlineOptionWidget)) &&
             (element.isPressed() || element.isSelected()));
 
-        variants.destructive = element.hasFlag("destructive");
-        variants.warning = element.hasFlag("warning");
+        variants.destructive = element.hasFlag('destructive');
+        variants.warning = element.hasFlag('warning');
       }
     }
 
     for (variant in variants) {
-      classes[variants[variant] ? "on" : "off"].push("oo-ui-image-" + variant);
+      classes[variants[variant] ? 'on' : 'off'].push('oo-ui-image-' + variant);
     }
 
     return classes;
@@ -102,7 +102,7 @@
   /**
    * @inheritdoc
    */
-  OO.ui.FemiwikiTheme.prototype.getDialogTransitionDuration = function() {
+  OO.ui.FemiwikiTheme.prototype.getDialogTransitionDuration = function () {
     return 250;
   };
 

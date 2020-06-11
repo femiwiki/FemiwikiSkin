@@ -327,7 +327,7 @@
   margin-right: 0;
 }
 .oo-ui-toggleSwitchWidget:before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 1px;
@@ -672,7 +672,7 @@
   box-shadow: inset 0 -1px 0 0 #a2a9b1;
 }
 .oo-ui-tabSelectWidget-mobile:after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   right: 0;

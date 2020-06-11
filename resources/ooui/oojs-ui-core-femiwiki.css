@@ -260,10 +260,10 @@
   color: #b32424;
   box-shadow: none;
 }
-.oo-ui-buttonElement-frameless.oo-ui-widget-enabled[class*="oo-ui-flaggedElement"]
+.oo-ui-buttonElement-frameless.oo-ui-widget-enabled[class*='oo-ui-flaggedElement']
   > .oo-ui-buttonElement-button
   > .oo-ui-iconElement-icon,
-.oo-ui-buttonElement-frameless.oo-ui-widget-enabled[class*="oo-ui-flaggedElement"]
+.oo-ui-buttonElement-frameless.oo-ui-widget-enabled[class*='oo-ui-flaggedElement']
   > .oo-ui-buttonElement-button
   > .oo-ui-indicatorElement-indicator {
   opacity: 1;
@@ -641,7 +641,7 @@
 }
 .oo-ui-fieldLayout:before,
 .oo-ui-fieldLayout:after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 .oo-ui-fieldLayout:after {
@@ -1113,7 +1113,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
 .oo-ui-radioSelectWidget:focus {
   outline: 0;
 }
-.oo-ui-radioSelectWidget:focus [type="radio"]:checked + span:before {
+.oo-ui-radioSelectWidget:focus [type='radio']:checked + span:before {
   border-color: #fff;
 }
 
@@ -1350,7 +1350,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
 }
 .oo-ui-popupWidget-anchored .oo-ui-popupWidget-anchor:before,
 .oo-ui-popupWidget-anchored .oo-ui-popupWidget-anchor:after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 0;
@@ -1554,7 +1554,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   font: inherit;
   vertical-align: middle;
 }
-.oo-ui-checkboxInputWidget [type="checkbox"] {
+.oo-ui-checkboxInputWidget [type='checkbox'] {
   position: relative;
   max-width: none;
   width: 1.42857143em;
@@ -1563,7 +1563,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   opacity: 0;
   z-index: 1;
 }
-.oo-ui-checkboxInputWidget [type="checkbox"] + span {
+.oo-ui-checkboxInputWidget [type='checkbox'] + span {
   background-color: #fff;
   background-size: 0 0;
   -webkit-box-sizing: border-box;
@@ -1578,16 +1578,16 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   border-radius: 0;
   border-width: 0;
 }
-:root .oo-ui-checkboxInputWidget [type="checkbox"] + span {
+:root .oo-ui-checkboxInputWidget [type='checkbox'] + span {
   border-width: 1px;
 }
 .oo-ui-checkboxInputWidget
-  [type="checkbox"]:checked:not(:indeterminate)
+  [type='checkbox']:checked:not(:indeterminate)
   + span {
   background-size: 1em 1em;
 }
-.oo-ui-checkboxInputWidget [type="checkbox"]:indeterminate + span:before {
-  content: " ";
+.oo-ui-checkboxInputWidget [type='checkbox']:indeterminate + span:before {
+  content: ' ';
   position: absolute;
   top: 0.57142857em;
   bottom: 0.57142857em;
@@ -1595,67 +1595,67 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   right: 0.21428571em;
   background-color: #fff;
 }
-.oo-ui-checkboxInputWidget [type="checkbox"]:disabled + span {
+.oo-ui-checkboxInputWidget [type='checkbox']:disabled + span {
   background-color: #c8ccd1;
   border-color: #c8ccd1;
 }
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"] {
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox'] {
   cursor: pointer;
 }
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"] + span {
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox'] + span {
   cursor: pointer;
   -webkit-transition: background-color 100ms, border-color 100ms,
     box-shadow 100ms;
   -moz-transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
   transition: background-color 100ms, border-color 100ms, box-shadow 100ms;
 }
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:focus + span {
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:focus + span {
   border-color: #aca6e4;
   box-shadow: inset 0 0 0 1px #aca6e4;
 }
-.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type="checkbox"]:hover + span {
+.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:hover + span {
   border-color: #aca6e4;
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:active
+  [type='checkbox']:active
   + span {
   background-color: #746ccb;
   border-color: #746ccb;
   box-shadow: inset 0 0 0 1px #746ccb;
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:checked
+  [type='checkbox']:checked
   + span,
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:indeterminate
+  [type='checkbox']:indeterminate
   + span {
   background-color: #aca6e4;
   border-color: #aca6e4;
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:checked:focus
+  [type='checkbox']:checked:focus
   + span,
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:indeterminate:focus
+  [type='checkbox']:indeterminate:focus
   + span {
   background-color: #aca6e4;
   border-color: #aca6e4;
   box-shadow: inset 0 0 0 1px #aca6e4, inset 0 0 0 2px #fff;
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:checked:hover
+  [type='checkbox']:checked:hover
   + span,
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:indeterminate:hover
+  [type='checkbox']:indeterminate:hover
   + span {
   background-color: #aca6e4;
   border-color: #aca6e4;
 }
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:checked:active
+  [type='checkbox']:checked:active
   + span,
 .oo-ui-checkboxInputWidget.oo-ui-widget-enabled
-  [type="checkbox"]:indeterminate:active
+  [type='checkbox']:indeterminate:active
   + span {
   background-color: #746ccb;
   border-color: #746ccb;
@@ -1783,7 +1783,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   font: inherit;
   vertical-align: middle;
 }
-.oo-ui-radioInputWidget [type="radio"] {
+.oo-ui-radioInputWidget [type='radio'] {
   position: relative;
   max-width: none;
   width: 1.42857143em;
@@ -1792,7 +1792,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   opacity: 0;
   z-index: 1;
 }
-.oo-ui-radioInputWidget [type="radio"] + span {
+.oo-ui-radioInputWidget [type='radio'] + span {
   background-color: #fff;
   position: absolute;
   left: 0;
@@ -1806,11 +1806,11 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   border-radius: 100%;
   border-width: 0;
 }
-:root .oo-ui-radioInputWidget [type="radio"] + span {
+:root .oo-ui-radioInputWidget [type='radio'] + span {
   border-width: 1px;
 }
-.oo-ui-radioInputWidget [type="radio"] + span:before {
-  content: " ";
+.oo-ui-radioInputWidget [type='radio'] + span:before {
+  content: ' ';
   position: absolute;
   top: -4px;
   left: -4px;
@@ -1819,22 +1819,22 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
   border: 1px solid transparent;
   border-radius: 100%;
 }
-.oo-ui-radioInputWidget [type="radio"]:checked + span,
-.oo-ui-radioInputWidget [type="radio"]:checked:hover + span,
-.oo-ui-radioInputWidget [type="radio"]:checked:focus:hover + span {
+.oo-ui-radioInputWidget [type='radio']:checked + span,
+.oo-ui-radioInputWidget [type='radio']:checked:hover + span,
+.oo-ui-radioInputWidget [type='radio']:checked:focus:hover + span {
   border-width: 0.42857143em;
 }
-.oo-ui-radioInputWidget [type="radio"]:disabled + span {
+.oo-ui-radioInputWidget [type='radio']:disabled + span {
   background-color: #c8ccd1;
   border-color: #c8ccd1;
 }
-.oo-ui-radioInputWidget [type="radio"]:disabled:checked + span {
+.oo-ui-radioInputWidget [type='radio']:disabled:checked + span {
   background-color: #fff;
 }
-.oo-ui-radioInputWidget.oo-ui-widget-enabled [type="radio"] {
+.oo-ui-radioInputWidget.oo-ui-widget-enabled [type='radio'] {
   cursor: pointer;
 }
-.oo-ui-radioInputWidget.oo-ui-widget-enabled [type="radio"] + span {
+.oo-ui-radioInputWidget.oo-ui-widget-enabled [type='radio'] + span {
   cursor: pointer;
   -webkit-transition: background-color 100ms, border-color 100ms,
     border-width 100ms;
@@ -1842,34 +1842,34 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
     border-width 100ms;
   transition: background-color 100ms, border-color 100ms, border-width 100ms;
 }
-.oo-ui-radioInputWidget.oo-ui-widget-enabled [type="radio"]:hover + span {
+.oo-ui-radioInputWidget.oo-ui-widget-enabled [type='radio']:hover + span {
   border-color: #aca6e4;
 }
-.oo-ui-radioInputWidget.oo-ui-widget-enabled [type="radio"]:active + span {
+.oo-ui-radioInputWidget.oo-ui-widget-enabled [type='radio']:active + span {
   background-color: #746ccb;
   border-color: #746ccb;
 }
-.oo-ui-radioInputWidget.oo-ui-widget-enabled [type="radio"]:checked + span {
+.oo-ui-radioInputWidget.oo-ui-widget-enabled [type='radio']:checked + span {
   border-color: #aca6e4;
 }
 .oo-ui-radioInputWidget.oo-ui-widget-enabled
-  [type="radio"]:checked:focus
+  [type='radio']:checked:focus
   + span:before {
   border-color: #fff;
 }
 .oo-ui-radioInputWidget.oo-ui-widget-enabled
-  [type="radio"]:checked:hover
+  [type='radio']:checked:hover
   + span {
   border-color: #aca6e4;
 }
 .oo-ui-radioInputWidget.oo-ui-widget-enabled
-  [type="radio"]:checked:active
+  [type='radio']:checked:active
   + span {
   border-color: #746ccb;
   box-shadow: inset 0 0 0 1px #746ccb;
 }
 .oo-ui-radioInputWidget.oo-ui-widget-enabled
-  [type="radio"]:checked:active
+  [type='radio']:checked:active
   + span:before {
   border-color: #746ccb;
 }
@@ -1909,13 +1909,13 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
 .oo-ui-textInputWidget textarea.oo-ui-textInputWidget-autosized {
   resize: none;
 }
-.oo-ui-textInputWidget [type="number"]::-webkit-outer-spin-button,
-.oo-ui-textInputWidget [type="number"]::-webkit-inner-spin-button {
+.oo-ui-textInputWidget [type='number']::-webkit-outer-spin-button,
+.oo-ui-textInputWidget [type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.oo-ui-textInputWidget [type="search"]::-webkit-search-decoration,
-.oo-ui-textInputWidget [type="search"]::-webkit-search-cancel-button {
+.oo-ui-textInputWidget [type='search']::-webkit-search-decoration,
+.oo-ui-textInputWidget [type='search']::-webkit-search-cancel-button {
   display: none;
 }
 .oo-ui-textInputWidget > .oo-ui-iconElement-icon,
@@ -2579,7 +2579,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
 }
 .oo-ui-selectFileInputWidget-selectButton
   > .oo-ui-buttonElement-button
-  > [type="file"] {
+  > [type='file'] {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -2594,7 +2594,7 @@ body:not(:-moz-handler-blocked) .oo-ui-fieldsetLayout {
 }
 .oo-ui-selectFileInputWidget-selectButton.oo-ui-widget-disabled
   > .oo-ui-buttonElement-button
-  > [type="file"] {
+  > [type='file'] {
   display: none;
 }
 .oo-ui-selectFileInputWidget-info > .oo-ui-inputWidget-input {
