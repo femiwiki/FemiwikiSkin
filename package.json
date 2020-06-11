@@ -1,12 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "test": "grunt"
+    "test": "yarn -s run lint",
+    "lint": "yarn -s run lint:prettier && yarn -s run lint:i18n",
+    "lint:prettier": "prettier '**/*.{js,json,css,less}' --check",
+    "lint:i18n": "banana-checker --requireLowerCase=0 i18n/"
   },
   "devDependencies": {
-    "grunt": "1.1.0",
     "grunt-banana-checker": "^0.9.0",
-    "grunt-cli": "1.3.2",
     "prettier": "^1.16.4"
   }
 }
