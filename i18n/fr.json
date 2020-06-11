@@ -1,12 +1,14 @@
 {
-  "@metadata": {
-    "authors": ["Verdy p"]
-  },
-  "skinname-femiwiki": "Fémiwiki",
-  "femiwiki-desc": "Habillage Fémiwiki",
-  "skin-femiwiki-page-menu-tooltip": "Menu",
-  "skin-femiwiki-share-tooltip": "Partager cet article",
-  "skin-femiwiki-share-dismiss": "Ignorer",
-  "skin-femiwiki-share-facebook": "Facebook",
-  "skin-femiwiki-share-twitter": "Twitter"
+	"@metadata": {
+		"authors": [
+			"Verdy p"
+		]
+	},
+	"skinname-femiwiki": "Fémiwiki",
+	"femiwiki-desc": "Habillage Fémiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menu",
+	"skin-femiwiki-share-tooltip": "Partager cet article",
+	"skin-femiwiki-share-dismiss": "Ignorer",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
 }

@@ -1,11 +1,13 @@
 {
-  "@metadata": {
-    "authors": ["Jlrb+"]
-  },
-  "skinname-femiwiki": "Femiwiki",
-  "skin-femiwiki-page-menu-tooltip": "Menú",
-  "skin-femiwiki-share-tooltip": "Comparteix aquest article",
-  "skin-femiwiki-share-dismiss": "Descarta",
-  "skin-femiwiki-share-facebook": "Facebook",
-  "skin-femiwiki-share-twitter": "Twitter"
+	"@metadata": {
+		"authors": [
+			"Jlrb+"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menú",
+	"skin-femiwiki-share-tooltip": "Comparteix aquest article",
+	"skin-femiwiki-share-dismiss": "Descarta",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
 }

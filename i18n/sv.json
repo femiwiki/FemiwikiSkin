@@ -1,12 +1,14 @@
 {
-  "@metadata": {
-    "authors": ["WikiPhoenix"]
-  },
-  "skinname-femiwiki": "Femiwiki",
-  "femiwiki-desc": "Femiwiki-utseende",
-  "skin-femiwiki-page-menu-tooltip": "Meny",
-  "skin-femiwiki-share-tooltip": "Dela denna artikel",
-  "skin-femiwiki-share-dismiss": "Stäng",
-  "skin-femiwiki-share-facebook": "Facebook",
-  "skin-femiwiki-share-twitter": "Twitter"
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Femiwiki-utseende",
+	"skin-femiwiki-page-menu-tooltip": "Meny",
+	"skin-femiwiki-share-tooltip": "Dela denna artikel",
+	"skin-femiwiki-share-dismiss": "Stäng",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
 }

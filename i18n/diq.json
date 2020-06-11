@@ -1,12 +1,16 @@
 {
-  "@metadata": {
-    "authors": ["1917 Ekim Devrimi", "Mirzali", "Orbot707"]
-  },
-  "skinname-femiwiki": "Femiwiki",
-  "femiwiki-desc": "Asayışê Femiwiki",
-  "skin-femiwiki-page-menu-tooltip": "Menu",
-  "skin-femiwiki-share-tooltip": "Enê meqaley bıvılaynê",
-  "skin-femiwiki-share-dismiss": "Red ke",
-  "skin-femiwiki-share-facebook": "Facebook",
-  "skin-femiwiki-share-twitter": "Twitter"
+	"@metadata": {
+		"authors": [
+			"1917 Ekim Devrimi",
+			"Mirzali",
+			"Orbot707"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Asayışê Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menu",
+	"skin-femiwiki-share-tooltip": "Enê meqaley bıvılaynê",
+	"skin-femiwiki-share-dismiss": "Red ke",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
 }

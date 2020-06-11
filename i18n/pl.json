@@ -1,8 +1,10 @@
 {
-  "@metadata": {
-    "authors": ["Rail"]
-  },
-  "femiwiki-desc": "Skórka Femiwiki",
-  "skin-femiwiki-share-tooltip": "Udostępnij artykuł",
-  "skin-femiwiki-share-dismiss": "Odrzuć"
+	"@metadata": {
+		"authors": [
+			"Rail"
+		]
+	},
+	"femiwiki-desc": "Skórka Femiwiki",
+	"skin-femiwiki-share-tooltip": "Udostępnij artykuł",
+	"skin-femiwiki-share-dismiss": "Odrzuć"
 }

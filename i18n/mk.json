@@ -1,12 +1,14 @@
 {
-  "@metadata": {
-    "authors": ["Bjankuloski06"]
-  },
-  "skinname-femiwiki": "Фемвики",
-  "femiwiki-desc": "Руво „Фемвики“",
-  "skin-femiwiki-page-menu-tooltip": "Мени",
-  "skin-femiwiki-share-tooltip": "Сподели ја статијава",
-  "skin-femiwiki-share-dismiss": "Тргни",
-  "skin-femiwiki-share-facebook": "Фејсбук",
-  "skin-femiwiki-share-twitter": "Твитер"
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"skinname-femiwiki": "Фемвики",
+	"femiwiki-desc": "Руво „Фемвики“",
+	"skin-femiwiki-page-menu-tooltip": "Мени",
+	"skin-femiwiki-share-tooltip": "Сподели ја статијава",
+	"skin-femiwiki-share-dismiss": "Тргни",
+	"skin-femiwiki-share-facebook": "Фејсбук",
+	"skin-femiwiki-share-twitter": "Твитер"
 }

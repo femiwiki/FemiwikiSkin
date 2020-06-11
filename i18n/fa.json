@@ -1,9 +1,12 @@
 {
-  "@metadata": {
-    "authors": ["FarsiNevis", "Reza1615"]
-  },
-  "skin-femiwiki-page-menu-tooltip": "منو",
-  "skin-femiwiki-share-dismiss": "بگذریم",
-  "skin-femiwiki-share-facebook": "فیس‌بوک",
-  "skin-femiwiki-share-twitter": "توئیتر"
+	"@metadata": {
+		"authors": [
+			"FarsiNevis",
+			"Reza1615"
+		]
+	},
+	"skin-femiwiki-page-menu-tooltip": "منو",
+	"skin-femiwiki-share-dismiss": "بگذریم",
+	"skin-femiwiki-share-facebook": "فیس‌بوک",
+	"skin-femiwiki-share-twitter": "توئیتر"
 }

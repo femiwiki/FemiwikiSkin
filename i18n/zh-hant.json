@@ -1,12 +1,14 @@
 {
-  "@metadata": {
-    "authors": ["Kly"]
-  },
-  "skinname-femiwiki": "Femiwiki",
-  "femiwiki-desc": "Femiwiki 主題",
-  "skin-femiwiki-page-menu-tooltip": "選單",
-  "skin-femiwiki-share-tooltip": "分享此條目",
-  "skin-femiwiki-share-dismiss": "去除",
-  "skin-femiwiki-share-facebook": "Facebook",
-  "skin-femiwiki-share-twitter": "Twitter"
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Femiwiki 主題",
+	"skin-femiwiki-page-menu-tooltip": "選單",
+	"skin-femiwiki-share-tooltip": "分享此條目",
+	"skin-femiwiki-share-dismiss": "去除",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
 }

@@ -1,9 +1,11 @@
 {
-  "@metadata": {
-    "authors": ["렌즈"]
-  },
-  "skin-femiwiki-page-menu-tooltip": "メニュー",
-  "skin-femiwiki-share-dismiss": "閉じる",
-  "skin-femiwiki-share-facebook": "Facebook",
-  "skin-femiwiki-share-twitter": "Twitter"
+	"@metadata": {
+		"authors": [
+			"렌즈"
+		]
+	},
+	"skin-femiwiki-page-menu-tooltip": "メニュー",
+	"skin-femiwiki-share-dismiss": "閉じる",
+	"skin-femiwiki-share-facebook": "Facebook",
+	"skin-femiwiki-share-twitter": "Twitter"
 }
