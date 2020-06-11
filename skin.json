@@ -102,6 +102,7 @@
       "+oojs-ui-core.styles": "resources/ooui.less",
       "+mediawiki.special": "resources/skins.femiwiki.special/special.less",
       "+mediawiki.special.changeslist": "resources/skins.femiwiki.special/recentchanges.less"
+    }
   },
   "Hooks": {
     "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
