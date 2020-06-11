@@ -46,8 +46,6 @@ class SkinFemiwiki extends SkinTemplate {
 		}
 		if ( $this->canUseWikiPage() && $this->getWikiPage()->getId() != 0 ) {
 			$modules[] = 'skins.femiwiki.share';
-		} else {
-			$out->addModuleStyles( 'skins.femiwiki.special' );
 		}
 		$out->addModules( $modules );
 	}

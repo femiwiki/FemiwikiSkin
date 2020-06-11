@@ -64,27 +64,8 @@
         "resources/skins.femiwiki/interface-gnb-desktop.less": {
           "media": "screen and (min-width: 640px)"
         },
-        "resources/ooui.less": {
-          "media": "screen"
-        },
         "resources/print.less": {
           "media": "print"
-        }
-      }
-    },
-    "skins.femiwiki.special": {
-      "class": "ResourceLoaderSkinModule",
-      "targets": ["desktop", "mobile"],
-      "position": "top",
-      "styles": {
-        "resources/skins.femiwiki.special/special.less": {
-          "media": "screen"
-        },
-        "resources/skins.femiwiki.special/recentchanges.less": {
-          "media": "screen"
-        },
-        "resources/skins.femiwiki.special/recentchanges-mobile.less": {
-          "media": "screen and (max-width: 480px) {"
         }
       }
     },
@@ -115,6 +96,12 @@
   "ResourceFileModulePaths": {
     "localBasePath": "",
     "remoteSkinPath": "Femiwiki"
+  },
+  "ResourceModuleSkinStyles": {
+    "femiwiki": {
+      "+oojs-ui-core.styles": "resources/ooui.less",
+      "+mediawiki.special": "resources/skins.femiwiki.special/special.less",
+      "+mediawiki.special.changeslist": "resources/skins.femiwiki.special/recentchanges.less"
   },
   "Hooks": {
     "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
