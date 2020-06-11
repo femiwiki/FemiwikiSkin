@@ -2,12 +2,12 @@
 # yarn lockfile v1
 
 
-grunt-banana-checker@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/grunt-banana-checker/-/grunt-banana-checker-0.8.1.tgz#b7d49defc73052e2f53ae177ff5022eaeb0cc473"
-  integrity sha512-fx3lqZZFL9EihNI4BpwNmcjsb5tCVfa/xWVXLT3fipSOrLr/BsWdAUTltscTx55/tSwSR8VbJOulI00e1WTtoA==
+grunt-banana-checker@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/grunt-banana-checker/-/grunt-banana-checker-0.9.0.tgz#0b58cf59ae773c12d26ead8e797f7bbfbde85939"
+  integrity sha512-SqPiB6OazWqR8USL0NymtuT5Br3mD9WBBsM1rHC/3wIi2SrZNM6/+j9CIeuEM5oCn+AtO2Y0+rzzFyOdC9afAg==
 
-prettier@^1.16.4:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
-  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
+prettier@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.5.tgz#d6d56282455243f2f92cc1716692c08aa31522d4"
+  integrity sha512-7PtVymN48hGcO4fGjybyBSIWDsLU4H4XlvOHfq91pz9kkGlonzwTfYkaIEwiRg/dAJF9YlbsduBAgtYLi+8cFg==
