@@ -1,14 +1,12 @@
 {
-	"@metadata": {
-		"authors": [
-			"Piramidion"
-		]
-	},
-	"skinname-femiwiki": "Femiwiki",
-	"femiwiki-desc": "Тема оформлення Femiwiki",
-	"skin-femiwiki-page-menu-tooltip": "Меню",
-	"skin-femiwiki-share-tooltip": "Поширити цю статтю",
-	"skin-femiwiki-share-dismiss": "Скасувати",
-	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+  "@metadata": {
+    "authors": ["Piramidion"]
+  },
+  "skinname-femiwiki": "Femiwiki",
+  "femiwiki-desc": "Тема оформлення Femiwiki",
+  "skin-femiwiki-page-menu-tooltip": "Меню",
+  "skin-femiwiki-share-tooltip": "Поширити цю статтю",
+  "skin-femiwiki-share-dismiss": "Скасувати",
+  "skin-femiwiki-share-facebook": "Facebook",
+  "skin-femiwiki-share-twitter": "Twitter"
 }

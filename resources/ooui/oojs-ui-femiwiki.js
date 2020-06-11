@@ -8,104 +8,107 @@
  *
  * Date: 2019-01-22T09:48:04Z
  */
-( function ( OO ) {
+(function(OO) {
+  "use strict";
 
-'use strict';
+  /**
+   * @class
+   * @extends OO.ui.Theme
+   *
+   * @constructor
+   */
+  OO.ui.FemiwikiTheme = function OoUiWikimediaUITheme() {
+    // Parent constructor
+    OO.ui.FemiwikiTheme.parent.call(this);
+  };
 
-/**
- * @class
- * @extends OO.ui.Theme
- *
- * @constructor
- */
-OO.ui.FemiwikiTheme = function OoUiWikimediaUITheme() {
-	// Parent constructor
-	OO.ui.FemiwikiTheme.parent.call( this );
-};
+  /* Setup */
 
-/* Setup */
+  OO.inheritClass(OO.ui.FemiwikiTheme, OO.ui.Theme);
 
-OO.inheritClass( OO.ui.FemiwikiTheme, OO.ui.Theme );
+  /* Methods */
 
-/* Methods */
+  /**
+   * @inheritdoc
+   */
+  OO.ui.FemiwikiTheme.prototype.getElementClasses = function(element) {
+    // Parent method
+    var variant,
+      isFramed,
+      isActive,
+      isToolOrGroup,
+      variants = {
+        warning: false,
+        invert: false,
+        progressive: false,
+        destructive: false
+      },
+      // Parent method
+      classes = OO.ui.FemiwikiTheme.parent.prototype.getElementClasses.call(
+        this,
+        element
+      );
 
-/**
- * @inheritdoc
- */
-OO.ui.FemiwikiTheme.prototype.getElementClasses = function ( element ) {
-	// Parent method
-	var variant, isFramed, isActive, isToolOrGroup,
-		variants = {
-			warning: false,
-			invert: false,
-			progressive: false,
-			destructive: false
-		},
-		// Parent method
-		classes = OO.ui.FemiwikiTheme.parent.prototype.getElementClasses.call( this, element );
+    if (
+      element instanceof OO.ui.IconWidget &&
+      element.$element.hasClass("oo-ui-checkboxInputWidget-checkIcon")
+    ) {
+      // Icon on CheckboxInputWidget
+      variants.invert = true;
+    } else if (element.supports(["hasFlag"])) {
+      isFramed = element.supports(["isFramed"]) && element.isFramed();
+      isActive = element.supports(["isActive"]) && element.isActive();
+      isToolOrGroup =
+        // Check if the class exists, as classes that are not in the 'core' module may not be loaded
+        (OO.ui.Tool && element instanceof OO.ui.Tool) ||
+        (OO.ui.ToolGroup && element instanceof OO.ui.ToolGroup);
+      if (
+        // Button with a dark background
+        (isFramed &&
+          (isActive || element.isDisabled() || element.hasFlag("primary"))) ||
+        // Toolbar with a dark background
+        (isToolOrGroup && element.hasFlag("primary"))
+      ) {
+        // … use white icon / indicator, regardless of other flags
+        variants.invert = true;
+      } else if (!isFramed && element.isDisabled()) {
+        // Frameless disabled button, always use black icon / indicator regardless of other flags
+        variants.invert = false;
+      } else if (!element.isDisabled()) {
+        // Any other kind of button, use the right colored icon / indicator if available
+        variants.progressive =
+          element.hasFlag("progressive") ||
+          // Active tools/toolgroups
+          (isToolOrGroup && isActive) ||
+          // Pressed or selected outline/menu option widgets
+          ((element instanceof OO.ui.MenuOptionWidget ||
+            // Check if the class exists, as classes that are not in the 'core' module may not be loaded
+            (OO.ui.OutlineOptionWidget &&
+              element instanceof OO.ui.OutlineOptionWidget)) &&
+            (element.isPressed() || element.isSelected()));
 
-	if (
-		element instanceof OO.ui.IconWidget &&
-		element.$element.hasClass( 'oo-ui-checkboxInputWidget-checkIcon' )
-	) {
-		// Icon on CheckboxInputWidget
-		variants.invert = true;
-	} else if ( element.supports( [ 'hasFlag' ] ) ) {
-		isFramed = element.supports( [ 'isFramed' ] ) && element.isFramed();
-		isActive = element.supports( [ 'isActive' ] ) && element.isActive();
-		isToolOrGroup =
-			// Check if the class exists, as classes that are not in the 'core' module may not be loaded
-			( OO.ui.Tool && element instanceof OO.ui.Tool ) ||
-			( OO.ui.ToolGroup && element instanceof OO.ui.ToolGroup );
-		if (
-			// Button with a dark background
-			isFramed && ( isActive || element.isDisabled() || element.hasFlag( 'primary' ) ) ||
-			// Toolbar with a dark background
-			isToolOrGroup && element.hasFlag( 'primary' )
-		) {
-			// … use white icon / indicator, regardless of other flags
-			variants.invert = true;
-		} else if ( !isFramed && element.isDisabled() ) {
-			// Frameless disabled button, always use black icon / indicator regardless of other flags
-			variants.invert = false;
-		} else if ( !element.isDisabled() ) {
-			// Any other kind of button, use the right colored icon / indicator if available
-			variants.progressive = element.hasFlag( 'progressive' ) ||
-				// Active tools/toolgroups
-				( isToolOrGroup && isActive ) ||
-				// Pressed or selected outline/menu option widgets
-				(
-					(
-						element instanceof OO.ui.MenuOptionWidget ||
-						// Check if the class exists, as classes that are not in the 'core' module may not be loaded
-						( OO.ui.OutlineOptionWidget && element instanceof OO.ui.OutlineOptionWidget )
-					) &&
-					( element.isPressed() || element.isSelected() )
-				);
+        variants.destructive = element.hasFlag("destructive");
+        variants.warning = element.hasFlag("warning");
+      }
+    }
 
-			variants.destructive = element.hasFlag( 'destructive' );
-			variants.warning = element.hasFlag( 'warning' );
-		}
-	}
+    for (variant in variants) {
+      classes[variants[variant] ? "on" : "off"].push("oo-ui-image-" + variant);
+    }
 
-	for ( variant in variants ) {
-		classes[ variants[ variant ] ? 'on' : 'off' ].push( 'oo-ui-image-' + variant );
-	}
+    return classes;
+  };
 
-	return classes;
-};
+  /**
+   * @inheritdoc
+   */
+  OO.ui.FemiwikiTheme.prototype.getDialogTransitionDuration = function() {
+    return 250;
+  };
 
-/**
- * @inheritdoc
- */
-OO.ui.FemiwikiTheme.prototype.getDialogTransitionDuration = function () {
-	return 250;
-};
+  /* Instantiation */
 
-/* Instantiation */
-
-OO.ui.theme = new OO.ui.FemiwikiTheme();
-
-}( OO ) );
+  OO.ui.theme = new OO.ui.FemiwikiTheme();
+})(OO);
 
 //# sourceMappingURL=oojs-ui-femiwiki.js.map.json

@@ -1,11 +1,11 @@
 {
-	"@metadata": {
-		"authors": []
-	},
-	"femiwiki-desc": "Femiwiki tema",
-	"skin-femiwiki-page-menu-tooltip": "Meni",
-	"skin-femiwiki-share-tooltip": "Podeli ovaj članak",
-	"skin-femiwiki-share-dismiss": "Odbaci",
-	"skin-femiwiki-share-facebook": "Fejsbuk",
-	"skin-femiwiki-share-twitter": "Tviter"
+  "@metadata": {
+    "authors": []
+  },
+  "femiwiki-desc": "Femiwiki tema",
+  "skin-femiwiki-page-menu-tooltip": "Meni",
+  "skin-femiwiki-share-tooltip": "Podeli ovaj članak",
+  "skin-femiwiki-share-dismiss": "Odbaci",
+  "skin-femiwiki-share-facebook": "Fejsbuk",
+  "skin-femiwiki-share-twitter": "Tviter"
 }

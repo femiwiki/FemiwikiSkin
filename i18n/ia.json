@@ -1,14 +1,12 @@
 {
-	"@metadata": {
-		"authors": [
-			"McDutchie"
-		]
-	},
-	"skinname-femiwiki": "Femiwiki",
-	"femiwiki-desc": "Thema Femiwiki",
-	"skin-femiwiki-page-menu-tooltip": "Menu",
-	"skin-femiwiki-share-tooltip": "Divider iste articulo",
-	"skin-femiwiki-share-dismiss": "Clauder",
-	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+  "@metadata": {
+    "authors": ["McDutchie"]
+  },
+  "skinname-femiwiki": "Femiwiki",
+  "femiwiki-desc": "Thema Femiwiki",
+  "skin-femiwiki-page-menu-tooltip": "Menu",
+  "skin-femiwiki-share-tooltip": "Divider iste articulo",
+  "skin-femiwiki-share-dismiss": "Clauder",
+  "skin-femiwiki-share-facebook": "Facebook",
+  "skin-femiwiki-share-twitter": "Twitter"
 }

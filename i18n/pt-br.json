@@ -1,14 +1,12 @@
 {
-	"@metadata": {
-		"authors": [
-			"Eduardo Addad de Oliveira"
-		]
-	},
-	"skinname-femiwiki": "Femiwiki",
-	"femiwiki-desc": "Femiwiki skin",
-	"skin-femiwiki-page-menu-tooltip": "Menu",
-	"skin-femiwiki-share-tooltip": "Falha ao escrever uma sanção.",
-	"skin-femiwiki-share-dismiss": "Ignorar",
-	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+  "@metadata": {
+    "authors": ["Eduardo Addad de Oliveira"]
+  },
+  "skinname-femiwiki": "Femiwiki",
+  "femiwiki-desc": "Femiwiki skin",
+  "skin-femiwiki-page-menu-tooltip": "Menu",
+  "skin-femiwiki-share-tooltip": "Falha ao escrever uma sanção.",
+  "skin-femiwiki-share-dismiss": "Ignorar",
+  "skin-femiwiki-share-facebook": "Facebook",
+  "skin-femiwiki-share-twitter": "Twitter"
 }

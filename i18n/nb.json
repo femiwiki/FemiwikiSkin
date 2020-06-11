@@ -1,14 +1,12 @@
 {
-	"@metadata": {
-		"authors": [
-			"Jon Harald Søby"
-		]
-	},
-	"skinname-femiwiki": "Femiwiki",
-	"femiwiki-desc": "Femiwiki-drakt",
-	"skin-femiwiki-page-menu-tooltip": "Meny",
-	"skin-femiwiki-share-tooltip": "Del denne artikkelen",
-	"skin-femiwiki-share-dismiss": "Lukk",
-	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+  "@metadata": {
+    "authors": ["Jon Harald Søby"]
+  },
+  "skinname-femiwiki": "Femiwiki",
+  "femiwiki-desc": "Femiwiki-drakt",
+  "skin-femiwiki-page-menu-tooltip": "Meny",
+  "skin-femiwiki-share-tooltip": "Del denne artikkelen",
+  "skin-femiwiki-share-dismiss": "Lukk",
+  "skin-femiwiki-share-facebook": "Facebook",
+  "skin-femiwiki-share-twitter": "Twitter"
 }

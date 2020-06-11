@@ -1,14 +1,12 @@
 {
-	"@metadata": {
-		"authors": [
-			"500000000006城"
-		]
-	},
-	"skinname-femiwiki": "Femiwiki",
-	"femiwiki-desc": "Femiwiki皮肤",
-	"skin-femiwiki-page-menu-tooltip": "菜单",
-	"skin-femiwiki-share-tooltip": "分享这篇文章",
-	"skin-femiwiki-share-dismiss": "关闭",
-	"skin-femiwiki-share-facebook": "脸书",
-	"skin-femiwiki-share-twitter": "推特"
+  "@metadata": {
+    "authors": ["500000000006城"]
+  },
+  "skinname-femiwiki": "Femiwiki",
+  "femiwiki-desc": "Femiwiki皮肤",
+  "skin-femiwiki-page-menu-tooltip": "菜单",
+  "skin-femiwiki-share-tooltip": "分享这篇文章",
+  "skin-femiwiki-share-dismiss": "关闭",
+  "skin-femiwiki-share-facebook": "脸书",
+  "skin-femiwiki-share-twitter": "推特"
 }

@@ -1,14 +1,12 @@
 {
-	"@metadata": {
-		"authors": [
-			"Hamilton Abreu"
-		]
-	},
-	"skinname-femiwiki": "Femiwiki",
-	"femiwiki-desc": "Tema Femiwiki",
-	"skin-femiwiki-page-menu-tooltip": "Menu",
-	"skin-femiwiki-share-tooltip": "Partilhar este artigo",
-	"skin-femiwiki-share-dismiss": "Ignorar",
-	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+  "@metadata": {
+    "authors": ["Hamilton Abreu"]
+  },
+  "skinname-femiwiki": "Femiwiki",
+  "femiwiki-desc": "Tema Femiwiki",
+  "skin-femiwiki-page-menu-tooltip": "Menu",
+  "skin-femiwiki-share-tooltip": "Partilhar este artigo",
+  "skin-femiwiki-share-dismiss": "Ignorar",
+  "skin-femiwiki-share-facebook": "Facebook",
+  "skin-femiwiki-share-twitter": "Twitter"
 }
