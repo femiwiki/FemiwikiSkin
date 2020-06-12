@@ -1,48 +1,46 @@
 @import '../variables.less';
 
-@media screen and (min-width: 640px) {
-  .nav-bar {
-    #mw-navigation {
-      #p-logo {
-        width: 7.7rem;
+.nav-bar {
+  #mw-navigation {
+    #p-logo {
+      width: 7.7rem;
 
-        .mw-wiki-logo {
-          /* @embed */
-          background: url('../images/logo-long.png') 0.6rem 0.4rem no-repeat;
-          background-size: 6.5rem 1.8rem;
-        }
+      .mw-wiki-logo {
+        /* @embed */
+        background: url('../images/logo-long.png') 0.6rem 0.4rem no-repeat;
+        background-size: 6.5rem 1.8rem;
+      }
+    }
+
+    #p-search {
+      left: 7.8rem;
+      right: 13.3rem;
+    }
+
+    #site-navigation {
+      .changes a {
+        /* @embed */
+        background: url('../images/icon-changes-notext.png') 0.4rem 0.4rem
+          no-repeat;
+        background-size: 1.6rem 1.6rem;
       }
 
-      #p-search {
-        left: 7.8rem;
-        right: 13.3rem;
+      .random a {
+        /* @embed */
+        background: url('../images/icon-random-notext.png') 0.4rem 0.4rem
+          no-repeat;
+        background-size: 1.6rem 1.6rem;
       }
 
-      #site-navigation {
-        .changes a {
-          /* @embed */
-          background: url('../images/icon-changes-notext.png') 0.4rem 0.4rem
-            no-repeat;
-          background-size: 1.6rem 1.6rem;
-        }
+      a {
+        width: 5.4rem;
+        font-size: 0.8rem;
+      }
 
-        .random a {
-          /* @embed */
-          background: url('../images/icon-random-notext.png') 0.4rem 0.4rem
-            no-repeat;
-          background-size: 1.6rem 1.6rem;
-        }
-
-        a {
-          width: 5.4rem;
-          font-size: 0.8rem;
-        }
-
-        .text {
-          display: inline-block;
-          padding-left: 1.2rem;
-          padding-top: 0.5rem;
-        }
+      .text {
+        display: inline-block;
+        padding-left: 1.2rem;
+        padding-top: 0.5rem;
       }
     }
   }
