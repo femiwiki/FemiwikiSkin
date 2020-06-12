@@ -27,11 +27,6 @@ class FemiwikiTemplate extends BaseTemplate {
 
 		$this->html( 'headelement' );
 
-		echo Html::openElement(
-			'div',
-			[ 'id' => 'mw-wrapper' ]
-		);
-
 		echo $this->templateParser->processTemplate( 'NavigationBar', [
 			'msg-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
 			'msg-tooltip-n-recentchanges' => $this->getMsg( 'tooltip-n-recentchanges' )->text(),
@@ -65,8 +60,6 @@ class FemiwikiTemplate extends BaseTemplate {
 		echo $this->templateParser->processTemplate( 'Content', $contentProps );
 
 		$this->renderFooter();
-
-		echo Html::closeElement( 'div' );
 
 		$this->printTrail();
 		echo '</body></html>';
