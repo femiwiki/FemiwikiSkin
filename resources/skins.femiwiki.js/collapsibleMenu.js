@@ -1,8 +1,8 @@
-var _FW = {
-  BBS_NS: [3902, 3904],
-};
-
-$(function () {
+function init() {
+  /**
+   * @param {string} divId
+   * @return {void}
+   */
   function menuResize(divId) {
     var containerWidth =
         parseFloat($('#' + divId).css('width')) -
@@ -61,15 +61,6 @@ $(function () {
     }
   }
 
-  var searchInput = $('#searchInput'),
-    searchClearButton = $('#searchClearButton');
-  searchInput.on('input', function () {
-    searchClearButton.toggle(!!this.value);
-  });
-  searchClearButton.click(function () {
-    searchInput.val('').trigger('input').focus();
-  });
-
   $('#fw-menu-toggle').click(function () {
     $('#fw-menu').toggle();
     menuResize('fw-menu');
@@ -83,14 +74,6 @@ $(function () {
     menuResize('fw-menu');
     menuResize('p-actions-and-toolbox');
   });
+}
 
-  // Notification badge
-  var badge = +$('#pt-notifications-echo .mw-echo-notifications-badge').attr(
-    'data-counter-num'
-  );
-  if (!isNaN(badge) && badge !== 0) {
-    $('#fw-menu-toggle .badge')
-      .addClass('active')
-      .text(badge > 10 ? '+9' : badge);
-  }
-});
+module.exports = Object.freeze({ init: init });

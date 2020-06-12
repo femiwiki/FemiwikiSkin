@@ -2,20 +2,20 @@
   'use strict';
 
   function init() {
-    var myWidget,
-      echoApi,
-      $existingLink = $('#pt-notifications-echo a'),
-      num = $existingLink.attr('data-counter-num'),
-      badgeLabel = $existingLink.attr('data-counter-text'),
-      hasUnseen = $existingLink.hasClass('mw-echo-unseen-notifications'),
-      links = {
-        notifications:
-          $('#pt-notifications-echo a').attr('href') ||
-          mw.util.getUrl('Special:Notifications'),
-        preferences:
-          ($('#pt-preferences a').attr('href') ||
-            mw.util.getUrl('Special:Preferences')) + '#mw-prefsection-echo',
-      };
+    var myWidget;
+    /** @type {EchoApi} */ var echoApi;
+    var $existingLink = $('#pt-notifications-echo a');
+    var num = $existingLink.attr('data-counter-num');
+    var badgeLabel = $existingLink.attr('data-counter-text');
+    var hasUnseen = $existingLink.hasClass('mw-echo-unseen-notifications');
+    var links = {
+      notifications:
+        $('#pt-notifications-echo a').attr('href') ||
+        mw.util.getUrl('Special:Notifications'),
+      preferences:
+        ($('#pt-preferences a').attr('href') ||
+          mw.util.getUrl('Special:Preferences')) + '#mw-prefsection-echo',
+    };
 
     // Respond to click on the notification button and load the UI on demand
     $('.mw-echo-notification-badge-fw-nojs').on('click', function (e) {

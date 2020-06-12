@@ -70,21 +70,26 @@
       }
     },
     "skins.femiwiki.js": {
-      "scripts": ["resources/main.js"],
+      "packageFiles": [
+        "resources/skins.femiwiki.js/skin.js",
+        "resources/skins.femiwiki.js/collapsibleMenu.js",
+        "resources/skins.femiwiki.js/notificationBadge.js",
+        "resources/skins.femiwiki.js/searchClearButton.js"
+      ],
       "dependencies": ["oojs", "oojs-ui-core"]
     },
     "skins.femiwiki.notifications": {
-      "scripts": ["resources/skins.femiwiki.notifications/init.js"]
+      "packageFiles": ["resources/skins.femiwiki.notifications/init.js"]
     },
     "skins.femiwiki.dm": {
       "scripts": ["resources/mw.fw.js"]
     },
     "skins.femiwiki.share": {
-      "scripts": ["resources/skins.femiwiki.share/init.js"],
+      "packageFiles": ["resources/skins.femiwiki.share/init.js"],
       "dependencies": ["oojs", "oojs-ui-windows"]
     },
     "skins.femiwiki.share.ui": {
-      "scripts": ["resources/skins.femiwiki.share/mw.fw.ShareDialog.js"],
+      "scripts": ["resources/skins.femiwiki.share.ui/mw.fw.ShareDialog.js"],
       "dependencies": ["skins.femiwiki.dm", "oojs", "oojs-ui-windows"],
       "messages": [
         "skin-femiwiki-share-dismiss",

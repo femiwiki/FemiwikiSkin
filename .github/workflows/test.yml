@@ -1,4 +1,4 @@
-name: lint
+name: Test
 
 on: [push, pull_request]
 
@@ -25,7 +25,7 @@ jobs:
     - run: composer install -n
     - run: composer test
 
-  yarn-lint:
+  yarn-test:
     runs-on: ubuntu-18.04
 
     steps:
