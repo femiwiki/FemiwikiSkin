@@ -3,13 +3,13 @@
 #p-header {
   box-sizing: border-box;
   margin: 2.3rem auto 0.5rem;
-  padding: 0 1.3rem;
-  max-width: 50rem;
+  padding: 0 @content-horizontal-padding;
+  max-width: @content-width;
   clear: both;
 
   #p-namespaces h3 {
     display: none;
-    color: #000000;
+    color: @color-base0;
     font-size: 0.96rem;
     margin: 0 0 0.288rem;
     overflow: hidden;
@@ -34,7 +34,7 @@
 
   #siteNotice {
     font-size: 0.8rem;
-    color: #000;
+    color: @color-base0;
     margin: 0 0 4rem;
     padding: 1.6rem 0.8rem;
     border: 2px solid #aca8e0;
@@ -75,7 +75,7 @@
       clear: right;
       text-align: right;
       overflow: hidden;
-      border-bottom: 1px solid @color1;
+      border-bottom: 1px solid @color-primary1;
 
       #p-actions,
       #p-page-tb,
@@ -94,7 +94,7 @@
           border-bottom: 1px solid #b9b5d9;
           margin-bottom: 0.4rem;
           padding: 0.5rem 0 0.17rem;
-          color: #000;
+          color: @color-base0;
           overflow: hidden;
         }
 
@@ -141,7 +141,7 @@
     #p-views {
       h3 {
         display: none;
-        color: #000000;
+        color: @color-base0;
         font-size: 0.96rem;
         margin: 0 0 0.288rem;
         overflow: hidden;
@@ -196,7 +196,7 @@
   padding: 0;
   line-height: 1.2em;
   border-bottom: none;
-  color: #252525;
+  color: @color-base15;
   font-weight: bold;
   overflow: hidden;
 }
@@ -305,8 +305,8 @@ hr#content-end-bar {
       margin-bottom: 0.3em;
       padding: 0.5em 0 0.17em;
       font-weight: bold;
-      border: 0 none #000000;
-      color: #000;
+      border: 0 none @color-base0;
+      color: @color-base0;
       overflow: hidden;
     }
 
