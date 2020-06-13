@@ -34,9 +34,6 @@
         "resources/skins.femiwiki/elements.less": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/elements-mobile-small.less": {
-          "media": "screen and (max-width: 360px)"
-        },
         "resources/skins.femiwiki/contents.less": {
           "media": "screen"
         },
@@ -52,9 +49,6 @@
         "resources/skins.femiwiki/contents-mobile.less": {
           "media": "screen and (max-width: 480px)"
         },
-        "resources/skins.femiwiki/contents-mobile-small.less": {
-          "media": "screen and (max-width: 360px)"
-        },
         "resources/skins.femiwiki/interface.less": {
           "media": "screen"
         },
@@ -63,6 +57,9 @@
         },
         "resources/skins.femiwiki/interface-gnb-desktop.less": {
           "media": "screen and (min-width: 640px)"
+        },
+        "resources/skins.femiwiki/mobile-small.less": {
+          "media": "screen and (max-width: 360px)"
         },
         "resources/print.less": {
           "media": "print"
