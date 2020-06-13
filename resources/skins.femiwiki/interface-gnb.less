@@ -1,182 +1,59 @@
 @import '../variables.less';
+@import 'mediawiki.mixins.less';
 
 .nav-bar {
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 2.4rem;
-  background-color: @color1;
+  @height: 2.4rem;
+  height: @height;
+  background-color: @color-primary1;
 
   #mw-navigation {
+    @logo-width-square: @height;
+    @logo-width-long: 7.7rem;
+
     position: relative;
-    max-width: 48.7rem;
+    max-width: @content-width - 1.3rem;
     margin: 0 auto;
+    height: @height;
 
-    // Logo
-    #p-logo {
+    & > * {
       position: absolute;
-      left: 0;
-      top: 0;
-      margin: 0;
+      height: @height;
       padding: 0;
-      width: 2.4rem;
-      height: 2.4rem;
-      border: none;
-      font-weight: normal;
-      color: #000000;
-      overflow: hidden;
-
-      .mw-wiki-logo {
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        font-weight: normal;
-        text-decoration: none;
-
-        /* @embed */
-        background: url('../images/logo-icon.png') top left no-repeat;
-        background-size: 2.4rem 2.4rem;
-
-        img {
-          display: none;
-          vertical-align: middle;
-        }
-      }
+      margin: 0;
     }
 
     h2 {
-      display: none;
-      border-bottom: 1px solid #a2a9b1;
-      color: #000000;
-      font-weight: normal;
-      margin: 0 0 0.9rem;
-      overflow: hidden;
-      padding: 0.75rem 0 0.255rem;
+      .hidden();
     }
 
-    // Recent changes and random pages
-    #site-navigation {
-      position: absolute;
-      top: 0;
-      right: 2.4rem;
-      margin: 0;
-      padding: 0;
+    #p-logo {
+      display: block;
+      background-repeat: no-repeat;
+      width: @logo-width-square;
+      .background-image('../images/logo-icon.png');
+      background-size: @height @height;
 
-      h3 {
-        display: none;
-      }
-
-      li {
-        float: left;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        color: #fff;
-        text-align: center;
-      }
-      li:last-child {
-        border-right: 1px solid #fff;
-      }
-      .changes a {
-        /* @embed */
-        background: url('../images/icon-changes.png') no-repeat;
-        background-size: 2.4rem 2.4rem;
-      }
-      .random a {
-        /* @embed */
-        background: url('../images/icon-random.png') no-repeat;
-        background-size: 2.4rem 2.4rem;
-      }
-      .text {
-        display: none;
-      }
-
-      a {
-        position: relative;
-        display: block;
-        width: 2.4rem;
-        height: 2.4rem;
-        color: #fff;
-        text-decoration: none;
-      }
-    }
-
-    // Menu button
-    #fw-menu-toggle {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 2.4rem;
-      height: 2.4rem;
-      padding: 0;
-      margin: 0;
-      border-width: 0;
-      background-color: inherit;
-      /* @embed */
-      background: url('../images/icon-bars.png') 0.3rem 0.3rem no-repeat;
-      background-size: 1.8rem 1.8rem;
-
-      .badge {
-        display: none;
-      }
-
-      .badge.active {
-        position: absolute;
-        right: 0.2rem;
-        top: 0.2rem;
-        display: block;
-        background-color: #a5c831;
-        width: 1.2rem;
-        height: 1.2rem;
-        font-size: 0.7rem;
-        line-height: 1.1rem;
-        border: 1px solid #aca7e2;
-        border-radius: 0.6rem;
-        animation: gentle-pulse 5s infinite;
-      }
-
-      @keyframes gentle-pulse {
-        0% {
-          opacity: 0;
-        }
-        10% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 0;
-        }
+      @media (min-width: @width-breakpoint-tablet) {
+        width: @logo-width-long;
+        .background-image('../images/logo-long.png');
+        background-size: 6.5rem 1.8rem;
+        background-position: 0.6rem 0.4rem;
       }
     }
 
     // Search form
     #p-search {
-      position: absolute;
-      top: 0;
-      left: 2.5rem;
-      right: 7.3rem;
-      height: 2.4rem;
       display: block;
+      left: @logo-width-square+ 0.1rem;
+      right: 7.3rem;
 
-      h3 {
-        font-size: 1.28rem;
-        margin: 0 0 0.384rem;
-        overflow: hidden;
-        padding: 0.64rem 0 0.2176rem;
-        display: none;
-        color: #000000;
-
-        label {
-          border-color: #000000;
-          color: #000000;
-        }
+      @media (min-width: @width-breakpoint-tablet) {
+        left: @logo-width-long + 0.1rem;
+        right: 13.3rem;
       }
 
-      #searchGoButton {
-        display: none;
+      h3 {
+        .hidden();
       }
 
       #searchInput {
@@ -184,7 +61,7 @@
         width: ~'calc(100% - 1rem - 2px)';
         font-size: 1rem;
         height: ~'calc(2.4rem - 2px)';
-        border: 1px solid @color1;
+        border: 1px solid @color-primary1;
         padding: 0 0.5rem;
       }
 
@@ -201,6 +78,99 @@
         color: black;
         margin: 0 0.35rem;
       }
+
+      #mw-searchButton,
+      #searchButton {
+        display: none;
+      }
+    }
+
+    // Recent changes and random pages
+    #site-navigation {
+      right: @height;
+
+      li {
+        float: left;
+        list-style-type: none;
+        color: #fff;
+        text-align: center;
+
+        &:last-child {
+          border-right: 1px solid #fff;
+        }
+
+        a {
+          font-size: 0.8rem;
+          position: relative;
+          display: block;
+          width: @height;
+          height: @height;
+          color: @color-base100;
+          text-decoration: none;
+          background-size: @height @height;
+          background-repeat: no-repeat;
+
+          @media (min-width: @width-breakpoint-tablet) {
+            width: 5.4rem;
+            background-size: 1.6rem 1.6rem;
+            background-position: 0.4rem 0.4rem;
+          }
+
+          .text {
+            display: none;
+
+            @media (min-width: @width-breakpoint-tablet) {
+              display: inline-block;
+              padding-left: 1.2rem;
+              padding-top: 0.5rem;
+            }
+          }
+        }
+
+        &.changes a {
+          .background-image('../images/icon-changes.png');
+
+          @media (min-width: @width-breakpoint-tablet) {
+            .background-image('../images/icon-changes-notext.png');
+          }
+        }
+        &.random a {
+          .background-image('../images/icon-random.png');
+
+          @media (min-width: @width-breakpoint-tablet) {
+            .background-image('../images/icon-random-notext.png');
+          }
+        }
+      }
+    }
+
+    // Menu button
+    #fw-menu-toggle {
+      right: 0;
+      width: @height;
+      border-width: 0;
+      background-color: inherit;
+      background: 0.3rem 0.3rem ~'/' 1.8rem 1.8rem no-repeat;
+      .background-image('../images/icon-bars.png');
+
+      .badge {
+        display: none;
+
+        &.active {
+          position: absolute;
+          right: 0.2rem;
+          top: 0.2rem;
+          display: block;
+          background-color: @color-alert2;
+          width: 1.2rem;
+          height: 1.2rem;
+          font-size: 0.7rem;
+          line-height: 1.1rem;
+          border: 1px solid @color-primary1;
+          border-radius: 0.6rem;
+          animation: gentle-pulse 5s infinite;
+        }
+      }
     }
   }
 }
@@ -210,7 +180,7 @@
   margin: 0.6rem auto 0;
   padding: 0.85rem;
   max-width: 48.7rem;
-  border-bottom: 1px solid @color1;
+  border-bottom: 1px solid @color-primary1;
   box-sizing: border-box;
   overflow: hidden;
 
@@ -223,7 +193,7 @@
 
     h3 {
       font-size: 1rem;
-      color: #000;
+      color: @color-base0;
       margin-top: 0;
       margin-bottom: 0.4rem;
       border-bottom: 1px solid #b9b5d9;

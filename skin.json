@@ -55,9 +55,6 @@
         "resources/skins.femiwiki/interface-gnb.less": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/interface-gnb-desktop.less": {
-          "media": "screen and (min-width: 640px)"
-        },
         "resources/skins.femiwiki/mobile-small.less": {
           "media": "screen and (max-width: 360px)"
         },

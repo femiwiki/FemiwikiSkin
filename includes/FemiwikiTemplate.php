@@ -167,34 +167,20 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * @return string html
 	 */
 	private function getSearch() {
-		$html = Html::openElement(
-			'form',
-			[
-				'action' => htmlspecialchars( $this->get( 'wgScript' ) ),
-				'role' => 'search',
-				'class' => 'mw-portlet',
-				'id' => 'p-search'
-			]
-		);
-		$html .= Html::hidden( 'title', htmlspecialchars( $this->get( 'searchtitle' ) ) );
-		$html .= Html::rawelement(
-			'h3',
-			[],
-			Html::label( $this->getMsg( 'search' )->escaped(), 'searchInput' )
-		);
-		$html .= $this->makeSearchInput( [ 'id' => 'searchInput' ] );
-		$html .= Html::rawelement(
-			'button',
-			[
-				'id' => 'searchClearButton',
-				'type' => 'button'
-			],
-			'×'
-		);
-		$html .= $this->makeSearchButton( 'go', [ 'id' => 'searchGoButton', 'class' => 'searchButton' ] );
-		$html .= Html::closeElement( 'form' );
-
-		return $html;
+		return $this->templateParser->processTemplate( 'SearchBox', [
+			'form-action' => $this->get( 'wgScript' ),
+			'html-button-search-fallback' => $this->makeSearchButton(
+				'fulltext',
+				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+			),
+			'html-button-search' => $this->makeSearchButton(
+				'go',
+				[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+			),
+			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
+			'msg-search' => $this->getMsg( 'search' ),
+			'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
+		] );
 	}
 
 	/**

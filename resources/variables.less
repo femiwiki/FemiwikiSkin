@@ -1,5 +1,37 @@
-@width: 66em;
-@border: #ccc;
+@width-breakpoint-mobile-small: 360px;
+@width-breakpoint-mobile: 480px;
+@width-breakpoint-tablet: 640px;
+
+@content-width: 50rem;
+@content-horizontal-padding: 1.3rem;
+
+@color-base0: #000000;
+@color-base15: #252525;
+@color-base100: #fff;
+
+@color-primary1: #aca6e4;
+@color-primary2: #746ccb;
+@color-primary3: #5144a3;
+@color-primary4: #302a45;
+
+@color-alert: #dae8b2;
+@color-alert2: #a5c831;
+@color-alert-border: #b2d236;
+
+@keyframes gentle-pulse {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 // To hide objects, but keep them accessible for screen-readers
 .hidden() {
@@ -18,9 +50,3 @@
   height: auto;
   vertical-align: middle;
 }
-
-@left-margin: 60px;
-@color1: #aca6e4;
-@color2: #746ccb;
-@color3: #5144a3;
-@color4: #302a45;
