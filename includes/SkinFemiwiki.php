@@ -6,8 +6,9 @@
  * @ingroup Skins
  */
 class SkinFemiwiki extends SkinTemplate {
-	public $skinname = 'femiwiki', $stylename = 'Femiwiki',
-		$template = 'FemiwikiTemplate', $useHeadElement = true;
+	public $skinname = 'femiwiki';
+	public $stylename = 'Femiwiki';
+	public $template = 'FemiwikiTemplate';
 
 	/**
 	 * Add CSS via ResourceLoader
