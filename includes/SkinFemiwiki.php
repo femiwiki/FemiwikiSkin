@@ -16,38 +16,46 @@ class SkinFemiwiki extends SkinTemplate {
 	 * @param OutputPage $out
 	 */
 	public function initPage( OutputPage $out ) {
-		global $wgFemiwikiHeadItems, $wgFemiwikiTwitterAccount;
-
 		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
 
 		// Twitter card
 		$out->addMeta( 'twitter:card', 'summary_large_image' );
 
-		if ( $wgFemiwikiTwitterAccount ) {
-			$out->addMeta( 'twitter:site', "@$wgFemiwikiTwitterAccount" );
+		$twitter = $this->getConfig()->get( 'FemiwikiTwitterAccount' );
+		if ( $twitter ) {
+			$out->addMeta( 'twitter:site', "@$twitter" );
 		}
 
 		// Favicons
-		$out->addHeadItems( $wgFemiwikiHeadItems );
-
-		$out->addModuleStyles( [
-			'mediawiki.skinning.content.externallinks',
-			'skins.femiwiki',
-			'oojs-ui.styles.icons-interactions'
-		] );
+		$headItems = $this->getConfig()->get( 'FemiwikiHeadItems' );
+		if ( $headItems ) {
+			$out->addHeadItems( $headItems );
+		}
 
 		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
 		$out->enableOOUI();
+	}
 
-		$modules = [
-			'skins.femiwiki.js'
-		];
-		if ( $out->getUser()->isLoggedIn() ) {
-			$modules[] = 'skins.femiwiki.notifications';
-		}
-		if ( $this->canUseWikiPage() && $this->getWikiPage()->getId() != 0 ) {
-			$modules[] = 'skins.femiwiki.share';
-		}
-		$out->addModules( $modules );
+	/**
+	 * @inheritDoc
+	 * @return array
+	 */
+	public function getDefaultModules() {
+		$modules = parent::getDefaultModules();
+
+		$modules['styles'] = array_merge(
+			$modules['styles'],
+			array_filter( [
+				'skins.femiwiki',
+				'mediawiki.skinning.content.externallinks',
+				'oojs-ui.styles.icons-interactions',
+				$this->loggedin ? 'skins.femiwiki.notifications' : null,
+				!$this->getTitle()->isSpecialPage() ? 'skins.femiwiki.share' : null
+			] )
+		);
+
+		$modules[$this->$skinname][] = 'skins.femiwiki.js';
+
+		return $modules;
 	}
 }
