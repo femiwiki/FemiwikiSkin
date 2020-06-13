@@ -49,12 +49,4 @@ class SkinFemiwiki extends SkinTemplate {
 		}
 		$out->addModules( $modules );
 	}
-
-	/**
-	 * Overrides https://doc.wikimedia.org/mediawiki-core/REL1_31/php/classSkinTemplate.html#a8f0695e80dec37e0c122e31e3141506a
-	 * @param OutputPage $out
-	 */
-	public function setupSkinUserCss( OutputPage $out ) {
-		parent::setupSkinUserCss( $out );
-	}
 }
