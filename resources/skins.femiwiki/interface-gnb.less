@@ -7,8 +7,8 @@
   background-color: @color-primary1;
 
   #mw-navigation {
-    @logo-width-square: @height;
-    @logo-width-long: 7.7rem;
+    @logo-icon-width: @height;
+    @wordmark-width: 7.7rem;
 
     position: relative;
     max-width: @content-width - 1.3rem;
@@ -29,7 +29,7 @@
     #p-logo {
       display: block;
       background-repeat: no-repeat;
-      width: @logo-width-square;
+      width: @logo-icon-width;
 
       & when( @logo-icon-enabled = 1 ) {
         /* @embed */
@@ -38,7 +38,7 @@
       }
 
       @media (min-width: @width-breakpoint-tablet) {
-        width: @logo-width-long;
+        width: @wordmark-width;
 
         & when( @logo-enabled = 1 ) {
           /* @embed */
@@ -52,11 +52,11 @@
     // Search form
     #p-search {
       display: block;
-      left: @logo-width-square+ 0.1rem;
+      left: @logo-icon-width + 0.1rem;
       right: 7.3rem;
 
       @media (min-width: @width-breakpoint-tablet) {
-        left: @logo-width-long + 0.1rem;
+        left: @wordmark-width + 0.1rem;
         right: 13.3rem;
       }
 
