@@ -30,14 +30,22 @@
       display: block;
       background-repeat: no-repeat;
       width: @logo-width-square;
-      .background-image('../images/logo-icon.png');
-      background-size: @height @height;
+
+      & when( @logo-icon-enabled = 1 ) {
+        /* @embed */
+        background-image: @logo-icon-url;
+        background-size: @height @height;
+      }
 
       @media (min-width: @width-breakpoint-tablet) {
         width: @logo-width-long;
-        .background-image('../images/logo-long.png');
-        background-size: 6.5rem 1.8rem;
-        background-position: 0.6rem 0.4rem;
+
+        & when( @logo-enabled = 1 ) {
+          /* @embed */
+          background-image: @logo-wordmark-url;
+          background-size: 6.5rem 1.8rem;
+          background-position: 0.6rem 0.4rem;
+        }
       }
     }
 
