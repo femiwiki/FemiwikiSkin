@@ -4,7 +4,7 @@
   string msg-recentchanges-label
   string msg-tooltip-n-randompage
   string msg-randompage-label
-  string html-search
+  string data-search
 }}
 
 <nav class="nav-bar">
@@ -13,7 +13,7 @@
 
     <a title="Femiwiki" id="p-logo" class="mw-wiki-logo" href="/" ></a>
 
-    {{{html-search}}}
+    {{#data-search}}{{>SearchBox}}{{/data-search}}
 
     <ul id="site-navigation">
       <li class="changes">

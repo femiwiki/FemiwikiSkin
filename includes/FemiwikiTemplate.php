@@ -9,6 +9,8 @@ class FemiwikiTemplate extends BaseTemplate {
 
 	/** @var TemplateParser */
 	private $templateParser;
+	/** @var string File name of the root (master) template without folder path and extension */
+	private $templateRoot = 'skin';
 
 	/**
 	 * @param Config|null $config
@@ -25,44 +27,94 @@ class FemiwikiTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$out = $skin->getOutput();
 
-		$this->html( 'headelement' );
-
-		echo $this->templateParser->processTemplate( 'NavigationBar', [
-			'msg-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
-			'msg-tooltip-n-recentchanges' => $this->getMsg( 'tooltip-n-recentchanges' )->text(),
-			'msg-recentchanges-label' => $this->getMsg( 'recentchanges' )->text(),
-			'msg-tooltip-n-randompage' => $this->getMsg( 'tooltip-n-randompage' )->text(),
-			'msg-randompage-label' => $this->getMsg( 'randompage' )->text(),
-			'html-search' => $this->getSearch()
+		echo $this->templateParser->processTemplate( $this->templateRoot, [
+			'html-headelement' => $out->headElement( $skin ),
+			'data-navigation-bar' => [
+				'msg-navigation-heading' => $this->getMsg( 'navigation-heading' )->parse(),
+				'msg-tooltip-n-recentchanges' => $this->getMsg( 'tooltip-n-recentchanges' )->text(),
+				'msg-recentchanges-label' => $this->getMsg( 'recentchanges' )->text(),
+				'msg-tooltip-n-randompage' => $this->getMsg( 'tooltip-n-randompage' )->text(),
+				'msg-randompage-label' => $this->getMsg( 'randompage' )->text(),
+				'data-search' => [
+					'form-action' => $this->get( 'wgScript' ),
+					'html-button-search-fallback' => $this->makeSearchButton(
+						'fulltext',
+						[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
+					),
+					'html-button-search' => $this->makeSearchButton(
+						'go',
+						[ 'id' => 'searchButton', 'class' => 'searchButton' ]
+					),
+					'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
+					'msg-search' => $this->getMsg( 'search' ),
+					'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
+				]
+			],
+			'html-user-links' => $this->getUserLinks(),
+			'html-sidebar' => $this->getPortals( $this->data['sidebar'] ),
+			'data-header' => [
+				'html-sitenotice' => $this->get( 'sitenotice', null ),
+				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
+				'html-namespaces' => $this->getPortlet( [
+					'id' => 'p-namespaces',
+					'headerMessage' => 'namespaces',
+					'content' => $this->data['content_navigation']['namespaces'],
+				] ),
+				'html-watch' => $this->getWatch(),
+				'page-language' => $this->get( 'pageLanguage' ),
+				'html-title' => version_compare( MW_VERSION, '1.35', '<' )
+					? $this->get( 'title', '' )
+					: $out->getPageTitle(),
+				'html-title-buttons' => new \OOUI\ButtonGroupWidget(
+					[
+						'id' => 'p-title-buttons',
+						'items' => array_filter( [
+							isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
+								'id' => 'p-share',
+								'infusable' => true,
+								# icon is used as a dummy
+								'icon' => 'browser',
+								'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
+								'framed' => false,
+								'invisibleLabel' => true
+							] ) : null,
+							new \OOUI\ButtonWidget( [
+								'id' => 'p-menu-toggle',
+								'infusable' => true,
+								'icon' => 'ellipsis',
+								'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
+								'framed' => false,
+								'invisibleLabel' => true
+							] )
+						] )
+					]
+				),
+				'html-toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
+				'html-actions' => $this->getPortlet( [
+					'id' => 'p-actions',
+					'headerMessage' => 'actions',
+					'content' => $this->data['content_navigation']['actions'],
+				] ),
+				'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
+				'page-lastmod' => $this->get( 'lastmod', null ),
+				'html-views' => $this->getPortlet( [
+					'id' => 'p-views',
+					'headerMessage' => 'views',
+					'content' => $this->data['content_navigation']['views'],
+				] )
+			],
+			'data-content' => [
+				// Always returns string, cast to null if empty.
+				'html-subtitle' => $this->get( 'subtitle' ) ?: null,
+				'html-undelete' => $this->get( 'undelete' ),
+				'html-bodycontent' => $this->get( 'bodycontent' ),
+				'html-printfooter' => $this->get( 'printfooter' ),
+				'html-catlinks' => $this->get( 'catlinks' ),
+				'html-data-after-content' => $this->get( 'dataAfterContent' ),
+			],
+			'html-footer' => $this->getFooterHtml(),
+			'html-trail' => $this->getTrail() . '</body></html>'
 		] );
-
-		echo Html::openElement(
-			'div',
-			[ 'id' => 'fw-menu' ]
-		);
-		// User profile links
-		echo $this->getUserLinks();
-		echo $this->getPortals( $this->data['sidebar'] );
-		echo Html::closeElement( 'div' );
-
-		$this->renderHeader( $out );
-
-		$contentProps = [
-			// Always returns string, cast to null if empty.
-			'html-subtitle' => $this->get( 'subtitle' ) ?: null,
-			'html-undelete' => $this->get( 'undelete' ),
-			'html-bodycontent' => $this->get( 'bodycontent' ),
-			'html-printfooter' => $this->get( 'printfooter' ),
-			'html-catlinks' => $this->get( 'catlinks' ),
-			'html-data-after-content' => $this->get( 'dataAfterContent' ),
-		];
-
-		echo $this->templateParser->processTemplate( 'Content', $contentProps );
-
-		$this->renderFooter();
-
-		$this->printTrail();
-		echo '</body></html>';
 	}
 
 	/**
@@ -163,27 +215,6 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Generates the search form
-	 * @return string html
-	 */
-	private function getSearch() {
-		return $this->templateParser->processTemplate( 'SearchBox', [
-			'form-action' => $this->get( 'wgScript' ),
-			'html-button-search-fallback' => $this->makeSearchButton(
-				'fulltext',
-				[ 'id' => 'mw-searchButton', 'class' => 'searchButton mw-fallbackSearchButton' ]
-			),
-			'html-button-search' => $this->makeSearchButton(
-				'go',
-				[ 'id' => 'searchButton', 'class' => 'searchButton' ]
-			),
-			'html-input' => $this->makeSearchInput( [ 'id' => 'searchInput' ] ),
-			'msg-search' => $this->getMsg( 'search' ),
-			'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
-		] );
-	}
-
-	/**
 	 * Override of https://doc.wikimedia.org/mediawiki-core/master/php/classBaseTemplate.html#ad2b95d3e6cd1595ed50a29068374b156
 	 * @param array $attrs
 	 * @return string
@@ -259,71 +290,10 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Render a header of a page
-	 * @param OutputPage $out
-	 * @return string
-	 */
-	protected function renderHeader( $out ) {
-		$props = [
-			'html-sitenotice' => $this->get( 'sitenotice', null ),
-			'html-newtalk' => $this->get( 'newtalk' ) ?: null,
-			'html-namespaces' => $this->getPortlet( [
-				'id' => 'p-namespaces',
-				'headerMessage' => 'namespaces',
-				'content' => $this->data['content_navigation']['namespaces'],
-			] ),
-			'html-watch' => $this->getWatch(),
-			'page-language' => $this->get( 'pageLanguage' ),
-			'html-title' => version_compare( MW_VERSION, '1.35', '<' )
-				? $this->get( 'title', '' )
-				: $out->getPageTitle(),
-			'html-title-buttons' => new \OOUI\ButtonGroupWidget(
-				[
-					'id' => 'p-title-buttons',
-					'items' => array_filter( [
-						isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
-							'id' => 'p-share',
-							'infusable' => true,
-							# icon is used as a dummy
-							'icon' => 'browser',
-							'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
-							'framed' => false,
-							'invisibleLabel' => true
-						] ) : null,
-						new \OOUI\ButtonWidget( [
-							'id' => 'p-menu-toggle',
-							'infusable' => true,
-							'icon' => 'ellipsis',
-							'title' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->escaped(),
-							'framed' => false,
-							'invisibleLabel' => true
-						] )
-					] )
-				]
-			),
-			'html-toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
-			'html-actions' => $this->getPortlet( [
-				'id' => 'p-actions',
-				'headerMessage' => 'actions',
-				'content' => $this->data['content_navigation']['actions'],
-			] ),
-			'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
-			'page-lastmod' => $this->get( 'lastmod', null ),
-			'html-views' => $this->getPortlet( [
-				'id' => 'p-views',
-				'headerMessage' => 'views',
-				'content' => $this->data['content_navigation']['views'],
-			] )
-		];
-
-		echo $this->templateParser->processTemplate( 'Header', $props );
-	}
-
-	/**
 	 * Render a foorter of a page
 	 * @return string
 	 */
-	protected function renderFooter() {
+	protected function getFooterHtml() {
 		$props = [
 			'html-footer-icons' => '',
 			'html-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
@@ -371,7 +341,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			$props['html-footer-links'] .= Html::closeElement( 'ul' );
 		}
 
-		echo $this->templateParser->processTemplate( 'Footer', $props );
+		return $this->templateParser->processTemplate( 'Footer', $props );
 	}
 
 	/**
