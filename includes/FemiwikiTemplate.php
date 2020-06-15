@@ -154,44 +154,6 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Generates the logo and (optionally) site title
-	 * @param string $id
-	 * @param bool $imageOnly
-	 * @return string html
-	 */
-	private function getLogo( $id = 'p-logo', $imageOnly = false ) {
-		$html = Html::openElement(
-			'div',
-			[
-				'id' => $id,
-				'class' => 'mw-portlet',
-				'role' => 'banner'
-			]
-		);
-		$html .= Html::element(
-			'a',
-			[
-				'href' => $this->data['nav_urls']['mainpage']['href'],
-				'class' => 'mw-wiki-logo',
-			] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' )
-		);
-		if ( !$imageOnly ) {
-			$html .= Html::element(
-				'a',
-				[
-					'id' => 'p-banner',
-					'class' => 'mw-wiki-title',
-					'href' => $this->data['nav_urls']['mainpage']['href']
-				] + Linker::tooltipAndAccesskeyAttribs( 'p-logo' ),
-				$this->getMsg( 'sitetitle' )->escaped()
-			);
-		}
-		$html .= Html::closeElement( 'div' );
-
-		return $html;
-	}
-
-	/**
 	 * @return null|string
 	 */
 	private function getWatch() {
