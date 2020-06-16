@@ -54,7 +54,7 @@ class SkinFemiwiki extends SkinTemplate {
 			] )
 		);
 
-		$modules[$this->$skinname][] = 'skins.femiwiki.js';
+		$modules[$this->skinname][] = 'skins.femiwiki.js';
 
 		return $modules;
 	}
