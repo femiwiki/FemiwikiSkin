@@ -231,36 +231,40 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Render a foorter of a page
+	 * Render a footer of a page
 	 * @return string
 	 */
 	protected function getFooterHtml() {
+		$footerLinks = $this->getFooterLinks();
+
+		if ( isset( $footerLinks['info'] ) ) {
+		# Remove lastmod that our skin displays in the other place already.
+			$i = array_search( 'lastmod', $footerLinks['info'] );
+			if ( $i ) {
+				unset( $footerLinks['info'][$i] );
+
+		# Make sure the starting index of the array is zero
+		$footerLinks['info'] = array_values( $footerLinks['info'] );
+			}
+		}
+
 		$props = [
 			'html-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
-			'html-footer-links' => '',
+			'data-footer-links' => array_map(
+				function ( $category, $links ) {
+					return [
+					'category' => $category,
+					'links' => array_map( function ( $e ) {
+						return [
+							'key' => $e,
+							'link' => $this->get( $e )
+						];
+					}, $links )
+				];
+				},
+				array_keys( $footerLinks ), $footerLinks
+			)
 		];
-
-		foreach ( $this->getFooterLinks() as $category => $links ) {
-			$props['html-footer-links'] .= Html::openElement(
-				'ul',
-				[
-					'id' => 'footer-' . Sanitizer::escapeId( $category ),
-					'role' => 'contentinfo'
-				]
-			);
-			foreach ( $links as $key ) {
-				if ( $key === 'lastmod' ) { continue;
-				}
-				$props['html-footer-links'] .= Html::rawElement(
-					'li',
-					[
-						'id' => 'footer-' . Sanitizer::escapeId( $category . '-' . $key )
-					],
-					$this->get( $key )
-				);
-			}
-			$props['html-footer-links'] .= Html::closeElement( 'ul' );
-		}
 
 		return $this->templateParser->processTemplate( 'Footer', $props );
 	}

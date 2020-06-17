@@ -1,9 +1,15 @@
 {{!
   string? html-language
-  string? html-footer-links
+  array data-footer-links
 }}
 
 <footer id="mw-footer" class="footer-content">
   {{{html-language}}}
-  {{{html-footer-links}}}
+  {{#data-footer-links}}
+  <ul id="footer-{{category}}" role="contentinfo">
+    {{#links}}
+    <li id="footer-{{category}}-{{key}}">{{{link}}}</li>
+    {{/links}}
+  </ul>
+  {{/data-footer-links}}
 </footer>
