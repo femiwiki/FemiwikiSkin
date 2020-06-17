@@ -236,29 +236,9 @@ class FemiwikiTemplate extends BaseTemplate {
 	 */
 	protected function getFooterHtml() {
 		$props = [
-			'html-footer-icons' => '',
 			'html-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
 			'html-footer-links' => '',
 		];
-
-		$props['html-footer-icons'] = Html::openElement(
-			'ul',
-			[
-				'id' => 'footer-icons',
-				'role' => 'contentinfo'
-			]
-		);
-		foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
-			$props['html-footer-icons'] .= Html::openElement(
-				'li',
-				[ 'id' => 'footer-' . Sanitizer::escapeId( $blockName ) . 'ico' ]
-			);
-			foreach ( $footerIcons as $icon ) {
-				$props['html-footer-icons'] .= $this->getSkin()->makeFooterIcon( $icon );
-			}
-			$props['html-footer-icons'] .= Html::closeElement( 'li' );
-		}
-		$props['html-footer-icons'] .= Html::closeElement( 'ul' );
 
 		foreach ( $this->getFooterLinks() as $category => $links ) {
 			$props['html-footer-links'] .= Html::openElement(
