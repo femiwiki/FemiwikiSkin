@@ -43,18 +43,25 @@ class SkinFemiwiki extends SkinTemplate {
 	public function getDefaultModules() {
 		$modules = parent::getDefaultModules();
 
+		// Styles
 		$modules['styles'] = array_merge(
 			$modules['styles'],
-			array_filter( [
+			[
 				'skins.femiwiki',
 				'mediawiki.skinning.content.externallinks',
-				'oojs-ui.styles.icons-interactions',
-				$this->loggedin ? 'skins.femiwiki.notifications' : null,
+				'oojs-ui.styles.icons-interactions'
+			]
+		);
+		$modules[$this->skinname][] = 'skins.femiwiki.js';
+
+		// Scripts
+		$modules['core'] = array_merge(
+			$modules['core'],
+			array_filter( [
+				$this->getUser()->isLoggedIn() ? 'skins.femiwiki.notifications' : null,
 				!$this->getTitle()->isSpecialPage() ? 'skins.femiwiki.share' : null
 			] )
 		);
-
-		$modules[$this->skinname][] = 'skins.femiwiki.js';
 
 		return $modules;
 	}
