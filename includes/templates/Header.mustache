@@ -13,15 +13,23 @@
   string? html-views
 }}
 
-<header id="p-header">
-  {{#html-sitenotice}}
-  <div id="siteNotice">{{{html-sitenotice}}}</div>
-  {{/html-sitenotice}}
+{{#data-header}}
+<header id="p-header" class="test">
+  {{#html-sitenotice}}<div id="siteNotice">{{{.}}}</div>{{/html-sitenotice}}
   {{#html-newtalk}}<div class="usermessage">{{{html-newtalk}}}</div>{{/html-newtalk}}
-  {{{html-namespaces}}}
-  {{#html-watch}}{{{html-watch}}}{{/html-watch}}
+  {{#data-namespaces}}
+  <div role="navigation" class="mw-portlet" id="p-namespaces">
+    <h3>{{msg-header-message}}</h3>
+    <ul>
+      {{#data-content}}
+      <li id="{{id}}" class="{{class}}">{{{html-link}}}</li>
+      {{/data-content}}
+    </ul>
+  </div>
+  {{/data-namespaces}}
+  {{{html-watch}}}
   <div id="p-title-and-tb">
-    <h1 class="firstHeading" lang="{{language}}">{{{html-title}}}</h1>
+    <h1 class="firstHeading" lang="{{page-language}}">{{{html-title}}}</h1>
     {{{html-title-buttons}}}
     <div id="p-actions-and-toolbox">
       {{{html-toolbox}}}
@@ -29,9 +37,10 @@
     </div>
   </div>
   <div id="lastmod-and-views">
-    {{#page-history}}
+    {{#page-lastmod-enabled}}
     <a id="lastmod" href="{{page-history}}">{{{page-lastmod}}}</a>
-    {{/page-history}}
+    {{/page-lastmod-enabled}}
     {{{html-views}}}
   </div>
 </header>
+{{/data-header}}

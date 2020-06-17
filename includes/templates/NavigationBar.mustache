@@ -7,13 +7,14 @@
   string data-search
 }}
 
+{{#data-navigation-bar}}
 <nav class="nav-bar">
   <div id="mw-navigation">
     <h2>{{msg-navigation-heading}}</h2>
 
     <a title="Femiwiki" id="p-logo" class="mw-wiki-logo" href="/" ></a>
 
-    {{#data-search}}{{>SearchBox}}{{/data-search}}
+    {{>SearchBox}}
 
     <ul id="site-navigation">
       <li class="changes">
@@ -34,3 +35,4 @@
     </button>
   </div>
 </nav>
+{{/data-navigation-bar}}

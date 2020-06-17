@@ -7,13 +7,12 @@
   string html-data-after-content
 }}
 
+{{#data-content}}
 <main id="content" class="mw-body" role="main">
   <div id="bodyContent" class="mw-body-content">
     <div id="contentSub">
-      {{#html-subtitle}}
-      <p>{{{html-subtitle}}}</p>
-      {{/html-subtitle}}
-      <p>{{{html-undelete}}}</p>
+      {{#html-subtitle}}<p>{{{html-subtitle}}}</p>{{/html-subtitle}}
+      {{#html-undelete}}<p>{{{html-undelete}}}</p>{{/html-undelete}}
     </div>
     {{{html-bodycontent}}}
     {{! Outputs a css clear using the core visualClear class}}
@@ -26,3 +25,4 @@
   </div>
 </main>
 <hr id="content-end-bar" />
+{{/data-content}}
