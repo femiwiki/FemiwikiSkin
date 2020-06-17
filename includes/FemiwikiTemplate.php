@@ -61,7 +61,14 @@ class FemiwikiTemplate extends BaseTemplate {
 				'msg-header-message' => $this->getMsg( 'personaltools' )->text(),
 				'data-content' => $this->makeMustacheListItemData( $personalTools ) ?? null,
 			],
-			'html-sidebar' => $this->getPortals( $this->data['sidebar'] ),
+			'html-sidebar' => implode( '', array_map(
+				function ( $name, $content ) {
+					return $this->getPortal( $name, $content );
+				},
+				array_keys( $this->data['sidebar'] ),
+				$this->data['sidebar']
+			) ),
+			// $this->getPortals( $this->data['sidebar'] ),
 			'data-header' => [
 				'html-sitenotice' => $this->get( 'sitenotice', null ),
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
@@ -211,28 +218,6 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Get a series of portals
-	 *
-	 * @param array $portals
-	 * @return string
-	 */
-	protected function getPortals( $portals ) {
-		$html = '';
-		foreach ( $portals as $name => $content ) {
-			if ( $content === false ) {
-				continue;
-			}
-
-			// Numeric strings gets an integer when set as key, cast back - T73639
-			$name = (string)$name;
-
-			$html .= $this->getPortal( $name, $content );
-		}
-
-		return $html;
-	}
-
-	/**
 	 * Render a footer of a page
 	 * @return string
 	 */
@@ -274,8 +259,8 @@ class FemiwikiTemplate extends BaseTemplate {
 	/**
 	 * @param string $name
 	 * @param array $content
-	 * @param null|string $msg
-	 * @return null|string
+	 * @param string|null $msg
+	 * @return string|null html
 	 */
 	protected function getPortal( $name, $content, $msg = null ) {
 		if ( $msg === null ) {
@@ -290,20 +275,16 @@ class FemiwikiTemplate extends BaseTemplate {
 			'msg-label' => $msgObj->exists() ? $msgObj->text() : $msg,
 			'msg-label-id' => "p-$name-label",
 			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
-			'html-portal-content' => '',
+			'html-portal-content' => is_array( $content )
+				? '<ul>' . implode( '', array_map(
+					function ( $key, $val ) {
+						return $this->makeListItem( $key, $val );
+					}, array_keys( $content ),
+					$content
+				) ) . '</ul>'
+				: $content,
 			'html-after-portal' => $this->getAfterPortlet( $name ),
 		];
-
-		if ( is_array( $content ) ) {
-			$props['html-portal-content'] .= '<ul>';
-			foreach ( $content as $key => $val ) {
-				$props['html-portal-content'] .= $this->makeListItem( $key, $val );
-			}
-			$props['html-portal-content'] .= '</ul>';
-		} else {
-			// Allow raw HTML block to be defined by extensions
-			$props['html-portal-content'] = $content;
-		}
 
 		return $this->templateParser->processTemplate( 'Portal', $props );
 	}
