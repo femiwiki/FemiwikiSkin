@@ -176,7 +176,8 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Override of https://doc.wikimedia.org/mediawiki-core/master/php/classBaseTemplate.html#ad2b95d3e6cd1595ed50a29068374b156
+	 * Override BaseTemplate::makeSearchInput() to fill the search form by previously
+	 *  searched word.
 	 * @param array $attrs
 	 * @return string
 	 */
@@ -187,13 +188,14 @@ class FemiwikiTemplate extends BaseTemplate {
 			'placeholder' => wfMessage( 'searchsuggest-search' )->text(),
 			'value' => $this->get( 'search', '' ),
 		];
-		// if ( $realAttrs[value]==null ) $realAttrs[value] = str_replace( '_', ' ', $this->get( 'titleprefixeddbkey' ));
+
 		$realAttrs = array_merge( $realAttrs, Linker::tooltipAndAccesskeyAttribs( 'search' ), $attrs );
 		return Html::element( 'input', $realAttrs );
 	}
 
 	/**
-	 * Override of https://doc.wikimedia.org/mediawiki-core/master/php/classBaseTemplate.html#a3148d2373b5ffe603348430207b1042d
+	 * The toolbox includes both page-specific-tools and site-wide-tools, but we
+	 * need only page-specific-tools.
 	 * @return array
 	 */
 	public function getToolbox() {
@@ -238,13 +240,13 @@ class FemiwikiTemplate extends BaseTemplate {
 		$footerLinks = $this->getFooterLinks();
 
 		if ( isset( $footerLinks['info'] ) ) {
-		# Remove lastmod that our skin displays in the other place already.
+			# Remove lastmod that our skin displays in the other place already.
 			$i = array_search( 'lastmod', $footerLinks['info'] );
 			if ( $i ) {
 				unset( $footerLinks['info'][$i] );
 
-		# Make sure the starting index of the array is zero
-		$footerLinks['info'] = array_values( $footerLinks['info'] );
+				# Make sure the starting index of the array is zero
+				$footerLinks['info'] = array_values( $footerLinks['info'] );
 			}
 		}
 
