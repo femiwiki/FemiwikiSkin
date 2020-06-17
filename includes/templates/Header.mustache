@@ -33,14 +33,32 @@
     {{{html-title-buttons}}}
     <div id="p-actions-and-toolbox">
       {{{html-toolbox}}}
-      {{{html-actions}}}
+      {{#data-actions}}
+      <div role="navigation" class="mw-portlet" id="p-actions">
+        <h3>{{msg-header-message}}</h3>
+        <ul>
+          {{#data-content}}
+          <li id="{{id}}" class="{{class}}">{{{html-link}}}</li>
+          {{/data-content}}
+        </ul>
+      </div>
+      {{/data-actions}}
     </div>
   </div>
   <div id="lastmod-and-views">
     {{#page-lastmod-enabled}}
     <a id="lastmod" href="{{page-history}}">{{{page-lastmod}}}</a>
     {{/page-lastmod-enabled}}
-    {{{html-views}}}
+    {{#data-views}}
+      <div role="navigation" class="mw-portlet" id="p-views">
+        <h3>{{msg-header-message}}</h3>
+        <ul>
+          {{#data-content}}
+          <li id="{{id}}" class="{{class}}">{{{html-link}}}</li>
+          {{/data-content}}
+        </ul>
+      </div>
+    {{/data-views}}
   </div>
 </header>
 {{/data-header}}

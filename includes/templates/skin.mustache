@@ -2,7 +2,16 @@
 
 {{>NavigationBar}}
 <div id="fw-menu">
-  {{{html-user-links}}}
+  {{#data-user-links}}
+  <div role="navigation" class="mw-portlet" id="p-personal">
+    <h3>{{msg-header-message}}</h3>
+    <ul>
+      {{#data-content}}
+      <li id="{{id}}" class="{{class}}">{{{html-link}}}</li>
+      {{/data-content}}
+    </ul>
+  </div>
+  {{/data-user-links}}
   {{{html-sidebar}}}
 </div>
 {{>Header}}

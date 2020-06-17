@@ -27,6 +27,13 @@ class FemiwikiTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$out = $skin->getOutput();
 
+		$personalTools = $this->getPersonalTools();
+		// Remove default alert and notice
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
+			unset( $personalTools['notifications-alert'] );
+			unset( $personalTools['notifications-notice'] );
+		}
+
 		echo $this->templateParser->processTemplate( $this->templateRoot, [
 			'html-headelement' => $out->headElement( $skin ),
 			'data-navigation-bar' => [
@@ -50,7 +57,10 @@ class FemiwikiTemplate extends BaseTemplate {
 					'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
 				]
 			],
-			'html-user-links' => $this->getUserLinks(),
+			'data-user-links' => [
+				'msg-header-message' => $this->getMsg( 'personaltools' )->text(),
+				'data-content' => $this->makeMustacheListItemData( $personalTools ) ?? null,
+			],
 			'html-sidebar' => $this->getPortals( $this->data['sidebar'] ),
 			'data-header' => [
 				'html-sitenotice' => $this->get( 'sitenotice', null ),
@@ -89,20 +99,18 @@ class FemiwikiTemplate extends BaseTemplate {
 					]
 				),
 				'html-toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
-				'html-actions' => $this->getPortlet( [
-					'id' => 'p-actions',
-					'headerMessage' => 'actions',
-					'content' => $this->data['content_navigation']['actions'],
-				] ),
+				'data-actions' => [
+					'msg-header-message' => $this->getMsg( 'actions' )->text(),
+					'data-content' => $this->makeMustacheListItemData( $this->data['content_navigation']['actions'] ) ?? null,
+				],
 				'page-lastmod-enabled' => isset( $this->data['content_navigation']['views']['history'] )
 					&& $this->get( 'lastmod', null ),
 				'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
 				'page-lastmod' => $this->get( 'lastmod', null ),
-				'html-views' => $this->getPortlet( [
-					'id' => 'p-views',
-					'headerMessage' => 'views',
-					'content' => $this->data['content_navigation']['views'],
-				] )
+				'data-views' => [
+					'msg-header-message' => $this->getMsg( 'views' )->text(),
+					'data-content' => $this->makeMustacheListItemData( $this->data['content_navigation']['views'] ) ?? null
+				]
 			],
 			'data-content' => [
 				// Always returns string, cast to null if empty.
@@ -124,6 +132,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	 */
 	private function makeMustacheListItemData( $items ) {
 		foreach ( $items as $key => $item ) {
+
 			if ( isset( $item['links'] ) ) {
 				$links = [];
 				foreach ( $item['links'] as $linkKey => $link ) {
@@ -140,42 +149,6 @@ class FemiwikiTemplate extends BaseTemplate {
 			$items[$key]['html-link'] = $html;
 		}
 		return array_values( $items );
-	}
-
-	/**
-	 * Generates a single sidebar portlet of any kind
-	 * @param array $box
-	 * @return string html
-	 */
-	private function getPortlet( $box ) {
-		if ( !$box['content'] ) {
-			return;
-		}
-
-		$html = Html::openElement(
-			'div',
-			[
-				'role' => 'navigation',
-				'class' => 'mw-portlet',
-				'id' => Sanitizer::escapeId( $box['id'] )
-			] + Linker::tooltipAndAccesskeyAttribs( $box['id'] )
-		);
-		$html .= Html::element(
-			'h3',
-			[],
-			isset( $box['headerMessage'] ) ? $this->getMsg( $box['headerMessage'] )->text() : $box['header'] );
-		if ( is_array( $box['content'] ) ) {
-			$html .= Html::openElement( 'ul' );
-			foreach ( $box['content'] as $key => $item ) {
-				$html .= $this->makeListItem( $key, $item );
-			}
-			$html .= Html::closeElement( 'ul' );
-		} else {
-			$html .= $box['content'];
-		}
-		$html .= Html::closeElement( 'div' );
-
-		return $html;
 	}
 
 	/**
@@ -233,26 +206,6 @@ class FemiwikiTemplate extends BaseTemplate {
 		}
 
 		return $toolbox;
-	}
-
-	/**
-	 * Generates user tools menu
-	 * @return string html
-	 */
-	private function getUserLinks() {
-		$personalTools = $this->getPersonalTools();
-
-		// Remove default alert and notice
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
-			unset( $personalTools['notifications-alert'] );
-			unset( $personalTools['notifications-notice'] );
-		}
-
-		return $this->getPortlet( [
-			'id' => 'p-personal',
-			'headerMessage' => 'personaltools',
-			'content' => $personalTools,
-		] );
 	}
 
 	/**
