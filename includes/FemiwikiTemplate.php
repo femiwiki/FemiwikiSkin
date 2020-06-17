@@ -241,7 +241,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			'html-footer-links' => '',
 		];
 
-		$props['html-foorter-icons'] = Html::openElement(
+		$props['html-footer-icons'] = Html::openElement(
 			'ul',
 			[
 				'id' => 'footer-icons',
@@ -249,16 +249,16 @@ class FemiwikiTemplate extends BaseTemplate {
 			]
 		);
 		foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
-			$props['html-foorter-icons'] .= Html::openElement(
+			$props['html-footer-icons'] .= Html::openElement(
 				'li',
 				[ 'id' => 'footer-' . Sanitizer::escapeId( $blockName ) . 'ico' ]
 			);
 			foreach ( $footerIcons as $icon ) {
-				$props['html-foorter-icons'] .= $this->getSkin()->makeFooterIcon( $icon );
+				$props['html-footer-icons'] .= $this->getSkin()->makeFooterIcon( $icon );
 			}
-			$props['html-foorter-icons'] .= Html::closeElement( 'li' );
+			$props['html-footer-icons'] .= Html::closeElement( 'li' );
 		}
-		$props['html-foorter-icons'] .= Html::closeElement( 'ul' );
+		$props['html-footer-icons'] .= Html::closeElement( 'ul' );
 
 		foreach ( $this->getFooterLinks() as $category => $links ) {
 			$props['html-footer-links'] .= Html::openElement(
