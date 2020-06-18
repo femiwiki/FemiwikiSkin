@@ -61,12 +61,12 @@ class SkinFemiwikiHooks {
 	 * Handler for PersonalUrls hook.
 	 * Add a "Notifications" item to the user toolbar ('personal URLs').
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
-	 * @param array &$personal_urls Array of URLs to append to.
+	 * @param array &$personalTools Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $sk
 	 * @return bool true in all cases
 	 */
-	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
+	public static function onPersonalUrls( &$personalTools, &$title, $sk ) {
 		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
@@ -126,7 +126,7 @@ class SkinFemiwikiHooks {
 			]
 		];
 
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+		$personalTools = wfArrayInsertAfter( $personalTools, $insertUrls, 'userpage' );
 
 		return true;
 	}
