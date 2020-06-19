@@ -128,14 +128,16 @@
     overflow: hidden;
     clear: both;
 
+    #lastmod {
+      .mw-link();
+      font-size: 0.8rem;
+    }
+
     #p-views {
+      float: right;
+
       h3 {
         display: none;
-        color: @color-base0;
-        font-size: 0.96rem;
-        margin: 0 0 0.288rem;
-        overflow: hidden;
-        padding: 0.48rem 0 0.1632rem;
       }
 
       ul {
@@ -143,35 +145,28 @@
         margin: 0;
 
         li {
+          float: left;
           margin: 0;
           display: block;
+
+          &.selected a {
+            font-weight: bold;
+          }
+
+          &#ca-view.selected,
+          &#ca-history {
+            display: none;
+          }
+
+          a {
+            .mw-link();
+          }
         }
 
-        li.selected a {
-          font-weight: bold;
+        li + li {
+          margin-left: 1em;
         }
       }
-
-      li#ca-view.selected,
-      li#ca-history {
-        display: none;
-      }
-    }
-
-    #p-views {
-      float: right;
-
-      li {
-        float: left;
-      }
-
-      li + li {
-        margin-left: 1em;
-      }
-    }
-
-    #lastmod {
-      font-size: 0.8rem;
     }
   }
 }
