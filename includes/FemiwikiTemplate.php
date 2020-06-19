@@ -197,10 +197,10 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * @return null|string
 	 */
 	private function getWatch() {
-		$action = $this->data['content_navigation']['actions'];
+		$actions = $this->data['content_navigation']['actions'];
 		foreach ( [ 'watch', 'unwatch' ] as $mode ) {
-			if ( isset( $action[$mode] ) ) {
-				$item = $action[$mode];
+			if ( isset( $actions[$mode] ) ) {
+				$item = $actions[$mode];
 				unset( $this->data['content_navigation']['actions'][$mode] );
 
 				$html = Html::rawElement(
@@ -213,8 +213,8 @@ class FemiwikiTemplate extends BaseTemplate {
 				);
 				return $html;
 			}
-			return null;
 		}
+		return null;
 	}
 
 	/**
