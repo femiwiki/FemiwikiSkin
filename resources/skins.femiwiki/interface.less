@@ -1,5 +1,47 @@
 @import '../variables.less';
 
+// General
+.fw-portals {
+  margin: 0.6rem auto 0;
+  padding: 0;
+  max-width: 48.7rem;
+  border-bottom: 1px solid @color-primary1;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .portal {
+    min-width: 8.8rem;
+    margin: 0.6rem 0.8rem 0.6rem 0;
+    display: block;
+    float: right;
+
+    h3 {
+      font-size: 1rem;
+      font-weight: normal;
+      color: @color-base0;
+      margin: 0 0 0.4rem;
+      padding: 0.5rem 0 0.17rem;
+      border-bottom: 1px solid #b9b5d9;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+        margin: 0;
+
+        a {
+          .mw-link();
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Specific
 #p-header {
   box-sizing: border-box;
   margin: 2.3rem auto 0.5rem;
@@ -72,50 +114,6 @@
 
     #p-actions-and-toolbox {
       display: none;
-      clear: right;
-      text-align: right;
-      overflow: hidden;
-      border-bottom: 1px solid @color-primary1;
-
-      #p-actions,
-      #p-page-tb,
-      #p-share-tb,
-      #p-site-tb {
-        min-width: 8.8rem;
-        margin: 0.6rem 0.8rem 0.6rem 0;
-        float: right;
-        vertical-align: top;
-        text-align: left;
-
-        h3 {
-          margin: 0;
-          font-weight: normal;
-          font-size: 1rem;
-          border-bottom: 1px solid #b9b5d9;
-          margin-bottom: 0.4rem;
-          padding: 0.5rem 0 0.17rem;
-          color: @color-base0;
-          overflow: hidden;
-        }
-
-        ul {
-          padding: 0;
-          margin: 0;
-        }
-
-        li {
-          list-style: none;
-          margin: 0;
-        }
-
-        a {
-          display: block;
-        }
-      }
-
-      div + div {
-        margin-right: 1em;
-      }
     }
 
     #p-title-buttons {
