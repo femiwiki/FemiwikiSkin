@@ -225,101 +225,72 @@ hr#content-end-bar {
   height: 1px;
 }
 
-// Footer
-#mw-footer {
+#p-lang {
   box-sizing: border-box;
-  padding: 0.8rem 1.3rem 0;
-  max-width: 50rem;
-  margin: 0 auto 3.2rem;
+  max-width: @content-width;
+  margin: auto;
+  padding: 0.8rem @content-horizontal-padding 0;
 
-  .read-more-container {
-    margin: 0;
-
-    .ra-read-more {
-      padding: 0 0 1em;
-    }
-  }
-
-  .portal a {
-    text-decoration: none;
+  #p-lang-label {
+    display: none;
   }
 
   ul {
+    padding: 0;
     margin: 0;
 
-    li {
-      list-style: none;
-    }
-  }
+    .interlanguage-link {
+      display: inline-block;
 
-  #footer-info {
-    padding: 0;
+      &:not(:first-child) {
+        padding-left: 0.8em;
+      }
+    }
 
     a {
-      text-decoration: none;
+      .mw-links();
     }
   }
+}
 
-  #footer-info-copyright {
-    margin: 0 0 0.0714rem;
+// Footer
+#footer-bottom {
+  box-sizing: border-box;
+  padding: 0.8rem @content-horizontal-padding 0;
+  max-width: @content-width;
+  margin: 0 auto 3.2rem;
+
+  .footer-icons {
+    display: none;
   }
 
-  #footer-places {
+  #f-list {
+    font-size: 0.714rem;
+    margin: 0;
     padding: 0;
 
     li {
       display: inline;
+      list-style: none;
       margin: 0 0 0.0714rem;
 
       a {
-        text-decoration: none;
+        .mw-links();
+      }
+
+      &:not(#lastmod):not(#copyright):not(:last-child)::after {
+        content: '|';
+        margin: 0 0.3rem;
+      }
+
+      &#lastmod {
+        display: none;
+      }
+
+      &#copyright {
+        display: block;
       }
     }
-
-    li::after {
-      content: '|';
-      margin: 0 0.3rem;
-    }
-
-    li:last-child::after {
-      content: '';
-    }
-  }
-
-  #footer-info-lastmod {
-    margin-bottom: 1.6rem;
-  }
-
-  #p-lang {
-    padding-bottom: 0.8rem;
-
-    #p-lang-label {
-      font-size: 1.28rem;
-      display: none;
-      margin: 0;
-      margin-bottom: 0.3em;
-      padding: 0.5em 0 0.17em;
-      font-weight: bold;
-      border: 0 none @color-base0;
-      color: @color-base0;
-      overflow: hidden;
-    }
-
-    ul {
-      padding: 0;
-    }
-
-    .interlanguage-link {
-      display: inline-block;
-    }
-    .interlanguage-link:not(:first-child) {
-      padding-left: 0.8em;
-    }
-  }
-
-  #footer-info-copyright,
-  #footer-places {
-    font-size: 0.714rem;
   }
 }
 

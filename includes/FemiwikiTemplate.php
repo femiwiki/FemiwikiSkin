@@ -107,7 +107,8 @@ class FemiwikiTemplate extends BaseTemplate {
 				'html-catlinks' => $this->get( 'catlinks' ),
 				'html-data-after-content' => $this->get( 'dataAfterContent' ),
 			],
-			'html-footer' => $this->getFooterHtml(),
+			'data-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
+			'html-footer' => $this->getFooter( 'icononly' ),
 			'html-trail' => $this->getTrail() . '</body></html>'
 		] );
 	}
@@ -214,45 +215,6 @@ class FemiwikiTemplate extends BaseTemplate {
 			}
 			return null;
 		}
-	}
-
-	/**
-	 * Render a footer of a page
-	 * @return string
-	 */
-	protected function getFooterHtml() {
-		$footerLinks = $this->getFooterLinks();
-
-		if ( isset( $footerLinks['info'] ) ) {
-			// Remove lastmod that our skin displays in the other place already.
-			$i = array_search( 'lastmod', $footerLinks['info'] );
-			if ( $i ) {
-				unset( $footerLinks['info'][$i] );
-
-				// Make sure the starting index of the array is zero
-				$footerLinks['info'] = array_values( $footerLinks['info'] );
-			}
-		}
-
-		$props = [
-			'data-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
-			'data-footer-links' => array_map(
-				function ( $category, $links ) {
-					return [
-					'category' => $category,
-					'links' => array_map( function ( $e ) {
-						return [
-							'key' => $e,
-							'link' => $this->get( $e )
-						];
-					}, $links )
-				];
-				},
-				array_keys( $footerLinks ), $footerLinks
-			)
-		];
-
-		return $this->templateParser->processTemplate( 'Footer', $props );
 	}
 
 	/**
