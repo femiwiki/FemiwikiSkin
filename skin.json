@@ -41,12 +41,6 @@
         "resources/skins.femiwiki/contents-category.less": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/contents-flow.less": {
-          "media": "screen"
-        },
-        "resources/skins.femiwiki/contents-flow-mobile.less": {
-          "media": "screen and (max-width: 480px)"
-        },
         "resources/skins.femiwiki/contents-mobile.less": {
           "media": "screen and (max-width: 480px)"
         },
@@ -101,7 +95,8 @@
     "femiwiki": {
       "+oojs-ui-core.styles": "resources/ooui.less",
       "+mediawiki.special": "resources/skins.femiwiki.special/special.less",
-      "+mediawiki.special.changeslist": "resources/skins.femiwiki.special/recentchanges.less"
+      "+mediawiki.special.changeslist": "resources/skins.femiwiki.special/recentchanges.less",
+      "+ext.flow.styles.base": "resources/skins.femiwiki.extensions/flow.less"
     }
   },
   "Hooks": {
