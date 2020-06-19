@@ -50,7 +50,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
 				]
 			],
-			'data-sidebar' => $this->getSidebar(),
+			'data-sidebar' => $this->getSidebarData(),
 			'data-header' => [
 				'html-sitenotice' => $this->get( 'sitenotice', null ),
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
@@ -172,13 +172,13 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @inheritDoc
 	 * @return string return a mustache-friendly modified sidebar data includes personal tools
 	 */
-	public function getSidebar( $options = [] ) {
-		$sidebar = parent::getSidebar();
-		unset( $sidebar['TOOLBOX'] );
-		unset( $sidebar['LANGUAGES'] );
+	private function getSidebarData() {
+		$sidebar = $this->getSidebar( [
+			'toolbox' => false,
+			'languages' => false,
+		] );
 
 		$sidebar = array_values( array_map( function ( $portal ) {
 			return $this->getPortal( $portal['header'], $portal['content'] );
