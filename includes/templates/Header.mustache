@@ -17,16 +17,7 @@
 <header id="p-header" class="test">
   {{#html-sitenotice}}<div id="siteNotice">{{{.}}}</div>{{/html-sitenotice}}
   {{#html-newtalk}}<div class="usermessage">{{{html-newtalk}}}</div>{{/html-newtalk}}
-  {{#data-namespaces}}
-  <div role="navigation" class="mw-portlet" id="p-namespaces">
-    <h3>{{msg-header-message}}</h3>
-    <ul>
-      {{#data-content}}
-      <li id="{{id}}" class="{{class}}">{{{html-link}}}</li>
-      {{/data-content}}
-    </ul>
-  </div>
-  {{/data-namespaces}}
+  {{#data-namespaces}}{{>Portal}}{{/data-namespaces}}
   {{{html-watch}}}
   <div id="p-title-and-tb">
     <h1 class="firstHeading" lang="{{page-language}}">{{{html-title}}}</h1>
@@ -40,16 +31,7 @@
     {{#page-lastmod-enabled}}
     <a id="lastmod" href="{{page-history}}">{{{page-lastmod}}}</a>
     {{/page-lastmod-enabled}}
-    {{#data-views}}
-      <div role="navigation" class="mw-portlet" id="p-views">
-        <h3>{{msg-header-message}}</h3>
-        <ul>
-          {{#data-content}}
-          <li id="{{id}}" class="{{class}}">{{{html-link}}}</li>
-          {{/data-content}}
-        </ul>
-      </div>
-    {{/data-views}}
+    {{#data-views}}{{>Portal}}{{/data-views}}
   </div>
 </header>
 {{/data-header}}

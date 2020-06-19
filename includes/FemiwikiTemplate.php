@@ -54,10 +54,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			'data-header' => [
 				'html-sitenotice' => $this->get( 'sitenotice', null ),
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
-				'data-namespaces' => [
-					'msg-header-message' => $this->getMsg( 'namespaces' )->text(),
-					'data-content' => $this->makeMustacheListItemData( $this->data['content_navigation']['namespaces'] ) ?? null,
-				],
+				'data-namespaces' => $this->getPortal( 'namespaces', $this->data['content_navigation']['namespaces'] ),
 				'html-watch' => $this->getWatch(),
 				'page-language' => $this->get( 'pageLanguage' ),
 				'html-title' => version_compare( MW_VERSION, '1.35', '<' )
@@ -93,10 +90,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					&& $this->get( 'lastmod', null ),
 				'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
 				'page-lastmod' => $this->get( 'lastmod', null ),
-				'data-views' => [
-					'msg-header-message' => $this->getMsg( 'views' )->text(),
-					'data-content' => $this->makeMustacheListItemData( $this->data['content_navigation']['views'] ) ?? null
-				]
+				'data-views' => $this->getPortal( 'views', $this->data['content_navigation']['views'] )
 			],
 			'data-content' => [
 				// Always returns string, cast to null if empty.
@@ -111,31 +105,6 @@ class FemiwikiTemplate extends BaseTemplate {
 			'html-footer' => $this->getFooter( 'icononly' ),
 			'html-trail' => $this->getTrail() . '</body></html>'
 		] );
-	}
-
-	/**
-	 * @param array $items
-	 * @return array
-	 */
-	private function makeMustacheListItemData( $items ) {
-		foreach ( $items as $key => $item ) {
-
-			if ( isset( $item['links'] ) ) {
-				$links = [];
-				foreach ( $item['links'] as $linkKey => $link ) {
-					$links[] = $this->makeLink( $linkKey, $link );
-				}
-				$html = implode( ' ', $links );
-			} else {
-				$link = $item;
-				foreach ( [ 'id', 'class', 'active', 'tag', 'itemtitle' ] as $k ) {
-					unset( $link[$k] );
-				}
-				$html = $this->makeLink( $key, $link );
-			}
-			$items[$key]['html-link'] = $html;
-		}
-		return array_values( $items );
 	}
 
 	/**
