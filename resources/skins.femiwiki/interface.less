@@ -49,15 +49,6 @@
   max-width: @content-width;
   clear: both;
 
-  #p-namespaces h3 {
-    display: none;
-    color: @color-base0;
-    font-size: 0.96rem;
-    margin: 0 0 0.288rem;
-    overflow: hidden;
-    padding: 0.48rem 0 0.1632rem;
-  }
-
   div,
   ul,
   li {
@@ -67,11 +58,6 @@
 
   ul {
     padding: 0;
-  }
-
-  #p-namespaces,
-  #ca-watch {
-    font-size: 0.75rem;
   }
 
   #siteNotice {
@@ -88,25 +74,31 @@
     }
   }
 
-  #p-namespaces {
-    display: inline-block;
+  #p-above-title-menu {
+    font-size: 0.75rem;
     margin-bottom: 0.5rem;
+
+    h3 {
+      display: none;
+    }
 
     ul {
       li {
         display: inline-block;
-        margin-right: 0.5rem;
-      }
 
-      li.selected {
-        display: none;
+        &.selected {
+          display: none;
+        }
+
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+
+        a {
+          .mw-link();
+        }
       }
     }
-  }
-
-  #ca-watch {
-    display: inline-block;
-    margin-bottom: 0.5rem;
   }
 
   #p-title-and-tb {
@@ -197,10 +189,6 @@
   color: @color-base15;
   font-weight: bold;
   overflow: hidden;
-}
-
-html[lang='ko'] #p-header #p-namespaces a:after {
-  content: ' 보기';
 }
 
 .visualClear {

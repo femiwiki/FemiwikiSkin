@@ -17,8 +17,7 @@
 <header id="p-header" class="test">
   {{#html-sitenotice}}<div id="siteNotice">{{{.}}}</div>{{/html-sitenotice}}
   {{#html-newtalk}}<div class="usermessage">{{{html-newtalk}}}</div>{{/html-newtalk}}
-  {{#data-namespaces}}{{>Portal}}{{/data-namespaces}}
-  {{{html-watch}}}
+  {{#data-above-title-menu}}{{>Portal}}{{/data-above-title-menu}}
   <div id="p-title-and-tb">
     <h1 class="firstHeading" lang="{{page-language}}">{{{html-title}}}</h1>
     {{{html-title-buttons}}}

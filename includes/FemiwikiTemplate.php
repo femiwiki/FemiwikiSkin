@@ -54,8 +54,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			'data-header' => [
 				'html-sitenotice' => $this->get( 'sitenotice', null ),
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
-				'data-namespaces' => $this->getPortal( 'namespaces', $this->data['content_navigation']['namespaces'] ),
-				'html-watch' => $this->getWatch(),
+				'data-above-title-menu' => $this->getAboveTitleMenu(),
 				'page-language' => $this->get( 'pageLanguage' ),
 				'html-title' => version_compare( MW_VERSION, '1.35', '<' )
 					? $this->get( 'title', '' )
@@ -163,7 +162,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @return null|string
+	 * @return null|string Either watch or unwatch that is available
 	 */
 	private function getWatch() {
 		$actions = $this->data['content_navigation']['actions'];
@@ -172,18 +171,31 @@ class FemiwikiTemplate extends BaseTemplate {
 				$item = $actions[$mode];
 				unset( $this->data['content_navigation']['actions'][$mode] );
 
-				$html = Html::rawElement(
-					'span',
-					[
-						'class' => 'mw-portlet',
-						'id' => 'ca-watch'
-					],
-					$this->makeLink( $mode, $item )
-				);
-				return $html;
+				return $item;
 			}
 		}
 		return null;
+	}
+
+	/**
+	 * @return array
+	 */
+	private function getAboveTitleMenu() {
+		$content = [];
+		$namespace = $this->data['content_navigation']['namespaces'] ?? null;
+		$watch = $this->getWatch();
+
+		if ( $namespace ) {
+			$content = $namespace;
+		}
+		if ( $watch ) {
+			$content += [ $watch ];
+		}
+
+		if ( !$content ) {
+			return null;
+		}
+		return $this->getPortal( 'above-title-menu',  $content );
 	}
 
 	/**
