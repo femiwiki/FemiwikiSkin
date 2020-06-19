@@ -34,6 +34,7 @@
 }
 
 // To hide objects, but keep them accessible for screen-readers
+// @deprecated, use aria-labelledby instead of this
 .hidden() {
   position: absolute;
   top: -9999px;
@@ -49,4 +50,77 @@
   max-width: 100%;
   height: auto;
   vertical-align: middle;
+}
+
+.mw-links() {
+  text-decoration: none;
+
+  &.external {
+    color: @color-primary3;
+  }
+
+  &.new {
+    color: #c0081f;
+
+    &:visited {
+      color: #a55858;
+    }
+  }
+
+  &.stub {
+    color: #723;
+  }
+
+  // self links
+  &.mw-selflink {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: inherit;
+
+    &:hover {
+      cursor: inherit;
+      text-decoration: inherit;
+    }
+
+    &:active,
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  // Interwiki Styling
+  &.extiw {
+    &,
+    &:active {
+      color: #36b;
+    }
+
+    &:visited {
+      color: #636;
+    }
+
+    &:active {
+      color: #b63;
+    }
+  }
+
+  // External links
+  &.external {
+    &:active {
+      color: #b63;
+    }
+
+    &.free {
+      word-wrap: break-word;
+    }
+  }
+
+  // Links
+  &.external {
+    color: @color-primary3;
+    /* @embed */
+    background: url('../images/icon_external_link.png') top right no-repeat;
+    background-size: 8px 8px;
+    padding-right: 0.6rem;
+  }
 }

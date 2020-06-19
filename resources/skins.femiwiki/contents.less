@@ -23,37 +23,8 @@
 }
 
 .mw-body-content {
-  a.external {
-    color: @color-primary3;
-  }
-
-  a.new {
-    color: #c0081f;
-
-    &:visited {
-      color: #a55858;
-    }
-  }
-
-  a.stub {
-    color: #723;
-  }
-
-  // self links
-  a.mw-selflink {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: inherit;
-
-    &:hover {
-      cursor: inherit;
-      text-decoration: inherit;
-    }
-
-    &:active,
-    &:visited {
-      color: inherit;
-    }
+  a {
+    .mw-links();
   }
 
   // @See https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
@@ -620,50 +591,8 @@
     content: '.';
   }
 
-  // Interwiki Styling
-  a.extiw,
-  a.extiw:active {
-    color: #36b;
-  }
-
-  a.extiw:visited {
-    color: #636;
-  }
-
-  a.extiw:active {
-    color: #b63;
-  }
-
-  // External links
-  a.external:active {
-    color: #b63;
-  }
-
-  a.external.free {
-    word-wrap: break-word;
-  }
-
-  // Links
-  a.external {
-    color: @color-primary3;
-    /* @embed */
-    background: url('../images/icon_external_link.png') top right no-repeat;
-    background-size: 8px 8px;
-    padding-right: 0.6rem;
-  }
-
-  a.new {
-    color: #c0081f;
-
-    &:visited {
-      color: #a55858;
-    }
-  }
-
-  a.mw-selflink {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: inherit;
+  a {
+    .mw-links();
   }
 
   b {

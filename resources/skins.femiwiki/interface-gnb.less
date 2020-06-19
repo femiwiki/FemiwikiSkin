@@ -163,12 +163,9 @@
 
       .badge {
         display: none;
-
-        &.active {
           position: absolute;
           right: 0.2rem;
           top: 0.2rem;
-          display: block;
           background-color: @color-alert2;
           width: 1.2rem;
           height: 1.2rem;
@@ -177,6 +174,9 @@
           border: 1px solid @color-primary1;
           border-radius: 0.6rem;
           animation: gentle-pulse 5s infinite;
+
+        &.active {
+          display: block;
         }
       }
     }
@@ -201,29 +201,26 @@
 
     h3 {
       font-size: 1rem;
-      color: @color-base0;
-      margin-top: 0;
-      margin-bottom: 0.4rem;
-      border-bottom: 1px solid #b9b5d9;
-      padding-top: 0.5rem;
-      padding-bottom: 0.17rem;
       font-weight: normal;
-      overflow: hidden;
+      color: @color-base0;
+      margin-top: 0 0 0.4rem;
+      padding-top: 0.5rem 0 0.17rem;
+      border-bottom: 1px solid #b9b5d9;
     }
 
     ul {
       margin: 0;
       padding: 0;
-    }
 
     li {
       list-style-type: none;
       margin: 0;
-    }
 
     a {
+          .mw-links();
       display: block;
-      text-decoration: none;
+        }
+      }
     }
   }
 
