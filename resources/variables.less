@@ -54,6 +54,24 @@
 
 .mw-link() {
   text-decoration: none;
+  color: @color-primary3;
+
+  &:not([href]) {
+    cursor: pointer; // Always cursor:pointer even without href
+  }
+
+  &:visited {
+    color: @color-primary3;
+  }
+
+  &:active {
+    color: #faa700;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 
   &.external {
     color: @color-primary3;
