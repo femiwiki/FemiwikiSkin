@@ -1,21 +1,15 @@
 {{!
 Each portal has the following composition:
-	string portal-id
+	string id
 	string html-tooltip
-	string msg-label-id
+	string label-id
 	string? html-userlangattributes
-	string msg-label
-	string html-portal-content
+	string label
+	string html-items
 	string? html-after-portal
-	string? html-hook-vector-after-toolbox is deprecated and used by the toolbox portal.
 }}
-<div class="portal" role="navigation" id="{{portal-id}}" {{{html-tooltip}}}
-  aria-labelledby="{{msg-label-id}}">
-	<h3 {{{html-userlangattributes}}} id="{{msg-label-id}}">
-		{{msg-label}}
-	</h3>
-	<div class="body">
-		{{{html-portal-content}}}
-		{{{html-after-portal}}}
-	</div>
-</div>
+<nav id="{{id}}" class="portal" aria-labelledby="{{label-id}}" {{{html-tooltip}}} >
+	<h3 {{{html-userlangattributes}}} id="{{label-id}}">{{label}}</h3>
+  <ul>{{{html-items}}}</ul>
+  {{#html-after-portal}}{{{html-after-portal}}}{{/html-after-portal}}
+</nav>

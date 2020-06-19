@@ -9,16 +9,16 @@ function init() {
         parseFloat($('#' + divId).css('padding-left')) -
         parseFloat($('#' + divId).css('padding-right')),
       itemPadding =
-        parseFloat($('#' + divId + ' > div').css('padding-left')) +
-        parseFloat($('#' + divId + ' > div').css('padding-right')),
+        parseFloat($('#' + divId + ' > nav').css('padding-left')) +
+        parseFloat($('#' + divId + ' > nav').css('padding-right')),
       itemMargin =
-        parseFloat($('#' + divId + ' > div').css('margin-left')) +
-        parseFloat($('#' + divId + ' > div').css('margin-right')),
+        parseFloat($('#' + divId + ' > nav').css('margin-left')) +
+        parseFloat($('#' + divId + ' > nav').css('margin-right')),
       itemActualMinWidth =
-        parseFloat($('#' + divId + ' > div').css('min-width')) +
+        parseFloat($('#' + divId + ' > nav').css('min-width')) +
         itemPadding +
         itemMargin,
-      items = $('#' + divId + ' > div').filter(function () {
+      items = $('#' + divId + ' > nav').filter(function () {
         return $(this).css('display') !== 'none';
       }),
       itemLength = items.length;
@@ -36,7 +36,7 @@ function init() {
       // Always place the same number of elements in all rows.
       horizontalCapacity -= 1;
     }
-    $('#' + divId + ' > div').css(
+    $('#' + divId + ' > nav').css(
       'width',
       Math.floor(containerWidth / horizontalCapacity - itemPadding - itemMargin)
     );

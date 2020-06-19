@@ -6,7 +6,7 @@
   string page-language
   string html-title
   string? html-title-buttons
-  string html-toolbox
+  string data-toolbox
   string html-actions
   string? page-history
   string? page-lastmod
@@ -32,17 +32,8 @@
     <h1 class="firstHeading" lang="{{page-language}}">{{{html-title}}}</h1>
     {{{html-title-buttons}}}
     <div id="p-actions-and-toolbox">
-      {{{html-toolbox}}}
-      {{#data-actions}}
-      <div role="navigation" class="mw-portlet" id="p-actions">
-        <h3>{{msg-header-message}}</h3>
-        <ul>
-          {{#data-content}}
-          <li id="{{id}}" class="{{class}}">{{{html-link}}}</li>
-          {{/data-content}}
-        </ul>
-      </div>
-      {{/data-actions}}
+      {{#data-toolbox}}{{>Portal}}{{/data-toolbox}}
+      {{#data-actions}}{{>Portal}}{{/data-actions}}
     </div>
   </div>
   <div id="lastmod-and-views">

@@ -27,13 +27,6 @@ class FemiwikiTemplate extends BaseTemplate {
 		$skin = $this->getSkin();
 		$out = $skin->getOutput();
 
-		$personalTools = $this->getPersonalTools();
-		// Remove default alert and notice
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
-			unset( $personalTools['notifications-alert'] );
-			unset( $personalTools['notifications-notice'] );
-		}
-
 		echo $this->templateParser->processTemplate( $this->templateRoot, [
 			'html-headelement' => $out->headElement( $skin ),
 			'data-navigation-bar' => [
@@ -57,18 +50,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					'page-title' => SpecialPage::getTitleFor( 'Search' )->getPrefixedDBkey(),
 				]
 			],
-			'data-user-links' => [
-				'msg-header-message' => $this->getMsg( 'personaltools' )->text(),
-				'data-content' => $this->makeMustacheListItemData( $personalTools ) ?? null,
-			],
-			'html-sidebar' => implode( '', array_map(
-				function ( $name, $content ) {
-					return $this->getPortal( $name, $content );
-				},
-				array_keys( $this->data['sidebar'] ),
-				$this->data['sidebar']
-			) ),
-			// $this->getPortals( $this->data['sidebar'] ),
+			'data-sidebar' => $this->getSidebar(),
 			'data-header' => [
 				'html-sitenotice' => $this->get( 'sitenotice', null ),
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
@@ -88,7 +70,7 @@ class FemiwikiTemplate extends BaseTemplate {
 							isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
 								'id' => 'p-share',
 								'infusable' => true,
-								# icon is used as a dummy
+								// icon is used as a dummy
 								'icon' => 'browser',
 								'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
 								'framed' => false,
@@ -105,11 +87,8 @@ class FemiwikiTemplate extends BaseTemplate {
 						] )
 					]
 				),
-				'html-toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
-				'data-actions' => [
-					'msg-header-message' => $this->getMsg( 'actions' )->text(),
-					'data-content' => $this->makeMustacheListItemData( $this->data['content_navigation']['actions'] ) ?? null,
-				],
+				'data-toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
+				'data-actions' => $this->getPortal( 'actions', $this->data['content_navigation']['actions'] ?? null, 'actions' ),
 				'page-lastmod-enabled' => isset( $this->data['content_navigation']['views']['history'] )
 					&& $this->get( 'lastmod', null ),
 				'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
@@ -159,6 +138,61 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
+	 * Override BaseTemplate::makeSearchInput() to fill the search form by previously
+	 *  searched word.
+	 * @param array $attrs
+	 * @return string
+	 */
+	public function makeSearchInput( $attrs = [] ) {
+		$realAttrs = [
+			'type' => 'search',
+			'name' => 'search',
+			'placeholder' => wfMessage( 'searchsuggest-search' )->text(),
+			'value' => $this->get( 'search', '' ),
+		];
+
+		$realAttrs = array_merge( $realAttrs, Linker::tooltipAndAccesskeyAttribs( 'search' ), $attrs );
+		return Html::element( 'input', $realAttrs );
+	}
+
+	/**
+	 * Remove default alert and notice for SkinFemiwikiHooks::onPersonalUrls()
+	 * @inheritDoc
+	 * @return array mustache-friendly modified data
+	 */
+	public function getPersonalTools() {
+		$personalTools = parent::getPersonalTools();
+
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
+			unset( $personalTools['notifications-alert'] );
+			unset( $personalTools['notifications-notice'] );
+		}
+
+		return $this->getPortal( 'personal', $personalTools, 'personaltools' );
+	}
+
+	/**
+	 * @inheritDoc
+	 * @return string return a mustache-friendly modified sidebar data includes personal tools
+	 */
+	public function getSidebar( $options = [] ) {
+		$sidebar = parent::getSidebar();
+		unset( $sidebar['TOOLBOX'] );
+		unset( $sidebar['LANGUAGES'] );
+
+		$sidebar = array_values( array_map( function ( $portal ) {
+			return $this->getPortal( $portal['header'], $portal['content'] );
+		}, $sidebar ) );
+
+		$personalTools = $this->getPersonalTools();
+
+		// Add the personal tools to the sidebar
+		$sidebar = array_merge( [ $personalTools ], $sidebar );
+
+		return $sidebar;
+	}
+
+	/**
 	 * @return null|string
 	 */
 	private function getWatch() {
@@ -183,41 +217,6 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * Override BaseTemplate::makeSearchInput() to fill the search form by previously
-	 *  searched word.
-	 * @param array $attrs
-	 * @return string
-	 */
-	public function makeSearchInput( $attrs = [] ) {
-		$realAttrs = [
-			'type' => 'search',
-			'name' => 'search',
-			'placeholder' => wfMessage( 'searchsuggest-search' )->text(),
-			'value' => $this->get( 'search', '' ),
-		];
-
-		$realAttrs = array_merge( $realAttrs, Linker::tooltipAndAccesskeyAttribs( 'search' ), $attrs );
-		return Html::element( 'input', $realAttrs );
-	}
-
-	/**
-	 * The toolbox includes both page-specific-tools and site-wide-tools, but we
-	 * need only page-specific-tools.
-	 * @return array
-	 */
-	public function getToolbox() {
-		$toolbox = parent::getToolbox();
-
-		foreach ( [ 'upload', 'specialpages' ] as $special ) {
-			if ( isset( $toolbox[$special] ) ) {
-				unset( $toolbox[$special] );
-			}
-		}
-
-		return $toolbox;
-	}
-
-	/**
 	 * Render a footer of a page
 	 * @return string
 	 */
@@ -225,18 +224,18 @@ class FemiwikiTemplate extends BaseTemplate {
 		$footerLinks = $this->getFooterLinks();
 
 		if ( isset( $footerLinks['info'] ) ) {
-			# Remove lastmod that our skin displays in the other place already.
+			// Remove lastmod that our skin displays in the other place already.
 			$i = array_search( 'lastmod', $footerLinks['info'] );
 			if ( $i ) {
 				unset( $footerLinks['info'][$i] );
 
-				# Make sure the starting index of the array is zero
+				// Make sure the starting index of the array is zero
 				$footerLinks['info'] = array_values( $footerLinks['info'] );
 			}
 		}
 
 		$props = [
-			'html-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
+			'data-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
 			'data-footer-links' => array_map(
 				function ( $category, $links ) {
 					return [
@@ -260,32 +259,47 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * @param string $name
 	 * @param array $content
 	 * @param string|null $msg
-	 * @return string|null html
+	 * @return string html
 	 */
 	protected function getPortal( $name, $content, $msg = null ) {
-		if ( $msg === null ) {
-			$msg = $name;
+		$msg = $this->getMsg( $msg ?: $name );
+		$label = $msg->exists() ? $msg->text() : $name;
+
+		if ( is_array( $content ) ) {
+			$htmlItems = [];
+			foreach ( $content as $key => $val ) {
+				$htmlItems[] = $this->makeListItem( $key, $val );
+			}
+			$htmlItems = implode( "\n", $htmlItems );
+		} else {
+			$htmlItems = $content;
 		}
 
-		$msgObj = $this->getMsg( $msg );
-
-		$props = [
-			'portal-id' => "p-$name",
+		return [
+			'id' => "p-$name",
 			'html-tooltip' => Linker::tooltip( 'p-' . $name ),
-			'msg-label' => $msgObj->exists() ? $msgObj->text() : $msg,
-			'msg-label-id' => "p-$name-label",
+			'label' => $label,
+			'label-id' => "p-$name-label",
 			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
-			'html-portal-content' => is_array( $content )
-				? '<ul>' . implode( '', array_map(
-					function ( $key, $val ) {
-						return $this->makeListItem( $key, $val );
-					}, array_keys( $content ),
-					$content
-				) ) . '</ul>'
-				: $content,
+			'html-items' => $htmlItems,
 			'html-after-portal' => $this->getAfterPortlet( $name ),
 		];
+	}
 
-		return $this->templateParser->processTemplate( 'Portal', $props );
+	/**
+	 * The toolbox includes both page-specific-tools and site-wide-tools, but we
+	 * need only page-specific-tools.
+	 * @return array
+	 */
+	public function getToolbox() {
+		$toolbox = parent::getToolbox();
+
+		foreach ( [ 'upload', 'specialpages' ] as $special ) {
+			if ( isset( $toolbox[$special] ) ) {
+				unset( $toolbox[$special] );
+			}
+		}
+
+		return $toolbox;
 	}
 }
