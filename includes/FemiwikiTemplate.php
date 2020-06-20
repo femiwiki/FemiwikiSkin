@@ -238,7 +238,8 @@ class FemiwikiTemplate extends BaseTemplate {
 		$toolbox = parent::getToolbox();
 
 		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'Sanctions' ) ) {
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'Sanctions' )
+				&& isset( $this->data['sidebar']['TOOLBOX'] ) ) {
 				$toolbox = wfArrayInsertAfter(
 					$toolbox,
 					[ $this->data['sidebar']['TOOLBOX']['sanctions'] ],
@@ -248,7 +249,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			}
 			$toolbox = array_merge(
 				$toolbox,
-				$this->data['sidebar']['TOOLBOX']
+				$this->data['sidebar']['TOOLBOX'] ?? []
 			);
 		}
 
