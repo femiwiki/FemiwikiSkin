@@ -47,10 +47,13 @@
 }
 
 .body-horizontal-padding() {
-  padding: 0.8rem @content-horizontal-padding 0;
+  @padding: @content-horizontal-padding;
+  padding-left: @padding;
+  padding-right: @padding;
   @media (max-width: @width-breakpoint-mobile-small) {
-    padding-left: 0.85rem;
-    padding-right: 0.85rem;
+    @padding: 0.85rem;
+    padding-left: @padding;
+    padding-right: @padding;
   }
 }
 
