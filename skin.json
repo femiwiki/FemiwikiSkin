@@ -87,14 +87,14 @@
   },
   "ResourceModuleSkinStyles": {
     "femiwiki": {
-      "+mediawiki.action.view.categoryPage.styles": "resources/skins.femiwiki.moduleSkinStyles/categoryPage.less",
+      "+mediawiki.action.view.categoryPage.styles": "resources/skins.femiwiki.moduleSkinStyles/action.view.categoryPage.less",
       "+mediawiki.special": "resources/skins.femiwiki.moduleSkinStyles/special.less",
       "+mediawiki.special.changeslist": "resources/skins.femiwiki.moduleSkinStyles/changeslist.less",
       "+mediawiki.special.search": "resources/skins.femiwiki.moduleSkinStyles/search.less",
       "+oojs-ui-core.styles": "resources/skins.femiwiki.moduleSkinStyles/ooui.less",
       "+ext.CollaborationKit.hub.styles": "resources/skins.femiwiki.moduleSkinStyles/collaborationKit.hub.less",
       "+ext.flow.styles.base": "resources/skins.femiwiki.moduleSkinStyles/flow.less",
-      "+ext.uploadWizard.page.styles": "resources/skins.femiwiki.moduleSkinStyles/uploadWizard.less"
+      "+ext.uploadWizard.page.styles": "resources/skins.femiwiki.moduleSkinStyles/uploadWizard.page.less"
     }
   },
   "Hooks": {
