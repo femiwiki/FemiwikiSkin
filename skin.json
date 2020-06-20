@@ -93,7 +93,7 @@
   },
   "ResourceModuleSkinStyles": {
     "femiwiki": {
-      "+oojs-ui-core.styles": "resources/ooui.less",
+      "+oojs-ui-core.styles": "resources/skins.femiwiki.extensions/ooui.less",
       "+mediawiki.special": "resources/skins.femiwiki.special/special.less",
       "+mediawiki.special.changeslist": "resources/skins.femiwiki.special/recentchanges.less",
       "+ext.flow.styles.base": "resources/skins.femiwiki.extensions/flow.less"
