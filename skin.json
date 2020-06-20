@@ -96,7 +96,9 @@
       "+oojs-ui-core.styles": "resources/skins.femiwiki.moduleSkinStyles/ooui.less",
       "+mediawiki.special": "resources/skins.femiwiki.moduleSkinStyles/special.less",
       "+mediawiki.special.changeslist": "resources/skins.femiwiki.moduleSkinStyles/recentchanges.less",
-      "+ext.flow.styles.base": "resources/skins.femiwiki.ModuleSkinStyles/flow.less"
+      "+mediawiki.special.search": "resources/skins.femiwiki.moduleSkinStyles/search.less",
+      "+ext.flow.styles.base": "resources/skins.femiwiki.moduleSkinStyles/flow.less",
+      "+ext.uploadWizard.page.styles": "resources/skins.femiwiki.moduleSkinStyles/uploadWizard.less"
     }
   },
   "Hooks": {
