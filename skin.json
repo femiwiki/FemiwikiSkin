@@ -89,7 +89,7 @@
     "femiwiki": {
       "+mediawiki.action.view.categoryPage.styles": "resources/skins.femiwiki.moduleSkinStyles/categoryPage.less",
       "+mediawiki.special": "resources/skins.femiwiki.moduleSkinStyles/special.less",
-      "+mediawiki.special.changeslist": "resources/skins.femiwiki.moduleSkinStyles/recentchanges.less",
+      "+mediawiki.special.changeslist": "resources/skins.femiwiki.moduleSkinStyles/changeslist.less",
       "+mediawiki.special.search": "resources/skins.femiwiki.moduleSkinStyles/search.less",
       "+oojs-ui-core.styles": "resources/skins.femiwiki.moduleSkinStyles/ooui.less",
       "+ext.flow.styles.base": "resources/skins.femiwiki.moduleSkinStyles/flow.less",
