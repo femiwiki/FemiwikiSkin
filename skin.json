@@ -38,9 +38,6 @@
         "resources/skins.femiwiki/contents.less": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/contents-category.less": {
-          "media": "screen"
-        },
         "resources/skins.femiwiki/contents-mobile.less": {
           "media": "screen and (max-width: 480px)"
         },
@@ -90,10 +87,11 @@
   },
   "ResourceModuleSkinStyles": {
     "femiwiki": {
-      "+oojs-ui-core.styles": "resources/skins.femiwiki.moduleSkinStyles/ooui.less",
+      "+mediawiki.action.view.categoryPage.styles": "resources/skins.femiwiki.moduleSkinStyles/categoryPage.less",
       "+mediawiki.special": "resources/skins.femiwiki.moduleSkinStyles/special.less",
       "+mediawiki.special.changeslist": "resources/skins.femiwiki.moduleSkinStyles/recentchanges.less",
       "+mediawiki.special.search": "resources/skins.femiwiki.moduleSkinStyles/search.less",
+      "+oojs-ui-core.styles": "resources/skins.femiwiki.moduleSkinStyles/ooui.less",
       "+ext.flow.styles.base": "resources/skins.femiwiki.moduleSkinStyles/flow.less",
       "+ext.uploadWizard.page.styles": "resources/skins.femiwiki.moduleSkinStyles/uploadWizard.less"
     }
