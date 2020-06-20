@@ -238,6 +238,14 @@ class FemiwikiTemplate extends BaseTemplate {
 		$toolbox = parent::getToolbox();
 
 		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
+			if ( ExtensionRegistry::getInstance()->isLoaded( 'Sanctions' ) ) {
+				$toolbox = wfArrayInsertAfter(
+					$toolbox,
+					[ $this->data['sidebar']['TOOLBOX']['sanctions'] ],
+					isset( $toolbox['blockip'] ) ? 'blockip' : 'log'
+				);
+				unset( $this->data['sidebar']['TOOLBOX']['sanctions'] );
+			}
 			$toolbox = array_merge(
 				$toolbox,
 				$this->data['sidebar']['TOOLBOX']
