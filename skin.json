@@ -87,6 +87,8 @@
   },
   "ResourceModuleSkinStyles": {
     "femiwiki": {
+      "+mediawiki.diff.styles": "resources/skins.femiwiki.moduleSkinStyles/diff.less",
+      "+mediawiki.action.edit.styles": "resources/skins.femiwiki.moduleSkinStyles/action.edit.less",
       "+mediawiki.action.view.categoryPage.styles": "resources/skins.femiwiki.moduleSkinStyles/action.view.categoryPage.less",
       "+mediawiki.special": "resources/skins.femiwiki.moduleSkinStyles/special.less",
       "+mediawiki.special.changeslist": "resources/skins.femiwiki.moduleSkinStyles/changeslist.less",
