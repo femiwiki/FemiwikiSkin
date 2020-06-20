@@ -153,3 +153,75 @@
     padding-right: 0.6rem;
   }
 }
+
+// CSS only Responsive Tables
+// http://dbushell.com/2016/03/04/css-only-responsive-tables/
+// by David Bushell
+.responsiveTable() {
+  -webkit-overflow-scrolling: touch;
+  background: -webkit-radial-gradient(
+        left ellipse,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      )
+      0 center,
+    -webkit-radial-gradient(
+        right ellipse,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      ) 100% center;
+  background: radial-gradient(
+        ellipse at left,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      )
+      0 center,
+    radial-gradient(
+        ellipse at right,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      )
+      100% center;
+  background-size: 10px 100%, 10px 100%;
+  background-attachment: scroll, scroll;
+  background-repeat: no-repeat;
+
+  th:first-child,
+  td:first-child {
+    background-image: -webkit-linear-gradient(
+      left,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-image: linear-gradient(
+      to right,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 20px 100%;
+  }
+
+  th:last-child,
+  td:last-child {
+    background-image: -webkit-linear-gradient(
+      right,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-image: linear-gradient(
+      to left,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 20px 100%;
+  }
+
+  & > * > tr > th,
+  & > * > tr > td {
+    background-color: transparent;
+    border: 1px solid #ddd;
+  }
+}
