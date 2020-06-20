@@ -45,7 +45,9 @@
 #p-header {
   box-sizing: border-box;
   margin: 2.3rem auto 0.5rem;
-  padding: 0 @content-horizontal-padding;
+  padding-top: 0;
+  padding-bottom: 0;
+  .body-horizontal-padding();
   max-width: @content-width;
   clear: both;
 
@@ -237,7 +239,10 @@ hr#content-end-bar {
 // Footer
 #footer-bottom {
   box-sizing: border-box;
-  padding: 0.8rem @content-horizontal-padding 0;
+  .body-horizontal-padding();
+  padding-top: 0.8rem;
+  padding-bottom: 0;
+
   max-width: @content-width;
   margin: 0 auto 3.2rem;
 
@@ -309,32 +314,6 @@ ul#preftoc {
         input[type='radio'] {
           width: 1rem;
         }
-      }
-    }
-  }
-}
-
-// Search
-// @See https://github.com/femiwiki/mediawiki/issues/131
-.mw-body #mw-search-top-table {
-  #searchText {
-    input {
-      box-sizing: border-box;
-    }
-  }
-}
-
-// powersearch
-#powersearch {
-  fieldset#mw-searchoptions {
-    font-size: 14px;
-
-    table {
-      width: 100%;
-      margin-bottom: 0.5rem;
-
-      td {
-        width: 50%;
       }
     }
   }
