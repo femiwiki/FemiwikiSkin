@@ -83,7 +83,7 @@ class FemiwikiTemplate extends BaseTemplate {
 						] )
 					]
 				),
-				'data-toolbox' => $this->getPortal( 'page-tb', $this->getToolbox(), 'toolbox' ),
+				'data-toolbox' => $this->getPortal( 'page-tb', $this->getToolboxData(), 'toolbox' ),
 				'data-actions' => $this->getPortal( 'actions', $this->data['content_navigation']['actions'] ?? null, 'actions' ),
 				'page-lastmod-enabled' => isset( $this->data['content_navigation']['views']['history'] )
 					&& $this->get( 'lastmod', null ),
@@ -234,8 +234,15 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * need only page-specific-tools.
 	 * @return array
 	 */
-	public function getToolbox() {
+	public function getToolboxData() {
 		$toolbox = parent::getToolbox();
+
+		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
+			$toolbox = array_merge(
+				$toolbox,
+				$this->data['sidebar']['TOOLBOX']
+			);
+		}
 
 		foreach ( [ 'upload', 'specialpages' ] as $special ) {
 			if ( isset( $toolbox[$special] ) ) {
