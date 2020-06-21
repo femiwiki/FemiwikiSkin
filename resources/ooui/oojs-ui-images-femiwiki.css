@@ -1,12 +1,12 @@
 /*!
- * OOUI v0.34.1
+ * OOUI v0.39.1
  * https://www.mediawiki.org/wiki/OOUI
  *
- * Copyright 2011–2019 OOUI Team and other contributors.
+ * Copyright 2011–2020 OOUI Team and other contributors.
  * Released under the MIT license
  * http://oojs.mit-license.org
  *
- * Date: 2019-12-19T11:29:39Z
+ * Date: 2020-06-21T13:49:39Z
  */
 .oo-ui-icon-arrowNext {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/arrowNext-ltr.svg);
@@ -204,6 +204,15 @@
 .oo-ui-image-progressive.oo-ui-icon-articleSearch {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/articleSearch-progressive.svg);
 }
+.oo-ui-icon-articlesSearch {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/articlesSearch-ltr.svg);
+}
+.oo-ui-image-invert.oo-ui-icon-articlesSearch {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/articlesSearch-ltr-invert.svg);
+}
+.oo-ui-image-progressive.oo-ui-icon-articlesSearch {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/articlesSearch-ltr-progressive.svg);
+}
 .oo-ui-icon-articleRedirect {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/articleRedirect-ltr.svg);
 }
@@ -299,6 +308,15 @@
 }
 .oo-ui-image-progressive.oo-ui-icon-robot {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/robot-progressive.svg);
+}
+.oo-ui-icon-specialPages {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/specialPages-ltr.svg);
+}
+.oo-ui-image-invert.oo-ui-icon-specialPages {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/specialPages-ltr-invert.svg);
+}
+.oo-ui-image-progressive.oo-ui-icon-specialPages {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/specialPages-ltr-progressive.svg);
 }
 .oo-ui-icon-tag {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/tag-ltr.svg);
@@ -536,6 +554,9 @@
 .oo-ui-icon-funnel {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/funnel-ltr.svg);
 }
+.oo-ui-image-destructive.oo-ui-icon-funnel {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/funnel-ltr-destructive.svg);
+}
 .oo-ui-image-invert.oo-ui-icon-funnel {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/funnel-ltr-invert.svg);
 }
@@ -617,6 +638,15 @@
 .oo-ui-image-progressive.oo-ui-icon-helpNotice:lang(yi) {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/helpNotice-ltr-progressive.svg);
 }
+.oo-ui-icon-home {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/home.svg);
+}
+.oo-ui-image-invert.oo-ui-icon-home {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/home-invert.svg);
+}
+.oo-ui-image-progressive.oo-ui-icon-home {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/home-progressive.svg);
+}
 .oo-ui-icon-key {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/key.svg);
 }
@@ -643,6 +673,15 @@
 }
 .oo-ui-image-progressive.oo-ui-icon-lightbulb {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/lightbulb-progressive.svg);
+}
+.oo-ui-icon-logIn {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/logIn-ltr.svg);
+}
+.oo-ui-image-invert.oo-ui-icon-logIn {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/logIn-ltr-invert.svg);
+}
+.oo-ui-image-progressive.oo-ui-icon-logIn {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/logIn-ltr-progressive.svg);
 }
 .oo-ui-icon-logOut {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/logOut-ltr.svg);
@@ -706,6 +745,18 @@
 }
 .oo-ui-image-progressive.oo-ui-icon-settings {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/settings-progressive.svg);
+}
+.oo-ui-icon-stopHand {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/stopHand.svg);
+}
+.oo-ui-image-destructive.oo-ui-icon-stopHand {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/stopHand-destructive.svg);
+}
+.oo-ui-image-invert.oo-ui-icon-stopHand {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/stopHand-invert.svg);
+}
+.oo-ui-image-progressive.oo-ui-icon-stopHand {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/stopHand-progressive.svg);
 }
 .oo-ui-icon-subtract {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/subtract.svg);
@@ -801,6 +852,15 @@
 .oo-ui-image-progressive.oo-ui-icon-unLock {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/unLock-progressive.svg);
 }
+.oo-ui-icon-restore {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/restore.svg);
+}
+.oo-ui-image-invert.oo-ui-icon-restore {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/restore-invert.svg);
+}
+.oo-ui-image-progressive.oo-ui-icon-restore {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/restore-progressive.svg);
+}
 .oo-ui-icon-star {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/star.svg);
 }
@@ -839,15 +899,6 @@
 }
 .oo-ui-image-progressive.oo-ui-icon-trash {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/trash-progressive.svg);
-}
-.oo-ui-icon-unTrash {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/unTrash.svg);
-}
-.oo-ui-image-invert.oo-ui-icon-unTrash {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/unTrash-invert.svg);
-}
-.oo-ui-image-progressive.oo-ui-icon-unTrash {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/unTrash-progressive.svg);
 }
 .oo-ui-icon-pushPin {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/pushPin.svg);
@@ -1960,15 +2011,6 @@
 .oo-ui-image-progressive.oo-ui-icon-attachment {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/attachment-progressive.svg);
 }
-.oo-ui-icon-beaker {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/labFlask.svg);
-}
-.oo-ui-image-invert.oo-ui-icon-beaker {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/labFlask-invert.svg);
-}
-.oo-ui-image-progressive.oo-ui-icon-beaker {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/labFlask-progressive.svg);
-}
 .oo-ui-icon-calendar {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/calendar.svg);
 }
@@ -2204,22 +2246,22 @@
   background-image: /* @embed */ url(themes/femiwiki/images/icons/table-progressive.svg);
 }
 .oo-ui-icon-tableAddColumnAfter {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnAfter.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnAfter-ltr.svg);
 }
 .oo-ui-image-invert.oo-ui-icon-tableAddColumnAfter {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnAfter-invert.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnAfter-ltr-invert.svg);
 }
 .oo-ui-image-progressive.oo-ui-icon-tableAddColumnAfter {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnAfter-progressive.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnAfter-ltr-progressive.svg);
 }
 .oo-ui-icon-tableAddColumnBefore {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnBefore.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnBefore-ltr.svg);
 }
 .oo-ui-image-invert.oo-ui-icon-tableAddColumnBefore {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnBefore-invert.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnBefore-ltr-invert.svg);
 }
 .oo-ui-image-progressive.oo-ui-icon-tableAddColumnBefore {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnBefore-progressive.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddColumnBefore-ltr-progressive.svg);
 }
 .oo-ui-icon-tableAddRowAfter {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/tableAddRowAfter.svg);
@@ -2258,22 +2300,22 @@
   background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMergeCells-progressive.svg);
 }
 .oo-ui-icon-tableMoveColumnAfter {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnAfter.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnAfter-ltr.svg);
 }
 .oo-ui-image-invert.oo-ui-icon-tableMoveColumnAfter {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnAfter-invert.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnAfter-ltr-invert.svg);
 }
 .oo-ui-image-progressive.oo-ui-icon-tableMoveColumnAfter {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnAfter-progressive.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnAfter-ltr-progressive.svg);
 }
 .oo-ui-icon-tableMoveColumnBefore {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnBefore.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnBefore-ltr.svg);
 }
 .oo-ui-image-invert.oo-ui-icon-tableMoveColumnBefore {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnBefore-invert.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnBefore-ltr-invert.svg);
 }
 .oo-ui-image-progressive.oo-ui-icon-tableMoveColumnBefore {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnBefore-progressive.svg);
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveColumnBefore-ltr-progressive.svg);
 }
 .oo-ui-icon-tableMoveRowAfter {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/tableMoveRowAfter.svg);
@@ -2585,6 +2627,15 @@
 .oo-ui-image-progressive.oo-ui-icon-userAvatarOutline {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/userAvatarOutline-progressive.svg);
 }
+.oo-ui-icon-userContributions {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/userContributions-ltr.svg);
+}
+.oo-ui-image-invert.oo-ui-icon-userContributions {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/userContributions-ltr-invert.svg);
+}
+.oo-ui-image-progressive.oo-ui-icon-userContributions {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/userContributions-ltr-progressive.svg);
+}
 .oo-ui-icon-userGroup {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/userGroup-ltr.svg);
 }
@@ -2613,32 +2664,32 @@
 .oo-ui-image-progressive.oo-ui-icon-menu {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/menu-progressive.svg);
 }
-.oo-ui-icon-stripeFlow {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeFlow-ltr.svg);
+.oo-ui-icon-recentChanges {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/recentChanges-ltr.svg);
 }
-.oo-ui-image-invert.oo-ui-icon-stripeFlow {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeFlow-ltr-invert.svg);
+.oo-ui-image-invert.oo-ui-icon-recentChanges {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/recentChanges-ltr-invert.svg);
 }
-.oo-ui-image-progressive.oo-ui-icon-stripeFlow {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeFlow-ltr-progressive.svg);
+.oo-ui-image-progressive.oo-ui-icon-recentChanges {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/recentChanges-ltr-progressive.svg);
 }
-.oo-ui-icon-stripeSummary {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeSummary-ltr.svg);
+.oo-ui-icon-textFlow {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/textFlow-ltr.svg);
 }
-.oo-ui-image-invert.oo-ui-icon-stripeSummary {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeSummary-ltr-invert.svg);
+.oo-ui-image-invert.oo-ui-icon-textFlow {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/textFlow-ltr-invert.svg);
 }
-.oo-ui-image-progressive.oo-ui-icon-stripeSummary {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeSummary-ltr-progressive.svg);
+.oo-ui-image-progressive.oo-ui-icon-textFlow {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/textFlow-ltr-progressive.svg);
 }
-.oo-ui-icon-stripeToC {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeToC-ltr.svg);
+.oo-ui-icon-textSummary {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/textSummary-ltr.svg);
 }
-.oo-ui-image-invert.oo-ui-icon-stripeToC {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeToC-ltr-invert.svg);
+.oo-ui-image-invert.oo-ui-icon-textSummary {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/textSummary-ltr-invert.svg);
 }
-.oo-ui-image-progressive.oo-ui-icon-stripeToC {
-  background-image: /* @embed */ url(themes/femiwiki/images/icons/stripeToC-ltr-progressive.svg);
+.oo-ui-image-progressive.oo-ui-icon-textSummary {
+  background-image: /* @embed */ url(themes/femiwiki/images/icons/textSummary-ltr-progressive.svg);
 }
 .oo-ui-icon-viewCompact {
   background-image: /* @embed */ url(themes/femiwiki/images/icons/viewCompact.svg);
