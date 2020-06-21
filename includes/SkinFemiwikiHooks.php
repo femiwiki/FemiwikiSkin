@@ -7,7 +7,7 @@
 class SkinFemiwikiHooks {
 
 	/**
-	 * Echo(REL1_31)'s contant values
+	 * Echo(REL1_31)'s content values
 	 * @See https://gerrit.wikimedia.org/r/plugins/gitiles/mediawiki/extensions/Echo/+/REL1_31/includes/formatters/EchoHtmlEmailFormatter.php
 	 */
 	private const PRIMARY_LINK_STYLE = 'cursor:pointer; text-align:center; text-decoration:none; padding:.45em 0.6em .45em; color:#FFF; background:#36C; font-family: Arial, Helvetica, sans-serif;font-size: 13px;';
@@ -20,7 +20,7 @@ class SkinFemiwikiHooks {
 	private const FEMIWIKI_FOOTER_PREFERENCE_LINK_STYLE = 'text-decoration: none; color: #5144a3;';
 
 	/**
-	 * Modifing HTML mails sent from Echo.
+	 * Modifying HTML mails sent from Echo.
 	 * @param MailAddress[] $to Array of recipients' email addresses
 	 * @param MailAddress $from Sender's email
 	 * @param string|string[] &$body Email's text or Array of two strings to be the text and html bodies
@@ -61,12 +61,12 @@ class SkinFemiwikiHooks {
 	 * Handler for PersonalUrls hook.
 	 * Add a "Notifications" item to the user toolbar ('personal URLs').
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
-	 * @param array &$personal_urls Array of URLs to append to.
+	 * @param array &$personalTools Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $sk
 	 * @return bool true in all cases
 	 */
-	public static function onPersonalUrls( &$personal_urls, &$title, $sk ) {
+	public static function onPersonalUrls( &$personalTools, &$title, $sk ) {
 		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
@@ -126,7 +126,7 @@ class SkinFemiwikiHooks {
 			]
 		];
 
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+		$personalTools = wfArrayInsertAfter( $personalTools, $insertUrls, 'userpage' );
 
 		return true;
 	}

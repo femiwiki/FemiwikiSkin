@@ -1,3 +1,5 @@
+@import '../variables.less';
+
 // Fix https://github.com/femiwiki/skin/issues/62
 .oo-ui-defaultOverlay,
 .skin-femiwiki .oo-ui-windowManager-modal > .oo-ui-dialog,
@@ -6,14 +8,11 @@
 }
 
 .oo-ui-widget:not(.ve-ui-surface):not(.ve-ui-mwTocWidget) {
-  // Mimic resources/src/mediawiki.skinning/elements.css
-  a.new {
-    color: #c0081f;
-
-    &:visited {
-      color: #a55858;
-    }
+  a:not(.oo-ui-tool-link):not(.oo-ui-buttonElement-button) {
+    .mw-link();
   }
+
+  // Mimic resources/src/mediawiki.skinning/elements.css
 
   p:not(.mw-ui-feature-description) {
     margin: 0.4em 0 0.5em 0;
@@ -77,5 +76,22 @@
   h4,
   h5 {
     margin-bottom: 0.3em;
+  }
+}
+
+@media screen and (max-width: @width-breakpoint-mobile) {
+  .oo-ui-window-frame {
+    div.oo-ui-popupWidget-popup {
+      min-width: 16rem;
+      min-height: 10rem;
+    }
+
+    div.oo-ui-menuLayout-menu {
+      width: 3rem;
+    }
+
+    div.oo-ui-menuLayout-content {
+      left: 3rem;
+    }
   }
 }

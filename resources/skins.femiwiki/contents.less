@@ -3,8 +3,10 @@
 .mw-body {
   box-sizing: border-box;
   position: relative;
-  padding: 0 1.3rem 1.2rem;
-  max-width: 50rem;
+  .content-horizontal-padding();
+  padding-top: 0;
+  padding-bottom: 1.2rem;
+  max-width: @content-width;
   margin: 0 auto;
 
   #mw-notification-area {
@@ -16,44 +18,15 @@
     cursor: pointer;
 
     .mw-notification {
-      border: solid 1px #b2d236;
-      background-color: #dae8b2;
+      background-color: @color-alert;
+      border: solid 1px @color-alert-border;
     }
   }
 }
 
 .mw-body-content {
-  a.external {
-    color: @color3;
-  }
-
-  a.new {
-    color: #c0081f;
-
-    &:visited {
-      color: #a55858;
-    }
-  }
-
-  a.stub {
-    color: #723;
-  }
-
-  // self links
-  a.mw-selflink {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: inherit;
-
-    &:hover {
-      cursor: inherit;
-      text-decoration: inherit;
-    }
-
-    &:active,
-    &:visited {
-      color: inherit;
-    }
+  a {
+    .mw-link();
   }
 
   // @See https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
@@ -63,7 +36,7 @@
   }
 
   code {
-    color: #000;
+    color: @color-base0;
     background-color: #f8f9fa;
     border: 1px solid #eaecf0;
     border-radius: 2px;
@@ -81,7 +54,7 @@
     margin: 3.8rem 0 1.6rem;
     padding: 0;
     font-weight: bold;
-    color: #252525;
+    color: @color-base15;
     overflow: hidden;
   }
 
@@ -125,16 +98,6 @@
     padding: 0;
   }
 
-  .mw-allpages-chunk,
-  .mw-prefixindex-list {
-    margin: 0em 0 0 1.6em;
-    padding: 0;
-  }
-
-  ul.mw-ui-feature-requirements-list {
-    margin-left: 0;
-  }
-
   ol {
     margin: 0.3em 0 0 3.2em;
     padding: 0;
@@ -174,156 +137,17 @@
     border-spacing: 0;
     border-width: 0;
     font-size: 0.8rem;
-  }
+    .responsiveTable();
 
-  // CSS only Responsive Tables
-  // http://dbushell.com/2016/03/04/css-only-responsive-tables/
-  // by David Bushell
-  .wikitable,
-  .wikitable--flip tbody {
-    -webkit-overflow-scrolling: touch;
-    background: -webkit-radial-gradient(
-          left ellipse,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0) 75%
-        )
-        0 center,
-      -webkit-radial-gradient(
-          right ellipse,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0) 75%
-        ) 100% center;
-    background: radial-gradient(
-          ellipse at left,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0) 75%
-        )
-        0 center,
-      radial-gradient(
-          ellipse at right,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0) 75%
-        )
-        100% center;
-    background-size: 10px 100%, 10px 100%;
-    background-attachment: scroll, scroll;
-    background-repeat: no-repeat;
-  }
+    th {
+      font-size: inherit;
+      color: @color-base0;
+      text-align: left;
+    }
 
-  .wikitable th:first-child,
-  .wikitable td:first-child,
-  .wikitable--flip tbody tr:first-child {
-    background-image: -webkit-linear-gradient(
-      left,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    background-image: linear-gradient(
-      to right,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    background-repeat: no-repeat;
-    background-size: 20px 100%;
-  }
-
-  .wikitable th:last-child,
-  .wikitable td:last-child,
-  .wikitable--flip tbody tr:last-child {
-    background-image: -webkit-linear-gradient(
-      right,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    background-image: linear-gradient(
-      to left,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    background-repeat: no-repeat;
-    background-position: 100% 0;
-    background-size: 20px 100%;
-  }
-
-  .wikitable th {
-    font-size: inherit;
-    color: #000;
-    text-align: left;
-  }
-
-  .wikitable td {
-    color: inherit;
-  }
-
-  .wikitable--flip {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    overflow: hidden;
-    background: none;
-  }
-
-  .wikitable--flip thead {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    min-width: -webkit-min-content;
-    min-width: -moz-min-content;
-    min-width: min-content;
-  }
-
-  .wikitable--flip tbody {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    position: relative;
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-
-  .wikitable--flip tr {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: -webkit-min-content;
-    min-width: -moz-min-content;
-    min-width: min-content;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-  }
-
-  .wikitable--flip td,
-  .wikitable--flip th {
-    display: block;
-  }
-
-  .wikitable--flip td {
-    background-image: none !important;
-    border-left: 0;
-  }
-
-  .wikitable--flip th:not(:last-child),
-  .wikitable--flip td:not(:last-child) {
-    border-bottom: 0;
-  }
-
-  .wikitable > * > tr > th,
-  .wikitable > * > tr > td {
-    background-color: transparent;
-    border: 1px solid #ddd;
+    td {
+      color: inherit;
+    }
   }
 
   textarea:not(.ve-init-mw-tempWikitextEditorWidget) {
@@ -337,7 +161,7 @@
     overflow: hidden;
     border: none;
     background-color: #f0f0f0;
-    color: #000000;
+    color: @color-base0;
     padding: 1em;
     white-space: pre-wrap;
   }
@@ -346,7 +170,7 @@
     overflow: hidden;
     border: none;
     background-color: #f0f0f0;
-    color: #000;
+    color: @color-base0;
     padding: 1em;
     white-space: pre-wrap;
   }
@@ -393,8 +217,7 @@
       font-size: 95%;
     }
 
-    .image img,
-    img.mw-ui-feature-screenshot {
+    .image img {
       vertical-align: middle;
     }
 
@@ -467,17 +290,6 @@
     font-size: inherit;
   }
 
-  .mw-category-generated {
-    #mw-subcategories ul,
-    #mw-pages .mw-category-group ul {
-      -webkit-columns: 16em 2;
-      -moz-columns: 16em 2;
-      columns: 16em 2;
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
-
   .btn,
   .btn:hover,
   .btn:visited {
@@ -486,55 +298,6 @@
     background-color: #aca7e2;
     text-decoration: none;
     cursor: pointer;
-  }
-
-  // Search
-  .mw-search-results {
-    max-width: 100%;
-
-    div.searchresult {
-      width: inherit;
-      max-width: 38em;
-    }
-  }
-
-  .mw-search-profile-tabs {
-    font-size: 14px;
-
-    div.search-types ul {
-      margin: 0;
-      list-style: none;
-
-      li {
-        list-style: none;
-        float: left;
-        margin: 0;
-        padding: 0;
-
-        a {
-          padding: 0.2rem 0.3rem;
-        }
-
-        &.current {
-          font-weight: bold;
-        }
-      }
-    }
-  }
-
-  // CollaborationKit
-  .mw-ck-hub-members h3 {
-    margin: 0 0 1.125em;
-  }
-
-  .mw-ck-hub-section-header h2 {
-    padding: 1em 0.17em;
-  }
-
-  // VisualEditor
-  .ve-init-mw-desktopArticleTarget-toolbar,
-  .ve-init-mw-desktopArticleTarget-toolbarPlaceholder {
-    margin: 0;
   }
 }
 
@@ -620,50 +383,8 @@
     content: '.';
   }
 
-  // Interwiki Styling
-  a.extiw,
-  a.extiw:active {
-    color: #36b;
-  }
-
-  a.extiw:visited {
-    color: #636;
-  }
-
-  a.extiw:active {
-    color: #b63;
-  }
-
-  // External links
-  a.external:active {
-    color: #b63;
-  }
-
-  a.external.free {
-    word-wrap: break-word;
-  }
-
-  // Links
-  a.external {
-    color: @color3;
-    /* @embed */
-    background: url('../images/icon_external_link.png') top right no-repeat;
-    background-size: 8px 8px;
-    padding-right: 0.6rem;
-  }
-
-  a.new {
-    color: #c0081f;
-
-    &:visited {
-      color: #a55858;
-    }
-  }
-
-  a.mw-selflink {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: inherit;
+  a {
+    .mw-link();
   }
 
   b {
@@ -861,11 +582,6 @@
   .fw-catlinks {
     display: none;
   }
-}
-
-.action-edit textarea.mw-editfont-monospace {
-  display: block;
-  width: 100%;
 }
 
 // Hide elements that are marked as "empty" according to legacy Tidy rules,

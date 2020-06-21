@@ -1,20 +1,55 @@
 @import '../variables.less';
 
+// General
+.fw-portals {
+  margin: 0.6rem auto 0;
+  padding: 0;
+  max-width: 48.7rem;
+  border-bottom: 1px solid @color-primary1;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  .portal {
+    min-width: 8.8rem;
+    margin: 0.6rem 0.8rem 0.6rem 0;
+    display: block;
+    float: right;
+
+    h3 {
+      font-size: 1rem;
+      font-weight: normal;
+      color: @color-base0;
+      margin: 0 0 0.4rem;
+      padding: 0.5rem 0 0.17rem;
+      border-bottom: 1px solid @color-primary2;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+        margin: 0;
+
+        a {
+          .mw-link();
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// Specific
 #p-header {
   box-sizing: border-box;
   margin: 2.3rem auto 0.5rem;
-  padding: 0 1.3rem;
-  max-width: 50rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  .content-horizontal-padding();
+  max-width: @content-width;
   clear: both;
-
-  #p-namespaces h3 {
-    display: none;
-    color: #000000;
-    font-size: 0.96rem;
-    margin: 0 0 0.288rem;
-    overflow: hidden;
-    padding: 0.48rem 0 0.1632rem;
-  }
 
   div,
   ul,
@@ -27,14 +62,9 @@
     padding: 0;
   }
 
-  #p-namespaces,
-  #ca-watch {
-    font-size: 0.75rem;
-  }
-
   #siteNotice {
     font-size: 0.8rem;
-    color: #000;
+    color: @color-base0;
     margin: 0 0 4rem;
     padding: 1.6rem 0.8rem;
     border: 2px solid #aca8e0;
@@ -46,25 +76,31 @@
     }
   }
 
-  #p-namespaces {
-    display: inline-block;
+  #p-above-title-menu {
+    font-size: 0.75rem;
     margin-bottom: 0.5rem;
+
+    h3 {
+      display: none;
+    }
 
     ul {
       li {
         display: inline-block;
-        margin-right: 0.5rem;
-      }
 
-      li.selected {
-        display: none;
+        &.selected {
+          display: none;
+        }
+
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+
+        a {
+          .mw-link();
+        }
       }
     }
-  }
-
-  #ca-watch {
-    display: inline-block;
-    margin-bottom: 0.5rem;
   }
 
   #p-title-and-tb {
@@ -72,50 +108,6 @@
 
     #p-actions-and-toolbox {
       display: none;
-      clear: right;
-      text-align: right;
-      overflow: hidden;
-      border-bottom: 1px solid @color1;
-
-      #p-actions,
-      #p-page-tb,
-      #p-share-tb,
-      #p-site-tb {
-        min-width: 8.8rem;
-        margin: 0.6rem 0.8rem 0.6rem 0;
-        float: right;
-        vertical-align: top;
-        text-align: left;
-
-        h3 {
-          margin: 0;
-          font-weight: normal;
-          font-size: 1rem;
-          border-bottom: 1px solid #b9b5d9;
-          margin-bottom: 0.4rem;
-          padding: 0.5rem 0 0.17rem;
-          color: #000;
-          overflow: hidden;
-        }
-
-        ul {
-          padding: 0;
-          margin: 0;
-        }
-
-        li {
-          list-style: none;
-          margin: 0;
-        }
-
-        a {
-          display: block;
-        }
-      }
-
-      div + div {
-        margin-right: 1em;
-      }
     }
 
     #p-title-buttons {
@@ -138,14 +130,16 @@
     overflow: hidden;
     clear: both;
 
+    #lastmod {
+      .mw-link();
+      font-size: 0.8rem;
+    }
+
     #p-views {
+      float: right;
+
       h3 {
         display: none;
-        color: #000000;
-        font-size: 0.96rem;
-        margin: 0 0 0.288rem;
-        overflow: hidden;
-        padding: 0.48rem 0 0.1632rem;
       }
 
       ul {
@@ -153,35 +147,28 @@
         margin: 0;
 
         li {
+          float: left;
           margin: 0;
           display: block;
+
+          &.selected a {
+            font-weight: bold;
+          }
+
+          &#ca-view.selected,
+          &#ca-history {
+            display: none;
+          }
+
+          a {
+            .mw-link();
+          }
         }
 
-        li.selected a {
-          font-weight: bold;
+        li + li {
+          margin-left: 1em;
         }
       }
-
-      li#ca-view.selected,
-      li#ca-history {
-        display: none;
-      }
-    }
-
-    #p-views {
-      float: right;
-
-      li {
-        float: left;
-      }
-
-      li + li {
-        margin-left: 1em;
-      }
-    }
-
-    #lastmod {
-      font-size: 0.8rem;
     }
   }
 }
@@ -196,286 +183,102 @@
   padding: 0;
   line-height: 1.2em;
   border-bottom: none;
-  color: #252525;
+  color: @color-base15;
   font-weight: bold;
   overflow: hidden;
-}
-
-html[lang='ko'] #p-header #p-namespaces a:after {
-  content: ' 보기';
 }
 
 .visualClear {
   clear: both;
 }
 
-// @See https://github.com/femiwiki/skin/issues/76
-.movepage-wrapper {
-  width: auto;
-}
-
 // End of content
 hr#content-end-bar {
   border: 0;
   border-width: 1px;
-  border-color: #b9b5d9;
+  border-color: @color-primary2;
   background-color: #a2a9b1;
   max-width: 47.4em;
   margin: 0 auto;
   height: 1px;
 }
 
-// Footer
-#mw-footer {
+#p-lang {
   box-sizing: border-box;
-  padding: 0.8rem 1.3rem 0;
-  max-width: 50rem;
-  margin: 0 auto 3.2rem;
+  max-width: @content-width;
+  margin: auto;
+  padding: 0.8rem @content-horizontal-padding 0;
 
-  .read-more-container {
-    margin: 0;
-
-    .ra-read-more {
-      padding: 0 0 1em;
-    }
-  }
-
-  .portal a {
-    text-decoration: none;
+  #p-lang-label {
+    display: none;
   }
 
   ul {
+    padding: 0;
     margin: 0;
 
-    li {
-      list-style: none;
+    .interlanguage-link {
+      display: inline-block;
+
+      &:not(:first-child) {
+        padding-left: 0.8em;
+      }
+
+      .interlanguage-link-target {
+        .mw-link();
+      }
     }
   }
 
-  #footer-info {
-    padding: 0;
+  .wbc-editpage {
+    .mw-link();
+  }
+}
 
-    a {
-      text-decoration: none;
-    }
+// Footer
+#footer-bottom {
+  box-sizing: border-box;
+  .content-horizontal-padding();
+  padding-top: 0.8rem;
+  padding-bottom: 0;
+
+  max-width: @content-width;
+  margin: 0 auto 3.2rem;
+
+  .footer-icons {
+    display: none;
   }
 
-  #footer-info-copyright {
-    margin: 0 0 0.0714rem;
-  }
-
-  #fw-footer-menu,
-  #footer-places {
+  #f-list {
+    font-size: 0.714rem;
+    margin: 0;
     padding: 0;
 
     li {
       display: inline;
+      list-style: none;
       margin: 0 0 0.0714rem;
 
       a {
-        text-decoration: none;
-      }
-    }
-
-    li::after {
-      content: '|';
-      margin: 0 0.3rem;
-    }
-
-    li:last-child::after {
-      content: '';
-    }
-  }
-
-  #footer-info-lastmod {
-    margin-bottom: 1.6rem;
-  }
-
-  #footer-icons {
-    display: none;
-  }
-
-  #p-lang {
-    padding-bottom: 0.8rem;
-
-    #p-lang-label {
-      font-size: 1.28rem;
-      display: none;
-      margin: 0;
-      margin-bottom: 0.3em;
-      padding: 0.5em 0 0.17em;
-      font-weight: bold;
-      border: 0 none #000000;
-      color: #000;
-      overflow: hidden;
-    }
-
-    .body {
-      ul {
-        padding: 0;
+        .mw-link();
       }
 
-      .interlanguage-link {
-        display: inline-block;
+      &:not(#lastmod):not(#copyright):not(:last-child)::after {
+        content: '|';
+        margin: 0 0.3rem;
       }
-      .interlanguage-link:not(:first-child) {
-        padding-left: 0.8em;
+
+      &#lastmod {
+        display: none;
       }
-    }
-  }
 
-  #footer-info-copyright,
-  #footer-places {
-    font-size: 0.714rem;
-  }
-}
-
-// Preferences
-ul#preftoc {
-  margin: 0;
-  padding: 0;
-
-  li {
-    list-style: none;
-    margin-bottom: 0.5rem;
-  }
-}
-
-#mw-prefs-form {
-  .prefsection {
-    border-width: 0;
-    padding: 0;
-    margin: 0;
-
-    & > legend {
-      display: none;
-    }
-
-    @media screen and (max-width: 480px) {
-      .mw-input {
-        word-break: break-all;
-
-        input,
-        select {
-          width: 100%;
-        }
-
-        input[type='checkbox'],
-        input[type='radio'] {
-          width: 1rem;
-        }
+      &#copyright {
+        display: block;
       }
-    }
-  }
-}
-
-// Search
-// @See https://github.com/femiwiki/mediawiki/issues/131
-.mw-body #mw-search-top-table {
-  #searchText {
-    input {
-      box-sizing: border-box;
-    }
-  }
-}
-
-// powersearch
-#powersearch {
-  fieldset#mw-searchoptions {
-    font-size: 14px;
-
-    table {
-      width: 100%;
-      margin-bottom: 0.5rem;
-
-      td {
-        width: 50%;
-      }
-    }
-  }
-}
-
-// Source Editor
-body.action-edit {
-  #siteNotice {
-    display: none;
-  }
-
-  .diff-addedline {
-    background-color: #d9ecfe;
-  }
-
-  .diff-deletedline {
-    background-color: #feedca;
-  }
-
-  .diffchange.diffchange-inline {
-    font-weight: bold;
-  }
-
-  .wikiEditor-ui-buttons > button {
-    display: none;
-  }
-
-  .mw-body {
-    .mw-editsection {
-      display: none;
-    }
-
-    // Show femiwiki category
-    .fw-catlinks {
-      display: block;
     }
   }
 }
 
 body.action-submit .mw-body .fw-catlinks {
   display: block;
-}
-
-// Visual Editor
-
-// Prevent Code mirror glitch
-// @See https://github.com/femiwiki/skin/issues/52
-.skin-femiwiki .ve-init-mw-desktopArticleTarget {
-  .CodeMirror-code {
-    line-height: 1.5em;
-  }
-
-  .CodeMirror {
-    padding: 0;
-  }
-}
-
-html.ve-active,
-html.ve-activated,
-html.ve-deactivating {
-  #siteNotice {
-    display: none;
-  }
-
-  .mw-body {
-    .mw-editsection {
-      display: none;
-    }
-
-    // Remove margin of generated elements
-    li > p.ve-ce-generated-wrapper {
-      margin: 0;
-    }
-
-    // Remove padding of visual editor
-    .ve-ce-documentNode {
-      padding: 0;
-    }
-
-    // Show femiwiki category
-    .fw-catlinks {
-      display: block;
-    }
-  }
-
-  .oo-ui-toolbar {
-    font-size: 12px;
-  }
 }

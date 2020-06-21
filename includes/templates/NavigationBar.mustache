@@ -4,22 +4,17 @@
   string msg-recentchanges-label
   string msg-tooltip-n-randompage
   string msg-randompage-label
-  string html-search
+  string data-search
 }}
 
+{{#data-navigation-bar}}
 <nav class="nav-bar">
   <div id="mw-navigation">
-    <h1 id="p-logo">
-      <a href="/" class="mw-wiki-logo">
-        <img src="/skins/Femiwiki/images/logo-long.png" alt="Femiwiki">
-      </a>
-    </h1>
     <h2>{{msg-navigation-heading}}</h2>
 
-    <button id="fw-menu-toggle">
-      <span class="icon"></span>
-      <span class="badge"></span>
-    </button>
+    <a title="Femiwiki" id="p-logo" class="mw-wiki-logo" href="/" ></a>
+
+    {{>SearchBox}}
 
     <ul id="site-navigation">
       <li class="changes">
@@ -34,6 +29,10 @@
       </li>
     </ul>
 
-    {{{html-search}}}
+    <button id="fw-menu-toggle">
+      <span class="icon"></span>
+      <span class="badge"></span>
+    </button>
   </div>
 </nav>
+{{/data-navigation-bar}}

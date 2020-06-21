@@ -1,7 +1,41 @@
-@width: 66em;
-@border: #ccc;
+@width-breakpoint-mobile-small: 360px;
+@width-breakpoint-mobile: 480px;
+@width-breakpoint-tablet: 640px;
+
+@content-width: 50rem;
+@content-horizontal-padding: 1.3rem;
+
+@color-base0: #000000;
+@color-base15: #252525;
+@color-base100: #fff;
+
+@color-primary1: #aca6e4;
+@color-primary2: #b9b5d9;
+@color-primary3: #746ccb;
+@color-primary4: #5144a3;
+@color-primary5: #302a45;
+
+@color-alert: #dae8b2;
+@color-alert2: #a5c831;
+@color-alert-border: #b2d236;
+
+@keyframes gentle-pulse {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 // To hide objects, but keep them accessible for screen-readers
+// @deprecated, use aria-labelledby instead of this
 .hidden() {
   position: absolute;
   top: -9999px;
@@ -13,14 +47,182 @@
   margin-left: -1.3rem;
 }
 
+.content-horizontal-padding() {
+  @padding: @content-horizontal-padding;
+  padding-left: @padding;
+  padding-right: @padding;
+  @media (max-width: @width-breakpoint-mobile-small) {
+    @padding: 0.85rem;
+    padding-left: @padding;
+    padding-right: @padding;
+  }
+}
+
 .image() {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
 }
 
-@left-margin: 60px;
-@color1: #aca6e4;
-@color2: #746ccb;
-@color3: #5144a3;
-@color4: #302a45;
+.mw-link() {
+  text-decoration: none;
+  color: @color-primary4;
+
+  &:not([href]) {
+    cursor: pointer; // Always cursor:pointer even without href
+  }
+
+  &:visited {
+    color: @color-primary4;
+  }
+
+  &:active {
+    color: #faa700;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &.external {
+    color: @color-primary4;
+  }
+
+  &.new {
+    color: #c0081f;
+
+    &:visited {
+      color: #a55858;
+    }
+  }
+
+  &.stub {
+    color: #723;
+  }
+
+  // self links
+  &.mw-selflink {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: inherit;
+
+    &:hover {
+      cursor: inherit;
+      text-decoration: inherit;
+    }
+
+    &:active,
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  // Interwiki Styling
+  &.extiw {
+    &,
+    &:active {
+      color: #36b;
+    }
+
+    &:visited {
+      color: #636;
+    }
+
+    &:active {
+      color: #b63;
+    }
+  }
+
+  // External links
+  &.external {
+    &:active {
+      color: #b63;
+    }
+
+    &.free {
+      word-wrap: break-word;
+    }
+  }
+
+  // Links
+  &.external {
+    color: @color-primary4;
+    /* @embed */
+    background: url('../images/icon_external_link.png') top right no-repeat;
+    background-size: 8px 8px;
+    padding-right: 0.6rem;
+  }
+}
+
+// CSS only Responsive Tables
+// http://dbushell.com/2016/03/04/css-only-responsive-tables/
+// by David Bushell
+.responsiveTable() {
+  -webkit-overflow-scrolling: touch;
+  background: -webkit-radial-gradient(
+        left ellipse,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      )
+      0 center,
+    -webkit-radial-gradient(
+        right ellipse,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      ) 100% center;
+  background: radial-gradient(
+        ellipse at left,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      )
+      0 center,
+    radial-gradient(
+        ellipse at right,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 75%
+      )
+      100% center;
+  background-size: 10px 100%, 10px 100%;
+  background-attachment: scroll, scroll;
+  background-repeat: no-repeat;
+
+  th:first-child,
+  td:first-child {
+    background-image: -webkit-linear-gradient(
+      left,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-image: linear-gradient(
+      to right,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 20px 100%;
+  }
+
+  th:last-child,
+  td:last-child {
+    background-image: -webkit-linear-gradient(
+      right,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-image: linear-gradient(
+      to left,
+      white 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 20px 100%;
+  }
+
+  & > * > tr > th,
+  & > * > tr > td {
+    background-color: transparent;
+    border: 1px solid #ddd;
+  }
+}

@@ -8,6 +8,10 @@
 
 html {
   font-size: 16.5px;
+  @media screen and (max-width: @width-breakpoint-mobile-small) {
+    font-size: 16px;
+  }
+
   font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕',
     'Noto Sans CJK KR', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕',
     NanumGothic, '맑은고딕', 'Malgun Gothic', Arial, Dotum, sans-serif;
@@ -16,7 +20,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: #252525;
+  color: @color-base15;
   line-height: 1.7;
 
   // Word breaks shouldn't be used for CJK text
@@ -30,28 +34,6 @@ body {
 
 ::selection {
   background-color: #c3bffd;
-}
-
-a {
-  text-decoration: none;
-  color: @color3;
-}
-
-a:not([href]) {
-  cursor: pointer; // Always cursor:pointer even without href
-}
-
-a:visited {
-  color: @color3;
-}
-
-a:active {
-  color: #faa700;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
 }
 
 // Quote
