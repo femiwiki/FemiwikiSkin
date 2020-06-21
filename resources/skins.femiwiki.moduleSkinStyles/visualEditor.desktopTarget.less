@@ -5,44 +5,44 @@
   .ve-init-mw-desktopArticleTarget-toolbarPlaceholder {
     margin: 0;
   }
+}
 
-  // Prevent Code mirror glitch
-  // @See https://github.com/femiwiki/skin/issues/52
-  .ve-init-mw-desktopArticleTarget .CodeMirror.CodeMirror {
-    padding: 0;
+// Prevent Code mirror glitch
+// @See https://github.com/femiwiki/skin/issues/52
+.ve-init-mw-desktopArticleTarget .CodeMirror.CodeMirror {
+  padding: 0;
+}
+
+html.ve-active,
+html.ve-activated,
+html.ve-deactivating {
+  #siteNotice {
+    display: none;
   }
 
-  html.ve-active,
-  html.ve-activated,
-  html.ve-deactivating {
-    #siteNotice {
+  .mw-body {
+    .mw-editsection {
       display: none;
     }
 
-    .mw-body {
-      .mw-editsection {
-        display: none;
-      }
-
-      // Remove margin of generated elements
-      li > p.ve-ce-generated-wrapper {
-        margin: 0;
-      }
-
-      // Remove padding of visual editor
-      .ve-ce-documentNode {
-        padding: 0;
-      }
-
-      // Show femiwiki category
-      .fw-catlinks {
-        display: block;
-      }
+    // Remove margin of generated elements
+    li > p.ve-ce-generated-wrapper {
+      margin: 0;
     }
 
-    .oo-ui-toolbar {
-      font-size: 12px;
+    // Remove padding of visual editor
+    .ve-ce-documentNode {
+      padding: 0;
     }
+
+    // Show femiwiki category
+    .fw-catlinks {
+      display: block;
+    }
+  }
+
+  .oo-ui-toolbar {
+    font-size: 12px;
   }
 }
 
