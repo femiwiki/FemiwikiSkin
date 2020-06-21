@@ -8,7 +8,7 @@ Each portal has the following composition:
 	string html-items
 	string? html-after-portal
 }}
-<nav id="{{id}}" class="portal" aria-labelledby="{{label-id}}" {{{html-tooltip}}} >
+<nav id="{{id}}" class="fw-portal portal" aria-labelledby="{{label-id}}" {{{html-tooltip}}} >
 	<h3 {{{html-userlangattributes}}} id="{{label-id}}">{{label}}</h3>
   <ul>{{{html-items}}}</ul>
   {{#html-after-portal}}{{{.}}}{{/html-after-portal}}
