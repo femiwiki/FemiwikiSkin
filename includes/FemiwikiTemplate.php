@@ -66,8 +66,7 @@ class FemiwikiTemplate extends BaseTemplate {
 							isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
 								'id' => 'p-share',
 								'infusable' => true,
-								// icon is used as a dummy
-								'icon' => 'browser',
+								'icon' => 'share',
 								'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
 								'framed' => false,
 								'invisibleLabel' => true
