@@ -86,9 +86,9 @@ class FemiwikiTemplate extends BaseTemplate {
 				'data-toolbox' => $this->getPortal( 'page-tb', $this->getToolboxData(), 'toolbox' ),
 				'data-actions' => $this->getPortal( 'actions', $this->data['content_navigation']['actions'] ?? null, 'actions' ),
 				'page-lastmod-enabled' => isset( $this->data['content_navigation']['views']['history'] )
-					&& $this->get( 'lastmod', null ),
+					&& $this->lastModified(),
 				'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
-				'page-lastmod' => $this->get( 'lastmod', null ),
+				'page-lastmod' => $this->lastModified(),
 				'data-views' => $this->getPortal( 'views', $this->data['content_navigation']['views'] )
 			],
 			'data-content' => [
@@ -196,6 +196,35 @@ class FemiwikiTemplate extends BaseTemplate {
 			return null;
 		}
 		return $this->getPortal( 'above-title-menu',  $content );
+	}
+
+	/**
+	 * A simplified version of Skin::lastModified() that is a protected function.
+	 * This is for a case that $wgMaxCredits is set to a positive number. In the case,
+	 * `$this->get( 'lastmod' )` returns nothing.
+	 * @return string|null html
+	 */
+	private function lastModified() {
+		$skin = $this->getSkin();
+		$out = $skin->getOutput();
+
+		if ( !$out->isArticle() || !$out->isRevisionCurrent() ) {
+			return null;
+		}
+
+		$page = $skin->getWikiPage();
+
+		$timestamp = $page->getTimestamp();
+		if ( $timestamp ) {
+			$lang = $skin->getLanguage();
+			$d = $lang->date( $page->getTimestamp(), true );
+			$t = $lang->time( $page->getTimestamp(), true );
+		} else {
+			$d = '';
+			$t = '';
+		}
+
+		return $this->getMsg( 'lastmodifiedat', $d, $t )->parse();
 	}
 
 	/**
