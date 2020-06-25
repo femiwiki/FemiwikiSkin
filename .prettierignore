@@ -3,3 +3,6 @@
 
 # maintained by translatewiki
 /i18n/
+
+# auto-genereted files
+/resources/ooui/
