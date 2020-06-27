@@ -114,7 +114,7 @@ class SkinFemiwikiHooks {
 		}
 
 		$insertUrls = [
-			'notifications-echo' => [
+			'notifications-all' => [
 				'href' => $url,
 				'text' => $msgText,
 				'active' => ( $url == $title->getLocalUrl() ),

@@ -1,7 +1,7 @@
 function init() {
   // Notification badge
   var badge = parseInt(
-    $('#pt-notifications-echo .mw-echo-notifications-badge').attr(
+    $('#pt-notifications-all .mw-echo-notifications-badge').attr(
       'data-counter-num'
     ) || ''
   );
