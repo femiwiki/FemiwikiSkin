@@ -3,7 +3,7 @@ name: Submit a PR to docker-mediawiki repository
 on:
   push:
     branches:
-    - master
+    - REL1_34
     paths-ignore:
     - 'i18n/**'
     - '.github/**'
