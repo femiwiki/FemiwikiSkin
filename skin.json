@@ -52,7 +52,6 @@
     "skins.femiwiki.js": {
       "packageFiles": [
         "resources/skins.femiwiki.js/skin.js",
-        "resources/skins.femiwiki.js/collapsibleMenu.js",
         "resources/skins.femiwiki.js/notificationBadge.js",
         "resources/skins.femiwiki.js/searchClearButton.js"
       ],

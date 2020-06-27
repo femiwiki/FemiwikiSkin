@@ -166,6 +166,8 @@
         position: absolute;
         right: 0.2rem;
         top: 0.2rem;
+        text-align: center;
+        color: @color-base100;
         background-color: @color-alert2;
         width: 1.2rem;
         height: 1.2rem;
@@ -184,8 +186,36 @@
 }
 
 .fw-wiki-portals {
-  display: none;
-  padding: 0.85rem;
+  max-width: @content-width - @content-horizontal-padding;
+  padding: @content-horizontal-padding;
+
+  // Show portals like below:
+  //  ___ ___ ___ ___
+  // | x | x | x | x |
+  //  ^^^ ^^^ ^^^ ^^^
+  // or
+  //  ___ ___
+  // | x | x |
+  //  --- ---
+  // | x | x |
+  //  ^^^ ^^^
+  // than:
+  //  ___ ___ ___
+  // | x | x | x |
+  //  -----------
+  // |     x     |
+  //  ^^^^^^^^^^^
+  .fw-portal {
+    @real-portal-width: (@portal-min-width + @portal-margin-right);
+    @min-width: ((@real-portal-width * 3) + (@content-horizontal-padding * 2));
+    // For some reason, it doesn't work properly without 3rem.
+    @max-width: (
+      (@real-portal-width * 4) + (@content-horizontal-padding * 2) + 3rem
+    );
+    @media screen and (min-width: @min-width) and (max-width: @max-width) {
+      flex-basis: 34%;
+    }
+  }
 
   // Hide less-frequently used links
   #ca-addsection {
@@ -216,8 +246,8 @@
   }
 }
 
-#fw-menu.active {
-  display: block;
+#fw-menu-checkbox:not(:checked) ~ #fw-menu {
+  display: none;
 }
 
 // Hide notificationBadgeButtonPopupWidget's title text which is just an error message
