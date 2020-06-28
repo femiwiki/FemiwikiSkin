@@ -3,11 +3,10 @@ on:
     tags:
     - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
-name: Upload Release Asset
+name: Upload Release Asset and submit a PR to docker-mediawiki repository
 
 jobs:
   build:
-    name: Upload Release Asset
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
@@ -46,3 +45,18 @@ jobs:
           asset_path: ./${{ steps.tag_name.outputs.tag_name }}.tar.gz
           asset_name: ${{ steps.tag_name.outputs.tag_name }}.tar.gz
           asset_content_type: application/zip
+      - name: Submit a PR
+        run: |
+          curl \
+            --fail \
+            --request POST \
+            --url https://api.github.com/repos/femiwiki/docker-mediawiki/dispatches \
+            --header "Authorization: token ${{ secrets.BOT_TOKEN }}" \
+            --header 'content-type: application/json' \
+            --data '{
+              "event_type": "bump-extension",
+              "client_payload": {
+                "extension": "Femiwiki",
+                "version": "${{ github.ref }}"
+              }
+            }'
