@@ -8,21 +8,19 @@
 }}
 
 {{#data-content}}
-<main id="content" class="mw-body" role="main">
-  <div id="bodyContent" class="mw-body-content">
-    <div id="contentSub">
-      {{#html-subtitle}}{{{.}}}{{/html-subtitle}}
-    </div>
-    {{#html-undelete}}{{{.}}}{{/html-undelete}}
-    {{{html-bodycontent}}}
-    {{! Outputs a css clear using the core visualClear class}}
-    <div class="visualClear"></div>
-    <div class="printfooter">
-      {{{html-printfooter}}}
-    </div>
-    {{{html-catlinks}}}
-    {{{html-data-after-content}}}
+<main id="content" class="mw-body mw-body-content">
+  <div id="contentSub">
+    {{#html-subtitle}}{{{.}}}{{/html-subtitle}}
   </div>
+  {{#html-undelete}}{{{.}}}{{/html-undelete}}
+  {{{html-bodycontent}}}
+  {{! Outputs a css clear using the core visualClear class}}
+  <div class="visualClear"></div>
+  <div class="printfooter">
+    {{{html-printfooter}}}
+  </div>
+  {{{html-catlinks}}}
+  {{{html-data-after-content}}}
 </main>
 <hr id="content-end-bar" />
 {{/data-content}}
