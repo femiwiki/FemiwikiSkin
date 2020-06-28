@@ -1,0 +1,41 @@
+@import '../variables.less';
+
+// @See https://github.com/femiwiki/FemiwikiSkin/issues/161
+.mw-ui-button {
+  border-radius: 0;
+  &.mw-ui-progressive {
+    background-color: @color-progressive;
+    border-color: @color-progressive;
+
+    &:hover {
+      background-color: @color-primary3;
+      border-color: @color-primary3;
+    }
+
+    &:focus {
+      box-shadow: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px #fff;
+    }
+
+    &:active,
+    &.is-on {
+      background-color: @color-primary4;
+      border-color: @color-primary4;
+    }
+
+    &.mw-ui-quiet {
+      color: @color-progressive;
+
+      &:hover {
+        color: @color-primary3;
+      }
+
+      &:active {
+        color: @color-primary4;
+      }
+
+      &:focus {
+        color: @color-progressive;
+      }
+    }
+  }
+}
