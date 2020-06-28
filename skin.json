@@ -29,7 +29,7 @@
       "targets": ["desktop", "mobile"],
       "position": "top",
       "styles": {
-        "libraries/normalise.css": {
+        "../node_modules/normalize.css/normalize.css": {
           "media": "screen"
         },
         "skins.femiwiki/elements.less": {
