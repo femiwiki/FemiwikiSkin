@@ -1,12 +1,8 @@
 name: Submit a PR to docker-mediawiki repository
 
 on:
-  push:
-    branches:
-    - REL1_34
-    paths-ignore:
-    - 'i18n/**'
-    - '.github/**'
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -24,6 +20,6 @@ jobs:
               "event_type": "bump-extension",
               "client_payload": {
                 "extension": "Femiwiki",
-                "version": "${{ github.sha }}"
+                "version": "${{ github.ref }}"
               }
             }'
