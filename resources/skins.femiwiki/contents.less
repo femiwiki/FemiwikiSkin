@@ -298,44 +298,45 @@ body.mw-hide-empty-elt .mw-empty-elt {
 // Directionality-specific styles for thumbnails - their positioning depends on content language //
 
 /* @noflip */
-.mw-body-content #mw-content-text.mw-content-ltr {
-  .thumbcaption {
-    text-align: left;
+.mw-body-content {
+  #mw-content-text.mw-content-ltr {
+    .thumbcaption {
+      text-align: left;
+    }
+
+    .magnify {
+      float: right;
+      margin-left: 3px;
+      margin-right: 0;
+    }
+
+    div.magnify a {
+      /* Use same SVG support hack as mediawiki.legacy's shared.css */
+      background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.png);
+      /* @embed */
+      background-image: linear-gradient(transparent, transparent),
+        url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
+    }
   }
 
-  .magnify {
-    float: right;
-    margin-left: 3px;
-    margin-right: 0;
-  }
+  #mw-content-text#mw-content-text.mw-content-rtl {
+    .thumbcaption {
+      text-align: right;
+    }
 
-  div.magnify a {
-    /* Use same SVG support hack as mediawiki.legacy's shared.css */
-    background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.png);
-    /* @embed */
-    background-image: linear-gradient(transparent, transparent),
-      url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
-  }
-}
+    .magnify {
+      float: left;
+      margin-left: 0;
+      margin-right: 3px;
+    }
 
-/* @noflip */
-.mw-body-content #mw-content-text#mw-content-text.mw-content-rtl {
-  .thumbcaption {
-    text-align: right;
-  }
-
-  .magnify {
-    float: left;
-    margin-left: 0;
-    margin-right: 3px;
-  }
-
-  div.magnify a {
-    /* Use same SVG support hack as mediawiki.legacy's shared.css */
-    background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.png);
-    /* @embed */
-    background-image: linear-gradient(transparent, transparent),
-      url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg);
+    div.magnify a {
+      /* Use same SVG support hack as mediawiki.legacy's shared.css */
+      background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.png);
+      /* @embed */
+      background-image: linear-gradient(transparent, transparent),
+        url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg);
+    }
   }
 }
 
@@ -344,18 +345,24 @@ body.mw-hide-empty-elt .mw-empty-elt {
   .parser-output();
 }
 
-body {
-  &.action-info,
-  &.action-delete,
-  &.action-protect,
-  &.mw-special-Whatlinkshere,
-  &.mw-special-Undelete {
+body.action {
+  &-delete,
+  &-edit,
+  &-info,
+  &-protect {
     #mw-content-text a {
       .mw-link();
     }
   }
 }
 
+// For special pages that do not add mediawiki.special module
+body.ns-special #mw-content-text a {
+  .mw-link();
+}
+
+// PrevNextNavigation
+// (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
 .mw-firstlink,
 .mw-lastlink,
 .mw-prevlink,
