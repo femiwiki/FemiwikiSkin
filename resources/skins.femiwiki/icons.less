@@ -1,0 +1,21 @@
+#p-personal li a {
+  padding-left: 1.7em;
+}
+
+.icon(@id, @image) {
+  #@{id} a {
+    background-image: /* @embed */ url('../ooui/images/icons/@{image}.svg');
+  }
+}
+
+.icon(pt-createaccount, userAvatar-progressive);
+.icon(pt-login, logIn-ltr-progressive);
+.icon(pt-userpage, userAvatar-progressive);
+.icon(pt-notifications-echo, bell-progressive);
+.icon(pt-notifications-all, bell-progressive);
+.icon(pt-mytalk, userTalk-ltr-progressive);
+.icon(pt-preferences, settings-progressive);
+// .icon(pt-betafeatures, ?);
+.icon(pt-watchlist, unStar-progressive);
+.icon(pt-mycontris, userContributions-ltr-progressive);
+.icon(pt-logout, logOut-ltr-progressive);

@@ -44,6 +44,9 @@
         "skins.femiwiki/interface-gnb.less": {
           "media": "screen"
         },
+        "skins.femiwiki/icons.less": {
+          "media": "screen"
+        },
         "print.less": {
           "media": "print"
         }
