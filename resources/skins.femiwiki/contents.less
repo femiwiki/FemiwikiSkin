@@ -215,19 +215,6 @@
     }
   }
 
-  dl {
-    margin: 1.6rem 0 1.6rem;
-    padding-left: 0.5rem;
-  }
-
-  dt:not(first-child) {
-    margin-top: 1em;
-  }
-
-  dd {
-    margin-left: 0.6em;
-  }
-
   .mw-headline-number:after {
     content: '.';
   }
@@ -257,82 +244,10 @@
     font-size: 100%;
   }
 
-  // Image
-  div.thumb {
-    max-width: 100%;
-    @media screen and (max-width: @width-breakpoint-mobile) {
-      float: none;
-    }
-
-    .thumbinner {
-      font-size: 0.94rem;
-      max-width: 100%;
-      background-color: #f8f9fa;
-      border: 1px solid #c8ccd1;
-      overflow: hidden;
-      padding: 3px;
-      text-align: center;
-      @media screen and (max-width: @width-breakpoint-mobile) {
-        margin: 0 auto;
-        border: none;
-        background-color: initial;
-      }
-
-      .thumbimage {
-        background-color: #fff;
-        border: 1px solid #c8ccd1;
-        vertical-align: middle;
-        @media screen and (max-width: @width-breakpoint-mobile) {
-          border: none;
-        }
-      }
-    }
-
-    .thumbcaption {
-      padding: 3px;
-      font-size: 0.8836rem;
-      line-height: 1.23704rem;
-      @media screen and (max-width: @width-breakpoint-mobile) {
-        color: #888;
-        text-align: center;
-      }
-    }
-  }
-
-  /* @noflip */
-  div.tright {
-    margin: 0.5em 0 1.3em 1.4em;
-  }
-
-  /* @noflip */
-  div.tleft {
-    margin: 0.5em 1.4em 1.3em 0;
-  }
-
-  @media screen and (max-width: @width-breakpoint-mobile) {
-    div.tleft,
-    div.tright {
-      margin: 1rem auto;
-    }
-  }
-
-  /* Images */
-  /* @noflip */
-  div.floatright,
-  table.floatright {
-    margin: 0 0 0.5em 0.5em;
-  }
-
-  /* @noflip */
-  div.floatleft,
-  table.floatleft {
-    margin: 0 0.5em 0.5em 0;
-  }
-
-  .image img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
+  textarea:not(.ve-init-mw-tempWikitextEditorWidget) {
+    border: 1px solid #c8ccd1;
+    box-sizing: border-box;
+    padding: 0.1em;
   }
 
   #file img {
@@ -343,14 +258,6 @@
   & > br:first-child,
   & > br:last-child {
     display: none;
-  }
-
-  ol.references {
-    font-size: 0.9em;
-
-    li {
-      margin-bottom: 0.2rem;
-    }
   }
 
   // Edit links
@@ -379,11 +286,6 @@
   .mathjax-wrapper {
     display: inline-block;
     vertical-align: middle;
-  }
-
-  // Hide femiwiki category
-  .fw-catlinks {
-    display: none;
   }
 }
 
