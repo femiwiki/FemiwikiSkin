@@ -99,6 +99,7 @@
       "+mediawiki.action.history.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.history.styles.less",
       "+mediawiki.action.view.categoryPage.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.categoryPage.styles.less",
       "+mediawiki.diff.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.diff.styles.less",
+      "+mediawiki.legacy.shared": "skins.femiwiki.moduleSkinStyles/mediawiki.legacy.shared.less",
       "+mediawiki.pulsatingdot": "skins.femiwiki.moduleSkinStyles/mediawiki.pulsatingdot.less",
       "+mediawiki.rcfilters.filters.ui": "skins.femiwiki.moduleSkinStyles/mediawiki.rcfilters.filters.ui.less",
       "+mediawiki.special.changeslist": "skins.femiwiki.moduleSkinStyles/mediawiki.special.changeslist.less",
