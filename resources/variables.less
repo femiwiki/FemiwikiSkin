@@ -12,19 +12,24 @@
 @color-base15: #252525;
 @color-base100: #fff;
 
-@color-primary1: #aca6e4;
-@color-primary2: #b9b5d9;
-@color-primary3: #746ccb;
-@color-primary4: #5144a3;
-@color-primary5: #302a45;
+//                        luminance(%)
+@color-primary1: #c3bffd; // 55.96
+@color-primary2: #b9b5d9; // 48.37
+@color-primary3: #aca6e4; // 41.64
+@color-primary4: #746ccb; // 18.75
+@color-primary5: #5144a3; // 8.53
+@color-primary6: #302a45; // 2.71
 
-@color-background1: #c3bffd;
+@color-secondary1: #dae8b2; // 75.83
+@color-secondary2: #b2d236; // 55.82
+@color-secondary3: #a5c831; // 49.53
 
-@color-progressive: #aca7e2;
+@color-background1: @color-primary1;
 
-@color-alert: #dae8b2;
-@color-alert2: #a5c831;
-@color-alert-border: #b2d236;
+@color-progressive: @color-primary3;
+@color-alert: @color-secondary1;
+@color-alert2: @color-secondary3;
+@color-alert-border: @color-secondary2;
 
 @button-hover-background-color: rgba(0, 24, 73, 0.02745098);
 
@@ -68,14 +73,14 @@
 
 .mw-link() {
   text-decoration: none;
-  color: @color-primary4;
+  color: @color-primary5;
 
   &:not([href]) {
     cursor: pointer; // Always cursor:pointer even without href
   }
 
   &:visited {
-    color: @color-primary4;
+    color: @color-primary5;
   }
 
   &:active {
@@ -88,7 +93,7 @@
   }
 
   &.external {
-    color: @color-primary4;
+    color: @color-primary5;
   }
 
   &.new {
@@ -149,7 +154,7 @@
 
   // Links
   &.external {
-    color: @color-primary4;
+    color: @color-primary5;
     /* @embed */
     background: url('../images/icon_external_link.png') top right no-repeat;
     background-size: 8px 8px;
@@ -228,3 +233,4 @@
     border: 1px solid #ddd;
   }
 }
+
