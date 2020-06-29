@@ -386,9 +386,17 @@
     margin: 0.2em 0;
   }
 
-  ul:not(.gallery):not(.mw-allpages-chunk):not(.mw-prefixindex-list):not(.tux-message-selector) {
-    margin: 0.3em 0 0 1.6em;
-    padding: 0;
+  // Listsol,
+  ul {
+    li {
+      margin-bottom: 0.5rem;
+
+      ul,
+      ol {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+      }
+    }
   }
 
   ol {
@@ -397,8 +405,14 @@
     list-style-image: none;
   }
 
-  li {
-    margin-bottom: 0.1em;
+  ul {
+    margin: 1.6rem 0 1.6rem;
+    padding-left: 1.2rem;
+
+    &:not(.gallery):not(.mw-allpages-chunk):not(.mw-prefixindex-list):not(.tux-message-selector) {
+      margin: 0.3em 0 0 1.6em;
+      padding: 0;
+    }
   }
 
   dl {
