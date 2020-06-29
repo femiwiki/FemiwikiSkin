@@ -22,158 +22,6 @@
       border: solid 1px @color-alert-border;
     }
   }
-}
-
-.mw-body-content {
-  a {
-    .mw-link();
-  }
-
-  // @See https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
-  s,
-  strike {
-    color: gray;
-  }
-
-  code {
-    color: @color-base0;
-    background-color: #f8f9fa;
-    border: 1px solid #eaecf0;
-    border-radius: 2px;
-    padding: 1px 4px;
-  }
-
-  // Headings
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    position: relative;
-    margin: 3.8rem 0 1.6rem;
-    padding: 0;
-    font-weight: bold;
-    color: @color-base15;
-    overflow: hidden;
-  }
-
-  h2 {
-    font-size: 1.429rem;
-    border-bottom: 2px solid #d7c9f5;
-  }
-
-  h3 {
-    font-size: 1.143rem;
-    border-bottom: 1px dotted #d7c9f5;
-  }
-
-  h4,
-  h5,
-  h6 {
-    font-size: 1rem;
-    border-bottom: none;
-  }
-
-  h1 ~ h2,
-  h2 ~ h3,
-  h3 ~ h4,
-  h4 ~ h5,
-  h5 ~ h6 {
-    margin-top: 1.6rem;
-  }
-
-  p {
-    margin: 0.4em 0 0.5em 0;
-  }
-
-  hr {
-    background-color: #a2a9b1;
-    border: 0;
-    margin: 0.2em 0;
-  }
-
-  ul:not(.gallery):not(.mw-allpages-chunk):not(.mw-prefixindex-list):not(.tux-message-selector) {
-    margin: 0.3em 0 0 1.6em;
-    padding: 0;
-  }
-
-  ol {
-    margin: 0.3em 0 0 3.2em;
-    padding: 0;
-    list-style-image: none;
-  }
-
-  li {
-    margin-bottom: 0.1em;
-  }
-
-  dl {
-    margin-top: 0.2em;
-    margin-bottom: 0.5em;
-
-    dt {
-      font-weight: bold;
-      margin-bottom: 0.1em;
-    }
-
-    dd {
-      margin-left: 1.6em;
-      margin-bottom: 0.1em;
-    }
-  }
-
-  table.wikitable {
-    // IE needs inline-block to position scrolling shadows otherwise use:
-    // display: block;
-    // max-width: min-content;
-    background-color: transparent;
-    display: inline-block;
-    vertical-align: top;
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border-width: 0;
-    font-size: 0.8rem;
-    .responsiveTable();
-
-    th {
-      font-size: inherit;
-      color: @color-base0;
-      text-align: left;
-    }
-
-    td {
-      color: inherit;
-    }
-  }
-
-  textarea:not(.ve-init-mw-tempWikitextEditorWidget) {
-    border: 1px solid #c8ccd1;
-    box-sizing: border-box;
-    padding: 0.1em;
-  }
-
-  *:not(.mw-highlight) > pre:not(.CodeMirror-line) {
-    font-family: inherit;
-    overflow: hidden;
-    border: none;
-    background-color: #f0f0f0;
-    color: @color-base0;
-    padding: 1em;
-    white-space: pre-wrap;
-  }
-
-  .mw-highlight > pre {
-    overflow: hidden;
-    border: none;
-    background-color: #f0f0f0;
-    color: @color-base0;
-    padding: 1em;
-    white-space: pre-wrap;
-  }
 
   .mw-indicators {
     float: right;
@@ -188,8 +36,14 @@
     p {
       margin: 0.4em 0 0.5em 0;
     }
-  }
 
+    a {
+      .mw-link;
+    }
+  }
+}
+
+.mw-body-content {
   #mw-content-text {
     margin-bottom: 4.8rem;
 
@@ -299,6 +153,8 @@
 }
 
 .mw-parser-output {
+  .parser-output();
+
   a {
     .mw-link();
   }
@@ -576,83 +432,7 @@ body.mw-hide-empty-elt .mw-empty-elt {
   }
 }
 
-// Table of contents
-.toc {
-  display: table;
-  font-size: 0.95rem;
-  margin: 3.2rem 0;
-  padding: 0;
-  border: 0;
-  background-color: inherit;
-  line-height: 1.6;
-
-  .toctitle {
-    text-align: left;
-
-    h2 {
-      font-size: 1rem;
-      display: inline;
-      overflow: hidden;
-      font-weight: normal;
-      border: none;
-    }
-
-    .toctoggle,
-    .toctogglespan {
-      display: none;
-    }
-  }
-
-  ul,
-    // Override mediawiki.legacy
-    ul ul {
-    margin: 0;
-    list-style-type: none;
-
-    li {
-      list-style: none;
-
-      .tocnumber {
-        color: #222;
-        display: table-cell;
-        padding-right: 0.475rem;
-
-        &:after {
-          content: '.';
-        }
-      }
-
-      .toctext {
-        display: table-cell;
-      }
-
-      &.toclevel-1 {
-        margin-top: 1rem;
-        font-weight: bold;
-      }
-
-      &.toclevel-2,
-      &.toclevel-3 {
-        font-weight: normal;
-        margin-left: 1rem;
-      }
-    }
-  }
-
-  &::before,
-  &::after {
-    display: block;
-    content: ' ';
-    width: 1.2rem;
-  }
-
-  &::before {
-    border-bottom: 2px solid #8981d3;
-    margin-bottom: 0.5rem;
-  }
-
-  &::after {
-    border-top: 2px solid #8981d3;
-    margin-top: 0.5rem;
-  }
+.mw-special-Booksources #mw-content-text {
+  // mw-special-Booksources fetches a parsed content
+  .parser-output();
 }
