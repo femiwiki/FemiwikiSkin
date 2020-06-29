@@ -87,6 +87,9 @@
       "+ext.CollaborationKit.hub.styles": "skins.femiwiki.moduleSkinStyles/ext.CollaborationKit.hub.less",
       "+ext.flaggedRevs.basic": "skins.femiwiki.moduleSkinStyles/ext.flaggedRevs.basic.less",
       "+ext.flaggedRevs.review.styles": "skins.femiwiki.moduleSkinStyles/ext.flaggedRevs.review.styles.less",
+      "+ext.flow.board.styles": "skins.femiwiki.moduleSkinStyles/ext.flow.board.styles.less",
+      "+ext.flow.board.topic.styles": "skins.femiwiki.moduleSkinStyles/ext.flow.board.topic.styles.less",
+      "+ext.flow.mediawiki.ui.form": "skins.femiwiki.moduleSkinStyles/ext.flow.mediawiki.ui.form.less",
       "+ext.flow.styles.base": "skins.femiwiki.moduleSkinStyles/ext.flow.styles.base.less",
       "+ext.flow.ui": "skins.femiwiki.moduleSkinStyles/ext.flow.ui.less",
       "+ext.translate": "skins.femiwiki.moduleSkinStyles/ext.translate.less",
@@ -100,7 +103,9 @@
       "+mediawiki.special.changeslist": "skins.femiwiki.moduleSkinStyles/mediawiki.special.changeslist.less",
       "+mediawiki.special.search": "skins.femiwiki.moduleSkinStyles/mediawiki.special.search.less",
       "+mediawiki.special": "skins.femiwiki.moduleSkinStyles/mediawiki.special.less",
+      "+mediawiki.ui.anchor": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.anchor.less",
       "+mediawiki.ui.button": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.button.less",
+      "+mediawiki.ui.input": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.input.less",
       "+mediawiki.widgets.DateInputWidget": "skins.femiwiki.moduleSkinStyles/mediawiki.widgets.DateInputWidget.less",
       "+oojs-ui-core.styles": "skins.femiwiki.moduleSkinStyles/oojs-ui-core.styles.less"
     }
