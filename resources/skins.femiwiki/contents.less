@@ -299,87 +299,6 @@
 }
 
 .mw-parser-output {
-  // Table of contents
-  .toc {
-    display: table;
-    font-size: 0.95rem;
-    margin: 3.2rem 0;
-    padding: 0;
-    border: 0;
-    background-color: inherit;
-    line-height: 1.6;
-
-    .toctitle {
-      text-align: left;
-
-      h2 {
-        font-size: 1rem;
-        display: inline;
-        overflow: hidden;
-        font-weight: normal;
-        border: none;
-      }
-    }
-
-    .toctoggle,
-    .toctogglespan {
-      display: none;
-    }
-
-    ul,
-    // Override mediawiki.legacy
-    ul ul {
-      margin: 0;
-      list-style-type: none;
-
-      li {
-        list-style: none;
-
-        .tocnumber {
-          color: #222;
-          display: table-cell;
-          padding-right: 0.475rem;
-        }
-
-        .toctext {
-          display: table-cell;
-        }
-
-        &.toclevel-1 {
-          margin-top: 1rem;
-          font-weight: bold;
-        }
-
-        &.toclevel-2,
-        &.toclevel-3 {
-          font-weight: normal;
-          margin-left: 1rem;
-        }
-      }
-    }
-
-    &::before {
-      display: block;
-      content: ' ';
-      width: 1.2rem;
-      border-bottom: 2px solid #8981d3;
-      margin-bottom: 0.5rem;
-    }
-
-    &::after {
-      display: block;
-      content: ' ';
-      width: 1.2rem;
-      border-top: 2px solid #8981d3;
-      margin-top: 0.5rem;
-    }
-  }
-
-  .tocnumber:after,
-  .mw-headline-number:after {
-    content: '.';
-  }
-
   a {
     .mw-link();
   }
@@ -446,6 +365,10 @@
 
   dd {
     margin-left: 0.6em;
+  }
+
+  .mw-headline-number:after {
+    content: '.';
   }
 
   // Embed
@@ -650,5 +573,86 @@ body.mw-hide-empty-elt .mw-empty-elt {
     /* @embed */
     background-image: linear-gradient(transparent, transparent),
       url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg);
+  }
+}
+
+// Table of contents
+.toc {
+  display: table;
+  font-size: 0.95rem;
+  margin: 3.2rem 0;
+  padding: 0;
+  border: 0;
+  background-color: inherit;
+  line-height: 1.6;
+
+  .toctitle {
+    text-align: left;
+
+    h2 {
+      font-size: 1rem;
+      display: inline;
+      overflow: hidden;
+      font-weight: normal;
+      border: none;
+    }
+
+    .toctoggle,
+    .toctogglespan {
+      display: none;
+    }
+  }
+
+  ul,
+    // Override mediawiki.legacy
+    ul ul {
+    margin: 0;
+    list-style-type: none;
+
+    li {
+      list-style: none;
+
+      .tocnumber {
+        color: #222;
+        display: table-cell;
+        padding-right: 0.475rem;
+
+        &:after {
+          content: '.';
+        }
+      }
+
+      .toctext {
+        display: table-cell;
+      }
+
+      &.toclevel-1 {
+        margin-top: 1rem;
+        font-weight: bold;
+      }
+
+      &.toclevel-2,
+      &.toclevel-3 {
+        font-weight: normal;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &::before,
+  &::after {
+    display: block;
+    content: ' ';
+    width: 1.2rem;
+  }
+
+  &::before {
+    border-bottom: 2px solid #8981d3;
+    margin-bottom: 0.5rem;
+  }
+
+  &::after {
+    border-top: 2px solid #8981d3;
+    margin-top: 0.5rem;
   }
 }
