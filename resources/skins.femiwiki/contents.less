@@ -445,3 +445,23 @@ body.mw-hide-empty-elt .mw-empty-elt {
   // mw-special-Booksources fetches a parsed content
   .parser-output();
 }
+
+body {
+  &.action-info,
+  &.action-delete,
+  &.action-protect,
+  &.mw-special-Whatlinkshere,
+  &.mw-special-Undelete {
+    #mw-content-text a {
+      .mw-link();
+    }
+  }
+}
+
+.mw-firstlink,
+.mw-lastlink,
+.mw-prevlink,
+.mw-nextlink,
+.mw-numlink {
+  .mw-link();
+}

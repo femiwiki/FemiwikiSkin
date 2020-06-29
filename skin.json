@@ -96,6 +96,7 @@
       "+ext.uploadWizard.page.styles": "skins.femiwiki.moduleSkinStyles/ext.uploadWizard.page.styles.less",
       "+ext.visualEditor.desktopTarget": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.desktopTarget.less",
       "+mediawiki.action.edit.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.edit.styles.less",
+      "+mediawiki.action.history.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.history.styles.less",
       "+mediawiki.action.view.categoryPage.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.categoryPage.styles.less",
       "+mediawiki.diff.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.diff.styles.less",
       "+mediawiki.pulsatingdot": "skins.femiwiki.moduleSkinStyles/mediawiki.pulsatingdot.less",
