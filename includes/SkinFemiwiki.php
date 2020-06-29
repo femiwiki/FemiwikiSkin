@@ -1,4 +1,5 @@
 <?php
+use FemiwikiSkin\Constants;
 
 /**
  * SkinTemplate class for the Femiwiki skin
@@ -6,7 +7,7 @@
  * @ingroup Skins
  */
 class SkinFemiwiki extends SkinTemplate {
-	public $skinname = 'femiwiki';
+	public $skinname = Constants::SKIN_NAME;
 	public $stylename = 'Femiwiki';
 	public $template = 'FemiwikiTemplate';
 
@@ -34,6 +35,10 @@ class SkinFemiwiki extends SkinTemplate {
 
 		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
 		$out->enableOOUI();
+
+		if ( $this->getUser()->getOption( Constants::PREF_KEY_DARK_MODE, false ) ) {
+			$out->addBodyClasses( [ "skin-{$this->skinname}-darkmode" ] );
+		}
 	}
 
 	/**

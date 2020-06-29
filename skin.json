@@ -17,6 +17,7 @@
     "Femiwiki": ["i18n"]
   },
   "AutoloadClasses": {
+    "FemiwikiSkin\\Constants": "includes/Constants.php",
     "SkinFemiwiki": "includes/SkinFemiwiki.php",
     "SkinFemiwikiHooks": "includes/SkinFemiwikiHooks.php",
     "FemiwikiTemplate": "includes/FemiwikiTemplate.php",
@@ -114,9 +115,10 @@
     }
   },
   "Hooks": {
-    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
+    "GetPreferences": "SkinFemiwikiHooks::onGetPreferences",
+    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls",
     "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars",
-    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls"
+    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent"
   },
   "config": {
     "FemiwikiFirebaseKey": { "value": "" },

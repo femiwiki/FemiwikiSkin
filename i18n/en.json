@@ -4,6 +4,8 @@
   },
   "skinname-femiwiki": "Femiwiki",
   "femiwiki-desc": "Femiwiki skin",
+  "prefs-femiwikiskin-enable-dark-mode-label": "Use dark mode",
+  "prefs-femiwikiskin-enable-dark-mode-help": "In Dark Mode, the skin uses a darker color palette.",
   "skin-femiwiki-page-menu-tooltip": "Menu",
   "skin-femiwiki-share-tooltip": "Share this article",
   "skin-femiwiki-share-dismiss": "Dismiss",

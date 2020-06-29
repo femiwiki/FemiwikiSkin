@@ -1,10 +1,51 @@
 <?php
+use FemiwikiSkin\Constants;
 
 /**
  * SkinFemiwikiHooks class for the Femiwiki skin hooks
  *
  */
 class SkinFemiwikiHooks {
+	/**
+	 * Add FemiwikiSkin preferences to the user's Special:Preferences page directly underneath skins.
+	 *
+	 * @param User $user User whose preferences are being modified.
+	 * @param array[] &$prefs Preferences description array, to be fed to a HTMLForm object.
+	 */
+	public static function onGetPreferences( User $user, array &$prefs ) {
+		// Preferences to add.
+		$femiwikiSkinPrefs = [
+			Constants::PREF_KEY_DARK_MODE => [
+				'type' => 'toggle',
+				// The checkbox title.
+				'label-message' => 'prefs-femiwikiskin-enable-dark-mode-label',
+				// Show a little informational snippet underneath the checkbox.
+				'help-message' => 'prefs-femiwikiskin-enable-dark-mode-help',
+				// The tab location and title of the section to insert the checkbox. The bit after the slash
+				// indicates that a prefs-skin-prefs string will be provided.
+				'section' => 'rendering/skin/skin-prefs',
+				// Convert the preference string to a boolean presentation.
+				'default' => '0',
+				// Only show this section when the FemiwikiSkin is checked. The JavaScript client also uses
+				// this state to determine whether to show or hide the whole section.
+				'hide-if' => [ '!==', 'wpskin', Constants::SKIN_NAME ]
+			],
+		];
+
+		// Seek the skin preference section to add Vector preferences just below it.
+		$skinSectionIndex = array_search( 'skin', array_keys( $prefs ) );
+		if ( $skinSectionIndex !== false ) {
+			// Skin preference section found. Inject Vector skin-specific preferences just below it.
+			// This pattern can be found in Popups too. See T246162.
+			$vectorSectionIndex = $skinSectionIndex + 1;
+			$prefs = array_slice( $prefs, 0, $vectorSectionIndex, true )
+				+ $femiwikiSkinPrefs
+				+ array_slice( $prefs, $vectorSectionIndex, null, true );
+		} else {
+			// Skin preference section not found. Just append Vector skin-specific preferences.
+			$prefs += $femiwikiSkinPrefs;
+		}
+	}
 
 	/**
 	 * Echo(REL1_31)'s content values

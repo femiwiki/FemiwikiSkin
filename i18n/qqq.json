@@ -6,6 +6,8 @@
 	},
 	"skinname-femiwiki": "{{optional}}",
 	"femiwiki-desc": "{{desc|what=skin|name=Femiwiki|url=https://www.mediawiki.org/wiki/Skin:Femiwiki}}",
+  "prefs-femiwikiskin-enable-dark-mode-label": "Label for the checkbox to use dark mode accessible via Special:Preferences.",
+  "prefs-femiwikiskin-enable-dark-mode-help": "Detail explaining the operation of the prefs-femiwikiskin-enable-dark-mode-label checkbox.",
 	"skin-femiwiki-page-menu-tooltip": "Tooltip for button used to expand/collapse menu of a page",
 	"skin-femiwiki-share-tooltip": "Tooltip for button to share a article",
 	"skin-femiwiki-share-dismiss": "Label for share dialog dismiss button",
