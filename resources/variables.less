@@ -165,6 +165,10 @@
 // http://dbushell.com/2016/03/04/css-only-responsive-tables/
 // by David Bushell
 .responsiveTable() {
+  background-color: transparent;
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   background: -webkit-radial-gradient(
         left ellipse,
@@ -439,11 +443,7 @@
     // IE needs inline-block to position scrolling shadows otherwise use:
     // display: block;
     // max-width: min-content;
-    background-color: transparent;
-    display: inline-block;
     vertical-align: top;
-    max-width: 100%;
-    overflow-x: auto;
     white-space: nowrap;
     border-collapse: collapse;
     border-spacing: 0;

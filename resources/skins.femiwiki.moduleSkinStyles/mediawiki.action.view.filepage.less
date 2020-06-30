@@ -1,0 +1,23 @@
+@import '../variables.less';
+
+.fullImageLink,
+.fullMedia,
+.mw-imagepage-upload-links,
+#filelinks,
+#filetoc,
+#mw-imagepage-nofile,
+#mw-imagepage-section-filehistory,
+#mw-imagepage-section-linkstoimage {
+  a {
+    .mw-link();
+  }
+}
+
+.fullImageLink img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wikitable {
+  .responsiveTable();
+}
