@@ -56,7 +56,7 @@ jobs:
             --data '{
               "event_type": "bump-extension",
               "client_payload": {
-                "extension": "Femiwiki",
+                "extension": "${{ github.event.repository.name }}",
                 "version": "${{ github.ref }}"
               }
             }'

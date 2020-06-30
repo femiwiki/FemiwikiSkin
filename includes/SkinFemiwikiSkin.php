@@ -5,9 +5,9 @@
  *
  * @ingroup Skins
  */
-class SkinFemiwiki extends SkinTemplate {
-	public $skinname = 'femiwiki';
-	public $stylename = 'Femiwiki';
+class SkinFemiwikiSkin extends SkinTemplate {
+	public $skinname = 'femiwikiskin';
+	public $stylename = 'FemiwikiSkin';
 	public $template = 'FemiwikiTemplate';
 
 	/**

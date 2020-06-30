@@ -12,7 +12,7 @@ composer test
 
 ---
 
-The source code of *femiwiki/skin* is primarily distributed under the terms
+The source code of *femiwiki/FemiwikiSkin* is primarily distributed under the terms
 of the [GNU Affero General Public License v3.0] or any later version. See
 [COPYRIGHT] for details.
 
