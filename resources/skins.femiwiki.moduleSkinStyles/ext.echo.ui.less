@@ -1,0 +1,36 @@
+@import '../variables.less';
+
+// Mark as read
+// Attempts to shorten the following two rules may fail due to less.php. Make sure it works when
+// modifying it.
+.mw-echo-ui-toggleReadCircleButtonWidget-circle:not(.mw-echo-ui-toggleReadCircleButtonWidget-circle-unread) {
+  background-color: #746ccb;
+}
+.mw-echo-ui-toggleReadCircleButtonWidget:hover
+  .mw-echo-ui-toggleReadCircleButtonWidget-circle:not(.mw-echo-ui-toggleReadCircleButtonWidget-circle-unread) {
+  background-color: #aca6e4;
+}
+.notificationIcon(@icon) {
+  img[src='/extensions/Echo/modules/icons/@{icon}.svg'] {
+    content: url('../resources/ooui/images/icons/@{icon}.svg');
+  }
+}
+
+.mw-echo-ui-notificationItemWidget-icon {
+  .notificationIcon(edit-progressive);
+  .notificationIcon(link-progressive);
+  .notificationIcon(speechBubbles-ltr-progressive);
+  .notificationIcon(articleCheck-progressive);
+}
+
+.skin-femiwiki
+  .mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-selected {
+  background-color: @color-background1;
+  color: @color-primary5;
+}
+
+.skin-femiwiki
+  .oo-ui-optionWidget-selected
+  .mw-echo-ui-pageNotificationsOptionWidget-label-count {
+  color: @color-primary5;
+}
