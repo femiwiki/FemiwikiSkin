@@ -220,7 +220,10 @@
   border-bottom: none;
   color: @color-base15;
   font-weight: bold;
-  overflow: hidden;
+  // See https://github.com/femiwiki/FemiwikiSkin/issues/168
+  overflow: visible;
+  // See https://github.com/femiwiki/FemiwikiSkin/issues/169
+  word-break: break-word;
 }
 
 .visualClear {
