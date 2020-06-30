@@ -16,12 +16,16 @@
 {{#data-header}}
 <header id="p-header" class="fw-header">
   {{#html-sitenotice}}<div id="siteNotice" class="mw-body-content">{{{.}}}</div>{{/html-sitenotice}}
+  {{>Indicator}}
   {{#html-newtalk}}<div class="usermessage">{{{.}}}</div>{{/html-newtalk}}
   {{#data-above-title-menu}}{{>Portal}}{{/data-above-title-menu}}
   <div id="p-title-and-tb">
     <h1 class="firstHeading" lang="{{page-language}}">{{{html-title}}}</h1>
     <div id="p-title-buttons">
       {{{html-share-button}}}
+      {{#html-helplink}}
+      <span id="mw-indicator-mw-helplink" class="mw-indicator fw-button">{{{.}}}</span>
+      {{/html-helplink}}
       <label id="p-menu-toggle"
         class="oo-ui-icon-ellipsis mw-checkbox-hack-button fw-button"
         title="{{msg-page-menu-toggle-tooltip}}"

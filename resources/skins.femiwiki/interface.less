@@ -123,9 +123,11 @@
     #p-title-buttons {
       float: right;
       margin: 0;
+      @icon-size: 1.42857143em;
 
       .fw-button {
         margin: 0;
+        float: left;
 
         &:hover,
         &:focus {
@@ -146,16 +148,31 @@
         background-image: url('../resources/images/icon-share.png');
       }
 
+      #mw-indicator-mw-helplink,
+      #mw-indicator-mw-helplink a,
       #p-menu-toggle {
-        @icon-size: 1.42857143em;
-        display: inline-block;
-        min-width: @icon-size;
-        min-height: @icon-size;
+        width: @icon-size;
+        height: @icon-size;
+      }
+
+      #mw-indicator-mw-helplink,
+      #p-menu-toggle {
+        padding: 0.37142855em;
+      }
+
+      // Hide text label
+      #mw-indicator-mw-helplink {
+        overflow: hidden;
+        a {
+          padding-left: @icon-size * 2;
+          background-size: @icon-size;
+        }
+      }
+
+      #p-menu-toggle {
         background-size: @icon-size;
         background-position: center center;
         background-repeat: no-repeat;
-        vertical-align: middle;
-        padding: 0.357142855em;
         cursor: pointer;
       }
     }

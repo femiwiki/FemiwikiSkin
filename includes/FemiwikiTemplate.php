@@ -53,6 +53,12 @@ class FemiwikiTemplate extends BaseTemplate {
 			'data-sidebar' => $this->getSidebarData(),
 			'data-header' => [
 				'html-sitenotice' => $this->get( 'sitenotice', null ),
+				'data-indicators' => array_filter( array_map( function ( $id, $content ) {
+					return $id == 'mw-helplink' ? null : [
+						'id' => $id,
+						'html' => $content,
+					];
+				}, array_keys( $out->getIndicators() ), $out->getIndicators() ) ),
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
 				'data-above-title-menu' => $this->getAboveTitleMenu(),
 				'page-language' => $this->get( 'pageLanguage' ),
@@ -68,6 +74,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					'framed' => false,
 					'invisibleLabel' => true
 				] ) : null,
+				'html-helplink' => $out->getIndicators()['mw-helplink'] ?? null,
 				'msg-page-menu-toggle-tooltip' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->text(),
 				'data-toolbox' => $this->getPortal( 'page-tb', $this->getToolboxData(), 'toolbox' ),
 				'data-actions' => $this->getPortal( 'actions', $this->data['content_navigation']['actions'] ?? null, 'actions' ),
