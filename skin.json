@@ -93,6 +93,7 @@
       "+ext.flow.mediawiki.ui.form": "skins.femiwiki.moduleSkinStyles/ext.flow.mediawiki.ui.form.less",
       "+ext.flow.styles.base": "skins.femiwiki.moduleSkinStyles/ext.flow.styles.base.less",
       "+ext.flow.ui": "skins.femiwiki.moduleSkinStyles/ext.flow.ui.less",
+      "+ext.popups.main": "skins.femiwiki.moduleSkinStyles/ext.popups.main.less",
       "+ext.translate": "skins.femiwiki.moduleSkinStyles/ext.translate.less",
       "+ext.uploadWizard.page.styles": "skins.femiwiki.moduleSkinStyles/ext.uploadWizard.page.styles.less",
       "+ext.visualEditor.desktopTarget": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.desktopTarget.less",
