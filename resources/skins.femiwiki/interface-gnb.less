@@ -116,7 +116,8 @@
           height: @height;
           color: @color-base100;
           text-decoration: none;
-          background-size: @height @height;
+          background-position: center;
+          background-size: 1.8rem;
           background-repeat: no-repeat;
 
           @media screen and (min-width: @width-breakpoint-tablet) {
@@ -137,18 +138,10 @@
         }
 
         &.changes a {
-          .background-image('../images/icon-changes.png');
-
-          @media screen and (min-width: @width-breakpoint-tablet) {
-            .background-image('../images/icon-changes-notext.png');
-          }
+          .background-image('../images/icon-changes-notext.png');
         }
         &.random a {
-          .background-image('../images/icon-random.png');
-
-          @media screen and (min-width: @width-breakpoint-tablet) {
-            .background-image('../images/icon-random-notext.png');
-          }
+          .background-image('../images/icon-random-notext.png');
         }
       }
     }
@@ -182,6 +175,20 @@
           display: block;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: @width-breakpoint-tablet) {
+  html[lang='ko'] #mw-navigation #site-navigation {
+    a {
+      background-size: 2.4rem;
+    }
+    .changes a {
+      .background-image('../images/icon-changes.png');
+    }
+    .random a {
+      .background-image('../images/icon-random.png');
     }
   }
 }
