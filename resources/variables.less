@@ -496,8 +496,8 @@
 
   // Image
   div.thumb .thumbinner,
-  // For VE Preview
-  figure[typeof="mw:Image/Thumb"] {
+  // For 2017 wikitext editor preview and VE
+  figure[typeof~='mw:Image/Thumb'] {
     font-size: 0.94rem;
     max-width: 100%;
     background-color: #f8f9fa;
@@ -534,13 +534,21 @@
 
   @media screen and (max-width: @width-breakpoint-mobile) {
     div.thumb,
-    div.thumb .thumbinner,
-    figure[typeof='mw:Image/Thumb'] {
+    div.thumb .thumbinner {
       margin: 0 auto;
     }
-    div.thumb,
-    figure[typeof='mw:Image/Thumb'] {
+    div.thumb {
       float: none;
+    }
+    figure[typeof~='mw:Image/Thumb'] {
+      // For 2017 wikitext editor preview
+      &,
+      // For VisualEditor
+      &.mw-halign-left,
+      &.mw-halign-right {
+        margin: 0 auto;
+        float: none;
+      }
     }
   }
 
