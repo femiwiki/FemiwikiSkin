@@ -495,37 +495,33 @@
   }
 
   // Image
-  div.thumb {
+  div.thumb .thumbinner,
+  // For VE Preview
+  figure[typeof="mw:Image/Thumb"] {
+    font-size: 0.94rem;
     max-width: 100%;
+    background-color: #f8f9fa;
+    border: 1px solid #c8ccd1;
+    overflow: hidden;
+    padding: 3px;
+    text-align: center;
     @media screen and (max-width: @width-breakpoint-mobile) {
-      float: none;
+      border: none;
+      background-color: initial;
     }
 
-    .thumbinner {
-      font-size: 0.94rem;
-      max-width: 100%;
-      background-color: #f8f9fa;
+    .thumbimage {
+      background-color: #fff;
       border: 1px solid #c8ccd1;
-      overflow: hidden;
-      padding: 3px;
-      text-align: center;
+      vertical-align: middle;
       @media screen and (max-width: @width-breakpoint-mobile) {
-        margin: 0 auto;
         border: none;
-        background-color: initial;
-      }
-
-      .thumbimage {
-        background-color: #fff;
-        border: 1px solid #c8ccd1;
-        vertical-align: middle;
-        @media screen and (max-width: @width-breakpoint-mobile) {
-          border: none;
-        }
       }
     }
 
-    .thumbcaption {
+    .thumbcaption,
+    // For VE Preview
+    figcaption {
       padding: 3px;
       font-size: 0.8836rem;
       line-height: 1.23704rem;
@@ -533,6 +529,18 @@
         color: #888;
         text-align: center;
       }
+    }
+  }
+
+  @media screen and (max-width: @width-breakpoint-mobile) {
+    div.thumb,
+    div.thumb .thumbinner,
+    figure[typeof='mw:Image/Thumb'] {
+      margin: 0 auto;
+    }
+    div.thumb,
+    figure[typeof='mw:Image/Thumb'] {
+      float: none;
     }
   }
 

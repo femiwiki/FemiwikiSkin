@@ -51,8 +51,13 @@ html.ve-deactivating {
   .mw-link();
 }
 
-.ve-ui-mwSaveDialog .mw-parser-output {
-  .parser-output();
+.ve-ui-mwSaveDialog {
+  .mw-parser-output {
+    max-width: @content-width;
+    .content-horizontal-padding();
+    margin: auto;
+    .parser-output();
+  }
 }
 
 @media screen and (max-width: @width-breakpoint-mobile) {
