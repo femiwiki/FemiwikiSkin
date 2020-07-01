@@ -341,8 +341,13 @@ body.action {
 }
 
 // For special pages that do not add mediawiki.special module
-body.ns-special #mw-content-text a {
-  .mw-link();
+body.ns-special #mw-content-text {
+  a {
+    .mw-link();
+  }
+  .wikitable {
+    .responsiveTable();
+  }
 }
 
 // PrevNextNavigation
