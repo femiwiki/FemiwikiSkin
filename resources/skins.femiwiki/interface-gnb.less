@@ -10,13 +10,12 @@
     @logo-icon-width: @height;
     @wordmark-width: 7.7rem;
 
-    position: relative;
+    display: flex;
     max-width: @content-width - 1.3rem;
     margin: 0 auto;
     height: @height;
 
     & > * {
-      position: absolute;
       height: @height;
       padding: 0;
       margin: 0;
@@ -27,7 +26,6 @@
     }
 
     #p-logo {
-      display: block;
       background-repeat: no-repeat;
       width: @logo-icon-width;
 
@@ -51,7 +49,7 @@
 
     // Search form
     #p-search {
-      display: block;
+      flex-grow: 1;
       left: @logo-icon-width + 0.1rem;
       right: 7.3rem;
 
@@ -96,8 +94,6 @@
 
     // Recent changes and random pages
     #site-navigation {
-      right: @height;
-
       li {
         float: left;
         list-style-type: none;
@@ -121,7 +117,7 @@
           background-repeat: no-repeat;
 
           @media screen and (min-width: @width-breakpoint-tablet) {
-            width: 5.4rem;
+            width: auto;
             background-size: 1.6rem 1.6rem;
             background-position: 0.4rem 0.4rem;
           }
@@ -131,8 +127,9 @@
 
             @media screen and (min-width: @width-breakpoint-tablet) {
               display: inline-block;
-              padding-left: 1.2rem;
-              padding-top: 0.5rem;
+              padding-left: 2.2rem;
+              padding-right: 1rem;
+              line-height: @height;
             }
           }
         }
@@ -148,7 +145,6 @@
 
     // Menu button
     #fw-menu-toggle {
-      right: 0;
       width: @height;
       border-width: 0;
       background-color: inherit;
