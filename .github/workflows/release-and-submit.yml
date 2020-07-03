@@ -57,6 +57,6 @@ jobs:
               "event_type": "bump-extension",
               "client_payload": {
                 "extension": "Femiwiki",
-                "version": "${{ steps.tag_name.outputs.tag_name.ref }}"
+                "version": "${{ steps.tag_name.outputs.tag_name }}"
               }
             }'
