@@ -261,7 +261,7 @@ class FemiwikiTemplate extends BaseTemplate {
 
 		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
 			if ( ExtensionRegistry::getInstance()->isLoaded( 'Sanctions' )
-				&& isset( $this->data['sidebar']['TOOLBOX'] ) ) {
+				&& isset( $this->data['sidebar']['TOOLBOX']['sanctions'] ) ) {
 				$toolbox = wfArrayInsertAfter(
 					$toolbox,
 					[ $this->data['sidebar']['TOOLBOX']['sanctions'] ],
