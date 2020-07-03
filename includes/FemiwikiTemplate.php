@@ -261,6 +261,7 @@ class FemiwikiTemplate extends BaseTemplate {
 
 		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
 			if ( ExtensionRegistry::getInstance()->isLoaded( 'Sanctions' )
+				&& $this->getSkin()->getRelevantUser()
 				&& isset( $this->data['sidebar']['TOOLBOX']['sanctions'] ) ) {
 				$toolbox = wfArrayInsertAfter(
 					$toolbox,
