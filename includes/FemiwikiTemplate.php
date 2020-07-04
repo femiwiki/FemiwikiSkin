@@ -224,13 +224,16 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * @param string $name
 	 * @param array $content
 	 * @param string|null $msg
-	 * @return string html
+	 * @return array|null html
 	 */
 	protected function getPortal( $name, $content, $msg = null ) {
 		$msg = $this->getMsg( $msg ?: $name );
 		$label = $msg->exists() ? $msg->text() : $name;
 
 		if ( is_array( $content ) ) {
+			if ( !count( $content ) ) {
+				return null;
+			}
 			$htmlItems = [];
 			foreach ( $content as $key => $val ) {
 				$htmlItems[] = $this->makeListItem( $key, $val );
