@@ -1,7 +1,16 @@
 @import '../variables.less';
 
-.skin-femiwiki a.flow-timestamp-anchor {
+.flow-topic-meta a {
   .mw-link();
+}
+
+.skin-femiwiki .flow-topic-meta {
+  a:not(:hover) {
+    &.flow-click-interactive,
+    &.flow-timestamp-anchor {
+      color: inherit;
+    }
+  }
 }
 
 .flow-board-header {
