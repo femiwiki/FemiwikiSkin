@@ -54,7 +54,8 @@
       margin-top: 2.8rem;
     }
 
-    .mw-warning {
+    .mw-warning,
+    .mw-warning-with-logexcerpt {
       margin-left: 50px;
       margin-right: 50px;
       text-align: center;
@@ -62,6 +63,10 @@
       background-color: #f8f9fa;
       padding: 5px;
       font-size: 95%;
+
+      a {
+        .mw-link();
+      }
     }
 
     .noarticletext,
@@ -334,6 +339,7 @@ body.action {
   &-edit,
   &-submit,
   &-info,
+  &-delete,
   &-protect {
     #mw-content-text a {
       .mw-link();
@@ -370,5 +376,10 @@ body.ns-special #mw-content-text {
 }
 
 .mw-userlink {
+  .mw-link();
+}
+
+// Deleted page
+.mw-undelete-subtitle a {
   .mw-link();
 }
