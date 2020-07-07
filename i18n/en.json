@@ -8,5 +8,6 @@
   "skin-femiwiki-share-tooltip": "Share this article",
   "skin-femiwiki-share-dismiss": "Dismiss",
   "skin-femiwiki-share-facebook": "Facebook",
-  "skin-femiwiki-share-twitter": "Twitter"
+  "skin-femiwiki-share-twitter": "Twitter",
+  "skin-femiwiki-xeicon-map.json": "{\n  \"pt-userpage\": \"profile\"\n}"
 }
