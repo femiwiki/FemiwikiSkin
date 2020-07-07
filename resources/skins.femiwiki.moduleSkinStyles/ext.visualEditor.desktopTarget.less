@@ -48,8 +48,12 @@ html.ve-deactivating {
   }
 }
 
-#editpage-copywarn a {
-  .mw-link();
+#editpage-copywarn,
+// https://github.com/femiwiki/FemiwikiSkin/issues/185
+.ve-ui-mwTemplatePage-description {
+  a {
+    .mw-link();
+  }
 }
 
 .ve-ui-mwSaveDialog {
