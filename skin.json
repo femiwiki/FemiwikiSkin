@@ -136,9 +136,9 @@
   },
   "OOUIThemePaths": {
     "Femiwiki": {
-      "scripts": "ooui/oojs-ui-femiwiki.js",
-      "styles": "ooui/oojs-ui-{module}-femiwiki.css",
-      "images": "ooui/{module}.json"
+      "scripts": "resources/ooui/oojs-ui-femiwiki.js",
+      "styles": "resources/ooui/oojs-ui-{module}-femiwiki.css",
+      "images": "resources/ooui/{module}.json"
     }
   },
   "SkinOOUIThemes": {
