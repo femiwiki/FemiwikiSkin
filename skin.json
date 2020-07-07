@@ -49,6 +49,17 @@
         }
       }
     },
+    "skins.femiwiki.xeicon": {
+      "targets": ["desktop", "mobile"],
+      "position": "top",
+      "localBasePath": "node_modules/xeicon",
+      "remoteSkinPath": "Femiwiki/node_modules/xeicon",
+      "styles": {
+        "xeicon.min.css": {
+          "media": "screen"
+        }
+      }
+    },
     "skins.femiwiki.js": {
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
@@ -120,9 +131,10 @@
     }
   },
   "Hooks": {
-    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
+    "ContentHandlerDefaultModelFor": "SkinFemiwikiHooks::onContentHandlerDefaultModelFor",
+    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls",
     "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars",
-    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls"
+    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent"
   },
   "config": {
     "FemiwikiFirebaseKey": { "value": "" },
