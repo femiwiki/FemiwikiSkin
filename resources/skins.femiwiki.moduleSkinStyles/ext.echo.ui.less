@@ -16,6 +16,25 @@
   }
 }
 
+// https://github.com/femiwiki/FemiwikiSkin/issues/187
+a.mw-echo-notifications-badge {
+  text-decoration: none;
+
+  &,
+  &:visited {
+    color: @color-primary5;
+  }
+
+  &:active {
+    color: #faa700;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
 .mw-echo-ui-notificationItemWidget-icon {
   .notificationIcon(edit-progressive);
   .notificationIcon(link-progressive);
