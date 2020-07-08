@@ -106,6 +106,7 @@
       "+ext.flow.ui": "skins.femiwiki.moduleSkinStyles/ext.flow.ui.less",
       "+ext.popups.main": "skins.femiwiki.moduleSkinStyles/ext.popups.main.less",
       "+ext.RevisionSlider.lazyCss": "skins.femiwiki.moduleSkinStyles/ext.RevisionSlider.lazyCss.less",
+      "+ext.sanctions.special.sanctions.styles": "skins.femiwiki.moduleSkinStyles/ext.sanctions.special.sanctions.styles.less",
       "+ext.templateDataGenerator.editPage": "skins.femiwiki.moduleSkinStyles/ext.templateDataGenerator.editPage.less",
       "+ext.translate": "skins.femiwiki.moduleSkinStyles/ext.translate.less",
       "+ext.TwoColConflict.SplitCss": "skins.femiwiki.moduleSkinStyles/ext.TwoColConflict.SplitCss.less",
