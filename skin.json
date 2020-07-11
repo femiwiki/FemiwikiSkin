@@ -129,7 +129,8 @@
       "+mediawiki.ui.button": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.button.less",
       "+mediawiki.ui.input": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.input.less",
       "+mediawiki.widgets.DateInputWidget": "skins.femiwiki.moduleSkinStyles/mediawiki.widgets.DateInputWidget.less",
-      "+oojs-ui-core.styles": "skins.femiwiki.moduleSkinStyles/oojs-ui-core.styles.less"
+      "+oojs-ui-core.styles": "skins.femiwiki.moduleSkinStyles/oojs-ui-core.styles.less",
+      "+wikibase.common": "skins.femiwiki.moduleSkinStyles/wikibase.common.less"
     }
   },
   "Hooks": {
