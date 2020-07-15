@@ -1,4 +1,5 @@
 <?php
+use MediaWiki\MediaWikiServices;
 
 /**
  * SkinFemiwikiHooks class for the Femiwiki skin hooks
@@ -59,7 +60,6 @@ class SkinFemiwikiHooks {
 
 	/**
 	 * Handler for PersonalUrls hook.
-	 * Add a "Notifications" item to the user toolbar ('personal URLs').
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/PersonalUrls
 	 * @param array &$personalTools Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
@@ -67,6 +67,20 @@ class SkinFemiwikiHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onPersonalUrls( &$personalTools, &$title, $sk ) {
+		self::addNotification( $personalTools, $title, $sk );
+		self::addMobileOptions( $personalTools, $title, $sk );
+
+		return true;
+	}
+
+	/**
+	 * Add a "Notifications" item to the user toolbar ('personal URLs').
+	 * @param array &$personalTools Array of URLs to append to.
+	 * @param Title &$title Title of page being visited.
+	 * @param SkinTemplate $sk
+	 * @return null
+	 */
+	private static function addNotification( &$personalTools, &$title, $sk ) {
 		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
@@ -89,7 +103,7 @@ class SkinFemiwikiHooks {
 		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message', TS_ISO_8601 );
 
 		$formattedCount = EchoNotificationController::formatNotificationCount( $count );
-		$msgText = wfMessage( 'echo-notification-notice', $count );
+		$msgText = $sk->msg( 'echo-notification-notice', $count );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 		$linkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-fw-nojs" ];
 
@@ -127,8 +141,39 @@ class SkinFemiwikiHooks {
 		];
 
 		$personalTools = wfArrayInsertAfter( $personalTools, $insertUrls, 'userpage' );
+	}
 
-		return true;
+	/**
+	 * Add a "MobileOptions" item to the user toolbar ('personal URLs').
+	 * @param array &$personalTools Array of URLs to append to.
+	 * @param Title &$title Title of page being visited.
+	 * @param SkinTemplate $sk
+	 */
+	private static function addMobileOptions( &$personalTools, &$title, $sk ) {
+		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			return;
+		}
+
+		$context = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+		if ( !$context->shouldDisplayMobileView() ) {
+			return;
+		}
+
+		$url = SpecialPage::getTitleFor( 'MobileOptions' )->getLocalURL();
+
+		$insertUrls = [
+			'mobile-preferences' => [
+				'href' => $url,
+				'text' => $sk->msg( 'prefs-mobile' )->text(),
+				'active' => ( $url == $title->getLocalUrl() )
+			]
+		];
+
+		if ( $sk->getUser()->isLoggedIn() && array_key_exists( 'preferences', $personalTools ) ) {
+			$personalTools = wfArrayInsertAfter( $personalTools, $insertUrls, 'preferences' );
+		} else {
+			$personalTools = array_merge( $personalTools, $insertUrls );
+		}
 	}
 
 	/**
