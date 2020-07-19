@@ -9,6 +9,7 @@ function main() {
   var fwNotificationBadge = document.querySelector('#fw-menu-toggle .badge');
   if (fwMenuToggle && fwNotificationBadge) {
     fwMenuToggle.addEventListener('click', function () {
+      // @ts-ignore: fwNotificationBadge is possibly 'null'.
       fwNotificationBadge.classList.remove('active');
     });
   }
