@@ -10,8 +10,8 @@
   "skin-femiwiki-share-facebook": "Facebook",
   "skin-femiwiki-share-twitter": "Twitter",
   "skin-femiwiki-xeicon-map.json": "{\n    \"pt-createaccount\": \"user·plus\",\n    \"pt-login\": \"log-in\",\n    \"pt-userpage\": \"profile\",\n    \"pt-notifications-all\": \"bell\",\n    \"pt-mytalk\": \"forum\",\n    \"pt-preferences\": \"cog\",\n    \"pt-watchlist\": \"star\",\n    \"pt-mycontris\": \"list\",\n    \"pt-logout\": \"log-out\",\n    \"t-whatlinkshere\": \"paper\",\n    \"t-recentchangeslinked\": \"library-books\",\n    \"t-print\": \"print\",\n    \"t-permalink\": \"link\",\n    \"t-info\": \"info\",\n    \"t-cite\": \"attachment\",\n    \"ca-delete\": \"trash\",\n    \"ca-move\": \"long-arrow-right\",\n    \"ca-protect\": \"lock\"\n}",
-	"femiwiki.css": "/* CSS placed here will affect users of the Femiwiki skin */",
-	"femiwiki.js": "/* Any JavaScript here will be loaded for users using the Femiwiki skin */",
+  "femiwiki.css": "/* CSS placed here will affect users of the Femiwiki skin */",
+  "femiwiki.js": "/* Any JavaScript here will be loaded for users using the Femiwiki skin */",
   "skin-femiwiki-desktop-switch-confirm": "Editing in mobile view is not supported yet. Would {{GENDER:|you}} like to switch to desktop view?",
   "skin-femiwiki-desktop-switch-canceled": "Editing is canceled."
 }
