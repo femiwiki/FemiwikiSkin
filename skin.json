@@ -86,6 +86,15 @@
         "skin-femiwiki-share-facebook",
         "skin-femiwiki-share-twitter"
       ]
+    },
+    "skins.femiwiki.mobile.js": {
+      "packageFiles": ["skins.femiwiki.mobile/init.js"],
+      "targets": ["mobile"],
+      "dependencies": ["mediawiki.user"],
+      "messages": [
+        "skin-femiwiki-desktop-switch-confirm",
+        "skin-femiwiki-desktop-switch-canceled"
+      ]
     }
   },
   "ResourceFileModulePaths": {
@@ -134,6 +143,7 @@
     }
   },
   "Hooks": {
+    "BeforePageDisplay": "SkinFemiwikiHooks::onBeforePageDisplay",
     "ContentHandlerDefaultModelFor": "SkinFemiwikiHooks::onContentHandlerDefaultModelFor",
     "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls",
     "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars",
