@@ -17,6 +17,7 @@
     "Femiwiki": ["i18n"]
   },
   "AutoloadClasses": {
+    "FemiwikiSkin\\Constants": "includes/Constants.php",
     "SkinFemiwiki": "includes/SkinFemiwiki.php",
     "SkinFemiwikiHooks": "includes/SkinFemiwikiHooks.php",
     "FemiwikiTemplate": "includes/FemiwikiTemplate.php",

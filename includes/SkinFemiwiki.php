@@ -1,4 +1,5 @@
 <?php
+use FemiwikiSkin\Constants;
 
 /**
  * SkinTemplate class for the Femiwiki skin
@@ -6,7 +7,7 @@
  * @ingroup Skins
  */
 class SkinFemiwiki extends SkinTemplate {
-	public $skinname = 'femiwiki';
+	public $skinname = Constants::SKIN_NAME;
 	public $stylename = 'Femiwiki';
 	public $template = 'FemiwikiTemplate';
 
