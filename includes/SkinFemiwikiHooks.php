@@ -6,6 +6,22 @@ use MediaWiki\MediaWikiServices;
  *
  */
 class SkinFemiwikiHooks {
+	/**
+	 * @param OutputPage $output The page view.
+	 * @param Skin $skin The skin that's going to build the UI.
+	 */
+	public static function onBeforePageDisplay( OutputPage $output, Skin $skin ) {
+		if ( !$skin instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			return;
+		}
+
+		$context = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+		if ( !$context->shouldDisplayMobileView() ) {
+			return;
+		}
+
+		$output->addModules( [ 'skins.femiwiki.mobile.js' ] );
+	}
 
 	/**
 	 * Echo(REL1_31)'s content values
