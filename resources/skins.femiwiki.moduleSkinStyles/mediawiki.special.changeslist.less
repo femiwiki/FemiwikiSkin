@@ -67,6 +67,11 @@ fieldset.rcoptions {
     padding: 0;
   }
 
+  // See https://github.com/femiwiki/FemiwikiSkin/issues/196
+  ul.special {
+    padding-left: 0;
+  }
+
   td {
     border-width: 0;
   }
@@ -190,21 +195,22 @@ fieldset.rcoptions {
       display: none;
     }
   }
-
-  @media screen and (max-width: @width-breakpoint-mobile) {
-    div:not(.mw-changeslist-links),
-    ul {
-      .full-width();
-    }
-  }
 }
 
+// Reset super module
 .client-js .mw-changeslist ul,
 .client-js .mw-changeslist table.mw-enhanced-rc {
   margin-left: auto;
 }
 
-// '지정한 조건과 일치하는 주어진 기간 동안 바뀜이 없습니다.' repeadted class for priority
+.mw-changeslist div:not(.mw-changeslist-links),
+.client-js .mw-changeslist ul {
+  @media screen and (max-width: @width-breakpoint-mobile) {
+    .full-width();
+  }
+}
+
+// "No changes during the given period match these criteria.". repeated class for priority
 .mw-rcfilters-ui-changesListWrapperWidget-results.mw-rcfilters-ui-changesListWrapperWidget-results {
   width: auto;
 }
