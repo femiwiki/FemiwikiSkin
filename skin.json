@@ -62,6 +62,7 @@
       }
     },
     "skins.femiwiki.js": {
+      "targets": ["desktop", "mobile"],
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/notificationBadge.js",
@@ -70,16 +71,21 @@
       "dependencies": ["oojs", "oojs-ui-core"]
     },
     "skins.femiwiki.notifications": {
+      "targets": ["desktop", "mobile"],
+
       "packageFiles": ["skins.femiwiki.notifications/init.js"]
     },
     "skins.femiwiki.dm": {
+      "targets": ["desktop", "mobile"],
       "scripts": ["mw.fw.js"]
     },
     "skins.femiwiki.share": {
+      "targets": ["desktop", "mobile"],
       "packageFiles": ["skins.femiwiki.share/init.js"],
       "dependencies": ["oojs", "oojs-ui-windows"]
     },
     "skins.femiwiki.share.ui": {
+      "targets": ["desktop", "mobile"],
       "scripts": ["skins.femiwiki.share.ui/mw.fw.ShareDialog.js"],
       "dependencies": ["skins.femiwiki.dm", "oojs", "oojs-ui-windows"],
       "messages": [
