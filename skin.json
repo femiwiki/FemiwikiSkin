@@ -143,6 +143,7 @@
       "+mediawiki.special": "skins.femiwiki.moduleSkinStyles/mediawiki.special.less",
       "+mediawiki.ui.anchor": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.anchor.less",
       "+mediawiki.ui.button": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.button.less",
+      "+mediawiki.ui.icon": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.icon.less",
       "+mediawiki.ui.input": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.input.less",
       "+mediawiki.widgets.DateInputWidget": "skins.femiwiki.moduleSkinStyles/mediawiki.widgets.DateInputWidget.less",
       "+oojs-ui-core.styles": "skins.femiwiki.moduleSkinStyles/oojs-ui-core.styles.less",
