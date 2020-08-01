@@ -1,4 +1,5 @@
 <?php
+use FemiwikiSkin\Constants;
 
 /**
  * SkinTemplate class for the Femiwiki skin
@@ -6,7 +7,7 @@
  * @ingroup Skins
  */
 class SkinFemiwiki extends SkinTemplate {
-	public $skinname = 'femiwiki';
+	public $skinname = Constants::SKIN_NAME;
 	public $stylename = 'Femiwiki';
 	public $template = 'FemiwikiTemplate';
 
@@ -48,20 +49,16 @@ class SkinFemiwiki extends SkinTemplate {
 			$modules['styles'],
 			[
 				'skins.femiwiki',
+				'skins.femiwiki.xeicon',
 				'mediawiki.skinning.content.externallinks',
 				'oojs-ui.styles.icons-interactions'
 			]
 		);
-		$modules[$this->skinname][] = 'skins.femiwiki.js';
-
-		// Scripts
-		$modules['core'] = array_merge(
-			$modules['core'],
-			array_filter( [
-				$this->getUser()->isLoggedIn() ? 'skins.femiwiki.notifications' : null,
-				!$this->getTitle()->isSpecialPage() ? 'skins.femiwiki.share' : null
-			] )
-		);
+		$modules[$this->skinname] = array_filter( [
+			'skins.femiwiki.js',
+			$this->getUser()->isLoggedIn() ? 'skins.femiwiki.notifications' : null,
+			!$this->getTitle()->isSpecialPage() ? 'skins.femiwiki.share' : null
+		] );
 
 		return $modules;
 	}

@@ -1,0 +1,20 @@
+@import '../variables.less';
+
+// Prevent copy of the question from ConfirmEdit/QuestyCaptcha
+body.mw-special-CreateAccount label[for='mw-input-femiwikiOpenSesame'] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.skin-femiwiki .mw-ui-container {
+  @userloginForm-margin-right: 1em;
+  #userloginForm {
+    margin-right: @userloginForm-margin-right;
+  }
+  .mw-createacct-benefits-container {
+    @real-content-width: @content-width - (@content-horizontal-padding * 2);
+    max-width: ~'calc(@{real-content-width} - 290px - @{userloginForm-margin-right})';
+  }
+}

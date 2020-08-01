@@ -1,6 +1,8 @@
 interface MwWindowOO {
   ui: {
     infuse(idOrNode: string | HTMLElement | JQuery, config?: Object): Element;
+
+    confirm(text: JQuery | string, options?: object): JQuery.Promise<any>;
   };
 }
 

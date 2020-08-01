@@ -1,22 +1,24 @@
 @import '../variables.less';
 
-.mw-body-content {
-  .ve-init-mw-desktopArticleTarget-toolbar,
-  .ve-init-mw-desktopArticleTarget-toolbarPlaceholder {
-    margin: 0;
-  }
-}
-
 // Prevent Code mirror glitch
 // @See https://github.com/femiwiki/skin/issues/52
 .ve-init-mw-desktopArticleTarget .CodeMirror.CodeMirror {
   padding: 0;
 }
 
+// @see https://github.com/femiwiki/FemiwikiSkin/issues/163
+.ve-init-mw-progressBarWidget {
+  border-color: @color-primary4;
+}
+.ve-init-mw-progressBarWidget-bar {
+  background: @color-primary4;
+}
+
 html.ve-active,
 html.ve-activated,
 html.ve-deactivating {
-  #siteNotice {
+  #siteNotice,
+  #mw-fr-revisiontag {
     display: none;
   }
 
@@ -46,8 +48,21 @@ html.ve-deactivating {
   }
 }
 
-#editpage-copywarn a {
-  .mw-link();
+#editpage-copywarn,
+// https://github.com/femiwiki/FemiwikiSkin/issues/185
+.ve-ui-mwTemplatePage-description {
+  a {
+    .mw-link();
+  }
+}
+
+.ve-ui-mwSaveDialog {
+  .mw-parser-output {
+    max-width: @content-width;
+    .content-horizontal-padding();
+    margin: auto;
+    .parser-output();
+  }
 }
 
 @media screen and (max-width: @width-breakpoint-mobile) {
@@ -62,9 +77,8 @@ html.ve-deactivating {
       overflow: inherit;
     }
 
-    .ve-init-mw-desktopArticleTarget-originalContent,
-    .mw-body-content {
-      padding: 0 0.785rem;
+    .ve-init-mw-desktopArticleTarget-originalContent {
+      .content-horizontal-padding();
     }
 
     .nav-bar,

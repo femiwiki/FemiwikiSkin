@@ -4,7 +4,7 @@
 .fw-portals {
   margin: 0.6rem auto 0;
   padding: 0;
-  border-bottom: 1px solid @color-primary1;
+  border-bottom: 1px solid @color-primary3;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
@@ -38,6 +38,18 @@
         a {
           .mw-link();
           display: block;
+          padding-left: 2em;
+
+          &.xe-icons {
+            padding-left: 0;
+          }
+        }
+
+        i {
+          vertical-align: middle;
+          margin-right: 0.3em;
+          font-size: 1.5em;
+          color: black;
         }
       }
     }
@@ -81,6 +93,9 @@
     position: relative;
     text-align: center;
 
+    // sitenotice includes parsed contents
+    .parser-output();
+
     p {
       margin: 0;
     }
@@ -123,9 +138,11 @@
     #p-title-buttons {
       float: right;
       margin: 0;
+      @icon-size: 1.42857143em;
 
       .fw-button {
         margin: 0;
+        float: left;
 
         &:hover,
         &:focus {
@@ -143,19 +160,34 @@
       }
 
       #p-share .oo-ui-icon-share {
-        background-image: url('../images/icon-share.png');
+        background-image: url('../resources/images/icon-share.png');
+      }
+
+      #mw-indicator-mw-helplink,
+      #mw-indicator-mw-helplink a,
+      #p-menu-toggle {
+        width: @icon-size;
+        height: @icon-size;
+      }
+
+      #mw-indicator-mw-helplink,
+      #p-menu-toggle {
+        padding: 0.37142855em;
+      }
+
+      // Hide text label
+      #mw-indicator-mw-helplink {
+        overflow: hidden;
+        a {
+          padding-left: @icon-size * 2;
+          background-size: @icon-size;
+        }
       }
 
       #p-menu-toggle {
-        @icon-size: 1.42857143em;
-        display: inline-block;
-        min-width: @icon-size;
-        min-height: @icon-size;
         background-size: @icon-size;
         background-position: center center;
         background-repeat: no-repeat;
-        vertical-align: middle;
-        padding: 0.357142855em;
         cursor: pointer;
       }
     }
@@ -220,11 +252,18 @@
   border-bottom: none;
   color: @color-base15;
   font-weight: bold;
-  overflow: hidden;
+  // See https://github.com/femiwiki/FemiwikiSkin/issues/168
+  overflow: visible;
+  // See https://github.com/femiwiki/FemiwikiSkin/issues/169
+  word-break: break-word;
 }
 
 .visualClear {
   clear: both;
+}
+
+.patrollink a {
+  .mw-link();
 }
 
 // End of content

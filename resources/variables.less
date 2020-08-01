@@ -12,15 +12,24 @@
 @color-base15: #252525;
 @color-base100: #fff;
 
-@color-primary1: #aca6e4;
-@color-primary2: #b9b5d9;
-@color-primary3: #746ccb;
-@color-primary4: #5144a3;
-@color-primary5: #302a45;
+//                        luminance(%)
+@color-primary1: #c3bffd; // 55.96
+@color-primary2: #b9b5d9; // 48.37
+@color-primary3: #aca6e4; // 41.64
+@color-primary4: #746ccb; // 18.75
+@color-primary5: #5144a3; // 8.53
+@color-primary6: #302a45; // 2.71
 
-@color-alert: #dae8b2;
-@color-alert2: #a5c831;
-@color-alert-border: #b2d236;
+@color-secondary1: #dae8b2; // 75.83
+@color-secondary2: #b2d236; // 55.82
+@color-secondary3: #a5c831; // 49.53
+
+@color-background1: @color-primary1;
+
+@color-progressive: @color-primary3;
+@color-alert: @color-secondary1;
+@color-alert2: @color-secondary3;
+@color-alert-border: @color-secondary2;
 
 @button-hover-background-color: rgba(0, 24, 73, 0.02745098);
 
@@ -37,13 +46,6 @@
   100% {
     opacity: 0;
   }
-}
-
-// To hide objects, but keep them accessible for screen-readers
-// @deprecated, use aria-labelledby instead of this
-.hidden() {
-  position: absolute;
-  top: -9999px;
 }
 
 .full-width() {
@@ -70,93 +72,92 @@
 }
 
 .mw-link() {
-  text-decoration: none;
-  color: @color-primary4;
+  &:not([role='button']) {
+    text-decoration: none;
 
-  &:not([href]) {
-    cursor: pointer; // Always cursor:pointer even without href
-  }
-
-  &:visited {
-    color: @color-primary4;
-  }
-
-  &:active {
-    color: #faa700;
-  }
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-  }
-
-  &.external {
-    color: @color-primary4;
-  }
-
-  &.new {
-    color: #c0081f;
-
-    &:visited {
-      color: #a55858;
-    }
-  }
-
-  &.stub {
-    color: #723;
-  }
-
-  // self links
-  &.mw-selflink {
-    color: inherit;
-    font-weight: bold;
-    text-decoration: inherit;
-
-    &:hover {
-      cursor: inherit;
-      text-decoration: inherit;
+    &:not([href]) {
+      cursor: pointer; // Always cursor:pointer even without href
     }
 
-    &:active,
-    &:visited {
-      color: inherit;
-    }
-  }
-
-  // Interwiki Styling
-  &.extiw {
     &,
-    &:active {
-      color: #36b;
-    }
-
     &:visited {
-      color: #636;
+      color: @color-primary5;
     }
 
     &:active {
-      color: #b63;
-    }
-  }
-
-  // External links
-  &.external {
-    &:active {
-      color: #b63;
+      color: #faa700;
     }
 
-    &.free {
-      word-wrap: break-word;
+    &:hover,
+    &:focus {
+      text-decoration: underline;
     }
-  }
 
-  // Links
-  &.external {
-    color: @color-primary4;
-    /* @embed */
-    background: url('../images/icon_external_link.png') top right no-repeat;
-    background-size: 8px 8px;
-    padding-right: 0.6rem;
+    &.external {
+      color: @color-primary5;
+    }
+
+    &.new {
+      color: #c0081f;
+
+      &:visited {
+        color: #a55858;
+      }
+    }
+
+    &.stub {
+      color: #723;
+    }
+
+    // self links
+    &.mw-selflink {
+      color: inherit;
+      font-weight: bold;
+      text-decoration: inherit;
+
+      &:hover {
+        cursor: inherit;
+        text-decoration: inherit;
+      }
+
+      &:active,
+      &:visited {
+        color: inherit;
+      }
+    }
+
+    // Interwiki Styling
+    &.extiw {
+      &,
+      &:active {
+        color: #36b;
+      }
+
+      &:visited {
+        color: #636;
+      }
+
+      &:active {
+        color: #b63;
+      }
+    }
+
+    // External links
+    &.external {
+      color: @color-primary5;
+      /* @embed */
+      background: url('../images/icon_external_link.png') top right no-repeat;
+      background-size: 8px 8px;
+      padding-right: 0.6rem;
+
+      &:active {
+        color: #b63;
+      }
+
+      &.free {
+        word-wrap: break-word;
+      }
+    }
   }
 }
 
@@ -164,6 +165,10 @@
 // http://dbushell.com/2016/03/04/css-only-responsive-tables/
 // by David Bushell
 .responsiveTable() {
+  background-color: transparent;
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   background: -webkit-radial-gradient(
         left ellipse,
@@ -229,5 +234,357 @@
   & > * > tr > td {
     background-color: transparent;
     border: 1px solid #ddd;
+  }
+}
+
+// Table of contents
+.toc() {
+  .toc {
+    display: table;
+    font-size: 0.95rem;
+    margin: 3.2rem 0;
+    padding: 0;
+    border: 0;
+    background-color: inherit;
+    line-height: 1.6;
+
+    .toctitle {
+      text-align: left;
+
+      h2 {
+        font-size: 1rem;
+        display: inline;
+        overflow: hidden;
+        font-weight: normal;
+        border: none;
+      }
+
+      .toctoggle,
+      .toctogglespan {
+        display: none;
+      }
+    }
+
+    ul,
+    // Override mediawiki.legacy
+    ul ul {
+      margin: 0;
+      list-style-type: none;
+
+      li {
+        list-style: none;
+
+        .tocnumber {
+          color: #222;
+          display: table-cell;
+          padding-right: 0.475rem;
+
+          &:after {
+            content: '.';
+          }
+        }
+
+        .toctext {
+          display: table-cell;
+        }
+
+        &.toclevel-1 {
+          margin-top: 1rem;
+          font-weight: bold;
+        }
+
+        &.toclevel-2,
+        &.toclevel-3 {
+          font-weight: normal;
+          margin-left: 1rem;
+        }
+      }
+    }
+
+    &::before,
+    &::after {
+      display: block;
+      content: ' ';
+      width: 1.2rem;
+    }
+
+    &::before {
+      border-bottom: 2px solid #8981d3;
+      margin-bottom: 0.5rem;
+    }
+
+    &::after {
+      border-top: 2px solid #8981d3;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.parser-output() {
+  a {
+    .mw-link();
+  }
+
+  // @See https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
+  s,
+  strike {
+    color: gray;
+  }
+
+  code {
+    color: @color-base0;
+    background-color: button;
+    border: 1px solid #eaecf0;
+    border-radius: 2px;
+    padding: 1px 4px;
+  }
+
+  // Headings
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    position: relative;
+    margin: 3.8rem 0 1.6rem;
+    padding: 0;
+    font-weight: bold;
+    color: @color-base15;
+    overflow: hidden;
+  }
+
+  h2 {
+    font-size: 1.429rem;
+    border-bottom: 2px solid #d7c9f5;
+  }
+
+  h3 {
+    font-size: 1.143rem;
+    border-bottom: 1px dotted #d7c9f5;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 1rem;
+    border-bottom: none;
+  }
+
+  h1 ~ h2,
+  h2 ~ h3,
+  h3 ~ h4,
+  h4 ~ h5,
+  h5 ~ h6 {
+    margin-top: 1.6rem;
+  }
+
+  p {
+    margin: 0.4em 0 0.5em 0;
+  }
+
+  hr {
+    background-color: #a2a9b1;
+    border: 0;
+    margin: 0.2em 0;
+  }
+
+  // Listsol,
+  ul {
+    li {
+      margin-bottom: 0.5rem;
+
+      ul,
+      ol {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+      }
+    }
+  }
+
+  ol {
+    margin: 0.3em 0 0 3.2em;
+    padding: 0;
+    list-style-image: none;
+  }
+
+  ul {
+    margin: 0.3em 0 0 1.6em;
+    padding: 0;
+
+    &.gallery {
+      margin: 1.6rem 0 1.6rem;
+      padding-left: 1.2rem;
+    }
+  }
+
+  dl {
+    margin: 1.6rem 0 1.6rem;
+    padding-left: 0.5rem;
+
+    dt {
+      font-weight: bold;
+      margin-bottom: 0.1em;
+
+      &:not(first-child) {
+        margin-top: 1em;
+      }
+    }
+
+    dd {
+      margin-left: 1.6em;
+      margin-bottom: 0.1em;
+    }
+  }
+
+  .toc();
+
+  table.wikitable {
+    // IE needs inline-block to position scrolling shadows otherwise use:
+    // display: block;
+    // max-width: min-content;
+    vertical-align: top;
+    white-space: nowrap;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-width: 0;
+    font-size: 0.8rem;
+    .responsiveTable();
+
+    th {
+      font-size: inherit;
+      color: @color-base0;
+      text-align: left;
+    }
+
+    td {
+      color: inherit;
+    }
+  }
+
+  ol.references {
+    font-size: 0.9em;
+
+    li {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  // Hide femiwiki category
+  .fw-catlinks {
+    display: none;
+  }
+
+  *:not(.mw-highlight) > pre:not(.CodeMirror-line) {
+    font-family: inherit;
+    overflow: hidden;
+    border: none;
+    background-color: #f0f0f0;
+    color: @color-base0;
+    padding: 1em;
+    white-space: pre-wrap;
+  }
+
+  .mw-highlight > pre {
+    overflow: hidden;
+    border: none;
+    background-color: #f0f0f0;
+    color: @color-base0;
+    padding: 1em;
+    white-space: pre-wrap;
+  }
+
+  // Image
+  div.thumb .thumbinner,
+  // For 2017 wikitext editor preview and VE
+  figure[typeof~='mw:Image/Thumb'] {
+    font-size: 0.94rem;
+    max-width: 100%;
+    background-color: #f8f9fa;
+    border: 1px solid #c8ccd1;
+    overflow: hidden;
+    padding: 3px;
+    text-align: center;
+    @media screen and (max-width: @width-breakpoint-mobile) {
+      border: none;
+      background-color: initial;
+    }
+
+    .thumbimage {
+      background-color: #fff;
+      border: 1px solid #c8ccd1;
+      vertical-align: middle;
+      @media screen and (max-width: @width-breakpoint-mobile) {
+        border: none;
+      }
+    }
+
+    .thumbcaption,
+    // For VE Preview
+    figcaption {
+      padding: 3px;
+      font-size: 0.8836rem;
+      line-height: 1.23704rem;
+      @media screen and (max-width: @width-breakpoint-mobile) {
+        color: #888;
+        text-align: center;
+      }
+    }
+  }
+
+  @media screen and (max-width: @width-breakpoint-mobile) {
+    div.thumb,
+    div.thumb .thumbinner {
+      margin: 0 auto;
+    }
+    div.thumb {
+      float: none;
+    }
+    figure[typeof~='mw:Image/Thumb'] {
+      // For 2017 wikitext editor preview
+      &,
+      // For VisualEditor
+      &.mw-halign-left,
+      &.mw-halign-right {
+        margin: 0 auto;
+        float: none;
+      }
+    }
+  }
+
+  /* @noflip */
+  div.tright {
+    margin: 0.5em 0 1.3em 1.4em;
+  }
+
+  /* @noflip */
+  div.tleft {
+    margin: 0.5em 1.4em 1.3em 0;
+  }
+
+  @media screen and (max-width: @width-breakpoint-mobile) {
+    div.tleft,
+    div.tright {
+      margin: 1rem auto;
+    }
+  }
+
+  /* Images */
+  /* @noflip */
+  div.floatright,
+  table.floatright {
+    margin: 0 0 0.5em 0.5em;
+  }
+
+  /* @noflip */
+  div.floatleft,
+  table.floatleft {
+    margin: 0 0.5em 0.5em 0;
+  }
+
+  .image img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
   }
 }

@@ -22,158 +22,6 @@
       border: solid 1px @color-alert-border;
     }
   }
-}
-
-.mw-body-content {
-  a {
-    .mw-link();
-  }
-
-  // @See https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
-  s,
-  strike {
-    color: gray;
-  }
-
-  code {
-    color: @color-base0;
-    background-color: #f8f9fa;
-    border: 1px solid #eaecf0;
-    border-radius: 2px;
-    padding: 1px 4px;
-  }
-
-  // Headings
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    position: relative;
-    margin: 3.8rem 0 1.6rem;
-    padding: 0;
-    font-weight: bold;
-    color: @color-base15;
-    overflow: hidden;
-  }
-
-  h2 {
-    font-size: 1.429rem;
-    border-bottom: 2px solid #d7c9f5;
-  }
-
-  h3 {
-    font-size: 1.143rem;
-    border-bottom: 1px dotted #d7c9f5;
-  }
-
-  h4,
-  h5,
-  h6 {
-    font-size: 1rem;
-    border-bottom: none;
-  }
-
-  h1 ~ h2,
-  h2 ~ h3,
-  h3 ~ h4,
-  h4 ~ h5,
-  h5 ~ h6 {
-    margin-top: 1.6rem;
-  }
-
-  p {
-    margin: 0.4em 0 0.5em 0;
-  }
-
-  hr {
-    background-color: #a2a9b1;
-    border: 0;
-    margin: 0.2em 0;
-  }
-
-  ul:not(.gallery):not(.mw-allpages-chunk):not(.mw-prefixindex-list):not(.tux-message-selector) {
-    margin: 0.3em 0 0 1.6em;
-    padding: 0;
-  }
-
-  ol {
-    margin: 0.3em 0 0 3.2em;
-    padding: 0;
-    list-style-image: none;
-  }
-
-  li {
-    margin-bottom: 0.1em;
-  }
-
-  dl {
-    margin-top: 0.2em;
-    margin-bottom: 0.5em;
-
-    dt {
-      font-weight: bold;
-      margin-bottom: 0.1em;
-    }
-
-    dd {
-      margin-left: 1.6em;
-      margin-bottom: 0.1em;
-    }
-  }
-
-  table.wikitable {
-    // IE needs inline-block to position scrolling shadows otherwise use:
-    // display: block;
-    // max-width: min-content;
-    background-color: transparent;
-    display: inline-block;
-    vertical-align: top;
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border-width: 0;
-    font-size: 0.8rem;
-    .responsiveTable();
-
-    th {
-      font-size: inherit;
-      color: @color-base0;
-      text-align: left;
-    }
-
-    td {
-      color: inherit;
-    }
-  }
-
-  textarea:not(.ve-init-mw-tempWikitextEditorWidget) {
-    border: 1px solid #c8ccd1;
-    box-sizing: border-box;
-    padding: 0.1em;
-  }
-
-  *:not(.mw-highlight) > pre:not(.CodeMirror-line) {
-    font-family: inherit;
-    overflow: hidden;
-    border: none;
-    background-color: #f0f0f0;
-    color: @color-base0;
-    padding: 1em;
-    white-space: pre-wrap;
-  }
-
-  .mw-highlight > pre {
-    overflow: hidden;
-    border: none;
-    background-color: #f0f0f0;
-    color: @color-base0;
-    padding: 1em;
-    white-space: pre-wrap;
-  }
 
   .mw-indicators {
     float: right;
@@ -189,9 +37,8 @@
       margin: 0.4em 0 0.5em 0;
     }
 
-    .flaggedrevs_short {
-      border: none;
-      background-color: transparent;
+    a {
+      .mw-link;
     }
   }
 
@@ -207,7 +54,8 @@
       margin-top: 2.8rem;
     }
 
-    .mw-warning {
+    .mw-warning,
+    .mw-warning-with-logexcerpt {
       margin-left: 50px;
       margin-right: 50px;
       text-align: center;
@@ -215,6 +63,18 @@
       background-color: #f8f9fa;
       padding: 5px;
       font-size: 95%;
+
+      a {
+        .mw-link();
+      }
+    }
+
+    .noarticletext,
+    .warningbox,
+    .mw-category-generated {
+      a {
+        .mw-link();
+      }
     }
 
     .image img {
@@ -259,6 +119,10 @@
     border: 0 solid #a2a9b1;
     background-color: transparent;
 
+    a {
+      .mw-link();
+    }
+
     ul {
       display: inline;
       margin: 0;
@@ -297,97 +161,14 @@
   .btn:visited {
     padding: 0.2rem 0.5rem;
     color: #fff;
-    background-color: #aca7e2;
+    background-color: @color-progressive;
     text-decoration: none;
     cursor: pointer;
   }
 }
 
 .mw-parser-output {
-  // Table of contents
-  .toc {
-    display: table;
-    font-size: 0.95rem;
-    margin: 3.2rem 0;
-    padding: 0;
-    border: 0;
-    background-color: inherit;
-    line-height: 1.6;
-
-    .toctitle {
-      text-align: left;
-
-      h2 {
-        font-size: 1rem;
-        display: inline;
-        overflow: hidden;
-        font-weight: normal;
-        border: none;
-      }
-    }
-
-    .toctoggle,
-    .toctogglespan {
-      display: none;
-    }
-
-    ul,
-    // Override mediawiki.legacy
-    ul ul {
-      margin: 0;
-      list-style-type: none;
-
-      li {
-        list-style: none;
-
-        .tocnumber {
-          color: #222;
-          display: table-cell;
-          padding-right: 0.475rem;
-        }
-
-        .toctext {
-          display: table-cell;
-        }
-
-        &.toclevel-1 {
-          margin-top: 1rem;
-          font-weight: bold;
-        }
-
-        &.toclevel-2,
-        &.toclevel-3 {
-          font-weight: normal;
-          margin-left: 1rem;
-        }
-      }
-    }
-
-    &::before {
-      display: block;
-      content: ' ';
-      width: 1.2rem;
-      border-bottom: 2px solid #8981d3;
-      margin-bottom: 0.5rem;
-    }
-
-    &::after {
-      display: block;
-      content: ' ';
-      width: 1.2rem;
-      border-top: 2px solid #8981d3;
-      margin-top: 0.5rem;
-    }
-  }
-
-  .tocnumber:after,
-  .mw-headline-number:after {
-    content: '.';
-  }
-
-  a {
-    .mw-link();
-  }
+  .parser-output();
 
   b {
     font-weight: bold;
@@ -423,34 +204,8 @@
     hyphens: auto;
   }
 
-  // Lists
-  ol,
-  ul {
-    margin: 1.6rem 0 1.6rem;
-    padding-left: 1.2rem;
-
-    li {
-      margin-bottom: 0.5rem;
-
-      ul,
-      ol {
-        margin-top: 0rem;
-        margin-bottom: 0rem;
-      }
-    }
-  }
-
-  dl {
-    margin: 1.6rem 0 1.6rem;
-    padding-left: 0.5rem;
-  }
-
-  dt:not(first-child) {
-    margin-top: 1em;
-  }
-
-  dd {
-    margin-left: 0.6em;
+  .mw-headline-number:after {
+    content: '.';
   }
 
   // Embed
@@ -478,82 +233,10 @@
     font-size: 100%;
   }
 
-  // Image
-  div.thumb {
-    max-width: 100%;
-    @media screen and (max-width: @width-breakpoint-mobile) {
-      float: none;
-    }
-
-    .thumbinner {
-      font-size: 0.94rem;
-      max-width: 100%;
-      background-color: #f8f9fa;
-      border: 1px solid #c8ccd1;
-      overflow: hidden;
-      padding: 3px;
-      text-align: center;
-      @media screen and (max-width: @width-breakpoint-mobile) {
-        margin: 0 auto;
-        border: none;
-        background-color: initial;
-      }
-
-      .thumbimage {
-        background-color: #fff;
-        border: 1px solid #c8ccd1;
-        vertical-align: middle;
-        @media screen and (max-width: @width-breakpoint-mobile) {
-          border: none;
-        }
-      }
-    }
-
-    .thumbcaption {
-      padding: 3px;
-      font-size: 0.8836rem;
-      line-height: 1.23704rem;
-      @media screen and (max-width: @width-breakpoint-mobile) {
-        color: #888;
-        text-align: center;
-      }
-    }
-  }
-
-  /* @noflip */
-  div.tright {
-    margin: 0.5em 0 1.3em 1.4em;
-  }
-
-  /* @noflip */
-  div.tleft {
-    margin: 0.5em 1.4em 1.3em 0;
-  }
-
-  @media screen and (max-width: @width-breakpoint-mobile) {
-    div.tleft,
-    div.tright {
-      margin: 1rem auto;
-    }
-  }
-
-  /* Images */
-  /* @noflip */
-  div.floatright,
-  table.floatright {
-    margin: 0 0 0.5em 0.5em;
-  }
-
-  /* @noflip */
-  div.floatleft,
-  table.floatleft {
-    margin: 0 0.5em 0.5em 0;
-  }
-
-  .image img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
+  textarea:not(.ve-init-mw-tempWikitextEditorWidget) {
+    border: 1px solid #c8ccd1;
+    box-sizing: border-box;
+    padding: 0.1em;
   }
 
   #file img {
@@ -564,14 +247,6 @@
   & > br:first-child,
   & > br:last-child {
     display: none;
-  }
-
-  ol.references {
-    font-size: 0.9em;
-
-    li {
-      margin-bottom: 0.2rem;
-    }
   }
 
   // Edit links
@@ -601,11 +276,6 @@
     display: inline-block;
     vertical-align: middle;
   }
-
-  // Hide femiwiki category
-  .fw-catlinks {
-    display: none;
-  }
 }
 
 // Hide elements that are marked as "empty" according to legacy Tidy rules,
@@ -617,43 +287,101 @@ body.mw-hide-empty-elt .mw-empty-elt {
 // Directionality-specific styles for thumbnails - their positioning depends on content language //
 
 /* @noflip */
-.mw-body-content #mw-content-text.mw-content-ltr {
-  .thumbcaption {
-    text-align: left;
+.mw-body-content {
+  .mw-content-ltr {
+    .thumbcaption {
+      text-align: left;
+    }
+
+    .magnify {
+      float: right;
+      margin-left: 3px;
+      margin-right: 0;
+    }
+
+    div.magnify a {
+      /* Use same SVG support hack as mediawiki.legacy's shared.css */
+      background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.png);
+      /* @embed */
+      background-image: linear-gradient(transparent, transparent),
+        url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
+    }
   }
 
-  .magnify {
-    float: right;
-    margin-left: 3px;
-    margin-right: 0;
-  }
+  .mw-content-rtl.mw-content-rtl {
+    .thumbcaption {
+      text-align: right;
+    }
 
-  div.magnify a {
-    /* Use same SVG support hack as mediawiki.legacy's shared.css */
-    background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.png);
-    /* @embed */
-    background-image: linear-gradient(transparent, transparent),
-      url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
+    .magnify {
+      float: left;
+      margin-left: 0;
+      margin-right: 3px;
+    }
+
+    div.magnify a {
+      /* Use same SVG support hack as mediawiki.legacy's shared.css */
+      background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.png);
+      /* @embed */
+      background-image: linear-gradient(transparent, transparent),
+        url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg);
+    }
   }
 }
 
-/* @noflip */
-.mw-body-content #mw-content-text#mw-content-text.mw-content-rtl {
-  .thumbcaption {
-    text-align: right;
-  }
+.mw-special-Booksources #mw-content-text {
+  // mw-special-Booksources fetches a parsed content
+  .parser-output();
+}
 
-  .magnify {
-    float: left;
-    margin-left: 0;
-    margin-right: 3px;
+body.action- {
+  &credits,
+  &delete,
+  &edit,
+  &history,
+  &info,
+  &protect,
+  &rollback,
+  &submit {
+    #mw-content-text a {
+      .mw-link();
+    }
   }
+}
 
-  div.magnify a {
-    /* Use same SVG support hack as mediawiki.legacy's shared.css */
-    background-image: url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.png);
-    /* @embed */
-    background-image: linear-gradient(transparent, transparent),
-      url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg);
+// For special pages that do not add mediawiki.special module
+body.ns-special #mw-content-text {
+  a {
+    .mw-link();
   }
+  .wikitable {
+    .responsiveTable();
+  }
+}
+
+// PrevNextNavigation
+// (newest | oldest) View (newer 50 | older 50) (20 | 50 | 100 | 250 | 500)
+.mw-firstlink,
+.mw-lastlink,
+.mw-prevlink,
+.mw-nextlink,
+.mw-numlink {
+  .mw-link();
+}
+
+// https://github.com/femiwiki/FemiwikiSkin/issues/173
+#wpTextbox1,
+// wpTextbox2 is for edit conflict
+#wpTextbox2 {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.mw-userlink {
+  .mw-link();
+}
+
+// Deleted page
+.mw-undelete-subtitle a {
+  .mw-link();
 }

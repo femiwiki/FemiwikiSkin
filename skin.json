@@ -1,8 +1,8 @@
 {
   "name": "Femiwiki",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "author": "[https://femiwiki.com/ Femiwiki Team]",
-  "url": "https://github.com/femiwiki/femiwiki.com/tree/master/www/skins/Femiwiki",
+  "url": "https://github.com/femiwiki/FemiwikiSkin",
   "descriptionmsg": "femiwiki-desc",
   "namemsg": "skinname-femiwiki",
   "license-name": "AGPL-3.0-or-later",
@@ -17,6 +17,7 @@
     "Femiwiki": ["i18n"]
   },
   "AutoloadClasses": {
+    "FemiwikiSkin\\Constants": "includes/Constants.php",
     "SkinFemiwiki": "includes/SkinFemiwiki.php",
     "SkinFemiwikiHooks": "includes/SkinFemiwikiHooks.php",
     "FemiwikiTemplate": "includes/FemiwikiTemplate.php",
@@ -29,78 +30,133 @@
       "targets": ["desktop", "mobile"],
       "position": "top",
       "styles": {
-        "resources/libraries/normalise.css": {
+        "../node_modules/normalize.css/normalize.css": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/elements.less": {
+        "skins.femiwiki/elements.less": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/contents.less": {
+        "skins.femiwiki/contents.less": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/interface.less": {
+        "skins.femiwiki/interface.less": {
           "media": "screen"
         },
-        "resources/skins.femiwiki/interface-gnb.less": {
+        "skins.femiwiki/interface-gnb.less": {
           "media": "screen"
         },
-        "resources/print.less": {
+        "print.less": {
           "media": "print"
         }
       }
     },
+    "skins.femiwiki.xeicon": {
+      "targets": ["desktop", "mobile"],
+      "position": "top",
+      "localBasePath": "node_modules/xeicon",
+      "remoteSkinPath": "Femiwiki/node_modules/xeicon",
+      "styles": {
+        "xeicon.min.css": {
+          "media": "screen"
+        }
+      }
+    },
     "skins.femiwiki.js": {
+      "targets": ["desktop", "mobile"],
       "packageFiles": [
-        "resources/skins.femiwiki.js/skin.js",
-        "resources/skins.femiwiki.js/notificationBadge.js",
-        "resources/skins.femiwiki.js/searchClearButton.js"
+        "skins.femiwiki.js/skin.js",
+        "skins.femiwiki.js/notificationBadge.js",
+        "skins.femiwiki.js/searchClearButton.js"
       ],
       "dependencies": ["oojs", "oojs-ui-core"]
     },
     "skins.femiwiki.notifications": {
-      "packageFiles": ["resources/skins.femiwiki.notifications/init.js"]
+      "targets": ["desktop", "mobile"],
+
+      "packageFiles": ["skins.femiwiki.notifications/init.js"]
     },
     "skins.femiwiki.dm": {
-      "scripts": ["resources/mw.fw.js"]
+      "targets": ["desktop", "mobile"],
+      "scripts": ["mw.fw.js"]
     },
     "skins.femiwiki.share": {
-      "packageFiles": ["resources/skins.femiwiki.share/init.js"],
+      "targets": ["desktop", "mobile"],
+      "packageFiles": ["skins.femiwiki.share/init.js"],
       "dependencies": ["oojs", "oojs-ui-windows"]
     },
     "skins.femiwiki.share.ui": {
-      "scripts": ["resources/skins.femiwiki.share.ui/mw.fw.ShareDialog.js"],
+      "targets": ["desktop", "mobile"],
+      "scripts": ["skins.femiwiki.share.ui/mw.fw.ShareDialog.js"],
       "dependencies": ["skins.femiwiki.dm", "oojs", "oojs-ui-windows"],
       "messages": [
         "skin-femiwiki-share-dismiss",
         "skin-femiwiki-share-facebook",
         "skin-femiwiki-share-twitter"
       ]
+    },
+    "skins.femiwiki.mobile.js": {
+      "packageFiles": ["skins.femiwiki.mobile/init.js"],
+      "targets": ["mobile"],
+      "dependencies": ["mediawiki.user"],
+      "messages": [
+        "skin-femiwiki-desktop-switch-confirm",
+        "skin-femiwiki-desktop-switch-canceled"
+      ]
     }
   },
   "ResourceFileModulePaths": {
-    "localBasePath": "",
+    "localBasePath": "resources",
     "remoteSkinPath": "Femiwiki"
   },
   "ResourceModuleSkinStyles": {
     "femiwiki": {
-      "+mediawiki.diff.styles": "resources/skins.femiwiki.moduleSkinStyles/diff.less",
-      "+mediawiki.action.edit.styles": "resources/skins.femiwiki.moduleSkinStyles/action.edit.less",
-      "+mediawiki.action.view.categoryPage.styles": "resources/skins.femiwiki.moduleSkinStyles/action.view.categoryPage.less",
-      "+mediawiki.special": "resources/skins.femiwiki.moduleSkinStyles/special.less",
-      "+mediawiki.special.changeslist": "resources/skins.femiwiki.moduleSkinStyles/changeslist.less",
-      "+mediawiki.special.search": "resources/skins.femiwiki.moduleSkinStyles/search.less",
-      "+oojs-ui-core.styles": "resources/skins.femiwiki.moduleSkinStyles/ooui.less",
-      "+ext.CodeMirror.mode.mediawiki": "resources/skins.femiwiki.moduleSkinStyles/codeMirror.less",
-      "+ext.CollaborationKit.hub.styles": "resources/skins.femiwiki.moduleSkinStyles/collaborationKit.hub.less",
-      "+ext.flow.styles.base": "resources/skins.femiwiki.moduleSkinStyles/flow.less",
-      "+ext.uploadWizard.page.styles": "resources/skins.femiwiki.moduleSkinStyles/uploadWizard.page.less",
-      "+ext.visualEditor.desktopTarget": "resources/skins.femiwiki.moduleSkinStyles/visualEditor.desktopTarget.less"
+      "+ext.CodeMirror.mode.mediawiki": "skins.femiwiki.moduleSkinStyles/ext.CodeMirror.mode.mediawiki.less",
+      "+ext.CollaborationKit.hub.styles": "skins.femiwiki.moduleSkinStyles/ext.CollaborationKit.hub.less",
+      "+ext.CollaborationKit.hubsubpage.styles": "skins.femiwiki.moduleSkinStyles/ext.CollaborationKit.hubsubpage.styles.less",
+      "+ext.echo.ui": "skins.femiwiki.moduleSkinStyles/ext.echo.ui.less",
+      "+ext.flaggedRevs.basic": "skins.femiwiki.moduleSkinStyles/ext.flaggedRevs.basic.less",
+      "+ext.flaggedRevs.review.styles": "skins.femiwiki.moduleSkinStyles/ext.flaggedRevs.review.styles.less",
+      "+ext.flow.board.styles": "skins.femiwiki.moduleSkinStyles/ext.flow.board.styles.less",
+      "+ext.flow.board.topic.styles": "skins.femiwiki.moduleSkinStyles/ext.flow.board.topic.styles.less",
+      "+ext.flow.mediawiki.ui.form": "skins.femiwiki.moduleSkinStyles/ext.flow.mediawiki.ui.form.less",
+      "+ext.flow.styles.base": "skins.femiwiki.moduleSkinStyles/ext.flow.styles.base.less",
+      "+ext.flow.ui": "skins.femiwiki.moduleSkinStyles/ext.flow.ui.less",
+      "+ext.popups.main": "skins.femiwiki.moduleSkinStyles/ext.popups.main.less",
+      "+ext.RevisionSlider.lazyCss": "skins.femiwiki.moduleSkinStyles/ext.RevisionSlider.lazyCss.less",
+      "+ext.sanctions.special.sanctions.styles": "skins.femiwiki.moduleSkinStyles/ext.sanctions.special.sanctions.styles.less",
+      "+ext.templateDataGenerator.editPage": "skins.femiwiki.moduleSkinStyles/ext.templateDataGenerator.editPage.less",
+      "+ext.translate": "skins.femiwiki.moduleSkinStyles/ext.translate.less",
+      "+ext.TwoColConflict.SplitCss": "skins.femiwiki.moduleSkinStyles/ext.TwoColConflict.SplitCss.less",
+      "+ext.uploadWizard.page.styles": "skins.femiwiki.moduleSkinStyles/ext.uploadWizard.page.styles.less",
+      "+ext.visualEditor.core": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.core.less",
+      "+ext.visualEditor.desktopTarget": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.desktopTarget.less",
+      "+mediawiki.action.edit.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.edit.styles.less",
+      "+mediawiki.action.history.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.history.styles.less",
+      "+mediawiki.action.view.categoryPage.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.categoryPage.styles.less",
+      "+mediawiki.action.view.filepage": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.filepage.less",
+      "+mediawiki.diff.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.diff.styles.less",
+      "+mediawiki.feedlink": "skins.femiwiki.moduleSkinStyles/mediawiki.feedlink.less",
+      "+mediawiki.pulsatingdot": "skins.femiwiki.moduleSkinStyles/mediawiki.pulsatingdot.less",
+      "+mediawiki.rcfilters.filters.ui": "skins.femiwiki.moduleSkinStyles/mediawiki.rcfilters.filters.ui.less",
+      "+mediawiki.special.changeslist": "skins.femiwiki.moduleSkinStyles/mediawiki.special.changeslist.less",
+      "+mediawiki.special.search": "skins.femiwiki.moduleSkinStyles/mediawiki.special.search.less",
+      "+mediawiki.special.userlogin.common.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.special.userlogin.common.styles.less",
+      "+mediawiki.special": "skins.femiwiki.moduleSkinStyles/mediawiki.special.less",
+      "+mediawiki.ui.anchor": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.anchor.less",
+      "+mediawiki.ui.button": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.button.less",
+      "+mediawiki.ui.icon": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.icon.less",
+      "+mediawiki.ui.input": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.input.less",
+      "+mediawiki.widgets.DateInputWidget": "skins.femiwiki.moduleSkinStyles/mediawiki.widgets.DateInputWidget.less",
+      "+oojs-ui-core.styles": "skins.femiwiki.moduleSkinStyles/oojs-ui-core.styles.less",
+      "+wikibase.common": "skins.femiwiki.moduleSkinStyles/wikibase.common.less"
     }
   },
   "Hooks": {
-    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent",
+    "BeforePageDisplay": "SkinFemiwikiHooks::onBeforePageDisplay",
+    "ContentHandlerDefaultModelFor": "SkinFemiwikiHooks::onContentHandlerDefaultModelFor",
+    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls",
     "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars",
-    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls"
+    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent"
   },
   "config": {
     "FemiwikiFirebaseKey": { "value": "" },
@@ -114,9 +170,11 @@
   },
   "OOUIThemePaths": {
     "Femiwiki": {
-      "scripts": "resources/ooui/oojs-ui-femiwiki.js",
-      "styles": "resources/ooui/oojs-ui-{module}-femiwiki.css",
-      "images": "resources/ooui/{module}.json"
+      "localBasePath": "resources/ooui",
+      "remoteSkinPath": "Femiwiki/resources/ooui",
+      "scripts": "oojs-ui-femiwiki.js",
+      "styles": "oojs-ui-{module}-femiwiki.css",
+      "images": "{module}.json"
     }
   },
   "SkinOOUIThemes": {

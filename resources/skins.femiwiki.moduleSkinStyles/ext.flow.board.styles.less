@@ -1,0 +1,22 @@
+@import '../variables.less';
+
+.flow-moderated-post-content, // https://github.com/femiwiki/FemiwikiSkin/issues/198
+.flow-post-meta,
+.flow-topic-meta {
+  a {
+    .mw-link();
+  }
+}
+
+.skin-femiwiki .flow-topic-meta {
+  a:not(:hover) {
+    &.flow-click-interactive,
+    &.flow-timestamp-anchor {
+      color: inherit;
+    }
+  }
+}
+
+.flow-board-header {
+  max-width: inherit;
+}

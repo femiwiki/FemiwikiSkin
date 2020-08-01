@@ -1,0 +1,45 @@
+@import '../variables.less';
+
+// @See https://github.com/femiwiki/FemiwikiSkin/issues/162
+
+.mw-widget-calendarWidget {
+  &:focus {
+    border-color: @color-primary2;
+    box-shadow: inset 0 0 0 1px @color-primary2;
+  }
+  &-day-today {
+    box-shadow: inset 0 0 0 1px @color-primary2;
+  }
+
+  &-item {
+    &:hover {
+      background-color: @color-primary2;
+    }
+
+    &-selected {
+      background-color: @color-primary4;
+    }
+  }
+}
+
+.mw-widget-dateInputWidget-calendar:focus {
+  box-shadow: inset 0 0 0 1px @color-primary2, 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.mw-widget-dateInputWidget.oo-ui-widget-enabled
+  .mw-widget-dateInputWidget-handle:focus {
+  border-color: @color-primary2;
+  box-shadow: inset 0 0 0 1px @color-primary2;
+}
+
+.mw-widget-mediaResultWidget.oo-ui-optionWidget-highlighted,
+.mw-widget-mediaResultWidget.oo-ui-optionWidget-selected {
+  box-shadow: 0 0 2px @color-primary2;
+}
+
+.mw-widget-mediaResultWidget.oo-ui-optionWidget-highlighted
+  .mw-widget-mediaResultWidget-overlay,
+.mw-widget-mediaResultWidget.oo-ui-optionWidget-selected
+  .mw-widget-mediaResultWidget-overlay {
+  box-shadow: inset 0 0 0 1px @color-primary2;
+}
