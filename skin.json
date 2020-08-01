@@ -27,6 +27,7 @@
   "ResourceModules": {
     "skins.femiwiki": {
       "class": "FemiwikiResourceLoaderModule",
+      "features": ["legacy"],
       "targets": ["desktop", "mobile"],
       "position": "top",
       "styles": {
