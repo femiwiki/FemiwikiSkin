@@ -162,11 +162,7 @@
     "FemiwikiFirebaseKey": { "value": "" },
     "FemiwikiFacebookAppId": { "value": "" },
     "FemiwikiTwitterAccount": { "value": false },
-    "FemiwikiHeadItems": { "value": false },
-    "FemiwikiLogos": {
-      "value": [],
-      "description": "Use this instead of $wgLogos on MediaWiki 1.34 and earlier"
-    }
+    "FemiwikiHeadItems": { "value": false }
   },
   "OOUIThemePaths": {
     "Femiwiki": {
