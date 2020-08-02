@@ -65,9 +65,7 @@ class FemiwikiTemplate extends BaseTemplate {
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
 				'data-above-title-menu' => $this->getAboveTitleMenu(),
 				'page-language' => $this->get( 'pageLanguage' ),
-				'html-title' => version_compare( MW_VERSION, '1.35', '<' )
-					? $this->get( 'title', '' )
-					: $out->getPageTitle(),
+				'html-title' => $out->getPageTitle(),
 				'html-share-button' => isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
 					'id' => 'p-share',
 					'classes' => [ 'fw-button' ],
