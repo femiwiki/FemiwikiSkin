@@ -475,7 +475,9 @@
     display: none;
   }
 
-  *:not(.mw-highlight) > pre:not(.CodeMirror-line) {
+  *:not(.mw-highlight) > pre:not(.CodeMirror-line),
+  // https://github.com/femiwiki/FemiwikiSkin/issues/201
+  & > pre:not(.CodeMirror-line) {
     font-family: inherit;
     overflow: hidden;
     border: none;
