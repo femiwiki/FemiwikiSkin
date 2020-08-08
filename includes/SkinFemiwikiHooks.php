@@ -83,6 +83,9 @@ class SkinFemiwikiHooks {
 	 * @return bool true in all cases
 	 */
 	public static function onPersonalUrls( &$personalTools, &$title, $sk ) {
+		if ( !$sk instanceof SkinFemiwiki ) {
+			return;
+		}
 		self::addNotification( $personalTools, $title, $sk );
 		self::addMobileOptions( $personalTools, $title, $sk );
 
@@ -97,7 +100,7 @@ class SkinFemiwikiHooks {
 	 * @return null
 	 */
 	private static function addNotification( &$personalTools, &$title, $sk ) {
-		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
 
@@ -166,7 +169,7 @@ class SkinFemiwikiHooks {
 	 * @param SkinTemplate $sk
 	 */
 	private static function addMobileOptions( &$personalTools, &$title, $sk ) {
-		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 			return;
 		}
 
