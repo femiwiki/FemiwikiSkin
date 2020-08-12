@@ -1,6 +1,6 @@
 <?php
 
-class FemiwikiResourceLoaderModule extends \ResourceLoaderSkinModule {
+class FemiwikiResourceLoaderSkinModule extends \ResourceLoaderSkinModule {
 	/**
 	 * @param \ResourceLoaderContext $context
 	 * @return array

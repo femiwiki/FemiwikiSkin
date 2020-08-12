@@ -22,11 +22,11 @@
     "SkinFemiwikiHooks": "includes/SkinFemiwikiHooks.php",
     "FemiwikiTemplate": "includes/FemiwikiTemplate.php",
     "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php",
-    "FemiwikiResourceLoaderModule": "includes/FemiwikiResourceLoaderModule.php"
+    "FemiwikiResourceLoaderSkinModule": "includes/FemiwikiResourceLoaderSkinModule.php"
   },
   "ResourceModules": {
     "skins.femiwiki": {
-      "class": "FemiwikiResourceLoaderModule",
+      "class": "FemiwikiResourceLoaderSkinModule",
       "features": ["legacy"],
       "targets": ["desktop", "mobile"],
       "position": "top",
