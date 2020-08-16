@@ -29,6 +29,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	public function execute() {
 		$skin = $this->getSkin();
 		$out = $skin->getOutput();
+		$siteNotice = $skin->getSiteNotice();
 
 		echo $this->templateParser->processTemplate( $this->templateRoot, [
 			'html-headelement' => $out->headElement( $skin ),
@@ -55,7 +56,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			],
 			'data-sidebar' => $this->getSidebarData(),
 			'data-header' => [
-				'html-sitenotice' => $this->get( 'sitenotice', null ),
+				'html-sitenotice' => $siteNotice === '' ? null : $siteNotice,
 				'data-indicators' => array_filter( array_map( function ( $id, $content ) {
 					return $id == 'mw-helplink' ? null : [
 						'id' => $id,
