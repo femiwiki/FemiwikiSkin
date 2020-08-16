@@ -374,24 +374,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	public function getToolboxData() {
-		$toolbox = parent::getToolbox();
-
-		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'Sanctions' )
-				&& $this->getSkin()->getRelevantUser()
-				&& isset( $this->data['sidebar']['TOOLBOX']['sanctions'] ) ) {
-				$toolbox = wfArrayInsertAfter(
-					$toolbox,
-					[ $this->data['sidebar']['TOOLBOX']['sanctions'] ],
-					isset( $toolbox['blockip'] ) ? 'blockip' : 'log'
-				);
-				unset( $this->data['sidebar']['TOOLBOX']['sanctions'] );
-			}
-			$toolbox = array_merge(
-				$toolbox,
-				$this->data['sidebar']['TOOLBOX'] ?? []
-			);
-		}
+		$toolbox = $this->data['sidebar']['TOOLBOX'];
 
 		foreach ( [ 'upload', 'specialpages' ] as $special ) {
 			if ( isset( $toolbox[$special] ) ) {
