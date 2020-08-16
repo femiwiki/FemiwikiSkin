@@ -13,7 +13,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	private $templateRoot = 'skin';
 
 	/** @var array */
-	public $xeIconMap;
+	private $xeIconMap;
 
 	/**
 	 * @param Config|null $config
@@ -231,6 +231,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	protected function getPortal( $name, $content, $msg = null ) {
 		$msg = $this->getMsg( $msg ?: $name );
 		$label = $msg->exists() ? $msg->text() : $name;
+		$xeIconMap = $this->getXeIconMap();
 
 		if ( is_array( $content ) ) {
 			if ( !count( $content ) ) {
@@ -238,7 +239,24 @@ class FemiwikiTemplate extends BaseTemplate {
 			}
 			$htmlItems = [];
 			foreach ( $content as $key => $val ) {
-				$htmlItems[] = $this->makeListItem( $key, $val );
+				$options = [];
+				if ( isset( $val['id'] ) && isset( $xeIconMap[$val['id']] ) ) {
+					$options = [
+						'text-wrapper' => [
+							[
+								'tag' => 'i',
+								'attributes' => [
+									'class' => 'xi-' . $xeIconMap[$val['id']]
+								]
+							],
+							[
+								'tag' => 'span'
+							],
+						],
+						'link-class' => 'xe-icons',
+					];
+				}
+				$htmlItems[] = $this->makeListItem( $key, $val, $options );
 			}
 			$htmlItems = implode( "\n", $htmlItems );
 		} else {
@@ -257,107 +275,9 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @inheritDoc Add xeicon to BaseTemplate::makeLink()
-	 * @param string $key
-	 * @param array $item
-	 * @param array $options
-	 * @return string
-	 */
-	public function makeLink( $key, $item, $options = [] ) {
-		$text = $item['text'] ?? wfMessage( $item['msg'] ?? $key )->text();
-
-		$html = htmlspecialchars( $text );
-
-		if ( isset( $options['text-wrapper'] ) ) {
-			$wrapper = $options['text-wrapper'];
-			if ( isset( $wrapper['tag'] ) ) {
-				$wrapper = [ $wrapper ];
-			}
-			while ( count( $wrapper ) > 0 ) {
-				$element = array_pop( $wrapper );
-				$html = Html::rawElement( $element['tag'], $element['attributes'] ?? null, $html );
-			}
-		}
-
-		if ( isset( $item['href'] ) || isset( $options['link-fallback'] ) ) {
-			$attrs = $item;
-			foreach ( [ 'single-id', 'text', 'msg', 'tooltiponly', 'context', 'primary',
-				'tooltip-params', 'exists' ] as $k ) {
-				unset( $attrs[$k] );
-			}
-
-			if ( isset( $attrs['data'] ) ) {
-				foreach ( $attrs['data'] as $key => $value ) {
-					$attrs[ 'data-' . $key ] = $value;
-				}
-				unset( $attrs[ 'data' ] );
-			}
-
-			if ( isset( $item['id'] ) && !isset( $item['single-id'] ) ) {
-				$item['single-id'] = $item['id'];
-			}
-
-			$tooltipParams = [];
-			if ( isset( $item['tooltip-params'] ) ) {
-				$tooltipParams = $item['tooltip-params'];
-			}
-
-			if ( isset( $item['single-id'] ) ) {
-				$tooltipOption = isset( $item['exists'] ) && $item['exists'] === false ? 'nonexisting' : null;
-
-				if ( isset( $item['tooltiponly'] ) && $item['tooltiponly'] ) {
-					$title = Linker::titleAttrib( $item['single-id'], $tooltipOption, $tooltipParams );
-					if ( $title !== false ) {
-						$attrs['title'] = $title;
-					}
-				} else {
-					$tip = Linker::tooltipAndAccesskeyAttribs(
-						$item['single-id'],
-						$tooltipParams,
-						$tooltipOption
-					);
-					if ( isset( $tip['title'] ) && $tip['title'] !== false ) {
-						$attrs['title'] = $tip['title'];
-					}
-					if ( isset( $tip['accesskey'] ) && $tip['accesskey'] !== false ) {
-						$attrs['accesskey'] = $tip['accesskey'];
-					}
-				}
-			}
-			if ( isset( $options['link-class'] ) ) {
-				if ( isset( $attrs['class'] ) ) {
-					$attrs['class'] .= " {$options['link-class']}";
-				} else {
-					$attrs['class'] = $options['link-class'];
-				}
-			}
-
-			if ( isset( $item['single-id'] ) && isset( $this->getXeIconMap()[$item['single-id']] ) ) {
-				$html = Html::rawElement( 'i',  [
-					'class' => 'xi-' . $this->getXeIconMap()[$item['single-id']]
-				] ) . $html;
-
-				if ( !isset( $attrs['class'] ) ) {
-					$attrs['class'] = 'xe-icons';
-				} elseif ( is_array( $attrs['class'] ) ) {
-					$attrs['class'][] = 'xe-icons';
-				} else {
-					$attrs['class'] .= ' xe-icons';
-				}
-			}
-
-			$html = Html::rawElement( isset( $attrs['href'] )
-				? 'a'
-				: $options['link-fallback'], $attrs, $html );
-		}
-
-		return $html;
-	}
-
-	/**
 	 * @return array
 	 */
-	public function getXeIconMap() {
+	private function getXeIconMap() {
 		if ( !$this->xeIconMap ) {
 			$this->xeIconMap = json_decode(
 				$this->getMsg( 'skin-femiwiki-xeicon-map.json' )
