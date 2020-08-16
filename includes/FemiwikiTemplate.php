@@ -279,12 +279,21 @@ class FemiwikiTemplate extends BaseTemplate {
 	 */
 	private function getXeIconMap() {
 		if ( !$this->xeIconMap ) {
-			$this->xeIconMap = json_decode(
+			$map = json_decode(
 				$this->getMsg( 'skin-femiwiki-xeicon-map.json' )
 					->inContentLanguage()
 					->plain(),
 				true
 			);
+			foreach ( $map as $k => $v ) {
+				$escapedId = Sanitizer::escapeIdForAttribute( $k );
+				if ( $k != $escapedId ) {
+					$map[$escapedId] = $v;
+					unset( $map[$k] );
+				}
+			}
+
+			$this->xeIconMap = $map;
 		}
 		return $this->xeIconMap;
 	}
