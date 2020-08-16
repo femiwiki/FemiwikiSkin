@@ -251,7 +251,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			'label-id' => "p-$name-label",
 			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
 			'html-items' => $htmlItems,
-			'html-after-portal' => $this->getAfterPortlet( $name ),
+			'html-after-portal' => $this->getSkin()->getAfterPortlet( $name ),
 		];
 	}
 
