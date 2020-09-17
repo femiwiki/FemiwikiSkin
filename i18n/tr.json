@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"MuratTheTurkish"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
 	"femiwiki-desc": "Femiwiki görünümü",
 	"skin-femiwiki-page-menu-tooltip": "Menü",
-	"skin-femiwiki-share-tooltip": "Bu makaleyi paylaş",
+	"skin-femiwiki-share-tooltip": "Bu maddeyi paylaş",
 	"skin-femiwiki-share-dismiss": "Kapat",
 	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter"
