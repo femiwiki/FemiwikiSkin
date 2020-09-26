@@ -4,32 +4,31 @@
 .nav-bar {
   @height: 2.4rem;
   height: @height;
-  background-color: @color-primary1;
+  background-color: @color-primary3;
 
   #mw-navigation {
     @logo-icon-width: @height;
     @wordmark-width: 7.7rem;
 
-    position: relative;
+    display: flex;
     max-width: @content-width - 1.3rem;
     margin: 0 auto;
     height: @height;
 
     & > * {
-      position: absolute;
       height: @height;
       padding: 0;
       margin: 0;
     }
 
     h2 {
-      .hidden();
+      display: none;
     }
 
     #p-logo {
-      display: block;
       background-repeat: no-repeat;
       width: @logo-icon-width;
+      min-width: @logo-icon-width;
 
       & when( @logo-icon-enabled = 1 ) {
         /* @embed */
@@ -51,25 +50,19 @@
 
     // Search form
     #p-search {
-      display: block;
-      left: @logo-icon-width + 0.1rem;
-      right: 7.3rem;
-
-      @media screen and (min-width: @width-breakpoint-tablet) {
-        left: @wordmark-width + 0.1rem;
-        right: 13.3rem;
-      }
+      flex-grow: 1;
 
       h3 {
         display: none;
       }
 
       #searchInput {
+        box-sizing: content-box;
         display: block;
         width: ~'calc(100% - 1rem - 2px)';
         font-size: 1rem;
         height: ~'calc(2.4rem - 2px)';
-        border: 1px solid @color-primary1;
+        border: 1px solid @color-primary3;
         padding: 0 0.5rem;
       }
 
@@ -95,7 +88,7 @@
 
     // Recent changes and random pages
     #site-navigation {
-      right: @height;
+      min-width: ~'calc(@{height}*2 + 1px)';
 
       li {
         float: left;
@@ -115,11 +108,12 @@
           height: @height;
           color: @color-base100;
           text-decoration: none;
-          background-size: @height @height;
+          background-position: center;
+          background-size: 1.8rem;
           background-repeat: no-repeat;
 
           @media screen and (min-width: @width-breakpoint-tablet) {
-            width: 5.4rem;
+            width: auto;
             background-size: 1.6rem 1.6rem;
             background-position: 0.4rem 0.4rem;
           }
@@ -129,37 +123,31 @@
 
             @media screen and (min-width: @width-breakpoint-tablet) {
               display: inline-block;
-              padding-left: 1.2rem;
-              padding-top: 0.5rem;
+              padding-left: 2.2rem;
+              padding-right: 1rem;
+              line-height: @height;
             }
           }
         }
 
         &.changes a {
-          .background-image('../images/icon-changes.png');
-
-          @media screen and (min-width: @width-breakpoint-tablet) {
-            .background-image('../images/icon-changes-notext.png');
-          }
+          .background-image('../resources/images/icon-changes-notext.png');
         }
         &.random a {
-          .background-image('../images/icon-random.png');
-
-          @media screen and (min-width: @width-breakpoint-tablet) {
-            .background-image('../images/icon-random-notext.png');
-          }
+          .background-image('../resources/images/icon-random-notext.png');
         }
       }
     }
 
     // Menu button
     #fw-menu-toggle {
-      right: 0;
+      position: relative;
       width: @height;
+      min-width: @height;
       border-width: 0;
       background-color: inherit;
       background: 0.3rem 0.3rem ~'/' 1.8rem 1.8rem no-repeat;
-      .background-image('../images/icon-bars.png');
+      .background-image('../resources/images/icon-bars.png');
 
       .badge {
         display: none;
@@ -173,7 +161,7 @@
         height: 1.2rem;
         font-size: 0.7rem;
         line-height: 1.1rem;
-        border: 1px solid @color-primary1;
+        border: 1px solid @color-primary3;
         border-radius: 0.6rem;
         animation: gentle-pulse 5s infinite;
 
@@ -185,9 +173,23 @@
   }
 }
 
+@media screen and (max-width: @width-breakpoint-tablet) {
+  html[lang='ko'] #mw-navigation #site-navigation {
+    a {
+      background-size: 2.4rem;
+    }
+    .changes a {
+      .background-image('../resources/images/icon-changes.png');
+    }
+    .random a {
+      .background-image('../resources/images/icon-random.png');
+    }
+  }
+}
+
 .fw-wiki-portals {
   max-width: @content-width - @content-horizontal-padding;
-  padding: @content-horizontal-padding;
+  .content-horizontal-padding();
 
   // Show portals like below:
   //  ___ ___ ___ ___
@@ -219,6 +221,12 @@
 
   // Hide less-frequently used links
   #ca-addsection {
+    display: none;
+  }
+
+  // Hide duplicated links with in nav-bar
+  #n-recentchanges,
+  #n-randompage {
     display: none;
   }
 

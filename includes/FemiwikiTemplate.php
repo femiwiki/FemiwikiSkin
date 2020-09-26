@@ -12,6 +12,9 @@ class FemiwikiTemplate extends BaseTemplate {
 	/** @var string File name of the root (master) template without folder path and extension */
 	private $templateRoot = 'skin';
 
+	/** @var array */
+	private $xeIconMap;
+
 	/**
 	 * @param Config|null $config
 	 */
@@ -26,6 +29,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	public function execute() {
 		$skin = $this->getSkin();
 		$out = $skin->getOutput();
+		$siteNotice = $skin->getSiteNotice();
 
 		echo $this->templateParser->processTemplate( $this->templateRoot, [
 			'html-headelement' => $out->headElement( $skin ),
@@ -52,13 +56,17 @@ class FemiwikiTemplate extends BaseTemplate {
 			],
 			'data-sidebar' => $this->getSidebarData(),
 			'data-header' => [
-				'html-sitenotice' => $this->get( 'sitenotice', null ),
+				'html-sitenotice' => $siteNotice === '' ? null : $siteNotice,
+				'data-indicators' => array_filter( array_map( function ( $id, $content ) {
+					return $id == 'mw-helplink' ? null : [
+						'id' => $id,
+						'html' => $content,
+					];
+				}, array_keys( $out->getIndicators() ), $out->getIndicators() ) ),
 				'html-newtalk' => $this->get( 'newtalk' ) ?: null,
 				'data-above-title-menu' => $this->getAboveTitleMenu(),
 				'page-language' => $this->get( 'pageLanguage' ),
-				'html-title' => version_compare( MW_VERSION, '1.35', '<' )
-					? $this->get( 'title', '' )
-					: $out->getPageTitle(),
+				'html-title' => $out->getPageTitle(),
 				'html-share-button' => isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
 					'id' => 'p-share',
 					'classes' => [ 'fw-button' ],
@@ -68,6 +76,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					'framed' => false,
 					'invisibleLabel' => true
 				] ) : null,
+				'html-helplink' => $out->getIndicators()['mw-helplink'] ?? null,
 				'msg-page-menu-toggle-tooltip' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->text(),
 				'data-toolbox' => $this->getPortal( 'page-tb', $this->getToolboxData(), 'toolbox' ),
 				'data-actions' => $this->getPortal( 'actions', $this->data['content_navigation']['actions'] ?? null, 'actions' ),
@@ -217,16 +226,37 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * @param string $name
 	 * @param array $content
 	 * @param string|null $msg
-	 * @return string html
+	 * @return array|null html
 	 */
 	protected function getPortal( $name, $content, $msg = null ) {
 		$msg = $this->getMsg( $msg ?: $name );
 		$label = $msg->exists() ? $msg->text() : $name;
+		$xeIconMap = $this->getXeIconMap();
 
 		if ( is_array( $content ) ) {
+			if ( !count( $content ) ) {
+				return null;
+			}
 			$htmlItems = [];
 			foreach ( $content as $key => $val ) {
-				$htmlItems[] = $this->makeListItem( $key, $val );
+				$options = [];
+				if ( isset( $val['id'] ) && isset( $xeIconMap[$val['id']] ) ) {
+					$options = [
+						'text-wrapper' => [
+							[
+								'tag' => 'i',
+								'attributes' => [
+									'class' => 'xi-' . $xeIconMap[$val['id']]
+								]
+							],
+							[
+								'tag' => 'span'
+							],
+						],
+						'link-class' => 'xe-icons',
+					];
+				}
+				$htmlItems[] = $this->makeListItem( $key, $val, $options );
 			}
 			$htmlItems = implode( "\n", $htmlItems );
 		} else {
@@ -240,8 +270,32 @@ class FemiwikiTemplate extends BaseTemplate {
 			'label-id' => "p-$name-label",
 			'html-userlangattributes' => $this->data['userlangattributes'] ?? '',
 			'html-items' => $htmlItems,
-			'html-after-portal' => $this->getAfterPortlet( $name ),
+			'html-after-portal' => $this->getSkin()->getAfterPortlet( $name ),
 		];
+	}
+
+	/**
+	 * @return array
+	 */
+	private function getXeIconMap() {
+		if ( !$this->xeIconMap ) {
+			$map = json_decode(
+				$this->getMsg( 'skin-femiwiki-xeicon-map.json' )
+					->inContentLanguage()
+					->plain(),
+				true
+			);
+			foreach ( $map as $k => $v ) {
+				$escapedId = Sanitizer::escapeIdForAttribute( $k );
+				if ( $k != $escapedId ) {
+					$map[$escapedId] = $v;
+					unset( $map[$k] );
+				}
+			}
+
+			$this->xeIconMap = $map;
+		}
+		return $this->xeIconMap;
 	}
 
 	/**
@@ -250,23 +304,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	 * @return array
 	 */
 	public function getToolboxData() {
-		$toolbox = parent::getToolbox();
-
-		if ( version_compare( MW_VERSION, '1.35', '<' ) ) {
-			if ( ExtensionRegistry::getInstance()->isLoaded( 'Sanctions' )
-				&& isset( $this->data['sidebar']['TOOLBOX'] ) ) {
-				$toolbox = wfArrayInsertAfter(
-					$toolbox,
-					[ $this->data['sidebar']['TOOLBOX']['sanctions'] ],
-					isset( $toolbox['blockip'] ) ? 'blockip' : 'log'
-				);
-				unset( $this->data['sidebar']['TOOLBOX']['sanctions'] );
-			}
-			$toolbox = array_merge(
-				$toolbox,
-				$this->data['sidebar']['TOOLBOX'] ?? []
-			);
-		}
+		$toolbox = $this->data['sidebar']['TOOLBOX'];
 
 		foreach ( [ 'upload', 'specialpages' ] as $special ) {
 			if ( isset( $toolbox[$special] ) ) {

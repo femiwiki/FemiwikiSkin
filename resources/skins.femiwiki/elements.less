@@ -12,13 +12,10 @@ html {
     font-size: 16px;
   }
 
-  font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕',
-    'Noto Sans CJK KR', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕',
-    NanumGothic, '맑은고딕', 'Malgun Gothic', Arial, Dotum, sans-serif;
+  font-family: @font-family;
 }
 
 body {
-  margin: 0;
   padding: 0;
   color: @color-base15;
   line-height: 1.7;
@@ -33,7 +30,7 @@ body {
 }
 
 ::selection {
-  background-color: #c3bffd;
+  background-color: @color-background1;
 }
 
 // Quote
@@ -97,7 +94,7 @@ input[type='submit'],
 button {
   padding: 0.2rem 0.5rem;
   color: #fff;
-  background-color: #aca7e2;
+  background-color: @color-progressive;
   text-decoration: none;
   cursor: pointer;
 }
@@ -109,11 +106,7 @@ td {
   border: 1px solid #ddd;
 }
 
-pre,
-code,
 tt,
-kbd,
-samp,
 .mw-code {
   font-family: monospace, monospace;
 }

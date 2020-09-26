@@ -1,0 +1,97 @@
+@import '../variables.less';
+
+// Fix https://github.com/femiwiki/skin/issues/62
+.oo-ui-defaultOverlay,
+.skin-femiwiki .oo-ui-windowManager-modal > .oo-ui-dialog,
+.skin-femiwiki .ve-ui-overlay-global {
+  z-index: 101;
+}
+
+.oo-ui-widget:not(.ve-ui-surface):not(.ve-ui-mwTocWidget) {
+  a:not(.oo-ui-tool-link):not(.oo-ui-buttonElement-button):not(.mw-echo-ui-notificationItemWidget-linkWrapper) {
+    .mw-link();
+  }
+
+  // Mimic resources/src/mediawiki.skinning/elements.css
+
+  p:not(.mw-ui-feature-description) {
+    margin: 0.4em 0 0.5em 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    background: none;
+    font-weight: normal;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 0.5em;
+    padding-bottom: 0.17em;
+    border-bottom: 1px solid #a2a9b1;
+  }
+
+  h1 {
+    font-size: 188%;
+  }
+
+  h2 {
+    font-size: 150%;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    border-bottom: 0;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 128%;
+  }
+
+  h4 {
+    font-size: 116%;
+  }
+
+  h5 {
+    font-size: 108%;
+  }
+
+  h6 {
+    font-size: 100%;
+  }
+
+  /* Some space under the headers in the content area */
+  h1,
+  h2 {
+    margin-bottom: 0.6em;
+  }
+
+  h3,
+  h4,
+  h5 {
+    margin-bottom: 0.3em;
+  }
+}
+
+@media screen and (max-width: @width-breakpoint-mobile) {
+  .oo-ui-window-frame {
+    div.oo-ui-popupWidget-popup {
+      min-width: 16rem;
+      min-height: 10rem;
+    }
+
+    div.oo-ui-menuLayout-menu {
+      width: 3rem;
+    }
+
+    div.oo-ui-menuLayout-content {
+      left: 3rem;
+    }
+  }
+}

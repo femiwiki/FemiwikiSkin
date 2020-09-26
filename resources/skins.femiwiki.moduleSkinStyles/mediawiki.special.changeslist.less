@@ -1,0 +1,224 @@
+@import '../variables.less';
+
+.mw-specialpage-summary,
+.mw-changeslist-legend {
+  display: none;
+}
+
+// Head for the modern ("enhanced") version of recent changes
+.rcfilters-head {
+  .mw-rcfilters-ui-filterWrapperWidget-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+.rcfilters-head,
+.mw-changeslist {
+  a {
+    .mw-link();
+  }
+}
+
+// Head for the earlier version of recent changes
+fieldset.rcoptions {
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  .rclistfrom {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .rcshowhide {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .mw-recentchanges-table {
+    tr {
+      display: block;
+    }
+
+    td {
+      display: block;
+    }
+
+    .mw-label {
+      margin-top: 1rem;
+      text-align: left;
+    }
+  }
+}
+
+.mw-changeslist {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+
+  h4 {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #252525;
+    margin: 2rem 0 1rem;
+    padding: 0;
+  }
+
+  // See https://github.com/femiwiki/FemiwikiSkin/issues/196
+  ul.special {
+    padding-left: 0;
+  }
+
+  td {
+    border-width: 0;
+  }
+
+  .mw-title {
+    font-weight: normal;
+  }
+
+  li.mw-changeslist-line {
+    list-style-type: none;
+  }
+
+  .mw-changeslist-line:not(tr) {
+    margin-bottom: 1rem;
+  }
+
+  .mw-changeslist-line:not(tr):nth-child(odd) {
+    background-color: #f6f6f6;
+  }
+
+  // Entries (common)
+  .mw-changeslist-line:not(tr) {
+    // arrow, "new" flag, timestamp
+    .newpage,
+    .minoredit,
+    .unpatrolled {
+      float: right;
+    }
+
+    .unpatrolled {
+      margin-right: 0.5rem;
+    }
+
+    .mw-enhancedchanges-arrow-space {
+      display: none;
+    }
+  }
+
+  // Entries (individual)
+  .mw-changeslist-line:not(tr):not(.mw-collapsible) {
+    font-size: 0.8rem;
+
+    .mw-changeslist-title {
+      font-size: 1rem;
+    }
+
+    & > tbody > tr {
+      position: relative;
+    }
+  }
+
+  // Entries (nested)
+  .mw-changeslist-line.mw-collapsible {
+    font-size: 0.8rem;
+
+    .mw-changeslist-title,
+    .mw-enhanced-rc-time {
+      font-size: 1rem;
+    }
+
+    & > tbody > tr {
+      position: relative;
+    }
+
+    & > tbody > tr:first-child {
+      padding-left: 0;
+    }
+
+    & > tbody > tr {
+      padding-left: 1rem;
+
+      .mw-enhanced-rc-nested {
+        padding-left: 0;
+      }
+    }
+  }
+
+  .mw-changeslist-line {
+    padding: 0.7rem 1.3rem;
+  }
+
+  .mw-changeslist-line:not(tr) {
+    display: block;
+
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    .mw-changeslist-separator {
+      display: none;
+    }
+
+    .mw-collapsible-toggle {
+      float: left;
+      display: block;
+    }
+
+    .mw-usertoollinks {
+      display: none;
+    }
+
+    .comment {
+      display: block;
+      opacity: 0.6;
+    }
+
+    .mw-plusminus-pos,
+    .mw-plusminus-neg,
+    .mw-plusminus-null {
+      font-weight: inherit;
+    }
+
+    // Hide nested table's cell
+    &.mw-collapsible tr:first-child td:nth-child(2) {
+      display: block;
+    }
+
+    &.mw-collapsible tr td:nth-child(2) {
+      display: none;
+    }
+  }
+}
+
+// Reset super module
+.client-js .mw-changeslist ul,
+.client-js .mw-changeslist table.mw-enhanced-rc {
+  margin-left: auto;
+}
+
+.mw-changeslist div:not(.mw-changeslist-links),
+.client-js .mw-changeslist ul {
+  @media screen and (max-width: @width-breakpoint-mobile) {
+    .full-width();
+  }
+}
+
+// "No changes during the given period match these criteria.". repeated class for priority
+.mw-rcfilters-ui-changesListWrapperWidget-results.mw-rcfilters-ui-changesListWrapperWidget-results {
+  width: auto;
+}
+
+// Special:Contributions
+.mw-pager-navigation-bar,
+.mw-contributions-list {
+  a {
+    .mw-link();
+  }
+}

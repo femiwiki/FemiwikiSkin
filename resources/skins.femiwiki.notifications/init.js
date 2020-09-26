@@ -4,13 +4,13 @@
   function init() {
     var myWidget;
     /** @type {EchoApi} */ var echoApi;
-    var $existingLink = $('#pt-notifications-echo a');
+    var $existingLink = $('#pt-notifications-all a');
     var num = $existingLink.attr('data-counter-num');
     var badgeLabel = $existingLink.attr('data-counter-text');
     var hasUnseen = $existingLink.hasClass('mw-echo-unseen-notifications');
     var links = {
       notifications:
-        $('#pt-notifications-echo a').attr('href') ||
+        $('#pt-notifications-all a').attr('href') ||
         mw.util.getUrl('Special:Notifications'),
       preferences:
         ($('#pt-preferences a').attr('href') ||

@@ -1,0 +1,108 @@
+@import '../variables.less';
+
+// Prevent Code mirror glitch
+// @See https://github.com/femiwiki/skin/issues/52
+.ve-init-mw-desktopArticleTarget .CodeMirror.CodeMirror {
+  padding: 0;
+}
+
+// @see https://github.com/femiwiki/FemiwikiSkin/issues/163
+.ve-init-mw-progressBarWidget {
+  border-color: @color-primary4;
+}
+.ve-init-mw-progressBarWidget-bar {
+  background: @color-primary4;
+}
+
+html.ve-active,
+html.ve-activated,
+html.ve-deactivating {
+  #siteNotice,
+  #mw-fr-revisiontag {
+    display: none;
+  }
+
+  .mw-body {
+    .mw-editsection {
+      display: none;
+    }
+
+    // Remove margin of generated elements
+    li > p.ve-ce-generated-wrapper {
+      margin: 0;
+    }
+
+    // Remove padding of visual editor
+    .ve-ce-documentNode {
+      padding: 0;
+    }
+
+    // Show femiwiki category
+    .fw-catlinks {
+      display: block;
+    }
+  }
+
+  .oo-ui-toolbar {
+    font-size: 12px;
+  }
+}
+
+#editpage-copywarn,
+// https://github.com/femiwiki/FemiwikiSkin/issues/185
+.ve-ui-mwTemplatePage-description {
+  a {
+    .mw-link();
+  }
+}
+
+.ve-ui-mwSaveDialog {
+  .mw-parser-output {
+    max-width: @content-width;
+    .content-horizontal-padding();
+    margin: auto;
+    .parser-output();
+  }
+}
+
+@media screen and (max-width: @width-breakpoint-mobile) {
+  // VisualEditor
+  html.ve-active,
+  html.ve-activated,
+  html.ve-deactivated {
+    .mw-body {
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      overflow: inherit;
+    }
+
+    .ve-init-mw-desktopArticleTarget-originalContent {
+      .content-horizontal-padding();
+    }
+
+    .nav-bar,
+    #footer-bottom,
+    #p-header {
+      display: none;
+    }
+
+    .oo-ui-toolbar-tools {
+      z-index: 1;
+    }
+  }
+  html.ve-active {
+    div.oo-ui-popupWidget-popup {
+      min-width: 16rem;
+      min-height: 10rem;
+    }
+
+    div.oo-ui-menuLayout-menu {
+      width: 3rem;
+    }
+
+    div.oo-ui-menuLayout-content {
+      left: 3rem;
+    }
+  }
+}
