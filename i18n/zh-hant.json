@@ -10,5 +10,10 @@
 	"skin-femiwiki-share-tooltip": "分享此條目",
 	"skin-femiwiki-share-dismiss": "去除",
 	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+	"skin-femiwiki-share-twitter": "Twitter",
+	"skin-femiwiki-xeicon-map.json": "{\n    \"pt-createaccount\": \"user·plus\",\n    \"pt-login\": \"log-in\",\n    \"pt-userpage\": \"profile\",\n    \"pt-notifications-all\": \"bell\",\n    \"pt-mytalk\": \"forum\",\n    \"pt-preferences\": \"cog\",\n    \"pt-watchlist\": \"star\",\n    \"pt-mycontris\": \"list\",\n    \"pt-logout\": \"log-out\",\n    \"t-whatlinkshere\": \"paper\",\n    \"t-recentchangeslinked\": \"library-books\",\n    \"t-print\": \"print\",\n    \"t-permalink\": \"link\",\n    \"t-info\": \"info\",\n    \"t-cite\": \"attachment\",\n    \"ca-delete\": \"trash\",\n    \"ca-move\": \"long-arrow-right\",\n    \"ca-protect\": \"lock\"\n}",
+	"femiwiki.css": "/* 此處的 CSS 會影響使用 Femiwiki 外觀的使用者 */",
+	"femiwiki.js": "/* 此處的任何 JavaScript 都會在使用者使用 Femiwiki 外觀時載入 */",
+	"skin-femiwiki-desktop-switch-confirm": "將不再支援於行動裝置檢視的編輯。{{GENDER:|您}}想要切換成桌面檢視嗎？",
+	"skin-femiwiki-desktop-switch-canceled": "編輯已取消。"
 }
