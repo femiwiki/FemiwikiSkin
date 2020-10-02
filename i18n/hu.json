@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hanna Tardos"
+		]
+	},
+	"femiwiki.css": "/* Az ide elhelyezett CSS hatással lesz a Femiwiki skin használóira */",
+	"skin-femiwiki-desktop-switch-confirm": "A mobilnézetben való szerkesztés egyelőre nem támogatott. Szeretnél asztali nézetre váltani?",
+	"skin-femiwiki-desktop-switch-canceled": "Szerkesztés visszavonva."
+}
