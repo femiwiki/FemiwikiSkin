@@ -69,7 +69,7 @@
         "skins.femiwiki.js/notificationBadge.js",
         "skins.femiwiki.js/searchClearButton.js"
       ],
-      "dependencies": ["oojs", "oojs-ui-core"]
+      "dependencies": ["oojs", "oojs-ui-core", "mediawiki.page.ready"]
     },
     "skins.femiwiki.notifications": {
       "targets": ["desktop", "mobile"],
