@@ -5,6 +5,7 @@
 		]
 	},
 	"femiwiki.css": "/* Az ide elhelyezett CSS hatással lesz a Femiwiki skin használóira */",
+	"femiwiki.js": "/* Az itt elhelyezett JavaScript fog betöltődni a Femiwiki felületet használók számára */",
 	"skin-femiwiki-desktop-switch-confirm": "A mobilnézetben való szerkesztés egyelőre nem támogatott. Szeretnél asztali nézetre váltani?",
 	"skin-femiwiki-desktop-switch-canceled": "Szerkesztés visszavonva."
 }
