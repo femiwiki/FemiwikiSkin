@@ -257,7 +257,7 @@ class FemiwikiTemplate extends BaseTemplate {
 					];
 				}
 				// Cast class to string, See https://github.com/femiwiki/femiwiki/issues/213
-				if ( isset( $val['links'] )) {
+				if ( isset( $val['links'] ) ) {
 					foreach ( $val['links'] as $i => $link ) {
 						if ( isset( $link['class'] ) && is_array( $link['class'] ) ) {
 							$val['links'][$i]['class'] = implode( " ", $link['class'] );
