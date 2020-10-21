@@ -256,6 +256,14 @@ class FemiwikiTemplate extends BaseTemplate {
 						'link-class' => 'xe-icons',
 					];
 				}
+				// Cast class to string, See https://github.com/femiwiki/femiwiki/issues/213
+				if ( isset( $val['links'] )) {
+					foreach ( $val['links'] as $i => $link ) {
+						if ( isset( $link['class'] ) && is_array( $link['class'] ) ) {
+							$val['links'][$i]['class'] = implode( " ", $link['class'] );
+						}
+					}
+				}
 				$htmlItems[] = $this->makeListItem( $key, $val, $options );
 			}
 			$htmlItems = implode( "\n", $htmlItems );
