@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Tmv",
+			"Waki285",
 			"렌즈"
 		]
 	},
@@ -9,5 +10,7 @@
 	"skin-femiwiki-share-dismiss": "閉じる",
 	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter",
+	"femiwiki.css": "/* ここに記述したCSSはFemiwiki skinの利用者に影響します */",
+	"femiwiki.js": "/* ここにあるすべてのJavaScriptは、Femiwiki skinを使用している利用者に対して読み込まれます */",
 	"skin-femiwiki-desktop-switch-canceled": "編集を破棄"
 }
