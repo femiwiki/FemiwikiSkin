@@ -50,7 +50,6 @@ class SkinFemiwiki extends SkinTemplate {
 			[
 				'skins.femiwiki',
 				'skins.femiwiki.xeicon',
-				'mediawiki.skinning.content.externallinks',
 				'oojs-ui.styles.icons-interactions'
 			]
 		);
