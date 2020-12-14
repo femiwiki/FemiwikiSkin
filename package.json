@@ -15,7 +15,6 @@
     "typescript": "3.8.3"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1",
     "xeicon": "^2.3.3"
   }
 }
