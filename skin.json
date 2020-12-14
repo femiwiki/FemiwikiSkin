@@ -27,13 +27,10 @@
   "ResourceModules": {
     "skins.femiwiki": {
       "class": "FemiwikiResourceLoaderSkinModule",
-      "features": { "content-links": true, "legacy": true },
+      "features": { "normalize": true, "content-links": true, "legacy": true },
       "targets": ["desktop", "mobile"],
       "position": "top",
       "styles": {
-        "../node_modules/normalize.css/normalize.css": {
-          "media": "screen"
-        },
         "skins.femiwiki/elements.less": {
           "media": "screen"
         },
