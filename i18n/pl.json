@@ -6,5 +6,9 @@
 	},
 	"femiwiki-desc": "Skórka Femiwiki",
 	"skin-femiwiki-share-tooltip": "Udostępnij artykuł",
-	"skin-femiwiki-share-dismiss": "Odrzuć"
+	"skin-femiwiki-share-dismiss": "Odrzuć",
+	"femiwiki.css": "/* Umieszczony tutaj kod CSS zostanie załadowany wyłącznie przez użytkowników korzystających ze skórki Femiwiki */",
+	"femiwiki.js": "/* Umieszczony tutaj kod JavaScript zostanie załadowany wyłącznie przez użytkowników korzystających ze skórki Femiwiki */",
+	"skin-femiwiki-desktop-switch-confirm": "Edytowanie na skórce mobilnej nie jest jeszcze wspierane. Czy {{GENDER:|chciałbyś|chciałabyś|chcesz}} przejść do widoku desktopowego?",
+	"skin-femiwiki-desktop-switch-canceled": "Edycja jest anulowana."
 }
