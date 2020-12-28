@@ -19,6 +19,8 @@ interface EventEmitter {
     args?: Array<any>,
     context?: Object
   ): EventEmitter;
+
+  connect(context: object, methods: object):EventEmitter;
 }
 
 interface PopupWidget extends EventEmitter {

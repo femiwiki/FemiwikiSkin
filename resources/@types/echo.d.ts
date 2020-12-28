@@ -6,10 +6,21 @@ interface EchoApi {
     isForced?: boolean,
     filters?: Object
   ): Promise<any>;
+  markAllRead(source: string, type: string | string[]): Promise<any>;
 }
 
 // mw.echo.dm.ModelManager
-interface ModelManager extends EventEmitter {}
+interface ModelManager extends EventEmitter {
+  getFiltersModel(): FiltersModel;
+}
+
+interface FiltersModel extends EventEmitter {
+  getSourcePagesModel(): SourcePagesModel;
+}
+
+interface SourcePagesModel extends EventEmitter {
+  getCurrentSource(): string;
+}
 
 // mw.echo.dm.UnreadNotificationCounter
 interface UnreadNotificationCounter {}
@@ -19,7 +30,11 @@ interface NotificationBadgeWidget extends EventEmitter {
   $element: JQuery<HTMLElement>;
 
   popup: PopupWidget;
+
+  markAllReadButton: ButtonWidget;
 }
+
+interface ButtonWidget extends EventEmitter {}
 
 // mw.echo.Controller
 interface Controller {}
