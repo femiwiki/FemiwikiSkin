@@ -39,10 +39,10 @@
 
       // Load the ui
       mw.loader.using('ext.echo.ui.desktop', function () {
-        var controller,
-          modelManager,
-          unreadCounter,
-          maxNotificationCount = mw.config.get('wgEchoMaxNotificationCount');
+        /** @type {Controller} */ var controller;
+        /** @type {ModelManager} */ var modelManager;
+        /** @type {UnreadNotificationCounter} */ var unreadCounter;
+        var maxNotificationCount = mw.config.get('wgEchoMaxNotificationCount');
 
         // Overlay
         $('body').append(mw.echo.ui.$overlay);
@@ -57,6 +57,16 @@
         });
         controller = new mw.echo.Controller(echoApi, modelManager);
 
+        // workaround https://github.com/femiwiki/FemiwikiSkin/issues/212
+        mw.echo.ui.NotificationBadgeWidget.prototype.markAllReadButtonWorkaround = function () {
+          echoApi.markAllRead(
+            modelManager
+              .getFiltersModel()
+              .getSourcePagesModel()
+              .getCurrentSource(),
+            ['alert', 'message']
+          );
+        };
         mw.echo.ui.widget = new mw.echo.ui.NotificationBadgeWidget(
           controller,
           modelManager,
@@ -74,6 +84,10 @@
         modelManager.on('allTalkRead', function () {
           // If there was a talk page notification, get rid of it
           $('#pt-mytalk a').removeClass('mw-echo-alert').text(mw.msg('mytalk'));
+        });
+
+        mw.echo.ui.widget.markAllReadButton.connect(mw.echo.ui.widget, {
+          click: 'markAllReadButtonWorkaround',
         });
 
         // Replace the link button with the ooui button
@@ -94,6 +108,7 @@
         mw.track('counter.MediaWiki.echo.unseen.click');
       }
 
+      // console.log('finally');
       // Prevent default
       return false;
     });
