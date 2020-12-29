@@ -10,5 +10,10 @@
 	"skin-femiwiki-share-tooltip": "Condivide sta vôsce",
 	"skin-femiwiki-share-dismiss": "Scitte",
 	"skin-femiwiki-share-facebook": "Feisbuc",
-	"skin-femiwiki-share-twitter": "Tuitter"
+	"skin-femiwiki-share-twitter": "Tuitter",
+	"skin-femiwiki-xeicon-map.json": "{\n    \"pt-createaccount\": \"user-plus\",\n    \"pt-login\": \"log-in\",\n    \"pt-userpage\": \"profile\",\n    \"pt-notifications-all\": \"bell\",\n    \"pt-mytalk\": \"forum\",\n    \"pt-preferences\": \"cog\",\n    \"pt-watchlist\": \"star\",\n    \"pt-mycontris\": \"list\",\n    \"pt-logout\": \"log-out\",\n    \"t-whatlinkshere\": \"paper\",\n    \"t-recentchangeslinked\": \"clock-o\",\n    \"t-print\": \"print\",\n    \"t-permalink\": \"link\",\n    \"t-info\": \"info\",\n    \"t-cite\": \"link-insert\",\n    \"t-wikibase\": \"barcode\",\n    \"ca-delete\": \"trash\",\n    \"ca-move\": \"long-arrow-right\",\n    \"ca-protect\": \"lock\",\n    \"feedlinks\": \"rss-square\"\n}",
+	"femiwiki.css": "/* 'U CSS ca se iacchie aqquà 'u 'ndrucane le utinde d'a masckere Femiwiki */",
+	"femiwiki.js": "/* Ogne JavaScript aqquà avène carecate pe le utinde ca ausane 'a masckere Femiwiki */",
+	"skin-femiwiki-desktop-switch-confirm": "'U cangiamende jndr'à modalità mobbile non g'è angore supportate. {{GENDER:|Vuè ccu}} cange jndr'à 'u 'ndrucamende desktop?",
+	"skin-femiwiki-desktop-switch-canceled": "'U cangiamende ha state annullate."
 }
