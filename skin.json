@@ -30,25 +30,16 @@
       "features": ["normalize", "legacy"],
       "targets": ["desktop", "mobile"],
       "position": "top",
-      "styles": {
-        "skins.femiwiki/elements.less": {
-          "media": "screen"
-        },
-        "skins.femiwiki/contents.less": {
-          "media": "screen"
-        },
-        "skins.femiwiki/interface.less": {
-          "media": "screen"
-        },
-        "skins.femiwiki/interface-gnb.less": {
-          "media": "screen"
-        },
-        "print.less": {
-          "media": "print"
-        }
-      }
+      "styles": [
+        "skins.femiwiki/elements.less",
+        "skins.femiwiki/contents.less",
+        "skins.femiwiki/interface.less",
+        "skins.femiwiki/interface-gnb.less",
+        "print.less"
+      ]
     },
     "skins.femiwiki.xeicon": {
+      "class": "ResourceLoaderSkinModule",
       "targets": ["desktop", "mobile"],
       "position": "top",
       "localBasePath": "node_modules/xeicon",
@@ -104,7 +95,7 @@
   },
   "ResourceFileModulePaths": {
     "localBasePath": "resources",
-    "remoteSkinPath": "Femiwiki"
+    "remoteSkinPath": "Femiwiki/resources"
   },
   "ResourceModuleSkinStyles": {
     "femiwiki": {
@@ -164,15 +155,16 @@
   },
   "OOUIThemePaths": {
     "Femiwiki": {
-      "localBasePath": "resources/ooui",
-      "remoteSkinPath": "Femiwiki/resources/ooui",
-      "scripts": "oojs-ui-femiwiki.js",
-      "styles": "oojs-ui-{module}-femiwiki.css",
-      "images": "{module}.json"
+      "scripts": "ooui/oojs-ui-femiwiki.js",
+      "styles": "ooui/oojs-ui-{module}-femiwiki.css",
+      "images": "ooui/{module}.json"
     }
   },
   "SkinOOUIThemes": {
     "femiwiki": "Femiwiki"
+  },
+  "TestAutoloadNamespaces": {
+    "FemiwikiSkin\\Constants\\Tests\\Integration\\": "tests/phpunit/integration/"
   },
   "manifest_version": 2
 }
