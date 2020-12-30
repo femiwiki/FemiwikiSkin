@@ -8,7 +8,6 @@ env:
   DOCKER_REGISTRY: docker-registry.wikimedia.org
   DOCKER_ORG: releng
   QUIBBLE_DOCKER_IMAGE: quibble-stretch-php73
-  COVERAGE_DOCKER_IMAGE: quibble-coverage
   PHAN_DOCKER_IMAGE: mediawiki-phan-php73
 
 jobs:
@@ -49,8 +48,6 @@ jobs:
 
           if [ "${{ matrix.stage }}" == phan ]; then
             export DOCKER_IMAGE="${PHAN_DOCKER_IMAGE}"
-          elif [ "${{ matrix.stage }}" == coverage ]; then
-            export DOCKER_IMAGE="${COVERAGE_DOCKER_IMAGE}"
           else
             export DOCKER_IMAGE="${QUIBBLE_DOCKER_IMAGE}"
           fi
