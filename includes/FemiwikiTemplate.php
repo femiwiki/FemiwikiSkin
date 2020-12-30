@@ -12,7 +12,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	/** @var string File name of the root (master) template without folder path and extension */
 	private $templateRoot = 'skin';
 
-	/** @var array */
+	/** @var array|mixed */
 	private $xeIconMap;
 
 	/**
@@ -136,7 +136,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @return string return a mustache-friendly modified sidebar data includes personal tools
+	 * @return array return a mustache-friendly modified sidebar data includes personal tools
 	 */
 	private function getSidebarData() {
 		$sidebar = $this->getSidebar( [
@@ -173,7 +173,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @return array
+	 * @return array|null
 	 */
 	private function getAboveTitleMenu() {
 		$content = [];
@@ -283,7 +283,7 @@ class FemiwikiTemplate extends BaseTemplate {
 	}
 
 	/**
-	 * @return array
+	 * @return array|mixed
 	 */
 	private function getXeIconMap() {
 		if ( !$this->xeIconMap ) {

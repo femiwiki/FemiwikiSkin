@@ -1,39 +1,111 @@
-name: Test
+name: Quibble and Phan
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+
+env:
+  DOCKER_REGISTRY: docker-registry.wikimedia.org
+  DOCKER_ORG: releng
+  QUIBBLE_DOCKER_IMAGE: quibble-stretch-php73
+  COVERAGE_DOCKER_IMAGE: quibble-coverage
+  PHAN_DOCKER_IMAGE: mediawiki-phan-php73
 
 jobs:
-  php-lint:
-    runs-on: ubuntu-18.04
+  test:
+    strategy:
+      matrix:
+        stage:
+          - phan
+          - phpunit-unit
+          - phpunit
+          - phpunit-standalone
+          - npm-test
+          - composer-test
+          # - qunit
+          # - selenium
+          # - api-testing
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup PHP Action
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.3'
-        tools: composer:v1
-    - name: Get Composer Cache Directory
-      id: composer-cache
-      run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-    - uses: actions/cache@v2
-      with:
-        path: ${{ steps.composer-cache.outputs.dir }}
-        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-composer-
-    - run: composer install -n
-    - run: composer test
-
-  yarn-test:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
+
+      # /home/runner/cache/                            Cache
+      # /home/runner/src/                              Mediawiki installation
+      # /home/runner/src/skins/REPO_NAME/              Clone of the repository
+      # /home/runner/docker-images/                    Docker images which exported with docker-save command
+      # $GITHUB_WORKSPACE/.github/workflows/.test-env  Used by actions/cache
+      - name: Set up
+        run: |
+          source .github/workflows/.test-env
+          echo "DEPENDENCIES=${DEPENDENCIES}" >> $GITHUB_ENV
+
+          if [ "${GITHUB_EVENT_NAME}" == 'push' ]; then
+            echo "MEDIAWIKI_VERSION=$(echo $GITHUB_REF | cut -d'/' -f3 | cut -d'-' -f1)" >> $GITHUB_ENV
+          else
+            echo MEDIAWIKI_VERSION=master >> $GITHUB_ENV
+          fi
+
+          if [ "${{ matrix.stage }}" == phan ]; then
+            export DOCKER_IMAGE="${PHAN_DOCKER_IMAGE}"
+          elif [ "${{ matrix.stage }}" == coverage ]; then
+            export DOCKER_IMAGE="${COVERAGE_DOCKER_IMAGE}"
+          else
+            export DOCKER_IMAGE="${QUIBBLE_DOCKER_IMAGE}"
+          fi
+          echo "DOCKER_IMAGE=${DOCKER_IMAGE}" >> $GITHUB_ENV
+
+          # Get the latest docker tag (Ref: https://github.com/thcipriani/dockerregistry)
+          echo "DOCKER_LATEST_TAG=$(curl -sL "https://${DOCKER_REGISTRY}/v2/${DOCKER_ORG}/${DOCKER_IMAGE}/tags/list" |
+            python3 -c 'import json;print("\n".join(json.loads(input())["tags"]))' |
+            grep -v latest | sort -Vr | head -1)" >> $GITHUB_ENV
+
+      - name: Cache docker image
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/docker-images/${{ env.DOCKER_IMAGE }}
+          key: ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_LATEST_TAG }}
+      - name: Load or pull docker image
+        run: |
+          docker load -i /home/runner/docker-images/"${DOCKER_IMAGE}" || \
+            docker pull "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}"
+
+      - name: Cache MediaWiki installation
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/src
+          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('.github/workflows/.test-env') }}
+      - name: Download MediaWiki and extensions
+        run: |
+          cd /home/runner
+          if [ ! -d src ]; then
+            git clone -b "${MEDIAWIKI_VERSION}" --depth 1 https://gerrit.wikimedia.org/r/mediawiki/core src
+            git clone --recurse-submodules -b "${MEDIAWIKI_VERSION}" --depth 1 https://gerrit.wikimedia.org/r/mediawiki/skins/Vector src/skins/Vector
+            for dep in $DEPENDENCIES; do
+              git clone --recurse-submodules -b "${MEDIAWIKI_VERSION}" --depth 1 "https://gerrit.wikimedia.org/r/${dep}" src/"$(echo $dep | cut -d'/' -f2,3)"
+            done
+          fi
+
+      - name: Cache dependencies (composer and npm)
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/cache
+          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('**/*.lock') }}
+      - name: Setup PHP Action
+        if: ${{ matrix.stage == 'phan' }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.3'
+          tools: composer:v1
+      - name: Composer install
+        if: ${{ matrix.stage == 'phan' }}
+        run: |
+          # @todo Use composer-merge-plugin
+          composer install --prefer-dist --no-progress --no-interaction # $GITHUB_WORKSPACE
+          composer install --prefer-dist --no-progress --no-interaction --working-dir /home/runner/src
       - name: Setup Node.js environment
         uses: actions/setup-node@v1
-        with:
-          node-version: '12'
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -42,7 +114,41 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          restore-keys: ${{ runner.os }}-yarn-
       - run: yarn
-      - run: yarn -s test
+      - name: Main Test
+        run: |
+          cd /home/runner
+          # Move our repository
+          sudo cp -r "${GITHUB_WORKSPACE}" src/skins/Femiwiki
+          mkdir -p cache cover
+          chmod 777 src cache cover
+          sudo chown -R nobody:nogroup src
+          sudo chown $(id -u):$(id -g) src
+          if [ "${{ matrix.stage }}" == phan ]; then
+            docker run \
+              -e THING_SUBNAME=skins/Femiwiki \
+              -v "$(pwd)"/src:/mediawiki \
+              "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
+              --color
+          else
+            docker run \
+              -e ZUUL_PROJECT=mediawiki/skins/Femiwiki \
+              -v "$(pwd)"/cache:/cache \
+              -v "$(pwd)"/src:/workspace/src \
+              "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
+              --skip-zuul \
+              --packages-source composer \
+              --run "${{ matrix.stage }}" \
+              $DEPENDENCIES
+            fi
+
+      - name: Tear down
+        run: |
+          cd /home/runner
+          sudo rm -rf src/skins/Femiwiki
+          # See https://doc.wikimedia.org/quibble/index.html#remove-localsettings-php-between-runs
+          rm "$(pwd)"/src/LocalSettings.php || true
+          mkdir -p docker-images
+          docker save -o "$(pwd)/docker-images/${DOCKER_IMAGE}" \
+            "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}"

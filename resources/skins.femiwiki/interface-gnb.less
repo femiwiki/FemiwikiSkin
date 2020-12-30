@@ -36,7 +36,7 @@
         background-size: @height @height;
       }
 
-      @media screen and (min-width: @width-breakpoint-tablet) {
+      @media (min-width: @width-breakpoint-tablet) {
         width: @wordmark-width;
 
         & when( @logo-enabled = 1 ) {
@@ -112,7 +112,7 @@
           background-size: 1.8rem;
           background-repeat: no-repeat;
 
-          @media screen and (min-width: @width-breakpoint-tablet) {
+          @media (min-width: @width-breakpoint-tablet) {
             width: auto;
             background-size: 1.6rem 1.6rem;
             background-position: 0.4rem 0.4rem;
@@ -121,7 +121,7 @@
           .text {
             display: none;
 
-            @media screen and (min-width: @width-breakpoint-tablet) {
+            @media (min-width: @width-breakpoint-tablet) {
               display: inline-block;
               padding-left: 2.2rem;
               padding-right: 1rem;
@@ -131,10 +131,10 @@
         }
 
         &.changes a {
-          .background-image('../resources/images/icon-changes-notext.png');
+          .background-image('images/icon-changes-notext.png');
         }
         &.random a {
-          .background-image('../resources/images/icon-random-notext.png');
+          .background-image('images/icon-random-notext.png');
         }
       }
     }
@@ -147,7 +147,7 @@
       border-width: 0;
       background-color: inherit;
       background: 0.3rem 0.3rem ~'/' 1.8rem 1.8rem no-repeat;
-      .background-image('../resources/images/icon-bars.png');
+      .background-image('images/icon-bars.png');
 
       .badge {
         display: none;
@@ -173,16 +173,16 @@
   }
 }
 
-@media screen and (max-width: @width-breakpoint-tablet) {
+@media (max-width: @width-breakpoint-tablet) {
   html[lang='ko'] #mw-navigation #site-navigation {
     a {
       background-size: 2.4rem;
     }
     .changes a {
-      .background-image('../resources/images/icon-changes.png');
+      .background-image('images/icon-changes.png');
     }
     .random a {
-      .background-image('../resources/images/icon-random.png');
+      .background-image('images/icon-random.png');
     }
   }
 }
@@ -214,7 +214,7 @@
     @max-width: (
       (@real-portal-width * 4) + (@content-horizontal-padding * 2) + 3rem
     );
-    @media screen and (min-width: @min-width) and (max-width: @max-width) {
+    @media (min-width: @min-width) and (max-width: @max-width) {
       flex-basis: 34%;
     }
   }

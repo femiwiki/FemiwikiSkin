@@ -84,7 +84,7 @@ class SkinFemiwikiHooks {
 	 */
 	public static function onPersonalUrls( &$personalTools, &$title, $sk ) {
 		if ( !$sk instanceof SkinFemiwiki ) {
-			return;
+			return true;
 		}
 		self::addNotification( $personalTools, $title, $sk );
 		self::addMobileOptions( $personalTools, $title, $sk );
@@ -97,7 +97,7 @@ class SkinFemiwikiHooks {
 	 * @param array &$personalTools Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $sk
-	 * @return null
+	 * @return void
 	 */
 	private static function addNotification( &$personalTools, &$title, $sk ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
@@ -106,7 +106,7 @@ class SkinFemiwikiHooks {
 
 		$user = $sk->getUser();
 		if ( $user->isAnon() ) {
-			return true;
+			return;
 		}
 
 		$title = $sk->getTitle();

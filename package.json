@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "test": "yarn -s run lint && yarn tsc",
-    "lint": "yarn -s run lint:prettier && yarn -s run lint:i18n",
+    "test": "npm run lint --silent && node_modules/.bin/tsc",
+    "lint": "npm run lint:prettier --silent && npm run lint:i18n --silent",
     "lint:prettier": "prettier '**/*.{js,json,css,less}' --check",
     "lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
     "fix": "prettier '**/*.{js,json,css,less}' --write"

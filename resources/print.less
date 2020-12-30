@@ -1,34 +1,35 @@
 // Styles for print view and printing
+@media print {
+  body {
+    // Word breaks shouldn't be used for CJK text
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
 
-body {
-  // Word breaks shouldn't be used for CJK text
-  word-break: keep-all;
-  overflow-wrap: break-word;
-}
+  input[type='checkbox'],
+  .nav-bar,
+  #fw-menu,
+  #p-above-title-menu,
+  #p-title-buttons,
+  #p-actions-and-toolbox,
+  .mw-portlet,
+  #p-views,
+  #p-lang,
+  .toctoggle,
+  .footer-places > li:not(#credits):not(#copyright) {
+    display: none !important;
+  }
 
-input[type='checkbox'],
-.nav-bar,
-#fw-menu,
-#p-above-title-menu,
-#p-title-buttons,
-#p-actions-and-toolbox,
-.mw-portlet,
-#p-views,
-#p-lang,
-.toctoggle,
-.footer-places > li:not(#credits):not(#copyright) {
-  display: none !important;
-}
+  #footer-info {
+    margin: 0;
+    padding: 0;
+  }
 
-#footer-info {
-  margin: 0;
-  padding: 0;
-}
+  #footer-info-copyright {
+    list-style-type: none;
+  }
 
-#footer-info-copyright {
-  list-style-type: none;
-}
-
-.skin-fw-unprintable {
-  display: none;
+  .skin-fw-unprintable {
+    display: none;
+  }
 }
