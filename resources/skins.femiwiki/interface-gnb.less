@@ -7,9 +7,6 @@
   background-color: @color-primary3;
 
   #mw-navigation {
-    @logo-icon-width: @height;
-    @wordmark-width: 7.7rem;
-
     display: flex;
     max-width: @content-width - 1.3rem;
     margin: 0 auto;
@@ -26,24 +23,25 @@
     }
 
     #p-logo {
+      flex-shrink: 0;
       background-repeat: no-repeat;
-      width: @logo-icon-width;
-      min-width: @logo-icon-width;
+      @width: @height;
+      width: @width;
 
-      & when( @logo-icon-enabled = 1 ) {
+      & when( @symbol-enabled = 1 ) {
         /* @embed */
-        background-image: @logo-icon-url;
+        background-image: @symbol-url;
         background-size: @height @height;
       }
 
-      @media (min-width: @width-breakpoint-tablet) {
-        width: @wordmark-width;
+      & when( @logo-enabled = 1 ) {
+        @media (min-width: @width-breakpoint-tablet) {
+          @width: ~'calc(@{height} * @{logo-wordmark-width} / @{logo-wordmark-height})';
+          width: @width;
 
-        & when( @logo-enabled = 1 ) {
           /* @embed */
           background-image: @logo-wordmark-url;
-          background-size: 6.5rem 1.8rem;
-          background-position: 0.6rem 0.4rem;
+          background-size: @width @height;
         }
       }
     }
@@ -88,7 +86,7 @@
 
     // Recent changes and random pages
     #site-navigation {
-      min-width: ~'calc(@{height}*2 + 1px)';
+      flex-shrink: 0;
 
       li {
         float: left;
@@ -173,7 +171,8 @@
   }
 }
 
-@media (max-width: @width-breakpoint-tablet) {
+// Subtract 1px to avoid being applied with the min-width rule at the same time
+@media (max-width: calc(@width-breakpoint-tablet - 1px)) {
   html[lang='ko'] #mw-navigation #site-navigation {
     a {
       background-size: 2.4rem;
