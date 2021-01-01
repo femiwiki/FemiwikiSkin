@@ -4,6 +4,8 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## v1.3.4 (Unreleased)
 
+- Fix broken Echo icons
+
 ## v1.3.3
 
 - Fix the not working markAllRead button
