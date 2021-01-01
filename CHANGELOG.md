@@ -2,7 +2,9 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## v1.3.3 (Unreleased)
+## v1.3.4 (Unreleased)
+
+## v1.3.3
 
 - Fix the not working markAllRead button
 
