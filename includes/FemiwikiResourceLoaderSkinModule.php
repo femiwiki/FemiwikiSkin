@@ -9,11 +9,11 @@ class FemiwikiResourceLoaderSkinModule extends \ResourceLoaderSkinModule {
 		$lessVars = parent::getLessVars( $context );
 		$logos = $this->getConfig()->get( 'Logos' );
 
-		if ( isset( $logos[ 'icon' ] ) ) {
-			$lessVars[ 'logo-icon-enabled'] = true;
-			$lessVars[ 'logo-icon-url' ] = CSSMin::buildUrlValue( $logos['icon'] );
+		if ( isset( $logos[ 'svg' ] ) ) {
+			$lessVars[ 'symbol-enabled'] = true;
+			$lessVars[ 'symbol-url' ] = CSSMin::buildUrlValue( $logos['svg'] );
 		} else {
-			$lessVars[ 'logo-icon-enabled'] = false;
+			$lessVars[ 'symbol-enabled'] = false;
 		}
 
 		return $lessVars;
