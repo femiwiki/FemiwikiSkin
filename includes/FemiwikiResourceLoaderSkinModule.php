@@ -9,9 +9,12 @@ class FemiwikiResourceLoaderSkinModule extends \ResourceLoaderSkinModule {
 		$lessVars = parent::getLessVars( $context );
 		$logos = $this->getConfig()->get( 'Logos' );
 
-		if ( isset( $logos[ 'svg' ] ) ) {
+		# icon has high priority for FemiwikiSkin's backward compatibility.
+		# This behavior will be removed in the next major version up(v2).
+		$symbol = $logos[ 'icon' ] ?? $logos[ 'svg' ] ?? null;
+		if ( $symbol !== null ) {
 			$lessVars[ 'symbol-enabled'] = true;
-			$lessVars[ 'symbol-url' ] = CSSMin::buildUrlValue( $logos['svg'] );
+			$lessVars[ 'symbol-url' ] = CSSMin::buildUrlValue( $symbol );
 		} else {
 			$lessVars[ 'symbol-enabled'] = false;
 		}
