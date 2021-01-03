@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.3.5 (Unreleased)
+
+- Add missing closing label tags
+
 ## v1.3.4
 
 - Use `$wgLogos['svg']` if `$wgLogos['icon']` is not set.
