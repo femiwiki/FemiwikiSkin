@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## v1.3.4 (Unreleased)
+## v1.3.4
 
 - Use `$wgLogos['svg']` if `$wgLogos['icon']` is not set.
 - Fix broken Echo icons
