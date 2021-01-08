@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## v1.3.5 (Unreleased)
+## v1.3.5
 
 - Add missing closing label tags
 
