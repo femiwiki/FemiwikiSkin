@@ -35,7 +35,7 @@
     if (this.addThisPubId) {
       // AddThis
       this.$addThis = document.createElement('div');
-      this.$addThis.className = 'addthis_inline_share_toolbox_kwvt';
+      this.$addThis.className = 'addthis_inline_share_toolbox';
       addthis.layers.refresh();
     } else {
       var items = [];
