@@ -66,11 +66,16 @@ class SkinFemiwikiHooks {
 	 * @return true
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		global $wgFemiwikiFirebaseKey, $wgFemiwikiFacebookAppId, $wgFemiwikiAddThisPubId;
+		global $wgFemiwikiFirebaseKey, $wgFemiwikiFacebookAppId, $wgFemiwikiAddThisId;
 
 		$vars['wgFemiwikiFirebaseKey'] = $wgFemiwikiFirebaseKey;
 		$vars['wgFemiwikiFacebookAppId'] = $wgFemiwikiFacebookAppId;
-		$vars['wgFemiwikiAddThisPubId'] = $wgFemiwikiAddThisPubId;
+		if ( $wgFemiwikiAddThisId ) {
+			$vars['wgFemiwikiUseAddThis'] = true;
+			if ( is_array( $wgFemiwikiAddThisId ) && isset( $wgFemiwikiAddThisId['tool'] ) ) {
+				$vars['wgFemiwikiAddThisToolId'] = $wgFemiwikiAddThisId['tool'];
+			}
+		}
 
 		return true;
 	}

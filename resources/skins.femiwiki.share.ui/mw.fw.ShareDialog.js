@@ -8,7 +8,8 @@
     // Configuration initialization
     config = config || {};
 
-    this.addThisPubId = config.addThisPubId;
+    this.useAddThis = config.useAddThis;
+    this.addThisToolId = config.addThisToolId;
     this.firebaseKey = config.firebaseKey;
     this.facebookAppId = config.facebookAppId;
 
@@ -32,10 +33,15 @@
     this.$element.addClass('mw-fw-ui-shareDialog');
 
     // Make SNS Buttons
-    if (this.addThisPubId) {
+    if (this.useAddThis) {
       // AddThis
       this.$addThis = document.createElement('div');
-      this.$addThis.className = 'addthis_inline_share_toolbox';
+      this.$addThis.classList.add('addthis_inline_share_toolbox');
+      if (this.addThisToolId) {
+        this.$addThis.classList.add(
+          'addthis_inline_share_toolbox' + '_' + this.addThisToolId
+        );
+      }
       addthis.layers.refresh();
     } else {
       var items = [];
@@ -79,7 +85,7 @@
     });
 
     // Append elements
-    if (this.addThisPubId) {
+    if (this.useAddThis) {
       this.content.$element.append(this.$addThis);
     } else {
       this.content.$element.append(this.mediaButtonGroup.$element);
@@ -126,7 +132,7 @@
   mw.fw.ShareDialog.prototype.updateUrl = function (url) {
     this.urlWidget.setValue(url);
 
-    if (this.addThisPubId) {
+    if (this.useAddThis) {
       addthis_share = addthis_share || {};
       addthis_share.url = url;
       addthis.layers.refresh();

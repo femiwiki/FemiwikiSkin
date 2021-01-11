@@ -4,7 +4,18 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## v1.4.0 (Unreleased)
 
-- Add a new configuration variable `$wgFemiwikiAddThisPubId` for pubid of [AddThis](https://www.addthis.com/). If it is set, `$wgFemiwikiFacebookAppId` will be ignored.
+- Add a new configuration variable `$wgFemiwikiAddThisId` for pubid and tool id of [AddThis](https://www.addthis.com/). If it is set, `$wgFemiwikiFacebookAppId` will be ignored.
+
+  ```php
+  // Basic usage
+  $wgFemiwikiAddThisId = 'xx-xxxxxxxxxxxxxxxx';
+
+  // If you have multiple tools, you must specify the tool id.
+  $wgFemiwikiAddThisId = [
+    'pub' => 'xx-xxxxxxxxxxxxxxxx',
+    'tool' => 'xxxx',
+  ];
+  ```
 
 ## v1.3.5
 
