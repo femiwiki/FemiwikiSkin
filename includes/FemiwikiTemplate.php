@@ -67,19 +67,21 @@ class FemiwikiTemplate extends BaseTemplate {
 				'data-above-title-menu' => $this->getAboveTitleMenu(),
 				'page-language' => $this->get( 'pageLanguage' ),
 				'html-title' => $out->getPageTitle(),
-				'html-share-button' => isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ? new \OOUI\ButtonWidget( [
-					'id' => 'p-share',
-					'classes' => [ 'fw-button' ],
-					'infusable' => true,
-					'icon' => 'share',
-					'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
-					'framed' => false,
-					'invisibleLabel' => true
-				] ) : null,
+				'html-share-button' => isset( $this->data['articleid'] ) && $this->data['articleid'] != 0 ?
+					new \OOUI\ButtonWidget( [
+						'id' => 'p-share',
+						'classes' => [ 'fw-button' ],
+						'infusable' => true,
+						'icon' => 'share',
+						'title' => $this->getMsg( 'skin-femiwiki-share-tooltip' )->escaped(),
+						'framed' => false,
+						'invisibleLabel' => true
+					] ) : null,
 				'html-helplink' => $out->getIndicators()['mw-helplink'] ?? null,
 				'msg-page-menu-toggle-tooltip' => $this->getMsg( 'skin-femiwiki-page-menu-tooltip' )->text(),
 				'data-toolbox' => $this->getPortal( 'page-tb', $this->getToolboxData(), 'toolbox' ),
-				'data-actions' => $this->getPortal( 'actions', $this->data['content_navigation']['actions'] ?? null, 'actions' ),
+				'data-actions' => $this->getPortal( 'actions', $this->data['content_navigation']['actions'] ?? null,
+					'actions' ),
 				'page-lastmod-enabled' => isset( $this->data['content_navigation']['views']['history'] )
 					&& $this->lastModified(),
 				'page-history' => $this->data['content_navigation']['views']['history']['href'] ?? null,
@@ -97,7 +99,8 @@ class FemiwikiTemplate extends BaseTemplate {
 			],
 			'data-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
 			'html-footer' => $this->getFooter( 'icononly' ),
-			'html-trail' => $this->getTrail() . '</body></html>'
+			'text-addthis-pub-id' => $this->config->get( 'FemiwikiAddThisPubId' ) ?: null,
+			'html-trail' => $this->getTrail() . '</body></html>',
 		] );
 	}
 

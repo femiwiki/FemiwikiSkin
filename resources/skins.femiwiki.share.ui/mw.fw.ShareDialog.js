@@ -8,8 +8,9 @@
     // Configuration initialization
     config = config || {};
 
-    this.facebookAppId = config.facebookAppId;
+    this.addThisPubId = config.addThisPubId;
     this.firebaseKey = config.firebaseKey;
+    this.facebookAppId = config.facebookAppId;
 
     // Parent constructor
     mw.fw.ShareDialog.super.call(this, config);
@@ -28,33 +29,42 @@
       padded: true,
       expanded: false,
     });
+    this.$element.addClass('mw-fw-ui-shareDialog');
+
     // Make SNS Buttons
-    var items = [];
-    if (this.facebookAppId) {
-      this.facebookButton = new OO.ui.ButtonWidget({
+    if (this.addThisPubId) {
+      // AddThis
+      this.$addThis = document.createElement('div');
+      this.$addThis.className = 'addthis_inline_share_toolbox_kwvt';
+      addthis.layers.refresh();
+    } else {
+      var items = [];
+      if (this.facebookAppId) {
+        this.facebookButton = new OO.ui.ButtonWidget({
+          framed: false,
+          icon: 'newWindow',
+          label: mw.msg('skin-femiwiki-share-facebook'),
+        });
+
+        items.push(this.facebookButton);
+
+        // Connect onClick function
+        this.facebookButton.connect(this, {
+          click: 'onFacebookButtonClick',
+        });
+        this.facebookButton.$element.addClass('mw-fw-ui-facebookButton');
+      }
+      this.twitterButton = new OO.ui.ButtonWidget({
         framed: false,
         icon: 'newWindow',
-        label: mw.msg('skin-femiwiki-share-facebook'),
+        label: mw.msg('skin-femiwiki-share-twitter'),
       });
-
-      items.push(this.facebookButton);
-
-      // Connect onClick function
-      this.facebookButton.connect(this, {
-        click: 'onFacebookButtonClick',
+      items.push(this.twitterButton);
+      this.twitterButton.$element.addClass('mw-fw-ui-twitterButton');
+      this.mediaButtonGroup = new OO.ui.ButtonGroupWidget({
+        items: items,
       });
-      this.facebookButton.$element.addClass('mw-fw-ui-facebookButton');
     }
-    this.twitterButton = new OO.ui.ButtonWidget({
-      framed: false,
-      icon: 'newWindow',
-      label: mw.msg('skin-femiwiki-share-twitter'),
-    });
-    items.push(this.twitterButton);
-    this.twitterButton.$element.addClass('mw-fw-ui-twitterButton');
-    this.mediaButtonGroup = new OO.ui.ButtonGroupWidget({
-      items: items,
-    });
 
     // Create a TextForm to copy
     this.urlWidget = new OO.ui.TextInputWidget({
@@ -69,11 +79,13 @@
     });
 
     // Append elements
-    this.content.$element.append(this.mediaButtonGroup.$element);
+    if (this.addThisPubId) {
+      this.content.$element.append(this.$addThis);
+    } else {
+      this.content.$element.append(this.mediaButtonGroup.$element);
+    }
     this.content.$element.append(this.urlWidget.$element);
     this.$body.append(this.content.$element);
-
-    this.$element.addClass('mw-fw-ui-shareDialog');
   };
 
   mw.fw.ShareDialog.prototype.getSetupProcess = function (data) {
@@ -114,24 +126,29 @@
   mw.fw.ShareDialog.prototype.updateUrl = function (url) {
     this.urlWidget.setValue(url);
 
-    var tweet =
-      mw.config.get('wgPageName').replace(/_/g, ' ') +
-      ' ' +
-      url +
-      ' #' +
-      mw.config.get('wgSiteName');
+    if (this.addThisPubId) {
+      addthis_share = addthis_share || {};
+      addthis_share.url = url;
+      addthis.layers.refresh();
+    } else {
+      var tweet =
+        mw.config.get('wgPageName').replace(/_/g, ' ') +
+        ' ' +
+        url +
+        ' #' +
+        mw.config.get('wgSiteName');
 
-    this.twitterButton.setHref(
-      'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet)
-    );
+      this.twitterButton.setHref(
+        'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet)
+      );
+    }
   };
 
   mw.fw.ShareDialog.prototype.createShortUrl = function (url) {
-    var shareDialog = this;
-
     if (!this.firebaseKey) {
       return;
     }
+    var shareDialog = this;
 
     var xhr = new XMLHttpRequest();
     xhr.open(

@@ -151,7 +151,8 @@
     "FemiwikiFirebaseKey": { "value": "" },
     "FemiwikiFacebookAppId": { "value": "" },
     "FemiwikiTwitterAccount": { "value": false },
-    "FemiwikiHeadItems": { "value": false }
+    "FemiwikiHeadItems": { "value": false },
+    "FemiwikiAddThisPubId": { "value": false }
   },
   "OOUIThemePaths": {
     "Femiwiki": {

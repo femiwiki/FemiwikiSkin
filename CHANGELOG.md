@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.4.0 (Unreleased)
+
+- Add a new configuration variable `$wgFemiwikiAddThisPubId` for pubid of [AddThis](https://www.addthis.com/). If it is set, `$wgFemiwikiFacebookAppId` will be ignored.
+
 ## v1.3.5
 
 - Add missing closing label tags

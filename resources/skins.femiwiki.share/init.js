@@ -2,23 +2,40 @@
   'use strict';
 
   function init() {
-    var facebookAppId, firebaseKey, windowManager, shareDialog;
-
     OO.ui.infuse($('#p-share')).on('click', function () {
-      mw.loader.using(['skins.femiwiki.share.ui']).done(function () {
+      var addThisPubId, firebaseKey, windowManager, facebookAppId, shareDialog;
+      firebaseKey = firebaseKey || mw.config.get('wgFemiwikiFirebaseKey');
+      addThisPubId = addThisPubId || mw.config.get('wgFemiwikiAddThisPubId');
+      if (addThisPubId) {
+        addthis_config = addthis_config || {};
+        addthis_config['services_exclude'] = 'print';
+        addthis_config['ui_language'] = mw.config.get('wgUserLanguage');
+        addthis_share = addthis_share || {};
+        addthis_share = {
+          passthrough: {
+            twitter: {
+              text: mw.config.get('wgPageName').replace(/_/g, ' '),
+              hashtags: mw.config.get('wgSiteName'),
+            },
+          },
+        };
+      } else {
         facebookAppId =
           facebookAppId || mw.config.get('wgFemiwikiFacebookAppId');
-        firebaseKey = firebaseKey || mw.config.get('wgFemiwikiFirebaseKey');
+      }
+
+      mw.loader.using(['skins.femiwiki.share.ui']).done(function () {
         windowManager = windowManager || OO.ui.getWindowManager();
         if (shareDialog === undefined) {
           shareDialog = new mw.fw.ShareDialog({
-            facebookAppId: facebookAppId,
+            addThisPubId: addThisPubId,
             firebaseKey: firebaseKey,
+            facebookAppId: facebookAppId,
           });
           windowManager.addWindows([shareDialog]);
         }
 
-        if (facebookAppId) {
+        if (!addThisPubId && facebookAppId) {
           // Initialize Facebook SDK
           window.fbAsyncInit = function () {
             FB.init({
