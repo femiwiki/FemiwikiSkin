@@ -99,7 +99,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			],
 			'data-language' => $this->getPortal( 'lang', $this->data['language_urls'], 'otherlanguages' ),
 			'html-footer' => $this->getFooter( 'icononly' ),
-			'text-addthis-pub-id' => $this->config->get( 'FemiwikiAddThisPubId' ) ?: null,
+			'text-add-this-pub-id' => $this->getAddThisPubId(),
 			'html-trail' => $this->getTrail() . '</body></html>',
 		] );
 	}
@@ -324,5 +324,17 @@ class FemiwikiTemplate extends BaseTemplate {
 		}
 
 		return $toolbox;
+	}
+
+	/** @return string|null */
+	private function getAddThisPubId() {
+		$config = $this->config->get( 'FemiwikiAddThisId' );
+		if ( !$config ) {
+			return null;
+		}
+		if ( is_array( $config ) ) {
+			return $config['pub'] ?? null;
+		}
+		return $config;
 	}
 }

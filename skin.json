@@ -152,7 +152,7 @@
     "FemiwikiFacebookAppId": { "value": "" },
     "FemiwikiTwitterAccount": { "value": false },
     "FemiwikiHeadItems": { "value": false },
-    "FemiwikiAddThisPubId": { "value": false }
+    "FemiwikiAddThisId": { "value": false }
   },
   "OOUIThemePaths": {
     "Femiwiki": {

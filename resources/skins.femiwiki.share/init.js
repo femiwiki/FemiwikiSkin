@@ -3,10 +3,13 @@
 
   function init() {
     OO.ui.infuse($('#p-share')).on('click', function () {
-      var addThisPubId, firebaseKey, windowManager, facebookAppId, shareDialog;
-      firebaseKey = firebaseKey || mw.config.get('wgFemiwikiFirebaseKey');
-      addThisPubId = addThisPubId || mw.config.get('wgFemiwikiAddThisPubId');
-      if (addThisPubId) {
+      var windowManager, facebookAppId, shareDialog;
+      var firebaseKey = firebaseKey || mw.config.get('wgFemiwikiFirebaseKey');
+      var useAddThis = useAddThis || mw.config.get('wgFemiwikiUseAddThis');
+      var addThisToolId =
+        addThisToolId || mw.config.get('wgFemiwikiAddThisToolId');
+
+      if (useAddThis) {
         addthis_config = addthis_config || {};
         addthis_config['services_exclude'] = 'print';
         addthis_config['ui_language'] = mw.config.get('wgUserLanguage');
@@ -28,14 +31,15 @@
         windowManager = windowManager || OO.ui.getWindowManager();
         if (shareDialog === undefined) {
           shareDialog = new mw.fw.ShareDialog({
-            addThisPubId: addThisPubId,
+            useAddThis: useAddThis,
+            addThisToolId: addThisToolId,
             firebaseKey: firebaseKey,
             facebookAppId: facebookAppId,
           });
           windowManager.addWindows([shareDialog]);
         }
 
-        if (!addThisPubId && facebookAppId) {
+        if (!useAddThis && facebookAppId) {
           // Initialize Facebook SDK
           window.fbAsyncInit = function () {
             FB.init({
