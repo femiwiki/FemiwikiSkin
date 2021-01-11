@@ -66,10 +66,11 @@ class SkinFemiwikiHooks {
 	 * @return true
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		global $wgFemiwikiFirebaseKey, $wgFemiwikiFacebookAppId;
+		global $wgFemiwikiFirebaseKey, $wgFemiwikiFacebookAppId, $wgFemiwikiAddThisPubId;
 
 		$vars['wgFemiwikiFirebaseKey'] = $wgFemiwikiFirebaseKey;
 		$vars['wgFemiwikiFacebookAppId'] = $wgFemiwikiFacebookAppId;
+		$vars['wgFemiwikiAddThisPubId'] = $wgFemiwikiAddThisPubId;
 
 		return true;
 	}
