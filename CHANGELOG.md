@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.4.1 (Unreleased)
+
+- Fix not shortened url on sharing
+
 ## v1.4.0
 
 - Add a new configuration variable `$wgFemiwikiAddThisId` for pubid and tool id of [AddThis](https://www.addthis.com/). If it is set, `$wgFemiwikiFacebookAppId` will be ignored.
