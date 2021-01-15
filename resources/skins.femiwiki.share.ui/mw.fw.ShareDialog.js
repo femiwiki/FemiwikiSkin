@@ -133,9 +133,7 @@
     this.urlWidget.setValue(url);
 
     if (this.useAddThis) {
-      addthis_share = addthis_share || {};
-      addthis_share.url = url;
-      addthis.layers.refresh();
+      addthis.layers.refresh(url);
     } else {
       var tweet =
         mw.config.get('wgPageName').replace(/_/g, ' ') +
