@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## v1.4.0 (Unreleased)
+## v1.4.0
 
 - Add a new configuration variable `$wgFemiwikiAddThisId` for pubid and tool id of [AddThis](https://www.addthis.com/). If it is set, `$wgFemiwikiFacebookAppId` will be ignored.
 
