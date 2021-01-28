@@ -16,5 +16,6 @@
 	"skin-femiwiki-xeicon-map.json": "{\n    \"pt-createaccount\": \"user-plus\",\n    \"pt-login\": \"log-in\",\n    \"pt-userpage\": \"profile\",\n    \"pt-notifications-all\": \"bell\",\n    \"pt-mytalk\": \"forum\",\n    \"pt-preferences\": \"cog\",\n    \"pt-watchlist\": \"star\",\n    \"pt-mycontris\": \"list\",\n    \"pt-logout\": \"log-out\",\n    \"t-whatlinkshere\": \"paper\",\n    \"t-recentchangeslinked\": \"clock-o\",\n    \"t-print\": \"print\",\n    \"t-permalink\": \"link\",\n    \"t-info\": \"info\",\n    \"t-cite\": \"link-insert\",\n    \"t-wikibase\": \"barcode\",\n    \"ca-delete\": \"trash\",\n    \"ca-move\": \"long-arrow-right\",\n    \"ca-protect\": \"lock\",\n    \"feedlinks\": \"rss-square\"\n}",
 	"femiwiki.css": "/* Debiyaye CSS, Skinê Femiwiki rê tesir do bıkero */",
 	"femiwiki.js": "/* Her JavaScript karberanê Femiwiki de skin gurenayış de tiya de bar bo*/",
+	"skin-femiwiki-desktop-switch-confirm": "Mobil asayış dı vurnayışi rê hewna desteg nêdeyeno. {{GENDER:|Şıma}} qayılê destseri bıvinê?",
 	"skin-femiwiki-desktop-switch-canceled": "Vurnayış texeliyao"
 }
