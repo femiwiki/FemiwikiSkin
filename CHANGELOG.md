@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## v1.4.1 (Unreleased)
+## v1.4.1
 
 - Fix not shortened url on sharing
 
