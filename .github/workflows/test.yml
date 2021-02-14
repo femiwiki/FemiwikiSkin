@@ -73,9 +73,12 @@ jobs:
               grep -v latest | sort -Vr | head -1)" >> $GITHUB_ENV
           fi
 
-          if [ -e .github/workflows/.test-env ]; then
-            source .github/workflows/.test-env
-            echo "DEPENDENCIES=${DEPENDENCIES}" >> $GITHUB_ENV
+          # Resolve dependencies
+          if [ -e .github/workflows/dependencies ]; then
+            cd .github/workflows
+            curl -sL https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/parameter_functions.py -o pf.py
+            curl -sL https://raw.githubusercontent.com/femiwiki/.github/main/scripts/resolve_dependencies.py -o rd.py
+            echo "DEPENDENCIES=$(python3 rd.py)" >> $GITHUB_ENV
           fi
 
       - name: Cache docker image
