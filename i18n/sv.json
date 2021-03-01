@@ -14,7 +14,7 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"skin-femiwiki-xeicon-map.json": "{\n    \"pt-createaccount\": \"user-plus\",\n    \"pt-login\": \"log-in\",\n    \"pt-userpage\": \"profile\",\n    \"pt-notifications-all\": \"bell\",\n    \"pt-mytalk\": \"forum\",\n    \"pt-preferences\": \"cog\",\n    \"pt-watchlist\": \"star\",\n    \"pt-mycontris\": \"list\",\n    \"pt-logout\": \"log-out\",\n    \"t-whatlinkshere\": \"paper\",\n    \"t-recentchangeslinked\": \"clock-o\",\n    \"t-print\": \"print\",\n    \"t-permalink\": \"link\",\n    \"t-info\": \"info\",\n    \"t-cite\": \"link-insert\",\n    \"t-wikibase\": \"barcode\",\n    \"ca-delete\": \"trash\",\n    \"ca-move\": \"long-arrow-right\",\n    \"ca-protect\": \"lock\",\n    \"feedlinks\": \"rss-square\"\n}",
 	"femiwiki.css": "/* CSS som skrivs här kommer att påverka alla användare av utseendet Femiwiki */",
-	"femiwiki.js": "/* JavaScript här kommer att laddas för dem som använder utseendet Femiwiki */",
+	"femiwiki.js": "/* All JavaScript här kommer att läsas in för de som använder utseendet Femiwiki */",
 	"skin-femiwiki-desktop-switch-confirm": "Det finns ännu inget stöd för att redigera i mobilvyn. Vill {{GENDER:|du}} byta till stationär vy?",
 	"skin-femiwiki-desktop-switch-canceled": "Redigering avbröts."
 }
