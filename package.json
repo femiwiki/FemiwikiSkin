@@ -11,7 +11,7 @@
     "@types/jquery": "^3.3.38",
     "@types/node-fetch": "^2.5.7",
     "grunt-banana-checker": "^0.9.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.2.1",
     "typescript": "3.8.3"
   },
   "dependencies": {
