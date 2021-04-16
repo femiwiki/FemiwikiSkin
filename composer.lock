@@ -4,34 +4,34 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8854915544a66c8cfcae6d814d600b9",
+    "content-hash": "bda27555cb4b26a5f02ded10527c606c",
     "packages": [],
     "packages-dev": [
         {
             "name": "composer/semver",
-            "version": "2.0.0",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "0ec124f57c7e23925c006cbad0de853e3aec3ba2"
+                "reference": "a02fdf930a3c1c3ed3a49b5f63859c0c20e10464"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/0ec124f57c7e23925c006cbad0de853e3aec3ba2",
-                "reference": "0ec124f57c7e23925c006cbad0de853e3aec3ba2",
+                "url": "https://api.github.com/repos/composer/semver/zipball/a02fdf930a3c1c3ed3a49b5f63859c0c20e10464",
+                "reference": "a02fdf930a3c1c3ed3a49b5f63859c0c20e10464",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.2 || ^7.0"
+                "php": "^5.3.2 || ^7.0 || ^8.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.19",
-                "phpunit/phpunit": "^4.5 || ^5.0.5 || ^7"
+                "phpstan/phpstan": "^0.12.54",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-main": "3.x-dev"
                 }
             },
             "autoload": {
@@ -73,11 +73,15 @@
                     "type": "custom"
                 },
                 {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/composer/composer",
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-04-21T13:19:12+00:00"
+            "time": "2020-11-13T08:59:24+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -255,33 +259,33 @@
         },
         {
             "name": "mediawiki/mediawiki-codesniffer",
-            "version": "v31.0.0",
+            "version": "v35.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wikimedia/mediawiki-tools-codesniffer.git",
-                "reference": "130de29d06bf012f9e0217c28e2afbfaf0a80a20"
+                "reference": "c305fa16998d742705f9b59358fbb816f524cf9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/mediawiki-tools-codesniffer/zipball/130de29d06bf012f9e0217c28e2afbfaf0a80a20",
-                "reference": "130de29d06bf012f9e0217c28e2afbfaf0a80a20",
+                "url": "https://api.github.com/repos/wikimedia/mediawiki-tools-codesniffer/zipball/c305fa16998d742705f9b59358fbb816f524cf9f",
+                "reference": "c305fa16998d742705f9b59358fbb816f524cf9f",
                 "shasum": ""
             },
             "require": {
-                "composer/semver": "1.5.1|2.0.0",
+                "composer/semver": "^1.7.2|^3.2.4",
                 "composer/spdx-licenses": "~1.5.2",
                 "ext-mbstring": "*",
                 "php": ">=7.2.0",
-                "squizlabs/php_codesniffer": "3.5.5"
+                "squizlabs/php_codesniffer": "3.5.8"
             },
             "require-dev": {
-                "jakub-onderka/php-console-highlighter": "0.4.0",
-                "jakub-onderka/php-parallel-lint": "1.0.0",
-                "mediawiki/mediawiki-phan-config": "0.10.2",
-                "mediawiki/minus-x": "1.0.0",
+                "mediawiki/mediawiki-phan-config": "0.10.6",
+                "mediawiki/minus-x": "1.1.0",
+                "php-parallel-lint/php-console-highlighter": "0.5.0",
+                "php-parallel-lint/php-parallel-lint": "1.2.0",
                 "phpunit/phpunit": "^8.5"
             },
-            "type": "library",
+            "type": "phpcodesniffer-standard",
             "autoload": {
                 "psr-4": {
                     "MediaWiki\\": "MediaWiki"
@@ -297,7 +301,7 @@
                 "codesniffer",
                 "mediawiki"
             ],
-            "time": "2020-05-26T19:06:48+00:00"
+            "time": "2021-01-28T20:56:31+00:00"
         },
         {
             "name": "mediawiki/mediawiki-phan-config",
@@ -1063,16 +1067,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.5.5",
+            "version": "3.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6"
+                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
-                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9d583721a7157ee997f235f327de038e7ea6dac4",
+                "reference": "9d583721a7157ee997f235f327de038e7ea6dac4",
                 "shasum": ""
             },
             "require": {
@@ -1110,7 +1114,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2020-04-17T01:09:41+00:00"
+            "time": "2020-10-23T02:01:07+00:00"
         },
         {
             "name": "symfony/console",
