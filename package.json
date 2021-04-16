@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@types/jquery": "^3.3.38",
-    "@types/node-fetch": "^2.5.7",
+    "@types/node-fetch": "^2.5.10",
     "grunt-banana-checker": "^0.9.0",
     "prettier": "^2.0.5",
     "typescript": "3.8.3"
