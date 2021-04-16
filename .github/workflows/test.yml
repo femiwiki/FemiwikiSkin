@@ -134,7 +134,7 @@ jobs:
         run: |
           composer install --prefer-dist --no-progress --no-interaction # $GITHUB_WORKSPACE
       - name: Setup Node.js environment
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
