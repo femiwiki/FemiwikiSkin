@@ -7,8 +7,11 @@ use FemiwikiSkin\Constants;
  * @ingroup Skins
  */
 class SkinFemiwiki extends SkinTemplate {
+	/** @var string */
 	public $skinname = Constants::SKIN_NAME;
+	/** @var string */
 	public $stylename = 'Femiwiki';
+	/** @var string */
 	public $template = 'FemiwikiTemplate';
 
 	/**
