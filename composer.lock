@@ -4,40 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "607dc6afba883352d07b622a43bbd769",
-    "packages": [
-        {
-            "name": "femiwiki/ooui-femiwiki-theme",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/femiwiki/OOUIFemiwikiTheme.git",
-                "reference": "7a80a20e0ef1acc72563f1b0e6c39db4d05fa094"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/femiwiki/OOUIFemiwikiTheme/zipball/7a80a20e0ef1acc72563f1b0e6c39db4d05fa094",
-                "reference": "7a80a20e0ef1acc72563f1b0e6c39db4d05fa094",
-                "shasum": ""
-            },
-            "type": "library",
-            "license": [
-                "MIT"
-            ],
-            "description": "OOUI Femiwiki Theme",
-            "support": {
-                "source": "https://github.com/femiwiki/OOUIFemiwikiTheme/tree/main",
-                "issues": "https://github.com/femiwiki/OOUIFemiwikiTheme/issues"
-            },
-            "funding": [
-                {
-                    "type": "patreon",
-                    "url": "https://www.patreon.com/femiwiki"
-                }
-            ],
-            "time": "2021-04-19T08:20:58+00:00"
-        }
-    ],
+    "content-hash": "bda27555cb4b26a5f02ded10527c606c",
+    "packages": [],
     "packages-dev": [
         {
             "name": "composer/semver",
@@ -1712,21 +1680,21 @@
         },
         {
             "name": "symfony/service-contracts",
-            "version": "v2.4.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/service-contracts.git",
-                "reference": "f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb"
+                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb",
-                "reference": "f040a30e04b57fbcc9c6cbcf4dbaa96bd318b9bb",
+                "url": "https://api.github.com/repos/symfony/service-contracts/zipball/d15da7ba4957ffb8f1747218be9e1a121fd298a1",
+                "reference": "d15da7ba4957ffb8f1747218be9e1a121fd298a1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "psr/container": "^1.1"
+                "psr/container": "^1.0"
             },
             "suggest": {
                 "symfony/service-implementation": ""
@@ -1734,7 +1702,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.4-dev"
+                    "dev-master": "2.2-dev"
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -1784,7 +1752,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-01T10:43:52+00:00"
+            "time": "2020-09-07T11:33:47+00:00"
         },
         {
             "name": "symfony/string",
@@ -1923,9 +1891,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "femiwiki/ooui-femiwiki-theme": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

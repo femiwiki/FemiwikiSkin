@@ -21,7 +21,7 @@
     "SkinFemiwiki": "includes/SkinFemiwiki.php",
     "SkinFemiwikiHooks": "includes/SkinFemiwikiHooks.php",
     "FemiwikiTemplate": "includes/FemiwikiTemplate.php",
-    "OOUI\\FemiwikiTheme": "vendor/femiwiki/ooui-femiwiki-theme/dist/FemiwikiTheme.php",
+    "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php",
     "FemiwikiResourceLoaderSkinModule": "includes/FemiwikiResourceLoaderSkinModule.php"
   },
   "ResourceModules": {
@@ -156,11 +156,9 @@
   },
   "OOUIThemePaths": {
     "Femiwiki": {
-      "localBasePath": "vendor/femiwiki/ooui-femiwiki-theme/dist/resources",
-      "remoteSkinPath": "Femiwiki/vendor/femiwiki/ooui-femiwiki-theme/dist/resources",
-      "scripts": "oojs-ui-femiwiki.js",
-      "styles": "oojs-ui-{module}-femiwiki.css",
-      "images": "{module}.json"
+      "scripts": "ooui/oojs-ui-femiwiki.js",
+      "styles": "ooui/oojs-ui-{module}-femiwiki.css",
+      "images": "ooui/{module}.json"
     }
   },
   "SkinOOUIThemes": {
