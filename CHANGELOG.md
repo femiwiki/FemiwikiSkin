@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.5.0
+
+- Define font-family for `[lang=ja]` (https://github.com/femiwiki/FemiwikiSkin/pull/229)
+
 ## v1.4.1
 
 - Fix not shortened url on sharing
