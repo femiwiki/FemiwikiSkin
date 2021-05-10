@@ -57,7 +57,7 @@ class FemiwikiTemplate extends BaseTemplate {
 			'data-sidebar' => $this->getSidebarData(),
 			'data-header' => [
 				'html-sitenotice' => $siteNotice === '' ? null : $siteNotice,
-				'data-indicators' => array_filter( array_map( function ( $id, $content ) {
+				'data-indicators' => array_filter( array_map( static function ( $id, $content ) {
 					return $id == 'mw-helplink' ? null : [
 						'id' => $id,
 						'html' => $content,
