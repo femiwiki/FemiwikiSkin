@@ -1,8 +1,7 @@
 function init() {
   /** @type {JQuery<HTMLInputElement>} */ var searchInput = $('#searchInput');
-  /** @type {JQuery<HTMLButtonElement>} */ var searchClearButton = $(
-    '#searchClearButton'
-  );
+  /** @type {JQuery<HTMLButtonElement>} */ var searchClearButton =
+    $('#searchClearButton');
 
   searchInput.on('input', function () {
     searchClearButton.toggle(!!this.value);
