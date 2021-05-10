@@ -58,15 +58,16 @@
         controller = new mw.echo.Controller(echoApi, modelManager);
 
         // workaround https://github.com/femiwiki/FemiwikiSkin/issues/212
-        mw.echo.ui.NotificationBadgeWidget.prototype.markAllReadButtonWorkaround = function () {
-          echoApi.markAllRead(
-            modelManager
-              .getFiltersModel()
-              .getSourcePagesModel()
-              .getCurrentSource(),
-            ['alert', 'message']
-          );
-        };
+        mw.echo.ui.NotificationBadgeWidget.prototype.markAllReadButtonWorkaround =
+          function () {
+            echoApi.markAllRead(
+              modelManager
+                .getFiltersModel()
+                .getSourcePagesModel()
+                .getCurrentSource(),
+              ['alert', 'message']
+            );
+          };
         mw.echo.ui.widget = new mw.echo.ui.NotificationBadgeWidget(
           controller,
           modelManager,

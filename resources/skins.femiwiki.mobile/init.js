@@ -52,9 +52,10 @@ function main() {
     return;
   }
 
-  /** @type NodeListOf<Element> */ var $allEditLinks = document.querySelectorAll(
-    '#ca-ve-edit, #ca-edit, .mw-editsection a, .edit-link'
-  );
+  /** @type NodeListOf<Element> */ var $allEditLinks =
+    document.querySelectorAll(
+      '#ca-ve-edit, #ca-edit, .mw-editsection a, .edit-link'
+    );
 
   for (var i = 0; i < $allEditLinks.length; i++) {
     $allEditLinks[i].addEventListener('click', click);
