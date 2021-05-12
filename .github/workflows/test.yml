@@ -125,7 +125,7 @@ jobs:
           key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('**/*.lock') }}
       - name: Setup PHP Action
         if: ${{ matrix.stage == 'phan' }}
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@2.11.0
         with:
           php-version: '7.3'
           tools: composer:v1
