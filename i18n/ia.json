@@ -10,5 +10,9 @@
 	"skin-femiwiki-share-tooltip": "Divider iste articulo",
 	"skin-femiwiki-share-dismiss": "Clauder",
 	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+	"skin-femiwiki-share-twitter": "Twitter",
+	"femiwiki.css": "/* Le CSS placiate hic afficera le usatores del apparentia Femiwiki */",
+	"femiwiki.js": "/* Omne JavaScript hic se executara pro le usatores del apparentia Femiwiki */",
+	"skin-femiwiki-desktop-switch-confirm": "Le modification in vista mobile non es ancora possibile. Vole {{GENDER:|tu}} cambiar al vista scriptorio?",
+	"skin-femiwiki-desktop-switch-canceled": "Le modification es cancellate."
 }
