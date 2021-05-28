@@ -27,7 +27,12 @@
   "ResourceModules": {
     "skins.femiwiki": {
       "class": "FemiwikiResourceLoaderSkinModule",
-      "features": { "normalize": true, "content-links": true, "legacy": true },
+      "features": {
+        "normalize": true,
+        "content-links": true,
+        "legacy": true,
+        "logo": false
+      },
       "targets": ["desktop", "mobile"],
       "position": "top",
       "styles": [
@@ -40,6 +45,7 @@
     },
     "skins.femiwiki.xeicon": {
       "class": "ResourceLoaderSkinModule",
+      "features": { "logo": false },
       "targets": ["desktop", "mobile"],
       "position": "top",
       "localBasePath": "node_modules/xeicon",

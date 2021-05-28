@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.6.1
+
+- Turn off logo skin feature.
+
 ## v1.6.0
 
 Note: this version requires MediaWiki 1.36+. Earlier versions are no longer supported.
