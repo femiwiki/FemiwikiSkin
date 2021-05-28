@@ -2,11 +2,15 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## v1.6.0
+
+Note: this version requires MediaWiki 1.36+. Earlier versions are no longer supported.
+If you still use those versions of MediaWiki, please use REL1_35 branch instead of this release.
 
 ENHANCEMENTS:
 
-- Localisations update.
+- Localisation updates from https://translatewiki.net.
+- Define font-family for [lang=ja] (https://github.com/femiwiki/FemiwikiSkin/issues/228).
 
 BUG FIXES:
 
