@@ -9,20 +9,6 @@
   max-width: @content-width;
   margin: 0 auto;
 
-  .mw-notification-area {
-    width: auto;
-    max-width: 16rem;
-    padding: 0;
-    font-size: 0.75rem;
-    line-height: inherit;
-    cursor: pointer;
-
-    .mw-notification {
-      background-color: @color-alert;
-      border: solid 1px @color-alert-border;
-    }
-  }
-
   .mw-indicators {
     float: right;
   }
@@ -164,6 +150,20 @@
     background-color: @color-progressive;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+.mw-notification-area {
+  width: auto;
+  max-width: 16rem;
+  padding: 0;
+  font-size: 0.75rem;
+  line-height: inherit;
+  cursor: pointer;
+
+  .mw-notification {
+    background-color: @color-alert;
+    border: solid 1px @color-alert-border;
   }
 }
 
