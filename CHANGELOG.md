@@ -2,11 +2,11 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unrelease
+## v1.7.0
 
 - Make size of notification text bigger.
 - Restore disappeared styles of notification. (https://github.com/femiwiki/FemiwikiSkin/issues/237)
-- Center VE's preview of save dialog. (https://github.com/femiwiki/FemiwikiSkin/issues/238)
+- Center Visual Editor's preview of save dialog. (https://github.com/femiwiki/FemiwikiSkin/issues/238)
 
 ## v1.6.1
 
