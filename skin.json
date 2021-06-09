@@ -50,7 +50,7 @@
     "skins.femiwiki": {
       "class": "MediaWiki\\Skins\\Femiwiki\\FemiwikiResourceLoaderSkinModule",
       "features": {
-        "content-thumbnails": true,
+        "content-media": true,
         "elements": true,
         "interface": true,
         "normalize": true
@@ -68,7 +68,7 @@
     "skins.femiwiki.xeicon": {
       "class": "ResourceLoaderSkinModule",
       "features": {
-        "content-parser-output": false,
+        "content-body": false,
         "toc": false
       },
       "targets": ["desktop", "mobile"],
