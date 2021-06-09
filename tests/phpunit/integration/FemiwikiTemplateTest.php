@@ -1,6 +1,6 @@
 <?php
 
-namespace FemiwikiSkin\Constants\Tests\Integration;
+namespace MediaWiki\Skins\Femiwiki\Tests\Integration;
 
 use FemiwikiTemplate;
 use GlobalVarConfig;

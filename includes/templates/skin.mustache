@@ -1,12 +1,48 @@
-{{{html-headelement}}}
+{{!
+  string msg-navigation-heading
+  string msg-tooltip-n-recentchanges
+  string msg-recentchanges-label
+  string msg-tooltip-n-randompage
+  string msg-randompage-label
+  string? html-sitenotice
+  string? html-user-message
+  string html-namespaces
+  string? html-watch
+  string? html-heading-language-attributes
+  string? html-subtitle
+  string html-undelete
+  string html-body-content
+  string html-printfooter
+  string html-catlinks
+  string html-data-after-content
+  string html-title
+  string? html-title-buttons
+  array? data-toolbox
+  array? data-actions
+  string? page-history
+  string? page-lastmod
+  string? html-views
+}}
 {{>NavigationBar}}
 <input type="checkbox" id="fw-menu-checkbox" class="mw-checkbox-hack-checkbox">
 <div id="fw-menu" class="fw-portals fw-wiki-portals">
-  {{#data-sidebar}}{{>Portal}}{{/data-sidebar}}
+  {{#data-portlets.data-user-menu}}
+  {{>Menu}}
+  {{/data-portlets.data-user-menu}}
+
+  {{#data-sidebar}}
+  {{>Menu}}
+  {{/data-sidebar}}
 </div>
 {{>Header}}
 {{>Content}}
-{{#data-language}}{{>Portal}}{{/data-language}}
-{{{html-footer}}}
-{{#text-add-this-pub-id}}<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{text-add-this-pub-id}}"></script>{{/text-add-this-pub-id}}
-{{{html-trail}}}
+
+{{#data-portlets.data-languages}}
+{{>Menu}}
+{{/data-portlets.data-languages}}
+
+{{>Footer}}
+
+{{#text-add-this-pub-id}}
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{text-add-this-pub-id}}"></script>
+{{/text-add-this-pub-id}}
