@@ -198,8 +198,5 @@
   "SkinOOUIThemes": {
     "femiwiki": "Femiwiki"
   },
-  "TestAutoloadNamespaces": {
-    "MediaWiki\\Skins\\Femiwiki\\Tests\\": "tests/phpunit/"
-  },
   "manifest_version": 2
 }

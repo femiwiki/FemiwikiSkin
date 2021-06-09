@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Skins\Femiwiki;
 
+use MediaWiki\MediaWikiServices;
 use OOUI\ButtonWidget;
 use OutputPage;
 use Sanitizer;
@@ -45,7 +46,7 @@ class SkinFemiwiki extends SkinMustache {
 
 		$commonSkinData = array_merge_recursive( $parentData, [
 			'data-sidebar' => $sidebar,
-			'html-heading-language-attributes' => $this->prepareHeadingLanguageAttributes,
+			'html-heading-language-attributes' => $this->prepareHeadingLanguageAttributes(),
 			'html-share-button' => $this->getShare(),
 			'data-toolbox' => $toolbox,
 			'html-lastmod' => $this->lastModified(),
@@ -111,7 +112,7 @@ class SkinFemiwiki extends SkinMustache {
 	 */
 	protected function prepareHeadingLanguageAttributes() {
 		$config = $this->getConfig();
-		if ( !$config->get( Constant::CONFIG_KEY_USE_PAGE_LANG_FOR_HEADING ) ) {
+		if ( !$config->get( Constants::CONFIG_KEY_USE_PAGE_LANG_FOR_HEADING ) ) {
 			return parent::prepareUserLanguageAttributes();
 		}
 		// Use page language for the first heading.
