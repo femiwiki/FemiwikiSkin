@@ -2,6 +2,13 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Uses SkinMustach (https://github.com/femiwiki/FemiwikiSkin/issues/136)
+- Fixes unnecessary delimiter in the footer (https://github.com/femiwiki/FemiwikiSkin/issues/104)
+- Uses AutoloadNamespace (https://github.com/femiwiki/femiwiki/issues/121)
+- Replaces hard-coded hrefs in GNB (https://github.com/femiwiki/FemiwikiSkin/issues/241)
+
 ## v1.7.0
 
 - Make size of notification text bigger.
