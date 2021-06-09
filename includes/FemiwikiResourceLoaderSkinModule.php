@@ -1,11 +1,17 @@
 <?php
 
-class FemiwikiResourceLoaderSkinModule extends \ResourceLoaderSkinModule {
+namespace MediaWiki\Skins\Femiwiki;
+
+use CSSMin;
+use ResourceLoaderContext;
+use ResourceLoaderSkinModule;
+
+class FemiwikiResourceLoaderSkinModule extends ResourceLoaderSkinModule {
 	/**
-	 * @param \ResourceLoaderContext $context
+	 * @param ResourceLoaderContext $context
 	 * @return array
 	 */
-	protected function getLessVars( \ResourceLoaderContext $context ) {
+	protected function getLessVars( ResourceLoaderContext $context ) {
 		$lessVars = parent::getLessVars( $context );
 		$logos = $this->getConfig()->get( 'Logos' );
 
