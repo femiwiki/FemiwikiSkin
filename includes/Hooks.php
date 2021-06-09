@@ -1,11 +1,24 @@
 <?php
+
+namespace MediaWiki\Skins\Femiwiki;
+
+use EchoNotificationController;
+use EchoSeenTime;
+use ExtensionRegistry;
+use MailAddress;
 use MediaWiki\MediaWikiServices;
+use MWEchoNotifUser;
+use OutputPage;
+use Skin;
+use SkinTemplate;
+use SpecialPage;
+use Title;
 
 /**
- * SkinFemiwikiHooks class for the Femiwiki skin hooks
+ * Hooks class for the Femiwiki skin hooks
  *
  */
-class SkinFemiwikiHooks {
+class Hooks {
 	/**
 	 * @param OutputPage $output The page view.
 	 * @param Skin $skin The skin that's going to build the UI.
@@ -215,6 +228,32 @@ class SkinFemiwikiHooks {
 			$title->getText() == 'skin-femiwiki-xeicon-map.json'
 		) {
 			$model = CONTENT_MODEL_JSON;
+		}
+	}
+
+	/**
+	 * @param SkinTemplate $sk
+	 * @param array &$content_navigation
+	 */
+	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
+		$title = $sk->getRelevantTitle();
+		if (
+			$sk->getSkinName() === Constants::SKIN_NAME &&
+			$title && $title->canExist()
+		) {
+			$key = null;
+			if ( isset( $content_navigation['actions']['watch'] ) ) {
+				$key = 'watch';
+			}
+			if ( isset( $content_navigation['actions']['unwatch'] ) ) {
+				$key = 'unwatch';
+			}
+
+			// Promote watch link from actions to views and add an icon
+			if ( $key !== null ) {
+				$content_navigation['namespaces'][$key] = $content_navigation['actions'][$key];
+				unset( $content_navigation['actions'][$key] );
+			}
 		}
 	}
 }
