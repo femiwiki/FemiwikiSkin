@@ -1,5 +1,5 @@
 <?php
-namespace FemiwikiSkin;
+namespace MediaWiki\Skins\Femiwiki;
 
 /**
  * A namespace for FemiwikiSkin constants for internal FemiwikiSkin usage only. **Do not rely on this file as an
@@ -11,4 +11,15 @@ final class Constants {
 	 * @var string
 	 */
 	public const SKIN_NAME = 'femiwiki';
+
+	// These are tightly coupled to skin.json's config.
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_USE_PAGE_LANG_FOR_HEADING = 'FemiwikiUsePageLangForHeading';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_SHOW_FOOTER_ICONS = 'FemiwikiShowFooterIcons';
 }

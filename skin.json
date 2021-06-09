@@ -11,27 +11,49 @@
     "MediaWiki": ">= 1.36.0"
   },
   "ValidSkinNames": {
-    "femiwiki": "Femiwiki"
+    "femiwiki": {
+      "displayname": "Femiwiki",
+      "class": "MediaWiki\\Skins\\Femiwiki\\SkinFemiwiki",
+      "args": [
+        {
+          "name": "femiwiki",
+          "responsive": true,
+          "templateDirectory": "skins/Femiwiki/includes/templates",
+          "styles": [
+            "skins.femiwiki",
+            "skins.femiwiki.xeicon",
+            "oojs-ui.styles.icons-interactions"
+          ],
+          "messages": [
+            "navigation-heading",
+            "tooltip-n-recentchanges",
+            "recentchanges",
+            "tooltip-n-randompage",
+            "randompage",
+            "skin-femiwiki-page-menu-tooltip"
+          ],
+          "scripts": ["skins.femiwiki.js"]
+        }
+      ]
+    }
   },
   "MessagesDirs": {
     "Femiwiki": ["i18n"]
   },
+  "AutoloadNamespaces": {
+    "MediaWiki\\Skins\\Femiwiki\\": "includes/"
+  },
   "AutoloadClasses": {
-    "FemiwikiSkin\\Constants": "includes/Constants.php",
-    "SkinFemiwiki": "includes/SkinFemiwiki.php",
-    "SkinFemiwikiHooks": "includes/SkinFemiwikiHooks.php",
-    "FemiwikiTemplate": "includes/FemiwikiTemplate.php",
-    "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php",
-    "FemiwikiResourceLoaderSkinModule": "includes/FemiwikiResourceLoaderSkinModule.php"
+    "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php"
   },
   "ResourceModules": {
     "skins.femiwiki": {
-      "class": "FemiwikiResourceLoaderSkinModule",
+      "class": "MediaWiki\\Skins\\Femiwiki\\FemiwikiResourceLoaderSkinModule",
       "features": {
-        "normalize": true,
-        "content-links": true,
-        "legacy": true,
-        "logo": false
+        "content-media": true,
+        "elements": true,
+        "interface": true,
+        "normalize": true
       },
       "targets": ["desktop", "mobile"],
       "position": "top",
@@ -45,7 +67,10 @@
     },
     "skins.femiwiki.xeicon": {
       "class": "ResourceLoaderSkinModule",
-      "features": { "logo": false },
+      "features": {
+        "content-body": false,
+        "toc": false
+      },
       "targets": ["desktop", "mobile"],
       "position": "top",
       "localBasePath": "node_modules/xeicon",
@@ -147,18 +172,21 @@
     }
   },
   "Hooks": {
-    "BeforePageDisplay": "SkinFemiwikiHooks::onBeforePageDisplay",
-    "ContentHandlerDefaultModelFor": "SkinFemiwikiHooks::onContentHandlerDefaultModelFor",
-    "PersonalUrls": "SkinFemiwikiHooks::onPersonalUrls",
-    "ResourceLoaderGetConfigVars": "SkinFemiwikiHooks::onResourceLoaderGetConfigVars",
-    "UserMailerTransformContent": "SkinFemiwikiHooks::onUserMailerTransformContent"
+    "BeforePageDisplay": "MediaWiki\\Skins\\Femiwiki\\Hooks::onBeforePageDisplay",
+    "ContentHandlerDefaultModelFor": "MediaWiki\\Skins\\Femiwiki\\Hooks::onContentHandlerDefaultModelFor",
+    "PersonalUrls": "MediaWiki\\Skins\\Femiwiki\\Hooks::onPersonalUrls",
+    "ResourceLoaderGetConfigVars": "MediaWiki\\Skins\\Femiwiki\\Hooks::onResourceLoaderGetConfigVars",
+    "UserMailerTransformContent": "MediaWiki\\Skins\\Femiwiki\\Hooks::onUserMailerTransformContent",
+    "SkinTemplateNavigation": "MediaWiki\\Skins\\Femiwiki\\Hooks::onSkinTemplateNavigation"
   },
   "config": {
     "FemiwikiFirebaseKey": { "value": "" },
     "FemiwikiFacebookAppId": { "value": "" },
     "FemiwikiTwitterAccount": { "value": false },
     "FemiwikiHeadItems": { "value": false },
-    "FemiwikiAddThisId": { "value": false }
+    "FemiwikiAddThisId": { "value": false },
+    "FemiwikiUsePageLangForHeading": { "value": true },
+    "FemiwikiShowFooterIcons": { "value": false }
   },
   "OOUIThemePaths": {
     "Femiwiki": {
@@ -169,9 +197,6 @@
   },
   "SkinOOUIThemes": {
     "femiwiki": "Femiwiki"
-  },
-  "TestAutoloadNamespaces": {
-    "FemiwikiSkin\\Constants\\Tests\\Integration\\": "tests/phpunit/integration/"
   },
   "manifest_version": 2
 }

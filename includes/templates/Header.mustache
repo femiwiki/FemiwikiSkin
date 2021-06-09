@@ -1,49 +1,34 @@
-{{!
-  string? html-sitenotice
-  string? html-newtalk
-  string html-namespaces
-  string? html-watch
-  string page-language
-  string html-title
-  string? html-title-buttons
-  array? data-toolbox
-  array? data-actions
-  string? page-history
-  string? page-lastmod
-  string? html-views
-}}
-
-{{#data-header}}
 <header id="p-header" class="fw-header">
-  {{#html-sitenotice}}<div id="siteNotice" class="mw-body-content">{{{.}}}</div>{{/html-sitenotice}}
-  {{>Indicator}}
-  {{#html-newtalk}}<div class="usermessage">{{{.}}}</div>{{/html-newtalk}}
-  {{#data-above-title-menu}}{{>Portal}}{{/data-above-title-menu}}
+  <div id="siteNotice" class="mw-body-content">{{{html-site-notice}}}</div>
+  {{{html-user-message}}}
+  {{#data-portlets.data-namespaces}}
+    {{>Menu}}
+  {{/data-portlets.data-namespaces}}
   <div id="p-title-and-tb">
-    <h1 class="firstHeading" lang="{{page-language}}">{{{html-title}}}</h1>
+    <h1 id="firstHeading" class="firstHeading" {{{html-heading-language-attributes}}}>{{{html-title}}}</h1>
     <div id="p-title-buttons">
       {{{html-share-button}}}
-      {{#html-helplink}}
-      <span id="mw-indicator-mw-helplink" class="mw-indicator fw-button">{{{.}}}</span>
-      {{/html-helplink}}
+      {{>Indicator}}
       <label id="p-menu-toggle"
         class="oo-ui-icon-ellipsis mw-checkbox-hack-button fw-button"
-        title="{{msg-page-menu-toggle-tooltip}}"
+        title="{{msg-skin-femiwiki-page-menu-tooltip}}"
         for="fw-page-menu-checkbox"
         aria-controls="p-actions-and-toolbox"
         tabindex="0"></label>
     </div>
     <input type="checkbox" id="fw-page-menu-checkbox" class="mw-checkbox-hack-checkbox">
     <div id="p-actions-and-toolbox" class="fw-portals fw-page-portals">
-      {{#data-toolbox}}{{>Portal}}{{/data-toolbox}}
-      {{#data-actions}}{{>Portal}}{{/data-actions}}
+      {{#data-toolbox}}{{>Menu}}{{/data-toolbox}}
+      {{#data-portlets.data-actions}}{{>Menu}}{{/data-portlets.data-actions}}
     </div>
   </div>
   <div id="lastmod-and-views">
-    {{#page-lastmod-enabled}}
-    <a id="lastmod" href="{{page-history}}">{{{page-lastmod}}}</a>
-    {{/page-lastmod-enabled}}
-    {{#data-views}}{{>Portal}}{{/data-views}}
+    {{#link-history}}
+    <a id="lastmod" href="{{link-history}}">{{{html-lastmod}}}</a>
+    {{/link-history}}
+
+    {{#data-portlets.data-views}}
+    {{>Menu}}
+    {{/data-portlets.data-views}}
   </div>
 </header>
-{{/data-header}}

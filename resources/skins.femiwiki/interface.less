@@ -11,7 +11,7 @@
   flex-flow: row-reverse wrap;
   justify-content: space-between;
 
-  .fw-portal {
+  .mw-portlet {
     width: @portal-min-width;
     min-width: @portal-min-width;
     margin: 0.6rem @portal-margin-right 0.6rem 0;
@@ -90,7 +90,7 @@
     padding: 0;
   }
 
-  #siteNotice {
+  #localNotice {
     font-size: 0.8rem;
     color: @color-base0;
     margin: 0 0 4rem;
@@ -107,7 +107,7 @@
     }
   }
 
-  #p-above-title-menu {
+  .mw-portlet-namespaces {
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
 
@@ -146,6 +146,7 @@
       margin: 0;
       @icon-size: 1.42857143em;
 
+      .mw-indicators,
       .fw-button {
         margin: 0;
         float: left;
@@ -169,20 +170,20 @@
         background-image: url(images/icon-share.png);
       }
 
-      #mw-indicator-mw-helplink,
-      #mw-indicator-mw-helplink a,
+      .mw-indicators,
+      .mw-indicators .mw-indicator a,
       #p-menu-toggle {
         width: @icon-size;
         height: @icon-size;
       }
 
-      #mw-indicator-mw-helplink,
+      .mw-indicators,
       #p-menu-toggle {
         padding: 0.37142855em;
       }
 
       // Hide text label
-      #mw-indicator-mw-helplink {
+      .mw-indicators {
         overflow: hidden;
         a {
           padding-left: @icon-size * 2;
@@ -316,7 +317,7 @@ hr#content-end-bar {
 }
 
 // Footer
-#footer-bottom {
+.mw-footer {
   box-sizing: border-box;
   .content-horizontal-padding();
   padding-top: 0.8rem;
@@ -325,11 +326,7 @@ hr#content-end-bar {
   max-width: @content-width;
   margin: 0 auto 3.2rem;
 
-  .footer-icons {
-    display: none;
-  }
-
-  #f-list {
+  ul {
     font-size: 0.714rem;
     margin: 0;
     padding: 0;
@@ -342,20 +339,20 @@ hr#content-end-bar {
       a {
         .mw-link();
       }
-
-      &:not(#credits):not(#lastmod):not(#copyright):not(:last-child)::after {
-        content: '|';
-        margin: 0 0.3rem;
-      }
-
-      &#lastmod {
-        display: none;
-      }
-
-      &#copyright {
-        display: block;
-      }
     }
+
+    &#footer-info li {
+      display: block;
+    }
+
+    &#footer-places li:not(:first-child)::before {
+      content: '|';
+      margin: 0 0.3rem;
+    }
+  }
+
+  #footer-icons {
+    float: right;
   }
 }
 
