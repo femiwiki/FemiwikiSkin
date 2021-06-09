@@ -41,13 +41,12 @@ class SkinFemiwiki extends SkinMustache {
 		$title = $out->getTitle();
 		$config = $this->getConfig();
 		$parentData = parent::getTemplateData();
-		$sidebar = $this->getSidebar( $toolbox );
+		list( $sidebar, $toolbox ) = $this->getSidebar();
 
 		$commonSkinData = array_merge_recursive( $parentData, [
 			'data-sidebar' => $sidebar,
 			'html-heading-language-attributes' => $this->prepareHeadingLanguageAttributes,
 			'html-share-button' => $this->getShare(),
-			'msg-page-menu-toggle-tooltip' => $this->msg( 'skin-femiwiki-page-menu-tooltip' )->text(),
 			'data-toolbox' => $toolbox,
 			'html-lastmod' => $this->lastModified(),
 			'text-add-this-pub-id' => $this->getAddThisPubId(),
@@ -64,19 +63,18 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
-	 * Returns data for the sidebar.
+	 * Returns data for the sidebar and toolbox.
 	 * 'data-portlets-sidebar' also provides it, but it is divided into two parts.
 	 * The division is useful for Vector, but not useful for other skins.
-	 * @param array &$toolbox
 	 * @return array
 	 */
-	protected function getSidebar( &$toolbox ) {
+	protected function getSidebar() {
 		$sidebarData = $this->buildSidebar();
 		$sidebar = [];
 		foreach ( $sidebarData as $name => $items ) {
 			if ( $name == 'TOOLBOX' ) {
 				// The toolbox includes both page-specific-tools and site-wide-tools, but we
-				// need only page-specific-tools, so unset those.
+				// need only page specific tools, so unset those.
 				foreach ( [ 'specialpages', 'upload' ] as $item ) {
 					unset( $items[$item] );
 				}
@@ -87,7 +85,7 @@ class SkinFemiwiki extends SkinMustache {
 			}
 			$sidebar[] = $this->getPortletData( $name, $items );
 		}
-		return $sidebar;
+		return [ $sidebar, $toolbox ];
 	}
 
 	/**
@@ -119,7 +117,7 @@ class SkinFemiwiki extends SkinMustache {
 		// Use page language for the first heading.
 		$title = $this->getOutput()->getTitle();
 		$pageLang = $title->getPageViewLanguage();
-		$pageLangCode->getHtmlCode();
+		$pageLangCode = $pageLang->getHtmlCode();
 		$pageLangDir = $pageLang->getDir();
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
 		if (
@@ -168,21 +166,24 @@ class SkinFemiwiki extends SkinMustache {
 
 		$htmlItems = '';
 		foreach ( $items as $key => $item ) {
-			$options = [
-				'text-wrapper' => [
-					[
-						'tag' => 'i',
-						'attributes' => [
-							'class' => 'xi-' . $xeIconMap[$item['id']]
-						]
+			$id = $item['id'];
+			if ( isset( $xeIconMap[$id] ) ) {
+				$options = [
+					'text-wrapper' => [
+						[
+							'tag' => 'i',
+							'attributes' => [
+								'class' => 'xi-' . $xeIconMap[$id]
+							]
+						],
+						[
+							'tag' => 'span'
+						],
 					],
-					[
-						'tag' => 'span'
-					],
-				],
-				'link-class' => 'xe-icons',
-			];
-			$htmlItems .= $this->makeListItem( $key, $item, $options );
+					'link-class' => 'xe-icons',
+				];
+			}
+			$htmlItems .= $this->makeListItem( $key, $item, $options ?? [] );
 		}
 
 		$parentData = parent::getPortletData( $name, $items );

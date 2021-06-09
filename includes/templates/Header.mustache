@@ -1,18 +1,3 @@
-{{!
-  string? html-sitenotice
-  string? html-newtalk
-  string html-namespaces
-  string? html-watch
-  string page-language
-  string html-title
-  string? html-title-buttons
-  array? data-toolbox
-  array? data-actions
-  string? page-history
-  string? page-lastmod
-  string? html-views
-}}
-
 <header id="p-header" class="fw-header">
   <div id="siteNotice" class="mw-body-content">{{{html-site-notice}}}</div>
   {{{html-user-message}}}
@@ -26,7 +11,7 @@
       {{>Indicator}}
       <label id="p-menu-toggle"
         class="oo-ui-icon-ellipsis mw-checkbox-hack-button fw-button"
-        title="{{msg-page-menu-toggle-tooltip}}"
+        title="{{msg-skin-femiwiki-page-menu-tooltip}}"
         for="fw-page-menu-checkbox"
         aria-controls="p-actions-and-toolbox"
         tabindex="0"></label>

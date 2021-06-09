@@ -29,7 +29,8 @@
             "tooltip-n-recentchanges",
             "recentchanges",
             "tooltip-n-randompage",
-            "randompage"
+            "randompage",
+            "skin-femiwiki-page-menu-tooltip"
           ],
           "scripts": ["skins.femiwiki.js"]
         }
@@ -49,12 +50,10 @@
     "skins.femiwiki": {
       "class": "MediaWiki\\Skins\\Femiwiki\\FemiwikiResourceLoaderSkinModule",
       "features": {
-        "normalize": true,
+        "content-thumbnails": true,
         "elements": true,
-        "content": true,
-        "content-parser-output": true,
         "interface": true,
-        "logo": false
+        "normalize": true
       },
       "targets": ["desktop", "mobile"],
       "position": "top",
@@ -69,12 +68,8 @@
     "skins.femiwiki.xeicon": {
       "class": "ResourceLoaderSkinModule",
       "features": {
-        "normalize": false,
-        "elements": false,
-        "content": false,
         "content-parser-output": false,
-        "interface": false,
-        "logo": false
+        "toc": false
       },
       "targets": ["desktop", "mobile"],
       "position": "top",
