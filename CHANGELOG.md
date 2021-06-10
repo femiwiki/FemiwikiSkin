@@ -8,6 +8,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Fixes unnecessary delimiter in the footer (https://github.com/femiwiki/FemiwikiSkin/issues/104)
 - Uses AutoloadNamespace (https://github.com/femiwiki/femiwiki/issues/121)
 - Replaces hard-coded hrefs in GNB (https://github.com/femiwiki/FemiwikiSkin/issues/241)
+- Makes margins of ol same to margins of ul.
 
 ## v1.7.0
 
