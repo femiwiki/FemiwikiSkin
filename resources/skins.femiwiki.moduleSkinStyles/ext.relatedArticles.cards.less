@@ -1,0 +1,16 @@
+.ext-related-articles-card-list {
+  // Make 2-columns
+  .ext-related-articles-card {
+    @rightMargin: 1%;
+    width: (100 - @rightMargin) / 2;
+
+    // Reset upstream
+    &:nth-child(3n + 3) {
+      margin-right: @rightMargin;
+    }
+
+    &:nth-child(2n + 2) {
+      margin-right: 0;
+    }
+  }
+}
