@@ -27,7 +27,7 @@ class SkinFemiwiki extends SkinMustache {
 		if ( $this->getUser()->isLoggedIn() ) {
 			$options['scripts'][] = 'skins.femiwiki.notifications';
 		}
-		if ( !$this->getTitle()->isSpecialPage() ) {
+		if ( $this->shouldShowShare() ) {
 			$options['scripts'][] = 'skins.femiwiki.share';
 		}
 		parent::__construct( $options );
@@ -90,10 +90,17 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
+	 * @return bool
+	 */
+	protected function shouldShowShare() {
+		return $this->getOutput()->getTitle()->getArticleID() !== 0;
+	}
+
+	/**
 	 * @return string|null
 	 */
 	protected function getShare() {
-		if ( $this->getOutput()->getTitle()->getArticleID() === 0 ) {
+		if ( !$this->shouldShowShare() ) {
 			return null;
 		}
 		return new ButtonWidget( [
