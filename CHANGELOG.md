@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Makes ext-related-articles-card 2-columns
+
 ## v1.7.1
 
 - Uses SkinMustach (https://github.com/femiwiki/FemiwikiSkin/issues/136)
