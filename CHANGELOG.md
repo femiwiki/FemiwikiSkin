@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## v1.7.1
 
 - Uses SkinMustach (https://github.com/femiwiki/FemiwikiSkin/issues/136)
 - Fixes unnecessary delimiter in the footer (https://github.com/femiwiki/FemiwikiSkin/issues/104)
