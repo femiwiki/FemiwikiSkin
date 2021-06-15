@@ -9,6 +9,11 @@
   box-shadow: inset 0 0 0 1px @color-progressive;
 }
 
-span[typeof='mw:Image'] > a > img {
-  .image();
+// Editing surface https://github.com/femiwiki/FemiwikiSkin/issues/249
+.image,
+// Preview of 2017 Wikitext editor
+span[typeof='mw:Image'] > a {
+  & > img {
+    .image();
+  }
 }
