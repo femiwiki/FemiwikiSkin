@@ -584,9 +584,11 @@
     margin: 0 0.5em 0.5em 0;
   }
 
-  .image img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
+  .image,
+  // https://github.com/femiwiki/FemiwikiSkin/issues/248
+  a[href][title] {
+    img[alt] {
+      .image();
+    }
   }
 }
