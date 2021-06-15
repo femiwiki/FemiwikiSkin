@@ -6,6 +6,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 - Makes ext-related-articles-card 2-columns
 - Removes unwanted text-decoration of Echo notifications.
+- Adds more cases for resizing large images
 
 ## v1.7.1
 

@@ -64,8 +64,12 @@
       }
     }
 
-    .image img {
-      vertical-align: middle;
+    .image,
+    // https://github.com/femiwiki/FemiwikiSkin/issues/248
+    a[href][title] {
+      img[alt] {
+        .image();
+      }
     }
 
     .magnify {
@@ -237,11 +241,6 @@
     border: 1px solid #c8ccd1;
     box-sizing: border-box;
     padding: 0.1em;
-  }
-
-  #file img {
-    max-width: 100%;
-    height: auto;
   }
 
   & > br:first-child,
