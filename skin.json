@@ -155,6 +155,7 @@
       "+mediawiki.action.history.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.history.styles.less",
       "+mediawiki.action.view.categoryPage.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.categoryPage.styles.less",
       "+mediawiki.action.view.filepage": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.filepage.less",
+      "+mediawiki.action.view.postEdit": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.postEdit.less",
       "+mediawiki.diff.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.diff.styles.less",
       "+mediawiki.feedlink": "skins.femiwiki.moduleSkinStyles/mediawiki.feedlink.less",
       "+mediawiki.pulsatingdot": "skins.femiwiki.moduleSkinStyles/mediawiki.pulsatingdot.less",
