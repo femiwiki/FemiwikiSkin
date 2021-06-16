@@ -152,6 +152,7 @@
       "+ext.uploadWizard.page.styles": "skins.femiwiki.moduleSkinStyles/ext.uploadWizard.page.styles.less",
       "+ext.visualEditor.core": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.core.less",
       "+ext.visualEditor.desktopTarget": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.desktopTarget.less",
+      "+ext.visualEditor.mwimage": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.mwimage.less",
       "+mediawiki.action.edit.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.edit.styles.less",
       "+mediawiki.action.history.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.history.styles.less",
       "+mediawiki.action.view.categoryPage.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.categoryPage.styles.less",
