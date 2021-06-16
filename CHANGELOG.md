@@ -4,16 +4,20 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## Unreleased
 
-- Makes ext-related-articles-card 2-columns
+- Makes ext-related-articles-card 2-columns.
 - Removes unwanted text-decoration of Echo notifications.
-- Adds more cases for resizing large images
+- Adds more cases for resizing large images.
+- Removes padding of `.mwhighlight > pre`. (https://github.com/femiwiki/FemiwikiSkin/issues/245)
+- Makes postEdit notification centered evenly. (https://github.com/femiwiki/FemiwikiSkin/issues/45)
+- Fixes blue link for ULS in Special:Preferences. (https://github.com/femiwiki/FemiwikiSkin/issues/244)
+- Fixes blue link to description page in media settings. (https://github.com/femiwiki/FemiwikiSkin/issues/247)
 
 ## v1.7.1
 
-- Uses SkinMustach (https://github.com/femiwiki/FemiwikiSkin/issues/136)
-- Fixes unnecessary delimiter in the footer (https://github.com/femiwiki/FemiwikiSkin/issues/104)
-- Uses AutoloadNamespace (https://github.com/femiwiki/femiwiki/issues/121)
-- Replaces hard-coded hrefs in GNB (https://github.com/femiwiki/FemiwikiSkin/issues/241)
+- Uses SkinMustach. (https://github.com/femiwiki/FemiwikiSkin/issues/136)
+- Fixes unnecessary delimiter in the footer. (https://github.com/femiwiki/FemiwikiSkin/issues/104)
+- Uses AutoloadNamespace. (https://github.com/femiwiki/femiwiki/issues/121)
+- Replaces hard-coded hrefs in GNB. (https://github.com/femiwiki/FemiwikiSkin/issues/241)
 - Makes margins of ol same to margins of ul.
 
 ## v1.7.0
@@ -33,8 +37,8 @@ If you still use those versions of MediaWiki, please use REL1_35 branch instead 
 
 ENHANCEMENTS:
 
-- Localisation updates from https://translatewiki.net.
-- Define font-family for [lang=ja] (https://github.com/femiwiki/FemiwikiSkin/issues/228).
+- Localisation updates from. https://translatewiki.net.
+- Define font-family for `[lang=ja]`. (https://github.com/femiwiki/FemiwikiSkin/issues/228).
 
 BUG FIXES:
 
