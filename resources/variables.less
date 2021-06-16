@@ -78,6 +78,88 @@
   vertical-align: middle;
 }
 
+.mw-link-style() {
+  &,
+  &:visited {
+    color: @color-primary5;
+  }
+
+  &:active {
+    color: #faa700;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &.external {
+    color: @color-primary5;
+  }
+
+  &.new {
+    color: #c0081f;
+
+    &:visited {
+      color: #a55858;
+    }
+  }
+
+  &.stub {
+    color: #723;
+  }
+
+  // self links
+  &.mw-selflink {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: inherit;
+
+    &:hover {
+      cursor: inherit;
+      text-decoration: inherit;
+    }
+
+    &:active,
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  // Interwiki Styling
+  &.extiw {
+    &,
+    &:active {
+      color: #36b;
+    }
+
+    &:visited {
+      color: #636;
+    }
+
+    &:active {
+      color: #b63;
+    }
+  }
+
+  // External links
+  &.external {
+    color: @color-primary5;
+    /* @embed */
+    background: url('../images/icon-external-link.png') top right no-repeat;
+    background-size: 8px 8px;
+    padding-right: 0.6rem;
+
+    &:active {
+      color: #b63;
+    }
+
+    &.free {
+      word-wrap: break-word;
+    }
+  }
+}
+
 .mw-link() {
   &:not([role='button']) {
     text-decoration: none;
@@ -86,85 +168,7 @@
       cursor: pointer; // Always cursor:pointer even without href
     }
 
-    &,
-    &:visited {
-      color: @color-primary5;
-    }
-
-    &:active {
-      color: #faa700;
-    }
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
-
-    &.external {
-      color: @color-primary5;
-    }
-
-    &.new {
-      color: #c0081f;
-
-      &:visited {
-        color: #a55858;
-      }
-    }
-
-    &.stub {
-      color: #723;
-    }
-
-    // self links
-    &.mw-selflink {
-      color: inherit;
-      font-weight: bold;
-      text-decoration: inherit;
-
-      &:hover {
-        cursor: inherit;
-        text-decoration: inherit;
-      }
-
-      &:active,
-      &:visited {
-        color: inherit;
-      }
-    }
-
-    // Interwiki Styling
-    &.extiw {
-      &,
-      &:active {
-        color: #36b;
-      }
-
-      &:visited {
-        color: #636;
-      }
-
-      &:active {
-        color: #b63;
-      }
-    }
-
-    // External links
-    &.external {
-      color: @color-primary5;
-      /* @embed */
-      background: url('../images/icon-external-link.png') top right no-repeat;
-      background-size: 8px 8px;
-      padding-right: 0.6rem;
-
-      &:active {
-        color: #b63;
-      }
-
-      &.free {
-        word-wrap: break-word;
-      }
-    }
+    .mw-link-style();
   }
 }
 
