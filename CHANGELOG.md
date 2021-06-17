@@ -11,6 +11,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Makes postEdit notification centered evenly. (https://github.com/femiwiki/FemiwikiSkin/issues/45)
 - Fixes blue link for ULS in Special:Preferences. (https://github.com/femiwiki/FemiwikiSkin/issues/244)
 - Fixes blue link to description page in media settings. (https://github.com/femiwiki/FemiwikiSkin/issues/247)
+- Improves font-family and hyphens per languages. (https://github.com/femiwiki/femiwiki/issues/274)
 
 ## v1.7.1
 

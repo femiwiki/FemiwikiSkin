@@ -2,8 +2,12 @@
 @media print {
   body {
     // Word breaks shouldn't be used for CJK text
-    word-break: keep-all;
-    overflow-wrap: break-word;
+    &:lang(ja),
+    &:lang(ko),
+    &:lang(zh) {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
   }
 
   input[type='checkbox'],
