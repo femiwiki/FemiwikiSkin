@@ -8,12 +8,23 @@
 @portal-min-width: 8.8rem;
 @portal-margin-right: 0.8rem;
 
-@font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕',
+// Set Arial to high priority.
+// https://femiwiki.com/w/Topic:V19kdq48epmrel7u
+@font-family-en: Arial, 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕',
+  'Noto Sans CJK KR', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕',
+  NanumGothic, '맑은고딕', 'Malgun Gothic', Dotum, sans-serif;
+
+// https://github.com/femiwiki/FemiwikiSkin/issues/228
+// https://github.com/femiwiki/remote-gadgets/pull/26
+@font-family-ja: 'Segoe UI', Meiryo, system-ui, -apple-system,
+  BlinkMacSystemFont, 'Noto Sans CJK KR', '본고딕', sans-serif;
+
+@font-family-ko: 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕',
   'Noto Sans CJK KR', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕',
   NanumGothic, '맑은고딕', 'Malgun Gothic', Arial, Dotum, sans-serif;
 
-@font-family-ja: 'Segoe UI', Meiryo, system-ui, -apple-system,
-  BlinkMacSystemFont, sans-serif;
+// TODO: Define a multilingual font family
+@font-family: @font-family-ko;
 
 @color-base0: #000000;
 @color-base15: #252525;
@@ -53,6 +64,13 @@
   100% {
     opacity: 0;
   }
+}
+
+.hyphens( ... ) {
+  -webkit-hyphens: @arguments;
+  -ms-hyphens: @arguments;
+  -moz-hyphens: @arguments;
+  hyphens: @arguments;
 }
 
 .full-width() {
@@ -332,11 +350,22 @@
 }
 
 .parser-output() {
+  *:lang(en) {
+    font-family: @font-family-en;
+    // https://femiwiki.com/w/Topic:W75xcdw9h9p3h5gt
+    word-break: normal;
+    .hyphens(none);
+  }
+
+  *:lang(ja) {
+    font-family: @font-family-ja;
+  }
+
   a {
     .mw-link();
   }
 
-  // @See https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
+  // https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
   s,
   strike {
     color: gray;
