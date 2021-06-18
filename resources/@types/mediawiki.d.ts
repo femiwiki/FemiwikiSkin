@@ -1,22 +1,6 @@
-interface MwApi {
-  saveOption(name: string, value: unknown): JQuery.Promise<any>;
+import UpstreamMediaWiki from '@wikimedia/types-wikimedia';
 
-  get(parameters: object, ajaxOptions?: object): JQuery.Promise<any>;
-}
-
-type MwApiConstructor = new (options?: Object) => MwApi;
-
-interface MwTitle {
-  getNamespacePrefix(): string;
-  getMain(): string;
-  getTalkPage(): MwTitle | null;
-  getPrefixedText(): string;
-}
-
-type MwTitleConstructor = new (title: string, namespace?: string) => MwTitle;
-
-interface MediaWiki {
-
+interface MediaWiki extends UpstreamMediaWiki {
   echo: {
     api: {
       EchoApi: {
