@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## 1.7.2
 
 - Makes ext-related-articles-card 2-columns.
 - Removes unwanted text-decoration of Echo notifications.
