@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Fixes bug in RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/258)
+
 ## 1.7.2
 
 - Makes ext-related-articles-card 2-columns.
