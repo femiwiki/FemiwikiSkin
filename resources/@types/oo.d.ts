@@ -20,7 +20,7 @@ interface EventEmitter {
     context?: Object
   ): EventEmitter;
 
-  connect(context: object, methods: object):EventEmitter;
+  connect(context: object, methods: object): EventEmitter;
 }
 
 interface PopupWidget extends EventEmitter {

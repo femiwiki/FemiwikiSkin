@@ -3,11 +3,12 @@
   "scripts": {
     "test": "npm run lint --silent && node_modules/.bin/tsc",
     "lint": "npm run lint:prettier --silent && npm run lint:i18n --silent",
-    "lint:prettier": "prettier '**/*.{js,json,css,less}' --check",
+    "lint:prettier": "prettier . --check",
     "lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
-    "fix": "prettier '**/*.{js,json,css,less}' --write"
+    "fix": "prettier . --write"
   },
   "devDependencies": {
+    "@prettier/plugin-xml": "^0.13.1",
     "@types/jquery": "^3.5.5",
     "@types/node-fetch": "^2.5.10",
     "grunt-banana-checker": "^0.9.0",
