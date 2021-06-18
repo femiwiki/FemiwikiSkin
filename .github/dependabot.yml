@@ -4,13 +4,24 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
+    reviewers:
+      - 'femiwiki/reviewer'
 
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: 'daily'
+    reviewers:
+      - 'femiwiki/reviewer'
 
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
       interval: 'daily'
+    reviewers:
+      - 'femiwiki/reviewer'
+    ignore:
+      - dependency-name: '*'
+        update-types:
+          - 'version-update:semver-minor'
+          - 'version-update:semver-patch'
