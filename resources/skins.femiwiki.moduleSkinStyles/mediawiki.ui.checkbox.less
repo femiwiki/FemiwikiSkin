@@ -1,0 +1,46 @@
+@import '../variables.less';
+
+// @See https://github.com/femiwiki/FemiwikiSkin/issues/260
+.mw-ui-checkbox:not(#noop) {
+  [type='checkbox'] {
+    &:enabled {
+      &:focus + label:before {
+        border-color: @color-primary3;
+				box-shadow: inset 0 0 0 1px @color-primary3;
+      }
+
+      &:hover + label:before {
+        border-color: @color-primary2;
+      }
+
+      &:active + label:before {
+        background-color: @color-primary4;
+        border-color: @color-primary4;
+				box-shadow: inset 0 0 0 1px @color-primary4;
+      }
+
+      &:checked {
+        & + label:before {
+          background-color: @color-primary3;
+          border-color: @color-primary3;
+        }
+
+        &:focus + label:before {
+          background-color: @color-primary3;
+          border-color: @color-primary3;
+					box-shadow: inset 0 0 0 1px @color-primary3, inset 0 0 0 2px white;
+        }
+
+        &:hover + label:before {
+          background-color: @color-primary2;
+          border-color: @color-primary2;
+        }
+
+        &:active + label:before {
+          background-color: @color-primary4;
+          border-color: @color-primary4;
+        }
+      }
+    }
+  }
+}
