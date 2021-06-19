@@ -1,20 +1,47 @@
 @import '../variables.less';
 
-// Prevent copy of the question from ConfirmEdit/QuestyCaptcha
-body.mw-special-CreateAccount label[for='mw-input-femiwikiOpenSesame'] {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+// TODO move this to UnifiedExtensionForFemiwiki
+body.mw-special-CreateAccount {
+  // Prevent copy of the question from ConfirmEdit/QuestyCaptcha
+  label[for='mw-input-femiwikiOpenSesame'] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
 
-.skin-femiwiki .mw-ui-container {
-  @userloginForm-margin-right: 1em;
+// 290px is defined in MediaWiki
+@defaultFormWidth: 290px;
+
+.mw-special-CreateAccount .mw-ui-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+
   #userloginForm {
-    margin-right: @userloginForm-margin-right;
+    margin: auto;
+
+    form {
+      width: auto;
+      max-width: @defaultFormWidth;
+      margin: auto;
+    }
   }
   .mw-createacct-benefits-container {
-    @real-content-width: @content-width - (@content-horizontal-padding * 2);
-    max-width: ~'calc(@{real-content-width} - 290px - @{userloginForm-margin-right})';
+    flex: 1 1;
+    margin: 0 5em;
+  }
+}
+
+.mw-special-Userlogin .mw-ui-container {
+  #userloginForm form {
+    margin: auto;
+    width: auto;
+    max-width: @defaultFormWidth;
+  }
+
+  #mw-createaccount-cta {
+    width: auto;
   }
 }
