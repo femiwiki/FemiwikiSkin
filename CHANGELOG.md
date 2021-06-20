@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Fixes blue links in the help panel. (https://github.com/femiwiki/FemiwikiSkin/issues/257)
+
 ## 1.7.3
 
 - Fixes bug in RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/258)
