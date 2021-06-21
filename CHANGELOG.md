@@ -5,6 +5,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 ## Unreleased
 
 - Fixes blue links in the help panel. (https://github.com/femiwiki/FemiwikiSkin/issues/257)
+- Makes sure the type of sidebar's $items is an array. (https://github.com/femiwiki/FemiwikiSkin/issues/263)
 
 ## 1.7.3
 
