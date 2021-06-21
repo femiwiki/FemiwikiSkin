@@ -73,6 +73,9 @@ class SkinFemiwiki extends SkinMustache {
 		$sidebarData = $this->buildSidebar();
 		$sidebar = [];
 		foreach ( $sidebarData as $name => $items ) {
+			if ( !is_array( $items ) ) {
+				continue;
+			}
 			if ( $name == 'TOOLBOX' ) {
 				// The toolbox includes both page-specific-tools and site-wide-tools, but we
 				// need only page specific tools, so unset those.
