@@ -4,42 +4,43 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## Unreleased
 
-- Fixes blue links in the help panel. (https://github.com/femiwiki/FemiwikiSkin/issues/257)
-- Makes sure the type of sidebar's $items is an array. (https://github.com/femiwiki/FemiwikiSkin/issues/263)
+- Fixed blue links in the help panel. (https://github.com/femiwiki/FemiwikiSkin/issues/257)
+- Made sure the type of sidebar's $items is an array. (https://github.com/femiwiki/FemiwikiSkin/issues/263)
+- Fixed blue links on history view. (https://github.com/femiwiki/FemiwikiSkin/issues/266)
 
 ## 1.7.3
 
-- Fixes bug in RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/258)
-- Improves login/createaccount form. (https://github.com/femiwiki/FemiwikiSkin/issues/260)
+- Fixed bug in RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/258)
+- Improved login/createaccount form. (https://github.com/femiwiki/FemiwikiSkin/issues/260)
 
 ## 1.7.2
 
-- Makes ext-related-articles-card 2-columns.
-- Removes unwanted text-decoration of Echo notifications.
-- Adds more cases for resizing large images.
-- Removes padding of `.mwhighlight > pre`. (https://github.com/femiwiki/FemiwikiSkin/issues/245)
-- Makes postEdit notification centered evenly. (https://github.com/femiwiki/FemiwikiSkin/issues/45)
-- Fixes blue link for ULS in Special:Preferences. (https://github.com/femiwiki/FemiwikiSkin/issues/244)
-- Fixes blue link to description page in media settings. (https://github.com/femiwiki/FemiwikiSkin/issues/247)
-- Improves font-family and hyphens per languages. (https://github.com/femiwiki/femiwiki/issues/274)
+- Made ext-related-articles-card 2-columns.
+- Removed unwanted text-decoration of Echo notifications.
+- Added more cases for resizing large images.
+- Removed padding of `.mwhighlight > pre`. (https://github.com/femiwiki/FemiwikiSkin/issues/245)
+- Made postEdit notification centered evenly. (https://github.com/femiwiki/FemiwikiSkin/issues/45)
+- Fixed blue link for ULS in Special:Preferences. (https://github.com/femiwiki/FemiwikiSkin/issues/244)
+- Fixed blue link to description page in media settings. (https://github.com/femiwiki/FemiwikiSkin/issues/247)
+- Improved font-family and hyphens per languages. (https://github.com/femiwiki/femiwiki/issues/274)
 
 ## v1.7.1
 
-- Uses SkinMustach. (https://github.com/femiwiki/FemiwikiSkin/issues/136)
-- Fixes unnecessary delimiter in the footer. (https://github.com/femiwiki/FemiwikiSkin/issues/104)
-- Uses AutoloadNamespace. (https://github.com/femiwiki/femiwiki/issues/121)
-- Replaces hard-coded hrefs in GNB. (https://github.com/femiwiki/FemiwikiSkin/issues/241)
-- Makes margins of ol same to margins of ul.
+- Used SkinMustach. (https://github.com/femiwiki/FemiwikiSkin/issues/136)
+- Fixed unnecessary delimiter in the footer. (https://github.com/femiwiki/FemiwikiSkin/issues/104)
+- Used AutoloadNamespace. (https://github.com/femiwiki/femiwiki/issues/121)
+- Replaced hard-coded hrefs in GNB. (https://github.com/femiwiki/FemiwikiSkin/issues/241)
+- Made margins of ol same to margins of ul.
 
 ## v1.7.0
 
-- Make size of notification text bigger.
-- Restore disappeared styles of notification. (https://github.com/femiwiki/FemiwikiSkin/issues/237)
-- Center Visual Editor's preview of save dialog. (https://github.com/femiwiki/FemiwikiSkin/issues/238)
+- Made size of notification text bigger.
+- Restored disappeared styles of notification. (https://github.com/femiwiki/FemiwikiSkin/issues/237)
+- Centered Visual Editor's preview of save dialog. (https://github.com/femiwiki/FemiwikiSkin/issues/238)
 
 ## v1.6.1
 
-- Turn off logo skin feature.
+- Turned off logo skin feature.
 
 ## v1.6.0
 
@@ -49,11 +50,11 @@ If you still use those versions of MediaWiki, please use REL1_35 branch instead 
 ENHANCEMENTS:
 
 - Localisation updates from. https://translatewiki.net.
-- Define font-family for `[lang=ja]`. (https://github.com/femiwiki/FemiwikiSkin/issues/228).
+- Defined font-family for `[lang=ja]`. (https://github.com/femiwiki/FemiwikiSkin/issues/228).
 
 BUG FIXES:
 
-- Use content-links feature instead of mediawiki.skinning.content.externallinks.
+- Used content-links feature instead of mediawiki.skinning.content.externallinks.
 
 ## Previous Releases
 
