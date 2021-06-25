@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Removed the tooltip of the logo (https://github.com/femiwiki/FemiwikiSkin/issues/267)
+
 ## v1.7.4
 
 - Fixed blue links in the help panel. (https://github.com/femiwiki/FemiwikiSkin/issues/257)
