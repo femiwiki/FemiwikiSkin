@@ -2,18 +2,18 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## v1.7.4
 
 - Fixed blue links in the help panel. (https://github.com/femiwiki/FemiwikiSkin/issues/257)
 - Made sure the type of sidebar's $items is an array. (https://github.com/femiwiki/FemiwikiSkin/issues/263)
 - Fixed blue links on history view. (https://github.com/femiwiki/FemiwikiSkin/issues/266)
 
-## 1.7.3
+## v1.7.3
 
 - Fixed bug in RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/258)
 - Improved login/createaccount form. (https://github.com/femiwiki/FemiwikiSkin/issues/260)
 
-## 1.7.2
+## v1.7.2
 
 - Made ext-related-articles-card 2-columns.
 - Removed unwanted text-decoration of Echo notifications.
