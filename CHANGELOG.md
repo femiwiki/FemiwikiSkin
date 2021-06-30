@@ -8,6 +8,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Applied pygments 'autumn' style.
 - Made most code blocks full width in mobile devices.
 - Fixed not even margins of the footer. (https://github.com/femiwiki/FemiwikiSkin/issues/269)
+- Fixed the cropped icon of the help link (https://github.com/femiwiki/FemiwikiSkin/issues/180)
 
 ## v1.7.4
 
