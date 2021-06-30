@@ -170,9 +170,9 @@
         background-image: url(images/icon-share.png);
       }
 
+      #p-menu-toggle,
       .mw-indicators,
-      .mw-indicators .mw-indicator a,
-      #p-menu-toggle {
+      .mw-indicator {
         width: @icon-size;
         height: @icon-size;
       }
@@ -183,11 +183,28 @@
       }
 
       // Hide text label
-      .mw-indicators {
+      // Reference: TabWatchstarLink.less of Vector.
+      .mw-indicators .mw-indicator a {
         overflow: hidden;
-        a {
-          padding-left: @icon-size * 2;
-          background-size: @icon-size;
+        height: 0;
+        position: relative;
+        width: @icon-size;
+        padding-top: @icon-size;
+        // Reset
+        background: none;
+        padding-left: 0;
+
+        &:before {
+          background-image: url(/resources/src/mediawiki.helplink/images/helpNotice.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: @icon-size;
+          height: @icon-size;
         }
       }
 
