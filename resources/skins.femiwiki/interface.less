@@ -332,7 +332,7 @@ hr#content-end-bar {
     padding: 0;
 
     li {
-      display: inline;
+      float: left;
       list-style: none;
       margin: 0 0 0.0714rem;
 
@@ -342,11 +342,12 @@ hr#content-end-bar {
     }
 
     &#footer-info li {
-      display: block;
+      float: none;
     }
 
     &#footer-places li:not(:first-child)::before {
       content: '|';
+      color: #d3d3d3;
       margin: 0 0.3rem;
     }
   }
