@@ -371,6 +371,12 @@
     color: gray;
   }
 
+  blockquote {
+    @media screen and (max-width: @width-breakpoint-mobile) {
+      .full-width();
+    }
+  }
+
   code {
     color: @color-base0;
     background-color: button;
@@ -511,21 +517,22 @@
   *:not(.mw-highlight) > pre:not(.CodeMirror-line),
   // https://github.com/femiwiki/FemiwikiSkin/issues/201
   & > pre:not(.CodeMirror-line) {
-    font-family: inherit;
-    overflow: hidden;
-    border: none;
-    background-color: #f0f0f0;
-    color: @color-base0;
     padding: 1em;
-    white-space: pre-wrap;
   }
 
+  *:not(.mw-highlight) > pre:not(.CodeMirror-line),
+  & > pre:not(.CodeMirror-line),
   .mw-highlight > pre {
     overflow: hidden;
     border: none;
-    background-color: #f0f0f0;
+    background-color: #f8f8f8;
     color: @color-base0;
     white-space: pre-wrap;
+    font-family: 'Source Code Pro', monospace, monospace;
+
+    @media screen and (max-width: @width-breakpoint-mobile) {
+      .full-width();
+    }
   }
 
   // Image

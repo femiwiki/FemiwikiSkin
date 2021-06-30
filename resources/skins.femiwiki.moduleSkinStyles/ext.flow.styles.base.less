@@ -51,10 +51,13 @@
     }
   }
 
-  // @See https://github.com/femiwiki/skin/issues/83
-  .mw-body .flow-post-content pre:not(.CodeMirror-line),
-  .mw-body .flow-post-content blockquote {
-    width: 100%;
-    margin-left: 0;
+  // https://github.com/femiwiki/skin/issues/83
+  .mw-body .flow-post-content {
+    *:not(.mw-highlight) > pre:not(.CodeMirror-line),
+    .mw-highlight > pre,
+    blockquote {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 }
