@@ -5,6 +5,8 @@ Versions and bullets are arranged chronologically from latest to oldest.
 ## Unreleased
 
 - Removed the tooltip of the logo (https://github.com/femiwiki/FemiwikiSkin/issues/267)
+- Applied pygments 'autumn' style.
+- Made most code blocks full width in mobile devices.
 
 ## v1.7.4
 
