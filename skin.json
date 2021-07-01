@@ -85,10 +85,8 @@
       "targets": ["desktop", "mobile"],
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
-        "skins.femiwiki.js/discussionStatus.js",
         "skins.femiwiki.js/notificationBadge.js",
-        "skins.femiwiki.js/searchClearButton.js",
-        "skins.femiwiki.js/watchingUsers.js"
+        "skins.femiwiki.js/searchClearButton.js"
       ],
       "dependencies": ["oojs", "oojs-ui-core", "mediawiki.page.ready"]
     },

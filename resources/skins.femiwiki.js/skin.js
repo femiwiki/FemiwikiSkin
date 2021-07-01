@@ -23,10 +23,8 @@ function initCheckboxHack(checkbox, button) {
  * @return {void}
  */
 function main() {
-  require('./discussionStatus.js').init();
-  require('./notificationBadge.js').init();
   require('./searchClearButton.js').init();
-  require('./watchingUsers.js').init();
+  require('./notificationBadge.js').init();
 
   initCheckboxHack(
     window.document.getElementById('fw-menu-checkbox'),
