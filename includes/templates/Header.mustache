@@ -1,9 +1,6 @@
 <header id="p-header" class="fw-header">
   <div id="siteNotice" class="mw-body-content">{{{html-site-notice}}}</div>
   {{{html-user-message}}}
-  {{#data-portlets.data-namespaces}}
-    {{>Menu}}
-  {{/data-portlets.data-namespaces}}
   <div id="p-title-and-tb">
     <h1 id="firstHeading" class="firstHeading" {{{html-heading-language-attributes}}}>{{{html-title}}}</h1>
     <div id="p-title-buttons">
@@ -31,4 +28,7 @@
     {{>Menu}}
     {{/data-portlets.data-views}}
   </div>
+  {{#data-portlets.data-namespaces}}
+    {{>Menu}}
+  {{/data-portlets.data-namespaces}}
 </header>
