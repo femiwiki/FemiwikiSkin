@@ -13,7 +13,7 @@
     "@types/node-fetch": "^2.5.10",
     "grunt-banana-checker": "^0.9.0",
     "prettier": "^2.3.2",
-    "typescript": "4.3.4"
+    "typescript": "4.3.5"
   },
   "dependencies": {
     "xeicon": "^2.3.3"
