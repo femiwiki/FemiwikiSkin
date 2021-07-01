@@ -96,7 +96,11 @@ class SkinFemiwiki extends SkinMustache {
 	 * @return bool
 	 */
 	protected function shouldShowShare() {
-		return $this->getOutput()->getTitle()->getArticleID() !== 0;
+		$title = $this->getOutput()->getTitle();
+		if ( !$title ) {
+			return false;
+		}
+		return $title->getArticleID() !== 0;
 	}
 
 	/**
