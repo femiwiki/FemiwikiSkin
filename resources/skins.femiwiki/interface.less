@@ -46,6 +46,7 @@
         }
 
         i::before {
+          opacity: @opacity-icon;
           vertical-align: middle;
           margin-right: 0.3em;
           font-size: 1.5em;
@@ -108,8 +109,9 @@
   }
 
   .mw-portlet-namespaces {
-    font-size: 0.75rem;
-    margin-bottom: 0.5rem;
+    margin: 0 -@padding-icon 0.5rem;
+    overflow: hidden;
+    clear: both;
 
     h3 {
       display: none;
@@ -117,24 +119,116 @@
 
     ul {
       li {
-        display: inline-block;
+        @size-icon: 1.42857143rem;
+        @width: @size-icon + @padding-icon * 2;
+        @height: @size-icon + @padding-icon * 2;
+        float: right;
+
+        a {
+          color: @color-base15;
+
+          &:hover,
+          &:focus {
+            text-decoration: none;
+          }
+        }
+
+        &#ca-watch,
+        &#ca-unwatch {
+          float: left;
+        }
 
         &.selected {
           display: none;
         }
 
-        &:not(:last-child) {
-          margin-right: 0.5rem;
+        // Only use icon
+        // Reference: TabWatchstarLink.less of Vector.
+        & {
+          display: block;
+          width: @width;
+          height: @height;
+
+          a {
+            display: block;
+            width: @width;
+            height: 0;
+            padding: @height 0 0 0;
+            overflow: hidden;
+            position: relative;
+
+            &:before {
+              background-repeat: no-repeat;
+              background-position: 50% 50%;
+              opacity: @opacity-icon;
+              content: '';
+              display: block;
+              position: absolute;
+              top: @padding-icon;
+              left: @padding-icon;
+              width: @size-icon;
+              height: @size-icon;
+            }
+
+            &:hover {
+              background-color: @button-hover-background-color;
+            }
+          }
+
+          &.selected {
+            display: none;
+          }
+
+          &.label {
+            width: auto;
+            a {
+              width: auto;
+              height: auto;
+              padding: @padding-icon;
+              line-height: @size-icon;
+
+              &:before {
+                position: relative;
+                margin-right: @padding-icon;
+                top: 0;
+                left: 0;
+                float: left;
+              }
+            }
+          }
         }
 
-        a {
-          .mw-link();
+        &[id^='ca-nstab-'] a:before {
+          background-image: /* @embed */ url(../ooui/images/icons/article-ltr.svg);
+          .rtl & {
+            background-image: /* @embed */ url(../ooui/images/icons/article-rtl.svg);
+          }
+        }
+        &#ca-talk a:before {
+          background-image: /* @embed */ url(../ooui/images/icons/speechBubbles-ltr.svg);
+          .rtl & {
+            background-image: /* @embed */ url(../ooui/images/icons/speechBubbles-rtl.svg);
+          }
+        }
+        &#ca-talk.has-open-topic a:before {
+          opacity: unset;
+          background-image: /* @embed */ url(images/speechBubbles-ltr-new.svg);
+          .rtl & {
+            background-image: /* @embed */ url(images/speechBubbles-ltr-new.svg);
+          }
+        }
+        &#ca-watch a:before {
+          background-image: /* @embed */ url(../ooui/images/icons/star.svg);
+        }
+        &#ca-unwatch a:before {
+          background-image: /* @embed */ url(../ooui/images/icons/unStar.svg);
         }
       }
     }
   }
 
   #p-title-and-tb {
+    margin-right: -@padding-icon;
     clear: both;
 
     #fw-page-menu-checkbox:not(:checked) ~ #p-actions-and-toolbox {
@@ -146,15 +240,18 @@
       margin: 0;
       @icon-size: 1.42857143em;
 
-      .mw-indicators,
-      .fw-button {
-        margin: 0;
-        float: left;
-
+      .mw-indicator,
+      #p-menu-toggle {
         &:hover,
         &:focus {
           background-color: @button-hover-background-color;
         }
+      }
+
+      .mw-indicators,
+      .fw-button {
+        margin: 0;
+        float: left;
 
         &,
         & a,
@@ -168,6 +265,7 @@
 
       #p-share .oo-ui-icon-share {
         background-image: url(images/icon-share.png);
+        opacity: @opacity-icon;
       }
 
       #p-menu-toggle,
@@ -195,9 +293,10 @@
         padding-left: 0;
 
         &:before {
-          background-image: url(../../../../resources/src/mediawiki.helplink/images/helpNotice.svg);
+          background-image: /* @embed */ url(../../../../resources/src/mediawiki.helplink/images/helpNotice.svg);
           background-position: center;
           background-repeat: no-repeat;
+          opacity: @opacity-icon;
           content: '';
           display: block;
           position: absolute;
@@ -212,6 +311,7 @@
         background-size: @icon-size;
         background-position: center center;
         background-repeat: no-repeat;
+        opacity: @opacity-icon;
         cursor: pointer;
       }
     }

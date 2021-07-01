@@ -119,7 +119,7 @@ class Hooks {
 	 * @return void
 	 */
 	private static function addNotification( &$personalTools, &$title, $sk ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
+		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
 
@@ -188,7 +188,7 @@ class Hooks {
 	 * @param SkinTemplate $sk
 	 */
 	private static function addMobileOptions( &$personalTools, &$title, $sk ) {
-		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 			return;
 		}
 
@@ -241,6 +241,19 @@ class Hooks {
 			$sk->getSkinName() === Constants::SKIN_NAME &&
 			$title && $title->canExist()
 		) {
+			// Show the watch action anonymous users
+			if ( !$sk->loggedin ) {
+				$content_navigation['actions']['watch'] = [
+					'class' => 'mw-watchlink-watch',
+					'text' => $sk->msg( 'watch' )->text(),
+					'href' => $title->getLocalURL( [ 'action' => 'watch' ] ),
+					'data' => [
+						'mw' => 'interface',
+					],
+				];
+			}
+
+			// Promote watch link from actions to views
 			$key = null;
 			if ( isset( $content_navigation['actions']['watch'] ) ) {
 				$key = 'watch';
@@ -249,7 +262,6 @@ class Hooks {
 				$key = 'unwatch';
 			}
 
-			// Promote watch link from actions to views and add an icon
 			if ( $key !== null ) {
 				$content_navigation['namespaces'][$key] = $content_navigation['actions'][$key];
 				unset( $content_navigation['actions'][$key] );
