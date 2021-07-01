@@ -4,9 +4,6 @@ function init() {
     return;
   }
   var $watchAnchor = $watchLink.children('a');
-  if (mw.config.get('wgArticleId') === 0) {
-    return;
-  }
   var watchers = 0;
   $watchLink.on('watchpage.mw', function (_, otherAction) {
     if (otherAction == 'watch') {

@@ -1,9 +1,10 @@
 <header id="p-header" class="fw-header">
   <div id="siteNotice" class="mw-body-content">{{{html-site-notice}}}</div>
   {{{html-user-message}}}
-  <div id="p-title-and-tb">
-    <h1 id="firstHeading" class="firstHeading" {{{html-heading-language-attributes}}}>{{{html-title}}}</h1>
-    <div id="p-title-buttons">
+  <h1 id="firstHeading" class="firstHeading" {{{html-heading-language-attributes}}}>{{{html-title}}}</h1>
+  <div id="p-title-buttons">
+    {{#data-portlets.data-namespaces}}{{>Menu}}{{/data-portlets.data-namespaces}}
+    <div class="right-buttons">
       {{{html-share-button}}}
       {{>Indicator}}
       <label id="p-menu-toggle"
@@ -13,22 +14,16 @@
         aria-controls="p-actions-and-toolbox"
         tabindex="0"></label>
     </div>
-    <input type="checkbox" id="fw-page-menu-checkbox" class="mw-checkbox-hack-checkbox">
-    <div id="p-actions-and-toolbox" class="fw-portals fw-page-portals">
-      {{#data-toolbox}}{{>Menu}}{{/data-toolbox}}
-      {{#data-portlets.data-actions}}{{>Menu}}{{/data-portlets.data-actions}}
-    </div>
+  </div>
+  <input type="checkbox" id="fw-page-menu-checkbox" class="mw-checkbox-hack-checkbox">
+  <div id="p-actions-and-toolbox" class="fw-portals fw-page-portals">
+    {{#data-toolbox}}{{>Menu}}{{/data-toolbox}}
+    {{#data-portlets.data-actions}}{{>Menu}}{{/data-portlets.data-actions}}
   </div>
   <div id="lastmod-and-views">
     {{#link-history}}
     <a id="lastmod" href="{{link-history}}">{{{html-lastmod}}}</a>
     {{/link-history}}
-
-    {{#data-portlets.data-views}}
-    {{>Menu}}
-    {{/data-portlets.data-views}}
+    {{#data-portlets.data-views}}{{>Menu}}{{/data-portlets.data-views}}
   </div>
-  {{#data-portlets.data-namespaces}}
-    {{>Menu}}
-  {{/data-portlets.data-namespaces}}
 </header>

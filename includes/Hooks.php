@@ -236,11 +236,12 @@ class Hooks {
 	 * @param array &$content_navigation
 	 */
 	public static function onSkinTemplateNavigation( $sk, &$content_navigation ) {
+		if ( $sk->getSkinName() !== Constants::SKIN_NAME ) {
+			return;
+		}
+
 		$title = $sk->getRelevantTitle();
-		if (
-			$sk->getSkinName() === Constants::SKIN_NAME &&
-			$title && $title->canExist()
-		) {
+		if ( $title && $title->canExist() ) {
 			// Show the watch action anonymous users
 			if ( !$sk->loggedin ) {
 				$content_navigation['actions']['watch'] = [

@@ -109,10 +109,6 @@
   }
 
   .mw-portlet-namespaces {
-    margin: 0 -@padding-icon 0.5rem;
-    overflow: hidden;
-    clear: both;
-
     h3 {
       display: none;
     }
@@ -216,101 +212,103 @@
           background-image: /* @embed */ url(../ooui/images/icons/star.svg);
         }
         &#ca-unwatch a:before {
-          background-image: /* @embed */ url(../ooui/images/icons/unStar.svg);
+          background-image: /* @embed */ url(../ooui/images/icons/unStar-progressive.svg);
+          opacity: unset;
         }
       }
     }
   }
 
-  #p-title-and-tb {
-    margin-right: -@padding-icon;
-    clear: both;
+  #fw-page-menu-checkbox:not(:checked) ~ #p-actions-and-toolbox {
+    display: none;
+  }
 
-    #fw-page-menu-checkbox:not(:checked) ~ #p-actions-and-toolbox {
-      display: none;
+  #p-title-buttons {
+    margin: 0 -@padding-icon;
+    clear: both;
+    @icon-size: 1.42857143em;
+    overflow: hidden;
+
+    .right-buttons {
+      float: right;
     }
 
-    #p-title-buttons {
-      float: right;
+    .mw-indicator,
+    #p-menu-toggle {
+      &:hover,
+      &:focus {
+        background-color: @button-hover-background-color;
+      }
+    }
+
+    .mw-indicators,
+    .fw-button {
       margin: 0;
-      @icon-size: 1.42857143em;
+      float: left;
 
-      .mw-indicator,
-      #p-menu-toggle {
-        &:hover,
-        &:focus {
-          background-color: @button-hover-background-color;
-        }
+      &,
+      & a,
+      &:focus,
+      & a:focus {
+        // Remove highlighting
+        border: none;
+        box-shadow: none;
       }
+    }
 
-      .mw-indicators,
-      .fw-button {
-        margin: 0;
-        float: left;
+    #p-share .oo-ui-icon-share {
+      background-image: url(images/icon-share.png);
+      opacity: @opacity-icon;
+    }
 
-        &,
-        & a,
-        &:focus,
-        & a:focus {
-          // Remove highlighting
-          border: none;
-          box-shadow: none;
-        }
-      }
+    #p-menu-toggle,
+    .mw-indicators,
+    .mw-indicator {
+      width: @icon-size;
+      height: @icon-size;
+    }
 
-      #p-share .oo-ui-icon-share {
-        background-image: url(images/icon-share.png);
+    .mw-indicators,
+    #p-menu-toggle {
+      padding: 0.37142855em;
+    }
+
+    // Hide text label
+    // Reference: TabWatchstarLink.less of Vector.
+    .mw-indicators .mw-indicator a {
+      overflow: hidden;
+      height: 0;
+      position: relative;
+      width: @icon-size;
+      padding-top: @icon-size;
+      // Reset
+      background: none;
+      padding-left: 0;
+
+      &:before {
+        background-image: /* @embed */ url(../../../../resources/src/mediawiki.helplink/images/helpNotice.svg);
+        background-position: center;
+        background-repeat: no-repeat;
         opacity: @opacity-icon;
-      }
-
-      #p-menu-toggle,
-      .mw-indicators,
-      .mw-indicator {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: @icon-size;
         height: @icon-size;
       }
+    }
 
-      .mw-indicators,
-      #p-menu-toggle {
-        padding: 0.37142855em;
-      }
-
-      // Hide text label
-      // Reference: TabWatchstarLink.less of Vector.
-      .mw-indicators .mw-indicator a {
-        overflow: hidden;
-        height: 0;
-        position: relative;
-        width: @icon-size;
-        padding-top: @icon-size;
-        // Reset
-        background: none;
-        padding-left: 0;
-
-        &:before {
-          background-image: /* @embed */ url(../../../../resources/src/mediawiki.helplink/images/helpNotice.svg);
-          background-position: center;
-          background-repeat: no-repeat;
-          opacity: @opacity-icon;
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: @icon-size;
-          height: @icon-size;
-        }
-      }
-
-      #p-menu-toggle {
-        background-size: @icon-size;
-        background-position: center center;
-        background-repeat: no-repeat;
-        opacity: @opacity-icon;
-        cursor: pointer;
-      }
+    #p-menu-toggle {
+      background-size: @icon-size;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: @opacity-icon;
+      cursor: pointer;
     }
   }
+
   #lastmod-and-views {
     font-size: 0.75rem;
     overflow: hidden;
@@ -359,8 +357,8 @@
   }
 }
 
-// firstHeading and its preivew output of VisualEditor
-#p-header #p-title-and-tb h1.firstHeading,
+// firstHeading and its preview output of VisualEditor
+#p-header h1.firstHeading,
 .oo-ui-window .mw-body-content h1.firstHeading {
   font-size: 1.714rem;
   display: inline-block;
