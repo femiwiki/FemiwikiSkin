@@ -1,3 +1,20 @@
+interface MwApi {
+  saveOption(name: string, value: unknown): JQuery.Promise<any>;
+
+  get(parameters: object, ajaxOptions?: object): JQuery.Promise<any>;
+}
+
+type MwApiConstructor = new (options?: Object) => MwApi;
+
+interface MwTitle {
+  getNamespacePrefix(): string;
+  getMain(): string;
+  getTalkPage(): MwTitle | null;
+  getPrefixedText(): string;
+}
+
+type MwTitleConstructor = new (title: string, namespace?: string) => MwTitle;
+
 interface MediaWiki {
   now(): number;
 
@@ -38,6 +55,10 @@ interface MediaWiki {
   };
 
   Message: {};
+
+  Api: MwApiConstructor;
+
+  Title: MwTitleConstructor;
 
   Uri: {
     new (uri?: Object | string, options?: Object | boolean): MediaWiki['Uri'];

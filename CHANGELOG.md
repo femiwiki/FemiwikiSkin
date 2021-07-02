@@ -9,6 +9,12 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Made most code blocks full width in mobile devices.
 - Fixed not even margins of the footer. (https://github.com/femiwiki/FemiwikiSkin/issues/269)
 - Fixed the cropped icon of the help link (https://github.com/femiwiki/FemiwikiSkin/issues/180)
+- Made black icons less dark as they are not important than headings.
+- Header Improvements
+  - Used icons for namespaces and watch/unwatch navigation.
+  - Moved navigation below the first heading.
+  - Showed numbers follow the discussion and watch.
+  - Showed the watch action to anonymous users to encourage signing-ups.
 
 ## v1.7.4
 
