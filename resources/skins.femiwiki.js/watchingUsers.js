@@ -32,19 +32,17 @@ function init() {
       inprop: 'watchers',
     })
     .done(function (data) {
-      var pages = data.query.pages;
-      var newWatchers;
-      for (var p in data.query.pages) {
-        newWatchers = pages[p].watchers;
-      }
-      if (!$watchLink || !newWatchers || newWatchers === 0) {
+      if (!$watchLink || !$watchAnchor) {
         return;
       }
-      watchers = newWatchers;
 
-      if ($watchAnchor) {
-        $watchAnchor.html(watchers.toString());
+      var newWatchers = Object.values(data.query.pages)[0].watchers;
+      if (!newWatchers || newWatchers === watchers) {
+        return;
       }
+
+      watchers = newWatchers;
+      $watchAnchor.html(watchers.toString());
       $watchLink.addClass('label');
     });
 }
