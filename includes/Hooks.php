@@ -255,18 +255,20 @@ class Hooks {
 			}
 
 			// Promote watch link from actions to views
-			$key = null;
 			if ( isset( $content_navigation['actions']['watch'] ) ) {
 				$key = 'watch';
-			}
-			if ( isset( $content_navigation['actions']['unwatch'] ) ) {
+			} elseif ( isset( $content_navigation['actions']['unwatch'] ) ) {
 				$key = 'unwatch';
+			} else {
+				return;
 			}
 
-			if ( $key !== null ) {
-				$content_navigation['namespaces'][$key] = $content_navigation['actions'][$key];
-				unset( $content_navigation['actions'][$key] );
+			$item = $content_navigation['actions'][$key];
+			if ( !$item ) {
+				return;
 			}
+			$content_navigation['namespaces'][$key] = $item;
+			unset( $content_navigation['actions'][$key] );
 		}
 	}
 }
