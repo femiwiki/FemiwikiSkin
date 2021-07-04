@@ -5,6 +5,8 @@ Versions and bullets are arranged chronologically from latest to oldest.
 ## Unreleased
 
 - Added icon to the ca-user navigation.
+- Fixed the incorrect watch counter after visual editing.
+- The watch counter shows 0 even in the first now.
 
 ## v1.8.0
 
