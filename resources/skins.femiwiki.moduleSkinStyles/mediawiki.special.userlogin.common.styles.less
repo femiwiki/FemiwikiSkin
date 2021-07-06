@@ -29,7 +29,12 @@ body.mw-special-CreateAccount {
   }
   .mw-createacct-benefits-container {
     flex: 1 1;
-    margin: 0 5em;
+    margin-left: 4em;
+
+    @media screen and (max-width: @width-breakpoint-mobile) {
+      max-width: @defaultFormWidth;
+      margin: auto;
+    }
   }
 }
 
@@ -42,5 +47,17 @@ body.mw-special-CreateAccount {
 
   #mw-createaccount-cta {
     width: auto;
+  }
+
+  #mw-createaccount-join {
+    &:active {
+      color: @color-primary2;
+      border-color: @color-primary2;
+    }
+
+    &:focus {
+      border-color: @color-primary1;
+      box-shadow: inset 0 0 0 1px @color-primary1;
+    }
   }
 }

@@ -162,7 +162,11 @@
             }
 
             &:hover {
-              background-color: @button-hover-background-color;
+              background-color: @button-background-color--hover;
+            }
+
+            &:active {
+              background-color: @button-background-color--active;
             }
           }
 
@@ -238,9 +242,12 @@
 
     .mw-indicator,
     #p-menu-toggle {
-      &:hover,
-      &:focus {
-        background-color: @button-hover-background-color;
+      &:hover {
+        background-color: @button-background-color--hover;
+      }
+
+      &:active {
+        background-color: @button-background-color--active;
       }
     }
 
@@ -259,9 +266,14 @@
       }
     }
 
-    #p-share .oo-ui-icon-share {
-      background-image: url(images/icon-share.png);
-      opacity: @opacity-icon;
+    #p-share {
+      .oo-ui-icon-share {
+        background-image: url(images/icon-share.png);
+      }
+
+      a {
+        opacity: @opacity-icon;
+      }
     }
 
     #p-menu-toggle,

@@ -49,7 +49,10 @@
 @color-alert2: @color-secondary3;
 @color-alert-border: @color-secondary2;
 
-@button-hover-background-color: rgba(0, 24, 73, 0.02745098);
+// Same colors as wikimedia-ui-base's @background-color-quiet--*
+@button-background-color--hover: rgba(0, 24, 73, 7/255);
+@button-background-color--active: rgba(0, 36, 73, 21/255);
+
 @opacity-icon: 65%;
 @padding-icon: 0.37142855rem;
 
@@ -105,7 +108,7 @@
   }
 
   &:active {
-    color: #faa700;
+    color: @color-secondary2;
   }
 
   &:hover,
@@ -165,7 +168,6 @@
   // External links
   &.external {
     color: @color-primary5;
-    /* @embed */
     background: url('../images/icon-external-link.png') top right no-repeat;
     background-size: 8px 8px;
     padding-right: 0.6rem;
