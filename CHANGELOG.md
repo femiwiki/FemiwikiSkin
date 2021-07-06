@@ -7,6 +7,9 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Added icon to the ca-user navigation.
 - Fixed the incorrect watch counter after visual editing.
 - The watch counter shows 0 even in the first now.
+- Made sure the buttons changed correctly when hovered or active
+- Overridden default style of #mw-createaccount-join
+- Removed #faa700 that is a color of wikimedia design.
 
 ## v1.8.0
 
