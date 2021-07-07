@@ -10,6 +10,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Made sure the buttons changed correctly when hovered or active
 - Overridden default style of #mw-createaccount-join
 - Removed #faa700 that is a color of wikimedia design.
+- Fixed bad text wrapping in menu items.
 
 ## v1.8.0
 
