@@ -14,6 +14,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Deactivated the elements feature. (https://github.com/femiwiki/FemiwikiSkin/issues/20)
 - Modified the style of menu items to make them look more like buttons.
 - Replaced underline of links with border-bottom (https://github.com/femiwiki/FemiwikiSkin/issues/15)
+- Fixed different background color of p-menu-toggle when hovered.
 
 ## v1.8.0
 
