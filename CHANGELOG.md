@@ -18,6 +18,8 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Enlarged the clickable area of the help link.
 - Added a custom class to scoping links and replace style rules.
 - Fixed border-bottom of echo notification items.
+- Added default icon to links to namespaces.
+- Added icon to link to the homepage.
 
 ## v1.8.0
 
