@@ -50,18 +50,6 @@
       background-color: #f8f9fa;
       padding: 5px;
       font-size: 95%;
-
-      a {
-        .mw-link();
-      }
-    }
-
-    .noarticletext,
-    .warningbox,
-    .mw-category-generated {
-      a {
-        .mw-link();
-      }
     }
 
     .image,
@@ -109,10 +97,6 @@
     padding: 0;
     border: 0 solid #a2a9b1;
     background-color: transparent;
-
-    a {
-      .mw-link();
-    }
 
     ul {
       display: inline;
@@ -315,29 +299,19 @@ body.mw-hide-empty-elt .mw-empty-elt {
   .parser-output();
 }
 
-body.action- {
-  &credits,
-  &delete,
-  &edit,
-  &history,
-  &info,
-  &protect,
-  &rollback,
-  &submit {
-    #mw-content-text a {
-      .mw-link();
-    }
-  }
+// For special pages that do not add mediawiki.special module
+body.ns-special #mw-content-text .wikitable {
+  .responsiveTable();
 }
 
-// For special pages that do not add mediawiki.special module
-body.ns-special #mw-content-text {
-  a {
-    .mw-link();
-  }
-  .wikitable {
-    .responsiveTable();
-  }
+.fw-link,
+a.text,
+a.external {
+  .mw-link-style();
+}
+
+.mw-userlink {
+  .mw-link();
 }
 
 // PrevNextNavigation
@@ -356,15 +330,6 @@ body.ns-special #mw-content-text {
 #wpTextbox2 {
   box-sizing: border-box;
   width: 100%;
-}
-
-.mw-userlink {
-  .mw-link();
-}
-
-// Deleted page
-.mw-undelete-subtitle a {
-  .mw-link();
 }
 
 // Underline preference
