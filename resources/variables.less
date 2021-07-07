@@ -115,7 +115,7 @@
 
   &:hover,
   &:focus {
-    text-decoration: underline;
+    border-bottom: 1px solid;
   }
 
   &.external {
@@ -185,7 +185,8 @@
 }
 
 .mw-link() {
-  &:not([role='button']) {
+  // menuitem is for the dropdown menu of the WikiEditor.
+  &:not([role='button']):not([role='menuitem']) {
     text-decoration: none;
 
     &:not([href]) {
