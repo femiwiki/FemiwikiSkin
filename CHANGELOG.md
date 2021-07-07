@@ -20,6 +20,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Fixed border-bottom of echo notification items.
 - Added default icon to links to namespaces.
 - Added icon to link to the homepage.
+- Fixed the bad parameter name of view-topiclist API call.
 
 ## v1.8.0
 
