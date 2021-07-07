@@ -51,7 +51,6 @@
       "class": "MediaWiki\\Skins\\Femiwiki\\FemiwikiResourceLoaderSkinModule",
       "features": {
         "content-media": true,
-        "elements": true,
         "interface": true,
         "normalize": true
       },
