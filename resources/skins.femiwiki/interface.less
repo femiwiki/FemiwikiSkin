@@ -241,9 +241,9 @@
   }
 
   #p-title-buttons {
+    @icon-size: 1.42857143em;
     margin: 0 -@padding-icon;
     clear: both;
-    @icon-size: 1.42857143em;
     overflow: hidden;
 
     .right-buttons {
@@ -281,13 +281,12 @@
         background-image: url(images/icon-share.png);
       }
 
-      a {
+      a .oo-ui-icon-share {
         opacity: @opacity-icon;
       }
     }
 
     #p-menu-toggle,
-    .mw-indicators,
     .mw-indicator {
       width: @icon-size;
       height: @icon-size;
@@ -325,12 +324,15 @@
       }
     }
 
-    #p-menu-toggle {
+    #p-menu-toggle:before {
+      position: absolute;
+      width: @icon-size;
+      height: @icon-size;
+      content: '';
       background-size: @icon-size;
       background-position: center center;
       background-repeat: no-repeat;
       opacity: @opacity-icon;
-      cursor: pointer;
     }
   }
 
