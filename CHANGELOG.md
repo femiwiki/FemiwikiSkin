@@ -22,6 +22,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Added icon to link to the homepage.
 - Fixed the bad parameter name of view-topiclist API call.
 - Changed color of unseen echo notifications.
+- Fixed blue link of impact module of the homepage.
 
 ## v1.8.0
 
