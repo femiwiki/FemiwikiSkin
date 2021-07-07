@@ -18,7 +18,7 @@ use Title;
  * Hooks class for the Femiwiki skin hooks
  *
  */
-class Hooks {
+class Hooks implements \MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook {
 	/**
 	 * @param OutputPage $output The page view.
 	 * @param Skin $skin The skin that's going to build the UI.
@@ -270,5 +270,22 @@ class Hooks {
 			$content_navigation['namespaces'][$key] = $item;
 			unset( $content_navigation['actions'][$key] );
 		}
+	}
+
+	/**
+	 * Add default class to links which are not either 'external', 'stub', 'interwiki' or etc.
+	 * @inheritDoc
+	 */
+	public function onHtmlPageLinkRendererBegin( $linkRenderer, $target, &$text,
+		&$customAttribs, &$query, &$ret
+	) {
+		if ( isset( $customAttribs['class'] ) ) {
+			$customAttribs['class'] .= ' ';
+		} else {
+			$customAttribs['class'] = '';
+		}
+
+		$customAttribs['class'] .= 'fw-link';
+		return true;
 	}
 }

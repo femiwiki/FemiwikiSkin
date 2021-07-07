@@ -16,6 +16,8 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Replaced underline of links with border-bottom (https://github.com/femiwiki/FemiwikiSkin/issues/15)
 - Fixed different background color of p-menu-toggle when hovered.
 - Enlarged the clickable area of the help link.
+- Added a custom class to scoping links and replace style rules.
+- Fixed border-bottom of echo notification items.
 
 ## v1.8.0
 
