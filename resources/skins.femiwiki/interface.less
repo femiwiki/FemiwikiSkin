@@ -36,32 +36,41 @@
         margin: 0;
 
         a {
-          .mw-link();
           display: block;
+          text-decoration: none;
           padding-left: 2em;
+          color: @color-base15;
 
           &.xe-icons {
             padding-left: 0;
+          }
+
+          &:hover {
+            background-color: @button-background-color--hover;
+          }
+
+          &:active {
+            background-color: @button-background-color--active;
           }
         }
 
         i {
           display: flex;
-        }
 
-        i::before {
-          opacity: @opacity-icon;
-          vertical-align: middle;
-          margin-right: 0.3em;
-          font-size: 1.5em;
-          color: black;
-        }
+          &::before {
+            opacity: @opacity-icon;
+            vertical-align: middle;
+            margin-right: 0.3em;
+            font-size: 1.5em;
+            color: black;
+          }
 
-        i span {
-          font-family: @font-family;
-          font-style: initial;
-          font-weight: initial;
-          line-height: @line-height;
+          & span {
+            font-family: @font-family;
+            font-style: initial;
+            font-weight: initial;
+            line-height: @line-height;
+          }
         }
       }
     }
