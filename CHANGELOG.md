@@ -13,6 +13,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Fixed bad text wrapping in menu items.
 - Deactivated the elements feature. (https://github.com/femiwiki/FemiwikiSkin/issues/20)
 - Modified the style of menu items to make them look more like buttons.
+- Replaced underline of links with border-bottom (https://github.com/femiwiki/FemiwikiSkin/issues/15)
 
 ## v1.8.0
 
