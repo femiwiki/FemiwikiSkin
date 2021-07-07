@@ -11,16 +11,17 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Overridden default style of #mw-createaccount-join
 - Removed #faa700 that is a color of wikimedia design.
 - Fixed bad text wrapping in menu items.
+- Deactivated the elements feature. (https://github.com/femiwiki/FemiwikiSkin/issues/20)
 
 ## v1.8.0
 
-- Removed the tooltip of the logo (https://github.com/femiwiki/FemiwikiSkin/issues/267)
+- Removed the tooltip of the logo. (https://github.com/femiwiki/FemiwikiSkin/issues/267)
 - Applied pygments 'autumn' style.
 - Made most code blocks full width in mobile devices.
 - Fixed not even margins of the footer. (https://github.com/femiwiki/FemiwikiSkin/issues/269)
 - Fixed the cropped icon of the help link (https://github.com/femiwiki/FemiwikiSkin/issues/180)
 - Made black icons less dark as they are not important than headings.
-- Header Improvements
+- Header Improvements:
   - Used icons for namespaces and watch/unwatch navigation.
   - Moved navigation below the first heading.
   - Showed numbers follow the discussion and watch.
