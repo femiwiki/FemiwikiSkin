@@ -185,7 +185,8 @@
 }
 
 .mw-link() {
-  &:not([role='button']) {
+  // menuitem is for the dropdown menu of the WikiEditor.
+  &:not([role='button']):not([role='menuitem']) {
     text-decoration: none;
 
     &:not([href]) {
