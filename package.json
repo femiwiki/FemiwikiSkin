@@ -10,7 +10,7 @@
   "devDependencies": {
     "@prettier/plugin-xml": "^0.13.1",
     "@types/jquery": "^3.5.6",
-    "@types/node-fetch": "^2.5.10",
+    "@types/node-fetch": "^2.5.11",
     "grunt-banana-checker": "^0.9.0",
     "prettier": "^2.3.2",
     "typescript": "4.3.5"
