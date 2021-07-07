@@ -250,7 +250,7 @@
       float: right;
     }
 
-    .mw-indicator,
+    .mw-indicator a,
     #p-menu-toggle {
       &:hover {
         background-color: @button-background-color--hover;
@@ -286,13 +286,11 @@
       }
     }
 
-    #p-menu-toggle,
-    .mw-indicator {
+    #p-menu-toggle {
       width: @icon-size;
       height: @icon-size;
     }
 
-    .mw-indicators,
     #p-menu-toggle {
       padding: 0.37142855em;
     }
@@ -303,10 +301,10 @@
       overflow: hidden;
       height: 0;
       position: relative;
-      width: @icon-size;
-      padding-top: @icon-size;
+      width: @icon-size + @padding-icon * 2;
+      padding-top: @icon-size + @padding-icon * 2;
       // Reset
-      background: none;
+      background-image: none;
       padding-left: 0;
 
       &:before {
@@ -317,8 +315,8 @@
         content: '';
         display: block;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: @padding-icon;
+        left: @padding-icon;
         width: @icon-size;
         height: @icon-size;
       }
