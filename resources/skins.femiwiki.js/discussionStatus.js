@@ -1,7 +1,8 @@
 function init() {
   var title = new mw.Title(mw.config.get('wgPageName'));
   var talkPage = title.getTalkPage();
-  if (!talkPage) {
+  var $talk = $('#ca-talk');
+  if (!talkPage || $talk.length === 0 || title == talkPage) {
     return;
   }
   var talkName = talkPage.getPrefixedText();
@@ -11,8 +12,8 @@ function init() {
     .get({
       action: 'flow',
       page: talkName,
-      limit: 10,
       submodule: 'view-topiclist',
+      vtllimit: 10,
     })
     .done(function (data) {
       var topiclist = data.flow['view-topiclist']['result']['topiclist'];
@@ -27,8 +28,6 @@ function init() {
       var num = roots.length;
       var $anchor = $('#ca-talk a');
       $anchor.text(num > 9 ? '9+' : num);
-
-      var $talk = $('#ca-talk');
       $talk.addClass('label');
       var open = num - locked;
       if (open) {
