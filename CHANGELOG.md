@@ -12,6 +12,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Removed #faa700 that is a color of wikimedia design.
 - Fixed bad text wrapping in menu items.
 - Deactivated the elements feature. (https://github.com/femiwiki/FemiwikiSkin/issues/20)
+- Modified the style of menu items to make them look more like buttons.
 
 ## v1.8.0
 
