@@ -15,6 +15,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Modified the style of menu items to make them look more like buttons.
 - Replaced underline of links with border-bottom (https://github.com/femiwiki/FemiwikiSkin/issues/15)
 - Fixed different background color of p-menu-toggle when hovered.
+- Enlarged the clickable area of the help link.
 
 ## v1.8.0
 
