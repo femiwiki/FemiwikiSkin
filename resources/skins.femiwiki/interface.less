@@ -10,13 +10,18 @@
   display: flex;
   flex-flow: row-reverse wrap;
   justify-content: space-between;
+  // gap property is more widely supported than column-gap
+  gap: @portal-column-gap;
 
   .mw-portlet {
     width: @portal-min-width;
     min-width: @portal-min-width;
-    margin: 0.6rem @portal-margin-right 0.6rem 0;
-    display: block;
+    margin: 0.6rem 0;
     flex-grow: 1;
+
+    &.emptyPortlet {
+      display: none;
+    }
 
     h3 {
       font-size: 1rem;
