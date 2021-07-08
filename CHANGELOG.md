@@ -23,6 +23,8 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Fixed the bad parameter name of view-topiclist API call.
 - Changed color of unseen echo notifications.
 - Fixed blue link of impact module of the homepage.
+- Fixed not working alignment hack.
+- Hidden empty portlet which is shown when the user is not logged-in.
 
 ## v1.8.0
 
