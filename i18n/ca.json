@@ -1,13 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jlrb+"
+			"Jlrb+",
+			"Vfc"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Aparença Femiwiki",
 	"skin-femiwiki-page-menu-tooltip": "Menú",
 	"skin-femiwiki-share-tooltip": "Comparteix aquest article",
 	"skin-femiwiki-share-dismiss": "Descarta",
 	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+	"skin-femiwiki-share-twitter": "Twitter",
+	"femiwiki.css": "/ * El CSS que es col·loqui aquí afectarà l'aparença de Femiwiki d'altres usuàries * /",
+	"femiwiki.js": "/* Qualsevol codi JavaScript que es posi aquí es carregarà per a les usuàries que utilitzin l'aparença Femiwiki */",
+	"skin-femiwiki-desktop-switch-canceled": "S'ha cancel·lat l'edició."
 }
