@@ -7,8 +7,8 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Added icon to the ca-user navigation.
 - Fixed the incorrect watch counter after visual editing.
 - The watch counter shows 0 even in the first now.
-- Made sure the buttons changed correctly when hovered or active
-- Overridden default style of #mw-createaccount-join
+- Made sure the buttons changed correctly when hovered or active.
+- Overridden default style of #mw-createaccount-join.
 - Removed #faa700 that is a color of wikimedia design.
 - Fixed bad text wrapping in menu items.
 - Deactivated the elements feature. (https://github.com/femiwiki/FemiwikiSkin/issues/20)
@@ -25,6 +25,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Fixed blue link of impact module of the homepage.
 - Fixed not working alignment hack.
 - Hidden empty portlet which is shown when the user is not logged-in.
+- Removed underline of watch star on flow board.
 
 ## v1.8.0
 
