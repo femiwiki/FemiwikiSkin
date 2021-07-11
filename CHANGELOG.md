@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Fixed a blue link on Special:Homepage.
+
 ## v1.9.0
 
 - Added icon to the ca-user navigation.
