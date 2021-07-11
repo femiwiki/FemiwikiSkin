@@ -6,6 +6,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 - Fixed a blue link on Special:Homepage. (https://github.com/femiwiki/FemiwikiSkin/issues/279)
 - Removed the padding of catlinks ul. (https://github.com/femiwiki/FemiwikiSkin/issues/280)
+- Fixed the blue link of the term of flow editor.
 
 ## v1.9.0
 
