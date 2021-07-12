@@ -1,0 +1,57 @@
+@import '../variables.less';
+
+.mw-body {
+  .parser-output();
+}
+
+// @See https://github.com/femiwiki/mediawiki/issues/131
+#searchText input {
+  box-sizing: border-box;
+}
+
+#mw-searchoptions {
+  font-size: 14px;
+
+  table {
+    width: 100%;
+    margin-bottom: 0.5rem;
+
+    td {
+      width: 50%;
+    }
+  }
+}
+
+.mw-search-results {
+  max-width: 100%;
+
+  div.searchresult {
+    width: inherit;
+    max-width: 38em;
+  }
+}
+
+.mw-search-profile-tabs {
+  font-size: 14px;
+
+  div.search-types ul {
+    margin: 0;
+    list-style: none;
+
+    li {
+      list-style: none;
+      float: left;
+      margin: 0;
+      padding: 0;
+
+      &.current {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.search-types a {
+  padding: 0.2rem 0.3rem;
+  .mw-link-colors();
+}
