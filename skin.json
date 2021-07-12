@@ -173,7 +173,7 @@
       "+mediawiki.rcfilters.filters.ui": "skins.femiwiki.moduleSkinStyles/mediawiki.rcfilters.filters.ui.less",
       "+mediawiki.special.changeslist": "skins.femiwiki.moduleSkinStyles/mediawiki.special.changeslist.less",
       "+mediawiki.special.preferences.styles.ooui": "skins.femiwiki.moduleSkinStyles/mediawiki.special.preferences.styles.ooui.less",
-      "+mediawiki.special.search": "skins.femiwiki.moduleSkinStyles/mediawiki.special.search.less",
+      "+mediawiki.special.search.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.special.search.styles.less",
       "+mediawiki.special.userlogin.common.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.special.userlogin.common.styles.less",
       "+mediawiki.special": "skins.femiwiki.moduleSkinStyles/mediawiki.special.less",
       "+mediawiki.ui.anchor": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.anchor.less",
