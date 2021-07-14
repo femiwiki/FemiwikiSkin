@@ -12,13 +12,6 @@
   }
 }
 
-.rcfilters-head,
-.mw-changeslist {
-  a {
-    .mw-link();
-  }
-}
-
 // Head for the earlier version of recent changes
 fieldset.rcoptions {
   border: 0;
@@ -208,10 +201,8 @@ fieldset.rcoptions {
   width: auto;
 }
 
-// Special:Contributions
-.mw-pager-navigation-bar,
-.mw-contributions-list {
-  a {
-    .mw-link();
-  }
+// Flow links on Special:Contributions
+// https://github.com/femiwiki/FemiwikiSkin/issues/281
+.mw-contributions-list a {
+  .mw-link();
 }

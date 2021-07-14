@@ -8,6 +8,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Removed the padding of catlinks ul. (https://github.com/femiwiki/FemiwikiSkin/issues/280)
 - Fixed the blue link of the term of flow editor.
 - Fixed blue links on Special:Search.
+- Added styles targeting <a> tag.
 
 ## v1.9.0
 
