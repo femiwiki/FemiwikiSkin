@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## v1.9.1
 
 - Fixed a blue link on Special:Homepage. (https://github.com/femiwiki/FemiwikiSkin/issues/279)
 - Removed the padding of catlinks ul. (https://github.com/femiwiki/FemiwikiSkin/issues/280)
