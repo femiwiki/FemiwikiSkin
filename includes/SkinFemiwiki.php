@@ -24,11 +24,15 @@ class SkinFemiwiki extends SkinMustache {
 	 * @inheritDoc
 	 */
 	public function __construct( $options = [] ) {
-		if ( $this->getUser()->isLoggedIn() ) {
+		$loggedIn = $this->getUser()->isLoggedIn();
+		if ( $loggedIn ) {
 			$options['scripts'][] = 'skins.femiwiki.notifications';
 		}
 		if ( $this->shouldShowShare() ) {
 			$options['scripts'][] = 'skins.femiwiki.share';
+		}
+		if ( $loggedIn && $this->getRequest()->getCookie( Constants::COOKIE_KEY_USE_LEGACY ) ) {
+			$options['styles'][] = 'skins.femiwiki.legacy';
 		}
 		parent::__construct( $options );
 	}

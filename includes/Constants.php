@@ -22,4 +22,9 @@ final class Constants {
 	 * @var string
 	 */
 	public const CONFIG_KEY_SHOW_FOOTER_ICONS = 'FemiwikiShowFooterIcons';
+
+	/**
+	 * @var string
+	 */
+	public const COOKIE_KEY_USE_LEGACY = 'UseLegacy';
 }

@@ -64,6 +64,16 @@
         "print.less"
       ]
     },
+    "skins.femiwiki.legacy": {
+      "class": "ResourceLoaderSkinModule",
+      "features": {
+        "content-parser-output": false,
+        "toc": false
+      },
+      "targets": ["desktop", "mobile"],
+      "position": "top",
+      "styles": ["skins.femiwiki.legacy/styles.less"]
+    },
     "skins.femiwiki.xeicon": {
       "class": "ResourceLoaderSkinModule",
       "features": {
