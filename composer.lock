@@ -4,24 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccf3cf8ee41e7ce89a3826e59b010385",
-    "packages": [
-        {
-            "name": "femiwiki/ooui-femiwiki-theme",
-            "version": "dev-REL1_36",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/femiwiki/OOUIFemiwikiTheme.git",
-                "reference": "5f725e37fe703b25f4026244497ccac52a90bcbd"
-            },
-            "type": "library",
-            "license": [
-                "MIT"
-            ],
-            "description": "OOUI Femiwiki Theme",
-            "time": "2021-07-20T06:41:12+00:00"
-        }
-    ],
+    "content-hash": "8cbef1a91b6d15bf66094dc2d417172c",
+    "packages": [],
     "packages-dev": [
         {
             "name": "composer/semver",
@@ -2096,9 +2080,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "femiwiki/ooui-femiwiki-theme": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

@@ -7,6 +7,10 @@
     "lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
     "fix": "prettier . --write"
   },
+  "dependencies": {
+    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_36",
+    "xeicon": "^2.3.3"
+  },
   "devDependencies": {
     "@prettier/plugin-xml": "^1.0.2",
     "@types/jquery": "^3.5.6",
@@ -14,8 +18,5 @@
     "grunt-banana-checker": "^0.9.0",
     "prettier": "^2.3.2",
     "typescript": "4.3.5"
-  },
-  "dependencies": {
-    "xeicon": "^2.3.3"
   }
 }

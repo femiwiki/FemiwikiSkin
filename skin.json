@@ -195,8 +195,8 @@
   },
   "OOUIThemePaths": {
     "Femiwiki": {
-      "localBasePath": "vendor/femiwiki/ooui-femiwiki-theme/dist/resources",
-      "remoteSkinPath": "Femiwiki/vendor/femiwiki/ooui-femiwiki-theme/dist/resources",
+      "localBasePath": "node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources",
+      "remoteSkinPath": "Femiwiki/node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources",
       "scripts": "oojs-ui-femiwiki.js",
       "styles": "oojs-ui-{module}-femiwiki.css",
       "images": "{module}.json"

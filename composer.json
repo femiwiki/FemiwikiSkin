@@ -1,13 +1,4 @@
 {
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/femiwiki/OOUIFemiwikiTheme.git"
-    }
-  ],
-  "require": {
-    "femiwiki/ooui-femiwiki-theme": "dev-REL1_36"
-  },
   "require-dev": {
     "mediawiki/mediawiki-codesniffer": "36.0.0",
     "mediawiki/mediawiki-phan-config": "0.10.6",
