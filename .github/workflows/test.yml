@@ -106,7 +106,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /home/runner/src
-          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('.github/workflows/.test-env') }}
+          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-7a79548-${{ hashFiles('.github/workflows/.test-env') }}
       - name: Download MediaWiki and extensions
         run: |
           cd /home/runner
@@ -117,6 +117,7 @@ jobs:
               git clone --recurse-submodules -b "${MEDIAWIKI_VERSION}" --depth 1 "https://gerrit.wikimedia.org/r/${dep}" src/"$(echo $dep | cut -d'/' -f2,3)"
             done
           fi
+          git -C src/ log -n 1 --format="%H"
 
       - name: Cache dependencies (composer and npm)
         uses: actions/cache@v2
