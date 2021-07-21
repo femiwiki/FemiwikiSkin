@@ -36,7 +36,7 @@ class SkinFemiwiki extends SkinMustache {
 	/**
 	 * @inheritDoc
 	 */
-	public function getTemplateData() : array {
+	public function getTemplateData(): array {
 		$skin = $this;
 		$out = $skin->getOutput();
 		$title = $out->getTitle();
