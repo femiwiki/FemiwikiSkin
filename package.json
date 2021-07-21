@@ -8,7 +8,7 @@
     "fix": "prettier . --write"
   },
   "dependencies": {
-    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_36",
+    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#main",
     "xeicon": "^2.3.3"
   },
   "devDependencies": {

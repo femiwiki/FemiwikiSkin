@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@femiwiki/ooui-femiwiki-theme@https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_36":
-  version "0.1.2"
-  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#5c0d486b62e32da431e6da5f18b3ce84b724c8bc"
+"@femiwiki/ooui-femiwiki-theme@https://github.com/femiwiki/OOUIFemiwikiTheme.git#main":
+  version "0.1.0"
+  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#064abb45f99c43a773264b64e2ce13acb6dca1c9"
   dependencies:
     grunt "^1.4.1"
     prettier "^2.3.2"
