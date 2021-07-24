@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## v1.9.2
 
 - Installed OOUI theme repository via the package manager instead of including the source.
 
