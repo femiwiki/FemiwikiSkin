@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Added paddings to the syntaxhighlight box. (https://github.com/femiwiki/FemiwikiSkin/issues/288)
+
 ## v1.9.2
 
 - Installed OOUI theme repository via the package manager instead of including the source.

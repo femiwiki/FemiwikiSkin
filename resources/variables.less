@@ -537,15 +537,8 @@
     display: none;
   }
 
-  *:not(.mw-highlight) > pre:not(.CodeMirror-line),
-  // https://github.com/femiwiki/FemiwikiSkin/issues/201
-  & > pre:not(.CodeMirror-line) {
+  .mw-highlight:not(.mw-highlight-lines) > pre:not(.CodeMirror-line) {
     padding: 1em;
-  }
-
-  *:not(.mw-highlight) > pre:not(.CodeMirror-line),
-  & > pre:not(.CodeMirror-line),
-  .mw-highlight > pre {
     overflow: hidden;
     border: none;
     background-color: #f8f8f8;
