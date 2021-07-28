@@ -6,6 +6,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 - Added paddings to the syntaxhighlight box. (https://github.com/femiwiki/FemiwikiSkin/issues/288)
 - Turned off the interface feature.
+- Apply link colors to the preview of 2017 editor. (https://github.com/femiwiki/FemiwikiSkin/issues/290)
 
 ## v1.9.2
 
