@@ -93,10 +93,6 @@
   .catlinks,
   #mw-content-text .mw-parser-output .fw-catlinks {
     clear: both;
-    margin: 1rem 0 0;
-    padding: 0;
-    border: 0 solid #a2a9b1;
-    background-color: transparent;
 
     ul {
       display: inline;
@@ -218,22 +214,30 @@
   // Edit links
   .mw-editsection {
     float: right;
-    line-height: inherit;
-    font-size: inherit;
-    padding: inherit;
-    margin-left: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: normal;
 
-    .mw-editsection-bracket {
-      display: none;
-    }
-
+    .mw-editsection-bracket,
     .mw-editsection-divider {
       display: none;
     }
 
     a {
       font-size: 0.75rem;
-      margin-left: 1em;
+
+      /* @noflip */
+      .mw-content-ltr &,
+      .mw-content-rtl .mw-content-ltr & {
+        margin-left: 1em;
+      }
+      /* @noflip */
+      .mw-content-rtl &,
+      .mw-content-ltr .mw-content-rtl & {
+        margin-right: 1em;
+      }
     }
   }
 
