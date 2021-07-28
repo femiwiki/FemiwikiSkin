@@ -4,7 +4,8 @@
 
 "@femiwiki/ooui-femiwiki-theme@https://github.com/femiwiki/OOUIFemiwikiTheme.git#main":
   version "0.1.0"
-  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#064abb45f99c43a773264b64e2ce13acb6dca1c9"
+  uid "4d805bf16a0737006f11bb9a2670e5d3e74ffb07"
+  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#4d805bf16a0737006f11bb9a2670e5d3e74ffb07"
   dependencies:
     grunt "^1.4.1"
     prettier "^2.3.2"
