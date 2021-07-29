@@ -184,8 +184,7 @@
   "HookHandlers": {
     "default": { "class": "MediaWiki\\Skins\\Femiwiki\\Hooks" },
     "SmallElements": {
-      "class": "MediaWiki\\Skins\\Femiwiki\\SmallElementsHooks",
-      "services": ["UserOptionsLookup"]
+      "class": "MediaWiki\\Skins\\Femiwiki\\SmallElementsHooks"
     }
   },
   "Hooks": {
