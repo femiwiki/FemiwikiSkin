@@ -17,7 +17,7 @@ class SmallElementsHooks implements \MediaWiki\Preferences\Hook\GetPreferencesHo
 			]
 		];
 
-		$skinSectionIndex = array_search( 'skin', array_keys( $prefs ) );
+		$skinSectionIndex = array_search( 'skin', array_keys( $preferences ) );
 		if ( $skinSectionIndex !== false ) {
 			$newSectionIndex = $skinSectionIndex + 1;
 			$preferences = array_slice( $preferences, 0, $newSectionIndex, true )
