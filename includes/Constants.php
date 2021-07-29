@@ -26,5 +26,10 @@ final class Constants {
 	/**
 	 * @var string
 	 */
-	public const COOKIE_KEY_USE_LEGACY = 'UseLegacy';
+	public const CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER = 'FemiwikiLegacySmallElementsForAnonymousUser';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_LARGER_ELEMENTS = "FemiwikiUseLargerElements";
 }
