@@ -10,6 +10,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Experimental 'Larger Elements' feature is now on testing.
   - A registered end user can enable the feature in Special:Preference.
   - A new configuration variable is added: `$wgFemiwikiLegacySmallElementsForAnonymousUser`. This is for enabling the larger elements for anonymous user but will soon be deprecated after finishing the test. Set this to false to enable the feature for anonymous user.
+- ID for `Mediawiki:Skin-femiwiki-xeicon-map.json` of a portlet item is now always provided. The id of item could be generated in a form of `<PORTLET_NAME>-item-<ITEM_KEY>` when the item does not have one. (https://github.com/femiwiki/FemiwikiSkin/issues/297)
 
 ## v1.9.2
 
