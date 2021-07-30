@@ -192,7 +192,7 @@ class SkinFemiwiki extends SkinMustache {
 
 		$htmlItems = '';
 		foreach ( $items as $key => $item ) {
-			$id = $item['id'];
+			$id = $item['id'] ?? $name . '-item-' . $key;
 			if ( isset( $xeIconMap[$id] ) ) {
 				$options = [
 					'text-wrapper' => [
