@@ -22,4 +22,14 @@ final class Constants {
 	 * @var string
 	 */
 	public const CONFIG_KEY_SHOW_FOOTER_ICONS = 'FemiwikiShowFooterIcons';
+
+	/**
+	 * @var string
+	 */
+	public const CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER = 'FemiwikiLegacySmallElementsForAnonymousUser';
+
+	/**
+	 * @var string
+	 */
+	public const PREF_KEY_LARGER_ELEMENTS = "FemiwikiUseLargerElements";
 }

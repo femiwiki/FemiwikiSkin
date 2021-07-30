@@ -424,13 +424,19 @@
 
 // End of content
 hr#content-end-bar {
+  @padding: @content-horizontal-padding * 2;
   border: 0;
   border-width: 1px;
   border-color: @color-primary2;
   background-color: #a2a9b1;
-  max-width: 47.4em;
+  max-width: @content-width - @padding;
   margin: 0 auto;
   height: 1px;
+
+  @media (max-width: @width-breakpoint-mobile-small) {
+    @padding: @content-horizontal-padding-mobile-small * 2;
+    max-width: @content-width - @padding;
+  }
 }
 
 #p-lang {

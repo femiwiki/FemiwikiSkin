@@ -1,11 +1,12 @@
-@font-size-root-default: 16.5;
+@font-size-root-default: 19;
 
 @width-breakpoint-mobile-small: 360px;
 @width-breakpoint-mobile: 480px;
 @width-breakpoint-tablet: 640px;
 
-@content-width: 50rem;
+@content-width: 43.4rem;
 @content-horizontal-padding: 1.3rem;
+@content-horizontal-padding-mobile-small: 0.85rem;
 
 @portal-min-width: 8.8rem;
 @portal-column-gap: 0.8rem;
@@ -94,7 +95,7 @@
   padding-left: @padding;
   padding-right: @padding;
   @media (max-width: @width-breakpoint-mobile-small) {
-    @padding: 0.85rem;
+    @padding: @content-horizontal-padding-mobile-small;
     padding-left: @padding;
     padding-right: @padding;
   }

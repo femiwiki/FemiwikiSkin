@@ -64,6 +64,11 @@
         "print.less"
       ]
     },
+    "skins.femiwiki.smallElements": {
+      "targets": ["desktop", "mobile"],
+      "position": "top",
+      "styles": ["skins.femiwiki.smallElements/styles.less"]
+    },
     "skins.femiwiki.xeicon": {
       "class": "ResourceLoaderSkinModule",
       "features": {
@@ -172,7 +177,10 @@
     }
   },
   "HookHandlers": {
-    "default": { "class": "MediaWiki\\Skins\\Femiwiki\\Hooks" }
+    "default": { "class": "MediaWiki\\Skins\\Femiwiki\\Hooks" },
+    "SmallElements": {
+      "class": "MediaWiki\\Skins\\Femiwiki\\SmallElementsHooks"
+    }
   },
   "Hooks": {
     "BeforePageDisplay": "MediaWiki\\Skins\\Femiwiki\\Hooks::onBeforePageDisplay",
@@ -181,7 +189,8 @@
     "PersonalUrls": "MediaWiki\\Skins\\Femiwiki\\Hooks::onPersonalUrls",
     "ResourceLoaderGetConfigVars": "MediaWiki\\Skins\\Femiwiki\\Hooks::onResourceLoaderGetConfigVars",
     "UserMailerTransformContent": "MediaWiki\\Skins\\Femiwiki\\Hooks::onUserMailerTransformContent",
-    "SkinTemplateNavigation": "MediaWiki\\Skins\\Femiwiki\\Hooks::onSkinTemplateNavigation"
+    "SkinTemplateNavigation": "MediaWiki\\Skins\\Femiwiki\\Hooks::onSkinTemplateNavigation",
+    "GetPreferences": "SmallElements"
   },
   "config": {
     "FemiwikiFirebaseKey": { "value": "" },
@@ -190,7 +199,8 @@
     "FemiwikiHeadItems": { "value": false },
     "FemiwikiAddThisId": { "value": false },
     "FemiwikiUsePageLangForHeading": { "value": true },
-    "FemiwikiShowFooterIcons": { "value": false }
+    "FemiwikiShowFooterIcons": { "value": false },
+    "FemiwikiLegacySmallElementsForAnonymousUser": { "value": true }
   },
   "OOUIThemePaths": {
     "Femiwiki": {

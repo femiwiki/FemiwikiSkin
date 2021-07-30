@@ -1,0 +1,52 @@
+@import '../variables.less';
+
+// Override variables.less
+@font-size-root-default: 16.5;
+@content-width: 50rem;
+
+html {
+  font-size: unit(@font-size-root-default, px);
+}
+
+.nav-bar #mw-navigation {
+  max-width: @content-width - 1.3rem;
+}
+
+.fw-wiki-portals {
+  max-width: @content-width - @content-horizontal-padding;
+}
+
+#p-header,
+.mw-body,
+#p-lang,
+.mw-footer {
+  max-width: @content-width;
+}
+
+hr#content-end-bar {
+  max-width: @content-width - (@content-horizontal-padding * 2);
+}
+
+.fw-wiki-portals {
+  .mw-portlet {
+    @three-portlets-min-width: (@portal-min-width * 3) +
+      (@portal-column-gap * 2) + (@content-horizontal-padding * 2);
+    @four-portlets-min-width: (@portal-min-width * 4) + (@portal-column-gap * 3) +
+      (@content-horizontal-padding * 2);
+
+    @min-width: unit(@three-portlets-min-width * @font-size-root-default, px);
+    @max-width: unit(@four-portlets-min-width * @font-size-root-default, px);
+
+    @media (min-width: @min-width) and (max-width: @max-width) {
+      flex-basis: 40%;
+    }
+  }
+}
+
+html.ve-active,
+html.ve-activated,
+html.ve-deactivating {
+  .oo-ui-toolbar {
+    font-size: 12px !important;
+  }
+}

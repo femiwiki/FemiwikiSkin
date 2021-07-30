@@ -24,11 +24,22 @@ class SkinFemiwiki extends SkinMustache {
 	 * @inheritDoc
 	 */
 	public function __construct( $options = [] ) {
-		if ( $this->getUser()->isLoggedIn() ) {
+		$user = $this->getUser();
+		$loggedIn = $user->isLoggedIn();
+		$config = $this->getConfig();
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+
+		if ( $loggedIn ) {
 			$options['scripts'][] = 'skins.femiwiki.notifications';
 		}
 		if ( $this->shouldShowShare() ) {
 			$options['scripts'][] = 'skins.femiwiki.share';
+		}
+		if (
+			( !$loggedIn && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
+			|| ( $loggedIn && $userOptionsLookup->getOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS, '0' ) === '0' )
+			) {
+			$options['styles'][] = 'skins.femiwiki.smallElements';
 		}
 		parent::__construct( $options );
 	}
