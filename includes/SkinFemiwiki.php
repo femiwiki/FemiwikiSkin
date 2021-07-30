@@ -25,19 +25,19 @@ class SkinFemiwiki extends SkinMustache {
 	 */
 	public function __construct( $options = [] ) {
 		$user = $this->getUser();
-		$loggedIn = $user->isLoggedIn();
+		$registered = $user->isRegistered();
 		$config = $this->getConfig();
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 
-		if ( $loggedIn ) {
+		if ( $registered ) {
 			$options['scripts'][] = 'skins.femiwiki.notifications';
 		}
 		if ( $this->shouldShowShare() ) {
 			$options['scripts'][] = 'skins.femiwiki.share';
 		}
 		if (
-			( !$loggedIn && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
-			|| ( $loggedIn && $userOptionsLookup->getOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS, '0' ) === '0' )
+			( !$registered && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
+			|| ( $registered && $userOptionsLookup->getOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS, '0' ) === '0' )
 			) {
 			$options['styles'][] = 'skins.femiwiki.smallElements';
 		}
