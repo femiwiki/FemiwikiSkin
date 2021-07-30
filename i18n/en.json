@@ -14,6 +14,6 @@
   "femiwiki.js": "/* Any JavaScript here will be loaded for users using the Femiwiki skin */",
   "skin-femiwiki-desktop-switch-confirm": "Editing in mobile view is not supported yet. Would {{GENDER:|you}} like to switch to desktop view?",
   "skin-femiwiki-desktop-switch-canceled": "Editing is canceled.",
-  "prefs-femiwiki-large-elements-label": "User Larger Elements",
+  "prefs-femiwiki-large-elements-label": "Use Larger Elements",
   "prefs-femiwiki-large-elements-help": "The elements on the screen will be replaced by larger ones. This option lets you preview large elements."
 }
