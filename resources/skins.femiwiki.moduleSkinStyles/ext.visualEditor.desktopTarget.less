@@ -1,17 +1,22 @@
 @import '../variables.less';
 
 // Prevent Code mirror glitch
-// @See https://github.com/femiwiki/skin/issues/52
+// https://github.com/femiwiki/skin/issues/52
 .ve-init-mw-desktopArticleTarget .CodeMirror.CodeMirror {
   padding: 0;
 }
 
-// @see https://github.com/femiwiki/FemiwikiSkin/issues/163
+// https://github.com/femiwiki/FemiwikiSkin/issues/163
 .ve-init-mw-progressBarWidget {
   border-color: @color-primary4;
 }
 .ve-init-mw-progressBarWidget-bar {
   background: @color-primary4;
+}
+
+// https://github.com/femiwiki/FemiwikiSkin/issues/295
+.ve-ui-overlay-global {
+  font-size: 15px;
 }
 
 html.ve-active,
@@ -44,7 +49,7 @@ html.ve-deactivating {
   }
 
   .oo-ui-toolbar {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 

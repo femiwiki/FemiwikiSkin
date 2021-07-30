@@ -7,6 +7,9 @@ Versions and bullets are arranged chronologically from latest to oldest.
 - Added paddings to the syntaxhighlight box. (https://github.com/femiwiki/FemiwikiSkin/issues/288)
 - Turned off the interface feature.
 - Apply link colors to the preview of 2017 editor. (https://github.com/femiwiki/FemiwikiSkin/issues/290)
+- Experimental 'Larger Elements' feature is now on testing.
+  - A registered end user can enable the feature in Special:Preference.
+  - A new configuration variable is added: `$wgFemiwikiLegacySmallElementsForAnonymousUser`. This is for enabling the larger elements for anonymous user but will soon be deprecated after finishing the test. Set this to false to enable the feature for anonymous user.
 
 ## v1.9.2
 
