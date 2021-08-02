@@ -14,6 +14,6 @@
 	"skin-femiwiki-share-twitter": "트위터",
 	"skin-femiwiki-desktop-switch-confirm": "모바일 보기에서는 이 편집이 아직 지원되지 않습니다. 데스크톱 보기로 전환하시겠습니까?",
 	"skin-femiwiki-desktop-switch-canceled": "편집이 취소되었습니다.",
-  "prefs-femiwiki-large-elements-label": "더 큰 요소 사용",
-  "prefs-femiwiki-large-elements-help": "이 옵션은 더 큰 요소들을 미리 표시하게 합니다. 화면의 요소들이 더 큰 요소들로 교체될 것입니다."
+	"prefs-femiwiki-large-elements-label": "더 큰 요소 사용",
+	"prefs-femiwiki-large-elements-help": "이 옵션은 더 큰 요소들을 미리 표시하게 합니다. 화면의 요소들이 더 큰 요소들로 교체될 것입니다."
 }

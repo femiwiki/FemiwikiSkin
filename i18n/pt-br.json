@@ -16,5 +16,7 @@
 	"femiwiki.css": "/* CSS colocado aqui afetará os usuários do tema Femiwiki */",
 	"femiwiki.js": "/* Qualquer JavaScript aqui será carregado para usuários que usam o tema Femiwiki */",
 	"skin-femiwiki-desktop-switch-confirm": "A edição na visualização móvel ainda não é compatível. {{GENDER:|você}} gostaria de mudar para a visualização em desktop?",
-	"skin-femiwiki-desktop-switch-canceled": "A edição foi cancelada."
+	"skin-femiwiki-desktop-switch-canceled": "A edição foi cancelada.",
+	"prefs-femiwiki-large-elements-label": "Usar elementos maiores",
+	"prefs-femiwiki-large-elements-help": "Esta opção permite pré-visualizar elementos maiores. Os elementos na tela serão substituídos por maiores."
 }
