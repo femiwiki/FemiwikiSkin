@@ -15,5 +15,7 @@
 	"femiwiki.css": "/* 'U CSS ca se iacchie aqquà 'u 'ndrucane le utinde d'a masckere Femiwiki */",
 	"femiwiki.js": "/* Ogne JavaScript aqquà avène carecate pe le utinde ca ausane 'a masckere Femiwiki */",
 	"skin-femiwiki-desktop-switch-confirm": "'U cangiamende jndr'à modalità mobbile non g'è angore supportate. {{GENDER:|Vuè ccu}} cange jndr'à 'u 'ndrucamende desktop?",
-	"skin-femiwiki-desktop-switch-canceled": "'U cangiamende ha state annullate."
+	"skin-femiwiki-desktop-switch-canceled": "'U cangiamende ha state annullate.",
+	"prefs-femiwiki-large-elements-label": "Ause le eleminde cchiù granne",
+	"prefs-femiwiki-large-elements-help": "Sta opzione te face 'ndrucà jndr'à l'andeprime le eleminde cchiù granne. Le eleminde sus a 'u scherme avènene sostituite da chidde cchiù granne."
 }
