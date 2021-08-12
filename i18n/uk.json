@@ -17,5 +17,7 @@
 	"femiwiki.css": "/* Розміщений тут CSS-код буде використаний в темі оформлення Femiwiki */",
 	"femiwiki.js": "/* Розміщений тут код JavaScript буде завантажений для всіх користувачів, що використовують тему оформлення Femiwiki */",
 	"skin-femiwiki-desktop-switch-confirm": "Редагування у мобільній версії ще не підтримується. Чи {{GENDER:|бажаєте}} перемкнутися на стаціонарну версію?",
-	"skin-femiwiki-desktop-switch-canceled": "Редагування скасовано."
+	"skin-femiwiki-desktop-switch-canceled": "Редагування скасовано.",
+	"prefs-femiwiki-large-elements-label": "Використовуйте великі елементи",
+	"prefs-femiwiki-large-elements-help": "Ця опція дозволяє попередньо переглянути більші елементи. Елементи на екрані будуть замінені більшими."
 }
