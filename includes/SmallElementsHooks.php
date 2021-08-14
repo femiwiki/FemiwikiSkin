@@ -46,6 +46,7 @@ class SmallElementsHooks implements
 			( !$registered && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
 			|| ( $registered && $userOptionsLookup->getOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS, '0' ) === '0' )
 			) {
+			$bodyAttrs['class'] = $bodyAttrs['class'] ?? '';
 			$bodyAttrs['class'] .= ' fw-legacy-small-elements';
 		}
 	}
