@@ -2,7 +2,12 @@
 
 namespace MediaWiki\Skins\Femiwiki;
 
-class SmallElementsHooks implements \MediaWiki\Preferences\Hook\GetPreferencesHook {
+use MediaWiki\MediaWikiServices;
+
+class SmallElementsHooks implements
+	\MediaWiki\Preferences\Hook\GetPreferencesHook,
+	\MediaWiki\Hook\OutputPageBodyAttributesHook
+	{
 	/**
 	 * @inheritDoc
 	 */
@@ -25,6 +30,23 @@ class SmallElementsHooks implements \MediaWiki\Preferences\Hook\GetPreferencesHo
 				+ array_slice( $preferences, $newSectionIndex, null, true );
 		} else {
 			$preferences += $newPrefs;
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function onOutputPageBodyAttributes( $out, $sk, &$bodyAttrs ): void {
+		$user = $sk->getUser();
+		$registered = $user->isRegistered();
+		$config = $sk->getConfig();
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+
+		if (
+			( !$registered && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
+			|| ( $registered && $userOptionsLookup->getOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS, '0' ) === '0' )
+			) {
+			$bodyAttrs['class'] .= ' fw-legacy-small-elements';
 		}
 	}
 }
