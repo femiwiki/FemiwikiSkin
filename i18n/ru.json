@@ -5,6 +5,8 @@
 			"PlushBoy"
 		]
 	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Тема оформления Femiwiki",
 	"skin-femiwiki-page-menu-tooltip": "Меню",
 	"skin-femiwiki-share-tooltip": "Поделиться этой статьёй",
 	"skin-femiwiki-share-dismiss": "Отменить",
@@ -12,5 +14,7 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"skin-femiwiki-xeicon-map.json": "{\n    \"pt-createaccount\": \"user-plus\",\n    \"pt-login\": \"log-in\",\n    \"pt-userpage\": \"profile\",\n    \"pt-notifications-all\": \"bell\",\n    \"pt-mytalk\": \"forum\",\n    \"pt-preferences\": \"cog\",\n    \"pt-watchlist\": \"star\",\n    \"pt-mycontris\": \"list\",\n    \"pt-logout\": \"log-out\",\n    \"t-whatlinkshere\": \"paper\",\n    \"t-recentchangeslinked\": \"clock-o\",\n    \"t-print\": \"print\",\n    \"t-permalink\": \"link\",\n    \"t-info\": \"info\",\n    \"t-cite\": \"link-insert\",\n    \"t-wikibase\": \"barcode\",\n    \"ca-delete\": \"trash\",\n    \"ca-move\": \"long-arrow-right\",\n    \"ca-protect\": \"lock\",\n    \"feedlinks\": \"rss-square\"\n}",
 	"femiwiki.css": "/* Размещённый здесь CSS будет применяться к теме оформления Femiwiki */",
-	"skin-femiwiki-desktop-switch-canceled": "Редактирование отменено."
+	"femiwiki.js": "/* Размещённый здесь код JavaScript будет загружаться пользователям, использующим тему оформления Femiwiki */",
+	"skin-femiwiki-desktop-switch-canceled": "Редактирование отменено.",
+	"prefs-femiwiki-large-elements-label": "Использовать элементы большего размера"
 }
