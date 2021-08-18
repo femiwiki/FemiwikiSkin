@@ -190,7 +190,8 @@
     "ResourceLoaderGetConfigVars": "MediaWiki\\Skins\\Femiwiki\\Hooks::onResourceLoaderGetConfigVars",
     "UserMailerTransformContent": "MediaWiki\\Skins\\Femiwiki\\Hooks::onUserMailerTransformContent",
     "SkinTemplateNavigation": "MediaWiki\\Skins\\Femiwiki\\Hooks::onSkinTemplateNavigation",
-    "GetPreferences": "SmallElements"
+    "GetPreferences": "SmallElements",
+    "OutputPageBodyAttributes": "SmallElements"
   },
   "config": {
     "FemiwikiFirebaseKey": { "value": "" },

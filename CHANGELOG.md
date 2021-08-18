@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- `fw-legacy-small-elements` class is now added to the body element when the feature is enabled.
+
 ## v1.10.0
 
 - Added paddings to the syntaxhighlight box. (https://github.com/femiwiki/FemiwikiSkin/issues/288)
