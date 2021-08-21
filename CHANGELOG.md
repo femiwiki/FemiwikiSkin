@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## v1.10.1
 
 - `fw-legacy-small-elements` class is now added to the body element when the feature is enabled.
 
