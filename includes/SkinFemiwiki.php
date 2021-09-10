@@ -100,7 +100,7 @@ class SkinFemiwiki extends SkinMustache {
 			}
 			$sidebar[] = $this->getPortletData( $name, $items );
 		}
-		return [ $sidebar, $toolbox ];
+		return [ $sidebar, $toolbox ?? null ];
 	}
 
 	/**
