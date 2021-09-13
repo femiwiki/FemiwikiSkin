@@ -2,11 +2,17 @@
 	"@metadata": {
 		"authors": [
 			"Tobi 406",
+			"Umlaut",
 			"WikiBayer"
 		]
 	},
+	"skinname-femiwiki": "Femiwiki",
 	"skin-femiwiki-page-menu-tooltip": "Menü",
 	"skin-femiwiki-share-tooltip": "Diesen Artikel teilen",
+	"skin-femiwiki-share-dismiss": "Schließen",
 	"skin-femiwiki-share-facebook": "Facebook",
-	"skin-femiwiki-share-twitter": "Twitter"
+	"skin-femiwiki-share-twitter": "Twitter",
+	"femiwiki.css": "/* Das folgende CSS wird für Benutzer der Femwiki-Benutzeroberfläche geladen. */",
+	"femiwiki.js": "/* Das folgende JavaScript wird für Benutzer der Benutzeroberfläche Femwiki geladen. */",
+	"skin-femiwiki-desktop-switch-canceled": "Die Bearbeitung wird abgebrochen"
 }
