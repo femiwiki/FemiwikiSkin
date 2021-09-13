@@ -17,6 +17,6 @@
     "@types/node-fetch": "^3.0.3",
     "grunt-banana-checker": "^0.9.0",
     "prettier": "^2.4.0",
-    "typescript": "4.4.2"
+    "typescript": "4.4.3"
   }
 }
