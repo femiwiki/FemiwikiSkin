@@ -1,8 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "test": "npm run lint --silent && node_modules/.bin/tsc",
-    "lint": "npm run lint:prettier --silent && npm run lint:i18n --silent",
+    "test": "npm run lint --silent",
+    "lint": "npm run lint:prettier --silent && npm run lint:i18n --silent && npm run lint:type --silent",
+    "lint:type": "tsc",
     "lint:prettier": "prettier . --check",
     "lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
     "fix": "prettier . --write"

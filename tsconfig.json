@@ -1,5 +1,11 @@
 {
-  "exclude": ["vendor"],
+  "exclude": [
+    "vendor",
+    // OOUI does not have type definitions.
+    "resources/mw.fw.js",
+    "resources/ooui",
+    "resources/skins.femiwiki.share*"
+  ],
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
@@ -9,6 +15,7 @@
     "noImplicitReturns": true,
     "newLine": "lf",
     "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "pretty": true,
     "target": "es5",
     "lib": ["dom"],
