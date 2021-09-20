@@ -4,10 +4,11 @@
 
 "@femiwiki/ooui-femiwiki-theme@https://github.com/femiwiki/OOUIFemiwikiTheme.git#main":
   version "0.1.0"
-  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#080e75098b0a9036d84de8f95d386b579e67751e"
+  uid a3653b74f2fd52eaa573c1f94cf07fecbb29390d
+  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#a3653b74f2fd52eaa573c1f94cf07fecbb29390d"
   dependencies:
     grunt "^1.4.1"
-    prettier "^2.3.2"
+    prettier "^2.4.1"
 
 "@prettier/plugin-xml@^1.0.2":
   version "1.0.2"
@@ -690,7 +691,7 @@ picomatch@^2.2.3:
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
   integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
 
-prettier@>=2.3, prettier@^2.3.2, prettier@^2.4.1:
+prettier@>=2.3, prettier@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.4.1.tgz#671e11c89c14a4cfc876ce564106c4a6726c9f5c"
   integrity sha512-9fbDAXSBcc6Bs1mZrDYb3XKzDLm4EXXL9sC1LqKP5rZkT6KRr/rf9amVUcODVXgguK/isJz0d0hP72WeaKWsvA==
