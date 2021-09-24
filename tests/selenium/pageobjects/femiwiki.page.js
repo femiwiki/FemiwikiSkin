@@ -1,9 +1,9 @@
 'use strict';
-const Page = require( 'wdio-mediawiki/Page' );
+const Page = require('wdio-mediawiki/Page');
 
 class FemiwikiPage extends Page {
-
-	get gnbMenu() { return $( '#fw-menu-toggle' ); }
-
+  get gnbMenu() {
+    return $('#fw-menu-toggle');
+  }
 }
 module.exports = new FemiwikiPage();
