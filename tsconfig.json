@@ -1,5 +1,10 @@
 {
-  "exclude": ["vendor", "resources/ooui", "resources/skins.femiwiki.share*"],
+  "exclude": [
+    "vendor",
+    "resources/ooui",
+    "resources/skins.femiwiki.share*",
+    "tests"
+  ],
   "compilerOptions": {
     "resolveJsonModule": true,
     "esModuleInterop": true,
