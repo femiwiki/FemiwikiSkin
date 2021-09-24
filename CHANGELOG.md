@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Fixes invalid OOUI icon url. (https://github.com/femiwiki/FemiwikiSkin/issues/315)
+
 ## v1.10.1
 
 - `fw-legacy-small-elements` class is now added to the body element when the feature is enabled.
