@@ -4,7 +4,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## v1.10.2
 
-- Fixes invalid OOUI icon url. (https://github.com/femiwiki/FemiwikiSkin/issues/315)
+- Fixed invalid OOUI icon url. (https://github.com/femiwiki/FemiwikiSkin/issues/315)
 
 ## v1.10.1
 
