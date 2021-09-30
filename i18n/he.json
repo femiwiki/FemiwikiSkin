@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"skinname-femiwiki": "פמיוויקי",
+	"femiwiki-desc": "עיצוב פמיוויקי",
+	"skin-femiwiki-page-menu-tooltip": "תפריט",
+	"skin-femiwiki-share-tooltip": "שיתוף הערך הזה",
+	"skin-femiwiki-share-dismiss": "סגירה",
+	"skin-femiwiki-share-facebook": "פייסבוק",
+	"skin-femiwiki-share-twitter": "טוויטר",
+	"skin-femiwiki-desktop-switch-confirm": "עריכה במצב נייד עדיין לא נתמכת. האם {{GENDER:|תרצה|תרצי}} לעבור למצב מחשבים?",
+	"skin-femiwiki-desktop-switch-canceled": "העריכה מבוטלת.",
+	"prefs-femiwiki-large-elements-label": "להשתמש ברכיבים גדולים יותר",
+	"prefs-femiwiki-large-elements-help": "האפשרות הזאת מאפשרת לך לעשות תצוגה מקדימה של רכיבים גדולים יותר. הרכיבים במסך יוחלפו בגדולים יותר."
+}
