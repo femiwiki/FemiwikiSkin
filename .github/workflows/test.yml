@@ -42,17 +42,7 @@ jobs:
       - name: Set up
         run: |
           # Export the target version of MediaWiki
-          # An example of GITHUB_REF: refs/heads/feature-branch-1
-          BRANCH_NAME=$(echo "$GITHUB_REF" | cut -d'/' -f3 | cut -d'-' -f1)
-          BASE_BRANCH_NAME=$(echo "$GITHUB_BASE_REF" | cut -d'/' -f3)
-          if [[ "$BRANCH_NAME" =~ ^(master|REL[0-9]+_[0-9]+)$ ]]; then
-            # branch name starts with the version (ex: master-new-feature, REL1_34-bug-fix)
-            export MEDIAWIKI_VERSION="$BRANCH_NAME"
-          elif [ "$GITHUB_EVENT_NAME" == 'pull_request' ] && [[ "$BASE_BRANCH_NAME" =~ ^(master|REL[0-9]+_[0-9]+)$ ]]; then
-            export MEDIAWIKI_VERSION="$BASE_BRANCH_NAME"
-          else
-            export MEDIAWIKI_VERSION=master
-          fi
+          export MEDIAWIKI_VERSION=REL1_37
           echo MEDIAWIKI_VERSION="${MEDIAWIKI_VERSION}" >> $GITHUB_ENV
 
           if [ "${{ matrix.stage }}" == 'phan' ]; then
