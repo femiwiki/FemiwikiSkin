@@ -10,7 +10,7 @@
     "selenium-test": "wdio tests/selenium/wdio.conf.js"
   },
   "dependencies": {
-    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#main",
+    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_37",
     "xeicon": "^2.3.3"
   },
   "devDependencies": {
