@@ -23,25 +23,25 @@ class SkinFemiwiki extends SkinMustache {
 	/**
 	 * @inheritDoc
 	 */
-	public function __construct( $options = [] ) {
+	public function getDefaultModules() {
 		$user = $this->getUser();
 		$registered = $user->isRegistered();
 		$config = $this->getConfig();
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 
 		if ( $registered ) {
-			$options['scripts'][] = 'skins.femiwiki.notifications';
+			$this->options['scripts'][] = 'skins.femiwiki.notifications';
 		}
 		if ( $this->shouldShowShare() ) {
-			$options['scripts'][] = 'skins.femiwiki.share';
+			$this->options['scripts'][] = 'skins.femiwiki.share';
 		}
 		if (
 			( !$registered && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
 			|| ( $registered && $userOptionsLookup->getOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS, '0' ) === '0' )
 			) {
-			$options['styles'][] = 'skins.femiwiki.smallElements';
+			$this->options['styles'][] = 'skins.femiwiki.smallElements';
 		}
-		parent::__construct( $options );
+		return parent::getDefaultModules();
 	}
 
 	/**
