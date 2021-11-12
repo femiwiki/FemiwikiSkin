@@ -46,11 +46,18 @@
     }
   }
 
+  // Disable the full-width mobile feature.
   // https://github.com/femiwiki/skin/issues/83
   .mw-body .flow-post-content {
+    // <blockquote>
+    blockquote
+    // <pre>
+    *:not(.mw-highlight) > pre:not(.CodeMirror-line),
+    // <syntaxhighlight>
+    // Use class-qualified selectors to acquire the higher priority.
     .mw-highlight:not(.mw-highlight-lines) > pre:not(.CodeMirror-line),
-    .mw-highlight > pre,
-    blockquote {
+    .mw-highlight.mw-highlight-lines > pre:not(.CodeMirror-line),
+    .mw-highlight > pre {
       width: 100%;
       margin-left: 0;
     }
