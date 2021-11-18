@@ -11,8 +11,8 @@ on:
 env:
   DOCKER_REGISTRY: docker-registry.wikimedia.org
   DOCKER_ORG: releng
-  QUIBBLE_DOCKER_IMAGE: quibble-buster-php73
-  PHAN_DOCKER_IMAGE: mediawiki-phan-php73
+  QUIBBLE_DOCKER_IMAGE: quibble-buster-php74
+  PHAN_DOCKER_IMAGE: mediawiki-phan-php74
 
 jobs:
   test:
@@ -128,8 +128,8 @@ jobs:
         if: ${{ matrix.stage == 'phan' }}
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.3'
-          tools: composer:v1
+          php-version: '7.4'
+          tools: composer:v2
       - name: Composer install
         if: ${{ matrix.stage == 'phan' }}
         run: |
