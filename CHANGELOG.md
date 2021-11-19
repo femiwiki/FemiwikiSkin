@@ -2,6 +2,12 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.10.3
+
+- Improved the support of FacetedCategory. (https://github.com/femiwiki/FemiwikiSkin/pull/346)
+- Fixed `<pre>` tag overflow problem. (https://github.com/femiwiki/FemiwikiSkin/issues/350)
+- Bump OOUI to 0.42.0.
+
 ## Previous Releases
 
 - [REL1_36](https://github.com/femiwiki/FemiwikiSkin/blob/REL1_36/CHANGELOG.md)
