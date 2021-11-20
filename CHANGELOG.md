@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Fixed broken StructuredDiscussions styles. (https://github.com/femiwiki/FemiwikiSkin/issues/365, https://github.com/femiwiki/FemiwikiSkin/issues/366)
+
 ## v1.10.3
 
 - Improved the support of FacetedCategory. (https://github.com/femiwiki/FemiwikiSkin/pull/346)
