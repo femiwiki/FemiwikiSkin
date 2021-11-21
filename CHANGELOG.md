@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased
+## v1.10.4
 
 - Fixed broken StructuredDiscussions styles. (https://github.com/femiwiki/FemiwikiSkin/issues/365, https://github.com/femiwiki/FemiwikiSkin/issues/366)
 - Added a module style for DismissableSiteNotice.
