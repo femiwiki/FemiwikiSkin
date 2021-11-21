@@ -1,0 +1,16 @@
+@import '../variables.less';
+
+@media screen and (max-width: @width-breakpoint-tablet) {
+  .mw-dismissable-notice-close,
+  .mw-dismissable-notice-body {
+    clear: both;
+  }
+
+  .mw-dismissable-notice-body {
+    /* @noflip */
+    .sitedir-ltr &,
+    .sitedir-rtl & {
+      margin: 0;
+    }
+  }
+}
