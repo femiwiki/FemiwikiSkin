@@ -1,40 +1,28 @@
 @import '../variables.less';
+@import 'mediawiki.ui/mixins.buttons.less';
 
-// @See https://github.com/femiwiki/FemiwikiSkin/issues/161
+// https://github.com/femiwiki/FemiwikiSkin/issues/161
 .mw-ui-button {
   border-radius: 0;
   &.mw-ui-progressive {
-    background-color: @color-progressive;
-    border-color: @color-progressive;
-
-    &:hover {
-      background-color: @color-primary4;
-      border-color: @color-primary4;
-    }
-
-    &:focus {
-      box-shadow: inset 0 0 0 1px @color-progressive, inset 0 0 0 2px #fff;
-    }
-
-    &:active,
-    &.is-on {
-      background-color: @color-primary5;
-      border-color: @color-primary5;
-    }
+    .mw-ui-button-colors-primary(@color-progressive, @color-primary4, @color-primary5 );
 
     &.mw-ui-quiet {
       color: @color-progressive;
 
+      input[type='checkbox']:hover + &,
       &:hover {
         color: @color-primary4;
       }
 
-      &:active {
-        color: @color-primary5;
-      }
-
+      input[type='checkbox']:focus + &,
       &:focus {
         color: @color-progressive;
+      }
+
+      input[type='checkbox']:active + &,
+      &:active {
+        color: @color-primary5;
       }
     }
   }
