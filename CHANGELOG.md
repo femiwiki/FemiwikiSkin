@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased
+
+- Fixed button colors.
+
 ## v1.10.4
 
 - Fixed broken StructuredDiscussions styles. (https://github.com/femiwiki/FemiwikiSkin/issues/365, https://github.com/femiwiki/FemiwikiSkin/issues/366)
