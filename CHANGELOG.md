@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.10.6
+
+- Patched not correctly clipped Echo notification popup on mobile. (https://github.com/femiwiki/FemiwikiSkin/issues/78)
+
 ## v1.10.5
 
 - Fixed button colors.
