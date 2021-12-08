@@ -162,6 +162,7 @@
       "+mediawiki.diff.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.diff.styles.less",
       "+mediawiki.feedlink": "skins.femiwiki.moduleSkinStyles/mediawiki.feedlink.less",
       "+mediawiki.pulsatingdot": "skins.femiwiki.moduleSkinStyles/mediawiki.pulsatingdot.less",
+      "+mediawiki.rcfilters.filters.base.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.rcfilters.filters.base.styles.less",
       "+mediawiki.rcfilters.filters.ui": "skins.femiwiki.moduleSkinStyles/mediawiki.rcfilters.filters.ui.less",
       "+mediawiki.special.changeslist": "skins.femiwiki.moduleSkinStyles/mediawiki.special.changeslist.less",
       "+mediawiki.special.search.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.special.search.styles.less",
