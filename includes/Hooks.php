@@ -207,7 +207,7 @@ class Hooks implements \MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook {
 			]
 		];
 
-		if ( $sk->getUser()->isLoggedIn() && array_key_exists( 'preferences', $personalTools ) ) {
+		if ( $sk->getUser()->isRegistered() && array_key_exists( 'preferences', $personalTools ) ) {
 			$personalTools = wfArrayInsertAfter( $personalTools, $insertUrls, 'preferences' );
 		} else {
 			$personalTools = array_merge( $personalTools, $insertUrls );
