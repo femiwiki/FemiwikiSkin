@@ -328,15 +328,15 @@
     "@wdio/types" "7.16.3"
     chalk "^4.0.0"
 
-"@wdio/junit-reporter@^7.4.2":
-  version "7.16.6"
-  resolved "https://registry.yarnpkg.com/@wdio/junit-reporter/-/junit-reporter-7.16.6.tgz#f86de2cd0a348d337d1bfd8bd4e0cafa8670687f"
-  integrity sha512-bLiFa8asEKMWZttw2oaTfAg4hwBi5ZDaTUWHICjBF3Pn0iWGNo6edLz5z2KIL7G09Q66gIfyQzfeIhSHe8qIBQ==
+"@wdio/junit-reporter@^7.16.11":
+  version "7.16.11"
+  resolved "https://registry.yarnpkg.com/@wdio/junit-reporter/-/junit-reporter-7.16.11.tgz#6f42a3cdd35da36e8cce8828c1b1de0e86dca9ef"
+  integrity sha512-KE6PMfhbu47OG9T4Tz5eKOpplfWeszTM89ntu//WfCzgH/dewS/2eXcIqhxr1Ucp52igD4oA0QpWvn9yoIg3sQ==
   dependencies:
     "@types/json-stringify-safe" "^5.0.0"
     "@types/validator" "^13.1.3"
-    "@wdio/reporter" "7.16.3"
-    "@wdio/types" "7.16.3"
+    "@wdio/reporter" "7.16.11"
+    "@wdio/types" "7.16.11"
     json-stringify-safe "^5.0.1"
     junit-report-builder "^3.0.0"
     validator "^13.0.0"
@@ -389,6 +389,22 @@
   dependencies:
     "@wdio/utils" "7.16.3"
 
+"@wdio/reporter@7.16.11":
+  version "7.16.11"
+  resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-7.16.11.tgz#21480cc876a80b75d29cd5886de380c41dba12f3"
+  integrity sha512-dZxR+IoZ2z2q8Z/3TBCuFgNfs8ZvSYNroe/WOD4Ivx9WK+B+N+wtn8U4KfEQF+0HS4TowPQQiEtFacT+F6lPvA==
+  dependencies:
+    "@types/diff" "^5.0.0"
+    "@types/node" "^16.11.1"
+    "@types/object-inspect" "^1.8.0"
+    "@types/supports-color" "^8.1.0"
+    "@types/tmp" "^0.2.0"
+    "@wdio/types" "7.16.11"
+    diff "^5.0.0"
+    fs-extra "^10.0.0"
+    object-inspect "^1.10.3"
+    supports-color "8.1.1"
+
 "@wdio/reporter@7.16.3":
   version "7.16.3"
   resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-7.16.3.tgz#9cd3f62914ca60b5628a5217fdcdf55a445fbcad"
@@ -418,6 +434,14 @@
     gaze "^1.1.2"
     webdriver "7.16.7"
     webdriverio "7.16.8"
+
+"@wdio/types@7.16.11":
+  version "7.16.11"
+  resolved "https://registry.yarnpkg.com/@wdio/types/-/types-7.16.11.tgz#110bf91f17cbdc8be0fa4363581372036ebc7d0c"
+  integrity sha512-OFVTFEB6qdG84Y+cOWIacV0loGMgq2SF/rGGlGxai89V3UQxzCFTYVoAx6odAuSNZ37wmfWCykyAR/lAlMItoQ==
+  dependencies:
+    "@types/node" "^16.11.1"
+    got "^11.8.1"
 
 "@wdio/types@7.16.3":
   version "7.16.3"
