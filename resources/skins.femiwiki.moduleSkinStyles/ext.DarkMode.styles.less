@@ -1,0 +1,16 @@
+@import '../variables.less';
+
+.client-dark-mode {
+  // Remove the background; it stands out too much.
+  table {
+    background-color: unset;
+  }
+
+  // Override explicit blue colors
+  // https://github.com/femiwiki/FemiwikiSkin/issues/396
+  a,
+  .mw-parser-output a.external,
+  a:visited {
+    color: @color-link;
+  }
+}
