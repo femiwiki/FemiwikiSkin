@@ -14,3 +14,12 @@
     color: @color-link;
   }
 }
+
+// Set explicit background-color to prepare the inversion.
+// https://github.com/femiwiki/FemiwikiSkin/issues/397
+html.client-dark-mode,
+// Set body element also, as the inversion is not applied to the html element on Firefox properly.
+// https://bugzilla.mozilla.org/show_bug.cgi?id=1682083
+html.client-dark-mode body {
+  background-color: whitesmoke;
+}
