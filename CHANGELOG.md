@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.10.8
+
+- Fixed bugs on the DarkMode extension. (https://github.com/femiwiki/FemiwikiSkin/issues/396, https://github.com/femiwiki/FemiwikiSkin/issues/397)
+
 ## v1.10.7
 
 - Fixed FemiwikiUseLargerElements option cannot be disabled after enabling. (https://github.com/femiwiki/FemiwikiSkin/issues/392)
