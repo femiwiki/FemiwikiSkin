@@ -18,7 +18,7 @@
     "@types/jquery": "^3.5.11",
     "@types/node-fetch": "^3",
     "@wdio/cli": "^7.16.12",
-    "@wdio/dot-reporter": "^7.4.2",
+    "@wdio/dot-reporter": "^7.16.11",
     "@wdio/junit-reporter": "^7.16.12",
     "@wdio/local-runner": "^7.16.12",
     "@wdio/mocha-framework": "^7.16.11",
