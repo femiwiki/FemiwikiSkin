@@ -327,3 +327,11 @@ a.external {
 .mw-underline-never a {
   text-decoration: none;
 }
+
+// https://github.com/femiwiki/FemiwikiSkin/issues/415
+// https://www.mediawiki.org/wiki/Extension:DarkMode
+// https://www.mediawiki.org/wiki/Extension:RelatedArticles
+.client-dark-mode .ext-related-articles-card-thumb {
+  filter: invert(1) hue-rotate(180deg);
+  background-color: transparent;
+}
