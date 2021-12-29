@@ -13,4 +13,11 @@
   a:visited {
     color: @color-link;
   }
+
+  // Apply filter for things using background-image
+  // https://github.com/femiwiki/FemiwikiSkin/issues/415
+  .ext-related-articles-card-thumb {
+    filter: invert(1) hue-rotate(180deg);
+    background-color: transparent;
+  }
 }
