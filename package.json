@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-xml": "^1.2.0",
-    "@types/jquery": "^3.5.10",
+    "@types/jquery": "^3.5.11",
     "@types/node-fetch": "^3",
     "@wdio/cli": "^7.16.12",
     "@wdio/dot-reporter": "^7.4.2",
