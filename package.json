@@ -24,7 +24,7 @@
     "@wdio/mocha-framework": "^7.16.11",
     "grunt-banana-checker": "^0.9.0",
     "prettier": "^2.5.1",
-    "typescript": "^4.5.3",
+    "typescript": "^4.5.4",
     "wdio-mediawiki": "^1.1.1"
   }
 }
