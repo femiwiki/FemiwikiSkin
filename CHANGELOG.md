@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.10.9 (Unreleased)
+
+- Fixed conflict between DarkMode and RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/416)
+
 ## v1.10.8
 
 - Fixed bugs on the DarkMode extension. (https://github.com/femiwiki/FemiwikiSkin/issues/396, https://github.com/femiwiki/FemiwikiSkin/issues/397)
