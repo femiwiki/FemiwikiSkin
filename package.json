@@ -14,7 +14,7 @@
     "xeicon": "^2.3.3"
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "^1.0.2",
+    "@prettier/plugin-xml": "^1.2.0",
     "@types/jquery": "^3.5.10",
     "@types/node-fetch": "^3",
     "@wdio/cli": "^7.16.12",
