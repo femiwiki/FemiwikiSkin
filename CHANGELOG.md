@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## v1.10.9 (Unreleased)
+## v1.10.9
 
 - Fixed conflict between DarkMode and RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/416)
 
