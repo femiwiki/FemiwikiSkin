@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v1.10.10
+
+- Fixed conflict between DarkMode and GrowthExperiments. (https://github.com/femiwiki/FemiwikiSkin/pull/422)
+
 ## v1.10.9
 
 - Fixed conflict between DarkMode and RelatedArticles. (https://github.com/femiwiki/FemiwikiSkin/issues/416)
