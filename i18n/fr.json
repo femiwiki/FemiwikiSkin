@@ -19,5 +19,5 @@
 	"skin-femiwiki-desktop-switch-confirm": "La modification via l’affichage mobile n’est pas encore prise en charge. Aimeriez-{{GENDER:|}}vous basculer en affichage de bureau ?",
 	"skin-femiwiki-desktop-switch-canceled": "La modification est annulée.",
 	"prefs-femiwiki-large-elements-label": "Utiliser de plus gros éléments",
-	"prefs-femiwiki-large-elements-help": "Cette option vous permet d’avoir un aperçu de plus gros éléments. Les éléments à l’écran seront remplacés par de plus gros."
+	"prefs-femiwiki-large-elements-help": "Cette option vous permet d’avoir un aperçu des plus gros éléments. Les éléments à l’écran seront remplacés par de plus gros."
 }
