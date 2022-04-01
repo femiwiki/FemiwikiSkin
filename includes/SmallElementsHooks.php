@@ -37,6 +37,9 @@ class SmallElementsHooks implements
 	 * @inheritDoc
 	 */
 	public function onOutputPageBodyAttributes( $out, $sk, &$bodyAttrs ): void {
+		if ( $sk->getSkinName() !== 'femiwiki' ) {
+			return;
+		}
 		$user = $sk->getUser();
 		$registered = $user->isRegistered();
 		$config = $sk->getConfig();
