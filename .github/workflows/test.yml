@@ -158,8 +158,9 @@ jobs:
           sudo chown -R nobody:nogroup src cache
           sudo chown $(id -u):$(id -g) src cache
           # Composer install
-          if [ "${{ matrix.stage }}" == 'phan' ] || [ "${{ matrix.stage }}" == 'coverage' ]; then
+          if [ "${{ matrix.stage }}" == 'phan' ] ]; then
             docker run \
+              --entrypoint quibble-with-supervisord \
               -e ZUUL_PROJECT=mediawiki/skins/Femiwiki \
               -v "$(pwd)"/cache:/cache \
               -v "$(pwd)"/src:/workspace/src \
@@ -179,6 +180,7 @@ jobs:
               --color
           else
             docker run \
+              --entrypoint quibble-with-supervisord \
               -e ZUUL_PROJECT=mediawiki/skins/Femiwiki \
               -v "$(pwd)"/cache:/cache \
               -v "$(pwd)"/src:/workspace/src \
