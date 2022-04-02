@@ -174,10 +174,10 @@ jobs:
         run: |
           cd /home/runner
           # Move our repository
+          mkdir -p cache cover src/skins src/extensions
           sudo cp -r "${GITHUB_WORKSPACE}" src/${{ env.TYPE }}s/${{ env.EXTENSION_NAME }}
-          mkdir -p cache cover
           chmod 777 src cache cover
-          # chown cache/ https://github.com/femiwiki/.github/issues/3
+          # https://github.com/femiwiki/.github/issues/3
           sudo chown -R nobody:nogroup src cache
           sudo chown $(id -u):$(id -g) src cache
           # Composer install
