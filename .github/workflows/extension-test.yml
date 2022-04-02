@@ -211,7 +211,7 @@ jobs:
               fi
               docker run \
                 --entrypoint quibble-with-supervisord \
-                -e ZUUL_PROJECT=mediawiki/${{ env.TYPE }}s/"${{ github.event.repository.name }}" \
+                -e ZUUL_PROJECT=mediawiki/${{ env.TYPE }}s/"${{ env.EXTENSION_NAME }}" \
                 -v "$(pwd)"/cache:/cache \
                 -v "$(pwd)"/src:/workspace/src \
                 -v "$(pwd)"/cover:/workspace/cover \
