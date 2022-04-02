@@ -50,14 +50,14 @@ jobs:
       # $GITHUB_WORKSPACE/.github/workflows/dependencies  Used by actions/cache
       - name: Set up
         run: |
-          if [ -z skin.json ]; then
+          if [ -e skin.json ]; then
             echo "TYPE=skin" >> $GITHUB_ENV
             echo "EXTENSION_NAME=$(echo skin.json |
-              python3 -c 'import json;print("\n".join(json.loads(input())["name"]))'" >> $GITHUB_ENV
+              python3 -c 'import json;print("\n".join(json.loads(input())["name"]))')" >> $GITHUB_ENV
           else
             echo "TYPE=extension" >> $GITHUB_ENV
             echo "EXTENSION_NAME=$(echo extension.json |
-              python3 -c 'import json;print("\n".join(json.loads(input())["name"]))'" >> $GITHUB_ENV
+              python3 -c 'import json;print("\n".join(json.loads(input())["name"]))')" >> $GITHUB_ENV
           fi
 
           # Export the target version of MediaWiki
