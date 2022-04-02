@@ -52,12 +52,12 @@ jobs:
         run: |
           if [ -e skin.json ]; then
             echo "TYPE=skin" >> $GITHUB_ENV
-            echo "EXTENSION_NAME=$(echo skin.json |
-              python3 -c 'import json;print("\n".join(json.loads(input())["name"]))')" >> $GITHUB_ENV
+            echo "EXTENSION_NAME=$(cat skin.json |
+              python3 -c 'import json;import sys;print(json.loads("".join(sys.stdin.readlines()))["name"])')" >> $GITHUB_ENV
           else
             echo "TYPE=extension" >> $GITHUB_ENV
-            echo "EXTENSION_NAME=$(echo extension.json |
-              python3 -c 'import json;print("\n".join(json.loads(input())["name"]))')" >> $GITHUB_ENV
+            echo "EXTENSION_NAME=$(cat extension.json |
+              python3 -c 'import json;import sys;print(json.loads("".join(sys.stdin.readlines()))["name"])')" >> $GITHUB_ENV
           fi
 
           # Export the target version of MediaWiki
