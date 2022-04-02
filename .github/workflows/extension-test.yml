@@ -202,23 +202,25 @@ jobs:
               "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
               --color
           elif [ "${{ matrix.stage }}" == 'coverage' ]; then
-            # MW1.35+ requires PHP7.3 but quibble-coverage is not.
-            if [ "${MEDIAWIKI_VERSION}" == 'master' ]; then
-              if [ "${TYPE}" == 'skin' ]; then
-                COMMEND=mwskin-phpunit-coverage
-              else
-                COMMEND=mwext-phpunit-coverage
+            if [ -d tests/phpunit ]; then
+              # MW1.35+ requires PHP7.3 but quibble-coverage is not.
+              if [ "${MEDIAWIKI_VERSION}" == 'master' ]; then
+                if [ "${TYPE}" == 'skin' ]; then
+                  COMMEND=mwskin-phpunit-coverage
+                else
+                  COMMEND=mwext-phpunit-coverage
+                fi
+                docker run \
+                  --entrypoint quibble-with-supervisord \
+                  -e ZUUL_PROJECT=mediawiki/${{ env.TYPE }}s/"${{ env.EXTENSION_NAME }}" \
+                  -v "$(pwd)"/cache:/cache \
+                  -v "$(pwd)"/src:/workspace/src \
+                  -v "$(pwd)"/cover:/workspace/cover \
+                  "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
+                  --skip-zuul \
+                  --skip-deps \
+                  -c "${COMMEND}"
               fi
-              docker run \
-                --entrypoint quibble-with-supervisord \
-                -e ZUUL_PROJECT=mediawiki/${{ env.TYPE }}s/"${{ env.EXTENSION_NAME }}" \
-                -v "$(pwd)"/cache:/cache \
-                -v "$(pwd)"/src:/workspace/src \
-                -v "$(pwd)"/cover:/workspace/cover \
-                "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
-                --skip-zuul \
-                --skip-deps \
-                -c "${COMMEND}"
             fi
           else
             docker run \
