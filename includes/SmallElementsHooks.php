@@ -37,6 +37,9 @@ class SmallElementsHooks implements
 	 * @inheritDoc
 	 */
 	public function onOutputPageBodyAttributes( $out, $sk, &$bodyAttrs ): void {
+		if ( $sk->getSkinName() !== Constants::SKIN_NAME ) {
+			return;
+		}
 		$user = $sk->getUser();
 		$registered = $user->isRegistered();
 		$config = $sk->getConfig();
@@ -46,8 +49,7 @@ class SmallElementsHooks implements
 			( !$registered && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
 			|| ( $registered && !$userOptionsLookup->getBoolOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS ) )
 			) {
-			$bodyAttrs['class'] = $bodyAttrs['class'] ?? '';
-			$bodyAttrs['class'] .= ' fw-legacy-small-elements';
+			$bodyAttrs['class'] ??= ' fw-legacy-small-elements';
 		}
 	}
 }
