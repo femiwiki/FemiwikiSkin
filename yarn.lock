@@ -3125,10 +3125,9 @@ ws@8.5.0:
   resolved "https://registry.yarnpkg.com/ws/-/ws-8.5.0.tgz#bfb4be96600757fe5382de12c670dab984a1ed4f"
   integrity sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==
 
-xeicon@^2.3.3:
+"xeicon@https://github.com/xpressengine/XEIcon.git#2.3.3":
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/xeicon/-/xeicon-2.3.3.tgz#84505e0be4812c2b71f614b2737812c1aad869b4"
-  integrity sha512-mCIcl32K4DF/mGKm+NX39fzGVAyUzxIc6vqb9DnG/iViaRgS15+tvSwKdiK82A3nVzv8rSajeI0lC/R6LyTi2w==
+  resolved "https://github.com/xpressengine/XEIcon.git#50731896efb462a1b9da7aaa37364bb333757a5d"
 
 xmlbuilder@^15.1.1:
   version "15.1.1"
