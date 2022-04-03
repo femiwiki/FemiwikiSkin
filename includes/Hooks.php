@@ -285,7 +285,11 @@ class Hooks implements \MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook {
 			$customAttribs['class'] = '';
 		}
 
-		$customAttribs['class'] .= 'fw-link';
+		$config = MediaWikiServices::getInstance()->getService( 'ConfigFactory' )
+			->makeConfig( 'femiwiki' );
+		if ( $config->get( 'FemiwikiAddLinkClass' ) ) {
+			$customAttribs['class'] .= 'fw-link';
+		}
 		return true;
 	}
 }
