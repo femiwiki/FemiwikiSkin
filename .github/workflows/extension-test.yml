@@ -82,7 +82,7 @@ jobs:
           fi
 
       - name: Cache docker image
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: /home/runner/docker-images/${{ env.DOCKER_IMAGE }}
           key: ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_LATEST_TAG }}
@@ -92,7 +92,7 @@ jobs:
             docker pull "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}"
       - name: Cache quibble docker image
         if: ${{ matrix.stage == 'phan' }}
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: /home/runner/docker-images/${{ env.QUIBBLE_DOCKER_IMAGE }}
           key: ${{ env.QUIBBLE_DOCKER_IMAGE }}:${{ env.QUIBBLE_DOCKER_LATEST_TAG }}
@@ -103,7 +103,7 @@ jobs:
             docker pull "${DOCKER_REGISTRY}/${DOCKER_ORG}/${QUIBBLE_DOCKER_IMAGE}:${QUIBBLE_DOCKER_LATEST_TAG}"
 
       - name: Cache MediaWiki installation
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: /home/runner/src
           key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-7a79548-${{ hashFiles('.github/workflows/.test-env') }}
@@ -120,7 +120,7 @@ jobs:
           git -C src/ log -n 1 --format="%H"
 
       - name: Cache dependencies (composer and npm)
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.1
         with:
           path: /home/runner/cache
           key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('**/*.lock') }}
@@ -139,7 +139,7 @@ jobs:
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3.0.1
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
