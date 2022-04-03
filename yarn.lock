@@ -3040,10 +3040,9 @@ ws@^7.2.3:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.5.tgz#8b4bc4af518cfabd0473ae4f99144287b33eb881"
   integrity sha512-BAkMFcAzl8as1G/hArkxOxq3G7pjUqQ3gzYbLL0/5zNkph70e+lCoxBGnm6AW1+/aiNeV4fnKqZ8m4GZewmH2w==
 
-xeicon@^2.3.3:
+"xeicon@https://github.com/xpressengine/XEIcon.git#2.3.3":
   version "2.3.3"
-  resolved "https://registry.yarnpkg.com/xeicon/-/xeicon-2.3.3.tgz#84505e0be4812c2b71f614b2737812c1aad869b4"
-  integrity sha512-mCIcl32K4DF/mGKm+NX39fzGVAyUzxIc6vqb9DnG/iViaRgS15+tvSwKdiK82A3nVzv8rSajeI0lC/R6LyTi2w==
+  resolved "https://github.com/xpressengine/XEIcon.git#50731896efb462a1b9da7aaa37364bb333757a5d"
 
 xmlbuilder@^15.1.1:
   version "15.1.1"
