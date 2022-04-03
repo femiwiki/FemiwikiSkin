@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## v2.0.0 (Unreleased)
+
+- The styles for plain links are disabled by default now. To recover the previous behavior, add `$wgFemiwikiAddLinkClass = true;` to your LocalSettings.php. (https://github.com/femiwiki/FemiwikiSkin/pull/469)
+
 ## v1.10.10
 
 - Fixed conflict between DarkMode and GrowthExperiments. (https://github.com/femiwiki/FemiwikiSkin/pull/422)
