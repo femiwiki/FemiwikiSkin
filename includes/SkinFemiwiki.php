@@ -21,14 +21,6 @@ class SkinFemiwiki extends SkinMustache {
 
 	/** @var array|mixed */
 	private $xeIconMap;
-	/** @var bool */
-	private $isREL1_39 = false;
-
-	/** @inheritDoc */
-	public function __construct( $options ) {
-		$this->isREL1_39 = version_compare( MW_VERSION, '1.38', '>' );
-		parent::__construct( $options );
-	}
 
 	/**
 	 * @inheritDoc
@@ -214,9 +206,6 @@ class SkinFemiwiki extends SkinMustache {
 	 */
 	protected function runOnSkinTemplateNavigationHooks( $skin, &$content_navigation ) {
 		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
-		if ( !$this->isREL1_39 ) {
-			return;
-		}
 
 		$xeIconMap = $this->getXeIconMap();
 		foreach ( $content_navigation as $name => $menuItems ) {
@@ -243,14 +232,6 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
-	 * @inheritDoc
-	 * Can be removed in 1.39
-	 */
-	public function getPortletData( $name, array $items ) {
-		return $this->getCustomPortletData( $name, $items );
-	}
-
-	/**
 	 * Generate data for a custom p-personal menu
 	 * @param string $name
 	 * @param array $items
@@ -258,15 +239,14 @@ class SkinFemiwiki extends SkinMustache {
 	 */
 	private function getCustomPortletData( $name, array $items ): array {
 		$id = Sanitizer::escapeIdForAttribute( "p-$name" );
-		$parentData = $this->isREL1_39 ?
-			[
-				'id' => $id,
-				'class' => 'femi-custom-portlet mw-portlet ' . Sanitizer::escapeClass( "mw-portlet-personal" ),
-				'html-tooltip' => Linker::tooltip( $id ),
-				'html-items' => '',
-				'html-after-portal' => '',
-				'html-before-portal' => '',
-			] : parent::getPortletData( $name, $items );
+		$parentData = [
+			'id' => $id,
+			'class' => 'femi-custom-portlet mw-portlet ' . Sanitizer::escapeClass( "mw-portlet-personal" ),
+			'html-tooltip' => Linker::tooltip( $id ),
+			'html-items' => '',
+			'html-after-portal' => '',
+			'html-before-portal' => '',
+		];
 
 		$xeIconMap = $this->getXeIconMap();
 
@@ -291,12 +271,10 @@ class SkinFemiwiki extends SkinMustache {
 			}
 			$htmlItems .= $this->makeListItem( $key, $item, $options ?? [] );
 		}
-		if ( $this->isREL1_39 ) {
-			$msg = $this->msg( $name );
-			$parentData['label'] = $msg->exists() ? $msg->text() : $name;
-			$parentData['is-empty'] = count( $items ) === 0;
-			$parentData['class'] .= $parentData['is-empty'] ? ' emptyPortlet' : '';
-		}
+		$msg = $this->msg( $name );
+		$parentData['label'] = $msg->exists() ? $msg->text() : $name;
+		$parentData['is-empty'] = count( $items ) === 0;
+		$parentData['class'] .= $parentData['is-empty'] ? ' emptyPortlet' : '';
 		$parentData['html-items'] = $htmlItems;
 		return $parentData;
 	}
