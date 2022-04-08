@@ -25,7 +25,8 @@
 
 "@femiwiki/ooui-femiwiki-theme@https://github.com/femiwiki/OOUIFemiwikiTheme.git#main":
   version "0.1.0"
-  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#1b12e51b13f83fd230372e8535460b9b58f633cb"
+  uid "3948b56e749459eebbc4a4792a9c9e85ef213466"
+  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#3948b56e749459eebbc4a4792a9c9e85ef213466"
 
 "@jest/types@^27.2.5":
   version "27.2.5"
