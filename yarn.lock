@@ -341,7 +341,7 @@
     junit-report-builder "^3.0.0"
     validator "^13.0.0"
 
-"@wdio/local-runner@^7.16.13":
+"@wdio/local-runner@^7.19.3":
   version "7.19.3"
   resolved "https://registry.yarnpkg.com/@wdio/local-runner/-/local-runner-7.19.3.tgz#af8e9e8e83ff29d0b31f4357b41222d6e3c780a4"
   integrity sha512-HISss3hINC64ynM8Fx11I5qUH/EHew0PFK2qey+HxgW7hnJNRHil01wr4fYt8YYP5a4xtgyywvOiZRHX7yRmkA==
