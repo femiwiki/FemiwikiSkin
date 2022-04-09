@@ -208,10 +208,6 @@
   resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
   integrity sha512-JYM8x9EGF163bEyhdJBpR2QX1R5naCJHC8ucJylJ3w9/CVBaskdQ8WqBf8MmQrd1kRvp/a4TS8HJ+bxzR7ZJYQ==
 
-"@wikimedia/types-wikimedia@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@wikimedia/types-wikimedia/-/types-wikimedia-0.2.0.tgz#fbd7a52efd9db2da01a413c8f9f946b3f70ddc13"
-  integrity sha512-H2MbvBt7DTROqm6kCRNdK6nUZuBvSYjq/7k01ZI5/uR9mj8FzxsMQcH4joh8kFVQ2LpDPXNsaPq/P5hqIDtSAw==
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
@@ -490,6 +486,11 @@
     "@wdio/types" "7.16.14"
     p-iteration "^1.1.8"
 
+"@wikimedia/types-wikimedia@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@wikimedia/types-wikimedia/-/types-wikimedia-0.3.3.tgz#48111f19d30c1a7531d3e81743110842614f3c21"
+  integrity sha512-MJJsZUQvJTjyPY4DYZbKC4pBALXtLqhJKXUg0rDAgf5RoQkRZQY+qOZznFmQmVtnWklwYQT/5d8uBXbg6A8x/g==
+
 "@xml-tools/parser@^1.0.11":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@xml-tools/parser/-/parser-1.0.11.tgz#a118a14099ea5c3c537e4781fad2fc195b57f8ff"
@@ -634,8 +635,6 @@ async@^3.2.0:
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.2.tgz#2eb7671034bb2194d45d30e31e24ec7e7f9670cd"
   integrity sha512-H0E+qZaDEfx/FY4t7iLRv1W2fFI6+pyCeTw1uN20AQPiwqwM6ojPxHxdLv4z8hi2DtnW9BOckSspLucW7pIE5g==
 
-<<<<<<< HEAD
-=======
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -651,7 +650,6 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
->>>>>>> main
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"
@@ -1479,27 +1477,12 @@ growl@1.10.5:
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.5.tgz#f2735dc2283674fa67478b10181059355c369e5e"
   integrity sha512-qBr4OuELkhPenW6goKVXiv47US3clb3/IbuWF9KNKEijAy9oeHxU9IgzjvJhHkUzhaj7rOUD7+YGWqUjLp5oSA==
 
-<<<<<<< HEAD
-grunt-cli@~1.4.2:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/grunt-cli/-/grunt-cli-1.4.3.tgz#22c9f1a3d2780bf9b0d206e832e40f8f499175ff"
-  integrity sha512-9Dtx/AhVeB4LYzsViCjUQkd0Kw0McN2gYpdmGYKtE2a5Yt7v1Q+HYZVWhqXc/kGnxlMtqKDxSwotiGeFmkrCoQ==
-  dependencies:
-    grunt-known-options "~2.0.0"
-    interpret "~1.1.0"
-    liftup "~3.0.1"
-    nopt "~4.0.1"
-    v8flags "~3.2.0"
-
-grunt-known-options@~2.0.0:
-=======
 grunt-banana-checker@^0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/grunt-banana-checker/-/grunt-banana-checker-0.9.0.tgz#0b58cf59ae773c12d26ead8e797f7bbfbde85939"
   integrity sha512-SqPiB6OazWqR8USL0NymtuT5Br3mD9WBBsM1rHC/3wIi2SrZNM6/+j9CIeuEM5oCn+AtO2Y0+rzzFyOdC9afAg==
 
 har-schema@^2.0.0:
->>>>>>> main
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-2.0.0.tgz#a94c2224ebcac04782a0d9035521f24735b7ec92"
   integrity sha1-qUwiJOvKwEeCoNkDVSHyRzW37JI=
