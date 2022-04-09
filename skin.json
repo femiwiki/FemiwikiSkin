@@ -27,6 +27,14 @@
             "skins.femiwiki.xeicon",
             "oojs-ui.styles.icons-interactions"
           ],
+          "link": {
+            "text-wrapper": [
+              {
+                "tag": "span"
+              }
+            ],
+            "link-class": "xe-icons"
+          },
           "messages": [
             "navigation-heading",
             "tooltip-n-recentchanges",
