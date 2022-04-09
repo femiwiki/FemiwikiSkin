@@ -276,7 +276,7 @@
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
-"@wdio/cli@^7.16.15":
+"@wdio/cli@^7.19.3":
   version "7.19.3"
   resolved "https://registry.yarnpkg.com/@wdio/cli/-/cli-7.19.3.tgz#624437efbf4dc49fab664118c249f774bf6e0c42"
   integrity sha512-u7qfFPDMiBS8SdQhXHrKCTMyqDpaDz0lqbxj8O2fDy5T18YIPFD+HHo4t5AzNo/E+jGi35s+9Jzwp6Tkn7nvZw==
