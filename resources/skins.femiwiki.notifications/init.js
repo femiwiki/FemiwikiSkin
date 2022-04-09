@@ -3,7 +3,7 @@
 
   function init() {
     var myWidget;
-    /** @type {EchoApi} */ var echoApi;
+    /** @type {MwEchoApi} */ var echoApi;
     var $existingLink = $('#pt-notifications-all a');
     var num = $existingLink.attr('data-counter-num');
     var badgeLabel = $existingLink.attr('data-counter-text');
@@ -21,7 +21,7 @@
     $('.mw-echo-notification-badge-fw-nojs').on('click', function (e) {
       var time = mw.now();
 
-      if (e.which !== 1 || $(this).data('clicked')) {
+      if (e.which !== 1 || $(this).data('clicked') || !mw.echo) {
         return false;
       }
 
@@ -39,9 +39,12 @@
 
       // Load the ui
       mw.loader.using('ext.echo.ui.desktop', function () {
-        /** @type {Controller} */ var controller;
-        /** @type {ModelManager} */ var modelManager;
-        /** @type {UnreadNotificationCounter} */ var unreadCounter;
+        if (!mw.echo) {
+          return;
+        }
+        /** @type {MwEchoController} */ var controller;
+        /** @type {MwEchoDmModelManager} */ var modelManager;
+        /** @type {MwEchoDmUnreadNotificationCounter} */ var unreadCounter;
         var maxNotificationCount = mw.config.get('wgEchoMaxNotificationCount');
 
         // Overlay
