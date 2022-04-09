@@ -2,6 +2,8 @@
 
 namespace MediaWiki\Skins\Femiwiki;
 
+use Html;
+use Linker;
 use MediaWiki\MediaWikiServices;
 use OOUI\ButtonWidget;
 use OutputPage;
@@ -23,25 +25,25 @@ class SkinFemiwiki extends SkinMustache {
 	/**
 	 * @inheritDoc
 	 */
-	public function __construct( $options = [] ) {
+	public function getDefaultModules() {
 		$user = $this->getUser();
 		$registered = $user->isRegistered();
 		$config = $this->getConfig();
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 
 		if ( $registered ) {
-			$options['scripts'][] = 'skins.femiwiki.notifications';
+			$this->options['scripts'][] = 'skins.femiwiki.notifications';
 		}
 		if ( $this->shouldShowShare() ) {
-			$options['scripts'][] = 'skins.femiwiki.share';
+			$this->options['scripts'][] = 'skins.femiwiki.share';
 		}
 		if (
 			( !$registered && $config->get( Constants::CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER ) )
-			|| ( $registered && $userOptionsLookup->getOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS, '0' ) === '0' )
+			|| ( $registered && !$userOptionsLookup->getBoolOption( $user, Constants::PREF_KEY_LARGER_ELEMENTS ) )
 			) {
-			$options['styles'][] = 'skins.femiwiki.smallElements';
+			$this->options['styles'][] = 'skins.femiwiki.smallElements';
 		}
-		parent::__construct( $options );
+		return parent::getDefaultModules();
 	}
 
 	/**
@@ -93,12 +95,12 @@ class SkinFemiwiki extends SkinMustache {
 				foreach ( [ 'specialpages', 'upload' ] as $item ) {
 					unset( $items[$item] );
 				}
-				$toolbox = $this->getPortletData( $name, $items );
+				$toolbox = $this->getCustomPortletData( $name, $items );
 				continue;
 			} elseif ( in_array( $name, [ 'SEARCH', 'LANGUAGES' ] ) ) {
 				continue;
 			}
-			$sidebar[] = $this->getPortletData( $name, $items );
+			$sidebar[] = $this->getCustomPortletData( $name, $items );
 		}
 		return [ $sidebar, $toolbox ?? null ];
 	}
@@ -184,10 +186,68 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
+	 * @param string $menuName
+	 * @param string $itemKey
+	 * @return string
+	 */
+	private static function getIconId( $menuName, $itemKey ): string {
+		switch ( $menuName ) {
+			case 'user-menu':
+				return 'pt-' . $itemKey;
+			default:
+				return 'ca-' . $itemKey;
+		}
+	}
+
+	/**
 	 * Extends to prepend xe-icons
+	 *
 	 * @inheritDoc
 	 */
-	protected function getPortletData( $name, array $items ) {
+	protected function runOnSkinTemplateNavigationHooks( $skin, &$content_navigation ) {
+		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+
+		$xeIconMap = $this->getXeIconMap();
+		foreach ( $content_navigation as $name => $menuItems ) {
+			$icon = null;
+			foreach ( $menuItems as $key => $item ) {
+				$id = $item['id'] ?? self::getIconId( $name, $key );
+				if ( isset( $xeIconMap[$id] ) ) {
+					$icon = $xeIconMap[$id];
+				}
+
+				if ( $icon ) {
+					$item['link-html'] = Html::rawElement(
+						'i',
+						[
+							'class' => 'xi-' . $icon,
+						],
+						Html::element( 'span', [], $item[ 'text' ] ?? '' )
+					);
+					$item['text'] = '';
+				}
+				$content_navigation[$name][$key] = $item;
+			}
+		}
+	}
+
+	/**
+	 * Generate data for a custom p-personal menu
+	 * @param string $name
+	 * @param array $items
+	 * @return array
+	 */
+	private function getCustomPortletData( $name, array $items ): array {
+		$id = Sanitizer::escapeIdForAttribute( "p-$name" );
+		$parentData = [
+			'id' => $id,
+			'class' => 'femi-custom-portlet mw-portlet ' . Sanitizer::escapeClass( "mw-portlet-personal" ),
+			'html-tooltip' => Linker::tooltip( $id ),
+			'html-items' => '',
+			'html-after-portal' => '',
+			'html-before-portal' => '',
+		];
+
 		$xeIconMap = $this->getXeIconMap();
 
 		$htmlItems = '';
@@ -211,8 +271,10 @@ class SkinFemiwiki extends SkinMustache {
 			}
 			$htmlItems .= $this->makeListItem( $key, $item, $options ?? [] );
 		}
-
-		$parentData = parent::getPortletData( $name, $items );
+		$msg = $this->msg( $name );
+		$parentData['label'] = $msg->exists() ? $msg->text() : $name;
+		$parentData['is-empty'] = count( $items ) === 0;
+		$parentData['class'] .= $parentData['is-empty'] ? ' emptyPortlet' : '';
 		$parentData['html-items'] = $htmlItems;
 		return $parentData;
 	}

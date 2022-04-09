@@ -533,11 +533,11 @@
     }
   }
 
-  // Hide femiwiki category
-  .fw-catlinks {
-    display: none;
-  }
-
+  // <pre>
+  // https://github.com/femiwiki/FemiwikiSkin/issues/350
+  & > pre:not(.CodeMirror-line),
+  :not(.mw-highlight) > pre:not(.CodeMirror-line),
+  // <syntaxhighlight>
   .mw-highlight:not(.mw-highlight-lines) > pre:not(.CodeMirror-line) {
     padding: 1em;
     overflow: hidden;
@@ -547,6 +547,12 @@
     white-space: pre-wrap;
     font-family: 'Source Code Pro', monospace, monospace;
 
+    @media screen and (max-width: @width-breakpoint-mobile) {
+      .full-width();
+    }
+  }
+
+  .mw-highlight.mw-highlight-lines > pre:not(.CodeMirror-line) {
     @media screen and (max-width: @width-breakpoint-mobile) {
       .full-width();
     }

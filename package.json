@@ -6,19 +6,27 @@
     "lint:type": "tsc",
     "lint:prettier": "prettier . --check",
     "lint:i18n": "banana-checker --requireLowerCase=0 i18n/",
-    "fix": "prettier . --write"
+    "fix": "prettier . --write",
+    "selenium-daily": "npm run selenium-test",
+    "selenium-test": "wdio tests/selenium/wdio.conf.js"
   },
   "dependencies": {
     "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#main",
-    "xeicon": "^2.3.3"
+    "xeicon": "https://github.com/xpressengine/XEIcon.git#2.3.3"
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "^1.0.2",
-    "@types/jquery": "^3.5.6",
-    "@types/node-fetch": "^2.5.12",
+    "@prettier/plugin-xml": "^1.2.0",
+    "@types/jquery": "^3.5.13",
+    "@types/node-fetch": "^3",
     "@wikimedia/types-wikimedia": "^0.2.0",
+    "@wdio/cli": "^7.16.15",
+    "@wdio/dot-reporter": "^7.16.13",
+    "@wdio/junit-reporter": "^7.16.15",
+    "@wdio/local-runner": "^7.16.13",
+    "@wdio/mocha-framework": "^7.16.15",
     "grunt-banana-checker": "^0.9.0",
-    "prettier": "^2.4.1",
-    "typescript": "4.4.3"
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5",
+    "wdio-mediawiki": "^2.0.0"
   }
 }

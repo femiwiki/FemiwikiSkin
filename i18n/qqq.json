@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"...",
+			"Amire80",
 			"Sabelöga"
 		]
 	},
@@ -13,8 +14,8 @@
 	"skin-femiwiki-share-facebook": "Label for button that posts to Facebook",
 	"skin-femiwiki-share-twitter": "Label for button that posts to Twitter",
 	"skin-femiwiki-xeicon-map.json": "{{optional}}",
-	"femiwiki.css": "",
-	"femiwiki.js": "",
+	"femiwiki.css": "{{Optional}}",
+	"femiwiki.js": "{{Optional}}",
 	"skin-femiwiki-desktop-switch-confirm": "Confirm text for dialog to switch desktop view when the user tried to edit in mobile view",
 	"skin-femiwiki-desktop-switch-canceled": "Text for notification that is shown switching for editing is canceled.",
 	"prefs-femiwiki-large-elements-label": "Label for the checkbox to enable larger elements via Special:Preferences.",

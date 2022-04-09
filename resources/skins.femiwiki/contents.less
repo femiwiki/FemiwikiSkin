@@ -88,37 +88,26 @@
     }
   }
 
-  .catlinks,
-  #mw-content-text .mw-parser-output .fw-catlinks {
+  .catlinks {
     clear: both;
 
     ul {
-      display: inline;
-      margin: 0;
+      margin-top: 0;
       padding: 0;
       // @See https://github.com/femiwiki/FemiwikiSkin/issues/152
       word-break: break-all;
 
       li {
-        display: inline;
+        display: inline-block;
         border-width: 0;
         margin: 0;
-        padding: 0;
+        padding: 0 0.5em;
         font-size: inherit;
-        line-height: inherit;
-
-        &:not(:first-child):before {
-          content: '|';
-          margin: 0 0.3rem;
+        line-height: 1.25em;
+        &:not(:first-child) {
+          border-left: 1px solid @color-primary1;
         }
       }
-    }
-
-    .fw-catlinks-toggle {
-      float: right;
-      font-size: 0.7rem;
-      color: #797979;
-      background-color: transparent;
     }
   }
 

@@ -10,6 +10,9 @@
   "requires": {
     "MediaWiki": ">= 1.37.0"
   },
+  "ConfigRegistry": {
+    "femiwiki": "GlobalVarConfig::newInstance"
+  },
   "ValidSkinNames": {
     "femiwiki": {
       "displayname": "Femiwiki",
@@ -24,6 +27,14 @@
             "skins.femiwiki.xeicon",
             "oojs-ui.styles.icons-interactions"
           ],
+          "link": {
+            "text-wrapper": [
+              {
+                "tag": "span"
+              }
+            ],
+            "link-class": "xe-icons"
+          },
           "messages": [
             "navigation-heading",
             "tooltip-n-recentchanges",
@@ -48,11 +59,12 @@
   },
   "ResourceModules": {
     "skins.femiwiki": {
-      "class": "MediaWiki\\Skins\\Femiwiki\\FemiwikiResourceLoaderSkinModule",
+      "class": "ResourceLoaderSkinModule",
       "features": {
         "content-media": true,
         "toc": false,
-        "normalize": true
+        "normalize": true,
+        "logo": true
       },
       "targets": ["desktop", "mobile"],
       "position": "top",
@@ -138,7 +150,10 @@
     "femiwiki": {
       "+ext.CodeMirror.mode.mediawiki": "skins.femiwiki.moduleSkinStyles/ext.CodeMirror.mode.mediawiki.less",
       "+ext.CollaborationKit.hub.styles": "skins.femiwiki.moduleSkinStyles/ext.CollaborationKit.hub.less",
+      "+ext.DarkMode.styles": "skins.femiwiki.moduleSkinStyles/ext.DarkMode.styles.less",
+      "+ext.dismissableSiteNotice.styles": "skins.femiwiki.moduleSkinStyles/ext.dismissableSiteNotice.styles.less",
       "+ext.echo.ui": "skins.femiwiki.moduleSkinStyles/ext.echo.ui.less",
+      "+ext.facetedCategory": "skins.femiwiki.moduleSkinStyles/ext.facetedCategory.less",
       "+ext.flaggedRevs.basic": "skins.femiwiki.moduleSkinStyles/ext.flaggedRevs.basic.less",
       "+ext.flaggedRevs.review.styles": "skins.femiwiki.moduleSkinStyles/ext.flaggedRevs.review.styles.less",
       "+ext.flow.board.styles": "skins.femiwiki.moduleSkinStyles/ext.flow.board.styles.less",
@@ -157,10 +172,10 @@
       "+mediawiki.action.edit.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.edit.styles.less",
       "+mediawiki.action.view.categoryPage.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.categoryPage.styles.less",
       "+mediawiki.action.view.filepage": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.filepage.less",
-      "+mediawiki.action.view.postEdit": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.postEdit.less",
       "+mediawiki.diff.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.diff.styles.less",
       "+mediawiki.feedlink": "skins.femiwiki.moduleSkinStyles/mediawiki.feedlink.less",
       "+mediawiki.pulsatingdot": "skins.femiwiki.moduleSkinStyles/mediawiki.pulsatingdot.less",
+      "+mediawiki.rcfilters.filters.base.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.rcfilters.filters.base.styles.less",
       "+mediawiki.rcfilters.filters.ui": "skins.femiwiki.moduleSkinStyles/mediawiki.rcfilters.filters.ui.less",
       "+mediawiki.special.changeslist": "skins.femiwiki.moduleSkinStyles/mediawiki.special.changeslist.less",
       "+mediawiki.special.search.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.special.search.styles.less",
@@ -194,6 +209,7 @@
     "OutputPageBodyAttributes": "SmallElements"
   },
   "config": {
+    "FemiwikiAddLinkClass": { "value": false },
     "FemiwikiFirebaseKey": { "value": "" },
     "FemiwikiFacebookAppId": { "value": "" },
     "FemiwikiTwitterAccount": { "value": false },

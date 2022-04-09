@@ -1,10 +1,11 @@
 {
   "exclude": [
     "vendor",
-    // OOUI does not have type definitions.
     "resources/mw.fw.js",
+    // OOUI does not have type definitions.
     "resources/ooui",
-    "resources/skins.femiwiki.share*"
+    "resources/skins.femiwiki.share*",
+    "tests"
   ],
   "compilerOptions": {
     "resolveJsonModule": true,

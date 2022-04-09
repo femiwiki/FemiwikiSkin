@@ -12,7 +12,7 @@
 }
 .notificationIcon(@icon) {
   img[src='/extensions/Echo/modules/icons/@{icon}.svg'] {
-    content: url('../ooui/images/icons/@{icon}.svg');
+    content: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
   }
 }
 
@@ -69,4 +69,30 @@
 
   -webkit-animation-name: fw-unseen-fadeout-to-read;
   animation-name: fw-unseen-fadeout-to-read;
+}
+
+// Without this, Echo popup is not correctly clipped.
+// https://github.com/femiwiki/FemiwikiSkin/issues/78
+@media screen and (max-width: @width-breakpoint-tablet) {
+  .mw-echo-ui-overlay {
+    margin: 0 10px;
+
+    .oo-ui-popupWidget-anchored > .oo-ui-popupWidget-anchor {
+      display: none;
+    }
+
+    .mw-echo-ui-notificationBadgeButtonPopupWidget-popup {
+      left: 0 !important;
+      width: 100%;
+
+      .oo-ui-popupWidget-popup {
+        width: initial !important;
+        max-width: 500px;
+
+        .oo-ui-clippableElement-clippable {
+          width: 100% !important;
+        }
+      }
+    }
+  }
 }
