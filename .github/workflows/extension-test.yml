@@ -25,6 +25,7 @@ env:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         stage:
           - phan
