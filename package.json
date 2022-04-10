@@ -15,7 +15,7 @@
     "xeicon": "https://github.com/xpressengine/XEIcon.git#2.3.3"
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "^1.2.0",
+    "@prettier/plugin-xml": "^2",
     "@types/jquery": "^3.5.13",
     "@types/node-fetch": "^3",
     "@wdio/cli": "^7.19.3",
@@ -25,7 +25,7 @@
     "@wdio/mocha-framework": "^7.16.15",
     "@wikimedia/types-wikimedia": "^0.3.3",
     "grunt-banana-checker": "^0.9.0",
-    "prettier": "^2.5.1",
+    "prettier": "^2",
     "typescript": "^4.5.5",
     "wdio-mediawiki": "^2.0.0"
   }
