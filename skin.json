@@ -231,8 +231,8 @@
   "SkinOOUIThemes": {
     "femiwiki": "Femiwiki"
   },
-	"DefaultUserOptions": {
-		"FemiwikiUseLargerElements": 1
-	},
+  "DefaultUserOptions": {
+    "FemiwikiUseLargerElements": 1
+  },
   "manifest_version": 2
 }
