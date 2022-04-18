@@ -10,7 +10,7 @@ namespace MediaWiki\Skins\Femiwiki;
 final class Constants {
 	/** @var string the key of ValidSkinNames */
 	public const SKIN_NAME = 'femiwiki';
-	/**@var string the key of ConfigRegistry */
+	/** @var string the key of ConfigRegistry */
 	public const CONFIG_NAME = 'femiwiki';
 
 	/** @var string */
