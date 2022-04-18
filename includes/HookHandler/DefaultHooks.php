@@ -1,0 +1,79 @@
+<?php
+
+namespace MediaWiki\Skins\Femiwiki\HookHandler;
+
+use Config;
+use ConfigFactory;
+use MediaWiki\Skins\Femiwiki\Constants;
+
+class DefaultHooks implements
+	\MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook,
+	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook,
+	\MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook
+	{
+
+	/** @var ConfigFactory */
+	private $configFactory;
+
+	/**
+	 * @param ConfigFactory $configFactory
+	 */
+	public function __construct( ConfigFactory $configFactory ) {
+		$this->configFactory = $configFactory;
+	}
+
+	/**
+	 * export static key and id to JavaScript
+	 * @inheritDoc
+	 */
+	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
+		$fwConfig = $this->configFactory->makeConfig( Constants::CONFIG_NAME );
+		$firebaseKey = $fwConfig->get( Constants::CONFIG_FIREBASE_KEY );
+		$facebookAppId = $fwConfig->get( Constants::CONFIG_FACEBOOK_APP_ID );
+		$addThisId = $fwConfig->get( Constants::CONFIG_ADD_THIS_ID );
+
+		$vars['wgFemiwikiFirebaseKey'] = $firebaseKey;
+		$vars['wgFemiwikiFacebookAppId'] = $facebookAppId;
+		if ( $addThisId ) {
+			$vars['wgFemiwikiUseAddThis'] = true;
+			if ( is_array( $addThisId ) && isset( $addThisId['tool'] ) ) {
+				$vars['wgFemiwikiAddThisToolId'] = $addThisId['tool'];
+			}
+		}
+	}
+
+	/**
+	 * Convert the content model of a message that is actually JSON to JSON. This only affects
+	 * validation and UI when saving and editing, not loading the content.
+	 *
+	 * @inheritDoc
+	 */
+	public function onContentHandlerDefaultModelFor( $title, &$model ) {
+		if (
+			$title->inNamespace( NS_MEDIAWIKI ) &&
+			$title->getText() == 'skin-femiwiki-xeicon-map.json'
+		) {
+			$model = CONTENT_MODEL_JSON;
+		}
+	}
+
+	/**
+	 * Add default class to links which are not either 'external', 'stub', 'interwiki' or etc.
+	 * @inheritDoc
+	 */
+	public function onHtmlPageLinkRendererBegin( $linkRenderer, $target, &$text,
+		&$customAttribs, &$query, &$ret
+	) {
+		if ( isset( $customAttribs['class'] ) ) {
+			$customAttribs['class'] .= ' ';
+		} else {
+			$customAttribs['class'] = '';
+		}
+
+		$fwConfig = $this->configFactory->makeConfig( Constants::CONFIG_NAME );
+		if ( $fwConfig->get( Constants::CONFIG_ADD_LINK_CLASS ) ) {
+			$customAttribs['class'] .= 'fw-link';
+		}
+		return true;
+	}
+}
