@@ -23,7 +23,7 @@ class DefaultHooks implements
 	}
 
 	/**
-	 * export static key and id to JavaScript
+	 * exports static key and IDs to JavaScript.
 	 * @inheritDoc
 	 */
 	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
@@ -43,7 +43,7 @@ class DefaultHooks implements
 	}
 
 	/**
-	 * Convert the content model of a message that is actually JSON to JSON. This only affects
+	 * Converts the content model of a message that is actually JSON to JSON. This only affects
 	 * validation and UI when saving and editing, not loading the content.
 	 *
 	 * @inheritDoc
@@ -58,22 +58,25 @@ class DefaultHooks implements
 	}
 
 	/**
-	 * Add default class to links which are not either 'external', 'stub', 'interwiki' or etc.
+	 * Adds default class to links which are not either 'external', 'stub', 'interwiki', etc to
+	 * apply styles to all links.
+	 *
 	 * @inheritDoc
 	 */
 	public function onHtmlPageLinkRendererBegin( $linkRenderer, $target, &$text,
 		&$customAttribs, &$query, &$ret
 	) {
+		$fwConfig = $this->configFactory->makeConfig( Constants::CONFIG_NAME );
+		if ( !$fwConfig->get( Constants::CONFIG_ADD_LINK_CLASS ) ) {
+			return;
+		}
+
 		if ( isset( $customAttribs['class'] ) ) {
 			$customAttribs['class'] .= ' ';
 		} else {
 			$customAttribs['class'] = '';
 		}
-
-		$fwConfig = $this->configFactory->makeConfig( Constants::CONFIG_NAME );
-		if ( $fwConfig->get( Constants::CONFIG_ADD_LINK_CLASS ) ) {
-			$customAttribs['class'] .= 'fw-link';
-		}
-		return true;
+		$customAttribs['class'] .= 'fw-link';
+		return;
 	}
 }
