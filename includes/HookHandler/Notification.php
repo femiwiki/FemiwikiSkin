@@ -25,7 +25,7 @@ class Notification implements \MediaWiki\Hook\UserMailerTransformContentHook {
 	 */
 	public function onUserMailerTransformContent( $to, $from, &$body, &$error ) {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) || !is_array( $body ) || !isset( $body['html'] ) ) {
-			return true;
+			return;
 		}
 
 		$body['html'] = str_replace(
@@ -35,7 +35,5 @@ class Notification implements \MediaWiki\Hook\UserMailerTransformContentHook {
 				self::FEMIWIKI_FOOTER_PREFERENCE_LINK_STYLE ],
 			$body['html']
 		);
-
-		return true;
 	}
 }
