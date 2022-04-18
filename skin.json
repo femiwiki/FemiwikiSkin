@@ -141,6 +141,9 @@
       "+wikibase.common": "skins.femiwiki.moduleSkinStyles/wikibase.common.less"
     }
   },
+  "SkinLessImportPaths": {
+    "femiwiki": "resources/mediawiki.less"
+  },
   "ConfigRegistry": {
     "femiwiki": "GlobalVarConfig::newInstance"
   },
