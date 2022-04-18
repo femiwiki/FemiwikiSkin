@@ -25,7 +25,6 @@
         "logo": true
       },
       "targets": ["desktop", "mobile"],
-      "position": "top",
       "styles": [
         "skins.femiwiki/elements.less",
         "skins.femiwiki/contents.less",
@@ -41,7 +40,6 @@
         "toc": false
       },
       "targets": ["desktop", "mobile"],
-      "position": "top",
       "localBasePath": "node_modules/xeicon",
       "remoteSkinPath": "Femiwiki/node_modules/xeicon",
       "styles": {
@@ -52,7 +50,6 @@
     },
     "skins.femiwiki.smallElements": {
       "styles": ["skins.femiwiki.smallElements/styles.less"],
-      "position": "top",
       "targets": ["desktop", "mobile"]
     },
     "skins.femiwiki.js": {
