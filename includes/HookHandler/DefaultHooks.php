@@ -71,12 +71,7 @@ class DefaultHooks implements
 			return;
 		}
 
-		if ( isset( $customAttribs['class'] ) ) {
-			$customAttribs['class'] .= ' ';
-		} else {
-			$customAttribs['class'] = '';
-		}
-		$customAttribs['class'] .= 'fw-link';
-		return;
+		$customAttribs['class'] ??= '';
+		$customAttribs['class'] .= ' fw-link';
 	}
 }
