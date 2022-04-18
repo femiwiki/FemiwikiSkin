@@ -31,23 +31,24 @@ class Portlet implements
 	}
 
 	/**
-	 * Add a "Notifications" item to the user toolbar ('personal URLs').
-	 * @param array &$personalTools Array of URLs to append to.
+	 * Add a single entrypoint "Notifications" item to the user toolbar('personal URLs').
+	 * This is an implementation of https://phabricator.wikimedia.org/T299229
+	 * @param array &$personal_urls Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
-	 * @param SkinTemplate $sk
+	 * @param SkinTemplate $skin
 	 * @return void
 	 */
-	private static function addNotification( &$personalTools, &$title, $sk ) {
-		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
+	private static function addNotification( &$personal_urls, &$title, $skin ) {
+		if ( !$skin instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
 
-		$user = $sk->getUser();
+		$user = $skin->getUser();
 		if ( $user->isAnon() ) {
 			return;
 		}
 
-		$title = $sk->getTitle();
+		$title = $skin->getTitle();
 
 		$notifUser = MWEchoNotifUser::newFromUser( $user );
 		$count = $notifUser->getNotificationCount();
@@ -60,7 +61,7 @@ class Portlet implements
 		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message', TS_ISO_8601 );
 
 		$formattedCount = EchoNotificationController::formatNotificationCount( $count );
-		$msgText = $sk->msg( 'echo-notification-notice', $count );
+		$msgText = $skin->msg( 'echo-notification-notice', $count );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 		$linkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-fw-nojs" ];
 
@@ -97,17 +98,17 @@ class Portlet implements
 			]
 		];
 
-		$personalTools = wfArrayInsertAfter( $personalTools, $insertUrls, 'userpage' );
+		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
 	}
 
 	/**
 	 * Add a "MobileOptions" item to the user toolbar ('personal URLs').
-	 * @param array &$personalTools Array of URLs to append to.
+	 * @param array &$personal_urls Array of URLs to append to.
 	 * @param Title &$title Title of page being visited.
-	 * @param SkinTemplate $sk
+	 * @param SkinTemplate $skin
 	 */
-	private static function addMobileOptions( &$personalTools, &$title, $sk ) {
-		if ( !$sk instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+	private static function addMobileOptions( &$personal_urls, &$title, $skin ) {
+		if ( !$skin instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 			return;
 		}
 
@@ -121,21 +122,20 @@ class Portlet implements
 		$insertUrls = [
 			'mobile-preferences' => [
 				'href' => $url,
-				'text' => $sk->msg( 'prefs-mobile' )->text(),
+				'text' => $skin->msg( 'prefs-mobile' )->text(),
 				'active' => ( $url == $title->getLocalUrl() )
 			]
 		];
 
-		if ( $sk->getUser()->isRegistered() && array_key_exists( 'preferences', $personalTools ) ) {
-			$personalTools = wfArrayInsertAfter( $personalTools, $insertUrls, 'preferences' );
+		if ( $skin->getUser()->isRegistered() && array_key_exists( 'preferences', $personal_urls ) ) {
+			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
 		} else {
-			$personalTools = array_merge( $personalTools, $insertUrls );
+			$personal_urls = array_merge( $personal_urls, $insertUrls );
 		}
 	}
 
 	/**
-	 * @param SkinTemplate $sktemplate
-	 * @param array &$links
+	 * @inheritDoc
 	 */
 	public function onSkinTemplateNavigation( $sktemplate, &$links ): void {
 		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
