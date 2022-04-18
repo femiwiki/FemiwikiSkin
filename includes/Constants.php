@@ -2,15 +2,15 @@
 namespace MediaWiki\Skins\Femiwiki;
 
 /**
- * A class for constants of FemiwikiSkin which are for internal usage only. Do not rely on this file
- * as an API as it may change without warning at any time.
+ * A class for storing constants of FemiwikiSkin.
+ * The strings except pref are tightly coupled to the corresponding fields in skin.json.
  *
- * This is tightly coupled to the ConfigRegistry field in skin.json.
+ * @internal Only for use by Femiwiki skin.
  */
 final class Constants {
-	/** @var string */
+	/** @var string the key of ValidSkinNames */
 	public const SKIN_NAME = 'femiwiki';
-	/** @var string */
+	/**@var string the key of ConfigRegistry */
 	public const CONFIG_NAME = 'femiwiki';
 
 	/** @var string */
