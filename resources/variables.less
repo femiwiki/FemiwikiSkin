@@ -3,6 +3,8 @@
 @font-size-root-default: 19;
 
 @width-breakpoint-mobile-small: 360px;
+@width-breakpoint-mobile: 480px;
+@width-breakpoint-tablet: 640px;
 
 @content-width: 43.4rem;
 @content-horizontal-padding: 1.3rem;
@@ -28,8 +30,26 @@
   NanumGothic, '맑은고딕', 'Malgun Gothic', Arial, Dotum, sans-serif;
 
 // == Colors ==
+@color-base0: #000000;
+@color-base15: #252525;
+@color-base100: #fff;
+
+//                        luminance(%)
+@color-primary1: #c3bffd; // 55.96
+@color-primary2: #b9b5d9; // 48.37
+@color-primary3: #aca6e4; // 41.64
+@color-primary4: #746ccb; // 18.75
+@color-primary5: #5144a3; // 8.53
+@color-primary6: #302a45; // 2.71
+
+@color-secondary1: #dae8b2; // 75.83
+@color-secondary2: #b2d236; // 55.82
+@color-secondary3: #a5c831; // 49.53
+
 @color-progressive: @color-primary3;
+
 @color-background1: @color-primary1;
+@color-link: @color-primary5;
 @color-alert: @color-secondary1;
 @color-alert2: @color-secondary3;
 @color-alert-border: @color-secondary2;
@@ -40,6 +60,8 @@
 
 @opacity-icon: 65%;
 @padding-icon: 0.37142855rem;
+
+@line-height-base: 1.7;
 
 @keyframes gentle-pulse {
   0% {
