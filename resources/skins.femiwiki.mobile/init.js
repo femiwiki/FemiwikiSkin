@@ -5,12 +5,16 @@ var newWikitext = mw.user.options.get('visualeditor-newwikitext') === 1;
  */
 function click(/**@type Event*/ e) {
   // @ts-ignore
-  var href = this.getAttribute('href') || e.target.toString();
-  var veaction = /\bveaction\b/.test(href);
-  var supported = !veaction && !newWikitext;
+  var href = e.currentTarget.href || e.currentTarget.getAttribute('href');
+  var url = new mw.Uri(href);
+  var visualEditing =
+    // VisualEdit
+    url.query.veaction === 'edit' ||
+    // New wikitext mode edit in VE
+    (newWikitext && url.query.veaction === 'editsource');
 
-  if (supported) {
-    // Do noting here to allow the user to move to href.
+  if (!visualEditing) {
+    // Do nothing here to allow the user to move to href.
     return;
   }
   e.preventDefault();
