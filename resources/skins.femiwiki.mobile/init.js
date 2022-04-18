@@ -1,24 +1,27 @@
-var newWikitext = mw.user.options.get('visualeditor-newwikitext') === 1;
+// Note: A preference of MediaWiki is stored as string always.
+var newWikitext = mw.user.options.get('visualeditor-newwikitext') === '1';
 
 /**
  * @return {void}
  */
-function click(/**@type Event*/ e) {
-  // @ts-ignore
-  var href = e.currentTarget.href || e.currentTarget.getAttribute('href');
-  var url = new mw.Uri(href);
+function click(/**@type Event*/ ev) {
+  if (ev === null || ev.currentTarget === null) {
+    return;
+  }
+  var anchor = /** @type {HTMLAnchorElement} */ (ev.currentTarget);
+  var url = new mw.Uri(anchor.href);
   var visualEditing =
     // VisualEdit
     url.query.veaction === 'edit' ||
-    // New wikitext mode edit in VE
-    (newWikitext && url.query.veaction === 'editsource');
+    // If the new wikitext mode is enabled, all cases of edit will be done on VisualEditor
+    newWikitext;
 
   if (!visualEditing) {
     // Do nothing here to allow the user to move to href.
     return;
   }
-  e.preventDefault();
-  var switchUri = new mw.Uri(href).extend({
+  ev.preventDefault();
+  var switchUri = url.extend({
     mobileaction: 'toggle_view_desktop',
   });
 
@@ -61,7 +64,7 @@ function main() {
 
   /** @type NodeListOf<Element> */ var $allEditLinks =
     document.querySelectorAll(
-      '#ca-ve-edit, #ca-edit, .mw-editsection a, .edit-link'
+      '#ca-ve-edit a, #ca-edit a, .mw-editsection a, .edit-link'
     );
 
   for (var i = 0; i < $allEditLinks.length; i++) {
