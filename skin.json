@@ -160,20 +160,29 @@
     "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php"
   },
   "Hooks": {
-    "BeforePageDisplay": "MediaWiki\\Skins\\Femiwiki\\Hooks::onBeforePageDisplay",
-    "ContentHandlerDefaultModelFor": "MediaWiki\\Skins\\Femiwiki\\Hooks::onContentHandlerDefaultModelFor",
+    "BeforePageDisplay": "Mobile",
+    "ContentHandlerDefaultModelFor": "default",
     "HtmlPageLinkRendererBegin": "default",
-    "PersonalUrls": "MediaWiki\\Skins\\Femiwiki\\Hooks::onPersonalUrls",
-    "ResourceLoaderGetConfigVars": "MediaWiki\\Skins\\Femiwiki\\Hooks::onResourceLoaderGetConfigVars",
-    "UserMailerTransformContent": "MediaWiki\\Skins\\Femiwiki\\Hooks::onUserMailerTransformContent",
-    "SkinTemplateNavigation": "MediaWiki\\Skins\\Femiwiki\\Hooks::onSkinTemplateNavigation",
+    "PersonalUrls": "Portlet",
+    "ResourceLoaderGetConfigVars": "default",
+    "UserMailerTransformContent": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Notification::onUserMailerTransformContent",
+    "SkinTemplateNavigation": "Portlet",
     "GetPreferences": "SmallElements",
     "OutputPageBodyAttributes": "SmallElements"
   },
   "HookHandlers": {
-    "default": { "class": "MediaWiki\\Skins\\Femiwiki\\Hooks" },
+    "default": {
+      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\DefaultHooks",
+      "services": ["ConfigFactory"]
+    },
+    "Portlet": {
+      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Portlet"
+    },
     "SmallElements": {
-      "class": "MediaWiki\\Skins\\Femiwiki\\SmallElementsHooks"
+      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\SmallElements"
+    },
+    "Mobile": {
+      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Mobile"
     }
   },
   "ValidSkinNames": {

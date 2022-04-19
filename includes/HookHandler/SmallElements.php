@@ -1,10 +1,11 @@
 <?php
 
-namespace MediaWiki\Skins\Femiwiki;
+namespace MediaWiki\Skins\Femiwiki\HookHandler;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Femiwiki\Constants;
 
-class SmallElementsHooks implements
+class SmallElements implements
 	\MediaWiki\Preferences\Hook\GetPreferencesHook,
 	\MediaWiki\Hook\OutputPageBodyAttributesHook
 	{
