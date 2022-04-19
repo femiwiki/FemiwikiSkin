@@ -165,7 +165,6 @@
     "HtmlPageLinkRendererBegin": "default",
     "PersonalUrls": "Portlet",
     "ResourceLoaderGetConfigVars": "default",
-    "UserMailerTransformContent": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Notification::onUserMailerTransformContent",
     "SkinTemplateNavigation": "Portlet",
     "GetPreferences": "SmallElements",
     "OutputPageBodyAttributes": "SmallElements"
