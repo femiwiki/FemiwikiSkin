@@ -85,15 +85,6 @@
         "skin-femiwiki-share-twitter"
       ],
       "targets": ["desktop", "mobile"]
-    },
-    "skins.femiwiki.mobile.js": {
-      "dependencies": ["mediawiki.user"],
-      "messages": [
-        "skin-femiwiki-desktop-switch-confirm",
-        "skin-femiwiki-desktop-switch-canceled"
-      ],
-      "targets": ["mobile"],
-      "packageFiles": ["skins.femiwiki.mobile/init.js"]
     }
   },
   "ResourceModuleSkinStyles": {
@@ -160,7 +151,6 @@
     "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php"
   },
   "Hooks": {
-    "BeforePageDisplay": "Mobile",
     "ContentHandlerDefaultModelFor": "default",
     "HtmlPageLinkRendererBegin": "default",
     "PersonalUrls": "Portlet",
@@ -180,9 +170,6 @@
     },
     "SmallElements": {
       "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\SmallElements"
-    },
-    "Mobile": {
-      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Mobile"
     }
   },
   "ValidSkinNames": {
@@ -193,6 +180,7 @@
         {
           "name": "femiwiki",
           "responsive": true,
+          "mobileEdit": true,
           "templateDirectory": "includes/templates",
           "styles": [
             "skins.femiwiki",
