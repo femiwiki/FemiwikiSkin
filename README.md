@@ -2,12 +2,6 @@
 
 Femiwiki skin is a skin for [MediaWiki].
 
-```sh
-# Lint PHP codes
-composer install
-composer test
-```
-
 ## Contributing
 
 If you are interested in contributing to the code base, please see the document [How to Contribute].
