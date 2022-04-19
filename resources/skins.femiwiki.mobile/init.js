@@ -2,9 +2,10 @@
 var newWikitext = mw.user.options.get('visualeditor-newwikitext') === '1';
 
 /**
+ * @param {Event} ev
  * @return {void}
  */
-function click(/**@type Event*/ ev) {
+function click(ev) {
   if (ev === null || ev.currentTarget === null) {
     return;
   }
