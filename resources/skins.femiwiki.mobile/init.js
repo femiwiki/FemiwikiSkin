@@ -27,6 +27,9 @@ function click(ev) {
   });
 
   mw.loader.using(['oojs', 'oojs-ui-windows'], function () {
+    if (!OO.ui) {
+      return;
+    }
     OO.ui
       .confirm(mw.msg('skin-femiwiki-desktop-switch-confirm'))
       .done(function (confirmed) {
