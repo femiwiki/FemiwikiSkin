@@ -27,10 +27,9 @@ class DefaultHooks implements
 	 * @inheritDoc
 	 */
 	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
-		$fwConfig = $this->configFactory->makeConfig( Constants::CONFIG_NAME );
-		$firebaseKey = $fwConfig->get( Constants::CONFIG_FIREBASE_KEY );
-		$facebookAppId = $fwConfig->get( Constants::CONFIG_FACEBOOK_APP_ID );
-		$addThisId = $fwConfig->get( Constants::CONFIG_ADD_THIS_ID );
+		$firebaseKey = $config->get( Constants::CONFIG_FIREBASE_KEY );
+		$facebookAppId = $config->get( Constants::CONFIG_FACEBOOK_APP_ID );
+		$addThisId = $config->get( Constants::CONFIG_ADD_THIS_ID );
 
 		$vars['wgFemiwikiFirebaseKey'] = $firebaseKey;
 		$vars['wgFemiwikiFacebookAppId'] = $facebookAppId;
