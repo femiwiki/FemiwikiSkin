@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## Unreleased version
+
+- The default value of `$wgFemiwikiLegacySmallElementsForAnonymousUser` is now `false`.
+
 ## Previous Releases
 
 - [REL1_37](https://github.com/femiwiki/FemiwikiSkin/blob/REL1_37/CHANGELOG.md)

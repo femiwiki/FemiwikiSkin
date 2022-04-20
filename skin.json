@@ -240,6 +240,6 @@
     "FemiwikiAddThisId": { "value": false },
     "FemiwikiUsePageLangForHeading": { "value": true },
     "FemiwikiShowFooterIcons": { "value": false },
-    "FemiwikiLegacySmallElementsForAnonymousUser": { "value": true }
+    "FemiwikiLegacySmallElementsForAnonymousUser": { "value": false }
   }
 }
