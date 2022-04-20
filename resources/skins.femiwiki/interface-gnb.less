@@ -27,7 +27,12 @@
       background-repeat: no-repeat;
       @width: @height;
       width: @width;
-      background-size: @height @height;
+
+      & when( @symbol-enabled = 1 ) {
+        /* @embed */
+        background-image: @symbol-url;
+        background-size: @height @height;
+      }
 
       & when( @logo-enabled = 1 ) {
         @media (min-width: @width-breakpoint-tablet) {
