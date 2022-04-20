@@ -51,12 +51,11 @@
   },
   "ResourceModules": {
     "skins.femiwiki": {
-      "class": "ResourceLoaderSkinModule",
+      "class": "MediaWiki\\Skins\\Femiwiki\\FemiwikiResourceLoaderSkinModule",
       "features": {
         "content-media": true,
         "toc": false,
-        "normalize": true,
-        "logo": true
+        "normalize": true
       },
       "targets": ["desktop", "mobile"],
       "position": "top",
