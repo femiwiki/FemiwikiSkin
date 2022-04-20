@@ -180,7 +180,6 @@
         {
           "name": "femiwiki",
           "responsive": true,
-          "mobileEdit": true,
           "templateDirectory": "includes/templates",
           "styles": [
             "skins.femiwiki",
@@ -230,5 +229,10 @@
     "FemiwikiUsePageLangForHeading": { "value": true },
     "FemiwikiShowFooterIcons": { "value": false },
     "FemiwikiLegacySmallElementsForAnonymousUser": { "value": true }
+  },
+  "attributes": {
+    "MobileFrontend": {
+      "EditorAvailableSkins": ["femiwiki"]
+    }
   }
 }
