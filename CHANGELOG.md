@@ -2,7 +2,7 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## v2.0.0 (Unreleased)
+## v2.0.0
 
 - The styles for plain links are disabled by default now. To recover the previous behavior, add `$wgFemiwikiAddLinkClass = true;` to your LocalSettings.php. (https://github.com/femiwiki/FemiwikiSkin/pull/469)
 - The elements on the skin are now larger than before by default. Users can disable this on Special:Preferences.
