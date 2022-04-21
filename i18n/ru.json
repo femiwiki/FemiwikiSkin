@@ -10,7 +10,6 @@
 	"skin-femiwiki-page-menu-tooltip": "Меню",
 	"skin-femiwiki-share-tooltip": "Поделиться этой статьёй",
 	"skin-femiwiki-share-dismiss": "Отменить",
-	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Размещённый здесь CSS будет применяться к теме оформления Femiwiki */",
 	"femiwiki.js": "/* Размещённый здесь код JavaScript будет загружаться пользователям, использующим тему оформления Femiwiki */",

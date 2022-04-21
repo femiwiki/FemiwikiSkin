@@ -287,11 +287,6 @@ class SkinFemiwiki extends SkinMustache {
 	public function initPage( OutputPage $out ) {
 		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
 
-		$twitter = $this->getConfig()->get( Constants::CONFIG_TWITTER_ACCOUNT );
-		if ( $twitter ) {
-			$out->addMeta( 'twitter:site', "@$twitter" );
-		}
-
 		// Favicons
 		$headItems = $this->getConfig()->get( Constants::CONFIG_HEAD_ITEMS );
 		if ( $headItems ) {

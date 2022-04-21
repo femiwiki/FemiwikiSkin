@@ -81,7 +81,6 @@
       "dependencies": ["skins.femiwiki.dm", "oojs", "oojs-ui-windows"],
       "messages": [
         "skin-femiwiki-share-dismiss",
-        "skin-femiwiki-share-facebook",
         "skin-femiwiki-share-twitter"
       ],
       "targets": ["desktop", "mobile"]
@@ -234,8 +233,6 @@
   "config": {
     "FemiwikiAddLinkClass": { "value": false },
     "FemiwikiFirebaseKey": { "value": "" },
-    "FemiwikiFacebookAppId": { "value": "" },
-    "FemiwikiTwitterAccount": { "value": false },
     "FemiwikiHeadItems": { "value": false },
     "FemiwikiAddThisId": { "value": false },
     "FemiwikiUsePageLangForHeading": { "value": true },
