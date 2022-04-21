@@ -1,0 +1,34 @@
+.overlay-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  height: 3em;
+  white-space: nowrap;
+  // When banners are present we want to easily distinguish between them and the header so add border
+  // border-top: 1px solid @colorGray12;
+  // margin-top: @headerMarginTop;
+}
+
+.header-cancel {
+  margin: 0;
+}
+
+.overlay textarea {
+  width: 100%;
+}
+
+.overlay-title h2 {
+  margin: 0;
+}
+
+.overlay-header-container + .overlay-content {
+  @overlayHeaderHeight: 3em;
+
+  padding-top: @overlayHeaderHeight;
+
+  .header-chrome& {
+    padding-top: 3em;
+  }
+}

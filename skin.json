@@ -128,6 +128,8 @@
       "+mediawiki.ui.icon": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.icon.less",
       "+mediawiki.ui.input": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.input.less",
       "+mediawiki.widgets.DateInputWidget": "skins.femiwiki.moduleSkinStyles/mediawiki.widgets.DateInputWidget.less",
+      "+mobile.editor.overlay": "skins.femiwiki.moduleSkinStyles/mobile.editor.overlay.less",
+      "+mobile.init": "skins.femiwiki.moduleSkinStyles/mobile.init.less",
       "+oojs-ui-core.styles": "skins.femiwiki.moduleSkinStyles/oojs-ui-core.styles.less",
       "+wikibase.common": "skins.femiwiki.moduleSkinStyles/wikibase.common.less"
     }
