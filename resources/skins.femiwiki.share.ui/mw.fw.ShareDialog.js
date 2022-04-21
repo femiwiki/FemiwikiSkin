@@ -38,7 +38,7 @@
       this.$addThis.classList.add('addthis_inline_share_toolbox');
       if (this.addThisToolId) {
         this.$addThis.classList.add(
-          'addthis_inline_share_toolbox' + '_' + this.addThisToolId
+          'addthis_inline_share_toolbox_' + this.addThisToolId
         );
       }
       addthis.layers.refresh();
