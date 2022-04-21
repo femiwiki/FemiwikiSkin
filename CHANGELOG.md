@@ -4,7 +4,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## Unreleased version
 
-- `$wgFemiwikiFacebookAppId` and `$wgFemiwikiTwitterAccount` configuration variables are removed. If you still need to use this feature, please see [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:WikiSEO](Extension:CategoryExplorer).
+- `$wgFemiwikiFacebookAppId` and `$wgFemiwikiTwitterAccount` configuration variables are removed. If you still need to use this feature, please see [Extension:WikiSEO](https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:WikiSEO).
 - The default value of `$wgFemiwikiLegacySmallElementsForAnonymousUser` is now `false`.
 
 ## Previous Releases
