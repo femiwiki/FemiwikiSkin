@@ -10,7 +10,6 @@
 	"skin-femiwiki-page-menu-tooltip": "Meny",
 	"skin-femiwiki-share-tooltip": "Dela denna artikel",
 	"skin-femiwiki-share-dismiss": "Stäng",
-	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* CSS som skrivs här kommer att påverka alla användare av utseendet Femiwiki */",
 	"femiwiki.js": "/* All JavaScript här kommer att läsas in för de som använder utseendet Femiwiki */",

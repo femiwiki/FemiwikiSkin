@@ -10,7 +10,6 @@
 	"skin-femiwiki-page-menu-tooltip": "選單",
 	"skin-femiwiki-share-tooltip": "分享此條目",
 	"skin-femiwiki-share-dismiss": "去除",
-	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* 此處的 CSS 會影響使用 Femiwiki 外觀的使用者 */",
 	"femiwiki.js": "/* 此處的任何 JavaScript 都會在使用者使用 Femiwiki 外觀時載入 */",

@@ -21,8 +21,6 @@ final class Constants {
 	/** @var string */
 	public const CONFIG_ADD_THIS_ID = 'FemiwikiAddThisId';
 	/** @var string */
-	public const CONFIG_FACEBOOK_APP_ID = 'FemiwikiFacebookAppId';
-	/** @var string */
 	public const CONFIG_FIREBASE_KEY = 'FemiwikiFirebaseKey';
 	/** @var string */
 	public const CONFIG_HEAD_ITEMS = 'FemiwikiHeadItems';
@@ -32,6 +30,4 @@ final class Constants {
 	public const CONFIG_KEY_SMALL_ELEMENTS_FOR_ANONYMOUS_USER = 'FemiwikiLegacySmallElementsForAnonymousUser';
 	/** @var string */
 	public const CONFIG_KEY_USE_PAGE_LANG_FOR_HEADING = 'FemiwikiUsePageLangForHeading';
-	/** @var string */
-	public const CONFIG_TWITTER_ACCOUNT = 'FemiwikiTwitterAccount';
 }

@@ -10,7 +10,6 @@
 	"skin-femiwiki-page-menu-tooltip": "Menu",
 	"skin-femiwiki-share-tooltip": "Falha ao escrever uma sanção.",
 	"skin-femiwiki-share-dismiss": "Ignorar",
-	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* CSS colocado aqui afetará os usuários do tema Femiwiki */",
 	"femiwiki.js": "/* Qualquer JavaScript aqui será carregado para usuários que usam o tema Femiwiki */",
