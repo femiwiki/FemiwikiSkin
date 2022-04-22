@@ -10,7 +10,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Femiwiki\Constants;
 use MediaWiki\Skins\Femiwiki\SkinFemiwiki;
 use MWEchoNotifUser;
-use Sanitizer;
 use SkinTemplate;
 use SpecialPage;
 use Title;
