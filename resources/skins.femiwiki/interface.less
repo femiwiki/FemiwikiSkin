@@ -41,14 +41,10 @@
         margin: 0;
 
         a {
-          display: block;
+          display: flex;
           text-decoration: none;
-          padding-left: 2em;
           color: @color-base15;
-
-          &.xe-icons {
-            padding-left: 0;
-          }
+          padding-left: 2em;
 
           &:hover {
             background-color: @button-background-color--hover;
@@ -57,20 +53,21 @@
           &:active {
             background-color: @button-background-color--active;
           }
-        }
 
-        i {
-          display: flex;
+          &[class^="xi-"],
+          &[class*=" xi-"] {
+            padding-left: 0;
+          }
 
           &::before {
+            font-size: 1.5em;
             opacity: @opacity-icon;
             vertical-align: middle;
             margin-right: 0.3em;
-            font-size: 1.5em;
             color: black;
           }
 
-          & span {
+          span {
             font-family: @font-family;
             font-style: initial;
             font-weight: initial;

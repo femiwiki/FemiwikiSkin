@@ -198,12 +198,9 @@
             "oojs-ui.styles.icons-interactions"
           ],
           "link": {
-            "text-wrapper": [
-              {
-                "tag": "span"
-              }
-            ],
-            "link-class": "xe-icons"
+            "text-wrapper": {
+              "tag": "span"
+            }
           },
           "messages": [
             "navigation-heading",

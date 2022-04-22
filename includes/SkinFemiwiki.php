@@ -55,7 +55,7 @@ class SkinFemiwiki extends SkinMustache {
 		$title = $out->getTitle();
 		$config = $this->getConfig();
 		$parentData = parent::getTemplateData();
-		list( $sidebar, $toolbox ) = $this->getSidebar();
+		list( $sidebar, $toolbox ) = $this->getSidebar( $parentData['data-portlets-sidebar'] );
 
 		$commonSkinData = array_merge_recursive( $parentData, [
 			'data-sidebar' => $sidebar,
@@ -77,32 +77,23 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
-	 * Returns data for the sidebar and toolbox.
-	 * 'data-portlets-sidebar' also provides it, but it is divided into two parts.
-	 * The division is useful for Vector, but not useful for other skins.
+	 * Returns divided data for the sidebar and toolbox. 'data-portlets-sidebar' is divided into two
+	 * parts, which is useful for Vector, but not useful for other skins.
 	 * @return array
 	 */
-	protected function getSidebar() {
-		$sidebarData = $this->buildSidebar();
-		$sidebar = [];
-		foreach ( $sidebarData as $name => $items ) {
-			if ( !is_array( $items ) ) {
-				continue;
-			}
-			if ( $name == 'TOOLBOX' ) {
-				// The toolbox includes both page-specific-tools and site-wide-tools, but we
-				// need only page specific tools, so unset those.
-				foreach ( [ 'specialpages', 'upload' ] as $item ) {
-					unset( $items[$item] );
-				}
-				$toolbox = $this->getCustomPortletData( $name, $items );
-				continue;
-			} elseif ( in_array( $name, [ 'SEARCH', 'LANGUAGES' ] ) ) {
-				continue;
-			}
-			$sidebar[] = $this->getCustomPortletData( $name, $items );
-		}
-		return [ $sidebar, $toolbox ?? null ];
+	protected function getSidebar( $portletsSidebar ) {
+		$sidebar = [
+			$portletsSidebar['data-portlets-first'],
+			...$portletsSidebar['array-portlets-rest']
+		];
+		$ids = array_map( static function( $portlet ) {
+			return $portlet['id'];
+		}, $sidebar);
+		$toolboxId = array_search( 'p-tb', $ids );
+		$toolbox = $sidebar[$toolboxId] ?? null;
+		unset( $sidebar[$toolboxId] );
+
+		return [ $sidebar, $toolbox ];
 	}
 
 	/**
@@ -197,86 +188,6 @@ class SkinFemiwiki extends SkinMustache {
 			default:
 				return 'ca-' . $itemKey;
 		}
-	}
-
-	/**
-	 * Extends to prepend xe-icons
-	 *
-	 * @inheritDoc
-	 */
-	protected function runOnSkinTemplateNavigationHooks( $skin, &$content_navigation ) {
-		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
-
-		$xeIconMap = $this->getXeIconMap();
-		foreach ( $content_navigation as $name => $menuItems ) {
-			$icon = null;
-			foreach ( $menuItems as $key => $item ) {
-				$id = $item['id'] ?? self::getIconId( $name, $key );
-				if ( isset( $xeIconMap[$id] ) ) {
-					$icon = $xeIconMap[$id];
-				}
-
-				if ( $icon ) {
-					$item['link-html'] = Html::rawElement(
-						'i',
-						[
-							'class' => 'xi-' . $icon,
-						],
-						Html::element( 'span', [], $item[ 'text' ] ?? '' )
-					);
-					$item['text'] = '';
-				}
-				$content_navigation[$name][$key] = $item;
-			}
-		}
-	}
-
-	/**
-	 * Generate data for a custom p-personal menu
-	 * @param string $name
-	 * @param array $items
-	 * @return array
-	 */
-	private function getCustomPortletData( $name, array $items ): array {
-		$id = Sanitizer::escapeIdForAttribute( "p-$name" );
-		$parentData = [
-			'id' => $id,
-			'class' => 'femi-custom-portlet mw-portlet ' . Sanitizer::escapeClass( "mw-portlet-personal" ),
-			'html-tooltip' => Linker::tooltip( $id ),
-			'html-items' => '',
-			'html-after-portal' => '',
-			'html-before-portal' => '',
-		];
-
-		$xeIconMap = $this->getXeIconMap();
-
-		$htmlItems = '';
-		foreach ( $items as $key => $item ) {
-			$id = $item['id'] ?? $name . '-item-' . $key;
-			if ( isset( $xeIconMap[$id] ) ) {
-				$options = [
-					'text-wrapper' => [
-						[
-							'tag' => 'i',
-							'attributes' => [
-								'class' => 'xi-' . $xeIconMap[$id]
-							]
-						],
-						[
-							'tag' => 'span'
-						],
-					],
-					'link-class' => 'xe-icons',
-				];
-			}
-			$htmlItems .= $this->makeListItem( $key, $item, $options ?? [] );
-		}
-		$msg = $this->msg( $name );
-		$parentData['label'] = $msg->exists() ? $msg->text() : $name;
-		$parentData['is-empty'] = count( $items ) === 0;
-		$parentData['class'] .= $parentData['is-empty'] ? ' emptyPortlet' : '';
-		$parentData['html-items'] = $htmlItems;
-		return $parentData;
 	}
 
 	/**
