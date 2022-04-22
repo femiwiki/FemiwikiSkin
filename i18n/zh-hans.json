@@ -11,7 +11,6 @@
 	"skin-femiwiki-page-menu-tooltip": "菜单",
 	"skin-femiwiki-share-tooltip": "分享这篇文章",
 	"skin-femiwiki-share-dismiss": "关闭",
-	"skin-femiwiki-share-facebook": "脸书",
 	"skin-femiwiki-share-twitter": "推特",
 	"femiwiki.css": "/* 这里放置的CSS将影响使用Femiwiki皮肤的用户 */",
 	"femiwiki.js": "/* 这里的任何JavaScript将为使用Femiwiki皮肤的用户加载 */",

@@ -12,7 +12,6 @@
 	"skin-femiwiki-page-menu-tooltip": "Menu",
 	"skin-femiwiki-share-tooltip": "Partager cet article",
 	"skin-femiwiki-share-dismiss": "Ignorer",
-	"skin-femiwiki-share-facebook": "Facebook",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Le CSS placé ici affectera les utilisateurs de l’habillage Fémiwiki */",
 	"femiwiki.js": "/* Tout code JavaScript placé ici sera chargé avec les pages accédées par les utilisateurs de l’habillage Fémiwiki */",

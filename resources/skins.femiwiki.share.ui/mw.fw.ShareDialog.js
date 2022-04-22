@@ -11,7 +11,6 @@
     this.useAddThis = config.useAddThis;
     this.addThisToolId = config.addThisToolId;
     this.firebaseKey = config.firebaseKey;
-    this.facebookAppId = config.facebookAppId;
 
     // Parent constructor
     mw.fw.ShareDialog.super.call(this, config);
@@ -39,27 +38,12 @@
       this.$addThis.classList.add('addthis_inline_share_toolbox');
       if (this.addThisToolId) {
         this.$addThis.classList.add(
-          'addthis_inline_share_toolbox' + '_' + this.addThisToolId
+          'addthis_inline_share_toolbox_' + this.addThisToolId
         );
       }
       addthis.layers.refresh();
     } else {
       var items = [];
-      if (this.facebookAppId) {
-        this.facebookButton = new OO.ui.ButtonWidget({
-          framed: false,
-          icon: 'newWindow',
-          label: mw.msg('skin-femiwiki-share-facebook'),
-        });
-
-        items.push(this.facebookButton);
-
-        // Connect onClick function
-        this.facebookButton.connect(this, {
-          click: 'onFacebookButtonClick',
-        });
-        this.facebookButton.$element.addClass('mw-fw-ui-facebookButton');
-      }
       this.twitterButton = new OO.ui.ButtonWidget({
         framed: false,
         icon: 'newWindow',
@@ -117,16 +101,6 @@
       .next(function () {
         this.urlWidget.select();
       }, this);
-  };
-
-  mw.fw.ShareDialog.prototype.onFacebookButtonClick = function () {
-    FB.ui(
-      {
-        method: 'share',
-        href: this.longUrl,
-      },
-      function (response) {}
-    );
   };
 
   mw.fw.ShareDialog.prototype.updateUrl = function (url) {
