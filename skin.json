@@ -164,7 +164,8 @@
     "HtmlPageLinkRendererBegin": "default",
     "PersonalUrls": "Portlet",
     "ResourceLoaderGetConfigVars": "default",
-    "SkinTemplateNavigation": "Portlet",
+    "SidebarBeforeOutput": "Portlet",
+    "SkinTemplateNavigation::Universal": "Portlet",
     "GetPreferences": "SmallElements",
     "OutputPageBodyAttributes": "SmallElements"
   },

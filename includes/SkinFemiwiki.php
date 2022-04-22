@@ -2,12 +2,9 @@
 
 namespace MediaWiki\Skins\Femiwiki;
 
-use Html;
-use Linker;
 use MediaWiki\MediaWikiServices;
 use OOUI\ButtonWidget;
 use OutputPage;
-use Sanitizer;
 use SkinMustache;
 use SpecialPage;
 
@@ -18,9 +15,6 @@ use SpecialPage;
  * @internal
  */
 class SkinFemiwiki extends SkinMustache {
-
-	/** @var array|mixed */
-	private $xeIconMap;
 
 	/**
 	 * @inheritDoc
@@ -79,6 +73,7 @@ class SkinFemiwiki extends SkinMustache {
 	/**
 	 * Returns divided data for the sidebar and toolbox. 'data-portlets-sidebar' is divided into two
 	 * parts, which is useful for Vector, but not useful for other skins.
+	 * @param array $portletsSidebar
 	 * @return array
 	 */
 	protected function getSidebar( $portletsSidebar ) {
@@ -86,9 +81,9 @@ class SkinFemiwiki extends SkinMustache {
 			$portletsSidebar['data-portlets-first'],
 			...$portletsSidebar['array-portlets-rest']
 		];
-		$ids = array_map( static function( $portlet ) {
+		$ids = array_map( static function ( $portlet ) {
 			return $portlet['id'];
-		}, $sidebar);
+		}, $sidebar );
 		$toolboxId = array_search( 'p-tb', $ids );
 		$toolbox = $sidebar[$toolboxId] ?? null;
 		unset( $sidebar[$toolboxId] );
@@ -150,30 +145,6 @@ class SkinFemiwiki extends SkinMustache {
 			return " lang=\"$escPageLang\" dir=\"$escPageDir\"";
 		}
 		return '';
-	}
-
-	/**
-	 * @return array|mixed
-	 */
-	private function getXeIconMap() {
-		if ( !$this->xeIconMap ) {
-			$map = json_decode(
-				$this->msg( 'skin-femiwiki-xeicon-map.json' )
-					->inContentLanguage()
-					->plain(),
-				true
-			);
-			foreach ( $map as $k => $v ) {
-				$escapedId = Sanitizer::escapeIdForAttribute( $k );
-				if ( $k != $escapedId ) {
-					$map[$escapedId] = $v;
-					unset( $map[$k] );
-				}
-			}
-
-			$this->xeIconMap = $map;
-		}
-		return $this->xeIconMap;
 	}
 
 	/**
