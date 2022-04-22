@@ -231,12 +231,33 @@
     }
   },
   "config": {
-    "FemiwikiAddLinkClass": { "value": false },
-    "FemiwikiFirebaseKey": { "value": "" },
-    "FemiwikiHeadItems": { "value": false },
-    "FemiwikiAddThisId": { "value": false },
-    "FemiwikiUsePageLangForHeading": { "value": true },
-    "FemiwikiShowFooterIcons": { "value": false },
-    "FemiwikiLegacySmallElementsForAnonymousUser": { "value": false }
+    "FemiwikiAddLinkClass": {
+      "value": false,
+      "description": "@var boolean Applies styles to plain links also."
+    },
+    "FemiwikiFirebaseKey": {
+      "value": "",
+      "description": "@var string A key used for the Firebase Dynamic Links. See https://firebase.google.com/docs/dynamic-links/rest."
+    },
+    "FemiwikiHeadItems": {
+      "value": false,
+      "description": "@var array Additional head items used as parameter for OutputPage::addHeadItems()."
+    },
+    "FemiwikiAddThisId": {
+      "value": false,
+      "description": "@var array with keys,'pub': An AddThis profile ID., 'tool': An toolbox id. See https://www.addthis.com/academy/how-to-install-addthis-code/."
+    },
+    "FemiwikiUsePageLangForHeading": {
+      "value": true,
+      "description": "@var boolean Use the page language for the page heading. See https://phabricator.wikimedia.org/T36514 for further problems."
+    },
+    "FemiwikiShowFooterIcons": {
+      "value": false,
+      "description": "@var If set to true, the icons added to the footer."
+    },
+    "FemiwikiLegacySmallElementsForAnonymousUser": {
+      "value": false,
+      "description": "@var boolean If set to true, the legacy, small elements are displayed for anonymous users. This configuration will be removed in the future."
+    }
   }
 }
