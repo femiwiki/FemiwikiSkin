@@ -22,7 +22,37 @@ class Portlet implements
 	{
 
 	/** @var array|mixed */
-	private $xeIconMap;
+	private const XE_ICON_MAP = [
+		'icon' => [
+			'die' => 'shuffle',
+			'home' => 'home',
+			'recentChanges' => 'time',
+			'userAvatar' => 'profile',
+			'userContributions' => 'list',
+			'logIn' => 'log-in',
+			'logOut' => 'log-out',
+			'settings' => 'cog',
+			'userTalk' => 'forum',
+			'watchlist' => 'star',
+		],
+		'id' => [
+			't-specialpages' => 'library-books',
+			't-upload' => 'file-upload',
+			'feed-atom' => 'rss-square',
+			'feedlinks' => 'rss-square',
+			't-info' => 'info',
+			't-permalink' => 'link',
+			't-print' => 'print',
+			't-recentchangeslinked' => 'clock-o',
+			't-whatlinkshere' => 'paper',
+		],
+		'key' => [
+			'delete' => 'trash',
+			'move' => 'long-arrow-right',
+			'protect' => 'lock',
+			'unprotect' => 'unlock',
+		],
+	];
 
 	/**
 	 * Handler for PersonalUrls hook.
@@ -236,7 +266,7 @@ class Portlet implements
 			}
 			return;
 		}
-		$map = $this->getXeIconMap();
+		$map = self::XE_ICON_MAP;
 		if ( isset( $item['id'] ) && isset( $map['id'][$item['id']] ) ) {
 			$icon = $map['id'][$item['id']];
 		} elseif ( isset( $item['icon'] ) && isset( $map['icon'][$item['icon']] ) ) {
@@ -253,30 +283,5 @@ class Portlet implements
 			$item['link-class'] ??= [];
 			$item['link-class'][] = 'xi-' . $icon;
 		}
-	}
-
-	/**
-	 * @return array|mixed
-	 */
-	private function getXeIconMap() {
-		if ( !$this->xeIconMap ) {
-			$map = json_decode(
-				// TODO: Use class method
-				wfMessage( 'skin-femiwiki-xeicon-map.json' )
-					->inContentLanguage()
-					->plain(),
-				true
-			);
-			foreach ( $map as $k => $v ) {
-				$escapedId = Sanitizer::escapeIdForAttribute( $k );
-				if ( $k != $escapedId ) {
-					$map[$escapedId] = $v;
-					unset( $map[$k] );
-				}
-			}
-
-			$this->xeIconMap = $map;
-		}
-		return $this->xeIconMap;
 	}
 }

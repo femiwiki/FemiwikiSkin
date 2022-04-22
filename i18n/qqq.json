@@ -12,7 +12,6 @@
 	"skin-femiwiki-share-tooltip": "Tooltip for button to share a article",
 	"skin-femiwiki-share-dismiss": "Label for share dialog dismiss button",
 	"skin-femiwiki-share-twitter": "Label for button that posts to Twitter",
-	"skin-femiwiki-xeicon-map.json": "{{optional}}",
 	"femiwiki.css": "{{Optional}}",
 	"femiwiki.js": "{{Optional}}",
 	"skin-femiwiki-desktop-switch-confirm": "Confirm text for dialog to switch desktop view when the user tried to edit in mobile view",
