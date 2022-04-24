@@ -17,7 +17,8 @@ use Title;
 class Portlet implements
 	\MediaWiki\Hook\PersonalUrlsHook,
 	\MediaWiki\Hook\SidebarBeforeOutputHook,
-	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook
+	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook,
+	\MediaWiki\Hook\SkinTemplateNavigationHook
 	{
 
 	/** @var array|mixed */
@@ -174,22 +175,14 @@ class Portlet implements
 	}
 
 	/**
+	 * Modifies the watch link. Note that this hook is called by not-special page pages.
 	 * @inheritDoc
 	 */
-	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
+	public function onSkinTemplateNavigation( $sktemplate, &$links ): void {
 		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
 			return;
 		}
 
-		$this->promoteWatchLinkToView( $sktemplate, $links );
-		$this->updatePortletLinksItems( $sktemplate, $links );
-	}
-
-	/**
-	 * @param SkinTemplate $sktemplate
-	 * @param array &$links
-	 */
-	private function promoteWatchLinkToView( $sktemplate, &$links ): void {
 		$title = $sktemplate->getRelevantTitle();
 		if ( !$title || !$title->canExist() ) {
 			return;
@@ -207,7 +200,7 @@ class Portlet implements
 			];
 		}
 
-		// Promote watch link from actions to views
+		// Promote the watch link from actions to views
 		if ( isset( $links['actions']['watch'] ) ) {
 			$key = 'watch';
 		} elseif ( isset( $links['actions']['unwatch'] ) ) {
@@ -221,10 +214,14 @@ class Portlet implements
 	}
 
 	/**
-	 * @param SkinTemplate $sktemplate
-	 * @param array &$links
+	 * Note that this hook is called by all pages, including special pages.
+	 * @inheritDoc
 	 */
-	private function updatePortletLinksItems( $sktemplate, &$links ): void {
+	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
+		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
+			return;
+		}
+
 		foreach ( [
 			'user-menu',
 			'actions',
@@ -280,7 +277,7 @@ class Portlet implements
 			return;
 		}
 
-		if ( $class and isset( $item['class'] ) ) {
+		if ( $class && isset( $item['class'] ) ) {
 			$item['class'] .= ' xi-' . $icon;
 		} else {
 			$item['link-class'] ??= [];
