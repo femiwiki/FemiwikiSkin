@@ -212,8 +212,7 @@ class Portlet implements
 			return;
 		}
 
-		$item = $links['actions'][$key];
-		$links['namespaces'][$key] = $item;
+		$links['namespaces'][$key] = $links['actions'][$key];
 		unset( $links['actions'][$key] );
 	}
 
