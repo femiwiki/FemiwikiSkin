@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Skins\Femiwiki\HookHandler;
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
 use EchoNotificationController;
 use EchoSeenTime;
 use ExtensionRegistry;
@@ -15,8 +16,47 @@ use Title;
 
 class Portlet implements
 	\MediaWiki\Hook\PersonalUrlsHook,
+	\MediaWiki\Hook\SidebarBeforeOutputHook,
+	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook,
 	\MediaWiki\Hook\SkinTemplateNavigationHook
 	{
+
+	/** @var array|mixed */
+	private const XE_ICON_MAP = [
+		'icon' => [
+			'die' => 'shuffle',
+			'home' => 'home',
+			'recentChanges' => 'time',
+			'userAvatar' => 'profile',
+			'userContributions' => 'list',
+			'logIn' => 'log-in',
+			'logOut' => 'log-out',
+			'settings' => 'cog',
+			'userTalk' => 'forum',
+			'watchlist' => 'star',
+		],
+		'id' => [
+			'feed-atom' => 'rss-square',
+			'feedlinks' => 'rss-square',
+			't-blockip' => 'ban',
+			't-contributions' => 'list',
+			't-info' => 'info',
+			't-log' => 'document',
+			't-permalink' => 'link',
+			't-print' => 'print',
+			't-recentchangeslinked' => 'clock-o',
+			't-specialpages' => 'library-books',
+			't-upload' => 'file-upload',
+			't-userrights' => 'group',
+			't-whatlinkshere' => 'paper',
+		],
+		'key' => [
+			'delete' => 'trash',
+			'move' => 'long-arrow-right',
+			'protect' => 'lock',
+			'unprotect' => 'unlock',
+		],
+	];
 
 	/**
 	 * Handler for PersonalUrls hook.
@@ -135,6 +175,7 @@ class Portlet implements
 	}
 
 	/**
+	 * Modifies the watch link. Note that this hook is called by not-special page pages.
 	 * @inheritDoc
 	 */
 	public function onSkinTemplateNavigation( $sktemplate, &$links ): void {
@@ -143,34 +184,104 @@ class Portlet implements
 		}
 
 		$title = $sktemplate->getRelevantTitle();
-		if ( $title && $title->canExist() ) {
-			// Show the watch action anonymous users
-			if ( !$sktemplate->loggedin ) {
-				$links['actions']['watch'] = [
-					'class' => 'mw-watchlink-watch',
-					'text' => $sktemplate->msg( 'watch' )->text(),
-					'href' => $title->getLocalURL( [ 'action' => 'watch' ] ),
-					'data' => [
-						'mw' => 'interface',
-					],
-				];
-			}
+		if ( !$title || !$title->canExist() ) {
+			return;
+		}
 
-			// Promote watch link from actions to views
-			if ( isset( $links['actions']['watch'] ) ) {
-				$key = 'watch';
-			} elseif ( isset( $links['actions']['unwatch'] ) ) {
-				$key = 'unwatch';
-			} else {
-				return;
-			}
+		// Show anonymous users the watch action
+		if ( !$sktemplate->loggedin ) {
+			$links['actions']['watch'] = [
+				'class' => 'mw-watchlink-watch',
+				'text' => $sktemplate->msg( 'watch' )->text(),
+				'href' => $title->getLocalURL( [ 'action' => 'watch' ] ),
+				'data' => [
+					'mw' => 'interface',
+				],
+			];
+		}
 
-			$item = $links['actions'][$key];
-			if ( !$item ) {
-				return;
+		// Promote the watch link from actions to views
+		if ( isset( $links['actions']['watch'] ) ) {
+			$key = 'watch';
+		} elseif ( isset( $links['actions']['unwatch'] ) ) {
+			$key = 'unwatch';
+		} else {
+			return;
+		}
+
+		$links['namespaces'][$key] = $links['actions'][$key];
+		unset( $links['actions'][$key] );
+	}
+
+	/**
+	 * Note that this hook is called by all pages, including special pages.
+	 * @inheritDoc
+	 */
+	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
+		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
+			return;
+		}
+
+		foreach ( [
+			'user-menu',
+			'actions',
+		] as &$portlet ) {
+			foreach ( $links[$portlet] as $key => &$item ) {
+				$this->addIconToListItem( $item, $key );
 			}
-			$links['namespaces'][$key] = $item;
-			unset( $links['actions'][$key] );
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function onSidebarBeforeOutput( $skin, &$sidebar ): void {
+		if ( $skin->getSkinName() !== Constants::SKIN_NAME ) {
+			return;
+		}
+
+		// Removes site-scope tools so that only page-scope tools are shown.
+		foreach ( [ 'specialpages', 'upload' ] as $key ) {
+			if ( isset( $sidebar['TOOLBOX'][$key] ) ) {
+				unset( $sidebar['TOOLBOX'][$key] );
+			}
+		}
+
+		foreach ( $sidebar as &$portlet ) {
+			foreach ( $portlet as $itemKey => &$item ) {
+				if ( isset( $item['links'] ) ) {
+					foreach ( $item['links'] as $linkKey => &$link ) {
+						$this->addIconToListItem( $link, $linkKey, true );
+					}
+				} else {
+					$this->addIconToListItem( $item, $itemKey );
+				}
+			}
+		}
+	}
+
+	/**
+	 * @param array &$item
+	 * @param string $key
+	 * @param bool $class Adds icon as 'class' attribute instead of 'link-class' attribute.
+	 */
+	private function addIconToListItem( &$item, $key, bool $class = false ) {
+		$map = self::XE_ICON_MAP;
+		if ( isset( $item['id'] ) && isset( $map['id'][$item['id']] ) ) {
+			$icon = $map['id'][$item['id']];
+		} elseif ( isset( $item['icon'] ) && isset( $map['icon'][$item['icon']] ) ) {
+			$icon = $map['icon'][$item['icon']];
+		} elseif ( $key && isset( $map['key'][$key] ) ) {
+			$icon = $map['key'][$key];
+		} else {
+			return;
+		}
+
+		if ( $class && isset( $item['class'] ) ) {
+			$item['class'] .= ' xi-' . $icon;
+		} else {
+			$item['link-class'] ??= [];
+			$item['link-class'][] = 'xi-' . $icon;
 		}
 	}
 }

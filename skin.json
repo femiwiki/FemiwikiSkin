@@ -164,6 +164,8 @@
     "HtmlPageLinkRendererBegin": "default",
     "PersonalUrls": "Portlet",
     "ResourceLoaderGetConfigVars": "default",
+    "SidebarBeforeOutput": "Portlet",
+    "SkinTemplateNavigation::Universal": "Portlet",
     "SkinTemplateNavigation": "Portlet",
     "GetPreferences": "SmallElements",
     "OutputPageBodyAttributes": "SmallElements"
@@ -198,12 +200,9 @@
             "oojs-ui.styles.icons-interactions"
           ],
           "link": {
-            "text-wrapper": [
-              {
-                "tag": "span"
-              }
-            ],
-            "link-class": "xe-icons"
+            "text-wrapper": {
+              "tag": "span"
+            }
           },
           "messages": [
             "navigation-heading",
