@@ -252,7 +252,13 @@ class Portlet implements
 
 		foreach ( $sidebar as &$portlet ) {
 			foreach ( $portlet as $key => &$item ) {
-				$this->addIconToListItem( $item, $key );
+				if ( isset( $item['links'] ) ) {
+					foreach ( $item['links'] as $key => &$link ) {
+						$this->addIconToListItem( $link, $key, true );
+					}
+				} else {
+					$this->addIconToListItem( $item, $key );
+				}
 			}
 		}
 	}
@@ -260,14 +266,9 @@ class Portlet implements
 	/**
 	 * @param array &$item
 	 * @param string $key
+	 * @param bool $class Adds icon as 'class' attribute instead of 'link-class' attribute.
 	 */
-	private function addIconToListItem( &$item, $key ) {
-		if ( isset( $item['links'] ) ) {
-			foreach ( $item['links'] as $key2 => &$link ) {
-				$this->addIconToListItem( $link, $key2 );
-			}
-			return;
-		}
+	private function addIconToListItem( &$item, $key, bool $class = false ) {
 		$map = self::XE_ICON_MAP;
 		if ( isset( $item['id'] ) && isset( $map['id'][$item['id']] ) ) {
 			$icon = $map['id'][$item['id']];
@@ -279,7 +280,7 @@ class Portlet implements
 			return;
 		}
 
-		if ( isset( $item['links'] ) && isset( $item['class'] ) ) {
+		if ( $class and isset( $item['class'] ) ) {
 			$item['class'] .= ' xi-' . $icon;
 		} else {
 			$item['link-class'] ??= [];
