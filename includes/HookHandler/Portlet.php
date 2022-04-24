@@ -248,13 +248,13 @@ class Portlet implements
 		}
 
 		foreach ( $sidebar as &$portlet ) {
-			foreach ( $portlet as $key => &$item ) {
+			foreach ( $portlet as $itemKey => &$item ) {
 				if ( isset( $item['links'] ) ) {
-					foreach ( $item['links'] as $key => &$link ) {
-						$this->addIconToListItem( $link, $key, true );
+					foreach ( $item['links'] as $linkKey => &$link ) {
+						$this->addIconToListItem( $link, $linkKey, true );
 					}
 				} else {
-					$this->addIconToListItem( $item, $key );
+					$this->addIconToListItem( $item, $itemKey );
 				}
 			}
 		}
