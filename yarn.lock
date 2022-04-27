@@ -436,10 +436,10 @@
     "@wdio/types" "7.19.5"
     p-iteration "^1.1.8"
 
-"@wikimedia/types-wikimedia@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@wikimedia/types-wikimedia/-/types-wikimedia-0.3.3.tgz#48111f19d30c1a7531d3e81743110842614f3c21"
-  integrity sha512-MJJsZUQvJTjyPY4DYZbKC4pBALXtLqhJKXUg0rDAgf5RoQkRZQY+qOZznFmQmVtnWklwYQT/5d8uBXbg6A8x/g==
+"@wikimedia/types-wikimedia@^0.3.4":
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@wikimedia/types-wikimedia/-/types-wikimedia-0.3.4.tgz#9a1b2d32d75f7d2aac8ce514cb2fb04e5c1b2b45"
+  integrity sha512-pnMi/BL4SQHOKvSb/fq+K3nTfxYycOoEg4rKywbbSMq3yM62mmzZO6lZP3K2xIV/Ppi1Pg9erpdFkrudXcW2Qw==
 
 "@xml-tools/parser@^1.0.11":
   version "1.0.11"
