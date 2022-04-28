@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"01miki10"
+			"01miki10",
+			"Rönttönen"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
@@ -9,5 +10,6 @@
 	"skin-femiwiki-page-menu-tooltip": "Valikko",
 	"skin-femiwiki-share-tooltip": "Jaa tämä artikkeli",
 	"skin-femiwiki-share-dismiss": "Hylkää",
-	"skin-femiwiki-share-twitter": "Twitter"
+	"skin-femiwiki-share-twitter": "Twitter",
+	"skin-femiwiki-desktop-switch-canceled": "Muokkaaminen on peruutettu."
 }
