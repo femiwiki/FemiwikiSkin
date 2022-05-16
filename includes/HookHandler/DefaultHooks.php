@@ -68,7 +68,14 @@ class DefaultHooks implements
 			return;
 		}
 
-		$customAttribs['class'] ??= '';
-		$customAttribs['class'] .= ' fw-link';
+		if ( isset( $customAttribs['class'] ) ) {
+			if ( is_array( $customAttribs['class'] ) ) {
+				$customAttribs['class'][] = 'fw-link';
+			} else {
+				$customAttribs['class'] .= ' fw-link';
+			}
+		} else {
+			$customAttribs['class'] = 'fw-link';
+		}
 	}
 }
