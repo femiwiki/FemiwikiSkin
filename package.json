@@ -28,7 +28,7 @@
     "grunt-banana-checker": "^0.9.0",
     "prettier": "^2",
     "svgo": "^2.8.0",
-    "typescript": "^4.6.4",
+    "typescript": "^4.7.3",
     "wdio-mediawiki": "^2.0.0"
   }
 }
