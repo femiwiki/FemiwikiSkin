@@ -29,6 +29,6 @@
     "prettier": "^2",
     "svgo": "^2.8.0",
     "typescript": "^4.6.4",
-    "wdio-mediawiki": "^2.0.0"
+    "wdio-mediawiki": "^2.1.0"
   }
 }
