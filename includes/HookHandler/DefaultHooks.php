@@ -8,8 +8,7 @@ use MediaWiki\Skins\Femiwiki\Constants;
 
 class DefaultHooks implements
 	\MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook,
-	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook,
-	\MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook
+	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHooke
 	{
 
 	/** @var ConfigFactory */
@@ -36,21 +35,6 @@ class DefaultHooks implements
 			if ( is_array( $addThisId ) && isset( $addThisId['tool'] ) ) {
 				$vars['wgFemiwikiAddThisToolId'] = $addThisId['tool'];
 			}
-		}
-	}
-
-	/**
-	 * Converts the content model of a message that is actually JSON to JSON. This only affects
-	 * validation and UI when saving and editing, not loading the content.
-	 *
-	 * @inheritDoc
-	 */
-	public function onContentHandlerDefaultModelFor( $title, &$model ) {
-		if (
-			$title->inNamespace( NS_MEDIAWIKI ) &&
-			$title->getText() == 'skin-femiwiki-xeicon-map.json'
-		) {
-			$model = CONTENT_MODEL_JSON;
 		}
 	}
 

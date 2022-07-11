@@ -160,7 +160,6 @@
   },
   "Hooks": {
     "BeforePageDisplay": "Mobile",
-    "ContentHandlerDefaultModelFor": "default",
     "HtmlPageLinkRendererBegin": "default",
     "PersonalUrls": "Portlet",
     "ResourceLoaderGetConfigVars": "default",
