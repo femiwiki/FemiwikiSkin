@@ -8,7 +8,7 @@ use MediaWiki\Skins\Femiwiki\Constants;
 
 class DefaultHooks implements
 	\MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook,
-	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHooke
+	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook
 	{
 
 	/** @var ConfigFactory */
