@@ -165,7 +165,6 @@
     "ResourceLoaderGetConfigVars": "default",
     "SidebarBeforeOutput": "Portlet",
     "SkinTemplateNavigation::Universal": "Portlet",
-    "SkinTemplateNavigation": "Portlet",
     "GetPreferences": "SmallElements",
     "OutputPageBodyAttributes": "SmallElements"
   },

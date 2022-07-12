@@ -17,8 +17,7 @@ use Title;
 class Portlet implements
 	\MediaWiki\Hook\PersonalUrlsHook,
 	\MediaWiki\Hook\SidebarBeforeOutputHook,
-	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook,
-	\MediaWiki\Hook\SkinTemplateNavigationHook
+	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook
 	{
 
 	/** @var array|mixed */
@@ -175,14 +174,33 @@ class Portlet implements
 	}
 
 	/**
-	 * Modifies the watch link. Note that this hook is called by not-special page pages.
+	 * Note that this hook is called by all pages, including special pages.
 	 * @inheritDoc
 	 */
-	public function onSkinTemplateNavigation( $sktemplate, &$links ): void {
+	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
 		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
 			return;
 		}
 
+		$this->tweakWatchActions( $sktemplate, $links );
+
+		foreach ( [
+			'user-menu',
+			'actions',
+		] as &$portlet ) {
+			foreach ( $links[$portlet] as $key => &$item ) {
+				$this->addIconToListItem( $item, $key );
+			}
+		}
+	}
+
+	/**
+	 * Modifies the watch actions.
+	 * @param SkinTemplate $sktemplate
+	 * @param array &$links
+	 * @return void
+	 */
+	public function tweakWatchActions( $sktemplate, &$links ): void {
 		$title = $sktemplate->getRelevantTitle();
 		if ( !$title || !$title->canExist() ) {
 			return;
@@ -211,25 +229,6 @@ class Portlet implements
 
 		$links['namespaces'][$key] = $links['actions'][$key];
 		unset( $links['actions'][$key] );
-	}
-
-	/**
-	 * Note that this hook is called by all pages, including special pages.
-	 * @inheritDoc
-	 */
-	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
-		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
-			return;
-		}
-
-		foreach ( [
-			'user-menu',
-			'actions',
-		] as &$portlet ) {
-			foreach ( $links[$portlet] as $key => &$item ) {
-				$this->addIconToListItem( $item, $key );
-			}
-		}
 	}
 
 	/**
