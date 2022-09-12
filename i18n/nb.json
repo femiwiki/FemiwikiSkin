@@ -13,5 +13,7 @@
 	"femiwiki.css": "/* CSS i denne fila vil gjelde alle som bruker drakta Femiwiki */",
 	"femiwiki.js": "/* Javascript i denne fila vil gjelde for brukere av drakta Femiwiki */",
 	"skin-femiwiki-desktop-switch-confirm": "Redigering i mobilvisning støttes ikke. Ønsker {{GENDER:|du}} å bytte til datamaskinvisning?",
-	"skin-femiwiki-desktop-switch-canceled": "Redigering avbrutt."
+	"skin-femiwiki-desktop-switch-canceled": "Redigering avbrutt.",
+	"prefs-femiwiki-large-elements-label": "Bruk større elementer",
+	"prefs-femiwiki-large-elements-help": "Dette alternativet lar deg forhåndsvise større elementer. Elementene på skjermen blir erstattet av større elementer."
 }
