@@ -242,7 +242,7 @@
     },
     "FemiwikiAddThisId": {
       "value": false,
-      "description": "@var array with keys,'pub': An AddThis profile ID., 'tool': An toolbox id. See https://www.addthis.com/academy/how-to-install-addthis-code/."
+      "description": "@var array with keys, 'pub': An AddThis profile ID., 'tool': An toolbox id. See https://www.addthis.com/academy/how-to-install-addthis-code/."
     },
     "FemiwikiUsePageLangForHeading": {
       "value": true,
