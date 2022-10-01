@@ -161,7 +161,6 @@
   "Hooks": {
     "BeforePageDisplay": "Mobile",
     "HtmlPageLinkRendererBegin": "default",
-    "PersonalUrls": "Portlet",
     "ResourceLoaderGetConfigVars": "default",
     "SidebarBeforeOutput": "Portlet",
     "SkinTemplateNavigation::Universal": "Portlet",
