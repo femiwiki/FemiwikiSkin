@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Meno25",
 			"ديفيد"
 		]
 	},
@@ -9,5 +10,9 @@
 	"skin-femiwiki-page-menu-tooltip": "القائمة",
 	"skin-femiwiki-share-tooltip": "شارك هذه المادة",
 	"skin-femiwiki-share-dismiss": "رفض",
-	"skin-femiwiki-share-twitter": "تويتر"
+	"skin-femiwiki-share-twitter": "تويتر",
+	"skin-femiwiki-desktop-switch-confirm": "التحرير في طريقة عرض الجوال غير مدعوم حتى الآن. هل تود {{GENDER: | you}} التبديل إلى عرض سطح المكتب؟",
+	"skin-femiwiki-desktop-switch-canceled": "تم إلغاء التحرير.",
+	"prefs-femiwiki-large-elements-label": "استخدم عناصر أكبر",
+	"prefs-femiwiki-large-elements-help": "يتيح لك هذا الخيار معاينة العناصر الأكبر حجمًا. سيتم استبدال العناصر الموجودة على الشاشة بأخرى أكبر."
 }
