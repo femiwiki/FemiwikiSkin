@@ -72,7 +72,7 @@ class SkinFemiwiki extends SkinMustache {
 
 	/**
 	 * @param array $data
-	 * @return string
+	 * @return string|null
 	 */
 	private function extractLastmod( $data ) {
 		if ( empty( $data['data-footer']['data-info']['array-items'] ) ) {
