@@ -56,7 +56,7 @@ class SkinFemiwiki extends SkinMustache {
 			'html-heading-language-attributes' => $this->prepareHeadingLanguageAttributes(),
 			'html-share-button' => $this->getShare(),
 			'data-toolbox' => $toolbox,
-			'html-lastmod' => $this->lastModified(),
+			'html-lastmod' => $this->extractLastmod( $parentData ),
 			'text-add-this-pub-id' => $this->getAddThisPubId(),
 			'has-footer-icons' => $config->get( Constants::CONFIG_KEY_SHOW_FOOTER_ICONS ),
 			'has-indicator' => count( $parentData['array-indicators'] ) !== 0,
@@ -68,6 +68,14 @@ class SkinFemiwiki extends SkinMustache {
 		] );
 
 		return $commonSkinData;
+	}
+
+	private function extractLastmod( $data ) {
+		if ( empty( $data['data-footer']['data-info']['array-items'] ) ) {
+			return null;
+		}
+		$data = $data['data-footer']['data-info']['array-items'];
+		return $data[array_search( 'lastmod', array_column( $data, 'name' ) )]['html'];
 	}
 
 	/**
