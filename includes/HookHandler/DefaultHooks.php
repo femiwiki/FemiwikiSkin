@@ -8,8 +8,7 @@ use MediaWiki\Skins\Femiwiki\Constants;
 
 class DefaultHooks implements
 	\MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook,
-	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook,
-	\MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook
+	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook
 	{
 
 	/** @var ConfigFactory */
@@ -40,21 +39,6 @@ class DefaultHooks implements
 	}
 
 	/**
-	 * Converts the content model of a message that is actually JSON to JSON. This only affects
-	 * validation and UI when saving and editing, not loading the content.
-	 *
-	 * @inheritDoc
-	 */
-	public function onContentHandlerDefaultModelFor( $title, &$model ) {
-		if (
-			$title->inNamespace( NS_MEDIAWIKI ) &&
-			$title->getText() == 'skin-femiwiki-xeicon-map.json'
-		) {
-			$model = CONTENT_MODEL_JSON;
-		}
-	}
-
-	/**
 	 * Adds default class to links which are not either 'external', 'stub', 'interwiki', etc to
 	 * apply styles to all links.
 	 *
@@ -68,7 +52,14 @@ class DefaultHooks implements
 			return;
 		}
 
-		$customAttribs['class'] ??= '';
-		$customAttribs['class'] .= ' fw-link';
+		if ( isset( $customAttribs['class'] ) ) {
+			if ( is_array( $customAttribs['class'] ) ) {
+				$customAttribs['class'][] = 'fw-link';
+			} else {
+				$customAttribs['class'] .= ' fw-link';
+			}
+		} else {
+			$customAttribs['class'] = 'fw-link';
+		}
 	}
 }

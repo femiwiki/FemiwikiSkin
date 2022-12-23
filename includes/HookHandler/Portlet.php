@@ -7,39 +7,61 @@ use EchoSeenTime;
 use ExtensionRegistry;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Femiwiki\Constants;
-use MediaWiki\Skins\Femiwiki\SkinFemiwiki;
 use MWEchoNotifUser;
 use SkinTemplate;
 use SpecialPage;
-use Title;
 
 class Portlet implements
-	\MediaWiki\Hook\PersonalUrlsHook,
-	\MediaWiki\Hook\SkinTemplateNavigationHook
+	\MediaWiki\Hook\SidebarBeforeOutputHook,
+	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook
 	{
 
-	/**
-	 * Handler for PersonalUrls hook.
-	 * @inheritDoc
-	 */
-	public function onPersonalUrls( &$personal_urls, &$title, $skin ): void {
-		if ( !$skin instanceof SkinFemiwiki ) {
-			return;
-		}
-		self::addNotification( $personal_urls, $title, $skin );
-		self::addMobileOptions( $personal_urls, $title, $skin );
-	}
+	/** @var mixed */
+	private const XE_ICON_MAP = [
+		'icon' => [
+			'die' => 'shuffle',
+			'home' => 'home',
+			'recentChanges' => 'time',
+			'userAvatar' => 'profile',
+			'userContributions' => 'list',
+			'logIn' => 'log-in',
+			'logOut' => 'log-out',
+			'settings' => 'cog',
+			'userTalk' => 'forum',
+			'watchlist' => 'star',
+		],
+		'id' => [
+			'feed-atom' => 'rss-square',
+			'feedlinks' => 'rss-square',
+			't-blockip' => 'ban',
+			't-contributions' => 'list',
+			't-info' => 'info',
+			't-log' => 'document',
+			't-permalink' => 'link',
+			't-print' => 'print',
+			't-recentchangeslinked' => 'clock-o',
+			't-specialpages' => 'library-books',
+			't-upload' => 'file-upload',
+			't-userrights' => 'group',
+			't-whatlinkshere' => 'paper',
+		],
+		'key' => [
+			'delete' => 'trash',
+			'move' => 'long-arrow-right',
+			'protect' => 'lock',
+			'unprotect' => 'unlock',
+		],
+	];
 
 	/**
 	 * Add a single entrypoint "Notifications" item to the user toolbar('personal URLs').
 	 * This is an implementation of https://phabricator.wikimedia.org/T299229
-	 * @param array &$personal_urls Array of URLs to append to.
-	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $skin
+	 * @param array &$links
 	 * @return void
 	 */
-	private static function addNotification( &$personal_urls, &$title, $skin ) {
-		if ( !$skin instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
+	private function addNotification( $skin, &$links ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
 
@@ -98,17 +120,16 @@ class Portlet implements
 			]
 		];
 
-		$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'userpage' );
+		$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'] ?? [], $insertUrls, 'userpage' );
 	}
 
 	/**
 	 * Add a "MobileOptions" item to the user toolbar ('personal URLs').
-	 * @param array &$personal_urls Array of URLs to append to.
-	 * @param Title &$title Title of page being visited.
 	 * @param SkinTemplate $skin
+	 * @param array &$links
 	 */
-	private static function addMobileOptions( &$personal_urls, &$title, $skin ) {
-		if ( !$skin instanceof SkinFemiwiki || !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+	private function addMobileOptions( $skin, &$links ) {
+		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 			return;
 		}
 
@@ -117,6 +138,7 @@ class Portlet implements
 			return;
 		}
 
+		$title = $skin->getTitle();
 		$url = SpecialPage::getTitleFor( 'MobileOptions' )->getLocalURL();
 
 		$insertUrls = [
@@ -127,50 +149,127 @@ class Portlet implements
 			]
 		];
 
-		if ( $skin->getUser()->isRegistered() && array_key_exists( 'preferences', $personal_urls ) ) {
-			$personal_urls = wfArrayInsertAfter( $personal_urls, $insertUrls, 'preferences' );
+		$personalUrls = $links['user-menu'] ?? [];
+		if ( $skin->getUser()->isRegistered() && array_key_exists( 'preferences', $personalUrls ) ) {
+			$personalUrls = wfArrayInsertAfter( $personalUrls, $insertUrls, 'preferences' );
 		} else {
-			$personal_urls = array_merge( $personal_urls, $insertUrls );
+			$personalUrls = array_merge( $personalUrls, $insertUrls );
 		}
+		$links['user-menu'] = $personalUrls;
+	}
+
+	/**
+	 * Note that this hook is called by all pages, including special pages.
+	 * @inheritDoc
+	 * @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+	 */
+	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
+		// phpcs:enable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
+			return;
+		}
+
+		$this->addNotification( $sktemplate, $links );
+		$this->addMobileOptions( $sktemplate, $links );
+		$this->tweakWatchActions( $sktemplate, $links );
+
+		foreach ( [
+			'user-menu',
+			'actions',
+		] as &$portlet ) {
+			foreach ( $links[$portlet] as $key => &$item ) {
+				$this->addIconToListItem( $item, $key );
+			}
+		}
+	}
+
+	/**
+	 * Modifies the watch actions.
+	 * @param SkinTemplate $sktemplate
+	 * @param array &$links
+	 * @return void
+	 */
+	public function tweakWatchActions( $sktemplate, &$links ): void {
+		$title = $sktemplate->getRelevantTitle();
+		if ( !$title || !$title->canExist() ) {
+			return;
+		}
+
+		// Show anonymous users the watch action
+		if ( !$sktemplate->loggedin ) {
+			$links['actions']['watch'] = [
+				'class' => 'mw-watchlink-watch',
+				'text' => $sktemplate->msg( 'watch' )->text(),
+				'href' => $title->getLocalURL( [ 'action' => 'watch' ] ),
+				'data' => [
+					'mw' => 'interface',
+				],
+			];
+		}
+
+		// Promote the watch link from actions to views
+		if ( isset( $links['actions']['watch'] ) ) {
+			$key = 'watch';
+		} elseif ( isset( $links['actions']['unwatch'] ) ) {
+			$key = 'unwatch';
+		} else {
+			return;
+		}
+
+		$links['namespaces'][$key] = $links['actions'][$key];
+		unset( $links['actions'][$key] );
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function onSkinTemplateNavigation( $sktemplate, &$links ): void {
-		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
+	public function onSidebarBeforeOutput( $skin, &$sidebar ): void {
+		if ( $skin->getSkinName() !== Constants::SKIN_NAME ) {
 			return;
 		}
 
-		$title = $sktemplate->getRelevantTitle();
-		if ( $title && $title->canExist() ) {
-			// Show the watch action anonymous users
-			if ( !$sktemplate->loggedin ) {
-				$links['actions']['watch'] = [
-					'class' => 'mw-watchlink-watch',
-					'text' => $sktemplate->msg( 'watch' )->text(),
-					'href' => $title->getLocalURL( [ 'action' => 'watch' ] ),
-					'data' => [
-						'mw' => 'interface',
-					],
-				];
+		// Removes site-scope tools so that only page-scope tools are shown.
+		foreach ( [ 'specialpages', 'upload' ] as $key ) {
+			if ( isset( $sidebar['TOOLBOX'][$key] ) ) {
+				unset( $sidebar['TOOLBOX'][$key] );
 			}
+		}
 
-			// Promote watch link from actions to views
-			if ( isset( $links['actions']['watch'] ) ) {
-				$key = 'watch';
-			} elseif ( isset( $links['actions']['unwatch'] ) ) {
-				$key = 'unwatch';
-			} else {
-				return;
+		foreach ( $sidebar as &$portlet ) {
+			foreach ( $portlet as $itemKey => &$item ) {
+				if ( isset( $item['links'] ) ) {
+					foreach ( $item['links'] as $linkKey => &$link ) {
+						$this->addIconToListItem( $link, $linkKey, true );
+					}
+				} else {
+					$this->addIconToListItem( $item, $itemKey );
+				}
 			}
+		}
+	}
 
-			$item = $links['actions'][$key];
-			if ( !$item ) {
-				return;
-			}
-			$links['namespaces'][$key] = $item;
-			unset( $links['actions'][$key] );
+	/**
+	 * @param array &$item
+	 * @param string $key
+	 * @param bool $class Adds icon as 'class' attribute instead of 'link-class' attribute.
+	 */
+	private function addIconToListItem( &$item, $key, bool $class = false ) {
+		$map = self::XE_ICON_MAP;
+		if ( isset( $item['id'] ) && isset( $map['id'][$item['id']] ) ) {
+			$icon = $map['id'][$item['id']];
+		} elseif ( isset( $item['icon'] ) && isset( $map['icon'][$item['icon']] ) ) {
+			$icon = $map['icon'][$item['icon']];
+		} elseif ( $key && isset( $map['key'][$key] ) ) {
+			$icon = $map['key'][$key];
+		} else {
+			return;
+		}
+
+		if ( $class && isset( $item['class'] ) ) {
+			$item['class'] .= ' xi-' . $icon;
+		} else {
+			$item['link-class'] ??= [];
+			$item['link-class'][] = 'xi-' . $icon;
 		}
 	}
 }

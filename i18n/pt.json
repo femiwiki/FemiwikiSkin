@@ -13,5 +13,7 @@
 	"femiwiki.css": "/* Código CSS colocado aqui afetará os utilizadores do tema Femiwiki */",
 	"femiwiki.js": "/* Código Javascript colocado aqui será carregado para utilizadores do tema Femiwiki */",
 	"skin-femiwiki-desktop-switch-confirm": "A edição na vista de telemóvel ainda não é suportada. {{GENDER:|Quer}} mudar para a vista de computador de secretária?",
-	"skin-femiwiki-desktop-switch-canceled": "A edição está cancelada."
+	"skin-femiwiki-desktop-switch-canceled": "A edição está cancelada.",
+	"prefs-femiwiki-large-elements-label": "Usar elementos maiores",
+	"prefs-femiwiki-large-elements-help": "Esta opção permite-lhe antever elementos maiores. Os elementos no ecrã serão substituídos por elementos maiores."
 }

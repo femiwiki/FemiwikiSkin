@@ -41,14 +41,10 @@
         margin: 0;
 
         a {
-          display: block;
+          display: flex;
           text-decoration: none;
-          padding-left: 2em;
           color: @color-base15;
-
-          &.xe-icons {
-            padding-left: 0;
-          }
+          padding-left: 2em;
 
           &:hover {
             background-color: @button-background-color--hover;
@@ -57,25 +53,55 @@
           &:active {
             background-color: @button-background-color--active;
           }
-        }
 
-        i {
-          display: flex;
+          &[class^='xi-'],
+          &[class*=' xi-'] {
+            padding-left: 0;
+          }
 
-          &::before {
+          &:before {
+            font-size: 1.5em;
             opacity: @opacity-icon;
             vertical-align: middle;
             margin-right: 0.3em;
-            font-size: 1.5em;
             color: black;
+            font-family: 'xeicon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
           }
 
-          & span {
+          span {
             font-family: @font-family;
             font-style: initial;
             font-weight: initial;
             line-height: @line-height-base;
           }
+        }
+
+        .xi(@icon) {
+          a {
+            padding-left: 0;
+          }
+          a:before {
+            content: @icon;
+          }
+        }
+
+        // Items added by extensions cannot be touched in the hook, so we need to use styles
+        &#t-wikibase {
+          .xi('\e9ff');
+        }
+        &#t-cite {
+          .xi('\ea6a');
+        }
+        &#pt-notifications-all {
+          .xi('\e99c');
         }
       }
     }

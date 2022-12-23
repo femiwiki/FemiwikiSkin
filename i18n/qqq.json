@@ -12,7 +12,6 @@
 	"skin-femiwiki-share-tooltip": "Tooltip for button to share a article",
 	"skin-femiwiki-share-dismiss": "Label for share dialog dismiss button",
 	"skin-femiwiki-share-twitter": "Label for button that posts to Twitter",
-	"skin-femiwiki-xeicon-map.json": "{{optional}}",
 	"femiwiki.css": "{{Optional}}",
 	"femiwiki.js": "{{Optional}}",
 	"prefs-femiwiki-large-elements-label": "Label for the checkbox to enable larger elements via Special:Preferences.",

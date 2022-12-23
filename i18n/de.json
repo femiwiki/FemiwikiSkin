@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"ThisCarthing",
 			"Tobi 406",
 			"Umlaut",
 			"WikiBayer"
@@ -13,5 +14,6 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Das folgende CSS wird für Benutzer der Femwiki-Benutzeroberfläche geladen. */",
 	"femiwiki.js": "/* Das folgende JavaScript wird für Benutzer der Benutzeroberfläche Femwiki geladen. */",
+	"skin-femiwiki-desktop-switch-confirm": "Das Bearbeiten in der mobilen Ansicht wird noch nicht unterstützt. Möchtest {{GENDER:|du}} zur Desktop-Ansicht wechseln?",
 	"skin-femiwiki-desktop-switch-canceled": "Die Bearbeitung wird abgebrochen"
 }

@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"skinname-femiwiki": "Femiviki",
+	"femiwiki-desc": "Preobleka Femiviki",
+	"skin-femiwiki-page-menu-tooltip": "Meni",
+	"skin-femiwiki-share-tooltip": "Delite članek",
+	"skin-femiwiki-share-dismiss": "Opusti",
+	"skin-femiwiki-share-twitter": "Twitter",
+	"skin-femiwiki-desktop-switch-confirm": "Urejanje v mobilnem pogledu še ni podprto. Ga {{GENDER:|želite}} preklopiti v namizni pogled?",
+	"skin-femiwiki-desktop-switch-canceled": "Urejanje je preklicano.",
+	"prefs-femiwiki-large-elements-label": "Uporabi večje elemente",
+	"prefs-femiwiki-large-elements-help": "Ta možnost vam omogoča predogled večjih elementov. Elemente na zaslonu bodo zamenjali večji."
+}

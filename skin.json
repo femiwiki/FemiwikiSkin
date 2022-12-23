@@ -152,11 +152,10 @@
     "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php"
   },
   "Hooks": {
-    "ContentHandlerDefaultModelFor": "default",
     "HtmlPageLinkRendererBegin": "default",
-    "PersonalUrls": "Portlet",
     "ResourceLoaderGetConfigVars": "default",
-    "SkinTemplateNavigation": "Portlet",
+    "SidebarBeforeOutput": "Portlet",
+    "SkinTemplateNavigation::Universal": "Portlet",
     "GetPreferences": "SmallElements",
     "OutputPageBodyAttributes": "SmallElements"
   },
@@ -187,12 +186,9 @@
             "oojs-ui.styles.icons-interactions"
           ],
           "link": {
-            "text-wrapper": [
-              {
-                "tag": "span"
-              }
-            ],
-            "link-class": "xe-icons"
+            "text-wrapper": {
+              "tag": "span"
+            }
           },
           "messages": [
             "navigation-heading",
