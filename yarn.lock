@@ -1609,10 +1609,10 @@ grapheme-splitter@^1.0.2:
   resolved "https://registry.yarnpkg.com/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
-grunt-banana-checker@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/grunt-banana-checker/-/grunt-banana-checker-0.9.0.tgz#0b58cf59ae773c12d26ead8e797f7bbfbde85939"
-  integrity sha512-SqPiB6OazWqR8USL0NymtuT5Br3mD9WBBsM1rHC/3wIi2SrZNM6/+j9CIeuEM5oCn+AtO2Y0+rzzFyOdC9afAg==
+grunt-banana-checker@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/grunt-banana-checker/-/grunt-banana-checker-0.10.0.tgz#eb494e157819b7548f7a1a65f1a6bdeeb5dc0a20"
+  integrity sha512-Sx+P3zWjn4YmBCqzidnCEkYrACe1SLTIT8kKC6C3f21Hu6sm17U/V+re343cuK3U+iGZv15ux6bY+69buIbYrA==
 
 har-schema@^2.0.0:
   version "2.0.0"
