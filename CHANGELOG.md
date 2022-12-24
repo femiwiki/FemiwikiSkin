@@ -2,19 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## Unreleased version
+## 3.1.0 (Unreleased)
 
-- `$wgFemiwikiFacebookAppId` and `$wgFemiwikiTwitterAccount` configuration variables are removed. If you still need to use this feature, please see [Extension:WikiSEO](https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:WikiSEO).
-- The default value of `$wgFemiwikiLegacySmallElementsForAnonymousUser` is now `false`.
-- Adding icons to menu items using `[[MediaWiki:skin-femiwiki-xeicon-map.json]]` system message is now not supported. Instead you can add styles in `[[MediaWiki:Common.css]]`. Example:
-  ```css
-  #t-cite a {
-    padding-left: 0;
-  }
-  #t-cite a:before {
-    content: '\ea6a';
-  }
-  ```
+- Editing in the mobile view is now possible. (https://github.com/femiwiki/FemiwikiSkin/pull/517)
+- Some PNG icons are rewritten in SVG format.
 
 ## Previous Releases
 
