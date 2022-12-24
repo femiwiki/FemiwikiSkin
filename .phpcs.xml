@@ -2,7 +2,7 @@
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki" />
 	<rule ref="./vendor/phpcompatibility/php-compatibility/PHPCompatibility" />
-	<config name="testVersion" value="8.0-8.1"/>
+	<config name="testVersion" value="8.0-8.1" />
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc" />
 	<arg name="encoding" value="UTF-8" />
