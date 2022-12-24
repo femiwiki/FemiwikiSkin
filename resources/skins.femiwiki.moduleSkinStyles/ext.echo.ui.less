@@ -3,11 +3,15 @@
 // Mark as read
 // Attempts to shorten the following two rules may fail due to less.php. Make sure it works when
 // modifying it.
-.mw-echo-ui-toggleReadCircleButtonWidget-circle:not(.mw-echo-ui-toggleReadCircleButtonWidget-circle-unread) {
+.mw-echo-ui-toggleReadCircleButtonWidget-circle:not(
+    .mw-echo-ui-toggleReadCircleButtonWidget-circle-unread
+  ) {
   background-color: @color-secondary2;
 }
 .mw-echo-ui-toggleReadCircleButtonWidget:hover
-  .mw-echo-ui-toggleReadCircleButtonWidget-circle:not(.mw-echo-ui-toggleReadCircleButtonWidget-circle-unread) {
+  .mw-echo-ui-toggleReadCircleButtonWidget-circle:not(
+    .mw-echo-ui-toggleReadCircleButtonWidget-circle-unread
+  ) {
   background-color: @color-secondary1;
 }
 .notificationIcon(@icon) {
