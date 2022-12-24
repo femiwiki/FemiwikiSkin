@@ -84,15 +84,6 @@
         "skin-femiwiki-share-twitter"
       ],
       "targets": ["desktop", "mobile"]
-    },
-    "skins.femiwiki.mobile.js": {
-      "dependencies": ["mediawiki.user"],
-      "messages": [
-        "skin-femiwiki-desktop-switch-confirm",
-        "skin-femiwiki-desktop-switch-canceled"
-      ],
-      "targets": ["mobile"],
-      "packageFiles": ["skins.femiwiki.mobile/init.js"]
     }
   },
   "ResourceModuleSkinStyles": {
@@ -136,6 +127,8 @@
       "+mediawiki.ui.icon": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.icon.less",
       "+mediawiki.ui.input": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.input.less",
       "+mediawiki.widgets.DateInputWidget": "skins.femiwiki.moduleSkinStyles/mediawiki.widgets.DateInputWidget.less",
+      "+mobile.editor.overlay": "skins.femiwiki.moduleSkinStyles/mobile.editor.overlay.less",
+      "+mobile.init": "skins.femiwiki.moduleSkinStyles/mobile.init.less",
       "+oojs-ui-core.styles": "skins.femiwiki.moduleSkinStyles/oojs-ui-core.styles.less",
       "+wikibase.common": "skins.femiwiki.moduleSkinStyles/wikibase.common.less"
     }
@@ -159,7 +152,6 @@
     "OOUI\\FemiwikiTheme": "includes/FemiwikiTheme.php"
   },
   "Hooks": {
-    "BeforePageDisplay": "Mobile",
     "HtmlPageLinkRendererBegin": "default",
     "ResourceLoaderGetConfigVars": "default",
     "SidebarBeforeOutput": "Portlet",
@@ -177,9 +169,6 @@
     },
     "SmallElements": {
       "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\SmallElements"
-    },
-    "Mobile": {
-      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Mobile"
     }
   },
   "ValidSkinNames": {
@@ -254,6 +243,11 @@
     "FemiwikiLegacySmallElementsForAnonymousUser": {
       "value": false,
       "description": "@var boolean If set to true, the legacy, small elements are displayed for anonymous users. This configuration will be removed in the future."
+    }
+  },
+  "attributes": {
+    "MobileFrontend": {
+      "EditorAvailableSkins": ["femiwiki"]
     }
   }
 }
