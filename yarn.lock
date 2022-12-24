@@ -25,7 +25,7 @@
 
 "@femiwiki/ooui-femiwiki-theme@https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_39":
   version "0.1.0"
-  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#5d7d09616b93bf4ced767f6cdcd2be06d1f7cd7b"
+  resolved "https://github.com/femiwiki/OOUIFemiwikiTheme.git#712e708cbf7329d069218f3b3dba140e6938cf6e"
 
 "@jest/expect-utils@^28.1.3":
   version "28.1.3"
