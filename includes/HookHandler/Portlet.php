@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Skins\Femiwiki\HookHandler;
 
-use EchoNotificationController;
 use EchoSeenTime;
 use ExtensionRegistry;
+use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Femiwiki\Constants;
 use MWEchoNotifUser;
@@ -82,7 +82,7 @@ class Portlet implements
 		$seenAlertTime = EchoSeenTime::newFromUser( $user )->getTime( 'alert', TS_ISO_8601 );
 		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message', TS_ISO_8601 );
 
-		$formattedCount = EchoNotificationController::formatNotificationCount( $count );
+		$formattedCount = NotificationController::formatNotificationCount( $count );
 		$msgText = $skin->msg( 'echo-notification-notice', $count );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 		$linkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-fw-nojs" ];

@@ -158,7 +158,7 @@ jobs:
         run: |
           composer install --prefer-dist --no-progress --no-interaction # $GITHUB_WORKSPACE
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
           cache: 'npm'
@@ -236,7 +236,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         if: ${{ matrix.stage == 'coverage' }}
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           directory: /home/runner/cover
 
