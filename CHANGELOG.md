@@ -2,7 +2,11 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
-## 3.1.0 (Unreleased)
+## 3.1.1
+
+- Fixed missing OOUI theme elements.
+
+## 3.1.0
 
 - Editing in the mobile view is now possible. (https://github.com/femiwiki/FemiwikiSkin/pull/517)
 - Some PNG icons are rewritten in SVG format.
