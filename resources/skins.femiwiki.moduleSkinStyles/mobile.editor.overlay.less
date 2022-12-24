@@ -1,0 +1,62 @@
+@import '../variables.less';
+
+.overlay {
+  & textarea {
+    width: 100%;
+  }
+
+  &-title h2 {
+    margin: 0;
+  }
+
+  .panel {
+    padding-left: 3.35em;
+    padding-right: 3.35em;
+  }
+}
+
+.overlay-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 0;
+  border-collapse: collapse;
+  height: 3em;
+  white-space: nowrap;
+
+  .header-action {
+    .continue:not(.mw-ui-icon-element),
+    .submit:not(.mw-ui-icon-element),
+    .progressive:not(.mw-ui-icon-element) {
+      padding: 0 1, 2em;
+    }
+  }
+}
+
+.header-cancel {
+  margin: 0;
+}
+
+.content {
+  padding: 0 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: @content-width;
+}
+
+.overlay-header-container + .overlay-content {
+  @overlayHeaderHeight: 3em;
+
+  padding-top: @overlayHeaderHeight;
+
+  .header-chrome& {
+    padding-top: 3em;
+  }
+}
+
+.overlay-header .mw-ui-anchor,
+.overlay-header .mw-ui-button:not(.mw-ui-icon) {
+  height: 3em;
+}
