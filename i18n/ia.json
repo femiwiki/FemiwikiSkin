@@ -12,8 +12,6 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Le CSS placiate hic afficera le usatores del apparentia Femiwiki */",
 	"femiwiki.js": "/* Omne JavaScript hic se executara pro le usatores del apparentia Femiwiki */",
-	"skin-femiwiki-desktop-switch-confirm": "Le modification in vista mobile non es ancora possibile. Vole {{GENDER:|tu}} cambiar al vista scriptorio?",
-	"skin-femiwiki-desktop-switch-canceled": "Le modification es cancellate.",
 	"prefs-femiwiki-large-elements-label": "Usar elementos plus grande",
 	"prefs-femiwiki-large-elements-help": "Iste option te permitte previsualisar elementos plus grande. Le elementos sur le schermo essera reimplaciate per plus grandes."
 }

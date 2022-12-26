@@ -13,8 +13,6 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* CSS som skrivs här kommer att påverka alla användare av utseendet Femiwiki */",
 	"femiwiki.js": "/* All JavaScript här kommer att läsas in för de som använder utseendet Femiwiki */",
-	"skin-femiwiki-desktop-switch-confirm": "Det finns ännu inget stöd för att redigera i mobilvyn. Vill {{GENDER:|du}} byta till stationär vy?",
-	"skin-femiwiki-desktop-switch-canceled": "Redigering avbröts.",
 	"prefs-femiwiki-large-elements-label": "Använd större element",
 	"prefs-femiwiki-large-elements-help": " Detta alternativ låter dig förhandsgranska större element. Alla element på skärmen kommer att ersättas med större varianter."
 }

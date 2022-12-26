@@ -13,8 +13,6 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* 此處的 CSS 會影響使用 Femiwiki 外觀的使用者 */",
 	"femiwiki.js": "/* 此處的任何 JavaScript 都會在使用者使用 Femiwiki 外觀時載入 */",
-	"skin-femiwiki-desktop-switch-confirm": "將不再支援於行動裝置檢視的編輯。{{GENDER:|您}}想要切換成桌面檢視嗎？",
-	"skin-femiwiki-desktop-switch-canceled": "編輯已取消。",
 	"prefs-femiwiki-large-elements-label": "使用較大的元素",
 	"prefs-femiwiki-large-elements-help": "此選項能讓您預覽較大的元素。在螢幕上的元素，會被較大的元素給取代。"
 }

@@ -14,8 +14,6 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Buraya yerleştirilen CSS, Femiwiki görünümünün kullanıcılarını etkileyecek */",
 	"femiwiki.js": "/* Buradaki herhangi bir JavaScript, Femiwiki görünümünü kullanan kullanıcılar için yüklenecektir. */",
-	"skin-femiwiki-desktop-switch-confirm": "Mobil görünümde düzenleme henüz desteklenmiyor. Masaüstü görünümüne geçmek ister misiniz?",
-	"skin-femiwiki-desktop-switch-canceled": "Düzenleme iptal edildi.",
 	"prefs-femiwiki-large-elements-label": "Daha Büyük Ögeler Kullanın",
 	"prefs-femiwiki-large-elements-help": "Bu seçenek, daha büyük ögeleri önizlemenize olanak tanır. Ekrandaki ögeler daha büyük olanlarla değiştirilecektir."
 }

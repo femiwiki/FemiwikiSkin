@@ -13,8 +13,6 @@
 	"skin-femiwiki-share-twitter": "تويتر",
 	"femiwiki.css": "/* الأنماط المتراصة CSS المعروضة هنا ستؤثر على مستخدمي واجهة ماتيريال */",
 	"femiwiki.js": "/ * سيتم تحميل أي JavaScript هنا للمستخدمين الذين يستخدمون مظهر Femiwiki * /",
-	"skin-femiwiki-desktop-switch-confirm": "التحرير في طريقة عرض الجوال غير مدعوم حتى الآن. هل تود {{GENDER: | you}} التبديل إلى عرض سطح المكتب؟",
-	"skin-femiwiki-desktop-switch-canceled": "تم إلغاء التحرير.",
 	"prefs-femiwiki-large-elements-label": "استخدم عناصر أكبر",
 	"prefs-femiwiki-large-elements-help": "يتيح لك هذا الخيار معاينة العناصر الأكبر حجمًا. سيتم استبدال العناصر الموجودة على الشاشة بأخرى أكبر."
 }

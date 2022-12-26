@@ -12,8 +12,6 @@
 	"skin-femiwiki-share-twitter": "Твитер",
 	"femiwiki.css": "/* Тука поставениот CSS ќе се применува врз корисниците на рувото „Фемвики“ */",
 	"femiwiki.js": "/* Тука поставениот JavaScript ќе се применува врз корисниците на рувото „Фемвики“ */",
-	"skin-femiwiki-desktop-switch-confirm": "Уредувањето од мобилен преглед засега не е поддржано. Дали {{GENDER:|би}} сакале да се префрлите на обичен режим?",
-	"skin-femiwiki-desktop-switch-canceled": "Уредувањето е откажано.",
 	"prefs-femiwiki-large-elements-label": "Користи поголеми елементи",
 	"prefs-femiwiki-large-elements-help": "Оваа можност ви дава преглед на поголеми елементи. Елементите на екранот ќе се заменат со поголеми."
 }

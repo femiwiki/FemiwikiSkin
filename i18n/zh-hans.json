@@ -14,8 +14,6 @@
 	"skin-femiwiki-share-twitter": "推特",
 	"femiwiki.css": "/* 这里放置的CSS将影响使用Femiwiki皮肤的用户 */",
 	"femiwiki.js": "/* 这里的任何JavaScript将为使用Femiwiki皮肤的用户加载 */",
-	"skin-femiwiki-desktop-switch-confirm": "尚不支持移动版视图编辑。{{GENDER:|您}}是否想切换到桌面版视图？",
-	"skin-femiwiki-desktop-switch-canceled": "编辑已取消。",
 	"prefs-femiwiki-large-elements-label": "使用更大的元素",
 	"prefs-femiwiki-large-elements-help": "这个参数允许您徐兰更大的元素。屏幕上的元素将会被替换成更大的。"
 }

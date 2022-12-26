@@ -13,6 +13,5 @@
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Размещённый здесь CSS будет применяться к теме оформления Femiwiki */",
 	"femiwiki.js": "/* Размещённый здесь код JavaScript будет загружаться пользователям, использующим тему оформления Femiwiki */",
-	"skin-femiwiki-desktop-switch-canceled": "Редактирование отменено.",
 	"prefs-femiwiki-large-elements-label": "Использовать элементы большего размера"
 }

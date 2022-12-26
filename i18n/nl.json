@@ -12,7 +12,5 @@
 	"skin-femiwiki-share-dismiss": "Sluiten",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* CSS die hier wordt geplaatst heeft alleen invloed op het uiterlijk Femiwiki */",
-	"femiwiki.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op gebruikers die het uiterlijk Femiwiki gebruiken */",
-	"skin-femiwiki-desktop-switch-confirm": "Bewerken in mobiele modus wordt nog niet ondersteund. Wilt {{GENDER:|u}} overschakelen naar de desktop modus?",
-	"skin-femiwiki-desktop-switch-canceled": "Bewerken geannuleerd."
+	"femiwiki.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op gebruikers die het uiterlijk Femiwiki gebruiken */"
 }
