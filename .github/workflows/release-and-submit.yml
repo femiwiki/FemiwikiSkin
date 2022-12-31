@@ -64,10 +64,10 @@ jobs:
             --url https://api.github.com/repos/femiwiki/docker-mediawiki/dispatches \
             --header "Authorization: token ${{ secrets.BOT_TOKEN }}" \
             --header 'content-type: application/json' \
-            --data '{
-              "event_type": "bump-extension",
-              "client_payload": {
-                "extension": "$EXTENSION",
-                "version": "${{ steps.tag_name.outputs.tag_name }}"
+            --data "{
+              \"event_type\": \"bump-extension\",
+              \"client_payload\": {
+                \"extension\": \"$EXTENSION\",
+                \"version\": \"${{ steps.tag_name.outputs.tag_name }}\"
               }
-            }'
+            }"
