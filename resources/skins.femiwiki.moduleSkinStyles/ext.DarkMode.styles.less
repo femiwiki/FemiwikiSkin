@@ -1,6 +1,12 @@
 @import '../variables.less';
 
 .client-dark-mode {
+  // Explicitly set the background
+  // https://github.com/femiwiki/femiwiki/issues/324
+  body {
+    background-color: #fff;
+  }
+
   // Remove the background; it stands out too much.
   table {
     background-color: unset;
