@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## 3.1.3
+
+- Fixed Darkmode. (https://github.com/femiwiki/FemiwikiSkin/issues/653)
+
 ## 3.1.2
 
 - Fixed broken DarkMode support. (https://github.com/femiwiki/femiwiki/issues/324)
