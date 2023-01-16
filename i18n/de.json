@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Justman10000",
 			"ThisCarthing",
 			"Tobi 406",
 			"Umlaut",
@@ -8,10 +9,13 @@
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Femiwiki Skin",
 	"skin-femiwiki-page-menu-tooltip": "Menü",
 	"skin-femiwiki-share-tooltip": "Diesen Artikel teilen",
 	"skin-femiwiki-share-dismiss": "Schließen",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Das folgende CSS wird für Benutzer der Femwiki-Benutzeroberfläche geladen. */",
-	"femiwiki.js": "/* Das folgende JavaScript wird für Benutzer der Benutzeroberfläche Femwiki geladen. */"
+	"femiwiki.js": "/* Das folgende JavaScript wird für Benutzer der Benutzeroberfläche Femwiki geladen. */",
+	"prefs-femiwiki-large-elements-label": "Größere Elemente verwenden",
+	"prefs-femiwiki-large-elements-help": " Mit dieser Option kannst du größere Elemente in der Vorschau anzeigen. Die Elemente auf dem Bildschirm werden durch größere Elemente ersetzt."
 }
