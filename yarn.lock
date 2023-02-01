@@ -153,11 +153,6 @@
   dependencies:
     "@types/sizzle" "*"
 
-"@types/json-stringify-safe@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@types/json-stringify-safe/-/json-stringify-safe-5.0.0.tgz#df34d054419d39323a3730966bacba02ac5e474e"
-  integrity sha512-UUA1sH0RSRROdInuDOA1yoRzbi5xVFD1RHCoOvNRPTNwR8zBkJ/84PZ6NhKVDtKp0FTeIccJCdQz1X2aJPr4uw==
-
 "@types/keyv@^3.1.4":
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/@types/keyv/-/keyv-3.1.4.tgz#3ccdb1c6751b0c7e52300bcdacd5bcbf8faa75b6"
@@ -266,11 +261,6 @@
   resolved "https://registry.yarnpkg.com/@types/ua-parser-js/-/ua-parser-js-0.7.36.tgz#9bd0b47f26b5a3151be21ba4ce9f5fa457c5f190"
   integrity sha512-N1rW+njavs70y2cApeIw1vLMYXRwfBy+7trgavGuuTfOd7j1Yh7QTRc/yqsPl6ncokt72ZXuxEU0PiCp9bSwNQ==
 
-"@types/validator@^13.1.3":
-  version "13.7.10"
-  resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.7.10.tgz#f9763dc0933f8324920afa9c0790308eedf55ca7"
-  integrity sha512-t1yxFAR2n0+VO6hd/FJ9F2uezAZVWHLmpmlJzm1eX03+H7+HsuTAp7L8QJs+2pQCfWkP1+EXsGK9Z9v7o/qPVQ==
-
 "@types/which@^1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@types/which/-/which-1.3.2.tgz#9c246fc0c93ded311c8512df2891fb41f6227fdf"
@@ -349,18 +339,15 @@
     "@wdio/types" "7.26.0"
     chalk "^4.0.0"
 
-"@wdio/junit-reporter@^v7.28.0":
-  version "7.28.0"
-  resolved "https://registry.yarnpkg.com/@wdio/junit-reporter/-/junit-reporter-7.28.0.tgz#76b8087ae98109590e637138ef1dbccd91a485ad"
-  integrity sha512-fG525KED4VAdkZUtc/s5JD4DrvwKzxlE3Onvz1HNi3W3TQGJtdNqY55RHMEVsVwRwTzrC3WU34MHKP/qCmtwlw==
+"@wdio/junit-reporter@^v8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@wdio/junit-reporter/-/junit-reporter-8.3.0.tgz#436b30c9bf0871cf78ff0c74de706019afef5f3a"
+  integrity sha512-QOKXbZ+xKE7IYsAJTT4mDkvrwXuMEoU69p0xqggxWY99yeaAgi1dr9BrzoR1CzexZxfzHip25kFMXQI7Uncz4w==
   dependencies:
-    "@types/json-stringify-safe" "^5.0.0"
-    "@types/validator" "^13.1.3"
-    "@wdio/reporter" "7.28.0"
-    "@wdio/types" "7.26.0"
+    "@wdio/reporter" "8.3.0"
+    "@wdio/types" "8.3.0"
     json-stringify-safe "^5.0.1"
     junit-report-builder "^3.0.0"
-    validator "^13.0.0"
 
 "@wdio/local-runner@^v7.28.0":
   version "7.28.0"
@@ -382,6 +369,16 @@
   integrity sha512-kQj9s5JudAG9qB+zAAcYGPHVfATl2oqKgqj47yjehOQ1zzG33xmtL1ArFbQKWhDG32y1A8sN6b0pIqBEIwgg8Q==
   dependencies:
     chalk "^4.0.0"
+    loglevel "^1.6.0"
+    loglevel-plugin-prefix "^0.8.4"
+    strip-ansi "^6.0.0"
+
+"@wdio/logger@8.1.0":
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/@wdio/logger/-/logger-8.1.0.tgz#aaefce7da066a477249191aec8e9caa8581aeb33"
+  integrity sha512-QRC5b7FF4JIYUCqggnVA0sZ80TwIUFN9JyBSbuGuMxaSLSLujSo7WfuSrnQXVvsRbnJ16wWwJWYigfLkxOW86Q==
+  dependencies:
+    chalk "^5.1.2"
     loglevel "^1.6.0"
     loglevel-plugin-prefix "^0.8.4"
     strip-ansi "^6.0.0"
@@ -426,6 +423,18 @@
     object-inspect "^1.10.3"
     supports-color "8.1.1"
 
+"@wdio/reporter@8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-8.3.0.tgz#535d57434c703d0da8830d2b24f11b0b1de201e3"
+  integrity sha512-SCI6YXMDOs+rIDXUqaQYncv3SAcMPU9nQKGCLWjtZXsYHYlLZMT/PaFy7lWyebsObiRAKJYayXOqG7ymS6hDzA==
+  dependencies:
+    "@types/node" "^18.0.0"
+    "@wdio/logger" "8.1.0"
+    "@wdio/types" "8.3.0"
+    diff "^5.0.0"
+    object-inspect "^1.12.0"
+    supports-color "9.3.1"
+
 "@wdio/runner@7.28.0":
   version "7.28.0"
   resolved "https://registry.yarnpkg.com/@wdio/runner/-/runner-7.28.0.tgz#22b43d1a78fd59d8d7bd98a45b8489bebcecc969"
@@ -447,6 +456,13 @@
   dependencies:
     "@types/node" "^18.0.0"
     got "^11.8.1"
+
+"@wdio/types@8.3.0":
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@wdio/types/-/types-8.3.0.tgz#86a8336db1a1b33afeb46c2cd60391ca3c801163"
+  integrity sha512-TTs3ETVOJtooTIY/u2+feeBnMBx2Hb4SEItN31r0pFncn37rnIZXE/buywLNf5wvZW9ukxoCup5hCnohOR27eQ==
+  dependencies:
+    "@types/node" "^18.0.0"
 
 "@wdio/utils@7.26.0":
   version "7.26.0"
@@ -793,6 +809,11 @@ chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.0, chalk@^4.1.1:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
+
+chalk@^5.1.2:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.2.0.tgz#249623b7d66869c673699fb66d65723e54dfcfb3"
+  integrity sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==
 
 chardet@^0.7.0:
   version "0.7.0"
@@ -2436,6 +2457,11 @@ object-inspect@^1.10.3, object-inspect@^1.9.0:
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.12.2.tgz#c0641f26394532f28ab8d796ab954e43c009a8ea"
   integrity sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==
 
+object-inspect@^1.12.0:
+  version "1.12.3"
+  resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.12.3.tgz#ba62dffd67ee256c8c086dfae69e016cd1f198b9"
+  integrity sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==
+
 object-is@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/object-is/-/object-is-1.1.5.tgz#b9deeaa5fc7f1846a0faecdceec138e5778f53ac"
@@ -3058,6 +3084,11 @@ supports-color@8.1.1:
   dependencies:
     has-flag "^4.0.0"
 
+supports-color@9.3.1:
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.3.1.tgz#34e4ad3c71c9a39dae3254ecc46c9b74e89e15a6"
+  integrity sha512-knBY82pjmnIzK3NifMo3RxEIRD9E0kIzV4BKcyTZ9+9kWgLMxd4PrsTSMoFQUabgRBbF8KOLRDCyKgNV+iK44Q==
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
@@ -3232,11 +3263,6 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
-
-validator@^13.0.0:
-  version "13.7.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-13.7.0.tgz#4f9658ba13ba8f3d82ee881d3516489ea85c0857"
-  integrity sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==
 
 verror@1.10.0:
   version "1.10.0"

@@ -21,7 +21,7 @@
     "@types/node-fetch": "^3",
     "@wdio/cli": "^v7.28.0",
     "@wdio/dot-reporter": "^v7.28.0",
-    "@wdio/junit-reporter": "^v7.28.0",
+    "@wdio/junit-reporter": "^v8.3.0",
     "@wdio/local-runner": "^v7.28.0",
     "@wdio/mocha-framework": "^v7.26.0",
     "@wikimedia/types-wikimedia": "^0.3.4",
