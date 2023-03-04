@@ -11,12 +11,8 @@ class DefaultHooks implements
 	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook
 	{
 
-	/** @var ConfigFactory */
-	private $configFactory;
+	private ConfigFactory $configFactory;
 
-	/**
-	 * @param ConfigFactory $configFactory
-	 */
 	public function __construct( ConfigFactory $configFactory ) {
 		$this->configFactory = $configFactory;
 	}
