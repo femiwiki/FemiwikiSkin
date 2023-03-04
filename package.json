@@ -19,7 +19,7 @@
     "@prettier/plugin-xml": "^2",
     "@types/jquery": "^3.5.16",
     "@types/node-fetch": "^3",
-    "@wdio/cli": "7.16.13",
+    "@wdio/cli": "7.30.1",
     "@wdio/dot-reporter": "^v7.28.0",
     "@wdio/junit-reporter": "7.16.13",
     "@wdio/local-runner": "7.16.13",
