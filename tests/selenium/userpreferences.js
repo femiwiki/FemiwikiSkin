@@ -4,9 +4,9 @@ const BlankPage = require('wdio-mediawiki/BlankPage');
 const Util = require('wdio-mediawiki/Util');
 
 class UserPreferences {
-  setPreferences(preferences) {
-    BlankPage.open();
-    Util.waitForModuleState('mediawiki.base');
+  async setPreferences(preferences) {
+    await BlankPage.open();
+    await Util.waitForModuleState('mediawiki.base');
 
     return browser.execute(function (prefs) {
       return mw.loader.using('mediawiki.api').then(function () {
@@ -15,8 +15,8 @@ class UserPreferences {
     }, preferences);
   }
 
-  enableFemiwiki() {
-    this.setPreferences({
+  async enableFemiwiki() {
+    await this.setPreferences({
       skin: 'femiwiki',
     });
   }
