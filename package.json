@@ -27,7 +27,7 @@
     "@wikimedia/types-wikimedia": "^0.3.4",
     "grunt-banana-checker": "^0.10.0",
     "prettier": "^2",
-    "svgo": "^2.8.0",
+    "svgo": "^3.0.2",
     "typescript": "^4.8.2",
     "wdio-mediawiki": "2.2.0"
   }
