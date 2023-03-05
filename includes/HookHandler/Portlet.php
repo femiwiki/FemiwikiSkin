@@ -16,7 +16,6 @@ class Portlet implements
 	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook
 	{
 
-	/** @var mixed */
 	private const XE_ICON_MAP = [
 		'icon' => [
 			'die' => 'shuffle',
@@ -56,11 +55,8 @@ class Portlet implements
 	/**
 	 * Add a single entrypoint "Notifications" item to the user toolbar('personal URLs').
 	 * This is an implementation of https://phabricator.wikimedia.org/T299229
-	 * @param SkinTemplate $skin
-	 * @param array &$links
-	 * @return void
 	 */
-	private function addNotification( $skin, &$links ) {
+	private function addNotification( SkinTemplate $skin, array &$links ): void {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'Echo' ) ) {
 			return;
 		}
@@ -125,10 +121,8 @@ class Portlet implements
 
 	/**
 	 * Add a "MobileOptions" item to the user toolbar ('personal URLs').
-	 * @param SkinTemplate $skin
-	 * @param array &$links
 	 */
-	private function addMobileOptions( $skin, &$links ) {
+	private function addMobileOptions( SkinTemplate $skin, array &$links ): void {
 		if ( !ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
 			return;
 		}
@@ -185,11 +179,8 @@ class Portlet implements
 
 	/**
 	 * Modifies the watch actions.
-	 * @param SkinTemplate $sktemplate
-	 * @param array &$links
-	 * @return void
 	 */
-	public function tweakWatchActions( $sktemplate, &$links ): void {
+	public function tweakWatchActions( SkinTemplate $sktemplate, array &$links ): void {
 		$title = $sktemplate->getRelevantTitle();
 		if ( !$title || !$title->canExist() ) {
 			return;

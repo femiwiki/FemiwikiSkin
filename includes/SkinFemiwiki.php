@@ -70,11 +70,7 @@ class SkinFemiwiki extends SkinMustache {
 		return $commonSkinData;
 	}
 
-	/**
-	 * @param array $data
-	 * @return string|null
-	 */
-	private function extractLastmod( $data ) {
+	private function extractLastmod( array $data ): ?string {
 		if ( empty( $data['data-footer']['data-info']['array-items'] ) ) {
 			return null;
 		}
@@ -85,10 +81,8 @@ class SkinFemiwiki extends SkinMustache {
 	/**
 	 * Returns divided data for the sidebar and toolbox. 'data-portlets-sidebar' is divided into two
 	 * parts, which is useful for Vector, but not useful for other skins.
-	 * @param array $portletsSidebar
-	 * @return array
 	 */
-	protected function getSidebar( $portletsSidebar ) {
+	protected function getSidebar( array $portletsSidebar ): array {
 		$sidebar = [
 			$portletsSidebar['data-portlets-first'],
 			...$portletsSidebar['array-portlets-rest']
@@ -159,12 +153,7 @@ class SkinFemiwiki extends SkinMustache {
 		return '';
 	}
 
-	/**
-	 * @param string $menuName
-	 * @param string $itemKey
-	 * @return string
-	 */
-	private static function getIconId( $menuName, $itemKey ): string {
+	private static function getIconId( string $menuName, string $itemKey ): string {
 		switch ( $menuName ) {
 			case 'user-menu':
 				return 'pt-' . $itemKey;
@@ -192,8 +181,7 @@ class SkinFemiwiki extends SkinMustache {
 		parent::initPage( $out );
 	}
 
-	/** @return string|null */
-	private function getAddThisPubId() {
+	private function getAddThisPubId(): ?string {
 		$config = $this->getConfig()->get( Constants::CONFIG_ADD_THIS_ID );
 		if ( !$config ) {
 			return null;
