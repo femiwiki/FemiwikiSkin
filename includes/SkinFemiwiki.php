@@ -181,7 +181,7 @@ class SkinFemiwiki extends SkinMustache {
 		parent::initPage( $out );
 	}
 
-	private function getAddThisPubId(): string|null {
+	private function getAddThisPubId(): ?string {
 		$config = $this->getConfig()->get( Constants::CONFIG_ADD_THIS_ID );
 		if ( !$config ) {
 			return null;
