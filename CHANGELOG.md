@@ -2,6 +2,14 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## 3.1.4
+
+- Indent lower <li>s under 4 level (https://github.com/femiwiki/FemiwikiSkin/pull/677)
+- Make headers distinguishable (https://github.com/femiwiki/FemiwikiSkin/pull/679)
+- Minify font-size on little larger mobile devices (https://github.com/femiwiki/FemiwikiSkin/pull/681)
+- Center VE preview (https://github.com/femiwiki/FemiwikiSkin/pull/685)
+- Make FlaggedRevs's comment box not overflow (https://github.com/femiwiki/FemiwikiSkin/pull/687)
+
 ## 3.1.3
 
 - Fixed Darkmode. (https://github.com/femiwiki/FemiwikiSkin/issues/653)
