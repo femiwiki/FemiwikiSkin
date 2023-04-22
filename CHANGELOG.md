@@ -2,6 +2,11 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## 3.2.0
+
+- Make `<hr>` tag visible on localNotice (https://github.com/femiwiki/FemiwikiSkin/pull/700)
+- Remove boxes from the framed images (https://github.com/femiwiki/FemiwikiSkin/pull/698)
+
 ## 3.1.4
 
 - Indent lower <li>s under 4 level (https://github.com/femiwiki/FemiwikiSkin/pull/677)
