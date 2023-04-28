@@ -1,16 +1,16 @@
 @import '../variables.less';
 @import 'mediawiki.mixins.less';
 @import 'mediawiki.ui/mixins.buttons.less';
-@import 'mediawiki.ui/variables.less';
+@import 'mediawiki.skin.variables.less';
 
 // https://github.com/femiwiki/FemiwikiSkin/issues/161
 .mw-ui-button {
   border-radius: 0;
   &.mw-ui-progressive {
-    .mw-ui-button-colors-primary(@color-progressive, @color-primary4, @color-primary5 );
+    .mw-ui-button-colors-primary(@color-link, @color-primary4, @color-primary5 );
 
     &.mw-ui-quiet {
-      color: @color-progressive;
+      color: @color-link;
 
       input[type='checkbox']:hover + &,
       &:hover {
@@ -19,7 +19,7 @@
 
       input[type='checkbox']:focus + &,
       &:focus {
-        color: @color-progressive;
+        color: @color-link;
       }
 
       input[type='checkbox']:active + &,
