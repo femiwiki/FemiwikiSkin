@@ -9,7 +9,7 @@
   "descriptionmsg": "femiwiki-desc",
   "license-name": "AGPL-3.0-or-later",
   "requires": {
-    "MediaWiki": ">= 1.37.0"
+    "MediaWiki": ">= 1.41.0"
   },
   "ResourceFileModulePaths": {
     "localBasePath": "resources",
