@@ -30,7 +30,7 @@ jobs:
 
       - name: Set tag name
         id: tag_name
-        run: echo "::set-output name=tag_name::$(basename ${{ github.ref }})"
+        run: echo "tag_name=$(basename ${{ github.ref }})" >> $GITHUB_OUTPUT
       - name: Build project
         run: |
           composer update --no-dev
