@@ -3,7 +3,8 @@
 		"authors": [
 			"...",
 			"Amire80",
-			"Sabelöga"
+			"Sabelöga",
+			"Shirayuki"
 		]
 	},
 	"skinname-femiwiki": "{{optional}}",
@@ -12,8 +13,8 @@
 	"skin-femiwiki-share-tooltip": "Tooltip for button to share a article",
 	"skin-femiwiki-share-dismiss": "Label for share dialog dismiss button",
 	"skin-femiwiki-share-twitter": "Label for button that posts to Twitter",
-	"femiwiki.css": "{{Optional}}",
-	"femiwiki.js": "{{Optional}}",
+	"femiwiki.css": "{{Optional}}\n{{related/css}}",
+	"femiwiki.js": "{{Optional}}\n{{related/js}}",
 	"prefs-femiwiki-large-elements-label": "Label for the checkbox to enable larger elements via Special:Preferences.",
 	"prefs-femiwiki-large-elements-help": "Detail explaining the operation of the prefs-femiwiki-large-elements-label checkbox."
 }
