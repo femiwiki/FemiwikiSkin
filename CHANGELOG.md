@@ -2,6 +2,10 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## 3.3.0
+
+- AddThis is removed. Instead, Web Share API will be used on supported browsers. (https://github.com/femiwiki/FemiwikiSkin/pull/714)
+
 ## 3.2.0
 
 - Make `<hr>` tag visible on localNotice (https://github.com/femiwiki/FemiwikiSkin/pull/700)

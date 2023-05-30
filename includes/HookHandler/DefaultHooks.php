@@ -27,15 +27,8 @@ class DefaultHooks implements
 	 */
 	public function onResourceLoaderGetConfigVars( array &$vars, $skin, Config $config ): void {
 		$firebaseKey = $config->get( Constants::CONFIG_FIREBASE_KEY );
-		$addThisId = $config->get( Constants::CONFIG_ADD_THIS_ID );
 
 		$vars['wgFemiwikiFirebaseKey'] = $firebaseKey;
-		if ( $addThisId ) {
-			$vars['wgFemiwikiUseAddThis'] = true;
-			if ( is_array( $addThisId ) && isset( $addThisId['tool'] ) ) {
-				$vars['wgFemiwikiAddThisToolId'] = $addThisId['tool'];
-			}
-		}
 	}
 
 	/**
