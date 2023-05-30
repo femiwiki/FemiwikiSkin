@@ -228,10 +228,6 @@
       "value": false,
       "description": "@var array Additional head items used as parameter for OutputPage::addHeadItems()."
     },
-    "FemiwikiAddThisId": {
-      "value": false,
-      "description": "@var array with keys,'pub': An AddThis profile ID., 'tool': An toolbox id. See https://www.addthis.com/academy/how-to-install-addthis-code/."
-    },
     "FemiwikiUsePageLangForHeading": {
       "value": true,
       "description": "@var boolean Use the page language for the page heading. See https://phabricator.wikimedia.org/T36514 for further problems."
