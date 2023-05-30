@@ -8,8 +8,6 @@
     // Configuration initialization
     config = config || {};
 
-    this.useAddThis = config.useAddThis;
-    this.addThisToolId = config.addThisToolId;
     this.firebaseKey = config.firebaseKey;
 
     // Parent constructor
@@ -32,29 +30,17 @@
     this.$element.addClass('mw-fw-ui-shareDialog');
 
     // Make SNS Buttons
-    if (this.useAddThis) {
-      // AddThis
-      this.$addThis = document.createElement('div');
-      this.$addThis.classList.add('addthis_inline_share_toolbox');
-      if (this.addThisToolId) {
-        this.$addThis.classList.add(
-          'addthis_inline_share_toolbox_' + this.addThisToolId
-        );
-      }
-      addthis.layers.refresh();
-    } else {
-      var items = [];
-      this.twitterButton = new OO.ui.ButtonWidget({
-        framed: false,
-        icon: 'newWindow',
-        label: mw.msg('skin-femiwiki-share-twitter'),
-      });
-      items.push(this.twitterButton);
-      this.twitterButton.$element.addClass('mw-fw-ui-twitterButton');
-      this.mediaButtonGroup = new OO.ui.ButtonGroupWidget({
-        items: items,
-      });
-    }
+    var items = [];
+    this.twitterButton = new OO.ui.ButtonWidget({
+      framed: false,
+      icon: 'newWindow',
+      label: mw.msg('skin-femiwiki-share-twitter'),
+    });
+    items.push(this.twitterButton);
+    this.twitterButton.$element.addClass('mw-fw-ui-twitterButton');
+    this.mediaButtonGroup = new OO.ui.ButtonGroupWidget({
+      items: items,
+    });
 
     // Create a TextForm to copy
     this.urlWidget = new OO.ui.TextInputWidget({
@@ -69,11 +55,7 @@
     });
 
     // Append elements
-    if (this.useAddThis) {
-      this.content.$element.append(this.$addThis);
-    } else {
-      this.content.$element.append(this.mediaButtonGroup.$element);
-    }
+    this.content.$element.append(this.mediaButtonGroup.$element);
     this.content.$element.append(this.urlWidget.$element);
     this.$body.append(this.content.$element);
   };
@@ -106,20 +88,16 @@
   mw.fw.ShareDialog.prototype.updateUrl = function (url) {
     this.urlWidget.setValue(url);
 
-    if (this.useAddThis) {
-      addthis.layers.refresh(url);
-    } else {
-      var tweet =
-        mw.config.get('wgPageName').replace(/_/g, ' ') +
-        ' ' +
-        url +
-        ' #' +
-        mw.config.get('wgSiteName');
+    var tweet =
+      mw.config.get('wgPageName').replace(/_/g, ' ') +
+      ' ' +
+      url +
+      ' #' +
+      mw.config.get('wgSiteName');
 
-      this.twitterButton.setHref(
-        'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet)
-      );
-    }
+    this.twitterButton.setHref(
+      'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet)
+    );
   };
 
   mw.fw.ShareDialog.prototype.createShortUrl = function (url) {
