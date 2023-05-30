@@ -19,8 +19,6 @@ final class Constants {
 	/** @var string */
 	public const CONFIG_ADD_LINK_CLASS = 'FemiwikiAddLinkClass';
 	/** @var string */
-	public const CONFIG_ADD_THIS_ID = 'FemiwikiAddThisId';
-	/** @var string */
 	public const CONFIG_FIREBASE_KEY = 'FemiwikiFirebaseKey';
 	/** @var string */
 	public const CONFIG_HEAD_ITEMS = 'FemiwikiHeadItems';

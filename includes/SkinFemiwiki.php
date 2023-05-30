@@ -57,7 +57,6 @@ class SkinFemiwiki extends SkinMustache {
 			'html-share-button' => $this->getShare(),
 			'data-toolbox' => $toolbox,
 			'html-lastmod' => $this->extractLastmod( $parentData ),
-			'text-add-this-pub-id' => $this->getAddThisPubId(),
 			'has-footer-icons' => $config->get( Constants::CONFIG_KEY_SHOW_FOOTER_ICONS ),
 			'has-indicator' => count( $parentData['array-indicators'] ) !== 0,
 
@@ -179,16 +178,5 @@ class SkinFemiwiki extends SkinMustache {
 		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
 		$out->enableOOUI();
 		parent::initPage( $out );
-	}
-
-	private function getAddThisPubId(): ?string {
-		$config = $this->getConfig()->get( Constants::CONFIG_ADD_THIS_ID );
-		if ( !$config ) {
-			return null;
-		}
-		if ( is_array( $config ) ) {
-			return $config['pub'] ?? null;
-		}
-		return $config;
 	}
 }
