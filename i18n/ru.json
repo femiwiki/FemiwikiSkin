@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BerryAVGN",
 			"Okras",
 			"PlushBoy"
 		]
@@ -10,8 +11,9 @@
 	"skin-femiwiki-page-menu-tooltip": "Меню",
 	"skin-femiwiki-share-tooltip": "Поделиться этой статьёй",
 	"skin-femiwiki-share-dismiss": "Отменить",
-	"skin-femiwiki-share-twitter": "Twitter",
+	"skin-femiwiki-share-twitter": "Твиттер",
 	"femiwiki.css": "/* Размещённый здесь CSS будет применяться к теме оформления Femiwiki */",
 	"femiwiki.js": "/* Размещённый здесь код JavaScript будет загружаться пользователям, использующим тему оформления Femiwiki */",
-	"prefs-femiwiki-large-elements-label": "Использовать элементы большего размера"
+	"prefs-femiwiki-large-elements-label": "Использовать элементы большего размера",
+	"prefs-femiwiki-large-elements-help": " Эта опция позволяет предварительно просмотреть элементы большего размера. Элементы на экране будут заменены на более крупные."
 }
