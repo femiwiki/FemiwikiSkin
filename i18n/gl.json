@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Aspecto Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menú",
+	"skin-femiwiki-share-tooltip": "Compartir este artigo",
+	"skin-femiwiki-share-dismiss": "Descartar",
+	"skin-femiwiki-share-twitter": "Twitter",
+	"prefs-femiwiki-large-elements-label": "Usar elementos máis grandes",
+	"prefs-femiwiki-large-elements-help": "Esta opción permíteche ver elementos máis grandes. Os elementos da pantalla serán substituídos por outros máis grandes."
+}
