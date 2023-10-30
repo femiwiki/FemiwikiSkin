@@ -10,6 +10,8 @@
 	"skin-femiwiki-share-tooltip": "Compartir este artigo",
 	"skin-femiwiki-share-dismiss": "Descartar",
 	"skin-femiwiki-share-twitter": "Twitter",
+	"femiwiki.css": "/* O CSS colocado aquí afectará aos usuarios da aparencia Femiwiki */",
+	"femiwiki.js": "/* O código JavaScript colocado aquí cargarase para os usuarios que utilicen a aparencia Femiwiki */",
 	"prefs-femiwiki-large-elements-label": "Usar elementos máis grandes",
 	"prefs-femiwiki-large-elements-help": "Esta opción permíteche ver elementos máis grandes. Os elementos da pantalla serán substituídos por outros máis grandes."
 }
