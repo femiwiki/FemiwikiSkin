@@ -2,12 +2,12 @@
 
 namespace MediaWiki\Skins\Femiwiki\HookHandler;
 
-use EchoSeenTime;
 use ExtensionRegistry;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
+use MediaWiki\Extension\Notifications\NotifUser;
+use MediaWiki\Extension\Notifications\SeenTime;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Femiwiki\Constants;
-use MWEchoNotifUser;
 use SkinTemplate;
 use SpecialPage;
 
@@ -68,15 +68,15 @@ class Portlet implements
 
 		$title = $skin->getTitle();
 
-		$notifUser = MWEchoNotifUser::newFromUser( $user );
+		$notifUser = NotifUser::newFromUser( $user );
 		$count = $notifUser->getNotificationCount();
 		$count = max( 0, $count );
 
 		$msgNotificationTimestamp = $notifUser->getLastUnreadMessageTime();
 		$alertNotificationTimestamp = $notifUser->getLastUnreadAlertTime();
 
-		$seenAlertTime = EchoSeenTime::newFromUser( $user )->getTime( 'alert', TS_ISO_8601 );
-		$seenMsgTime = EchoSeenTime::newFromUser( $user )->getTime( 'message', TS_ISO_8601 );
+		$seenAlertTime = SeenTime::newFromUser( $user )->getTime( 'alert', TS_ISO_8601 );
+		$seenMsgTime = SeenTime::newFromUser( $user )->getTime( 'message', TS_ISO_8601 );
 
 		$formattedCount = NotificationController::formatNotificationCount( $count );
 		$msgText = $skin->msg( 'echo-notification-notice', $count );
@@ -99,7 +99,7 @@ class Portlet implements
 			$linkClasses[] = 'mw-echo-notifications-badge-all-read';
 		}
 
-		if ( $count > MWEchoNotifUser::MAX_BADGE_COUNT ) {
+		if ( $count > NotifUser::MAX_BADGE_COUNT ) {
 			$linkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
