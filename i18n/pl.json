@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chrumps",
 			"Rail"
 		]
 	},
 	"femiwiki-desc": "Skórka Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menu",
 	"skin-femiwiki-share-tooltip": "Udostępnij artykuł",
 	"skin-femiwiki-share-dismiss": "Odrzuć",
 	"femiwiki.css": "/* Umieszczony tutaj kod CSS zostanie załadowany wyłącznie przez użytkowników korzystających ze skórki Femiwiki */",
