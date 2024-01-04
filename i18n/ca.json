@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Jlrb+",
+			"SMP",
 			"Vfc"
 		]
 	},
@@ -12,5 +13,7 @@
 	"skin-femiwiki-share-dismiss": "Descarta",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/ * El CSS que es col·loqui aquí afectarà l'aparença de Femiwiki d'altres usuàries * /",
-	"femiwiki.js": "/* Qualsevol codi JavaScript que es posi aquí es carregarà per a les usuàries que utilitzin l'aparença Femiwiki */"
+	"femiwiki.js": "/* Qualsevol codi JavaScript que es posi aquí es carregarà per a les usuàries que utilitzin l'aparença Femiwiki */",
+	"prefs-femiwiki-large-elements-label": "Utilitza elements més grans",
+	"prefs-femiwiki-large-elements-help": "Aquesta opció us permet previsualitzar elements més grans. Els elements de la pantalla seran substituïts per altres de més grans."
 }
