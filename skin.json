@@ -17,7 +17,7 @@
   },
   "ResourceModules": {
     "skins.femiwiki": {
-      "class": "ResourceLoaderSkinModule",
+      "class": "MediaWiki\\ResourceLoader\\SkinModule",
       "features": {
         "content-media": true,
         "toc": false,
@@ -34,7 +34,7 @@
       ]
     },
     "skins.femiwiki.xeicon": {
-      "class": "ResourceLoaderSkinModule",
+      "class": "MediaWiki\\ResourceLoader\\SkinModule",
       "features": {
         "content-body": false,
         "toc": false
