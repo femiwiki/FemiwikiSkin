@@ -1,11 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dj",
 			"Hanna Tardos",
 			"Krisztina"
 		]
 	},
+	"femiwiki-desc": "Femiwiki felület",
 	"skin-femiwiki-page-menu-tooltip": "Menü",
+	"skin-femiwiki-share-tooltip": "Szócikk megosztása",
+	"skin-femiwiki-share-dismiss": "Bezárás",
+	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Az ide elhelyezett CSS hatással lesz a Femiwiki skin használóira */",
-	"femiwiki.js": "/* Az itt elhelyezett JavaScript fog betöltődni a Femiwiki felületet használók számára */"
+	"femiwiki.js": "/* Az itt elhelyezett JavaScript fog betöltődni a Femiwiki felületet használók számára */",
+	"prefs-femiwiki-large-elements-label": "Használjon nagyobb elemeket"
 }
