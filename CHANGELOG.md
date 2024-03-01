@@ -6,6 +6,18 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 - Localisations update.
 
+## v5.0.0
+
+- Drop MediaWiki 1.40 support. Now require MediaWiki v1.40 or later is required.
+
+## v4.0.2
+
+- Use data-last-modified text for modifiedat. (https://github.com/femiwiki/FemiwikiSkin/issues/726)
+
+## v4.0.1
+
+- Update dependencies. (https://github.com/femiwiki/FemiwikiSkin/pull/725)
+
 ## v4.0.0
 
 - MediaWiki v1.40 or later is required.
