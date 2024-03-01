@@ -8,7 +8,7 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## v5.0.0
 
-- Drop MediaWiki 1.40 support. Now require MediaWiki v1.40 or later is required.
+- Drop MediaWiki 1.40 support. Now require MediaWiki v1.41 or later is required.
 
 ## v4.0.2
 
