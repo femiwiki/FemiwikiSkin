@@ -12,7 +12,7 @@
     "minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/"
   },
   "dependencies": {
-    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#main",
+    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_41",
     "xeicon": "https://github.com/xpressengine/XEIcon.git#2.3.3"
   },
   "devDependencies": {
