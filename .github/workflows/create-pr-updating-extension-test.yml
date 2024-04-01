@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - run: |
           echo 'CREATE_PR_BASE='$(echo "${{ github.ref_name }}" | cut -d'-' -f1 ) >> $GITHUB_ENV
