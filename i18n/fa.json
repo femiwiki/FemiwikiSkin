@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Darafsh",
 			"FarsiNevis",
 			"Jeeputer",
 			"Reza1615"
@@ -8,7 +9,7 @@
 	},
 	"skin-femiwiki-page-menu-tooltip": "منو",
 	"skin-femiwiki-share-dismiss": "بگذریم",
-	"skin-femiwiki-share-twitter": "توئیتر",
+	"skin-femiwiki-share-twitter": "توییتر",
 	"prefs-femiwiki-large-elements-label": "استفاده از عناصر بزرگ‌تر",
 	"prefs-femiwiki-large-elements-help": "این گزینه به شما امکان پیش‌نمایش عناصر بزرگ‌تر را می‌دهد. عناصر موجود در تصویر با نمونه‌هایی بزرگ‌تر جایگزین می‌شوند."
 }
