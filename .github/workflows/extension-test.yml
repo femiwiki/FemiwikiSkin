@@ -17,10 +17,10 @@ on:
 env:
   DOCKER_REGISTRY: docker-registry.wikimedia.org
   DOCKER_ORG: releng
-  QUIBBLE_DOCKER_IMAGE: quibble-buster-php74
-  # There is no quibble-buster-php74-coverage yet
-  COVERAGE_DOCKER_IMAGE: quibble-buster-php73-coverage
-  PHAN_DOCKER_IMAGE: mediawiki-phan-php74
+  QUIBBLE_DOCKER_IMAGE: quibble-buster-php81
+  # There is no quibble-buster-php81-coverage yet
+  COVERAGE_DOCKER_IMAGE: quibble-buster-php74-coverage
+  PHAN_DOCKER_IMAGE: mediawiki-phan-php81
 
 jobs:
   test:
