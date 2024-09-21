@@ -138,7 +138,57 @@ jobs:
             git clone -b "${MEDIAWIKI_VERSION}" --depth 1 https://gerrit.wikimedia.org/r/mediawiki/core src
             git clone --recurse-submodules -b "${MEDIAWIKI_VERSION}" --depth 1 https://gerrit.wikimedia.org/r/mediawiki/skins/Vector src/skins/Vector
             for dep in $DEPENDENCIES; do
-              git clone --recurse-submodules -b "${MEDIAWIKI_VERSION}" --depth 1 "https://gerrit.wikimedia.org/r/${dep}" src/"$(echo $dep | cut -d'/' -f2,3)"
+              if [ "$dep" = 'mediawiki/extensions/Wikibase' ]; then
+                git clone -b "${MEDIAWIKI_VERSION}" --depth 1 "https://gerrit.wikimedia.org/r/${dep}" src/"$(echo $dep | cut -d'/' -f2,3)"
+
+                cd src/"$(echo $dep | cut -d'/' -f2,3)"
+                # https://gerrit.wikimedia.org/r/q/I2037cd8bb5d568021472e048900649028b5dcc62
+                git apply << 'EOF'
+          diff --git a/.gitmodules b/.gitmodules
+          index df41c768af..e9926d6ddd 100644
+          --- a/.gitmodules
+          +++ b/.gitmodules
+          @@ -3,13 +3,13 @@
+           	url = https://gerrit.wikimedia.org/r/data-values/value-view
+           [submodule "view/lib/wikibase-serialization"]
+           	path = view/lib/wikibase-serialization
+          -	url = https://phabricator.wikimedia.org/source/wikibase-serialization.git
+          +	url = https://github.com/wmde/WikibaseSerializationJavaScript.git
+           [submodule "view/lib/wikibase-data-values"]
+           	path = view/lib/wikibase-data-values
+          -	url = https://phabricator.wikimedia.org/source/datavalues-javascript.git
+          +	url = https://github.com/wmde/DataValuesJavaScript.git
+           [submodule "view/lib/wikibase-data-model"]
+           	path = view/lib/wikibase-data-model
+          -	url = https://phabricator.wikimedia.org/source/wikibase-data-model.git
+          +	url = https://github.com/wmde/WikibaseDataModelJavaScript.git
+           [submodule "view/lib/wikibase-termbox"]
+           	path = view/lib/wikibase-termbox
+           	url = https://gerrit.wikimedia.org/r/wikibase/termbox
+          EOF
+                git submodule update --init
+                cd -
+              elif [ "$dep" = 'mediawiki/extensions/WikibaseLexeme' ]; then
+                git clone -b "${MEDIAWIKI_VERSION}" --depth 1 "https://gerrit.wikimedia.org/r/${dep}" src/"$(echo $dep | cut -d'/' -f2,3)"
+
+                cd src/"$(echo $dep | cut -d'/' -f2,3)"
+                # https://gerrit.wikimedia.org/r/q/I2037cd8bb5d568021472e048900649028b5dcc62
+                git apply << 'EOF'
+          diff --git a/.gitmodules b/.gitmodules
+          index 51ab4cd..97dff70 100644
+          --- a/.gitmodules
+          +++ b/.gitmodules
+          @@ -1,3 +1,3 @@
+           [submodule "resources/special/new-lexeme"]
+           	path = resources/special/new-lexeme
+          -	url = https://phabricator.wikimedia.org/diffusion/NLSP/new-lexeme-special-page.git
+          +	url = https://github.com/wmde/new-lexeme-special-page.git
+          EOF
+                git submodule update --init
+                cd -
+              else
+                git clone --recurse-submodules -b "${MEDIAWIKI_VERSION}" --depth 1 "https://gerrit.wikimedia.org/r/${dep}" src/"$(echo $dep | cut -d'/' -f2,3)"
+              fi
             done
           fi
           git -C src/ log -n 1 --format="%H"
