@@ -75,26 +75,19 @@ jobs:
           fi
           echo MEDIAWIKI_VERSION="${MEDIAWIKI_VERSION}" >> $GITHUB_ENV
 
-          if [ "${{ matrix.stage }}" == 'phan' ]; then
-            export DOCKER_IMAGE="${PHAN_DOCKER_IMAGE}"
-          elif [ "${{ matrix.stage }}" == coverage ]; then
-            export DOCKER_IMAGE="${COVERAGE_DOCKER_IMAGE}"
-          else
-            export DOCKER_IMAGE="${QUIBBLE_DOCKER_IMAGE}"
-          fi
-          echo "DOCKER_IMAGE=${DOCKER_IMAGE}" >> $GITHUB_ENV
-
           # Get the latest docker tag (Ref: https://github.com/thcipriani/dockerregistry)
-          DOCKER_LATEST_TAG="$(curl -sL "https://${DOCKER_REGISTRY}/v2/${DOCKER_ORG}/${DOCKER_IMAGE}/tags/list" |
+          QUIBBLE_DOCKER_LATEST_TAG="$(curl -sL "https://${DOCKER_REGISTRY}/v2/${DOCKER_ORG}/${QUIBBLE_DOCKER_IMAGE}/tags/list" |
             python3 -c 'import json;print("\n".join(json.loads(input())["tags"]))' |
             grep -v latest | sort -Vr | head -1)"
-          echo "DOCKER_LATEST_TAG=${DOCKER_LATEST_TAG}" >> $GITHUB_ENV
+          echo "QUIBBLE_DOCKER_LATEST_TAG=${QUIBBLE_DOCKER_LATEST_TAG}" >> $GITHUB_ENV
           if [ "${{ matrix.stage }}" == 'phan' ]; then
-            echo "QUIBBLE_DOCKER_LATEST_TAG=$(curl -sL "https://${DOCKER_REGISTRY}/v2/${DOCKER_ORG}/${QUIBBLE_DOCKER_IMAGE}/tags/list" |
+            echo "PHAN_DOCKER_LATEST_TAG=$(curl -sL "https://${DOCKER_REGISTRY}/v2/${DOCKER_ORG}/${PHAN_DOCKER_IMAGE}/tags/list" |
               python3 -c 'import json;print("\n".join(json.loads(input())["tags"]))' |
               grep -v latest | sort -Vr | head -1)" >> $GITHUB_ENV
           elif [ "${{ matrix.stage }}" == 'coverage' ]; then
-            echo "QUIBBLE_DOCKER_LATEST_TAG=${DOCKER_LATEST_TAG}" >> $GITHUB_ENV
+            echo "COVERAGE_DOCKER_LATEST_TAG=$(curl -sL "https://${DOCKER_REGISTRY}/v2/${DOCKER_ORG}/${COVERAGE_DOCKER_IMAGE}/tags/list" |
+              python3 -c 'import json;print("\n".join(json.loads(input())["tags"]))' |
+              grep -v latest | sort -Vr | head -1)" >> $GITHUB_ENV
           fi
 
           # Resolve dependencies
@@ -105,26 +98,46 @@ jobs:
             echo "DEPENDENCIES=$(python3 rd.py)" >> $GITHUB_ENV
           fi
 
-      - name: Cache docker image
-        uses: actions/cache@v3
-        with:
-          path: /home/runner/docker-images/${{ env.DOCKER_IMAGE }}
-          key: ${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_LATEST_TAG }}
-      - name: Load or pull docker image
-        run: |
-          docker load -i /home/runner/docker-images/"${DOCKER_IMAGE}" || \
-            docker pull "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}"
       - name: Cache quibble docker image
-        if: ${{ matrix.stage == 'coverage' || matrix.stage == 'phan' }}
         uses: actions/cache@v3
         with:
           path: /home/runner/docker-images/${{ env.QUIBBLE_DOCKER_IMAGE }}
           key: ${{ env.QUIBBLE_DOCKER_IMAGE }}:${{ env.QUIBBLE_DOCKER_LATEST_TAG }}
       - name: Load or pull quibble docker image
-        if: ${{ matrix.stage == 'coverage' || matrix.stage == 'phan' }}
         run: |
-          docker load -i /home/runner/docker-images/"${QUIBBLE_DOCKER_IMAGE}" || \
+          if [ -f /home/runner/docker-images/"${QUIBBLE_DOCKER_IMAGE}" ]; then
+            docker load -i /home/runner/docker-images/"${QUIBBLE_DOCKER_IMAGE}"
+          else
             docker pull "${DOCKER_REGISTRY}/${DOCKER_ORG}/${QUIBBLE_DOCKER_IMAGE}:${QUIBBLE_DOCKER_LATEST_TAG}"
+          fi
+      - name: Cache quibble coverage docker image
+        if: matrix.stage == 'coverage'
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/docker-images/${{ env.COVERAGE_DOCKER_IMAGE }}
+          key: ${{ env.COVERAGE_DOCKER_IMAGE }}:${{ env.COVERAGE_DOCKER_LATEST_TAG }}
+      - name: Cache phan docker image
+        if: matrix.stage == 'phan'
+        uses: actions/cache@v3
+        with:
+          path: /home/runner/docker-images/${{ env.PHAN_DOCKER_IMAGE }}
+          key: ${{ env.PHAN_DOCKER_IMAGE }}:${{ env.PHAN_DOCKER_LATEST_TAG }}
+      - name: Load or pull quibble coverage docker image
+        if: matrix.stage == 'coverage'
+        run: |
+          if [ -f /home/runner/docker-images/"${COVERAGE_DOCKER_IMAGE}" ]; then
+            docker load -i /home/runner/docker-images/"${COVERAGE_DOCKER_IMAGE}"
+          else
+            docker pull "${DOCKER_REGISTRY}/${DOCKER_ORG}/${COVERAGE_DOCKER_IMAGE}:${COVERAGE_DOCKER_LATEST_TAG}"
+          fi
+      - name: Load or pull phan docker image
+        if: matrix.stage == 'phan'
+        run: |
+          if [ -f /home/runner/docker-images/"${PHAN_DOCKER_IMAGE}" ]; then
+            docker load -i /home/runner/docker-images/"${PHAN_DOCKER_IMAGE}"
+          else
+            docker pull "${DOCKER_REGISTRY}/${DOCKER_ORG}/${PHAN_DOCKER_IMAGE}:${PHAN_DOCKER_LATEST_TAG}"
+          fi
 
       - name: Cache MediaWiki installation
         uses: actions/cache@v3
@@ -248,7 +261,7 @@ jobs:
             docker run \
               -e "THING_SUBNAME=${{ env.TYPE }}s/${{ env.EXTENSION_NAME }}" \
               -v "$(pwd)"/src:/mediawiki \
-              "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
+              "${DOCKER_REGISTRY}/${DOCKER_ORG}/${PHAN_DOCKER_IMAGE}:${PHAN_DOCKER_LATEST_TAG}" \
               --color
           elif [ "${{ matrix.stage }}" == 'coverage' ]; then
             if [ -d tests/phpunit ]; then
@@ -265,7 +278,7 @@ jobs:
                   -v "$(pwd)"/cache:/cache \
                   -v "$(pwd)"/src:/workspace/src \
                   -v "$(pwd)"/cover:/workspace/cover \
-                  "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
+                  "${DOCKER_REGISTRY}/${DOCKER_ORG}/${COVERAGE_DOCKER_IMAGE}:${COVERAGE_DOCKER_LATEST_TAG}" \
                   --skip-zuul \
                   --skip-deps \
                   -c "${COMMEND}"
@@ -277,7 +290,7 @@ jobs:
               -e "ZUUL_PROJECT=mediawiki/${{ env.TYPE }}s/${{ env.EXTENSION_NAME }}" \
               -v "$(pwd)"/cache:/cache \
               -v "$(pwd)"/src:/workspace/src \
-              "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
+              "${DOCKER_REGISTRY}/${DOCKER_ORG}/${QUIBBLE_DOCKER_IMAGE}:${QUIBBLE_DOCKER_LATEST_TAG}" \
               --skip-zuul \
               --packages-source composer \
               --run "${{ matrix.stage }}" \
@@ -297,5 +310,13 @@ jobs:
           # See https://doc.wikimedia.org/quibble/index.html#remove-localsettings-php-between-runs
           rm "$(pwd)"/src/LocalSettings.php || true
           mkdir -p docker-images
-          docker save -o "$(pwd)/docker-images/${DOCKER_IMAGE}" \
-            "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}"
+
+          docker save -o "$(pwd)/docker-images/${QUIBBLE_DOCKER_IMAGE}" \
+            "${DOCKER_REGISTRY}/${DOCKER_ORG}/${QUIBBLE_DOCKER_IMAGE}:${QUIBBLE_DOCKER_LATEST_TAG}"
+          if [ -n "$PHAN_DOCKER_LATEST_TAG" ]; then
+            docker save -o "$(pwd)/docker-images/${PHAN_DOCKER_IMAGE}" \
+              "${DOCKER_REGISTRY}/${DOCKER_ORG}/${PHAN_DOCKER_IMAGE}:${PHAN_DOCKER_LATEST_TAG}"
+          elif [ -n "$COVERAGE_DOCKER_LATEST_TAG" ]; then
+          docker save -o "$(pwd)/docker-images/${COVERAGE_DOCKER_IMAGE}" \
+            "${DOCKER_REGISTRY}/${DOCKER_ORG}/${COVERAGE_DOCKER_IMAGE}:${COVERAGE_DOCKER_LATEST_TAG}"
+          fi
