@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Constraque"
+		]
+	},
+	"skin-femiwiki-page-menu-tooltip": "Меню",
+	"skin-femiwiki-share-tooltip": "Пошырити тоту статю",
+	"skin-femiwiki-share-dismiss": "Зрушити",
+	"skin-femiwiki-share-twitter": "Твіттер",
+	"prefs-femiwiki-large-elements-label": "Хосновайте векшы елементы",
+	"prefs-femiwiki-large-elements-help": "Тота опція позволяє вам зобразити нагляд векшых елементів. Елементы на образовцї будуть замінены векшыма."
+}
