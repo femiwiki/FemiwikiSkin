@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
+			"McDutchie",
 			"Romaine"
 		]
 	},
@@ -12,5 +13,7 @@
 	"skin-femiwiki-share-dismiss": "Sluiten",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* CSS die hier wordt geplaatst heeft alleen invloed op het uiterlijk Femiwiki */",
-	"femiwiki.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op gebruikers die het uiterlijk Femiwiki gebruiken */"
+	"femiwiki.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op gebruikers die het uiterlijk Femiwiki gebruiken */",
+	"prefs-femiwiki-large-elements-label": "Grotere elementen gebruiken",
+	"prefs-femiwiki-large-elements-help": "Met deze optie kunt u voorvertoningen van grotere elementen bekijken. De elementen op het scherm worden vervangen door grotere."
 }
