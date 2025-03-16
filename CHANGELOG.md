@@ -6,9 +6,13 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 - Localisations update.
 
-## v5.0.1
+## v5.0.2
 
 - Fix the broken MobileFrontend compatibility.
+
+## v5.0.1
+
+- Bump OOUI.
 
 ## v5.0.0
 
