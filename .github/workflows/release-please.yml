@@ -1,0 +1,25 @@
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-murray/workflow-application-token-action@v4
+        id: get_workflow_token
+        with:
+          application_id: ${{ vars.PAT_APPLICATION_ID }}
+          application_private_key: ${{ secrets.PAT_APPLICATION_PRIVATE_KEY }}
+
+      - uses: femiwiki/release-please-action@femiwiki
+        with:
+          token: ${{ steps.get_workflow_token.outputs.token }}
+          release-type: mediawiki-skin
