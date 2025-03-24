@@ -45,6 +45,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      MEDIAWIKI_VERSION: ${{ matrix.mediawiki_version }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -64,8 +67,6 @@ jobs:
             echo "EXTENSION_NAME=$(cat extension.json |
               python3 -c 'import json;import sys;print(json.loads("".join(sys.stdin.readlines()))["name"])')" >> $GITHUB_ENV
           fi
-
-          echo MEDIAWIKI_VERSION=${{ matrix.mediawiki_version }} >> $GITHUB_ENV
 
           if [ "${{ matrix.stage }}" == 'phan' ]; then
             export DOCKER_IMAGE="${PHAN_DOCKER_IMAGE}"
@@ -124,7 +125,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /home/runner/src
-          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('.github/workflows/dependencies') }}
+          key: ${{ runner.os }}-${{ matrix.mediawiki_version }}-${{ hashFiles('.github/workflows/dependencies') }}
       - name: Download MediaWiki and extensions
         run: |
           cd /home/runner
@@ -141,7 +142,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /home/runner/cache
-          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('**/*.lock') }}
+          key: ${{ runner.os }}-${{ matrix.mediawiki_version }}-${{ hashFiles('**/*.lock') }}
       - name: Setup PHP Action
         if: ${{ matrix.stage == 'phan' }}
         uses: shivammathur/setup-php@v2
