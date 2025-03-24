@@ -1,1 +1,3 @@
-Echo
+Echo:
+  branch: auto
+  repo: auto
