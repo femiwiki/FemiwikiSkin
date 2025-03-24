@@ -33,7 +33,7 @@ jobs:
           - REL1_42
         stage:
           - phan
-          - coverage
+          # - coverage # We really need this coverage for a skin?
           - phpunit-unit
           - phpunit
           - phpunit-standalone
@@ -44,6 +44,9 @@ jobs:
           # - api-testing
 
     runs-on: ubuntu-latest
+
+    env:
+      MEDIAWIKI_VERSION: ${{ matrix.mediawiki_version }}
 
     steps:
       - uses: actions/checkout@v3
@@ -64,8 +67,6 @@ jobs:
             echo "EXTENSION_NAME=$(cat extension.json |
               python3 -c 'import json;import sys;print(json.loads("".join(sys.stdin.readlines()))["name"])')" >> $GITHUB_ENV
           fi
-
-          echo MEDIAWIKI_VERSION=${{ matrix.mediawiki_version }} >> $GITHUB_ENV
 
           if [ "${{ matrix.stage }}" == 'phan' ]; then
             export DOCKER_IMAGE="${PHAN_DOCKER_IMAGE}"
@@ -92,9 +93,11 @@ jobs:
           # Resolve dependencies
           if [ -e .github/workflows/dependencies ]; then
             cd .github/workflows
+            curl -sL https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/dependencies.yaml -o dependencies.yaml
+            curl -sL https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/phan_dependencies.yaml -o phan_dependencies.yaml
             curl -sL https://raw.githubusercontent.com/wikimedia/integration-config/master/zuul/parameter_functions.py -o pf.py
-            curl -sL https://raw.githubusercontent.com/femiwiki/.github/main/scripts/resolve_dependencies.py -o rd.py
-            echo "DEPENDENCIES=$(python3 rd.py)" >> $GITHUB_ENV
+            curl -sL https://raw.githubusercontent.com/miraheze/ci-scripts/master/mediawiki/resolve_dependencies.py -o rd.py
+            echo "DEPENDENCIES=$(python3 rd.py dependencies)" >> $GITHUB_ENV
           fi
 
       - name: Cache docker image
@@ -122,7 +125,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /home/runner/src
-          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('.github/workflows/dependencies') }}
+          key: ${{ runner.os }}-${{ matrix.mediawiki_version }}-${{ hashFiles('.github/workflows/dependencies') }}
       - name: Download MediaWiki and extensions
         run: |
           cd /home/runner
@@ -139,7 +142,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /home/runner/cache
-          key: ${{ runner.os }}-${{ env.MEDIAWIKI_VERSION }}-${{ hashFiles('**/*.lock') }}
+          key: ${{ runner.os }}-${{ matrix.mediawiki_version }}-${{ hashFiles('**/*.lock') }}
       - name: Setup PHP Action
         if: ${{ matrix.stage == 'phan' }}
         uses: shivammathur/setup-php@v2
