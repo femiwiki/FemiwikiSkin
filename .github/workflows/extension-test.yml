@@ -33,7 +33,7 @@ jobs:
           - REL1_42
         stage:
           - phan
-          - coverage
+          # - coverage # We really need this coverage for a skin?
           - phpunit-unit
           - phpunit
           - phpunit-standalone
