@@ -10,3 +10,7 @@
 /resources/skins.femiwiki.moduleSkinStyles/ext.pygments.css
 
 *.svg
+
+# External files
+.github/workflows/dependencies.yaml
+.github/workflows/phan_dependencies.yaml
