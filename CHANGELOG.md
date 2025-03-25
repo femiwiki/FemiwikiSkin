@@ -2,6 +2,24 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.4](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.3...v5.0.4) (2025-03-25)
+
+
+### Bug Fixes
+
+* avoid fraction expression in Less ([#798](https://github.com/femiwiki/FemiwikiSkin/issues/798)) ([0cca9a8](https://github.com/femiwiki/FemiwikiSkin/commit/0cca9a8b94bda8fd75fcc39bd2adc83cd76bd432))
+* Don't depend on the icon file from MediaWiki core ([#801](https://github.com/femiwiki/FemiwikiSkin/issues/801)) ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
+* Use internal icon instead of the icon from MediaWiki core ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
+
+
+### Miscellaneous Chores
+
+* **.github:** bump docker images used in CI ([#796](https://github.com/femiwiki/FemiwikiSkin/issues/796)) ([f53b324](https://github.com/femiwiki/FemiwikiSkin/commit/f53b3241513bdaa8483b76642948702f24328cb1))
+* **.github:** set matrix for MediaWiki versions ([#795](https://github.com/femiwiki/FemiwikiSkin/issues/795)) ([99d93c5](https://github.com/femiwiki/FemiwikiSkin/commit/99d93c51f9e4446b052a05f13535b4c65d500698))
+* **ci:** Download extensions in an updated way ([#797](https://github.com/femiwiki/FemiwikiSkin/issues/797)) ([42ea647](https://github.com/femiwiki/FemiwikiSkin/commit/42ea647843206480996c4745e41fa55eab72827b))
+* remove deprecated `.background-image()` mixin call ([#800](https://github.com/femiwiki/FemiwikiSkin/issues/800)) ([f385089](https://github.com/femiwiki/FemiwikiSkin/commit/f38508959f1ddd5bd6ed0b1edf58f19133b1344e))
+* Replace Yarn with NPM ([#802](https://github.com/femiwiki/FemiwikiSkin/issues/802)) ([213f488](https://github.com/femiwiki/FemiwikiSkin/commit/213f488c8f897bb1ff40ee8bde293928c24ad23b))
+
 ## 5.0.3
 
 - Localisations update.
