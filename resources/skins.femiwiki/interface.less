@@ -357,17 +357,16 @@
       padding-left: 0;
 
       &:before {
-        background-image: /* @embed */ url(../../../../resources/src/mediawiki.helplink/images/helpNotice.svg);
-        background-position: center;
-        background-repeat: no-repeat;
+        font-size: @icon-size;
+        line-height: 1em;
+        color: black;
         opacity: @opacity-icon;
-        content: '';
+        font-family: 'xeicon' !important;
+        content: '\e9ad';
         display: block;
         position: absolute;
         top: @padding-icon;
         left: @padding-icon;
-        width: @icon-size;
-        height: @icon-size;
       }
     }
 
