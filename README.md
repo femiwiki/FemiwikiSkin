@@ -2,6 +2,15 @@
 
 Femiwiki skin is a skin for [MediaWiki].
 
+## Development
+
+```bash
+npm i
+npm run dev
+```
+
+This requires internet access and approxmilaly 500MB on your disk. Under the hood, `run run dev` downloads and launches a MediaWiki instance and a Web server.
+
 ## Contributing
 
 If you are interested in contributing to the code base, please see the document [How to Contribute].
