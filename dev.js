@@ -43,7 +43,7 @@ await (async () => {
         }
       case 'Windows_NT':
         console.log(
-          '❗ Use WSL to run FrankenPHP: https://learn.microsoft.com/windows/wsl/',
+          '❗ Use WSL to run FrankenPHP: https://learn.microsoft.com/windows/wsl/'
           // Or recommand dockerized FrankenPHP or femiwiki/docker-mediawiki
         );
         process.exit(1);
@@ -82,7 +82,7 @@ await (async () => {
     if (fs.existsSync(mediawikiPath)) {
       await fs.renameSync(
         mediawikiPath + path.sep + 'frankenphp',
-        rootPath + path.sep + 'mediawiki-1.42.5' + path.sep + 'frankenphp',
+        rootPath + path.sep + 'mediawiki-1.42.5' + path.sep + 'frankenphp'
       );
     }
     await fs.renameSync('mediawiki-1.42.5', mediawikiPath);
@@ -137,7 +137,7 @@ await (async () => {
     ]) {
       fs.appendFileSync(
         mediawikiPath + path.sep + 'LocalSettings.php',
-        appendant + '\n',
+        appendant + '\n'
       );
     }
 
@@ -147,14 +147,14 @@ await (async () => {
       {
         input:
           '* ID: Admin\n* PW: Adminpassword\n\nGo to [[Special:UserLogin]]',
-      },
+      }
     );
   } else {
     console.log(`✔ The MediaWiki installation initialized already`);
   }
 
   console.log(
-    '\n🥳 You can now visit <http://127.0.0.1:2019> to view your wiki.',
+    '\n🥳 You can now visit <http://127.0.0.1:2019> to view your wiki.'
   );
   console.log('  ID: Admin');
   console.log('  Password: Adminpassword');
