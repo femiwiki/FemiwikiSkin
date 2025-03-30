@@ -54,7 +54,6 @@ await (async () => {
             '  There are some solutions:\n' +
             '  - You can use WSL to run this command: https://learn.microsoft.com/windows/wsl/\n' +
             '  - You can use Docker Desktop to run FrankenPHP: https://docs.docker.com/desktop/setup/install/windows-install/\n' +
-            '  - Or you can try https://github.com/femiwiki/docker-mediawiki\n'
             '  - Or you can try https://github.com/femiwiki/docker-mediawiki\n',
         );
         process.exit(1);
