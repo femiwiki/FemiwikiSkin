@@ -9,7 +9,7 @@ npm i
 npm run dev
 ```
 
-This requires internet access and approxmilaly 500MB on your disk. Under the hood, `run run dev` downloads and launches a MediaWiki instance and a Web server.
+This requires internet access and approxmilaly 500MB on your disk. Under the hood, `npm run dev` downloads and launches a MediaWiki instance and a Web server.
 
 ## Contributing
 
