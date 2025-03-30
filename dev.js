@@ -17,8 +17,6 @@ const pathToFrankenPhp = pathToMediaWiki + path.sep + frakenphpFilename;
 const mwUsername = 'Admin';
 const mwPassword = 'Adminpassword';
 
-function execFrankenphp() {}
-
 await (async () => {
   if (!fs.existsSync(pathToMediaWiki)) {
     fs.mkdirSync(pathToMediaWiki);
