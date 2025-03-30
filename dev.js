@@ -17,6 +17,8 @@ const pathToFrankenPhp = pathToMediaWiki + path.sep + frakenphpFilename;
 const mwUsername = 'Admin';
 const mwPassword = 'Adminpassword';
 
+function execFrankenphp() {}
+
 await (async () => {
   if (!fs.existsSync(pathToMediaWiki)) {
     fs.mkdirSync(pathToMediaWiki);
@@ -49,8 +51,13 @@ await (async () => {
         }
       case 'Windows_NT':
         console.log(
-          '❗ Use WSL to run FrankenPHP: https://learn.microsoft.com/windows/wsl/'
-          // Or recommand dockerized FrankenPHP or femiwiki/docker-mediawiki
+          '❗ We use FrakenPHP for our development environment and it which does not support Windows.' +
+            'See https://github.com/dunglas/frankenphp/issues/83 for details.\n' +
+            '  There are some solutions:\n' +
+            '  - You can use WSL to run this command: https://learn.microsoft.com/windows/wsl/\n' +
+            '  - You can use Docker Desktop to run FrankenPHP: https://docs.docker.com/desktop/setup/install/windows-install/\n' +
+            '  - Or you can try https://github.com/femiwiki/docker-mediawiki\n'
+            '  - Or you can try https://github.com/femiwiki/docker-mediawiki\n',
         );
         process.exit(1);
     }
@@ -66,10 +73,10 @@ await (async () => {
       fileName: frakenphpFilename,
     }).download();
     console.log(`🥳 FrankenPHP downloaded successfully to ${pathToMediaWiki}`);
+    fs.chmodSync(pathToFrankenPhp, 0o555);
   } else {
     console.log(`✔ FrankenPHP downloaded already`);
   }
-  fs.chmodSync(pathToFrankenPhp, 0o555);
 
   // Download MediaWiki.zip
   if (!fs.existsSync(pathToMediaWiki + path.sep + 'index.php')) {
