@@ -125,7 +125,7 @@ await (async () => {
       'php-cli',
       pathToRun,
       'install',
-      `--server=http://127.0.0.1:${caddyPort}`,
+      `--server=http://localhost:${caddyPort}`,
       '--scriptpath=',
       '--dbtype=sqlite',
       '--dbname=femiwiki',
@@ -167,7 +167,7 @@ await (async () => {
   }
 
   console.log(
-    `\n🥳 You can now visit <http://127.0.0.1:${caddyPort}> to view your wiki.`
+    `\n🥳 You can now visit <http://localhost:${caddyPort}> to view your wiki.`
   );
   console.log(`  ID: ${mwUsername}`);
   console.log(`  Password: ${mwPassword}`);
