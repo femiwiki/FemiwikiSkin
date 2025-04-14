@@ -125,7 +125,7 @@ await (async () => {
       'php-cli',
       pathToRun,
       'install',
-      `--server=http://127.0.0.1:${caddyPort}`,
+      `--server=http://localhost:${caddyPort}`,
       '--scriptpath=',
       '--dbtype=sqlite',
       '--dbname=femiwiki',
