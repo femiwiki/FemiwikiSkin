@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "test": "npm run lint --silent",
     "lint": "npm run lint:prettier --silent && npm run lint:i18n --silent && npm run lint:type --silent",
@@ -9,7 +10,9 @@
     "fix": "prettier . --write",
     "selenium-daily": "npm run selenium-test",
     "selenium-test": "wdio tests/selenium/wdio.conf.js",
-    "minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/"
+    "minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/",
+    "dev": "node dev.js && cd mediawiki && frankenphp php-server --listen=:2019 2>/dev/null",
+    "dev-debug": "node dev.js && cd mediawiki && frankenphp php-server --listen=:2019 --debug"
   },
   "dependencies": {
     "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_42",
@@ -26,9 +29,11 @@
     "@wdio/mocha-framework": "7.16.13",
     "@wikimedia/types-wikimedia": "^0.3.4",
     "grunt-banana-checker": "^0.10.0",
+    "nodejs-file-downloader": "^4.13.0",
     "prettier": "^2",
     "svgo": "^3.0.2",
     "typescript": "^4.8.2",
+    "unzipper": "^0.12.3",
     "wdio-mediawiki": "2.2.0"
   }
 }
