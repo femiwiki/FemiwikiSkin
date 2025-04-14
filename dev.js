@@ -1,9 +1,8 @@
 import fs from 'fs';
-import https from 'https';
 import os from 'os';
 import path from 'path';
 import unzipper from 'unzipper';
-import { execFileSync, spawnSync } from 'node:child_process';
+import { spawnSync } from 'node:child_process';
 import downloader from 'nodejs-file-downloader';
 
 const mediaWikiVersion = '1.42.5';
