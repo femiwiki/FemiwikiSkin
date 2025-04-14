@@ -11,8 +11,8 @@
     "selenium-daily": "npm run selenium-test",
     "selenium-test": "wdio tests/selenium/wdio.conf.js",
     "minify-svg": "svgo --config=.svgo.config.js -q -r -f resources/",
-    "dev": "node dev.js && cd mediawiki && frankenphp php-server --listen=:2019 2>/dev/null",
-    "dev-debug": "node dev.js && cd mediawiki && frankenphp php-server --listen=:2019 --debug"
+    "dev": "node dev.js && cd mediawiki && ./frankenphp php-server --listen=:2019 2>/dev/null",
+    "dev-debug": "node dev.js && cd mediawiki && ./frankenphp php-server --listen=:2019 --debug"
   },
   "dependencies": {
     "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_42",

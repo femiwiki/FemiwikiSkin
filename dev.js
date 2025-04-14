@@ -47,6 +47,7 @@ await (async () => {
             theArchBin = 'frankenphp-mac-x86_64';
             break;
         }
+        break;
       case 'Windows_NT':
         console.log(
           '❗ We use FrakenPHP for our development environment and it which does not support Windows.' +
