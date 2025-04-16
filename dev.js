@@ -6,6 +6,7 @@ import { spawnSync } from 'node:child_process';
 import downloader from 'nodejs-file-downloader';
 
 const mediaWikiVersion = '1.42.5';
+const frankenPhpVersion = '1.4.4';
 const caddyPort = '2019';
 const rootPath = path.dirname(process.argv[1]);
 const pathToMediaWiki = rootPath + path.sep + 'mediawiki';
@@ -65,7 +66,7 @@ await (async () => {
 
     console.log(`📦 Downloading FrankenPHP for ${osType} (${arch})`);
     await new downloader({
-      url: `https://github.com/dunglas/frankenphp/releases/latest/download/${theArchBin}`,
+      url: `https://github.com/dunglas/frankenphp/releases/download/v${frankenPhpVersion}/${theArchBin}`,
       directory: pathToMediaWiki,
       fileName: frakenphpFilename,
     }).download();
