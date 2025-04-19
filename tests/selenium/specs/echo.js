@@ -1,13 +1,13 @@
 'use strict';
 
-const Api = require('wdio-mediawiki/Api');
-const Femiwiki = require('../pageobjects/femiwiki.page');
-const EchoPage = require('../pageobjects/echo.page');
-const Util = require('wdio-mediawiki/Util');
-const assert = require('assert');
-const UserLoginPage = require('wdio-mediawiki/LoginPage');
-const UserPreferences = require('../userpreferences');
-const BlankPage = require('wdio-mediawiki/BlankPage');
+import * as Api from 'wdio-mediawiki/Api';
+import * as Femiwiki from '../pageobjects/femiwiki.page';
+import EchoPage from '../pageobjects/echo.page';
+import * as Util from 'wdio-mediawiki/Util';
+import assert from 'assert';
+import * as UserLoginPage from 'wdio-mediawiki/LoginPage';
+import * as UserPreferences from '../userpreferences';
+import * as BlankPage from 'wdio-mediawiki/BlankPage';
 describe('flyout for notifications appears when clicked @daily', () => {
   let bot;
 

@@ -1,5 +1,5 @@
 'use strict';
-const Page = require('wdio-mediawiki/Page');
+import Page from 'wdio-mediawiki/Page';
 
 class EchoPage extends Page {
   get notifications() {
@@ -9,4 +9,4 @@ class EchoPage extends Page {
     return $('.oo-ui-labelElement-label');
   }
 }
-module.exports = new EchoPage();
+export default new EchoPage();
