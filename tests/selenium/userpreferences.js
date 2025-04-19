@@ -1,7 +1,7 @@
 'use strict';
 
-const BlankPage = require('wdio-mediawiki/BlankPage');
-const Util = require('wdio-mediawiki/Util');
+import * as BlankPage from 'wdio-mediawiki/BlankPage';
+import * as Util from 'wdio-mediawiki/Util';
 
 class UserPreferences {
   async setPreferences(preferences) {
