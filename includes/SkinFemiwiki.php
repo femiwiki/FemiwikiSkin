@@ -25,6 +25,7 @@ class SkinFemiwiki extends SkinMustache {
 		$config = $this->getConfig();
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 
+		$this->options['scripts'][] = 'skins.femiwiki.discord';
 		if ( $registered ) {
 			$this->options['scripts'][] = 'skins.femiwiki.notifications';
 		}
