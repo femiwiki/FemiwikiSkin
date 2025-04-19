@@ -10,4 +10,5 @@ exports.config = {
   // Example:
   // logLevel: 'info',
   maxInstances: 4,
+  specs: ['./specs/**/*.js'],
 };
