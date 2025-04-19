@@ -49,7 +49,7 @@ jobs:
       MEDIAWIKI_VERSION: ${{ matrix.mediawiki_version }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # /home/runner/cache/                               Cache
       # /home/runner/src/                                 Mediawiki installation
