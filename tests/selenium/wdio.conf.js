@@ -10,5 +10,8 @@ const _config = {
   // Example:
   // logLevel: 'info',
   maxInstances: 4,
+  specs: [
+    './specs/**/*.js'
+  ],
 };
 export { _config as config };
