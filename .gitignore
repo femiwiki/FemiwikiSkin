@@ -2,9 +2,10 @@ tests/selenium/log
 
 # npm dependencies
 /node_modules/
-# We use yarn instead of npm
-package-lock.json
 
 # composer dependencies
 /vendor/
 composer.lock
+
+# Development
+/mediawiki*
