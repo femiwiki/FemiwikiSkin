@@ -2,6 +2,29 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.4](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.3...v5.0.4) (2025-04-19)
+
+
+### Bug Fixes
+
+* avoid fraction expression in Less ([#798](https://github.com/femiwiki/FemiwikiSkin/issues/798)) ([0cca9a8](https://github.com/femiwiki/FemiwikiSkin/commit/0cca9a8b94bda8fd75fcc39bd2adc83cd76bd432))
+* Don't depend on the icon file from MediaWiki core ([#801](https://github.com/femiwiki/FemiwikiSkin/issues/801)) ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
+* Use internal icon instead of the icon from MediaWiki core ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
+
+
+### Miscellaneous Chores
+
+* **.github:** bump docker images used in CI ([#796](https://github.com/femiwiki/FemiwikiSkin/issues/796)) ([f53b324](https://github.com/femiwiki/FemiwikiSkin/commit/f53b3241513bdaa8483b76642948702f24328cb1))
+* **.github:** set matrix for MediaWiki versions ([#795](https://github.com/femiwiki/FemiwikiSkin/issues/795)) ([99d93c5](https://github.com/femiwiki/FemiwikiSkin/commit/99d93c51f9e4446b052a05f13535b4c65d500698))
+* Bump actions/checkout from 3 to 4 ([#736](https://github.com/femiwiki/FemiwikiSkin/issues/736)) ([3753cf9](https://github.com/femiwiki/FemiwikiSkin/commit/3753cf9a10cf7f01c789c39b10de1d44ac555518))
+* **ci:** Download extensions in an updated way ([#797](https://github.com/femiwiki/FemiwikiSkin/issues/797)) ([42ea647](https://github.com/femiwiki/FemiwikiSkin/commit/42ea647843206480996c4745e41fa55eab72827b))
+* **dev.js:** cleanup ([#808](https://github.com/femiwiki/FemiwikiSkin/issues/808)) ([cd4eb90](https://github.com/femiwiki/FemiwikiSkin/commit/cd4eb90d1d5b5c55574e10653d06e584cddba42a))
+* **dev.js:** Fix the version of frankenphp ([#809](https://github.com/femiwiki/FemiwikiSkin/issues/809)) ([450068a](https://github.com/femiwiki/FemiwikiSkin/commit/450068a9bcf57595e1b622e0e4b1822dd102270a))
+* **dev.js:** Use localhost instead of 127.0.0.1 ([#807](https://github.com/femiwiki/FemiwikiSkin/issues/807)) ([d90c54f](https://github.com/femiwiki/FemiwikiSkin/commit/d90c54f907925f77066da9a035eca6fdc3528499))
+* **development:** Add `npm run dev` command ([#803](https://github.com/femiwiki/FemiwikiSkin/issues/803)) ([344a19e](https://github.com/femiwiki/FemiwikiSkin/commit/344a19e448135e05ab8dc48497077e5e3a916144))
+* remove deprecated `.background-image()` mixin call ([#800](https://github.com/femiwiki/FemiwikiSkin/issues/800)) ([f385089](https://github.com/femiwiki/FemiwikiSkin/commit/f38508959f1ddd5bd6ed0b1edf58f19133b1344e))
+* Replace Yarn with NPM ([#802](https://github.com/femiwiki/FemiwikiSkin/issues/802)) ([213f488](https://github.com/femiwiki/FemiwikiSkin/commit/213f488c8f897bb1ff40ee8bde293928c24ad23b))
+
 ## 5.0.3
 
 - Localisations update.
