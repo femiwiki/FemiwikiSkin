@@ -1,7 +1,7 @@
 'use strict';
 
-import * as BlankPage from 'wdio-mediawiki/BlankPage';
-import * as Util from 'wdio-mediawiki/Util';
+import * as BlankPage from 'wdio-mediawiki/BlankPage.js';
+import * as Util from 'wdio-mediawiki/Util.js';
 
 class UserPreferences {
   async setPreferences(preferences) {
