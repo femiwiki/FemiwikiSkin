@@ -84,6 +84,10 @@
         "skin-femiwiki-share-twitter"
       ],
       "targets": ["desktop", "mobile"]
+    },
+    "skins.femiwiki.discord": {
+      "targets": ["desktop", "mobile"],
+      "packageFiles": ["skins.femiwiki.discord/init.js"]
     }
   },
   "ResourceModuleSkinStyles": {
