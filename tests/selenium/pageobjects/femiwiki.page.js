@@ -1,5 +1,5 @@
 'use strict';
-import Page from 'wdio-mediawiki/Page';
+import Page from 'wdio-mediawiki/Page.js';
 
 class FemiwikiPage extends Page {
   get gnbMenu() {
