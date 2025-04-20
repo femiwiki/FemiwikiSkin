@@ -134,7 +134,7 @@ class SkinFemiwiki extends SkinMustache {
 		}
 		// Use page language for the first heading.
 		$title = $this->getOutput()->getTitle();
-		$pageLang = $title->getPageViewLanguage();
+		$pageLang = $this->getOutput()->getLanguage();
 		$pageLangCode = $pageLang->getHtmlCode();
 		$pageLangDir = $pageLang->getDir();
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();
