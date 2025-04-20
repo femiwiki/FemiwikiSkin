@@ -125,7 +125,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /home/runner/src
-          key: ${{ runner.os }}-${{ matrix.mediawiki_version }}-${{ hashFiles('.github/workflows/dependencies') }}
+          key: ${{ runner.os }}-${{ matrix.mediawiki_version }}-${{ hashFiles('.github/workflows/dependencies') }}-1
       - name: Download MediaWiki and extensions
         run: |
           cd /home/runner
