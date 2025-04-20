@@ -167,12 +167,12 @@ jobs:
         run: |
           cd /home/runner
           # Move our repository
-          mkdir -p cache cover src/skins src/extensions
+          mkdir -p cache cover log src/skins src/extensions
           sudo cp -r "${GITHUB_WORKSPACE}" "src/${{ env.TYPE }}s/${{ env.EXTENSION_NAME }}"
-          chmod 777 src cache cover
+          chmod 777 src cache cover log
           # https://github.com/femiwiki/.github/issues/3
-          sudo chown -R nobody:nogroup src cache
-          sudo chown $(id -u):$(id -g) src cache
+          sudo chown -R nobody:nogroup src cache log
+          sudo chown $(id -u):$(id -g) src cache log
           # Composer install
           if [ "${{ matrix.stage }}" == 'phan' ] || [ "${{ matrix.stage }}" == 'coverage' ]; then
             docker run \
@@ -192,6 +192,7 @@ jobs:
             docker run \
               -e "THING_SUBNAME=${{ env.TYPE }}s/${{ env.EXTENSION_NAME }}" \
               -v "$(pwd)"/src:/mediawiki \
+              -v "$(pwd)"/log:/workspace/log \
               "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
               --color
           elif [ "${{ matrix.stage }}" == 'coverage' ]; then
@@ -209,6 +210,7 @@ jobs:
                   -v "$(pwd)"/cache:/cache \
                   -v "$(pwd)"/src:/workspace/src \
                   -v "$(pwd)"/cover:/workspace/cover \
+                  -v "$(pwd)"/log:/workspace/log \
                   "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
                   --skip-zuul \
                   --skip-deps \
@@ -221,12 +223,25 @@ jobs:
               -e "ZUUL_PROJECT=mediawiki/${{ env.TYPE }}s/${{ env.EXTENSION_NAME }}" \
               -v "$(pwd)"/cache:/cache \
               -v "$(pwd)"/src:/workspace/src \
+              -v "$(pwd)"/log:/workspace/log \
               "${DOCKER_REGISTRY}/${DOCKER_ORG}/${DOCKER_IMAGE}:${DOCKER_LATEST_TAG}" \
               --skip-zuul \
               --packages-source composer \
               --run "${{ matrix.stage }}" \
               $DEPENDENCIES
             fi
+
+      - name: Undo chawn of log
+        if: ${{ failure() }}
+        run: |
+          sudo chown -R $(id -u):$(id -g) /home/runner/log/
+
+      - name: Upload log
+        uses: actions/upload-artifact@v4
+        if: ${{ failure() }}
+        with:
+          name: log
+          path: /home/runner/log/
 
       - name: Upload coverage to Codecov
         if: ${{ matrix.stage == 'coverage' }}
