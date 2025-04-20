@@ -147,7 +147,7 @@ jobs:
         if: ${{ matrix.stage == 'phan' }}
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: '8.1'
       - name: Composer install
         if: ${{ matrix.stage == 'phan' }}
         run: |
@@ -155,7 +155,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '20'
           cache: 'npm'
 
       - name: Run npm install
