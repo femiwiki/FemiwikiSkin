@@ -158,11 +158,10 @@ jobs:
           node-version: '16'
           cache: 'npm'
 
-      - name: Run npm because Quibble is not compatible with yarn.
-        run: |
-          if [ -f yarn.lock ]; then
-            npm install
-          fi
+      - name: Run npm install
+        # We have a JS dependency some PHPUnit tests depend on. This is uncommon in the MediaWiki
+        # skin ecosystem, so manual installation required.
+        run: npm install
 
       - name: Main Test
         run: |
