@@ -2,6 +2,13 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.5](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.4...v5.0.5) (2025-04-23)
+
+
+### Miscellaneous Chores
+
+* **test/ci:** bump runner to ubuntu 24.40 ([d3a0beb](https://github.com/femiwiki/FemiwikiSkin/commit/d3a0beb2e2e9402a301bc135c3f7d9c701e31df6))
+
 ## [5.0.4](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.3...v5.0.4) (2025-04-23)
 
 
