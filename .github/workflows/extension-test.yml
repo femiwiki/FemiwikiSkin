@@ -30,7 +30,6 @@ jobs:
         mediawiki_version:
           - master
           - REL1_43
-          - REL1_42
         stage:
           - phan
           # - coverage # We really need this coverage for a skin?
