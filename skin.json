@@ -4,7 +4,7 @@
   "namemsg": "skinname-femiwiki",
   "type": "skin",
   "author": "[https://femiwiki.com/ Femiwiki Team]",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "url": "https://github.com/femiwiki/FemiwikiSkin",
   "descriptionmsg": "femiwiki-desc",
   "license-name": "AGPL-3.0-or-later",
@@ -24,7 +24,10 @@
         "normalize": true,
         "logo": true
       },
-      "targets": ["desktop", "mobile"],
+      "targets": [
+        "desktop",
+        "mobile"
+      ],
       "styles": [
         "skins.femiwiki/elements.less",
         "skins.femiwiki/contents.less",
@@ -39,7 +42,10 @@
         "content-body": false,
         "toc": false
       },
-      "targets": ["desktop", "mobile"],
+      "targets": [
+        "desktop",
+        "mobile"
+      ],
       "localBasePath": "node_modules/xeicon",
       "remoteSkinPath": "Femiwiki/node_modules/xeicon",
       "styles": {
@@ -49,12 +55,24 @@
       }
     },
     "skins.femiwiki.smallElements": {
-      "styles": ["skins.femiwiki.smallElements/styles.less"],
-      "targets": ["desktop", "mobile"]
+      "styles": [
+        "skins.femiwiki.smallElements/styles.less"
+      ],
+      "targets": [
+        "desktop",
+        "mobile"
+      ]
     },
     "skins.femiwiki.js": {
-      "dependencies": ["oojs", "oojs-ui-core", "mediawiki.page.ready"],
-      "targets": ["desktop", "mobile"],
+      "dependencies": [
+        "oojs",
+        "oojs-ui-core",
+        "mediawiki.page.ready"
+      ],
+      "targets": [
+        "desktop",
+        "mobile"
+      ],
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
@@ -64,26 +82,53 @@
       ]
     },
     "skins.femiwiki.notifications": {
-      "targets": ["desktop", "mobile"],
-      "packageFiles": ["skins.femiwiki.notifications/init.js"]
+      "targets": [
+        "desktop",
+        "mobile"
+      ],
+      "packageFiles": [
+        "skins.femiwiki.notifications/init.js"
+      ]
     },
     "skins.femiwiki.dm": {
-      "scripts": ["mw.fw.js"],
-      "targets": ["desktop", "mobile"]
+      "scripts": [
+        "mw.fw.js"
+      ],
+      "targets": [
+        "desktop",
+        "mobile"
+      ]
     },
     "skins.femiwiki.share": {
-      "dependencies": ["oojs", "oojs-ui-windows"],
-      "targets": ["desktop", "mobile"],
-      "packageFiles": ["skins.femiwiki.share/init.js"]
+      "dependencies": [
+        "oojs",
+        "oojs-ui-windows"
+      ],
+      "targets": [
+        "desktop",
+        "mobile"
+      ],
+      "packageFiles": [
+        "skins.femiwiki.share/init.js"
+      ]
     },
     "skins.femiwiki.share.ui": {
-      "scripts": ["skins.femiwiki.share.ui/mw.fw.ShareDialog.js"],
-      "dependencies": ["skins.femiwiki.dm", "oojs", "oojs-ui-windows"],
+      "scripts": [
+        "skins.femiwiki.share.ui/mw.fw.ShareDialog.js"
+      ],
+      "dependencies": [
+        "skins.femiwiki.dm",
+        "oojs",
+        "oojs-ui-windows"
+      ],
       "messages": [
         "skin-femiwiki-share-dismiss",
         "skin-femiwiki-share-twitter"
       ],
-      "targets": ["desktop", "mobile"]
+      "targets": [
+        "desktop",
+        "mobile"
+      ]
     }
   },
   "ResourceModuleSkinStyles": {
@@ -143,7 +188,9 @@
     "FemiwikiUseLargerElements": 1
   },
   "MessagesDirs": {
-    "Femiwiki": ["i18n"]
+    "Femiwiki": [
+      "i18n"
+    ]
   },
   "AutoloadNamespaces": {
     "MediaWiki\\Skins\\Femiwiki\\": "includes/"
@@ -162,7 +209,9 @@
   "HookHandlers": {
     "default": {
       "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\DefaultHooks",
-      "services": ["ConfigFactory"]
+      "services": [
+        "ConfigFactory"
+      ]
     },
     "Portlet": {
       "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Portlet"
@@ -198,7 +247,9 @@
             "randompage",
             "skin-femiwiki-page-menu-tooltip"
           ],
-          "scripts": ["skins.femiwiki.js"]
+          "scripts": [
+            "skins.femiwiki.js"
+          ]
         }
       ]
     }
@@ -243,7 +294,9 @@
   },
   "attributes": {
     "MobileFrontend": {
-      "EditorAvailableSkins": ["femiwiki"]
+      "EditorAvailableSkins": [
+        "femiwiki"
+      ]
     }
   }
 }
