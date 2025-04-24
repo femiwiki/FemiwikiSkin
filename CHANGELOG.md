@@ -4,43 +4,40 @@ Versions and bullets are arranged chronologically from latest to oldest.
 
 ## [5.0.5](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.4...v5.0.5) (2025-04-23)
 
-
 ### Miscellaneous Chores
 
-* **test/ci:** bump runner to ubuntu 24.40 ([d3a0beb](https://github.com/femiwiki/FemiwikiSkin/commit/d3a0beb2e2e9402a301bc135c3f7d9c701e31df6))
+- **test/ci:** bump runner to ubuntu 24.40 ([d3a0beb](https://github.com/femiwiki/FemiwikiSkin/commit/d3a0beb2e2e9402a301bc135c3f7d9c701e31df6))
 
 ## [5.0.4](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.3...v5.0.4) (2025-04-23)
 
-
 ### Bug Fixes
 
-* avoid fraction expression in Less ([#798](https://github.com/femiwiki/FemiwikiSkin/issues/798)) ([0cca9a8](https://github.com/femiwiki/FemiwikiSkin/commit/0cca9a8b94bda8fd75fcc39bd2adc83cd76bd432))
-* Don't depend on the icon file from MediaWiki core ([#801](https://github.com/femiwiki/FemiwikiSkin/issues/801)) ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
-* Use internal icon instead of the icon from MediaWiki core ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
-
+- avoid fraction expression in Less ([#798](https://github.com/femiwiki/FemiwikiSkin/issues/798)) ([0cca9a8](https://github.com/femiwiki/FemiwikiSkin/commit/0cca9a8b94bda8fd75fcc39bd2adc83cd76bd432))
+- Don't depend on the icon file from MediaWiki core ([#801](https://github.com/femiwiki/FemiwikiSkin/issues/801)) ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
+- Use internal icon instead of the icon from MediaWiki core ([7c6674c](https://github.com/femiwiki/FemiwikiSkin/commit/7c6674c8729f3b67a119e512b0219dc8eaa0d94d))
 
 ### Miscellaneous Chores
 
-* **.github:** bump docker images used in CI ([#796](https://github.com/femiwiki/FemiwikiSkin/issues/796)) ([f53b324](https://github.com/femiwiki/FemiwikiSkin/commit/f53b3241513bdaa8483b76642948702f24328cb1))
-* **.github:** set matrix for MediaWiki versions ([#795](https://github.com/femiwiki/FemiwikiSkin/issues/795)) ([99d93c5](https://github.com/femiwiki/FemiwikiSkin/commit/99d93c51f9e4446b052a05f13535b4c65d500698))
-* Bump actions/checkout from 3 to 4 ([#736](https://github.com/femiwiki/FemiwikiSkin/issues/736)) ([3753cf9](https://github.com/femiwiki/FemiwikiSkin/commit/3753cf9a10cf7f01c789c39b10de1d44ac555518))
-* bump ooui theme for MediaWiki 1.43 ([#824](https://github.com/femiwiki/FemiwikiSkin/issues/824)) ([99101b4](https://github.com/femiwiki/FemiwikiSkin/commit/99101b4a7bc5216cc2575596902c58c116e48bc6))
-* **ci:** Download extensions in an updated way ([#797](https://github.com/femiwiki/FemiwikiSkin/issues/797)) ([42ea647](https://github.com/femiwiki/FemiwikiSkin/commit/42ea647843206480996c4745e41fa55eab72827b))
-* **dev.js:** cleanup ([#808](https://github.com/femiwiki/FemiwikiSkin/issues/808)) ([cd4eb90](https://github.com/femiwiki/FemiwikiSkin/commit/cd4eb90d1d5b5c55574e10653d06e584cddba42a))
-* **dev.js:** Fix the version of frankenphp ([#809](https://github.com/femiwiki/FemiwikiSkin/issues/809)) ([450068a](https://github.com/femiwiki/FemiwikiSkin/commit/450068a9bcf57595e1b622e0e4b1822dd102270a))
-* **dev.js:** Use localhost instead of 127.0.0.1 ([#807](https://github.com/femiwiki/FemiwikiSkin/issues/807)) ([d90c54f](https://github.com/femiwiki/FemiwikiSkin/commit/d90c54f907925f77066da9a035eca6fdc3528499))
-* **development:** Add `npm run dev` command ([#803](https://github.com/femiwiki/FemiwikiSkin/issues/803)) ([344a19e](https://github.com/femiwiki/FemiwikiSkin/commit/344a19e448135e05ab8dc48497077e5e3a916144))
-* ignore skin.json for prettier ([#826](https://github.com/femiwiki/FemiwikiSkin/issues/826)) ([70930e0](https://github.com/femiwiki/FemiwikiSkin/commit/70930e059c9cbb6803004a898073ac5c7f74cd8c))
-* **package:** add name field ([#810](https://github.com/femiwiki/FemiwikiSkin/issues/810)) ([3f09ef2](https://github.com/femiwiki/FemiwikiSkin/commit/3f09ef222a4bc20ac5b30b1ec484efcca388afea))
-* remove deprecated `.background-image()` mixin call ([#800](https://github.com/femiwiki/FemiwikiSkin/issues/800)) ([f385089](https://github.com/femiwiki/FemiwikiSkin/commit/f38508959f1ddd5bd6ed0b1edf58f19133b1344e))
-* replace deprecated title::getPageViewLanguage ([#819](https://github.com/femiwiki/FemiwikiSkin/issues/819)) ([1e88313](https://github.com/femiwiki/FemiwikiSkin/commit/1e8831319437208af90be8151c9e885e2a18ca27))
-* Replace Yarn with NPM ([#802](https://github.com/femiwiki/FemiwikiSkin/issues/802)) ([213f488](https://github.com/femiwiki/FemiwikiSkin/commit/213f488c8f897bb1ff40ee8bde293928c24ad23b))
-* **test:** bump php and node versions in setup actions ([#821](https://github.com/femiwiki/FemiwikiSkin/issues/821)) ([ead7ae6](https://github.com/femiwiki/FemiwikiSkin/commit/ead7ae6a4a682c7435f6cf4ddb919cd76a49b789))
-* **tests/phpunit:** install npm always ([#818](https://github.com/femiwiki/FemiwikiSkin/issues/818)) ([1d25069](https://github.com/femiwiki/FemiwikiSkin/commit/1d25069c328373f442bf0d917c4fcfb4fdf08633))
-* **tests/selenium:** declare as commonjs ([#812](https://github.com/femiwiki/FemiwikiSkin/issues/812)) ([ca329a2](https://github.com/femiwiki/FemiwikiSkin/commit/ca329a2e5dd71794db41661c899cb5e7b896b66c))
-* **test:** test MediaWiki 1.43 ([#825](https://github.com/femiwiki/FemiwikiSkin/issues/825)) ([3aaad9d](https://github.com/femiwiki/FemiwikiSkin/commit/3aaad9de207cb34eb1b87801ba32aa9221c68a8e))
-* **test:** upload log when quibble fails ([#820](https://github.com/femiwiki/FemiwikiSkin/issues/820)) ([07249c1](https://github.com/femiwiki/FemiwikiSkin/commit/07249c14a17d4b1a71d3bb39fd41a7aec4c16b8b))
-* Update mediawiki/minus-x requirement from 1.1.1 to 1.1.3 ([#753](https://github.com/femiwiki/FemiwikiSkin/issues/753)) ([1130565](https://github.com/femiwiki/FemiwikiSkin/commit/1130565b0ff738cbc55bea7093f5c2606e14e22f))
+- **.github:** bump docker images used in CI ([#796](https://github.com/femiwiki/FemiwikiSkin/issues/796)) ([f53b324](https://github.com/femiwiki/FemiwikiSkin/commit/f53b3241513bdaa8483b76642948702f24328cb1))
+- **.github:** set matrix for MediaWiki versions ([#795](https://github.com/femiwiki/FemiwikiSkin/issues/795)) ([99d93c5](https://github.com/femiwiki/FemiwikiSkin/commit/99d93c51f9e4446b052a05f13535b4c65d500698))
+- Bump actions/checkout from 3 to 4 ([#736](https://github.com/femiwiki/FemiwikiSkin/issues/736)) ([3753cf9](https://github.com/femiwiki/FemiwikiSkin/commit/3753cf9a10cf7f01c789c39b10de1d44ac555518))
+- bump ooui theme for MediaWiki 1.43 ([#824](https://github.com/femiwiki/FemiwikiSkin/issues/824)) ([99101b4](https://github.com/femiwiki/FemiwikiSkin/commit/99101b4a7bc5216cc2575596902c58c116e48bc6))
+- **ci:** Download extensions in an updated way ([#797](https://github.com/femiwiki/FemiwikiSkin/issues/797)) ([42ea647](https://github.com/femiwiki/FemiwikiSkin/commit/42ea647843206480996c4745e41fa55eab72827b))
+- **dev.js:** cleanup ([#808](https://github.com/femiwiki/FemiwikiSkin/issues/808)) ([cd4eb90](https://github.com/femiwiki/FemiwikiSkin/commit/cd4eb90d1d5b5c55574e10653d06e584cddba42a))
+- **dev.js:** Fix the version of frankenphp ([#809](https://github.com/femiwiki/FemiwikiSkin/issues/809)) ([450068a](https://github.com/femiwiki/FemiwikiSkin/commit/450068a9bcf57595e1b622e0e4b1822dd102270a))
+- **dev.js:** Use localhost instead of 127.0.0.1 ([#807](https://github.com/femiwiki/FemiwikiSkin/issues/807)) ([d90c54f](https://github.com/femiwiki/FemiwikiSkin/commit/d90c54f907925f77066da9a035eca6fdc3528499))
+- **development:** Add `npm run dev` command ([#803](https://github.com/femiwiki/FemiwikiSkin/issues/803)) ([344a19e](https://github.com/femiwiki/FemiwikiSkin/commit/344a19e448135e05ab8dc48497077e5e3a916144))
+- ignore skin.json for prettier ([#826](https://github.com/femiwiki/FemiwikiSkin/issues/826)) ([70930e0](https://github.com/femiwiki/FemiwikiSkin/commit/70930e059c9cbb6803004a898073ac5c7f74cd8c))
+- **package:** add name field ([#810](https://github.com/femiwiki/FemiwikiSkin/issues/810)) ([3f09ef2](https://github.com/femiwiki/FemiwikiSkin/commit/3f09ef222a4bc20ac5b30b1ec484efcca388afea))
+- remove deprecated `.background-image()` mixin call ([#800](https://github.com/femiwiki/FemiwikiSkin/issues/800)) ([f385089](https://github.com/femiwiki/FemiwikiSkin/commit/f38508959f1ddd5bd6ed0b1edf58f19133b1344e))
+- replace deprecated title::getPageViewLanguage ([#819](https://github.com/femiwiki/FemiwikiSkin/issues/819)) ([1e88313](https://github.com/femiwiki/FemiwikiSkin/commit/1e8831319437208af90be8151c9e885e2a18ca27))
+- Replace Yarn with NPM ([#802](https://github.com/femiwiki/FemiwikiSkin/issues/802)) ([213f488](https://github.com/femiwiki/FemiwikiSkin/commit/213f488c8f897bb1ff40ee8bde293928c24ad23b))
+- **test:** bump php and node versions in setup actions ([#821](https://github.com/femiwiki/FemiwikiSkin/issues/821)) ([ead7ae6](https://github.com/femiwiki/FemiwikiSkin/commit/ead7ae6a4a682c7435f6cf4ddb919cd76a49b789))
+- **tests/phpunit:** install npm always ([#818](https://github.com/femiwiki/FemiwikiSkin/issues/818)) ([1d25069](https://github.com/femiwiki/FemiwikiSkin/commit/1d25069c328373f442bf0d917c4fcfb4fdf08633))
+- **tests/selenium:** declare as commonjs ([#812](https://github.com/femiwiki/FemiwikiSkin/issues/812)) ([ca329a2](https://github.com/femiwiki/FemiwikiSkin/commit/ca329a2e5dd71794db41661c899cb5e7b896b66c))
+- **test:** test MediaWiki 1.43 ([#825](https://github.com/femiwiki/FemiwikiSkin/issues/825)) ([3aaad9d](https://github.com/femiwiki/FemiwikiSkin/commit/3aaad9de207cb34eb1b87801ba32aa9221c68a8e))
+- **test:** upload log when quibble fails ([#820](https://github.com/femiwiki/FemiwikiSkin/issues/820)) ([07249c1](https://github.com/femiwiki/FemiwikiSkin/commit/07249c14a17d4b1a71d3bb39fd41a7aec4c16b8b))
+- Update mediawiki/minus-x requirement from 1.1.1 to 1.1.3 ([#753](https://github.com/femiwiki/FemiwikiSkin/issues/753)) ([1130565](https://github.com/femiwiki/FemiwikiSkin/commit/1130565b0ff738cbc55bea7093f5c2606e14e22f))
 
 ## 5.0.3
 
