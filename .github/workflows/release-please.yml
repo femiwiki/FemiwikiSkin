@@ -27,7 +27,6 @@ jobs:
     outputs:
       tag_name: ${{ steps.release-please-action.outputs.tag_name }}
       upload_url: ${{ steps.release-please-action.outputs.tag_name }}
-      github_token: ${{ steps.get_workflow_token.outputs.token }}
 
   upload-assets:
     runs-on: ubuntu-latest
@@ -53,11 +52,17 @@ jobs:
           tar --exclude-vcs -C .. -zcvf "../${{ needs.release-please.outputs.tag_name }}.tar.gz" "$(basename "$(pwd)")"
           mv ../${{ needs.release-please.outputs.tag_name }}.tar.gz ./
 
+      - uses: peter-murray/workflow-application-token-action@v4
+        id: get_workflow_token
+        with:
+          application_id: ${{ vars.PAT_APPLICATION_ID }}
+          application_private_key: ${{ secrets.PAT_APPLICATION_PRIVATE_KEY }}
+
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ needs.release-please.outputs.github_token }}
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         with:
           upload_url: ${{ needs.release-please.outputs.upload_url }}
           asset_path: ./${{ needs.release-please.outputs.tag_name }}.tar.gz
@@ -75,7 +80,7 @@ jobs:
             --fail \
             --request POST \
             --url https://api.github.com/repos/femiwiki/docker-mediawiki/dispatches \
-            --header "Authorization: token ${{ needs.release-please.outputs.github_token }}" \
+            --header "Authorization: token ${{ steps.get_workflow_token.outputs.token }}" \
             --header 'content-type: application/json' \
             --data "{
               \"event_type\": \"bump-extension\",
