@@ -2,6 +2,22 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.6](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.5...v5.0.6) (2025-04-27)
+
+
+### Bug Fixes
+
+* Helplink ([#837](https://github.com/femiwiki/FemiwikiSkin/issues/837)) ([c667be2](https://github.com/femiwiki/FemiwikiSkin/commit/c667be277fcea7b4c00ce3358fb4411e4d4c1f15))
+* remove styles of radio and checkbox ([#840](https://github.com/femiwiki/FemiwikiSkin/issues/840)) ([b580dfc](https://github.com/femiwiki/FemiwikiSkin/commit/b580dfcaee97abea893c5b439b7c34b1f8af5f3b))
+* Use array_splice() insteaf of unsetting ([#834](https://github.com/femiwiki/FemiwikiSkin/issues/834)) ([9098e3c](https://github.com/femiwiki/FemiwikiSkin/commit/9098e3cf33324b6c312f0300f603e3a2b5e9f91a))
+
+
+### Miscellaneous Chores
+
+* **actions:** merge release-and-submit into release-please ([#828](https://github.com/femiwiki/FemiwikiSkin/issues/828)) ([b3a70ab](https://github.com/femiwiki/FemiwikiSkin/commit/b3a70abe3c1b28575f49e6e359ec0fcdcba9347b))
+* **dev.js:** bump MediaWiki to 1.43.1 ([#835](https://github.com/femiwiki/FemiwikiSkin/issues/835)) ([611f808](https://github.com/femiwiki/FemiwikiSkin/commit/611f808385a08b6758eae52cdccb6d9a069d2314))
+* **test:** drop MW 1.42 test ([#829](https://github.com/femiwiki/FemiwikiSkin/issues/829)) ([5fd1e29](https://github.com/femiwiki/FemiwikiSkin/commit/5fd1e29cb8751c67304c798fa5ff5b75fbde838a))
+
 ## [5.0.5](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.4...v5.0.5) (2025-04-23)
 
 ### Miscellaneous Chores
