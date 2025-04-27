@@ -2,6 +2,13 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.8](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.7...v5.0.8) (2025-04-27)
+
+
+### Miscellaneous Chores
+
+* **actions:** fix upload_url ([#844](https://github.com/femiwiki/FemiwikiSkin/issues/844)) ([a2d64ee](https://github.com/femiwiki/FemiwikiSkin/commit/a2d64ee5368b507cac54e0bb546d0d7397b5e874))
+
 ## [5.0.7](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.6...v5.0.7) (2025-04-27)
 
 
