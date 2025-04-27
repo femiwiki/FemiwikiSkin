@@ -2,6 +2,13 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.7](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.6...v5.0.7) (2025-04-27)
+
+
+### Miscellaneous Chores
+
+* **actions:** token cannot be passed as output ([#842](https://github.com/femiwiki/FemiwikiSkin/issues/842)) ([9d1df96](https://github.com/femiwiki/FemiwikiSkin/commit/9d1df966ea9b121fc21d26d2708796f8613df1b1))
+
 ## [5.0.6](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.5...v5.0.6) (2025-04-27)
 
 
