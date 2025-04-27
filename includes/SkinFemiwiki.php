@@ -90,7 +90,7 @@ class SkinFemiwiki extends SkinMustache {
 		}, $sidebar );
 		$toolboxId = array_search( 'p-tb', $ids );
 		$toolbox = $sidebar[$toolboxId] ?? null;
-		unset( $sidebar[$toolboxId] );
+		array_splice( $sidebar, $toolboxId, $toolboxId );
 
 		return [ $sidebar, $toolbox ];
 	}
