@@ -2,6 +2,14 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.9](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.8...v5.0.9) (2025-04-27)
+
+
+### Bug Fixes
+
+* remove more input styles ([#851](https://github.com/femiwiki/FemiwikiSkin/issues/851)) ([f91b4d4](https://github.com/femiwiki/FemiwikiSkin/commit/f91b4d4ef3bbdd4e01bbd475a0260af8c54f2de8))
+* Use 1 as the length param of array_splice ([#846](https://github.com/femiwiki/FemiwikiSkin/issues/846)) ([0de6149](https://github.com/femiwiki/FemiwikiSkin/commit/0de61497616cac885ed40ad0770c1a1823321705))
+
 ## [5.0.8](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.7...v5.0.8) (2025-04-27)
 
 
