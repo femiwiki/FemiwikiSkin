@@ -1,4 +1,5 @@
 {
+  "name": "femiwiki",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,7 +16,7 @@
     "dev-debug": "node dev.js && cd mediawiki && ./frankenphp php-server --listen=:2019 --debug"
   },
   "dependencies": {
-    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_42",
+    "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_43",
     "xeicon": "https://github.com/xpressengine/XEIcon.git#2.3.3"
   },
   "devDependencies": {

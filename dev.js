@@ -5,7 +5,7 @@ import unzipper from 'unzipper';
 import { spawnSync } from 'node:child_process';
 import downloader from 'nodejs-file-downloader';
 
-const mediaWikiVersion = '1.42.5';
+const mediaWikiVersion = '1.43.1';
 const frankenPhpVersion = '1.4.4';
 const caddyPort = '2019';
 const rootPath = path.dirname(process.argv[1]);

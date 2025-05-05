@@ -90,7 +90,7 @@ class SkinFemiwiki extends SkinMustache {
 		}, $sidebar );
 		$toolboxId = array_search( 'p-tb', $ids );
 		$toolbox = $sidebar[$toolboxId] ?? null;
-		unset( $sidebar[$toolboxId] );
+		array_splice( $sidebar, $toolboxId, 1 );
 
 		return [ $sidebar, $toolbox ];
 	}
@@ -134,7 +134,7 @@ class SkinFemiwiki extends SkinMustache {
 		}
 		// Use page language for the first heading.
 		$title = $this->getOutput()->getTitle();
-		$pageLang = $title->getPageViewLanguage();
+		$pageLang = $this->getOutput()->getLanguage();
 		$pageLangCode = $pageLang->getHtmlCode();
 		$pageLangDir = $pageLang->getDir();
 		$contLang = MediaWikiServices::getInstance()->getContentLanguage();

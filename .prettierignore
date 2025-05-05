@@ -9,6 +9,11 @@
 /resources/ooui/
 /resources/skins.femiwiki.moduleSkinStyles/ext.pygments.css
 
+# Maneged by bots
+CHANGELOG.md
+skin.json
+extension.json
+
 *.svg
 
 # External files
