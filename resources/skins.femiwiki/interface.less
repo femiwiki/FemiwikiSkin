@@ -1,5 +1,13 @@
 @import '../variables.less';
 
+.background-icon(@icon) {
+  background-image: /* @embed */ url('@{icon}');
+}
+
+.background-ooui-icon(@icon) {
+  .background-icon('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
+}
+
 // General
 .fw-portals {
   margin: 0.6rem auto 0;
@@ -239,14 +247,6 @@
           }
         }
 
-        .background-icon(@icon) {
-          background-image: /* @embed */ url('@{icon}');
-        }
-
-        .background-ooui-icon(@icon) {
-          .background-icon('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
-        }
-
         // fallback
         & a:before {
           // url(/skins/Femiwiki/resources/ooui/images/icons/article.svg)
@@ -390,6 +390,7 @@
     font-size: 0.75rem;
     overflow: hidden;
     clear: both;
+    padding: 0.3em 0;
 
     #lastmod {
       .mw-link();
@@ -408,12 +409,55 @@
         margin: 0;
 
         li {
-          float: left;
           margin: 0;
-          display: block;
+          display: inline-block;
 
           &.selected a {
             font-weight: bold;
+          }
+
+          :not(.ve-activated) .action-view &#ca-ve-edit,
+          :not(.ve-activated) .action-view &#ca-edit:nth-child(2) {
+            background-color: #c3bffd;
+            font-size: 1rem;
+            padding: 0.3em 0.5em;
+            border: 1px solid #a0a0ff;
+            border-radius: 0.3em;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s;
+
+            &:hover {
+              border-color: #6b6bff;
+              background-color: #a0a0ff;
+            }
+
+            a {
+              color: #ffffff;
+              display: flex;
+              align-items: center;
+
+              &:hover {
+                color: #ffffff;
+                border: none;
+              }
+
+              &:focus {
+                border: none;
+              }
+
+              &:before {
+                content: '';
+                .background-ooui-icon('edit');
+                background-size: 1em;
+                filter: invert(1);
+                padding-right: 0.3em;
+                background-repeat: no-repeat;
+                vertical-align: middle;
+                height: 1em;
+                width: 1em;
+              }
+            }
           }
 
           &#ca-view.selected,
