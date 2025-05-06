@@ -2,6 +2,19 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.10...v5.1.0) (2025-05-06)
+
+
+### Features
+
+* Emphasize the edit button ([#782](https://github.com/femiwiki/FemiwikiSkin/issues/782)) ([4798268](https://github.com/femiwiki/FemiwikiSkin/commit/479826847f712d7f6077ac0fc9991761856e2770))
+
+
+### Miscellaneous Chores
+
+* Bump codecov/codecov-action from 3 to 5 ([#859](https://github.com/femiwiki/FemiwikiSkin/issues/859)) ([d8a0f04](https://github.com/femiwiki/FemiwikiSkin/commit/d8a0f04f37c257e62c0787759c9ebdbfce2dfade))
+* **test/selenium:** disable the test ([#864](https://github.com/femiwiki/FemiwikiSkin/issues/864)) ([0003a50](https://github.com/femiwiki/FemiwikiSkin/commit/0003a505ce663ed53eee2ccb59e9d1d74f9778e0))
+
 ## [5.0.10](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.9...v5.0.10) (2025-05-06)
 
 
