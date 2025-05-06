@@ -2,6 +2,18 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.0.10](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.9...v5.0.10) (2025-05-06)
+
+
+### Bug Fixes
+
+* Restore the padding in editsection ([#860](https://github.com/femiwiki/FemiwikiSkin/issues/860)) ([30a2e6f](https://github.com/femiwiki/FemiwikiSkin/commit/30a2e6ff0ce0402ce7cb2a62f9e01916887da657))
+
+
+### Miscellaneous Chores
+
+* Define editsection spacing in a direction aware way ([#862](https://github.com/femiwiki/FemiwikiSkin/issues/862)) ([f66de46](https://github.com/femiwiki/FemiwikiSkin/commit/f66de46bdda2aa4168d9cc17ec43bb53b407ee56))
+
 ## [5.0.9](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.8...v5.0.9) (2025-04-27)
 
 
