@@ -83,15 +83,11 @@ class Portlet implements
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 		$linkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-fw-nojs" ];
 
-		$hasUnseen = $count > 0 &&
-			(
-				$seenMsgTime !== false && $msgNotificationTimestamp !== false &&
-				$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 )
-			) ||
-			(
-				$seenAlertTime !== false && $alertNotificationTimestamp !== false &&
-				$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 )
-			);
+		$unseenMsg = $seenMsgTime !== false && $msgNotificationTimestamp !== false &&
+			$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 );
+		$unseenAlert = $seenAlertTime !== false && $alertNotificationTimestamp !== false &&
+			$seenAlertTime < $alertNotificationTimestamp->getTimestamp( TS_ISO_8601 );
+		$hasUnseen = $count > 0 && ( $unseenMsg || $unseenAlert );
 
 		if ( $hasUnseen ) {
 			$linkClasses[] = 'mw-echo-unseen-notifications';
