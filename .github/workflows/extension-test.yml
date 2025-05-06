@@ -38,7 +38,7 @@ jobs:
           - phpunit-standalone
           - npm-test
           - composer-test
-          - selenium
+          # - selenium # https://github.com/femiwiki/FemiwikiSkin/issues/823
           # - qunit
           # - api-testing
 
