@@ -49,7 +49,7 @@ class SkinFemiwiki extends SkinMustache {
 		$title = $out->getTitle();
 		$config = $this->getConfig();
 		$parentData = parent::getTemplateData();
-		list( $sidebar, $toolbox ) = $this->getSidebar( $parentData['data-portlets-sidebar'] );
+		[ $sidebar, $toolbox ] = $this->getSidebar( $parentData['data-portlets-sidebar'] );
 
 		$commonSkinData = array_merge_recursive( $parentData, [
 			'data-sidebar' => $sidebar,
