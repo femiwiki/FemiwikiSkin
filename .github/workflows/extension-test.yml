@@ -43,6 +43,36 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
+      - id: deps
+        run: |
+          echo "exc=" >> $GITHUB_OUTPUT
+          if [ ${{ matrix.mediawiki-version }} == 'master' ]; then
+            case ${{ matrix.stage }} in
+              "phpunit-unit")
+                echo "exc=GrowthExperiments" >> $GITHUB_OUTPUT
+                ;;
+              "phpunit")
+                echo "exc=CheckUser GrowthExperiments IPInfo" >> $GITHUB_OUTPUT
+                ;;
+              "selenium")
+                # maybe IPInfo?
+                echo "exc=CheckUser GrowthExperiments IPInfo" >> $GITHUB_OUTPUT
+                ;;
+            esac
+          elif [ ${{ matrix.mediawiki-version }} == 'REL1_43' ]; then
+            case ${{ matrix.stage }} in
+              "phpunit-unit")
+              echo "exc=CheckUser GrowthExperiments" >> $GITHUB_OUTPUT
+              ;;
+              "phpunit")
+              echo "exc=GrowthExperiments" >> $GITHUB_OUTPUT
+              ;;
+              "selenium")
+              echo "exc=CheckUser GrowthExperiments IPInfo Popups" >> $GITHUB_OUTPUT
+              ;;
+            esac
+          fi
+
       - uses: femiwiki/quibble-action@v1
         id: quibble
         with:
@@ -52,10 +82,10 @@ jobs:
           coverage-docker-image: quibble-buster-php74-coverage
           phan-docker-image: mediawiki-phan-php81
           mediawiki-version: ${{ matrix.mediawiki-version }}
-          exclude-extensions: ${{ steps.exclude-extensions.outputs.list }}
+          exclude-dependencies: ${{ steps.deps.outputs.exc }}
 
       - name: Upload coverage to Codecov
-        if: ${{ matrix.stage == 'coverage' }}
+        if: matrix.stage == 'coverage'
         uses: codecov/codecov-action@v3
         with:
           directory: ${{ steps.quibble.outputs.coverage }}
