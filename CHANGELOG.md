@@ -2,6 +2,31 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.10...v5.1.0) (2025-05-11)
+
+
+### Features
+
+* Emphasize the edit button ([#782](https://github.com/femiwiki/FemiwikiSkin/issues/782)) ([4798268](https://github.com/femiwiki/FemiwikiSkin/commit/479826847f712d7f6077ac0fc9991761856e2770))
+
+
+### Bug Fixes
+
+* **Femiwiki.php:** Set the correct name ([#865](https://github.com/femiwiki/FemiwikiSkin/issues/865)) ([b4cae2f](https://github.com/femiwiki/FemiwikiSkin/commit/b4cae2f61f02f5079582d5a57a05a746a35b7c4c))
+* **styles:** Cleanup thumb image ([#867](https://github.com/femiwiki/FemiwikiSkin/issues/867)) ([3c0ac65](https://github.com/femiwiki/FemiwikiSkin/commit/3c0ac65dc291bb70c889669843311b51c56ff773))
+
+
+### Miscellaneous Chores
+
+* Bump actions/cache from 3 to 4 ([#737](https://github.com/femiwiki/FemiwikiSkin/issues/737)) ([e5a987c](https://github.com/femiwiki/FemiwikiSkin/commit/e5a987c98a40c3651a04462add39a416c7abb82d))
+* Bump actions/setup-node from 3 to 4 ([#738](https://github.com/femiwiki/FemiwikiSkin/issues/738)) ([9407a21](https://github.com/femiwiki/FemiwikiSkin/commit/9407a211b35c0d5f9eb7ef8e5d14cbc652442ae6))
+* Bump codecov/codecov-action from 3 to 5 ([#859](https://github.com/femiwiki/FemiwikiSkin/issues/859)) ([d8a0f04](https://github.com/femiwiki/FemiwikiSkin/commit/d8a0f04f37c257e62c0787759c9ebdbfce2dfade))
+* Bump typescript from 4.9.5 to 5.8.3 ([#854](https://github.com/femiwiki/FemiwikiSkin/issues/854)) ([1ec5ac4](https://github.com/femiwiki/FemiwikiSkin/commit/1ec5ac469c8a80b96975fe56da028ddd41f8f03d))
+* **test/selenium:** disable the test ([#864](https://github.com/femiwiki/FemiwikiSkin/issues/864)) ([0003a50](https://github.com/femiwiki/FemiwikiSkin/commit/0003a505ce663ed53eee2ccb59e9d1d74f9778e0))
+* Update mediawiki/mediawiki-codesniffer requirement from 41.0.0 to 46.0.0 ([#852](https://github.com/femiwiki/FemiwikiSkin/issues/852)) ([406732f](https://github.com/femiwiki/FemiwikiSkin/commit/406732fe127afd45c73fd93f7cfd9aad23ebca33))
+* Update mediawiki/mediawiki-phan-config requirement from 0.12.0 to 0.15.1 ([#853](https://github.com/femiwiki/FemiwikiSkin/issues/853)) ([1d9d01f](https://github.com/femiwiki/FemiwikiSkin/commit/1d9d01f8b1413d30b635f9ce495293189c5c6cf5))
+* Update php-parallel-lint/php-parallel-lint requirement from 1.3.2 to 1.4.0 ([#746](https://github.com/femiwiki/FemiwikiSkin/issues/746)) ([4cbd954](https://github.com/femiwiki/FemiwikiSkin/commit/4cbd954273a12b1f447693769bbf53ff6b679436))
+
 ## [5.0.10](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.9...v5.0.10) (2025-05-06)
 
 
