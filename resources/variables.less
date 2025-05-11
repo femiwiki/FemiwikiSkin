@@ -583,62 +583,21 @@
   }
 
   // Image
-  div.thumb .thumbinner,
-  // For 2017 wikitext editor preview and VE
   figure[typeof~='mw:File/Thumb'],
   figure[typeof~='mw:Image/Thumb'] {
     font-size: 0.94rem;
-    max-width: 100%;
     background: none;
     border: none;
-    overflow: hidden;
-    padding: 3px;
-    text-align: center;
-    @media screen and (max-width: @width-breakpoint-mobile) {
+
+    .mw-file-element:not(.mw-broken-media) {
       border: none;
-      background-color: initial;
     }
 
-    .thumbimage {
+    figcaption {
       background: none;
       border: none;
-      vertical-align: middle;
-      @media screen and (max-width: @width-breakpoint-mobile) {
-        border: none;
-      }
-    }
-
-    .thumbcaption,
-    // For VE Preview
-    figcaption {
-      padding: 3px;
       font-size: 0.8836rem;
-      line-height: 1.23704rem;
       color: #888;
-      @media screen and (max-width: @width-breakpoint-mobile) {
-        text-align: center;
-      }
-    }
-  }
-
-  @media screen and (max-width: @width-breakpoint-mobile) {
-    div.thumb,
-    div.thumb .thumbinner {
-      margin: 0 auto;
-    }
-    div.thumb {
-      float: none;
-    }
-    figure[typeof~='mw:File/Thumb'],
-    figure[typeof~='mw:Image/Thumb'] {
-      // For 2017 wikitext editor preview
-      &,
-      // For VisualEditor
-      &.mw-halign-left,
-      &.mw-halign-right {
-        margin: 0 auto;
-        float: none;
-      }
     }
   }
 
