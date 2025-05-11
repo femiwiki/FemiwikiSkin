@@ -7,4 +7,4 @@ if ( !function_exists( 'wfLoadSkin' ) ) {
 	die( 'The Example skin requires MediaWiki 1.25 or newer.' );
 }
 
-wfLoadSkin( 'Example' );
+wfLoadSkin( 'Femiwiki' );
