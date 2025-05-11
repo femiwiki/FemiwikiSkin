@@ -21,6 +21,7 @@ jobs:
           # - coverage # We really need this coverage for a skin?
           - phpunit-unit
           - phpunit
+          - phpunit-parallel
           - phpunit-standalone
           - npm-test
           - composer-test
