@@ -2,6 +2,14 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.1](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.0...v5.1.1) (2025-05-11)
+
+
+### Miscellaneous Chores
+
+* **build:** Do not install composer dependencies ([#868](https://github.com/femiwiki/FemiwikiSkin/issues/868)) ([e4eaba6](https://github.com/femiwiki/FemiwikiSkin/commit/e4eaba6339255959fbfc37ca59389393bef4b1a3))
+* **build:** Use stricter check when uploading asset ([#870](https://github.com/femiwiki/FemiwikiSkin/issues/870)) ([c14a77d](https://github.com/femiwiki/FemiwikiSkin/commit/c14a77d7b4ec888b424a86731e5180ff4b6cf9b2))
+
 ## [5.1.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.0.10...v5.1.0) (2025-05-11)
 
 
