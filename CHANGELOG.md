@@ -2,6 +2,15 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.2](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.1...v5.1.2) (2025-05-11)
+
+
+### Miscellaneous Chores
+
+* **build:** Actions syntax error ([#872](https://github.com/femiwiki/FemiwikiSkin/issues/872)) ([371bfcd](https://github.com/femiwiki/FemiwikiSkin/commit/371bfcdef2c0bd1ded88bd6c1d08c80042e37258))
+* **build:** Fix check for relasing status ([#871](https://github.com/femiwiki/FemiwikiSkin/issues/871)) ([0b1b1c4](https://github.com/femiwiki/FemiwikiSkin/commit/0b1b1c41ebaee7049456d11be242b2e9f8f31c06))
+* **bulid:** Actions syntax error ([ff83106](https://github.com/femiwiki/FemiwikiSkin/commit/ff8310646c1a104a592485db4907fe15fa9d08c2))
+
 ## [5.1.1](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.0...v5.1.1) (2025-05-11)
 
 
