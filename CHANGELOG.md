@@ -2,6 +2,15 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.3](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.2...v5.1.3) (2025-06-04)
+
+
+### Miscellaneous Chores
+
+* Localisation updates from https://translatewiki.net. ([#874](https://github.com/femiwiki/FemiwikiSkin/issues/874)) ([4beeb4a](https://github.com/femiwiki/FemiwikiSkin/commit/4beeb4a3db011a00009c65634d5287d5100d7f5f))
+* **selenium:** Use spec-reporter instead of dot-reporter ([#876](https://github.com/femiwiki/FemiwikiSkin/issues/876)) ([bc8dec0](https://github.com/femiwiki/FemiwikiSkin/commit/bc8dec0583e1a8a5f80f00c3614bffbf4c5e9fa1))
+* **tests/selenium:** upgrade to wdio 8 ([#886](https://github.com/femiwiki/FemiwikiSkin/issues/886)) ([04d412c](https://github.com/femiwiki/FemiwikiSkin/commit/04d412c310e4b6226b555787bc78e7db124557d1))
+
 ## [5.1.2](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.1...v5.1.2) (2025-05-11)
 
 
