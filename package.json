@@ -32,7 +32,7 @@
     "@wikimedia/types-wikimedia": "^0.3.4",
     "grunt-banana-checker": "^0.10.0",
     "nodejs-file-downloader": "^4.13.0",
-    "prettier": "^2",
+    "prettier": "^3",
     "svgo": "^3.0.2",
     "typescript": "^5.8.3",
     "unzipper": "^0.12.3",
