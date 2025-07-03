@@ -10,5 +10,6 @@
 	"skin-femiwiki-share-tooltip": "دا ليکنه وېشل",
 	"skin-femiwiki-share-dismiss": "تړل",
 	"skin-femiwiki-share-twitter": "ټویټر",
-	"prefs-femiwiki-large-elements-label": "لوی عناصر وکاروئ"
+	"prefs-femiwiki-large-elements-label": "لوی عناصر وکاروئ",
+	"prefs-femiwiki-large-elements-help": "دا اختیار تاسو ته اجازه درکوي چې د لويو عناصرو مخکتنه وکړئ. د سکرين پرمخ به عناصر په لويه کچه وښودل شي."
 }
