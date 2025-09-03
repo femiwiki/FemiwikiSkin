@@ -87,6 +87,10 @@ await (async () => {
         url: `https://releases.wikimedia.org/mediawiki/${shortVer}/mediawiki-${mediaWikiVersion}.zip`,
         directory: rootPath,
         fileName: zipFilename,
+        headers: {
+          'User-Agent':
+            'FemiwikiSkin-dev-script (https://github.com/femiwiki/FemiwikiSkin)',
+        },
       }).download();
       console.log(`🥳 MediaWiki downloaded successfully to ${rootPath}`);
     }
