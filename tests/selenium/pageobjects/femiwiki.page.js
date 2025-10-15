@@ -1,9 +1,9 @@
 'use strict';
-const Page = require('wdio-mediawiki/Page');
+import Page from 'wdio-mediawiki/Page.js';
 
 class FemiwikiPage extends Page {
   get gnbMenu() {
     return $('#fw-menu-toggle');
   }
 }
-module.exports = new FemiwikiPage();
+export default new FemiwikiPage();
