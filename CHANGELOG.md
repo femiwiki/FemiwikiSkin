@@ -2,6 +2,20 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.3](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.2...v5.1.3) (2025-12-15)
+
+
+### Miscellaneous Chores
+
+* **i18n:** Localisation updates from https://translatewiki.net. ([#887](https://github.com/femiwiki/FemiwikiSkin/issues/887)) ([690425e](https://github.com/femiwiki/FemiwikiSkin/commit/690425e773eecfdedc2faed1cb19be8a948ea49c))
+* **i18n:** Localisation updates from https://translatewiki.net. ([#888](https://github.com/femiwiki/FemiwikiSkin/issues/888)) ([d97d808](https://github.com/femiwiki/FemiwikiSkin/commit/d97d8085da0d72f3c35f122c71c030ea70f7adce))
+* **i18n:** Localisation updates from https://translatewiki.net. ([#894](https://github.com/femiwiki/FemiwikiSkin/issues/894)) ([2caf0e8](https://github.com/femiwiki/FemiwikiSkin/commit/2caf0e8f36e8f5d1f33af5f6d74b2549675b9d91))
+* **i18n:** Localisation updates from https://translatewiki.net. ([#913](https://github.com/femiwiki/FemiwikiSkin/issues/913)) ([267863a](https://github.com/femiwiki/FemiwikiSkin/commit/267863ae8834d458fce9edafa92749f7b2a3ec78))
+* **i18n:** Localisation updates from https://translatewiki.net. ([#914](https://github.com/femiwiki/FemiwikiSkin/issues/914)) ([c48600f](https://github.com/femiwiki/FemiwikiSkin/commit/c48600ffc3bc62f402d7df0347426a15f4f8e7bf))
+* Localisation updates from https://translatewiki.net. ([#874](https://github.com/femiwiki/FemiwikiSkin/issues/874)) ([4beeb4a](https://github.com/femiwiki/FemiwikiSkin/commit/4beeb4a3db011a00009c65634d5287d5100d7f5f))
+* **selenium:** Use spec-reporter instead of dot-reporter ([#876](https://github.com/femiwiki/FemiwikiSkin/issues/876)) ([bc8dec0](https://github.com/femiwiki/FemiwikiSkin/commit/bc8dec0583e1a8a5f80f00c3614bffbf4c5e9fa1))
+* **tests/selenium:** upgrade to wdio 8 ([#886](https://github.com/femiwiki/FemiwikiSkin/issues/886)) ([04d412c](https://github.com/femiwiki/FemiwikiSkin/commit/04d412c310e4b6226b555787bc78e7db124557d1))
+
 ## [5.1.2](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.1...v5.1.2) (2025-05-11)
 
 
