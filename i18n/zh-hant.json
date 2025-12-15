@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
+			"Peterxy12",
 			"Winston Sung"
 		]
 	},
@@ -14,5 +15,5 @@
 	"femiwiki.css": "/* 此處的 CSS 會影響使用 Femiwiki 外觀的使用者 */",
 	"femiwiki.js": "/* 此處的任何 JavaScript 都會在使用者使用 Femiwiki 外觀時載入 */",
 	"prefs-femiwiki-large-elements-label": "使用較大的元素",
-	"prefs-femiwiki-large-elements-help": "此選項能讓您預覽較大的元素。在螢幕上的元素，會被較大的元素給取代。"
+	"prefs-femiwiki-large-elements-help": "此選項能讓您預覽較大的元素。在螢幕上的元素會被較大的元素給取代。"
 }
