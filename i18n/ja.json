@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Cookie4782",
 			"MathXplore",
 			"Shirayuki",
 			"Tmv",
@@ -9,6 +10,7 @@
 		]
 	},
 	"skin-femiwiki-page-menu-tooltip": "メニュー",
+	"skin-femiwiki-share-tooltip": "この記事を共有する",
 	"skin-femiwiki-share-dismiss": "閉じる",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* ここに記述したCSSはFemiwiki外装の利用者に影響します */",
