@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Téma vzhľadu Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menu",
+	"skin-femiwiki-share-tooltip": "Zdieľať tento článok",
+	"skin-femiwiki-share-dismiss": "Zavrieť",
+	"skin-femiwiki-share-twitter": "Twitter",
+	"femiwiki.css": "/* CSS umiestnené tu ovplyvní používateľov témy vzhľadu Femiwiki */",
+	"femiwiki.js": "/* JavaScript umiestnený tu sa načíta používateľom témy vzhľadu Femiwiki */",
+	"prefs-femiwiki-large-elements-label": "Používať väčšie prvky",
+	"prefs-femiwiki-large-elements-help": " Táto voľba umožňuje náhľad väčších prvkov. Prvky na obrazovke budú nahradené väčšími."
+}
