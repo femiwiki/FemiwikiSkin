@@ -51,7 +51,20 @@ class SkinFemiwiki extends SkinMustache {
 		$parentData = parent::getTemplateData();
 		[ $sidebar, $toolbox ] = $this->getSidebar( $parentData['data-portlets-sidebar'] );
 
+		// Render the user page, notifications and user menu as a single menu.
+		// Since MW 1.45 these are separate portlet slots; the `?? ''`/`?? []`
+		// fallbacks keep this working when a slot is absent on a given version.
+		$portlets = $parentData['data-portlets'] ?? [];
+		$userMenu = $portlets['data-user-menu'] ?? [];
+		$extendedUserMenu = [
+			'html-items' =>
+				( $portlets['data-user-page']['html-items'] ?? '' ) .
+				( $portlets['data-notifications']['html-items'] ?? '' ) .
+				( $userMenu['html-items'] ?? '' ),
+		] + $userMenu;
+
 		$commonSkinData = array_merge_recursive( $parentData, [
+			'data-user-menu-extended' => $extendedUserMenu,
 			'data-sidebar' => $sidebar,
 			'html-heading-language-attributes' => $this->prepareHeadingLanguageAttributes(),
 			'html-share-button' => $this->getShare(),

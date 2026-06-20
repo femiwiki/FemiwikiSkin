@@ -102,6 +102,10 @@ class Portlet implements
 		$insertUrls = [
 			'notifications-all' => [
 				'href' => $url,
+				// Explicit id so the rendered link is always #pt-notifications-all,
+				// which both skins.femiwiki.notifications/init.js and the Selenium
+				// test rely on, regardless of which menu it lands in.
+				'id' => 'pt-notifications-all',
 				'text' => $msgText,
 				'active' => ( $url == $title->getLocalUrl() ),
 				'class' => $linkClasses,
@@ -112,7 +116,12 @@ class Portlet implements
 			]
 		];
 
-		$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'] ?? [], $insertUrls, 'userpage' );
+		// Use the dedicated `notifications` menu slot instead of inserting into
+		// `user-menu` after `userpage`. Since MW 1.45 the user page link is split
+		// out of `user-menu` into its own `user-page` menu, so the old
+		// wfArrayInsertAfter(..., 'userpage') no longer lands where Echo's JS
+		// binds the flyout. getTemplateData() recombines the slots.
+		$links['notifications'] = $insertUrls;
 	}
 
 	/**
@@ -163,13 +172,26 @@ class Portlet implements
 		$this->addMobileOptions( $sktemplate, $links );
 		$this->tweakWatchActions( $sktemplate, $links );
 
+		// On MW 1.45 the user page link lives in both the `user-page` menu and
+		// `user-menu`; on 1.46+ core removes it from `user-menu` for skins that
+		// declare the `user-page` menu. Normalise so data-user-menu-extended
+		// (user-page + notifications + user-menu) never lists it twice.
+		if ( !empty( $links['user-page'] ) ) {
+			unset( $links['user-menu']['userpage'] );
+		}
+
 		foreach ( [
+			'user-page',
 			'user-menu',
 			'actions',
-		] as &$portlet ) {
+		] as $portlet ) {
+			if ( !isset( $links[$portlet] ) ) {
+				continue;
+			}
 			foreach ( $links[$portlet] as $key => &$item ) {
 				$this->addIconToListItem( $item, $key );
 			}
+			unset( $item );
 		}
 	}
 
@@ -203,7 +225,10 @@ class Portlet implements
 			return;
 		}
 
-		$links['namespaces'][$key] = $links['actions'][$key];
+		// Promote into `associated-pages` (rendered by Header.mustache). On 1.46+
+		// the legacy `namespaces` menu is no longer rendered for skins that do
+		// not opt into it, so writing to `namespaces` would drop the link.
+		$links['associated-pages'][$key] = $links['actions'][$key];
 		unset( $links['actions'][$key] );
 	}
 

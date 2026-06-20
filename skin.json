@@ -24,10 +24,6 @@
         "normalize": true,
         "logo": true
       },
-      "targets": [
-        "desktop",
-        "mobile"
-      ],
       "styles": [
         "skins.femiwiki/elements.less",
         "skins.femiwiki/contents.less",
@@ -42,10 +38,6 @@
         "content-body": false,
         "toc": false
       },
-      "targets": [
-        "desktop",
-        "mobile"
-      ],
       "localBasePath": "node_modules/xeicon",
       "remoteSkinPath": "Femiwiki/node_modules/xeicon",
       "styles": {
@@ -57,10 +49,6 @@
     "skins.femiwiki.smallElements": {
       "styles": [
         "skins.femiwiki.smallElements/styles.less"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
       ]
     },
     "skins.femiwiki.js": {
@@ -68,10 +56,6 @@
         "oojs",
         "oojs-ui-core",
         "mediawiki.page.ready"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
       ],
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
@@ -82,10 +66,6 @@
       ]
     },
     "skins.femiwiki.notifications": {
-      "targets": [
-        "desktop",
-        "mobile"
-      ],
       "packageFiles": [
         "skins.femiwiki.notifications/init.js"
       ]
@@ -93,20 +73,12 @@
     "skins.femiwiki.dm": {
       "scripts": [
         "mw.fw.js"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
       ]
     },
     "skins.femiwiki.share": {
       "dependencies": [
         "oojs",
         "oojs-ui-windows"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
       ],
       "packageFiles": [
         "skins.femiwiki.share/init.js"
@@ -124,10 +96,6 @@
       "messages": [
         "skin-femiwiki-share-dismiss",
         "skin-femiwiki-share-twitter"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
       ]
     }
   },
@@ -233,6 +201,16 @@
             "skins.femiwiki",
             "skins.femiwiki.xeicon",
             "oojs-ui.styles.icons-interactions"
+          ],
+          "menus": [
+            "user-interface-preferences",
+            "user-page",
+            "user-menu",
+            "notifications",
+            "views",
+            "actions",
+            "variants",
+            "associated-pages"
           ],
           "link": {
             "text-wrapper": {
