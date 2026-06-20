@@ -11,8 +11,10 @@ jobs:
       fail-fast: false
       matrix:
         mediawiki-version:
-          - master
           - REL1_43
+          - REL1_44
+          - REL1_45
+          - master
         stage:
           - phan
           # - coverage # We really need this coverage for a skin?
