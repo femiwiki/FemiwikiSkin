@@ -40,37 +40,7 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - id: deps
-        run: |
-          echo "exc=" >> $GITHUB_OUTPUT
-          if [ ${{ matrix.mediawiki-version }} == 'master' ]; then
-            case ${{ matrix.stage }} in
-              "phpunit-unit")
-                echo "exc=GrowthExperiments" >> $GITHUB_OUTPUT
-                ;;
-              "phpunit")
-                echo "exc=CheckUser GrowthExperiments IPInfo" >> $GITHUB_OUTPUT
-                ;;
-              "selenium")
-                # maybe IPInfo?
-                echo "exc=CheckUser GrowthExperiments IPInfo" >> $GITHUB_OUTPUT
-                ;;
-            esac
-          elif [ ${{ matrix.mediawiki-version }} == 'REL1_43' ]; then
-            case ${{ matrix.stage }} in
-              "phpunit-unit")
-              echo "exc=CheckUser GrowthExperiments" >> $GITHUB_OUTPUT
-              ;;
-              "phpunit")
-              echo "exc=GrowthExperiments" >> $GITHUB_OUTPUT
-              ;;
-              "selenium")
-              echo "exc=CheckUser GrowthExperiments IPInfo Popups" >> $GITHUB_OUTPUT
-              ;;
-            esac
-          fi
-
-      - uses: femiwiki/quibble-action@v1
+      - uses: femiwiki/quibble-action@dee0c886057c8c5b7fd0e57400efcf77647404db # main
         id: quibble
         with:
           stage: ${{ matrix.stage }}
@@ -79,7 +49,10 @@ jobs:
           coverage-docker-image: quibble-buster-php74-coverage
           phan-docker-image: mediawiki-phan-php81
           mediawiki-version: ${{ matrix.mediawiki-version }}
-          exclude-dependencies: ${{ steps.deps.outputs.exc }}
+          # v1 expanded the `Echo` dependency transitively via Wikimedia's
+          # dependencies.yaml; main resolves from local sources only, so we pin
+          # that closure explicitly to keep testing the same set of repos.
+          dependencies: AntiSpoof CentralAuth Echo EventLogging MobileFrontend
 
       - name: Upload coverage to Codecov
         if: matrix.stage == 'coverage'
