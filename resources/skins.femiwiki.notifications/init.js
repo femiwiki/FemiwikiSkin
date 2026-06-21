@@ -60,29 +60,45 @@
         });
         controller = new mw.echo.Controller(echoApi, modelManager);
 
+        // Echo renamed NotificationBadgeWidget to NotificationBadgeController in
+        // MediaWiki 1.45. The constructor signature is identical; only the way
+        // the badge attaches to the DOM differs. Support both so the skin works
+        // on MediaWiki 1.43 through master from one codebase.
+        var BadgeClass =
+          mw.echo.ui.NotificationBadgeController ||
+          mw.echo.ui.NotificationBadgeWidget;
+        var isController = !!mw.echo.ui.NotificationBadgeController;
+
         // workaround https://github.com/femiwiki/FemiwikiSkin/issues/212
-        mw.echo.ui.NotificationBadgeWidget.prototype.markAllReadButtonWorkaround =
-          function () {
-            echoApi.markAllRead(
-              modelManager
-                .getFiltersModel()
-                .getSourcePagesModel()
-                .getCurrentSource(),
-              ['alert', 'message']
-            );
-          };
-        mw.echo.ui.widget = new mw.echo.ui.NotificationBadgeWidget(
+        BadgeClass.prototype.markAllReadButtonWorkaround = function () {
+          echoApi.markAllRead(
+            modelManager
+              .getFiltersModel()
+              .getSourcePagesModel()
+              .getCurrentSource(),
+            ['alert', 'message']
+          );
+        };
+
+        var widgetConfig = {
+          numItems: Number(num),
+          convertedNumber: badgeLabel,
+          hasUnseen: hasUnseen,
+          badgeIcon: 'bell',
+          $overlay: mw.echo.ui.$overlay,
+        };
+        if (isController) {
+          // 1.45+: the controller enhances the existing badge link in place.
+          widgetConfig.$badge = $existingLink;
+        } else {
+          // 1.43/1.44: the widget builds its own element to replace the link.
+          widgetConfig.href = $existingLink.attr('href');
+        }
+        mw.echo.ui.widget = new BadgeClass(
           controller,
           modelManager,
           links,
-          {
-            numItems: Number(num),
-            convertedNumber: badgeLabel,
-            hasUnseen: hasUnseen,
-            badgeIcon: 'bell',
-            $overlay: mw.echo.ui.$overlay,
-            href: $existingLink.attr('href'),
-          }
+          widgetConfig
         );
 
         modelManager.on('allTalkRead', function () {
@@ -94,8 +110,12 @@
           click: 'markAllReadButtonWorkaround',
         });
 
-        // Replace the link button with the ooui button
-        $existingLink.parent().replaceWith(mw.echo.ui.widget.$element);
+        // 1.43/1.44 only: replace the placeholder link with the widget's
+        // element. On 1.45+ the controller already attached to the existing
+        // $badge, so the link stays in place.
+        if (!isController) {
+          $existingLink.parent().replaceWith(mw.echo.ui.widget.$element);
+        }
 
         // HACK: Now that the module loaded, show the popup
         myWidget = mw.echo.ui.widget;
