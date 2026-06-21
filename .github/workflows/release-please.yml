@@ -19,11 +19,11 @@ jobs:
           application_id: ${{ vars.PAT_APPLICATION_ID }}
           application_private_key: ${{ secrets.PAT_APPLICATION_PRIVATE_KEY }}
 
-      - uses: femiwiki/release-please-action@femiwiki
+      - uses: googleapis/release-please-action@v4
         id: release-please-action
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
-          release-type: mediawiki-skin
+          release-type: simple
     outputs:
       tag_name: ${{ steps.release-please-action.outputs.tag_name }}
       upload_url: ${{ steps.release-please-action.outputs.upload_url }}
