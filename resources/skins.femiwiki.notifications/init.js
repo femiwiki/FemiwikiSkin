@@ -64,10 +64,12 @@
         // MediaWiki 1.45. The constructor signature is identical; only the way
         // the badge attaches to the DOM differs. Support both so the skin works
         // on MediaWiki 1.43 through master from one codebase.
+        // Cast to a loose type: NotificationBadgeController is not in the
+        // shipped Echo type definitions yet.
+        var echoUi = /** @type {any} */ (mw.echo.ui);
         var BadgeClass =
-          mw.echo.ui.NotificationBadgeController ||
-          mw.echo.ui.NotificationBadgeWidget;
-        var isController = !!mw.echo.ui.NotificationBadgeController;
+          echoUi.NotificationBadgeController || echoUi.NotificationBadgeWidget;
+        var isController = !!echoUi.NotificationBadgeController;
 
         // workaround https://github.com/femiwiki/FemiwikiSkin/issues/212
         BadgeClass.prototype.markAllReadButtonWorkaround = function () {
@@ -80,13 +82,13 @@
           );
         };
 
-        var widgetConfig = {
+        var widgetConfig = /** @type {any} */ ({
           numItems: Number(num),
           convertedNumber: badgeLabel,
           hasUnseen: hasUnseen,
           badgeIcon: 'bell',
           $overlay: mw.echo.ui.$overlay,
-        };
+        });
         if (isController) {
           // 1.45+: the controller enhances the existing badge link in place.
           widgetConfig.$badge = $existingLink;
