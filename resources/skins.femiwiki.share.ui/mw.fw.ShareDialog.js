@@ -96,7 +96,7 @@
       mw.config.get('wgSiteName');
 
     this.twitterButton.setHref(
-      'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet)
+      'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet),
     );
   };
 
@@ -111,7 +111,7 @@
       'POST',
       'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=' +
         this.firebaseKey,
-      true
+      true,
     );
 
     xhr.setRequestHeader('Content-Type', 'application/json');
@@ -145,7 +145,7 @@
         suffix: {
           option: 'SHORT',
         },
-      })
+      }),
     );
   };
 

@@ -53,7 +53,7 @@
         unreadCounter = new mw.echo.dm.UnreadNotificationCounter(
           echoApi,
           'all',
-          maxNotificationCount
+          maxNotificationCount,
         );
         modelManager = new mw.echo.dm.ModelManager(unreadCounter, {
           type: 'all',
@@ -78,7 +78,7 @@
               .getFiltersModel()
               .getSourcePagesModel()
               .getCurrentSource(),
-            ['alert', 'message']
+            ['alert', 'message'],
           );
         };
 
@@ -100,7 +100,7 @@
           controller,
           modelManager,
           links,
-          widgetConfig
+          widgetConfig,
         );
 
         modelManager.on('allTalkRead', function () {

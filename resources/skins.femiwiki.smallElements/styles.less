@@ -31,8 +31,8 @@ hr#content-end-bar {
   .mw-portlet {
     @three-portlets-min-width: (@portal-min-width * 3) +
       (@portal-column-gap * 2) + (@content-horizontal-padding * 2);
-    @four-portlets-min-width: (@portal-min-width * 4) + (@portal-column-gap * 3) +
-      (@content-horizontal-padding * 2);
+    @four-portlets-min-width: (@portal-min-width * 4) +
+      (@portal-column-gap * 3) + (@content-horizontal-padding * 2);
 
     @min-width: unit(@three-portlets-min-width * @font-size-root-default, px);
     @max-width: unit(@four-portlets-min-width * @font-size-root-default, px);

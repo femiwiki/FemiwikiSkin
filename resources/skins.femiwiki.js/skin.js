@@ -1,6 +1,6 @@
-/** @type {CheckboxHack} */ var checkboxHack = require(/** @type {string} */ (
-  'mediawiki.page.ready'
-)).checkboxHack;
+/** @type {CheckboxHack} */ var checkboxHack = require(
+  /** @type {string} */ ('mediawiki.page.ready'),
+).checkboxHack;
 
 /**
  * Improve the interactivity of the sidebar panel by binding optional checkbox hack enhancements
@@ -30,11 +30,11 @@ function main() {
 
   initCheckboxHack(
     window.document.getElementById('fw-menu-checkbox'),
-    window.document.getElementById('fw-menu-toggle')
+    window.document.getElementById('fw-menu-toggle'),
   );
   initCheckboxHack(
     window.document.getElementById('fw-page-menu-checkbox'),
-    window.document.getElementById('p-menu-toggle')
+    window.document.getElementById('p-menu-toggle'),
   );
 
   var fwMenuToggle = document.querySelector('#fw-menu-toggle');
