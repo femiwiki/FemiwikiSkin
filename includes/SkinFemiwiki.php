@@ -113,7 +113,7 @@ class SkinFemiwiki extends SkinMustache {
 		if ( !$this->shouldShowShare() ) {
 			return null;
 		}
-		return new ButtonWidget( [
+		return (string)new ButtonWidget( [
 			'id' => 'p-share',
 			'classes' => [ 'fw-button' ],
 			'infusable' => true,
