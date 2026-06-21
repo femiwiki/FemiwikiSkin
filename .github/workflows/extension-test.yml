@@ -28,6 +28,19 @@ jobs:
           - selenium
           # - qunit
           # - api-testing
+        exclude:
+          # composer-test (parallel-lint, phpcs, minus-x) is MediaWiki-version
+          # independent, so run it on a single version (REL1_43, which is a
+          # required status check). This avoids the same phpcs annotations being
+          # emitted once per version and saves CI time.
+          - mediawiki-version: REL1_44
+            stage: composer-test
+          - mediawiki-version: REL1_45
+            stage: composer-test
+          - mediawiki-version: REL1_46
+            stage: composer-test
+          - mediawiki-version: master
+            stage: composer-test
 
     runs-on: ubuntu-latest
 
@@ -43,7 +56,7 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - uses: femiwiki/quibble-action@f485e3d07409f1524adfb26d12d22830b6b39b06 # main
+      - uses: femiwiki/quibble-action@6bf963a3b99b64861bec07c429edb7bf996d6013 # main
         id: quibble
         with:
           stage: ${{ matrix.stage }}
