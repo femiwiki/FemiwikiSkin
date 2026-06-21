@@ -28,26 +28,6 @@ jobs:
           - selenium
           # - qunit
           # - api-testing
-        # PHP image per MediaWiki branch: each branch's composer.json sets a
-        # minimum PHP, so the Quibble and phan images must match. REL1_43/44
-        # run on PHP 8.1; REL1_45 needs >= 8.2 and REL1_46 needs >= 8.3 (both on
-        # php8.3). master needs >= 8.3 and is fixed in a follow-up.
-        include:
-          - mediawiki-version: REL1_43
-            quibble-image: quibble-buster-php81
-            phan-image: mediawiki-phan-php81
-          - mediawiki-version: REL1_44
-            quibble-image: quibble-buster-php81
-            phan-image: mediawiki-phan-php81
-          - mediawiki-version: REL1_45
-            quibble-image: quibble-bookworm-php83
-            phan-image: mediawiki-phan-php83
-          - mediawiki-version: REL1_46
-            quibble-image: quibble-bookworm-php83
-            phan-image: mediawiki-phan-php83
-          - mediawiki-version: master
-            quibble-image: quibble-buster-php81
-            phan-image: mediawiki-phan-php81
 
     runs-on: ubuntu-latest
 
@@ -63,14 +43,10 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - uses: femiwiki/quibble-action@dee0c886057c8c5b7fd0e57400efcf77647404db # main
+      - uses: femiwiki/quibble-action@f485e3d07409f1524adfb26d12d22830b6b39b06 # main
         id: quibble
         with:
           stage: ${{ matrix.stage }}
-          quibble-docker-image: ${{ matrix.quibble-image }}
-          # There is no quibble-buster-php81-coverage yet
-          coverage-docker-image: quibble-buster-php74-coverage
-          phan-docker-image: ${{ matrix.phan-image }}
           mediawiki-version: ${{ matrix.mediawiki-version }}
           # v1 expanded the `Echo` dependency transitively via Wikimedia's
           # dependencies.yaml; main resolves from local sources only, so we pin
