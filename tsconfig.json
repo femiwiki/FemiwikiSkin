@@ -6,7 +6,7 @@
     "resources/ooui",
     "resources/skins.femiwiki.share*",
     "tests",
-    // Local `npm run dev` checkout; scanning OOMs tsc.
+    // Local `npm run dev` checkout; not our code.
     "mediawiki"
   ],
   "compilerOptions": {
