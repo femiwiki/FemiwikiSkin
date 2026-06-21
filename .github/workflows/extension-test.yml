@@ -44,6 +44,12 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # contents: read to clone; id-token: write so the Codecov upload can
+    # authenticate via OIDC instead of an upload token.
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
       - uses: actions/checkout@v7
 
@@ -70,4 +76,5 @@ jobs:
         if: matrix.stage == 'coverage'
         uses: codecov/codecov-action@v5
         with:
+          use_oidc: true
           directory: ${{ steps.quibble.outputs.coverage }}
