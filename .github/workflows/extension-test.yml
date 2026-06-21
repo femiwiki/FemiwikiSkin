@@ -30,11 +30,12 @@ jobs:
           # - api-testing
         exclude:
           # composer-test (parallel-lint, phpcs, minus-x) is MediaWiki-version
-          # independent, so run it on a single version. This avoids duplicate
-          # phpcs annotations across the matrix and saves CI time.
-          - mediawiki-version: REL1_43
-            stage: composer-test
+          # independent, so run it on a single version (REL1_43, which is a
+          # required status check). This avoids the same phpcs annotations being
+          # emitted once per version and saves CI time.
           - mediawiki-version: REL1_44
+            stage: composer-test
+          - mediawiki-version: REL1_45
             stage: composer-test
           - mediawiki-version: REL1_46
             stage: composer-test
