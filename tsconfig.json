@@ -6,8 +6,7 @@
     "resources/ooui",
     "resources/skins.femiwiki.share*",
     "tests",
-    // Local MediaWiki checkout created by `npm run dev`; scanning it makes
-    // checkJs balloon until tsc runs out of memory.
+    // Local `npm run dev` checkout; scanning OOMs tsc.
     "mediawiki"
   ],
   "compilerOptions": {
