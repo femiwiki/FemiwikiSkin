@@ -102,6 +102,7 @@ class Portlet implements
 		$insertUrls = [
 			'notifications-all' => [
 				'href' => $url,
+				'id' => 'pt-notifications-all',
 				'text' => $msgText,
 				'active' => ( $url == $title->getLocalUrl() ),
 				'class' => $linkClasses,
@@ -112,7 +113,7 @@ class Portlet implements
 			]
 		];
 
-		$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'] ?? [], $insertUrls, 'userpage' );
+		$links['notifications'] = $insertUrls;
 	}
 
 	/**
@@ -164,6 +165,7 @@ class Portlet implements
 		$this->tweakWatchActions( $sktemplate, $links );
 
 		foreach ( [
+			'user-page',
 			'user-menu',
 			'actions',
 		] as &$portlet ) {
