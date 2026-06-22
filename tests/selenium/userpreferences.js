@@ -1,12 +1,10 @@
-'use strict';
-
-const BlankPage = require('wdio-mediawiki/BlankPage');
-const Util = require('wdio-mediawiki/Util');
+import BlankPage from 'wdio-mediawiki/BlankPage.js';
+import { waitForModuleState } from 'wdio-mediawiki/Util.js';
 
 class UserPreferences {
   async setPreferences(preferences) {
     await BlankPage.open();
-    await Util.waitForModuleState('mediawiki.base');
+    await waitForModuleState('mediawiki.base');
 
     return browser.execute(function (prefs) {
       return mw.loader.using('mediawiki.api').then(function () {
@@ -22,4 +20,4 @@ class UserPreferences {
   }
 }
 
-module.exports = new UserPreferences();
+export default new UserPreferences();

@@ -1,36 +1,36 @@
 interface CheckboxHack {
   updateAriaExpanded(checkbox: HTMLInputElement): void;
   bindUpdateAriaExpandedOnInput(
-    checkbox: HTMLInputElement
+    checkbox: HTMLInputElement,
   ): CheckboxHackListeners;
   bindToggleOnClick(
     checkbox: HTMLInputElement,
-    button: HTMLElement
+    button: HTMLElement,
   ): CheckboxHackListeners;
   bindToggleOnEnter(checkbox: HTMLInputElement): CheckboxHackListeners;
   bindDismissOnClickOutside(
     window: Window,
     checkbox: HTMLInputElement,
     button: HTMLElement,
-    target: Node
+    target: Node,
   ): CheckboxHackListeners;
   bindDismissOnFocusLoss(
     window: Window,
     checkbox: HTMLInputElement,
     button: HTMLElement,
-    target: Node
+    target: Node,
   ): CheckboxHackListeners;
   bind(
     window: Window,
     checkbox: HTMLInputElement,
     button: HTMLElement,
-    target: Node
+    target: Node,
   ): CheckboxHackListeners;
   unbind(
     window: Window,
     checkbox: HTMLInputElement,
     button: HTMLElement,
-    listeners: CheckboxHackListeners
+    listeners: CheckboxHackListeners,
   ): void;
 }
 

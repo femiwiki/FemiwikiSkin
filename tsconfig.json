@@ -5,7 +5,9 @@
     // OOUI does not have type definitions.
     "resources/ooui",
     "resources/skins.femiwiki.share*",
-    "tests"
+    "tests",
+    // Local `npm run dev` checkout; not our code.
+    "mediawiki"
   ],
   "compilerOptions": {
     "resolveJsonModule": true,

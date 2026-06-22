@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kallmemel"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Aparensia Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Menú",
+	"skin-femiwiki-share-tooltip": "Kompartí e artíkulo aki",
+	"skin-femiwiki-share-dismiss": "Ignorá",
+	"skin-femiwiki-share-twitter": "Twitter",
+	"prefs-femiwiki-large-elements-label": "Usa elementonan mas grandi"
+}

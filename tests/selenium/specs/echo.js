@@ -1,27 +1,24 @@
-'use strict';
+import { createApiClient } from 'wdio-mediawiki/Api.js';
+import Femiwiki from '../pageobjects/femiwiki.page.js';
+import EchoPage from '../pageobjects/echo.page.js';
+import { getTestString } from 'wdio-mediawiki/Util.js';
+import assert from 'assert';
+import UserLoginPage from 'wdio-mediawiki/LoginPage.js';
+import UserPreferences from '../userpreferences.js';
+import BlankPage from 'wdio-mediawiki/BlankPage.js';
 
-const Api = require('wdio-mediawiki/Api');
-const Femiwiki = require('../pageobjects/femiwiki.page');
-const EchoPage = require('../pageobjects/echo.page');
-const Util = require('wdio-mediawiki/Util');
-const assert = require('assert');
-const UserLoginPage = require('wdio-mediawiki/LoginPage');
-const UserPreferences = require('../userpreferences');
-const BlankPage = require('wdio-mediawiki/BlankPage');
 describe('flyout for notifications appears when clicked @daily', () => {
-  let bot;
+  let api;
 
   before(async () => {
-    bot = await Api.bot();
+    api = await createApiClient();
   });
 
   it('checks for OOUI icon replacement @daily', async () => {
     // Prepares accounts
-    const username = Util.getTestString('User-');
-    const password = Util.getTestString();
-    browser.call(async () => {
-      await Api.createAccount(bot, username, password);
-    });
+    const username = getTestString('User-');
+    const password = getTestString();
+    await api.createAccount(username, password);
 
     await UserLoginPage.login(username, password);
     await UserPreferences.enableFemiwiki();
@@ -31,6 +28,6 @@ describe('flyout for notifications appears when clicked @daily', () => {
     await EchoPage.notifications.waitForDisplayed();
     await EchoPage.notifications.click();
     await EchoPage.popup.waitForDisplayed();
-    assert(EchoPage.popup.isExisting());
+    assert(await EchoPage.popup.isExisting());
   });
 });

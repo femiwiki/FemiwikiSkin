@@ -55,7 +55,7 @@ await (async () => {
             '  There are some solutions:\n' +
             '  - You can use WSL to run this command: https://learn.microsoft.com/windows/wsl/\n' +
             '  - You can use Docker Desktop to run FrankenPHP: https://docs.docker.com/desktop/setup/install/windows-install/\n' +
-            '  - Or you can try https://github.com/femiwiki/docker-mediawiki\n'
+            '  - Or you can try https://github.com/femiwiki/docker-mediawiki\n',
         );
         process.exit(1);
     }
@@ -87,6 +87,10 @@ await (async () => {
         url: `https://releases.wikimedia.org/mediawiki/${shortVer}/mediawiki-${mediaWikiVersion}.zip`,
         directory: rootPath,
         fileName: zipFilename,
+        headers: {
+          'User-Agent':
+            'FemiwikiSkin-dev-script (https://github.com/femiwiki/FemiwikiSkin)',
+        },
       }).download();
       console.log(`🥳 MediaWiki downloaded successfully to ${rootPath}`);
     }
@@ -100,7 +104,7 @@ await (async () => {
           path.sep +
           `mediawiki-${mediaWikiVersion}` +
           path.sep +
-          'frankenphp'
+          'frankenphp',
       );
     }
     fs.renameSync(`mediawiki-${mediaWikiVersion}`, pathToMediaWiki);
@@ -155,7 +159,7 @@ await (async () => {
     ]) {
       fs.appendFileSync(
         pathToMediaWiki + path.sep + 'LocalSettings.php',
-        appendant + '\n'
+        appendant + '\n',
       );
     }
 
@@ -167,7 +171,7 @@ await (async () => {
   }
 
   console.log(
-    `\n🥳 You can now visit <http://localhost:${caddyPort}> to view your wiki.`
+    `\n🥳 You can now visit <http://localhost:${caddyPort}> to view your wiki.`,
   );
   console.log(`  ID: ${mwUsername}`);
   console.log(`  Password: ${mwPassword}`);

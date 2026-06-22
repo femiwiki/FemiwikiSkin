@@ -2,10 +2,7 @@ name: Quibble and Phan
 
 on:
   push:
-    branches:
-      - '*'
-    tags-ignore:
-      - '*.*'
+    branches: [main]
   pull_request:
 
 jobs:
@@ -14,8 +11,11 @@ jobs:
       fail-fast: false
       matrix:
         mediawiki-version:
-          - master
           - REL1_43
+          - REL1_44
+          - REL1_45
+          - REL1_46
+          - master
         stage:
           - phan
           # - coverage # We really need this coverage for a skin?
@@ -28,13 +28,32 @@ jobs:
           - selenium
           # - qunit
           # - api-testing
+        exclude:
+          # composer-test (parallel-lint, phpcs, minus-x) is MediaWiki-version
+          # independent, so run it on a single version (REL1_43, which is a
+          # required status check). This avoids the same phpcs annotations being
+          # emitted once per version and saves CI time.
+          - mediawiki-version: REL1_44
+            stage: composer-test
+          - mediawiki-version: REL1_45
+            stage: composer-test
+          - mediawiki-version: REL1_46
+            stage: composer-test
+          - mediawiki-version: master
+            stage: composer-test
 
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+    # contents: read to clone; id-token: write so the Codecov upload can
+    # authenticate via OIDC instead of an upload token.
+    permissions:
+      contents: read
+      id-token: write
 
-      - uses: actions/setup-node@v3
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v6
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
         with:
           node-version: '16'
@@ -43,49 +62,25 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - id: deps
-        run: |
-          echo "exc=" >> $GITHUB_OUTPUT
-          if [ ${{ matrix.mediawiki-version }} == 'master' ]; then
-            case ${{ matrix.stage }} in
-              "phpunit-unit")
-                echo "exc=GrowthExperiments" >> $GITHUB_OUTPUT
-                ;;
-              "phpunit")
-                echo "exc=CheckUser GrowthExperiments IPInfo" >> $GITHUB_OUTPUT
-                ;;
-              "selenium")
-                # maybe IPInfo?
-                echo "exc=CheckUser GrowthExperiments IPInfo" >> $GITHUB_OUTPUT
-                ;;
-            esac
-          elif [ ${{ matrix.mediawiki-version }} == 'REL1_43' ]; then
-            case ${{ matrix.stage }} in
-              "phpunit-unit")
-              echo "exc=CheckUser GrowthExperiments" >> $GITHUB_OUTPUT
-              ;;
-              "phpunit")
-              echo "exc=GrowthExperiments" >> $GITHUB_OUTPUT
-              ;;
-              "selenium")
-              echo "exc=CheckUser GrowthExperiments IPInfo Popups" >> $GITHUB_OUTPUT
-              ;;
-            esac
-          fi
-
-      - uses: femiwiki/quibble-action@v1
+      - uses: femiwiki/quibble-action@a214585731ad69858468970bce09f046078b37f4 # main
         id: quibble
         with:
           stage: ${{ matrix.stage }}
-          quibble-docker-image: quibble-buster-php81
-          # There is no quibble-buster-php81-coverage yet
-          coverage-docker-image: quibble-buster-php74-coverage
-          phan-docker-image: mediawiki-phan-php81
           mediawiki-version: ${{ matrix.mediawiki-version }}
-          exclude-dependencies: ${{ steps.deps.outputs.exc }}
+          # composer-test is a version-independent lint of our own source, but
+          # codesniffer >= 49 needs PHP >= 8.2 while REL1_43 (where we run this
+          # stage) otherwise uses 8.1. Pin just this stage to 8.2/bookworm so the
+          # dev tooling installs; the rest keep their derived versions.
+          php-version: ${{ matrix.stage == 'composer-test' && '8.2' || '' }}
+          debian: ${{ matrix.stage == 'composer-test' && 'bookworm' || '' }}
+          # v1 expanded the `Echo` dependency transitively via Wikimedia's
+          # dependencies.yaml; main resolves from local sources only, so we pin
+          # that closure explicitly to keep testing the same set of repos.
+          dependencies: AntiSpoof CentralAuth Echo EventLogging MobileFrontend
 
       - name: Upload coverage to Codecov
         if: matrix.stage == 'coverage'
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
         with:
+          use_oidc: true
           directory: ${{ steps.quibble.outputs.coverage }}
