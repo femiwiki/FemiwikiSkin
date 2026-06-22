@@ -182,7 +182,7 @@
     "femiwiki": "resources/mediawiki.less"
   },
   "ConfigRegistry": {
-    "femiwiki": "GlobalVarConfig::newInstance"
+    "femiwiki": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
   },
   "DefaultUserOptions": {
     "FemiwikiUseLargerElements": 1
