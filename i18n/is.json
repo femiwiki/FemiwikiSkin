@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sveinn í Felli"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Femiwiki skinn",
+	"skin-femiwiki-page-menu-tooltip": "Valmynd",
+	"skin-femiwiki-share-tooltip": "Deila þessari grein",
+	"skin-femiwiki-share-dismiss": "Vísa frá",
+	"skin-femiwiki-share-twitter": "Twitter",
+	"prefs-femiwiki-large-elements-label": "Nota stærri einingar",
+	"prefs-femiwiki-large-elements-help": "Þessi valkostur gerir þér kleift að forskoða stærri einingar. Einingunum á skjánum verður skipt út fyrir stærri einingar."
+}
