@@ -62,7 +62,7 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - uses: femiwiki/quibble-action@a214585731ad69858468970bce09f046078b37f4 # main
+      - uses: femiwiki/quibble-action@9964af476e606e1dc7e14ee13db34f99456f3c41 # main
         id: quibble
         with:
           stage: ${{ matrix.stage }}
