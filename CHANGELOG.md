@@ -2,6 +2,15 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.3](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.2...v5.1.3) (2026-07-01)
+
+
+### Bug Fixes
+
+* don't mark .husky/pre-push as executable ([#939](https://github.com/femiwiki/FemiwikiSkin/issues/939)) ([f70f485](https://github.com/femiwiki/FemiwikiSkin/commit/f70f485e22af4dc07e6468120857c6f4586e5e69))
+* open the notification flyout on MediaWiki 1.45+ ([#936](https://github.com/femiwiki/FemiwikiSkin/issues/936)) ([47aff37](https://github.com/femiwiki/FemiwikiSkin/commit/47aff373bcf6db02d782edae3d861cb44c166664))
+* use namespaced GlobalVarConfig ([#910](https://github.com/femiwiki/FemiwikiSkin/issues/910)) ([97ed9d5](https://github.com/femiwiki/FemiwikiSkin/commit/97ed9d5ed071f4d092413e86823ff5fdac5af945))
+
 ## [5.1.2](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.1...v5.1.2) (2025-05-11)
 
 
