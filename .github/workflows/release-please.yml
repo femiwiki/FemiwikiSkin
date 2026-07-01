@@ -19,7 +19,7 @@ jobs:
           application_id: ${{ vars.PAT_APPLICATION_ID }}
           application_private_key: ${{ secrets.PAT_APPLICATION_PRIVATE_KEY }}
 
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@v5
         id: release-please-action
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
