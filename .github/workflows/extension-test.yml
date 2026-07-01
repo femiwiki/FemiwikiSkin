@@ -69,12 +69,12 @@ jobs:
         with:
           stage: ${{ matrix.stage }}
           mediawiki-version: ${{ matrix.mediawiki-version }}
-          # composer-test is a version-independent lint of our own source, but
-          # codesniffer >= 49 needs PHP >= 8.2 while REL1_43 (where we run this
-          # stage) otherwise uses 8.1. Pin just this stage to 8.2/bookworm so the
-          # dev tooling installs; the rest keep their derived versions.
-          php-version: ${{ matrix.stage == 'composer-test' && '8.2' || '' }}
-          debian: ${{ matrix.stage == 'composer-test' && 'bookworm' || '' }}
+          # phan and composer-test install our require-dev, and codesniffer >= 49
+          # needs PHP >= 8.2, but REL1_43/REL1_44 otherwise derive PHP 8.1. Pin
+          # just those to 8.2/bookworm so the dev tooling installs; every other
+          # combination keeps its branch-derived version.
+          php-version: ${{ (matrix.stage == 'composer-test' || (matrix.stage == 'phan' && (matrix.mediawiki-version == 'REL1_43' || matrix.mediawiki-version == 'REL1_44'))) && '8.2' || '' }}
+          debian: ${{ (matrix.stage == 'composer-test' || (matrix.stage == 'phan' && (matrix.mediawiki-version == 'REL1_43' || matrix.mediawiki-version == 'REL1_44'))) && 'bookworm' || '' }}
           # v1 expanded the `Echo` dependency transitively via Wikimedia's
           # dependencies.yaml; main resolves from local sources only, so we pin
           # that closure explicitly to keep testing the same set of repos.
