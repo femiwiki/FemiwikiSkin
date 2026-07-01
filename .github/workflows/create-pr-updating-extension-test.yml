@@ -15,13 +15,20 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - run: |
-          echo 'CREATE_PR_BASE='$(echo "${{ github.ref_name }}" | cut -d'-' -f1 ) >> $GITHUB_ENV
+          echo 'CREATE_PR_BASE='$(echo "${GITHUB_REF_NAME}" | cut -d'-' -f1 ) >> $GITHUB_ENV
       - name: Create Pull Request
-        uses: repo-sync/pull-request@v2
+        # SHA-pinned; no maintained drop-in replacement, PR-creation flow unchanged
+        uses: repo-sync/pull-request@7e79a9f5dc3ad0ce53138f01df2fad14a04831c5 # v2.12.1 # zizmor: ignore[archived-uses]
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: Update extension test workflow on ${{ env.CREATE_PR_BASE }} branch

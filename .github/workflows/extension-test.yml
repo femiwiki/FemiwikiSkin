@@ -51,9 +51,11 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
         with:
           node-version: '16'
@@ -62,7 +64,8 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - uses: femiwiki/quibble-action@a214585731ad69858468970bce09f046078b37f4 # main
+      # quibble-action ships no version tags; intentionally pinned to a reviewed commit on main
+      - uses: femiwiki/quibble-action@a214585731ad69858468970bce09f046078b37f4 # main # zizmor: ignore[ref-version-mismatch]
         id: quibble
         with:
           stage: ${{ matrix.stage }}
@@ -80,7 +83,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         if: matrix.stage == 'coverage'
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@0fb7174895f61a3b6b78fc075e0cd60383518dac # v5.5.5
         with:
           use_oidc: true
           directory: ${{ steps.quibble.outputs.coverage }}

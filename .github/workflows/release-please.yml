@@ -5,21 +5,22 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - uses: peter-murray/workflow-application-token-action@v4
+      - uses: peter-murray/workflow-application-token-action@d17e3a9a36850ea89f35db16c1067dd2b68ee343 # v4.0.1
         id: get_workflow_token
         with:
           application_id: ${{ vars.PAT_APPLICATION_ID }}
           application_private_key: ${{ secrets.PAT_APPLICATION_PRIVATE_KEY }}
 
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4.4.1
         id: release-please-action
         with:
           token: ${{ steps.get_workflow_token.outputs.token }}
@@ -31,22 +32,28 @@ jobs:
   upload-assets:
     runs-on: ubuntu-latest
     needs: release-please
-    if: ${{ needs.release-please.outputs.upload_url }} != ""
+    permissions:
+      contents: read
+    if: ${{ needs.release-please.outputs.upload_url != '' }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v7
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: 14
 
       - name: Build project
         run: |
           npm install --omit=dev
-          tar --exclude-vcs -C .. -zcvf "../${{ needs.release-please.outputs.tag_name }}.tar.gz" "$(basename "$(pwd)")"
-          mv ../${{ needs.release-please.outputs.tag_name }}.tar.gz ./
+          tar --exclude-vcs -C .. -zcvf "../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz" "$(basename "$(pwd)")"
+          mv ../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz ./
+        env:
+          NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
 
-      - uses: peter-murray/workflow-application-token-action@v4
+      - uses: peter-murray/workflow-application-token-action@d17e3a9a36850ea89f35db16c1067dd2b68ee343 # v4.0.1
         id: get_workflow_token
         with:
           application_id: ${{ vars.PAT_APPLICATION_ID }}
@@ -54,7 +61,8 @@ jobs:
 
       - name: Upload Release Asset
         id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+        # SHA-pinned; no maintained drop-in replacement, release flow unchanged
+        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2 # zizmor: ignore[archived-uses]
         env:
           GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
         with:
@@ -65,21 +73,25 @@ jobs:
 
       - name: Submit a PR
         run: |
-          if [ '${{ github.event.repository.name }}' = 'FemiwikiSkin' ]; then
+          if [ '${GITHUB_EVENT_REPOSITORY_NAME}' = 'FemiwikiSkin' ]; then
             EXTENSION=Femiwiki
           else
-            EXTENSION=${{ github.event.repository.name }}
+            EXTENSION=${GITHUB_EVENT_REPOSITORY_NAME}
           fi
           curl \
             --fail \
             --request POST \
             --url https://api.github.com/repos/femiwiki/docker-mediawiki/dispatches \
-            --header "Authorization: token ${{ steps.get_workflow_token.outputs.token }}" \
+            --header "Authorization: token ${STEPS_GET_WORKFLOW_TOKEN_OUTPUTS_TOKEN}" \
             --header 'content-type: application/json' \
             --data "{
               \"event_type\": \"bump-extension\",
               \"client_payload\": {
                 \"extension\": \"$EXTENSION\",
-                \"version\": \"${{ needs.release-please.outputs.tag_name }}\"
+                \"version\": \"${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}\"
               }
             }"
+        env:
+          GITHUB_EVENT_REPOSITORY_NAME: ${{ github.event.repository.name }}
+          STEPS_GET_WORKFLOW_TOKEN_OUTPUTS_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+          NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
