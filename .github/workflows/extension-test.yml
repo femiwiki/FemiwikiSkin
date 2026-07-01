@@ -64,7 +64,6 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      # quibble-action ships no version tags; intentionally pinned to a reviewed commit on main
       - uses: femiwiki/quibble-action@bb9c162a76424990c3f2abc4b66dc653dfe3daeb # v2.0.0
         id: quibble
         with:
