@@ -59,17 +59,11 @@ jobs:
           application_id: ${{ vars.PAT_APPLICATION_ID }}
           application_private_key: ${{ secrets.PAT_APPLICATION_PRIVATE_KEY }}
 
-      - name: Upload Release Asset
-        id: upload-release-asset
-        # SHA-pinned; no maintained drop-in replacement, release flow unchanged
-        uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 # v1.0.2 # zizmor: ignore[archived-uses]
+      - name: Upload release asset
         env:
-          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
-        with:
-          upload_url: ${{ needs.release-please.outputs.upload_url }}
-          asset_path: ./${{ needs.release-please.outputs.tag_name }}.tar.gz
-          asset_name: ${{ needs.release-please.outputs.tag_name }}.tar.gz
-          asset_content_type: application/zip
+          GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+          TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
+        run: gh release upload "$TAG_NAME" "./${TAG_NAME}.tar.gz" --repo "$GITHUB_REPOSITORY"
 
       - name: Submit a PR
         run: |
