@@ -71,10 +71,19 @@ jobs:
           mediawiki-version: ${{ matrix.mediawiki-version }}
           # phan and composer-test install our require-dev, and codesniffer >= 49
           # needs PHP >= 8.2, but REL1_43/REL1_44 otherwise derive PHP 8.1. Pin
-          # just those to 8.2/bookworm so the dev tooling installs; every other
-          # combination keeps its branch-derived version.
-          php-version: ${{ (matrix.stage == 'composer-test' || (matrix.stage == 'phan' && (matrix.mediawiki-version == 'REL1_43' || matrix.mediawiki-version == 'REL1_44'))) && '8.2' || '' }}
-          debian: ${{ (matrix.stage == 'composer-test' || (matrix.stage == 'phan' && (matrix.mediawiki-version == 'REL1_43' || matrix.mediawiki-version == 'REL1_44'))) && 'bookworm' || '' }}
+          # just those to 8.2/bookworm so the dev tooling installs.
+          php-version: >-
+            ${{ case(
+              contains(fromJSON('["phan", "composer-test"]'), matrix.stage)
+                && contains(fromJSON('["REL1_43", "REL1_44"]'), matrix.mediawiki-version),
+              '8.2',
+              '') }}
+          debian: >-
+            ${{ case(
+              contains(fromJSON('["phan", "composer-test"]'), matrix.stage)
+                && contains(fromJSON('["REL1_43", "REL1_44"]'), matrix.mediawiki-version),
+              'bookworm',
+              '') }}
           # v1 expanded the `Echo` dependency transitively via Wikimedia's
           # dependencies.yaml; main resolves from local sources only, so we pin
           # that closure explicitly to keep testing the same set of repos.
