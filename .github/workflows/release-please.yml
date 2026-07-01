@@ -46,12 +46,12 @@ jobs:
           node-version: 14
 
       - name: Build project
+        env:
+          NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
         run: |
           npm install --omit=dev
           tar --exclude-vcs -C .. -zcvf "../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz" "$(basename "$(pwd)")"
           mv ../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz ./
-        env:
-          NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
 
       - uses: peter-murray/workflow-application-token-action@d17e3a9a36850ea89f35db16c1067dd2b68ee343 # v4.0.1
         id: get_workflow_token
@@ -66,6 +66,10 @@ jobs:
         run: gh release upload "$TAG_NAME" "./${TAG_NAME}.tar.gz" --repo "$GITHUB_REPOSITORY"
 
       - name: Submit a PR
+        env:
+          GITHUB_EVENT_REPOSITORY_NAME: ${{ github.event.repository.name }}
+          STEPS_GET_WORKFLOW_TOKEN_OUTPUTS_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+          NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
         run: |
           if [ '${GITHUB_EVENT_REPOSITORY_NAME}' = 'FemiwikiSkin' ]; then
             EXTENSION=Femiwiki
@@ -85,7 +89,3 @@ jobs:
                 \"version\": \"${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}\"
               }
             }"
-        env:
-          GITHUB_EVENT_REPOSITORY_NAME: ${{ github.event.repository.name }}
-          STEPS_GET_WORKFLOW_TOKEN_OUTPUTS_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
-          NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
