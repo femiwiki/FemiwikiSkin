@@ -1,8 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ерней"
+			"Ерней",
+			"Ильгиз"
 		]
 	},
-	"skin-femiwiki-page-menu-tooltip": "Меню"
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Femiwiki күренеш темасы",
+	"skin-femiwiki-page-menu-tooltip": "Меню",
+	"skin-femiwiki-share-tooltip": "Бу мәкаләне уртаклашу",
+	"skin-femiwiki-share-dismiss": "Баш тарту",
+	"skin-femiwiki-share-twitter": "Twitter",
+	"femiwiki.css": "/* Монда урнаштырылган CSS коды Femiwiki күренеш темасына тәэсир итәчәк */",
+	"femiwiki.js": "/* Femiwiki күренеш темасын кулланучылар монда урнаштырылган JavaScript кодын йөклиячәк */",
+	"prefs-femiwiki-large-elements-label": "Зуррак элементларны куллану",
+	"prefs-femiwiki-large-elements-help": " Бу көйләнмә зуррак элементларны карап алырга мөмкинлек бирә. Экрандагы элементлар зурракларына алмаштырылачак."
 }
