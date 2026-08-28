@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@femiwiki/ooui-femiwiki-theme": "https://github.com/femiwiki/OOUIFemiwikiTheme.git#REL1_43",
-    "xeicon": "https://github.com/xpressengine/XEIcon.git#2.3.3"
+    "xeicon": "https://github.com/xpressengine/XEIcon.git#2.4.0"
   },
   "devDependencies": {
     "@prettier/plugin-xml": "^3.4.2",
