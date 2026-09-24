@@ -71,7 +71,7 @@ jobs:
           STEPS_GET_WORKFLOW_TOKEN_OUTPUTS_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
           NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
         run: |
-          if [ '${GITHUB_EVENT_REPOSITORY_NAME}' = 'FemiwikiSkin' ]; then
+          if [ "${GITHUB_EVENT_REPOSITORY_NAME}" = 'FemiwikiSkin' ]; then
             EXTENSION=Femiwiki
           else
             EXTENSION=${GITHUB_EVENT_REPOSITORY_NAME}
