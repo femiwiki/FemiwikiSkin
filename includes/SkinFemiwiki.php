@@ -51,7 +51,15 @@ class SkinFemiwiki extends SkinMustache {
 		$parentData = parent::getTemplateData();
 		[ $sidebar, $toolbox ] = $this->getSidebar( $parentData['data-portlets-sidebar'] );
 
+		$portlets = $parentData['data-portlets'];
+		$extendedUserMenu = [
+			'html-items' => $portlets['data-user-page']['html-items'] .
+				$portlets['data-notifications']['html-items'] .
+				$portlets['data-user-menu']['html-items'],
+		] + $portlets['data-user-menu'];
+
 		$commonSkinData = array_merge_recursive( $parentData, [
+			'data-user-menu-extended' => $extendedUserMenu,
 			'data-sidebar' => $sidebar,
 			'html-heading-language-attributes' => $this->prepareHeadingLanguageAttributes(),
 			'html-share-button' => $this->getShare(),
