@@ -51,7 +51,7 @@ jobs:
         run: |
           npm install --omit=dev
           tar --exclude-vcs -C .. -zcvf "../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz" "$(basename "$(pwd)")"
-          mv ../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz ./
+          mv "../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz" ./
 
       - uses: peter-murray/workflow-application-token-action@d17e3a9a36850ea89f35db16c1067dd2b68ee343 # v4.0.1
         id: get_workflow_token
