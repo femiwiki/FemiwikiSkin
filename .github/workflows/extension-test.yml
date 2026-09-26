@@ -64,7 +64,7 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - uses: femiwiki/quibble-action@bb9c162a76424990c3f2abc4b66dc653dfe3daeb # v2.0.0
+      - uses: femiwiki/quibble-action@8927aa82a83cce7717e1fd12aec815fc76d31abc # v2.2.0
         id: quibble
         with:
           stage: ${{ matrix.stage }}
@@ -83,6 +83,14 @@ jobs:
               contains(fromJSON('["phan", "composer-test"]'), matrix.stage)
                 && contains(fromJSON('["REL1_43", "REL1_44"]'), matrix.mediawiki-version),
               'bookworm',
+              '') }}
+          # Node 26 images stop WebdriverIO's browser download midway
+          # (https://github.com/puppeteer/puppeteer/issues/14957).
+          quibble-docker-tag: >-
+            ${{ case(
+              matrix.stage == 'selenium'
+                && contains(fromJSON('["REL1_45", "REL1_46", "master"]'), matrix.mediawiki-version),
+              '1.21.0-s2',
               '') }}
           # v1 expanded the `Echo` dependency transitively via Wikimedia's
           # dependencies.yaml; main resolves from local sources only, so we pin
