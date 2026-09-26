@@ -64,7 +64,7 @@ jobs:
       - run: npm install
         if: matrix.stage == 'phpunit' || matrix.stage == 'selenium'
 
-      - uses: femiwiki/quibble-action@8927aa82a83cce7717e1fd12aec815fc76d31abc # v2.2.0
+      - uses: femiwiki/quibble-action@6dc4f959985c9de92561d630f4092f54042e745e # v2.3.1
         id: quibble
         with:
           stage: ${{ matrix.stage }}
@@ -96,6 +96,12 @@ jobs:
           # dependencies.yaml; main resolves from local sources only, so we pin
           # that closure explicitly to keep testing the same set of repos.
           dependencies: AntiSpoof CentralAuth Echo EventLogging MobileFrontend
+          # REL1_44 is end of life; the mirrors dropped these branches.
+          dependency-commits: >-
+            ${{ case(
+              matrix.mediawiki-version == 'REL1_44',
+              'Echo=7dcf8d9bf83c5bf25351e95b1d684f8628754e30 skins/Vector=d16380209683c9d2ae5d9cb111c036e3e2b5ef62',
+              '') }}
 
       - name: Upload coverage to Codecov
         if: matrix.stage == 'coverage'
