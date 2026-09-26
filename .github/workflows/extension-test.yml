@@ -12,7 +12,6 @@ jobs:
       matrix:
         mediawiki-version:
           - REL1_43
-          - REL1_44
           - REL1_45
           - REL1_46
           - master
@@ -33,8 +32,6 @@ jobs:
           # independent, so run it on a single version (REL1_43, which is a
           # required status check). This avoids the same phpcs annotations being
           # emitted once per version and saves CI time.
-          - mediawiki-version: REL1_44
-            stage: composer-test
           - mediawiki-version: REL1_45
             stage: composer-test
           - mediawiki-version: REL1_46
@@ -70,18 +67,18 @@ jobs:
           stage: ${{ matrix.stage }}
           mediawiki-version: ${{ matrix.mediawiki-version }}
           # phan and composer-test install our require-dev, and codesniffer >= 49
-          # needs PHP >= 8.2, but REL1_43/REL1_44 otherwise derive PHP 8.1. Pin
-          # just those to 8.2/bookworm so the dev tooling installs.
+          # needs PHP >= 8.2, but REL1_43 otherwise derives PHP 8.1. Pin
+          # just that to 8.2/bookworm so the dev tooling installs.
           php-version: >-
             ${{ case(
               contains(fromJSON('["phan", "composer-test"]'), matrix.stage)
-                && contains(fromJSON('["REL1_43", "REL1_44"]'), matrix.mediawiki-version),
+                && matrix.mediawiki-version == 'REL1_43',
               '8.2',
               '') }}
           debian: >-
             ${{ case(
               contains(fromJSON('["phan", "composer-test"]'), matrix.stage)
-                && contains(fromJSON('["REL1_43", "REL1_44"]'), matrix.mediawiki-version),
+                && matrix.mediawiki-version == 'REL1_43',
               'bookworm',
               '') }}
           # Node 26 images stop WebdriverIO's browser download midway
@@ -96,12 +93,6 @@ jobs:
           # dependencies.yaml; main resolves from local sources only, so we pin
           # that closure explicitly to keep testing the same set of repos.
           dependencies: AntiSpoof CentralAuth Echo EventLogging MobileFrontend
-          # REL1_44 is end of life; the mirrors dropped these branches.
-          dependency-commits: >-
-            ${{ case(
-              matrix.mediawiki-version == 'REL1_44',
-              'Echo=7dcf8d9bf83c5bf25351e95b1d684f8628754e30 skins/Vector=d16380209683c9d2ae5d9cb111c036e3e2b5ef62',
-              '') }}
 
       - name: Upload coverage to Codecov
         if: matrix.stage == 'coverage'
