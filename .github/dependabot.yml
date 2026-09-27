@@ -8,35 +8,24 @@ updates:
       - 'femiwiki/reviewer'
     cooldown:
       default-days: 7
-    # A development package never reaches the wiki, yet every merge here
-    # rebuilds and redeploys it, so they come grouped into one pull request
-    groups:
-      development:
-        dependency-type: development
-        patterns: ['*']
-      development-security:
-        applies-to: security-updates
-        dependency-type: development
-        patterns: ['*']
 
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
       interval: monthly
+    # bump-downstream.yml skips chore: commits, so of these only the OOUI
+    # theme, the one package here the wiki loads and dependabot updates, leads
+    # to a deploy
+    commit-message:
+      prefix: 'build'
+      prefix-development: 'chore'
+    # XEIcon is to be replaced rather than updated
+    ignore:
+      - dependency-name: 'xeicon'
     reviewers:
       - 'femiwiki/reviewer'
     cooldown:
       default-days: 7
-    # A development package never reaches the wiki, yet every merge here
-    # rebuilds and redeploys it, so they come grouped into one pull request
-    groups:
-      development:
-        dependency-type: development
-        patterns: ['*']
-      development-security:
-        applies-to: security-updates
-        dependency-type: development
-        patterns: ['*']
 
   - package-ecosystem: 'github-actions'
     directory: '/'
