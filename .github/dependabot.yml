@@ -13,10 +13,14 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
-    # The two packages the wiki loads are left to be bumped by hand, so every
-    # update here is a development one, which bump-downstream.yml skips
+    # bump-downstream.yml skips chore: commits, so of these only the OOUI
+    # theme, the one package here the wiki loads and dependabot updates, leads
+    # to a deploy
+    commit-message:
+      prefix: 'build'
+      prefix-development: 'chore'
+    # Unreleased from 2017 until this year; bumped by hand if ever needed
     ignore:
-      - dependency-name: '@femiwiki/ooui-femiwiki-theme'
       - dependency-name: 'xeicon'
     reviewers:
       - 'femiwiki/reviewer'
