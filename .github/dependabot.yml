@@ -4,6 +4,11 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
+    # bump-downstream.yml skips chore: commits, so only a package the wiki
+    # loads leads to a deploy
+    commit-message:
+      prefix: 'build'
+      prefix-development: 'chore'
     reviewers:
       - 'femiwiki/reviewer'
     cooldown:
@@ -13,6 +18,11 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
+    # bump-downstream.yml skips chore: commits, so only a package the wiki
+    # loads leads to a deploy
+    commit-message:
+      prefix: 'build'
+      prefix-development: 'chore'
     reviewers:
       - 'femiwiki/reviewer'
     cooldown:
