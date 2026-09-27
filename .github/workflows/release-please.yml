@@ -64,28 +64,3 @@ jobs:
           GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
           TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
         run: gh release upload "$TAG_NAME" "./${TAG_NAME}.tar.gz" --repo "$GITHUB_REPOSITORY"
-
-      - name: Submit a PR
-        env:
-          GITHUB_EVENT_REPOSITORY_NAME: ${{ github.event.repository.name }}
-          STEPS_GET_WORKFLOW_TOKEN_OUTPUTS_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
-          NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
-        run: |
-          if [ "${GITHUB_EVENT_REPOSITORY_NAME}" = 'FemiwikiSkin' ]; then
-            EXTENSION=Femiwiki
-          else
-            EXTENSION=${GITHUB_EVENT_REPOSITORY_NAME}
-          fi
-          curl \
-            --fail \
-            --request POST \
-            --url https://api.github.com/repos/femiwiki/docker-mediawiki/dispatches \
-            --header "Authorization: token ${STEPS_GET_WORKFLOW_TOKEN_OUTPUTS_TOKEN}" \
-            --header 'content-type: application/json' \
-            --data "{
-              \"event_type\": \"bump-extension\",
-              \"client_payload\": {
-                \"extension\": \"$EXTENSION\",
-                \"version\": \"${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}\"
-              }
-            }"
