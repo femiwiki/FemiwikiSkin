@@ -8,12 +8,16 @@ on:
     paths-ignore:
       - .github/**
       - tests/**
+  # For a push that was skipped but should reach the wiki after all
+  workflow_dispatch:
 
 permissions: {}
 
 jobs:
   dispatch:
-    if: github.repository_owner == 'femiwiki'
+    # chore: is a development dependency update (see dependabot.yml) or the
+    # like, which the wiki never loads; chore(i18n): still goes through
+    if: "${{ github.repository_owner == 'femiwiki' && !startsWith(github.event.head_commit.message, 'chore: ') }}"
     runs-on: ubuntu-latest
     permissions: {}
     steps:
