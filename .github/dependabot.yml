@@ -19,7 +19,7 @@ updates:
     commit-message:
       prefix: 'build'
       prefix-development: 'chore'
-    # Unreleased from 2017 until this year; bumped by hand if ever needed
+    # XEIcon is to be replaced rather than updated
     ignore:
       - dependency-name: 'xeicon'
     reviewers:
