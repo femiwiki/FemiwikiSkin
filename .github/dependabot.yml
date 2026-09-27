@@ -4,11 +4,6 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
-    # bump-downstream.yml skips chore: commits, so only a package the wiki
-    # loads leads to a deploy
-    commit-message:
-      prefix: 'build'
-      prefix-development: 'chore'
     reviewers:
       - 'femiwiki/reviewer'
     cooldown:
@@ -18,11 +13,11 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
-    # bump-downstream.yml skips chore: commits, so only a package the wiki
-    # loads leads to a deploy
-    commit-message:
-      prefix: 'build'
-      prefix-development: 'chore'
+    # The two packages the wiki loads are left to be bumped by hand, so every
+    # update here is a development one, which bump-downstream.yml skips
+    ignore:
+      - dependency-name: '@femiwiki/ooui-femiwiki-theme'
+      - dependency-name: 'xeicon'
     reviewers:
       - 'femiwiki/reviewer'
     cooldown:
