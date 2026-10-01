@@ -1,9 +1,9 @@
 name: Quibble and Phan
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+  workflow_call:
+
+permissions: {}
 
 jobs:
   test:
@@ -40,6 +40,11 @@ jobs:
             stage: composer-test
 
     runs-on: ubuntu-latest
+    # Only REL1_43's phan, npm-test and composer-test have to pass; the other
+    # legs still report, but a failure there does not fail the required job.
+    continue-on-error: >-
+      ${{ !(matrix.mediawiki-version == 'REL1_43'
+        && contains(fromJSON('["phan", "npm-test", "composer-test"]'), matrix.stage)) }}
 
     # contents: read to clone; id-token: write so the Codecov upload can
     # authenticate via OIDC instead of an upload token.
