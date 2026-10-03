@@ -99,7 +99,7 @@ class Portlet implements
 			$linkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
-		$insertUrls = [
+		$notificationLink = [
 			'notifications-all' => [
 				'href' => $url,
 				'id' => 'pt-notifications-all',
@@ -113,7 +113,7 @@ class Portlet implements
 			]
 		];
 
-		$links['notifications'] = $insertUrls;
+		$links['user-menu'] = $notificationLink + ( $links['user-menu'] ?? [] );
 	}
 
 	/**

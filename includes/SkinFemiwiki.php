@@ -54,7 +54,6 @@ class SkinFemiwiki extends SkinMustache {
 		$portlets = $parentData['data-portlets'];
 		$extendedUserMenu = [
 			'html-items' => $portlets['data-user-page']['html-items'] .
-				$portlets['data-notifications']['html-items'] .
 				$portlets['data-user-menu']['html-items'],
 		] + $portlets['data-user-menu'];
 
