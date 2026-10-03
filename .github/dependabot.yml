@@ -13,6 +13,15 @@ updates:
     directory: '/'
     schedule:
       interval: monthly
+    # bump-downstream.yml skips chore: commits, so of these only the OOUI
+    # theme, the one package here the wiki loads and dependabot updates, leads
+    # to a deploy
+    commit-message:
+      prefix: 'build'
+      prefix-development: 'chore'
+    # XEIcon is to be replaced rather than updated
+    ignore:
+      - dependency-name: 'xeicon'
     reviewers:
       - 'femiwiki/reviewer'
     cooldown:
