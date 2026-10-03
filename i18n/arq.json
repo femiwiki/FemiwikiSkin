@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bachounda"
+		]
+	},
+	"skinname-femiwiki": "فيميويكي",
+	"femiwiki-desc": "مظهر فيميويكي",
+	"skin-femiwiki-page-menu-tooltip": "القائمة",
+	"skin-femiwiki-share-tooltip": "شارك هذه المادة",
+	"skin-femiwiki-share-dismiss": "أرفضها",
+	"skin-femiwiki-share-twitter": "تويتر",
+	"prefs-femiwiki-large-elements-label": "استخدم عناصر أكبر",
+	"prefs-femiwiki-large-elements-help": "هاد الخيار يسمحلك تشوف معاينة للعناصر الكبيرة. العناصر اللي على الشاشة راح يتستبدلو بعناصر أكبر."
+}
