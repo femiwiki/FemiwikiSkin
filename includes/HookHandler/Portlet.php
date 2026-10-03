@@ -102,7 +102,6 @@ class Portlet implements
 		$notificationLink = [
 			'notifications-all' => [
 				'href' => $url,
-				'id' => 'pt-notifications-all',
 				'text' => $msgText,
 				'active' => ( $url == $title->getLocalUrl() ),
 				'class' => $linkClasses,
