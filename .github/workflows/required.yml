@@ -2,7 +2,7 @@ name: Required
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'REL1_*']
   pull_request:
 
 permissions: {}
