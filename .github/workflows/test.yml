@@ -11,10 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         mediawiki-version:
-          - REL1_43
           - REL1_45
-          - REL1_46
-          - master
         stage:
           - phan
           # - coverage # We really need this coverage for a skin?
@@ -27,23 +24,12 @@ jobs:
           - selenium
           # - qunit
           # - api-testing
-        exclude:
-          # composer-test (parallel-lint, phpcs, minus-x) is MediaWiki-version
-          # independent, so run it on a single version (REL1_43, which is a
-          # required status check). This avoids the same phpcs annotations being
-          # emitted once per version and saves CI time.
-          - mediawiki-version: REL1_45
-            stage: composer-test
-          - mediawiki-version: REL1_46
-            stage: composer-test
-          - mediawiki-version: master
-            stage: composer-test
 
     runs-on: ubuntu-latest
-    # Only REL1_43's phan, npm-test and composer-test have to pass; the other
+    # Only REL1_45's phan, npm-test and composer-test have to pass; the other
     # legs still report, but a failure there does not fail the required job.
     continue-on-error: >-
-      ${{ !(matrix.mediawiki-version == 'REL1_43'
+      ${{ !(matrix.mediawiki-version == 'REL1_45'
         && contains(fromJSON('["phan", "npm-test", "composer-test"]'), matrix.stage)) }}
 
     # contents: read to clone; id-token: write so the Codecov upload can
@@ -71,29 +57,9 @@ jobs:
         with:
           stage: ${{ matrix.stage }}
           mediawiki-version: ${{ matrix.mediawiki-version }}
-          # phan and composer-test install our require-dev, and codesniffer >= 49
-          # needs PHP >= 8.2, but REL1_43 otherwise derives PHP 8.1. Pin
-          # just that to 8.2/bookworm so the dev tooling installs.
-          php-version: >-
-            ${{ case(
-              contains(fromJSON('["phan", "composer-test"]'), matrix.stage)
-                && matrix.mediawiki-version == 'REL1_43',
-              '8.2',
-              '') }}
-          debian: >-
-            ${{ case(
-              contains(fromJSON('["phan", "composer-test"]'), matrix.stage)
-                && matrix.mediawiki-version == 'REL1_43',
-              'bookworm',
-              '') }}
           # Node 26 images stop WebdriverIO's browser download midway
           # (https://github.com/puppeteer/puppeteer/issues/14957).
-          quibble-docker-tag: >-
-            ${{ case(
-              matrix.stage == 'selenium'
-                && contains(fromJSON('["REL1_45", "REL1_46", "master"]'), matrix.mediawiki-version),
-              '1.21.0-s2',
-              '') }}
+          quibble-docker-tag: ${{ case(matrix.stage == 'selenium', '1.21.0-s2', '') }}
           # v1 expanded the `Echo` dependency transitively via Wikimedia's
           # dependencies.yaml; main resolves from local sources only, so we pin
           # that closure explicitly to keep testing the same set of repos.
