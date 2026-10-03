@@ -1,7 +1,9 @@
 ---
 name: GitHub Actions Security Analysis with zizmor 🌈
 on:
-  workflow_call:
+  push:
+    branches: [REL1_43]
+  pull_request:
 permissions: {}
 jobs:
   zizmor:
