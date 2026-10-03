@@ -22,6 +22,22 @@ await (async () => {
     fs.mkdirSync(pathToMediaWiki);
   }
 
+  // An earlier run may have installed another MediaWiki version
+  const pathToDefines =
+    pathToMediaWiki + path.sep + 'includes' + path.sep + 'Defines.php';
+  if (fs.existsSync(pathToDefines)) {
+    const installedVersion = fs
+      .readFileSync(pathToDefines, 'utf8')
+      .match(/define\(\s*'MW_VERSION',\s*'([^']+)'/)?.[1];
+    if (installedVersion !== mediaWikiVersion) {
+      console.error(
+        `❗ ${pathToMediaWiki} has MediaWiki ${installedVersion}, but this skin is developed on ${mediaWikiVersion}.\n` +
+          `  Remove that directory to install ${mediaWikiVersion}. The wiki's pages and settings go with it.`,
+      );
+      process.exit(1);
+    }
+  }
+
   // Download FrankenPHP
   // Originally `curl https://frankenphp.dev/install.sh | sh`
   if (!fs.existsSync(pathToFrankenPhp)) {
@@ -78,11 +94,11 @@ await (async () => {
 
   // Download MediaWiki.zip
   if (!fs.existsSync(pathToMediaWiki + path.sep + 'index.php')) {
-    const zipFilename = 'mediawiki.zip';
+    const zipFilename = `mediawiki-${mediaWikiVersion}.zip`;
     const pathToZip = rootPath + path.sep + zipFilename;
     if (!fs.existsSync(pathToZip)) {
       const shortVer = mediaWikiVersion.split('.').slice(0, 2).join('.');
-      console.log(`📦 Downloading mediawiki.zip`);
+      console.log(`📦 Downloading ${zipFilename}`);
       await new downloader({
         url: `https://releases.wikimedia.org/mediawiki/${shortVer}/mediawiki-${mediaWikiVersion}.zip`,
         directory: rootPath,
@@ -94,7 +110,7 @@ await (async () => {
       }).download();
       console.log(`🥳 MediaWiki downloaded successfully to ${rootPath}`);
     }
-    console.log(`📦 Extracting mediawiki.zip`);
+    console.log(`📦 Extracting ${zipFilename}`);
     const directory = await unzipper.Open.file(pathToZip);
     await directory.extract({ path: rootPath });
     if (fs.existsSync(pathToMediaWiki)) {
