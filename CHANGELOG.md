@@ -2,6 +2,14 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.1.4](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.3...v5.1.4) (2026-10-03)
+
+
+### Bug Fixes
+
+* Fixes deprecation warnings in 1.46 ([#925](https://github.com/femiwiki/FemiwikiSkin/issues/925)) ([53af529](https://github.com/femiwiki/FemiwikiSkin/commit/53af529e7696192515b503767f5e60c1af61998f))
+* follow the LESS files 1.46 moved ([#1009](https://github.com/femiwiki/FemiwikiSkin/issues/1009)) ([a468700](https://github.com/femiwiki/FemiwikiSkin/commit/a4687007436cdf05c709ceaa61b2d5bf9c03abfd))
+
 ## [5.1.3](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.2...v5.1.3) (2026-09-27)
 
 
