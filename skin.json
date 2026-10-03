@@ -9,7 +9,7 @@
   "descriptionmsg": "femiwiki-desc",
   "license-name": "AGPL-3.0-or-later",
   "requires": {
-    "MediaWiki": ">= 1.42.0"
+    "MediaWiki": ">= 1.46.0"
   },
   "ResourceFileModulePaths": {
     "localBasePath": "resources",
@@ -42,10 +42,6 @@
         "content-body": false,
         "toc": false
       },
-      "targets": [
-        "desktop",
-        "mobile"
-      ],
       "localBasePath": "node_modules/xeicon",
       "remoteSkinPath": "Femiwiki/node_modules/xeicon",
       "styles": {
@@ -55,24 +51,10 @@
       }
     },
     "skins.femiwiki.smallElements": {
-      "styles": [
-        "skins.femiwiki.smallElements/styles.less"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
-      ]
+      "styles": ["skins.femiwiki.smallElements/styles.less"]
     },
     "skins.femiwiki.js": {
-      "dependencies": [
-        "oojs",
-        "oojs-ui-core",
-        "mediawiki.page.ready"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
-      ],
+      "dependencies": ["oojs", "oojs-ui-core", "mediawiki.page.ready"],
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
@@ -82,35 +64,14 @@
       ]
     },
     "skins.femiwiki.notifications": {
-      "targets": [
-        "desktop",
-        "mobile"
-      ],
-      "packageFiles": [
-        "skins.femiwiki.notifications/init.js"
-      ]
+      "packageFiles": ["skins.femiwiki.notifications/init.js"]
     },
     "skins.femiwiki.dm": {
-      "scripts": [
-        "mw.fw.js"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
-      ]
+      "scripts": ["mw.fw.js"]
     },
     "skins.femiwiki.share": {
-      "dependencies": [
-        "oojs",
-        "oojs-ui-windows"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
-      ],
-      "packageFiles": [
-        "skins.femiwiki.share/init.js"
-      ]
+      "dependencies": ["oojs", "oojs-ui-windows"],
+      "packageFiles": ["skins.femiwiki.share/init.js"]
     },
     "skins.femiwiki.share.ui": {
       "scripts": [
@@ -124,10 +85,6 @@
       "messages": [
         "skin-femiwiki-share-dismiss",
         "skin-femiwiki-share-twitter"
-      ],
-      "targets": [
-        "desktop",
-        "mobile"
       ]
     }
   },
@@ -233,6 +190,16 @@
             "skins.femiwiki",
             "skins.femiwiki.xeicon",
             "oojs-ui.styles.icons-interactions"
+          ],
+          "menus": [
+            "associated-pages",
+            "views",
+            "actions",
+            "variants",
+            "user-page",
+            "user-interface-preferences",
+            "notifications",
+            "user-menu"
           ],
           "link": {
             "text-wrapper": {
