@@ -99,7 +99,7 @@ class Portlet implements
 			$linkClasses[] = 'mw-echo-notifications-badge-long-label';
 		}
 
-		$insertUrls = [
+		$notificationLink = [
 			'notifications-all' => [
 				'href' => $url,
 				'text' => $msgText,
@@ -112,7 +112,7 @@ class Portlet implements
 			]
 		];
 
-		$links['user-menu'] = wfArrayInsertAfter( $links['user-menu'] ?? [], $insertUrls, 'userpage' );
+		$links['user-menu'] = $notificationLink + ( $links['user-menu'] ?? [] );
 	}
 
 	/**
@@ -164,6 +164,7 @@ class Portlet implements
 		$this->tweakWatchActions( $sktemplate, $links );
 
 		foreach ( [
+			'user-page',
 			'user-menu',
 			'actions',
 		] as &$portlet ) {
@@ -203,7 +204,7 @@ class Portlet implements
 			return;
 		}
 
-		$links['namespaces'][$key] = $links['actions'][$key];
+		$links['associated-pages'][$key] = $links['actions'][$key];
 		unset( $links['actions'][$key] );
 	}
 
