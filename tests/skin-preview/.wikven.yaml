@@ -1,0 +1,15 @@
+---
+# The specimen pages wikven ships, baked in Femiwiki by .github/workflows/skin-preview.yml.
+# That workflow adds the WikvenRepositories entry pointing at the checkout being previewed.
+skins:
+  - Femiwiki
+
+config:
+  Sitename: Skin preview
+  DefaultSkin: femiwiki
+  WikvenBuildVector: false
+  # Leave the chrome (personal menu, tabs, toolbox, footer) to the skin.
+  WikvenBuildFor: skin-preview
+  # The specimen page links to its category page, so export Category: too.
+  ContentNamespaces: [0, 6, 14]
+  DefaultRobotPolicy: noindex,nofollow
