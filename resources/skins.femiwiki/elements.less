@@ -8,12 +8,13 @@
 
 // TODO: Stop targeting tags. https://github.com/femiwiki/FemiwikiSkin/issues/20
 html {
-  font-size: unit(@font-size-root-default, px);
+  // Relative to the browser's default font size (16px unless the reader changed it)
+  font-size: percentage((@font-size-root-default / 16));
   @media (max-width: @width-breakpoint-mobile-small) {
-    font-size: 16px;
+    font-size: 100%;
   }
   @media (max-width: @width-breakpoint-mobile) {
-    font-size: 16.5px;
+    font-size: percentage((16.5 / 16));
   }
 
   font-family: @font-family;

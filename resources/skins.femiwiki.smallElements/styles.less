@@ -5,7 +5,7 @@
 @content-width: 50rem;
 
 html {
-  font-size: unit(@font-size-root-default, px);
+  font-size: percentage((@font-size-root-default / 16));
 }
 
 .nav-bar #mw-navigation {
@@ -34,8 +34,14 @@ hr#content-end-bar {
     @four-portlets-min-width: (@portal-min-width * 4) +
       (@portal-column-gap * 3) + (@content-horizontal-padding * 2);
 
-    @min-width: unit(@three-portlets-min-width * @font-size-root-default, px);
-    @max-width: unit(@four-portlets-min-width * @font-size-root-default, px);
+    @min-width: unit(
+      (@three-portlets-min-width * @font-size-root-default / 16),
+      em
+    );
+    @max-width: unit(
+      (@four-portlets-min-width * @font-size-root-default / 16),
+      em
+    );
 
     @media (min-width: @min-width) and (max-width: @max-width) {
       flex-basis: 40%;
