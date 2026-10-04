@@ -5,6 +5,16 @@ name: Skin preview
 # served at pr-preview/pr-<N>/ and kept after the PR closes.
 on:
   pull_request:
+    paths:
+      - .github/skin-preview-source.sh
+      - .github/workflows/skin-preview.yml
+      - Femiwiki.php
+      - i18n/**
+      - includes/**
+      - package-lock.json
+      - resources/**
+      - skin.json
+      - tests/skin-preview/**
 
 permissions: {}
 
