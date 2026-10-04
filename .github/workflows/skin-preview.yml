@@ -108,6 +108,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
+      actions: write
       contents: write
       pull-requests: write
     steps:
@@ -132,3 +133,16 @@ jobs:
           preview-branch: previews
           umbrella-dir: pr-preview
           qr-code: 'false'
+
+      # Until publish-pages.yml is on main there is nothing to dispatch.
+      - name: Publish the previews branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          path=.github/workflows/publish-pages.yml
+          if gh api "repos/$REPO/contents/$path?ref=main" --silent; then
+            gh workflow run publish-pages.yml --repo "$REPO" --ref main
+          else
+            echo "::notice::$path is not on main yet; nothing published."
+          fi
