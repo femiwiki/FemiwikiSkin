@@ -128,7 +128,6 @@ jobs:
           umbrella-dir: pr-preview
           comment: 'false'
 
-      # Until publish-pages.yml is on main there is nothing to dispatch.
       - name: Publish the previews branch
         env:
           GH_TOKEN: ${{ github.token }}
@@ -136,11 +135,6 @@ jobs:
           HEAD: ${{ github.event.pull_request.head.sha }}
           URL: ${{ steps.preview.outputs.preview-url }}
         run: |
-          path=.github/workflows/publish-pages.yml
-          if ! gh api "repos/$REPO/contents/$path?ref=main" --silent; then
-            echo "::notice::$path is not on main yet; nothing published."
-            exit 0
-          fi
           gh workflow run publish-pages.yml --repo "$REPO" --ref main
           id=$(jq -n --arg ref "$HEAD" '{ref: $ref, environment: "skin-preview",
               auto_merge: false, required_contexts: [], transient_environment: false}' |
