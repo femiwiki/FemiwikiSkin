@@ -1,4 +1,4 @@
 * navigation
-** index|Specimen
-** Second page|Second page
-** Second page/A subpage with a rather long title|A subpage with a rather long title
+** index|Lorem ipsum
+** Second page|Dolor sit amet
+** Second page/A subpage with a rather long title|Consectetur adipiscing elit sed do eiusmod

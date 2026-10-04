@@ -1,5 +1,5 @@
-A placeholder shape, here so the thumbnails, the frameless image and the gallery on the
-[[index|specimen page]] have something to render.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+[[index|incididunt ut labore]] et dolore magna aliqua.
 
 Drawn for this example, and under wikven's licence:
 [https://github.com/chaotic-ground/wikven/blob/main/LICENSE GPL-3.0-or-later].

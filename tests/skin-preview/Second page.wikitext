@@ -1,10 +1,10 @@
-A second page, so that the [[index|specimen]]'s internal links have somewhere to land and the
-sidebar has more than one entry to draw. A skin's navigation cannot be judged on a site with one
-page in it.
+Lorem ipsum dolor sit amet, [[index|consectetur]] adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris.
 
-== A section ==
+== Lorem ipsum ==
 
-Enough text for the table of contents on this page to have something in it, and for the "next"
-and "previous" affordances a skin may draw to have a neighbour to point at.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur, excepteur sint occaecat cupidatat non proident.
 
 [[Category:Specimen pages]]
