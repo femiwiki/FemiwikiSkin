@@ -1,0 +1,131 @@
+---
+name: Skin preview
+
+# Bakes tests/skin-preview in the PR's base and head and publishes both to the
+# previews branch, which GitHub Pages serves at pr-preview/pr-<N>/.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+permissions: {}
+
+concurrency:
+  group: skin-preview-${{ github.event.number }}
+  cancel-in-progress: true
+
+jobs:
+  bake:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      # Whole history, so the base commit is there and the lastmod line has dates.
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '26'
+
+      # The skin's styles load files from node_modules, which a git fetch would lack.
+      - name: Pack the base and head of the skin
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/serve"
+          for side in before after; do
+            if [ "$side" = before ]; then ref=$BASE; else ref=$HEAD; fi
+            dir="$RUNNER_TEMP/$side"
+            mkdir -p "$dir"
+            git archive --prefix=Femiwiki/ "$ref" | tar -x -C "$dir"
+            (cd "$dir/Femiwiki" && npm ci --omit=dev --ignore-scripts --no-audit --no-fund)
+            tar -czf "$RUNNER_TEMP/serve/$side.tar.gz" -C "$dir" Femiwiki
+          done
+
+      # The bake container reaches the runner as host.docker.internal.
+      - name: Serve the packs
+        run: |
+          nohup python3 -m http.server 8000 --bind 0.0.0.0 \
+            --directory "$RUNNER_TEMP/serve" > /dev/null 2>&1 &
+
+      - name: Point the source at the base
+        env:
+          SIDE: before
+        run: .github/skin-preview-source.sh
+
+      - uses: chaotic-ground/wikven/actions/bake@248de7419f63cf3653400adb11425784c10751bc # v1.3.0
+        with:
+          source: tests/skin-preview
+          output: preview/before
+          fetch-cache: 'false'
+
+      - name: Point the source at the head
+        env:
+          SIDE: after
+        run: .github/skin-preview-source.sh
+
+      - uses: chaotic-ground/wikven/actions/bake@248de7419f63cf3653400adb11425784c10751bc # v1.3.0
+        with:
+          source: tests/skin-preview
+          output: preview/after
+          fetch-cache: 'false'
+
+      - name: Write the landing page
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          cat > preview/index.html << EOF
+          <!doctype html>
+          <meta charset="utf-8">
+          <meta name="robots" content="noindex">
+          <title>FemiwikiSkin preview</title>
+          <ul>
+            <li><a href="before/">Before</a>: base ${BASE:0:7}</li>
+            <li><a href="after/">After</a>: head ${HEAD:0:7}</li>
+          </ul>
+          <p>Rendered on the MediaWiki that wikven 1.3.0 carries, not necessarily femiwiki.com's.</p>
+          EOF
+
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: skin-preview
+          path: preview
+          include-hidden-files: true
+
+  # Forks and Dependabot get a read-only token, so their previews stay artifacts.
+  publish:
+    needs: bake
+    if: >-
+      always()
+      && (needs.bake.result == 'success' || github.event.action == 'closed')
+      && github.event.pull_request.head.repo.full_name == github.repository
+      && github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - if: github.event.action != 'closed'
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: skin-preview
+          path: ${{ runner.temp }}/preview
+
+      - uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
+        with:
+          action: ${{ github.event.action == 'closed' && 'remove' || 'deploy' }}
+          source-dir: ${{ runner.temp }}/preview
+          preview-branch: previews
+          umbrella-dir: pr-preview
+          qr-code: 'false'
