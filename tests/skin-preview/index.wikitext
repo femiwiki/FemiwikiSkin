@@ -1,0 +1,182 @@
+__TOC__
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+in culpa qui officia deserunt mollit anim id est laborum.
+
+Sed ut perspiciatis unde omnis iste <code>natus.error</code>. Sit voluptatem
+<code>accusantium: doloremque</code>, totam rem aperiam eaque ipsa quae ab illo inventore
+veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+[[Second page]] ipsam voluptatem quia voluptas, sit aspernatur aut
+[[Second page/A subpage with a rather long title]] odit aut fugit.
+
+== Lorem ipsum ==
+
+Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
+quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+aliquid ex ea commodi consequatur.
+
+=== Dolor sit amet ===
+
+Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.
+
+==== Consectetur adipiscing ====
+
+At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
+
+===== Sed do eiusmod =====
+
+Nam libero tempore, cum soluta nobis est eligendi optio.
+
+====== Tempor incididunt ======
+
+Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et
+voluptates repudiandae sint et molestiae non recusandae.
+
+== Ut labore et dolore ==
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed
+cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis
+ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia
+arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+himenaeos.
+
+Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque
+nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem.
+Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus
+non, massa. Fusce ac turpis quis ligula lacinia aliquet.
+
+Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.
+
+=== Magna aliqua ===
+
+Quisque '''volutpat''', ''condimentum'', '''''velit class aptent''''', <s>taciti sociosqu</s>,
+<small>ad litora</small>, <code>torquent per</code>, <sup>conubia</sup> nostra <sub>inceptos</sub>
+himenaeos. Nam nec ante [[Second page|sed lacinia]], [[Lorem ipsum dolor|urna non tincidunt
+mattis]], [https://www.mediawiki.org/ tortor neque], adipiscing
+[https://www.mediawiki.org/wiki/Manual:Contents diam a cursus ipsum]. Ante quis turpis nulla
+facilisi.
+
+Ut fringilla suspendisse potenti:
+<code>LoremIpsumDolorSitAmetConsecteturAdipiscingElitSedDoEiusmodTemporIncididunt</code>. Nunc
+feugiat mi a tellus consequat imperdiet, vestibulum sapien proin quam etiam ultrices suscipit
+justo.
+
+== Ut enim ad minim ==
+
+* Lorem ipsum dolor sit amet.
+* Consectetur adipiscing elit.
+** Sed do eiusmod tempor incididunt ut labore et dolore.
+*** Ut enim ad minim veniam.
+* Quis nostrud exercitation.
+
+# Ullamco laboris nisi.
+# Ut aliquip ex ea.
+## Commodo consequat duis aute.
+## Irure dolor in reprehenderit in voluptate velit esse cillum.
+# Dolore eu fugiat.
+
+* Nulla pariatur excepteur sint:
+*# occaecat cupidatat non proident
+*# sunt in culpa
+
+; Qui officia deserunt
+: Mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+  accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
+  veritatis et quasi architecto beatae.
+; Vitae dicta sunt
+: Explicabo nemo enim ipsam voluptatem quia voluptas sit.
+
+== Quis nostrud ==
+
+{| class="wikitable"
+|+ Lorem ipsum dolor sit amet, consectetur adipiscing elit
+! Lorem !! Ipsum dolor !! Sit amet
+|-
+| Consectetur || Adipiscing elit || Sed do
+|-
+| Eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud
+exercitation || Ullamco || Laboris
+|-
+| Nisi ut || Aliquip ex || Ea commodo
+|}
+
+Duis aute irure dolor in reprehenderit in voluptate:
+
+{| class="wikitable" style="float: right; margin-left: 1em; max-width: 20em;"
+|+ Velit esse cillum
+! Dolore
+| Eu fugiat
+|-
+! Nulla pariatur
+| Excepteur sint occaecat cupidatat non proident sunt in culpa
+|-
+! Qui officia
+| Deserunt
+|}
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
+quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non
+numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+
+== Exercitation ullamco ==
+
+[[File:Specimen.svg|thumb|right|Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor.]]
+
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
+aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit
+esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla
+pariatur.
+
+[[File:Specimen.svg|thumb|left|At vero eos et accusamus et iusto odio dignissimos.]]
+
+Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+autem quibusdam et aut officiis debitis.
+
+<div style="clear: both;"></div>
+
+Itaque earum rerum hic tenetur: [[File:Specimen.svg|frameless|60px]] a sapiente delectus, ut aut
+reiciendis voluptatibus maiores alias consequatur.
+
+<gallery mode="packed" heights="100">
+File:Specimen.svg|Lorem ipsum
+File:Specimen.svg|Dolor sit amet, consectetur adipiscing elit sed do eiusmod
+File:Specimen.svg|Tempor
+</gallery>
+
+== Laboris nisi ut ==
+
+<blockquote>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+</blockquote>
+
+: Lorem ipsum dolor sit amet.
+:: Consectetur adipiscing elit.
+::: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+== Aliquip ex ea ==
+
+Lorem ipsum dolor sit amet:
+
+ Lorem ipsum  dolor sit   amet
+ consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+<pre>
+Ut enim ad minim veniam, quis nostrud exercitation.
+</pre>
+
+----
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur.
+
+[[Category:Specimen pages]]

@@ -1,0 +1,10 @@
+Lorem ipsum dolor sit amet, [[index|consectetur]] adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+ullamco laboris.
+
+== Lorem ipsum ==
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur, excepteur sint occaecat cupidatat non proident.
+
+[[Category:Specimen pages]]
