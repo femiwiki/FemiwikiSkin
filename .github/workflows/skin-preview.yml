@@ -1,11 +1,10 @@
 ---
 name: Skin preview
 
-# Bakes tests/skin-preview in the PR's base and head and publishes both to the
-# previews branch, which GitHub Pages serves at pr-preview/pr-<N>/.
+# Bakes tests/skin-preview at the PR's base and head into the previews branch,
+# served at pr-preview/pr-<N>/ and kept after the PR closes.
 on:
   pull_request:
-    types: [opened, synchronize, reopened, closed]
 
 permissions: {}
 
@@ -15,7 +14,6 @@ concurrency:
 
 jobs:
   bake:
-    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -105,9 +103,7 @@ jobs:
   publish:
     needs: bake
     if: >-
-      always()
-      && (needs.bake.result == 'success' || github.event.action == 'closed')
-      && github.event.pull_request.head.repo.full_name == github.repository
+      github.event.pull_request.head.repo.full_name == github.repository
       && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -119,21 +115,19 @@ jobs:
         with:
           persist-credentials: false
 
-      - if: github.event.action != 'closed'
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: skin-preview
           path: ${{ runner.temp }}
 
-      - if: github.event.action != 'closed'
-        name: Unpack the preview
+      - name: Unpack the preview
         run: |
           mkdir "$RUNNER_TEMP/preview"
           tar -xzf "$RUNNER_TEMP/skin-preview.tar.gz" -C "$RUNNER_TEMP/preview"
 
       - uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
         with:
-          action: ${{ github.event.action == 'closed' && 'remove' || 'deploy' }}
+          action: deploy
           source-dir: ${{ runner.temp }}/preview
           preview-branch: previews
           umbrella-dir: pr-preview
