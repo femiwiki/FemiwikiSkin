@@ -82,7 +82,7 @@ class Portlet implements
 		$formattedCount = NotificationController::formatNotificationCount( $count );
 		$msgText = $skin->msg( 'echo-notification-notice', $count );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
-		$linkClasses = [ "mw-echo-notifications-badge", "mw-echo-notification-badge-fw-nojs" ];
+		$linkClasses = [ "mw-echo-notifications-badge" ];
 
 		$unseenMsg = $seenMsgTime !== false && $msgNotificationTimestamp !== false &&
 			$seenMsgTime < $msgNotificationTimestamp->getTimestamp( TS_ISO_8601 );
@@ -109,6 +109,9 @@ class Portlet implements
 				'data' => [
 					'counter-num' => $count,
 					'counter-text' => $formattedCount,
+					// ext.echo.init picks up badges with this, for its flyout and its unread-count polling
+					'mw-notifications-section' => 'all',
+					'badge-icon' => 'bell',
 				],
 			]
 		];
