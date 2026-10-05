@@ -25,7 +25,6 @@ function initCheckboxHack(checkbox, button) {
 function main() {
   require('./discussionStatus.js').init();
   require('./notificationBadge.js').init();
-  require('./searchClearButton.js').init();
   require('./watchingUsers.js').init();
 
   initCheckboxHack(

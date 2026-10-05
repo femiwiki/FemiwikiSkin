@@ -59,9 +59,17 @@
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
         "skins.femiwiki.js/notificationBadge.js",
-        "skins.femiwiki.js/searchClearButton.js",
         "skins.femiwiki.js/watchingUsers.js"
       ]
+    },
+    "skins.femiwiki.search.codex.styles": {
+      "class": "MediaWiki\\ResourceLoader\\CodexModule",
+      "codexStyleOnly": true,
+      "codexComponents": ["CdxSearchInput"]
+    },
+    "skins.femiwiki.search": {
+      "dependencies": ["mediawiki.skinning.typeaheadSearch"],
+      "packageFiles": ["skins.femiwiki.search/init.js"]
     },
     "skins.femiwiki.notifications": {
       "packageFiles": ["skins.femiwiki.notifications/init.js"]
@@ -158,6 +166,7 @@
   "Hooks": {
     "HtmlPageLinkRendererBegin": "default",
     "ResourceLoaderGetConfigVars": "default",
+    "SkinPageReadyConfig": "default",
     "SidebarBeforeOutput": "Portlet",
     "SkinTemplateNavigation::Universal": "Portlet",
     "GetPreferences": "SmallElements",
@@ -189,6 +198,7 @@
           "styles": [
             "skins.femiwiki",
             "skins.femiwiki.xeicon",
+            "skins.femiwiki.search.codex.styles",
             "oojs-ui.styles.icons-interactions"
           ],
           "menus": [

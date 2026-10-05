@@ -1,11 +1,18 @@
 {{#data-search-box}}
-<div id="p-search" aria-labelledby="p-search-label">
-  <form id="searchform" role="search" action="{{form-action}}">
-    <input type="hidden" name="title" value="{{page-title}}" />
-    <h3 id="p-search-label">{{msg-search}}</h3>
-      {{{html-input}}}
-      {{{html-button-search-fallback}}}
-      {{{html-button-search}}}
-  </form>
+<div id="p-search" role="search" class="fw-search-box">
+  <div class="fw-typeahead-search-container">
+    <div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail">
+      <form action="{{form-action}}" id="searchform" class="cdx-search-input">
+        <div id="simpleSearch" class="cdx-search-input__input-wrapper">
+          <div class="cdx-text-input cdx-text-input--has-start-icon">
+            {{! mw-searchInput makes core load the search module on focus }}
+            <input class="cdx-text-input__input mw-searchInput" autocomplete="off" {{{html-input-attributes}}} id="searchInput">
+            <span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+          </div>
+          <input type="hidden" name="title" value="{{page-title}}">
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 {{/data-search-box}}
