@@ -80,7 +80,7 @@ class Portlet implements
 		$seenMsgTime = SeenTime::newFromUser( $user )->getTime( 'message', TS_ISO_8601 );
 
 		$formattedCount = NotificationController::formatNotificationCount( $count );
-		$msgText = $skin->msg( 'echo-notification-notice', $count );
+		$msgText = $skin->msg( 'echo-notification-all', $count );
 		$url = SpecialPage::getTitleFor( 'Notifications' )->getLocalURL();
 		$linkClasses = [ "mw-echo-notifications-badge" ];
 
