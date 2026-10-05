@@ -2,6 +2,19 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.2.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.4...v5.2.0) (2026-10-05)
+
+
+### Features
+
+* define Codex CSS custom properties with Femiwiki colors ([#1027](https://github.com/femiwiki/FemiwikiSkin/issues/1027)) ([7af371b](https://github.com/femiwiki/FemiwikiSkin/commit/7af371b00bf755c830ab243dbe27786a099c6031))
+* replace the search box with Codex TypeaheadSearch ([#1026](https://github.com/femiwiki/FemiwikiSkin/issues/1026)) ([1f56536](https://github.com/femiwiki/FemiwikiSkin/commit/1f565366139bdfc6529fb20af35964339fc1f71b))
+
+
+### Bug Fixes
+
+* keep top bar icons beside their labels in RTL ([#1024](https://github.com/femiwiki/FemiwikiSkin/issues/1024)) ([cda3f17](https://github.com/femiwiki/FemiwikiSkin/commit/cda3f171e839b1eacbed66fcf756bf82e23ae50c)), closes [#141](https://github.com/femiwiki/FemiwikiSkin/issues/141)
+
 ## [5.1.4](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.3...v5.1.4) (2026-10-03)
 
 
