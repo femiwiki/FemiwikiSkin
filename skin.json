@@ -29,6 +29,7 @@
         "mobile"
       ],
       "styles": [
+        "skins.femiwiki/css-custom-properties.less",
         "skins.femiwiki/elements.less",
         "skins.femiwiki/contents.less",
         "skins.femiwiki/interface.less",

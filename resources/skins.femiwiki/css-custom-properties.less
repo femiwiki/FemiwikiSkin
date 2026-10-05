@@ -1,0 +1,47 @@
+@import '../variables.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-light.less';
+
+// Codex components and OOUI read their colors from these properties.
+// See Vector 2022's CSSCustomProperties.less.
+@media screen {
+  :root {
+    .cdx-mode-light();
+
+    --color-progressive: @color-link;
+    --color-progressive--hover: @color-primary6;
+    --color-progressive--active: @color-primary6;
+    --color-progressive--focus: @color-link;
+    --color-visited: @color-link;
+    --color-visited--hover: @color-primary6;
+    --color-visited--active: @color-primary6;
+    --color-icon-progressive: @color-link;
+
+    --accent-color-base: @color-progressive;
+    --background-color-progressive: @color-progressive;
+    --background-color-progressive--hover: @color-primary4;
+    --background-color-progressive--active: @color-primary6;
+    --background-color-progressive--focus: @color-progressive;
+    // Roughly as light as Codex's #e8eeff, #d9e2ff and #b6d4fb
+    --background-color-progressive-subtle: mix(@color-progressive, #fff, 15%);
+    --background-color-progressive-subtle--hover: mix(
+      @color-progressive,
+      #fff,
+      25%
+    );
+    --background-color-progressive-subtle--active: mix(
+      @color-progressive,
+      #fff,
+      45%
+    );
+    --border-color-progressive: @color-progressive;
+    --border-color-progressive--hover: @color-primary4;
+    --border-color-progressive--active: @color-primary6;
+    --border-color-progressive--focus: @color-progressive;
+    --box-shadow-color-progressive--active: @color-primary6;
+    --box-shadow-color-progressive--focus: @color-progressive;
+    --box-shadow-color-progressive-selected: @color-progressive;
+    --box-shadow-color-progressive-selected--hover: @color-primary4;
+    --box-shadow-color-progressive-selected--active: @color-primary6;
+    --outline-color-progressive--focus: @color-progressive;
+  }
+}
