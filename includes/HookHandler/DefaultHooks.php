@@ -4,11 +4,13 @@ namespace MediaWiki\Skins\Femiwiki\HookHandler;
 
 use Config;
 use ConfigFactory;
+use MediaWiki\ResourceLoader as RL;
 use MediaWiki\Skins\Femiwiki\Constants;
 
 class DefaultHooks implements
 	\MediaWiki\Linker\Hook\HtmlPageLinkRendererBeginHook,
-	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook
+	\MediaWiki\ResourceLoader\Hook\ResourceLoaderGetConfigVarsHook,
+	\MediaWiki\Skin\Hook\SkinPageReadyConfigHook
 	{
 
 	private ConfigFactory $configFactory;
@@ -25,6 +27,16 @@ class DefaultHooks implements
 		$firebaseKey = $config->get( Constants::CONFIG_FIREBASE_KEY );
 
 		$vars['wgFemiwikiFirebaseKey'] = $firebaseKey;
+	}
+
+	/**
+	 * Replaces the legacy search suggestions with Codex TypeaheadSearch.
+	 * @inheritDoc
+	 */
+	public function onSkinPageReadyConfig( RL\Context $context, array &$config ): void {
+		if ( $context->getSkin() === Constants::SKIN_NAME ) {
+			$config['searchModule'] = 'skins.femiwiki.search';
+		}
 	}
 
 	/**

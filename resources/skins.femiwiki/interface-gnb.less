@@ -41,41 +41,28 @@
       }
     }
 
-    // Search form
+    // Search form: Codex TypeaheadSearch, see skins.femiwiki.search
     #p-search {
       flex-grow: 1;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      padding: 0 0.5rem;
 
-      h3 {
-        display: none;
+      .fw-typeahead-search-container {
+        width: 100%;
+        max-width: 32rem;
       }
 
-      #searchInput {
-        box-sizing: content-box;
-        display: block;
-        width: ~'calc(100% - 1rem - 2px)';
-        font-size: 1rem;
-        height: ~'calc(2.4rem - 2px)';
-        border: 1px solid @color-primary3;
-        padding: 0 0.5rem;
+      // Codex gives text inputs a 256px minimum, wider than the bar on phones
+      .cdx-text-input {
+        min-width: 0;
       }
 
-      #searchInput::-ms-clear {
-        display: none;
-      }
-
-      #searchClearButton {
-        display: none;
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: transparent;
-        color: black;
-        margin: 0 0.35rem;
-      }
-
-      #mw-searchButton,
-      #searchButton {
-        display: none;
+      // Fill the bar height as the old search input did
+      .cdx-text-input__input {
+        height: @height;
+        max-height: none;
       }
     }
 
