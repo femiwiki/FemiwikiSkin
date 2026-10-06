@@ -34,6 +34,7 @@
         "skins.femiwiki/contents.less",
         "skins.femiwiki/interface.less",
         "skins.femiwiki/interface-gnb.less",
+        "skins.femiwiki/wide-content.less",
         "print.less"
       ]
     },
@@ -172,7 +173,7 @@
     "SidebarBeforeOutput": "Portlet",
     "SkinTemplateNavigation::Universal": "Portlet",
     "GetPreferences": "SmallElements",
-    "OutputPageBodyAttributes": "SmallElements"
+    "OutputPageBodyAttributes": ["SmallElements", "Width"]
   },
   "HookHandlers": {
     "default": {
@@ -186,6 +187,9 @@
     },
     "SmallElements": {
       "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\SmallElements"
+    },
+    "Width": {
+      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Width"
     }
   },
   "ValidSkinNames": {
