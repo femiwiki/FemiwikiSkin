@@ -3,3 +3,11 @@
 .growthexperiments-homepage-module-start-startediting.growthexperiments-homepage-module-desktop {
   height: (630em / 16);
 }
+
+// These draw in hard-coded blue (#36c bars in inline styles, PNG and SVG
+// illustrations). Turning #36c by 25deg gives hue 247, as @color-link's 248.
+.ext-growthExperiments-StreakGraph__graph,
+.mw-ge-startediting-dialog-intro-general-image,
+.suggested-edits-icon {
+  filter: hue-rotate(25deg);
+}
