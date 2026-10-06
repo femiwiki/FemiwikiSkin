@@ -111,6 +111,7 @@
       "+ext.flow.board.topic.styles": "skins.femiwiki.moduleSkinStyles/ext.flow.board.topic.styles.less",
       "+ext.flow.styles.base": "skins.femiwiki.moduleSkinStyles/ext.flow.styles.base.less",
       "+ext.flow.ui": "skins.femiwiki.moduleSkinStyles/ext.flow.ui.less",
+      "+ext.growthExperiments.Homepage.styles": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.Homepage.styles.less",
       "+ext.pygments": "skins.femiwiki.moduleSkinStyles/ext.pygments.css",
       "+ext.relatedArticles.cards": "skins.femiwiki.moduleSkinStyles/ext.relatedArticles.cards.less",
       "+ext.sanctions.special.sanctions.styles": "skins.femiwiki.moduleSkinStyles/ext.sanctions.special.sanctions.styles.less",
