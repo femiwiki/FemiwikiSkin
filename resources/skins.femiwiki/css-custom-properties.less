@@ -44,4 +44,21 @@
     --box-shadow-color-progressive-selected--active: @color-primary6;
     --outline-color-progressive--focus: @color-progressive;
   }
+
+  // Primary buttons in the green accent color, with dark green text for contrast
+  .cdx-button--action-progressive.cdx-button--weight-primary {
+    --background-color-progressive: @color-accent;
+    --background-color-progressive--hover: @color-accent--hover;
+    --background-color-progressive--active: @color-accent--active;
+    --border-color-progressive--focus: @color-accent;
+    --box-shadow-color-progressive--focus: @color-accent;
+    --color-inverted-fixed: @color-accent-text;
+  }
+
+  // Other progressive buttons keep the violet but drop the border
+  .cdx-button--action-progressive:not(.cdx-button--weight-primary) {
+    --border-color-progressive: transparent;
+    --border-color-progressive--hover: transparent;
+    --border-color-progressive--active: transparent;
+  }
 }
