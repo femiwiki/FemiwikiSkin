@@ -1,0 +1,28 @@
+@import '../variables.less';
+
+// Pages that HookHandler/Width.php marks, such as special pages and diffs
+.fw-wide-content {
+  .nav-bar #mw-navigation {
+    max-width: @content-width-wide - 1.3rem;
+
+    // Fill the wider bar, as the search form does on other pages
+    #p-search .fw-typeahead-search-container {
+      max-width: none;
+    }
+  }
+
+  .fw-wiki-portals {
+    max-width: @content-width-wide - @content-horizontal-padding;
+  }
+
+  #p-header,
+  .mw-body,
+  #p-lang,
+  .mw-footer {
+    max-width: @content-width-wide;
+  }
+
+  hr#content-end-bar {
+    max-width: @content-width-wide - (@content-horizontal-padding * 2);
+  }
+}
