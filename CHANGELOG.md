@@ -2,6 +2,23 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.3.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.2.0...v5.3.0) (2026-10-06)
+
+
+### Features
+
+* Paint GrowthExperiments in the Femiwiki theme ([#1036](https://github.com/femiwiki/FemiwikiSkin/issues/1036)) ([974ae2e](https://github.com/femiwiki/FemiwikiSkin/commit/974ae2e269297dd924de1d57f02f50b1215e8d9b))
+* Paint primary buttons green and drop the border on other progressive buttons ([#1034](https://github.com/femiwiki/FemiwikiSkin/issues/1034)) ([8f735ca](https://github.com/femiwiki/FemiwikiSkin/commit/8f735ca57e335b7b0efa75a8f2eb31586e4f0bb3))
+* widen special pages, history and diffs to 64rem ([#1035](https://github.com/femiwiki/FemiwikiSkin/issues/1035)) ([4cb8a95](https://github.com/femiwiki/FemiwikiSkin/commit/4cb8a953b44b94a42c7d492d622686c5d68d411b))
+
+
+### Bug Fixes
+
+* follow the browser's default font size ([#1021](https://github.com/femiwiki/FemiwikiSkin/issues/1021)) ([f6519a5](https://github.com/femiwiki/FemiwikiSkin/commit/f6519a5b5425e705871d00c0d7268b74c777bb53))
+* keep Special:Homepage within the screen on phones ([#1037](https://github.com/femiwiki/FemiwikiSkin/issues/1037)) ([e920293](https://github.com/femiwiki/FemiwikiSkin/commit/e920293670c773d9bcb3ec721ccb5ae4987d22ae))
+* keep the suggested edits intro from scrolling on Special:Homepage ([#1033](https://github.com/femiwiki/FemiwikiSkin/issues/1033)) ([d5858f3](https://github.com/femiwiki/FemiwikiSkin/commit/d5858f34384a55be1924c6ea3d7c96f7152edb9f))
+* use the OOUI theme for MediaWiki 1.46 ([#1031](https://github.com/femiwiki/FemiwikiSkin/issues/1031)) ([00857ec](https://github.com/femiwiki/FemiwikiSkin/commit/00857ec4daf317928f1c9a6ac44a0a174e8743ed))
+
 ## [5.2.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.1.4...v5.2.0) (2026-10-05)
 
 
