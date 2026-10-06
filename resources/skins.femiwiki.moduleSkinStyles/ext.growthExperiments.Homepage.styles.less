@@ -11,3 +11,45 @@
 .suggested-edits-icon {
   filter: hue-rotate(25deg);
 }
+
+// GrowthExperiments never shrinks the main column below 480px nor the
+// suggested edits card below 332px, which made phones scroll sideways.
+body.mw-special-Homepage.growthexperiments-homepage-desktop
+  .growthexperiments-homepage-container {
+  .growthexperiments-homepage-group-main,
+  .growthexperiments-homepage-group-sidebar,
+  .growthexperiments-homepage-group-sidebar-subgroup-primary,
+  .growthexperiments-homepage-group-sidebar-subgroup-secondary {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+}
+
+.growthexperiments-homepage-module.growthexperiments-homepage-module-suggested-edits
+  .suggested-edits-module-wrapper {
+  max-width: 100%;
+
+  .suggested-edits-card-wrapper {
+    max-width: 100%;
+  }
+
+  .suggested-edits-card {
+    min-width: 0;
+  }
+
+  // 348px is GE's 332px plus its 8px padding on each side
+  .suggested-edits-card-wrapper .suggested-edits-task-card-wrapper,
+  .se-card-no-results,
+  .se-card-error,
+  .se-card-end-of-queue {
+    box-sizing: border-box;
+    width: 348px;
+    max-width: 100%;
+  }
+
+  .se-card-image,
+  .suggested-edits-task-explanation,
+  .suggested-edits-task-explanation-wrapper {
+    max-width: 100%;
+  }
+}
