@@ -388,9 +388,13 @@
 
   #lastmod-and-views {
     font-size: 0.75rem;
-    overflow: hidden;
     clear: both;
     padding: 0.3em 0;
+    // Centre the links on the edit button.
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5em 1em;
 
     #lastmod {
       .mw-link();
@@ -398,7 +402,7 @@
     }
 
     #p-views {
-      float: right;
+      margin-left: auto;
 
       h3 {
         display: none;
@@ -407,6 +411,11 @@
       ul {
         padding: 0;
         margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5em 1em;
 
         li {
           margin: 0;
@@ -468,10 +477,6 @@
           a {
             .mw-link();
           }
-        }
-
-        li + li {
-          margin-left: 1em;
         }
       }
     }
