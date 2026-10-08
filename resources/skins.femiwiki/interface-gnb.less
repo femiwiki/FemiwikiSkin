@@ -64,6 +64,17 @@
         height: @height;
         max-height: none;
       }
+
+      // Same padding as the TypeaheadSearch that replaces this box on focus.
+      .cdx-typeahead-search--show-thumbnail {
+        .cdx-text-input__input {
+          padding-left: 60px;
+        }
+
+        .cdx-text-input__start-icon {
+          left: 23px;
+        }
+      }
     }
 
     // Recent changes and random pages
