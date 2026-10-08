@@ -374,6 +374,19 @@
       display: block;
     }
 
+    // Core lock icon, sized like the other title icons.
+    .mw-indicators .mw-indicator a[class^='mw-protection-indicator-icon'] {
+      box-sizing: content-box;
+      height: @icon-size;
+      width: @icon-size;
+      padding: @padding-icon;
+      opacity: @opacity-icon;
+
+      &:before {
+        content: none;
+      }
+    }
+
     #p-menu-toggle:before {
       position: absolute;
       width: @icon-size;
