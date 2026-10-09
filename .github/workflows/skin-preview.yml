@@ -70,7 +70,7 @@ jobs:
             yq -i '.config.WikvenRepositories.Femiwiki = {"tarball": strenv(URL), "sha256": strenv(SUM)}' \
             tests/skin-preview/.wikven.yaml
 
-      - uses: chaotic-ground/wikven/actions/bake@248de7419f63cf3653400adb11425784c10751bc # v1.3.0
+      - uses: chaotic-ground/wikven/actions/bake@4045b38ef5ffc71ca0a473bdde33e01fc39be2c2 # v1.4.0
         with:
           source: tests/skin-preview
           output: preview/${{ github.event.pull_request.base.sha }}
@@ -86,7 +86,7 @@ jobs:
             yq -i '.config.WikvenRepositories.Femiwiki = {"tarball": strenv(URL), "sha256": strenv(SUM)}' \
             tests/skin-preview/.wikven.yaml
 
-      - uses: chaotic-ground/wikven/actions/bake@248de7419f63cf3653400adb11425784c10751bc # v1.3.0
+      - uses: chaotic-ground/wikven/actions/bake@4045b38ef5ffc71ca0a473bdde33e01fc39be2c2 # v1.4.0
         with:
           source: tests/skin-preview
           output: preview/${{ github.event.pull_request.head.sha }}

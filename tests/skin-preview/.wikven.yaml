@@ -12,4 +12,16 @@ config:
   WikvenBuildFor: skin-preview
   # The specimen page links to its category page, so export Category: too.
   ContentNamespaces: [0, 6, 14]
+  # Special pages, history and a diff, which a bake renders only when listed.
+  WikvenPreviewExtraPages:
+    - Special:RecentChanges
+    - Special:Contributions
+    - Special:Search
+    - Special:SpecialPages
+    - Special:BookSources
+    - Special:UserLogin
+    - Special:CreateAccount
+    - Special:Version
+    - index?action=history
+    - index?diff=prev
   DefaultRobotPolicy: noindex,nofollow
