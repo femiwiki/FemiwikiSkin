@@ -21,6 +21,7 @@ class Portlet implements
 			'die' => 'shuffle',
 			'home' => 'home',
 			'recentChanges' => 'time',
+			'userAdd' => 'user-plus',
 			'userAvatar' => 'profile',
 			'userContributions' => 'list',
 			'logIn' => 'log-in',

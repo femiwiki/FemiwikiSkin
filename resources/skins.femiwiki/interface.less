@@ -297,6 +297,9 @@
 
     .right-buttons {
       float: right;
+      // Centre indicators of different heights.
+      display: flex;
+      align-items: center;
     }
 
     .mw-indicator a,
@@ -308,6 +311,11 @@
       &:active {
         background-color: @button-background-color--active;
       }
+    }
+
+    .mw-indicators {
+      display: flex;
+      align-items: center;
     }
 
     .mw-indicators,
@@ -387,6 +395,21 @@
       }
     }
 
+    .mw-fr-review-status-indicator {
+      align-items: center;
+      padding: @padding-icon;
+      font-size: 0.875rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: @button-background-color--hover;
+      }
+
+      > span {
+        opacity: @opacity-icon;
+      }
+    }
+
     #p-menu-toggle:before {
       position: absolute;
       width: @icon-size;
@@ -401,9 +424,13 @@
 
   #lastmod-and-views {
     font-size: 0.75rem;
-    overflow: hidden;
     clear: both;
     padding: 0.3em 0;
+    // Centre the links on the edit button.
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5em 1em;
 
     #lastmod {
       .mw-link();
@@ -411,7 +438,7 @@
     }
 
     #p-views {
-      float: right;
+      margin-left: auto;
 
       h3 {
         display: none;
@@ -420,6 +447,11 @@
       ul {
         padding: 0;
         margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5em 1em;
 
         li {
           margin: 0;
@@ -481,10 +513,6 @@
           a {
             .mw-link();
           }
-        }
-
-        li + li {
-          margin-left: 1em;
         }
       }
     }
