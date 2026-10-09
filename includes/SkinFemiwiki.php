@@ -25,9 +25,6 @@ class SkinFemiwiki extends SkinMustache {
 		$config = $this->getConfig();
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 
-		if ( $registered ) {
-			$this->options['scripts'][] = 'skins.femiwiki.notifications';
-		}
 		if ( $this->shouldShowShare() ) {
 			$this->options['scripts'][] = 'skins.femiwiki.share';
 		}

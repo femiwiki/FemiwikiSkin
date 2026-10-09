@@ -73,9 +73,6 @@
       "dependencies": ["mediawiki.skinning.typeaheadSearch"],
       "packageFiles": ["skins.femiwiki.search/init.js"]
     },
-    "skins.femiwiki.notifications": {
-      "packageFiles": ["skins.femiwiki.notifications/init.js"]
-    },
     "skins.femiwiki.dm": {
       "scripts": ["mw.fw.js"]
     },
