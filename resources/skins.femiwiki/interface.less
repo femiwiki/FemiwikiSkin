@@ -297,6 +297,9 @@
 
     .right-buttons {
       float: right;
+      // Centre indicators of different heights.
+      display: flex;
+      align-items: center;
     }
 
     .mw-indicator a,
@@ -308,6 +311,11 @@
       &:active {
         background-color: @button-background-color--active;
       }
+    }
+
+    .mw-indicators {
+      display: flex;
+      align-items: center;
     }
 
     .mw-indicators,
@@ -372,6 +380,21 @@
 
     .mw-indicators .mw-indicator#mw-indicator-mw-helplink a {
       display: block;
+    }
+
+    .mw-fr-review-status-indicator {
+      align-items: center;
+      padding: @padding-icon;
+      font-size: 0.875rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: @button-background-color--hover;
+      }
+
+      > span {
+        opacity: @opacity-icon;
+      }
     }
 
     #p-menu-toggle:before {
