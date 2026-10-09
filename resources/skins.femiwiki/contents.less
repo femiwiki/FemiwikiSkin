@@ -199,6 +199,22 @@
     display: none;
   }
 
+  // Section edit link on the heading line.
+  .mw-heading {
+    position: relative;
+
+    &:has(> .mw-editsection) > :is(h1, h2, h3, h4, h5, h6) {
+      padding-right: 8rem;
+    }
+
+    > .mw-editsection {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
+
   // Edit links
   .mw-editsection {
     float: right;
