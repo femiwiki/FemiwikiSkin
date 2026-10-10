@@ -17,7 +17,7 @@ jobs:
   dispatch:
     # chore: is a development dependency update (see dependabot.yml) or the
     # like, which the wiki never loads; chore(i18n): still goes through
-    if: "${{ github.repository_owner == 'femiwiki' && !startsWith(github.event.head_commit.message, 'chore: ') }}"
+    if: "${{ github.repository_owner == 'femiwiki' && vars.DOWNSTREAM_BUMP_PAUSED != 'true' && !startsWith(github.event.head_commit.message, 'chore: ') }}"
     runs-on: ubuntu-latest
     permissions: {}
     steps:
