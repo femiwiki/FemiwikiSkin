@@ -14,52 +14,28 @@ body.mw-special-CreateAccount {
 // 290px is defined in MediaWiki
 @defaultFormWidth: 290px;
 
-.mw-special-CreateAccount .mw-ui-container {
-  display: flex;
-  flex-wrap: wrap;
+// Aligned with the page title rather than centred
+.mw-special-Userlogin,
+.mw-special-CreateAccount {
+  .mw-ui-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
   #userloginForm {
-    margin: auto;
+    margin: 0;
 
     form {
       width: auto;
       max-width: @defaultFormWidth;
-      margin: auto;
+      margin: 0;
     }
   }
-  .mw-createacct-benefits-container {
-    flex: 1 1;
-    margin-left: 4em;
 
-    @media screen and (max-width: @width-breakpoint-mobile) {
-      max-width: @defaultFormWidth;
-      margin: auto;
-    }
-  }
-}
-
-.mw-special-Userlogin .mw-ui-container {
-  #userloginForm form {
-    margin: auto;
-    width: auto;
-    max-width: @defaultFormWidth;
-  }
-
-  #mw-createaccount-cta {
-    width: auto;
-  }
-
-  #mw-createaccount-join {
-    .mw-link-colors();
-
-    &:active {
-      color: @color-primary2;
-      border-color: @color-primary2;
-    }
-
-    &:focus {
-      border-color: @color-primary1;
-      box-shadow: inset 0 0 0 1px @color-primary1;
-    }
+  .cdx-field__help-text {
+    color: @color-subtle;
+    font-weight: normal;
+    text-align: left;
   }
 }
