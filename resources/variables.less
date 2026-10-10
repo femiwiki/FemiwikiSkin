@@ -92,6 +92,14 @@
 // DarkMode inverts the page, so white here shows as Codex's dark rgba(0, 0, 0, 0.87).
 @box-shadow-color-darkmode: rgba(255, 255, 255, 0.87);
 
+// Bold white at 14pt or more is large text, so 3:1 is enough: 3.42:1 here, 4.53:1 on hover, 7.76:1 pressed
+@color-edit-button: @color-toc-rule;
+@color-edit-button--hover: @color-primary4;
+@color-edit-button--active: @color-primary5;
+@color-edit-button-border: @color-primary4;
+// Never below 14pt, also where the root is 16.5px
+@font-size-edit-button: ~'max(1rem, 14pt)';
+
 @button-background-color--hover: @background-color-button-quiet--hover;
 @button-background-color--active: @background-color-button-quiet--active;
 
