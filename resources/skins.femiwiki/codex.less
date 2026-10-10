@@ -1,0 +1,9 @@
+// Square corners, as the rest of the skin. Codex compiles border-radius as a
+// literal, and loads after this module, hence :root for specificity.
+:root {
+  .cdx-button,
+  .cdx-text-input,
+  .cdx-checkbox__icon {
+    border-radius: 0;
+  }
+}
