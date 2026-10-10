@@ -22,7 +22,8 @@
   </div>
   <div id="lastmod-and-views">
     {{#link-history}}
-    <a id="lastmod" href="{{link-history}}">{{{html-lastmod}}}</a>
+    {{! VisualEditor writes the new time into #footer-info-lastmod after a save (#32). }}
+    <a id="lastmod" href="{{link-history}}"><span id="footer-info-lastmod">{{{html-lastmod}}}</span></a>
     {{/link-history}}
     {{#data-portlets.data-views}}{{>Menu}}{{/data-portlets.data-views}}
   </div>
