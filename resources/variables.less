@@ -41,6 +41,8 @@
 // TODO: Define a multilingual font family
 @font-family: @font-family-ko;
 
+@code-elements: ~'pre, pre *, code, code *, kbd, kbd *, samp, samp *, tt, tt *';
+
 // == Colors ==
 @color-base0: #000000;
 @color-base15: #252525;
@@ -408,13 +410,17 @@
 
 .parser-output() {
   *:lang(en) {
-    font-family: @font-family-en;
     // https://femiwiki.com/w/Topic:W75xcdw9h9p3h5gt
     word-break: normal;
     .hyphens(none);
   }
 
-  *:lang(ja) {
+  // Code keeps its monospace font; :where() adds no specificity.
+  *:lang(en):not(:where(@{code-elements})) {
+    font-family: @font-family-en;
+  }
+
+  *:lang(ja):not(:where(@{code-elements})) {
     font-family: @font-family-ja;
   }
 
