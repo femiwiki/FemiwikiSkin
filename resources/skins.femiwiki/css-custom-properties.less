@@ -1,48 +1,97 @@
 @import '../variables.less';
 @import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-light.less';
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui-mixin-dark.less';
+
+@ooui-icons: ~'.oo-ui-iconElement-icon:not(.oo-ui-image-progressive):not(.oo-ui-image-destructive):not(.oo-ui-checkboxInputWidget-checkIcon):not(.oo-ui-image-invert):not(.mw-no-invert)';
+
+// The violet over Codex's blue. It reads the palette's custom properties, so a theme only redefines those.
+.femiwiki-progressive() {
+  --color-progressive: @color-link;
+  --color-progressive--hover: @color-primary6;
+  --color-progressive--active: @color-primary6;
+  --color-progressive--focus: @color-link;
+  --color-visited: @color-link;
+  --color-visited--hover: @color-primary6;
+  --color-visited--active: @color-primary6;
+  --color-icon-progressive: @color-link;
+
+  --accent-color-base: @color-progressive;
+  --background-color-progressive: @color-progressive;
+  --background-color-progressive--hover: @color-primary4;
+  --background-color-progressive--active: @color-primary6;
+  --background-color-progressive--focus: @color-progressive;
+  // Roughly as light as Codex's #e8eeff, #d9e2ff and #b6d4fb
+  --background-color-progressive-subtle: mix(@palette-primary3, #fff, 15%);
+  --background-color-progressive-subtle--hover: mix(
+    @palette-primary3,
+    #fff,
+    25%
+  );
+  --background-color-progressive-subtle--active: mix(
+    @palette-primary3,
+    #fff,
+    45%
+  );
+  --border-color-progressive: @color-progressive;
+  --border-color-progressive--hover: @color-primary4;
+  --border-color-progressive--active: @color-primary6;
+  --border-color-progressive--focus: @color-progressive;
+  --box-shadow-color-progressive--active: @color-primary6;
+  --box-shadow-color-progressive--focus: @color-progressive;
+  --box-shadow-color-progressive-selected: @color-progressive;
+  --box-shadow-color-progressive-selected--hover: @color-primary4;
+  --box-shadow-color-progressive-selected--active: @color-primary6;
+  --outline-color-progressive--focus: @color-progressive;
+}
 
 // Codex components and OOUI read their colors from these properties.
 // See Vector 2022's CSSCustomProperties.less.
 @media screen {
   :root {
     .cdx-mode-light();
+    .femiwiki-progressive();
+  }
 
-    --color-progressive: @color-link;
-    --color-progressive--hover: @color-primary6;
-    --color-progressive--active: @color-primary6;
-    --color-progressive--focus: @color-link;
-    --color-visited: @color-link;
-    --color-visited--hover: @color-primary6;
-    --color-visited--active: @color-primary6;
-    --color-icon-progressive: @color-link;
+  // DarkMode puts both classes on <html>; ext.DarkMode.styles.less undoes its inversion (#1080)
+  html.skin-theme-clientpref-night,
+  html.client-darkmode {
+    color-scheme: dark;
+    .cdx-mode-dark();
+    .femiwiki-progressive();
 
-    --accent-color-base: @color-progressive;
-    --background-color-progressive: @color-progressive;
-    --background-color-progressive--hover: @color-primary4;
-    --background-color-progressive--active: @color-primary6;
-    --background-color-progressive--focus: @color-progressive;
-    // Roughly as light as Codex's #e8eeff, #d9e2ff and #b6d4fb
-    --background-color-progressive-subtle: mix(@palette-primary3, #fff, 15%);
-    --background-color-progressive-subtle--hover: mix(
-      @palette-primary3,
-      #fff,
-      25%
-    );
-    --background-color-progressive-subtle--active: mix(
-      @palette-primary3,
-      #fff,
-      45%
-    );
-    --border-color-progressive: @color-progressive;
-    --border-color-progressive--hover: @color-primary4;
-    --border-color-progressive--active: @color-primary6;
-    --border-color-progressive--focus: @color-progressive;
-    --box-shadow-color-progressive--active: @color-primary6;
-    --box-shadow-color-progressive--focus: @color-progressive;
-    --box-shadow-color-progressive-selected: @color-progressive;
-    --box-shadow-color-progressive-selected--hover: @color-primary4;
-    --box-shadow-color-progressive-selected--active: @color-primary6;
-    --outline-color-progressive--focus: @color-progressive;
+    --color-primary1: @dark-color-primary1;
+    --color-primary2: @dark-color-primary2;
+    --color-primary3: @dark-color-primary3;
+    --color-primary4: @dark-color-primary4;
+    --color-primary5: @dark-color-primary5;
+    --color-primary6: @dark-color-primary6;
+    --color-secondary1: @dark-color-secondary1;
+    --background-color-progressive-subtle: @dark-background-color-progressive-subtle;
+    --background-color-progressive-subtle--hover: @dark-background-color-progressive-subtle--hover;
+    --background-color-progressive-subtle--active: @dark-background-color-progressive-subtle--active;
+    --background-color-diff-added: @dark-background-color-diff-added;
+    --background-color-diff-removed: @dark-background-color-diff-removed;
+    --color-link-new: @dark-color-link-new;
+    --color-link-new--visited: @dark-color-link-new--visited;
+    --color-link-stub: @dark-color-link-stub;
+    --color-link-interwiki: @dark-color-link-interwiki;
+    --color-link-interwiki--visited: @dark-color-link-interwiki--visited;
+    --color-link-external--active: @dark-color-link-external--active;
+    --box-shadow-color-button: @dark-box-shadow-color-button;
+  }
+
+  // Black icons drawn as images turn white, as Vector 2022 does for OOUI icons (T365764)
+  html.skin-theme-clientpref-night,
+  html.client-darkmode {
+    @{ooui-icons},
+    .oo-ui-indicatorElement-indicator,
+    #p-header
+      .mw-portlet-associated-pages
+      li:not(#ca-unwatch):not(.has-open-topic)
+      a::before,
+    #p-menu-toggle::before {
+      filter: invert(1) hue-rotate(180deg);
+    }
   }
 
   // Primary buttons in the green accent color, with dark green text for contrast

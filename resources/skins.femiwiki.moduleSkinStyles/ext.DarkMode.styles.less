@@ -1,42 +1,110 @@
 @import '../variables.less';
 
-.client-darkmode {
-  // Explicitly set the background
-  // https://github.com/femiwiki/femiwiki/issues/324
-  background-color: #fff;
+// ext.DarkMode.styles inverts the page. This skin draws its own dark theme instead (#1080), from
+// skins.femiwiki/css-custom-properties.less, so these rules undo DarkMode's, selector for selector.
+@media screen {
+  .skin-theme-clientpref-night,
+  .client-darkmode {
+    background: @background-color-base;
 
-  // Keep shadows dark under the inversion
-  :root& {
-    --box-shadow-color-alpha-base: @box-shadow-color-darkmode;
-    --box-shadow-color-button: @box-shadow-color-darkmode;
-  }
+    &,
+    img,
+    video,
+    svg,
+    iframe,
+    .mw-no-invert,
+    .cdx-no-invert,
+    td .diffchange {
+      &:not(.mw-invert) {
+        filter: none;
+        -webkit-filter: none;
+      }
+    }
 
-  // Remove the background; it stands out too much.
-  table {
-    background-color: unset;
-  }
+    table,
+    table.ambox-content,
+    table.toccolours,
+    .infobox,
+    .toc,
+    .thumbinner,
+    .wikitable {
+      background-color: transparent;
+    }
 
-  // Override explicit blue colors
-  // https://github.com/femiwiki/FemiwikiSkin/issues/396
-  a,
-  .mw-parser-output a.external,
-  a:visited {
-    color: @color-link;
-  }
+    .mw-notification {
+      background-color: @color-alert;
+      border-color: @color-alert-border;
+    }
 
-  // Apply filter for things using background-image
-  .growthexperiments-homepage-module-impact .real-image {
-    filter: invert(1) hue-rotate(180deg);
-    background-color: transparent;
-  }
+    #simpleSearch,
+    .mwe-popups,
+    #searchInput,
+    .cbnnr-main,
+    #centralNotice .cnotice,
+    .cx-callout {
+      background-color: @background-color-base;
+    }
 
-  // Keep the badges' green as in the light theme
-  .nav-bar #fw-menu-toggle .badge,
-  .fw-wiki-portals #p-personal .mw-echo-alert {
-    filter: invert(1) hue-rotate(180deg);
-  }
+    #mw-head,
+    table.ambox-content,
+    #mw-panel,
+    table.toccolours,
+    #content.mw-body,
+    .infobox,
+    #simpleSearch,
+    .toc,
+    #centralNotice .cnotice,
+    .thumbinner {
+      border-color: @border-color-base;
+    }
 
-  .nav-bar #mw-navigation #fw-menu-toggle .badge {
-    border-color: @color-badge-border-darkmode;
+    #searchInput {
+      border-color: @border-color-interactive;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      border-color: @border-color-base;
+    }
+
+    // Content headings keep their underline colour
+    .mw-parser-output h2,
+    .mw-parser-output h3,
+    .mw-parser-output h4 {
+      border-color: @color-primary2;
+    }
+
+    a,
+    a:visited,
+    .mw-parser-output a.external,
+    #mw-panel .portal .body li a {
+      color: @color-link;
+    }
+
+    .mw-parser-output a.extiw,
+    .mw-parser-output a.extiw:active {
+      color: @color-link-interwiki;
+    }
+
+    .mw-parser-output a.extiw:visited {
+      color: @color-link-interwiki--visited;
+    }
+
+    a.new {
+      color: @color-link-new;
+    }
+
+    .mwe-popups.flipped-y::after,
+    .mwe-popups.flipped-x-y::after {
+      border-top-color: @background-color-base;
+    }
+
+    .mwe-popups.mwe-popups-no-image-pointer::after {
+      border-bottom-color: @background-color-base;
+    }
   }
 }

@@ -120,16 +120,38 @@
 // Notification counts are "new", so they take the accent, the same in both themes
 @color-badge: @palette-accent;
 @color-badge-text: @palette-accent-text;
-// A badge inverted twice under DarkMode draws this as @background-color-nav-bar inverted once, like the top bar
-@color-badge-border-darkmode: #8c83e2;
+
+// == Dark theme ==
+// The purple ramp turned around, on #101418: links #b9b5d9 9.4:1, @color-primary4 #aca6e4 8.2:1
+@dark-color-primary1: @palette-primary6;
+@dark-color-primary2: @palette-primary5;
+@dark-color-primary3: @palette-primary4;
+@dark-color-primary4: @palette-primary3;
+@dark-color-primary5: @palette-primary2;
+@dark-color-primary6: @palette-primary1;
+// @palette-secondary2 at 20% on #101418, for unread notifications and alerts
+@dark-color-secondary1: #303a1e;
+// @dark-color-primary3 at 15%, 25% and 45% on #101418, as the light theme mixes with white
+@dark-background-color-progressive-subtle: #1f2133;
+@dark-background-color-progressive-subtle--hover: #292a44;
+@dark-background-color-progressive-subtle--active: #3d3b68;
+// Codex's dark content-added and content-removed at 50% on #101418
+@dark-background-color-diff-added: #1a253f;
+@dark-background-color-diff-removed: #2b2318;
+// Codex's dark red link and visited colour; the rest 5.4:1 or more on #101418
+@dark-color-link-new: #fd7865;
+@dark-color-link-new--visited: #e0857a;
+@dark-color-link-stub: #d98c94;
+@dark-color-link-interwiki: #88a3e8;
+@dark-color-link-interwiki--visited: #a799cd;
+@dark-color-link-external--active: #f0a56b;
+@dark-box-shadow-color-button: rgba(0, 0, 0, 0.87);
 
 // == Corners and depth ==
 // https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
 @border-radius-control: 0.3em;
 @box-shadow-button: 0 1px 2px var(--box-shadow-color-button, rgba(0, 0, 0, 0.5));
 @box-shadow-button--active: inset @box-shadow-button;
-// DarkMode inverts the page, so white here shows as Codex's dark rgba(0, 0, 0, 0.87).
-@box-shadow-color-darkmode: rgba(255, 255, 255, 0.87);
 
 // Bold white at 14pt or more is large text, so 3:1 is enough: 3.42:1 here, 4.53:1 on hover, 7.76:1 pressed
 // The guide keeps it in both themes, so it has custom properties of its own
