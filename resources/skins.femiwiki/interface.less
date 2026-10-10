@@ -591,6 +591,7 @@ hr#content-end-bar {
 }
 
 // Footer
+@footer-separator-width: 1.2em;
 .mw-footer {
   box-sizing: border-box;
   .content-horizontal-padding();
@@ -620,10 +621,18 @@ hr#content-end-bar {
       float: none;
     }
 
-    &#footer-places li:not(:first-child)::before {
+    // Clip the separator that opens each line.
+    &#footer-places {
+      margin-left: -@footer-separator-width;
+      clip-path: inset(0 0 0 @footer-separator-width);
+    }
+
+    &#footer-places li::before {
       content: '|';
       color: #d3d3d3;
-      margin: 0 0.3rem;
+      display: inline-block;
+      width: @footer-separator-width;
+      text-align: center;
     }
   }
 
