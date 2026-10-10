@@ -14,6 +14,15 @@ body.mw-special-CreateAccount {
 // 290px is defined in MediaWiki
 @defaultFormWidth: 290px;
 
+.fw-login-card() {
+  box-sizing: border-box;
+  padding: 1em;
+  background-color: @background-color-base;
+  border: 1px solid @color-primary2;
+  border-radius: @border-radius-control;
+  box-shadow: @box-shadow-medium;
+}
+
 // Aligned with the page title rather than centred
 .mw-special-Userlogin,
 .mw-special-CreateAccount {
@@ -37,5 +46,45 @@ body.mw-special-CreateAccount {
     color: @color-subtle;
     font-weight: normal;
     text-align: left;
+  }
+}
+
+.mw-special-Userlogin {
+  // Sign-up is the primary action here, so log-in is a normal button
+  #wpLoginAttempt {
+    background-color: @background-color-interactive-subtle;
+    border-color: @border-color-interactive;
+    color: @color-base;
+
+    &:hover {
+      background-color: @background-color-interactive-subtle--hover;
+    }
+
+    &:active {
+      background-color: @background-color-interactive-subtle--active;
+    }
+  }
+
+  #mw-createaccount-cta {
+    .fw-login-card();
+    width: auto;
+    max-width: @defaultFormWidth;
+    margin: 1.5em 0 0;
+    background-image: none;
+  }
+
+  #mw-createaccount-join {
+    margin-top: 0.5em;
+    background-color: @color-accent;
+    border-color: @color-accent--active;
+    color: @color-accent-text;
+
+    &:hover {
+      background-color: @color-accent--hover;
+    }
+
+    &:active {
+      background-color: @color-accent--active;
+    }
   }
 }
