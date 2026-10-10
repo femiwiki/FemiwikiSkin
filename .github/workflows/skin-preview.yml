@@ -1,11 +1,11 @@
 ---
 name: Skin preview
 
-# Bakes tests/skin-preview at the PR's base and head commits into the previews
-# branch, served at <commit SHA>/ and kept after the PR closes.
+# Bakes tests/skin-preview at the PR's base and head commits, or at the pushed
+# commit of main, into the previews branch, served at <commit SHA>/ and kept.
 on:
   pull_request:
-    paths:
+    paths: &paths
       - .github/workflows/skin-preview.yml
       - Femiwiki.php
       - i18n/**
@@ -14,11 +14,15 @@ on:
       - resources/**
       - skin.json
       - tests/skin-preview/**
+  push:
+    branches: [main]
+    paths: *paths
+  workflow_dispatch:
 
 permissions: {}
 
 concurrency:
-  group: skin-preview-${{ github.event.number }}
+  group: skin-preview-${{ github.event.number || github.sha }}
   cancel-in-progress: true
 
 jobs:
@@ -27,6 +31,10 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: read
+    # Outside a PR there is no base, and the head is the commit the run is for.
+    env:
+      BASE: ${{ github.event.pull_request.base.sha }}
+      HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       # Whole history, so the base commit is there and the lastmod line has dates.
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
@@ -40,12 +48,9 @@ jobs:
 
       # The skin's styles load files from node_modules, which a git fetch would lack.
       - name: Pack the base and head of the skin
-        env:
-          BASE: ${{ github.event.pull_request.base.sha }}
-          HEAD: ${{ github.event.pull_request.head.sha }}
         run: |
           mkdir -p "$RUNNER_TEMP/serve"
-          for sha in "$BASE" "$HEAD"; do
+          for sha in ${BASE:+"$BASE"} "$HEAD"; do
             dir="$RUNNER_TEMP/$sha"
             mkdir -p "$dir"
             git archive --prefix=Femiwiki/ "$sha" | tar -x -C "$dir"
@@ -61,8 +66,9 @@ jobs:
 
       # Each commit is baked with its own specimen pages.
       - name: Point the source at the base
+        if: env.BASE != ''
         env:
-          SHA: ${{ github.event.pull_request.base.sha }}
+          SHA: ${{ env.BASE }}
         run: |
           git checkout -q -f --detach "$SHA"
           URL="http://host.docker.internal:8000/$SHA.tar.gz" \
@@ -70,15 +76,16 @@ jobs:
             yq -i '.config.WikvenRepositories.Femiwiki = {"tarball": strenv(URL), "sha256": strenv(SUM)}' \
             tests/skin-preview/.wikven.yaml
 
-      - uses: chaotic-ground/wikven/actions/bake@4045b38ef5ffc71ca0a473bdde33e01fc39be2c2 # v1.4.0
+      - if: env.BASE != ''
+        uses: chaotic-ground/wikven/actions/bake@4045b38ef5ffc71ca0a473bdde33e01fc39be2c2 # v1.4.0
         with:
           source: tests/skin-preview
-          output: preview/${{ github.event.pull_request.base.sha }}
+          output: preview/${{ env.BASE }}
           fetch-cache: 'false'
 
       - name: Point the source at the head
         env:
-          SHA: ${{ github.event.pull_request.head.sha }}
+          SHA: ${{ env.HEAD }}
         run: |
           git checkout -q -f --detach "$SHA"
           URL="http://host.docker.internal:8000/$SHA.tar.gz" \
@@ -89,7 +96,7 @@ jobs:
       - uses: chaotic-ground/wikven/actions/bake@4045b38ef5ffc71ca0a473bdde33e01fc39be2c2 # v1.4.0
         with:
           source: tests/skin-preview
-          output: preview/${{ github.event.pull_request.head.sha }}
+          output: preview/${{ env.HEAD }}
           fetch-cache: 'false'
 
       # Tarred, as artifacts refuse the colon in Category:Specimen_pages.html.
@@ -105,8 +112,9 @@ jobs:
   publish:
     needs: bake
     if: >-
-      github.event.pull_request.head.repo.full_name == github.repository
-      && github.actor != 'dependabot[bot]'
+      github.event_name != 'pull_request'
+      || (github.event.pull_request.head.repo.full_name == github.repository
+        && github.actor != 'dependabot[bot]')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -134,21 +142,21 @@ jobs:
           folder: ${{ runner.temp }}/preview
           clean: false
           force: false
-          commit-message: Bake ${{ github.event.pull_request.head.sha }}
+          commit-message: Bake ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Publish the previews branch
         env:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
           BASE: ${{ github.event.pull_request.base.sha }}
-          HEAD: ${{ github.event.pull_request.head.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha || github.sha }}
           URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: |
           gh workflow run publish-pages.yml --repo "$REPO" --ref main
           id=$(jq -n --arg ref "$HEAD" '{ref: $ref, environment: "skin-preview",
               auto_merge: false, required_contexts: [], transient_environment: false}' |
             gh api "repos/$REPO/deployments" --input - --jq .id)
-          jq -n --arg url "$URL$HEAD/" --arg before "Before: $URL$BASE/" \
+          jq -n --arg url "$URL$HEAD/" --arg before "${BASE:+Before: $URL$BASE/}" \
             '{state: "success", environment_url: $url, description: $before,
               auto_inactive: false}' |
             gh api "repos/$REPO/deployments/$id/statuses" --input - --silent
