@@ -10,14 +10,11 @@
         });
       } else {
         var windowManager, shareDialog;
-        var firebaseKey = firebaseKey || mw.config.get('wgFemiwikiFirebaseKey');
 
         mw.loader.using(['skins.femiwiki.share.ui']).done(function () {
           windowManager = windowManager || OO.ui.getWindowManager();
           if (shareDialog === undefined) {
-            shareDialog = new mw.fw.ShareDialog({
-              firebaseKey: firebaseKey,
-            });
+            shareDialog = new mw.fw.ShareDialog();
             windowManager.addWindows([shareDialog]);
           }
 
