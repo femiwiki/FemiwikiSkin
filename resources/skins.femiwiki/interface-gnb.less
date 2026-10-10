@@ -93,6 +93,9 @@
           right: 0;
           bottom: 0;
           left: 0;
+          // Wide page content stretches the layout viewport past the screen
+          box-sizing: border-box;
+          max-width: 100vw;
           z-index: @z-index-overlay;
           height: auto;
           align-items: flex-start;
