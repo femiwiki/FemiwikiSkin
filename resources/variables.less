@@ -75,6 +75,11 @@
 @color-link: @color-primary5;
 // White text on the top bar needs 4.5:1
 @background-color-nav-bar: @color-primary4;
+// Hover and pressed are darker, as a lighter tint would take white text below 4.5:1
+@background-color-nav-bar--hover: mix(@color-primary5, @color-primary4, 25%);
+@background-color-nav-bar--active: mix(@color-primary5, @color-primary4, 50%);
+// Codex's 2px focus ring, in white to show on the bar
+@box-shadow-nav-bar--focus: inset 0 0 0 2px @color-base100;
 @color-alert: @color-secondary1;
 @color-alert2: @color-secondary3;
 @color-alert-border: @color-secondary2;
