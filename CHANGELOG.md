@@ -2,6 +2,22 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.3.2](https://github.com/femiwiki/FemiwikiSkin/compare/v5.3.1...v5.3.2) (2026-10-10)
+
+
+### Bug Fixes
+
+* drop Firebase short links from the share dialog ([#1072](https://github.com/femiwiki/FemiwikiSkin/issues/1072)) ([e47726c](https://github.com/femiwiki/FemiwikiSkin/commit/e47726c7456cb7e9d70a1ff3e04221b77cf9a49d)), closes [#729](https://github.com/femiwiki/FemiwikiSkin/issues/729)
+* drop the Echo popup workaround that Echo now covers ([#1060](https://github.com/femiwiki/FemiwikiSkin/issues/1060)) ([fa7b4b7](https://github.com/femiwiki/FemiwikiSkin/commit/fa7b4b75ca6b24a5722c2ed92d224a6214ff42c0)), closes [#78](https://github.com/femiwiki/FemiwikiSkin/issues/78)
+* keep code monospace in English and Japanese text ([#1069](https://github.com/femiwiki/FemiwikiSkin/issues/1069)) ([8ef5b01](https://github.com/femiwiki/FemiwikiSkin/commit/8ef5b0173303e5215b78ac4711cb98bd4cb103bf))
+* keep the header's last edit time current after a VisualEditor save ([#1059](https://github.com/femiwiki/FemiwikiSkin/issues/1059)) ([b81ccd5](https://github.com/femiwiki/FemiwikiSkin/commit/b81ccd55fcfcbde1a7d977b2d5f2258097709952)), closes [#32](https://github.com/femiwiki/FemiwikiSkin/issues/32)
+* keep the notifications footer label off its icon ([#1067](https://github.com/femiwiki/FemiwikiSkin/issues/1067)) ([8d45ab3](https://github.com/femiwiki/FemiwikiSkin/commit/8d45ab382128cb7f1c65da6037c40ad72397d97f))
+* keep the ULS settings dialog and page previews inside narrow screens ([#1064](https://github.com/femiwiki/FemiwikiSkin/issues/1064)) ([4571f39](https://github.com/femiwiki/FemiwikiSkin/commit/4571f392faa7bdf89c7b8436a70fdadf478d6d0b))
+* list related articles flush with rules instead of boxed cards ([#1073](https://github.com/femiwiki/FemiwikiSkin/issues/1073)) ([fdcc6e0](https://github.com/femiwiki/FemiwikiSkin/commit/fdcc6e07d74c5cd9aea1fe4617fdd6b68784294d))
+* match title-button hover backgrounds to Codex quiet buttons ([#1065](https://github.com/femiwiki/FemiwikiSkin/issues/1065)) ([464993d](https://github.com/femiwiki/FemiwikiSkin/commit/464993dbe5bdb50418e0609b6ddb33c484d5a188))
+* scroll wide TablePager tables inside the page ([#1071](https://github.com/femiwiki/FemiwikiSkin/issues/1071)) ([5efaa6e](https://github.com/femiwiki/FemiwikiSkin/commit/5efaa6e5dd2dd589581e6ecd6af776633cf667fd)), closes [#171](https://github.com/femiwiki/FemiwikiSkin/issues/171)
+* square the corners of Codex buttons, text inputs and checkboxes ([#1066](https://github.com/femiwiki/FemiwikiSkin/issues/1066)) ([8ba7779](https://github.com/femiwiki/FemiwikiSkin/commit/8ba7779ac48c79e1aef84ccc83d64ca74649654d))
+
 ## [5.3.1](https://github.com/femiwiki/FemiwikiSkin/compare/v5.3.0...v5.3.1) (2026-10-10)
 
 
