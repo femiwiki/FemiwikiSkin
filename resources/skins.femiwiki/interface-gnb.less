@@ -4,7 +4,7 @@
 .nav-bar {
   @height: 2.4rem;
   height: @height;
-  background-color: @color-primary3;
+  background-color: @background-color-nav-bar;
 
   #mw-navigation {
     display: flex;
@@ -99,14 +99,33 @@
           height: @height;
           color: @color-base100;
           text-decoration: none;
-          background-position: center;
-          background-size: 1.8rem;
-          background-repeat: no-repeat;
 
           @media (min-width: @width-breakpoint-tablet) {
             width: auto;
-            background-size: 1.6rem 1.6rem;
-            background-position: left 0.4rem top 0.4rem;
+          }
+
+          // The icon is a mask, so it is drawn in the text colour
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            -webkit-mask-position: center;
+            mask-position: center;
+            -webkit-mask-size: 1.8rem;
+            mask-size: 1.8rem;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+
+            @media (min-width: @width-breakpoint-tablet) {
+              -webkit-mask-size: 1.6rem 1.6rem;
+              mask-size: 1.6rem 1.6rem;
+              -webkit-mask-position: left 0.4rem top 0.4rem;
+              mask-position: left 0.4rem top 0.4rem;
+            }
           }
 
           .text {
@@ -121,11 +140,13 @@
           }
         }
 
-        &.changes a {
-          background-image: url(images/icon-changes-notext.png);
+        &.changes a::before {
+          -webkit-mask-image: url(images/icon-changes-notext.png);
+          mask-image: url(images/icon-changes-notext.png);
         }
-        &.random a {
-          background-image: url(images/icon-random-notext.png);
+        &.random a::before {
+          -webkit-mask-image: url(images/icon-random-notext.png);
+          mask-image: url(images/icon-random-notext.png);
         }
       }
     }
@@ -137,8 +158,20 @@
       min-width: @height;
       border-width: 0;
       background-color: inherit;
-      background: 0.3rem 0.3rem ~'/' 1.8rem 1.8rem no-repeat;
-      background-image: url(images/icon-bars.png);
+      color: @color-base100;
+
+      .icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: currentColor;
+        -webkit-mask: url(images/icon-bars.png) 0.3rem 0.3rem ~'/' 1.8rem 1.8rem
+          no-repeat;
+        mask: url(images/icon-bars.png) 0.3rem 0.3rem ~'/' 1.8rem 1.8rem
+          no-repeat;
+      }
 
       .badge {
         display: none;
@@ -152,7 +185,7 @@
         height: 1.2rem;
         font-size: 0.7rem;
         line-height: 1.1rem;
-        border: 1px solid @color-primary3;
+        border: 1px solid @background-color-nav-bar;
         border-radius: @border-radius-pill;
         animation: gentle-pulse 5s infinite;
 
@@ -167,14 +200,17 @@
 // Subtract 1px to avoid being applied with the min-width rule at the same time
 @media (max-width: calc(@width-breakpoint-tablet - 1px)) {
   html[lang='ko'] #mw-navigation #site-navigation {
-    a {
-      background-size: 2.4rem;
+    a::before {
+      -webkit-mask-size: 2.4rem;
+      mask-size: 2.4rem;
     }
-    .changes a {
-      background-image: url(images/icon-changes.svg);
+    .changes a::before {
+      -webkit-mask-image: url(images/icon-changes.svg);
+      mask-image: url(images/icon-changes.svg);
     }
-    .random a {
-      background-image: url(images/icon-random.svg);
+    .random a::before {
+      -webkit-mask-image: url(images/icon-random.svg);
+      mask-image: url(images/icon-random.svg);
     }
   }
 }

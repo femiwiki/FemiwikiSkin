@@ -52,7 +52,7 @@
 @color-primary1: #c3bffd; // 55.96
 @color-primary2: #b9b5d9; // 48.37
 @color-primary3: #aca6e4; // 41.64
-@color-primary4: #746ccb; // 18.75
+@color-primary4: #736ac9; // 18.17, white text on it is 4.53:1
 @color-primary5: #5144a3; // 8.53
 @color-primary6: #302a45; // 2.71
 
@@ -71,14 +71,16 @@
 
 @color-background1: @color-primary1;
 @color-link: @color-primary5;
+// White text on the top bar needs 4.5:1
+@background-color-nav-bar: @color-primary4;
 @color-alert: @color-secondary1;
 @color-alert2: @color-secondary3;
 @color-alert-border: @color-secondary2;
 // Notification counts are "new", so they take the accent
 @color-badge: @color-accent;
 @color-badge-text: @color-accent-text;
-// A badge inverted twice under DarkMode draws this as @color-primary3 inverted once, like the top bar
-@color-badge-border-darkmode: #544e8c;
+// A badge inverted twice under DarkMode draws this as @background-color-nav-bar inverted once, like the top bar
+@color-badge-border-darkmode: #8c83e2;
 
 // == Corners and depth ==
 // https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
