@@ -10,13 +10,14 @@
 
 @line-height-base: 1.7;
 
-@color-link: #5144a3;
-@color-link--visited: #5144a3;
+// Custom properties as in ../variables.less, so the dark theme can redefine them (#1080)
+@color-link: var(--color-primary5, #5144a3);
+@color-link--visited: var(--color-primary5, #5144a3);
 @color-link--active: #b9b5d9;
-@color-link-new: #c0081f;
-@color-link-new--visited: #a55858;
-@color-link-external: #5144a3;
-@color-link-external--active: #b63;
+@color-link-new: var(--color-link-new, #c0081f);
+@color-link-new--visited: var(--color-link-new--visited, #a55858);
+@color-link-external: var(--color-primary5, #5144a3);
+@color-link-external--active: var(--color-link-external--active, #b63);
 
 @font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕',
   'Noto Sans CJK KR', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕',

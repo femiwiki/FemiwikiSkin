@@ -61,6 +61,10 @@
 // Diff lines, lighter than Codex's content-added and content-removed
 @background-color-diff-added: var(--background-color-diff-added, #d9ecfe);
 @background-color-diff-removed: var(--background-color-diff-removed, #feedca);
+// Stub and interwiki links; red and external ones are in mediawiki.skin.variables.less
+@color-link-stub: var(--color-link-stub, #723);
+@color-link-interwiki: var(--color-link-interwiki, #36b);
+@color-link-interwiki--visited: var(--color-link-interwiki--visited, #636);
 
 @color-base100: #fff;
 
@@ -204,15 +208,15 @@
   }
 
   &.new {
-    color: #c0081f;
+    color: @color-link-new;
 
     &:visited {
-      color: #a55858;
+      color: @color-link-new--visited;
     }
   }
 
   &.stub {
-    color: #723;
+    color: @color-link-stub;
   }
 
   // self links
@@ -229,15 +233,15 @@
   &.extiw {
     &,
     &:active {
-      color: #36b;
+      color: @color-link-interwiki;
     }
 
     &:visited {
-      color: #636;
+      color: @color-link-interwiki--visited;
     }
 
     &:active {
-      color: #b63;
+      color: @color-link-external--active;
     }
   }
 
@@ -246,7 +250,7 @@
     color: @color-primary5;
 
     &:active {
-      color: #b63;
+      color: @color-link-external--active;
     }
   }
 }
