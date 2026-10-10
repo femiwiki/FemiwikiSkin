@@ -259,6 +259,59 @@
     }
   }
 
+  // Sign-up and log-in buttons above the panels
+  #fw-account-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: @portal-column-gap;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin: 0;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      min-height: @min-size-interactive-touch;
+      padding: 0 1em;
+      box-sizing: border-box;
+      border: 1px solid transparent;
+      border-radius: @border-radius-control;
+      color: @color-base15;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        background-color: @button-background-color--hover;
+      }
+
+      &:active {
+        background-color: @button-background-color--active;
+      }
+    }
+
+    #pt-createaccount a {
+      background-color: @color-accent;
+      border-color: @color-accent--active;
+      color: @color-accent-text;
+      box-shadow: @box-shadow-button;
+
+      &:hover {
+        background-color: @color-accent--hover;
+      }
+
+      &:active {
+        background-color: @color-accent--active;
+        box-shadow: @box-shadow-button--active;
+      }
+    }
+  }
+
   // Hide less-frequently used links
   #ca-addsection {
     display: none;
