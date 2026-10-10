@@ -91,6 +91,24 @@
 
   .catlinks {
     clear: both;
+    // Contains the floated category edit link
+    display: flow-root;
+
+    // Hidden when every category is hidden
+    &.catlinks-allhidden {
+      display: none;
+    }
+
+    // Category edit link, styled like section edit links
+    .mw-editsection-like {
+      .mw-editsection-bracket {
+        display: none;
+      }
+
+      a {
+        font-size: 0.75rem;
+      }
+    }
 
     ul {
       margin-top: 0;
