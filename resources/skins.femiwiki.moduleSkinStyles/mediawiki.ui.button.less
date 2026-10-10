@@ -5,7 +5,16 @@
 
 // https://github.com/femiwiki/FemiwikiSkin/issues/161
 .mw-ui-button {
-  border-radius: 0;
+  border-radius: @border-radius-control;
+
+  &:not(.mw-ui-quiet):not(:disabled) {
+    box-shadow: @box-shadow-button;
+
+    &:active {
+      box-shadow: @box-shadow-button--active;
+    }
+  }
+
   &.mw-ui-progressive {
     .mw-ui-button-colors-primary(@color-link, @color-primary4, @color-primary5 );
 

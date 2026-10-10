@@ -1,9 +1,50 @@
-// Square corners, as the rest of the skin. Codex compiles border-radius as a
-// literal, and loads after this module, hence :root for specificity.
+@import '../variables.less';
+
+// Codex compiles border-radius and box-shadow as literals, and loads after
+// this module, hence :root for specificity.
 :root {
   .cdx-button,
+  .cdx-button-group,
+  .cdx-toggle-button,
+  .cdx-toggle-button-group,
   .cdx-text-input,
-  .cdx-checkbox__icon {
-    border-radius: 0;
+  .cdx-search-input--has-end-button,
+  .cdx-chip-input,
+  .cdx-text-area__textarea,
+  .cdx-select,
+  .cdx-select-vue__handle,
+  .cdx-checkbox__icon,
+  .cdx-menu,
+  .cdx-dialog,
+  .cdx-popover,
+  .cdx-tooltip {
+    border-radius: @border-radius-control;
+  }
+
+  .cdx-button:not(.cdx-button--weight-quiet) {
+    &:enabled,
+    &.cdx-button--fake-button--enabled {
+      box-shadow: @box-shadow-button;
+
+      &:active,
+      &.cdx-button--is-active {
+        box-shadow: @box-shadow-button--active;
+      }
+    }
+  }
+
+  .cdx-toggle-button:not(.cdx-toggle-button--quiet):enabled {
+    box-shadow: @box-shadow-button;
+
+    &:active,
+    &.cdx-toggle-button--is-active,
+    &.cdx-toggle-button--toggled-on {
+      box-shadow: @box-shadow-button--active;
+    }
+  }
+
+  .cdx-dialog,
+  .cdx-tooltip {
+    box-shadow: @box-shadow-medium;
   }
 }

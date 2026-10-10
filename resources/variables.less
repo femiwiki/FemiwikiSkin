@@ -75,6 +75,14 @@
 @color-alert2: @color-secondary3;
 @color-alert-border: @color-secondary2;
 
+// == Corners and depth ==
+// https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
+@border-radius-control: 0.3em;
+@box-shadow-button: 0 1px 2px var(--box-shadow-color-button, rgba(0, 0, 0, 0.5));
+@box-shadow-button--active: inset @box-shadow-button;
+// DarkMode inverts the page, so white here shows as Codex's dark rgba(0, 0, 0, 0.87).
+@box-shadow-color-darkmode: rgba(255, 255, 255, 0.87);
+
 @button-background-color--hover: @background-color-button-quiet--hover;
 @button-background-color--active: @background-color-button-quiet--active;
 
