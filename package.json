@@ -28,7 +28,7 @@
     "@wdio/cli": "9.29.0",
     "@wdio/junit-reporter": "9.29.0",
     "@wdio/local-runner": "9.29.0",
-    "@wdio/mocha-framework": "9.29.0",
+    "@wdio/mocha-framework": "10.0.1",
     "@wdio/spec-reporter": "9.29.0",
     "@wikimedia/types-wikimedia": "^0.6.0",
     "grunt-banana-checker": "^0.13.0",
