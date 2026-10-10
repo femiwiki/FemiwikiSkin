@@ -5,6 +5,12 @@
   // https://github.com/femiwiki/femiwiki/issues/324
   background-color: #fff;
 
+  // Keep shadows dark under the inversion
+  :root& {
+    --box-shadow-color-alpha-base: @box-shadow-color-darkmode;
+    --box-shadow-color-button: @box-shadow-color-darkmode;
+  }
+
   // Remove the background; it stands out too much.
   table {
     background-color: unset;
