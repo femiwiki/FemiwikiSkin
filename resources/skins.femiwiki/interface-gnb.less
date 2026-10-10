@@ -22,6 +22,31 @@
       display: none;
     }
 
+    // States of Codex quiet buttons, on the bar's colour
+    #p-logo,
+    #site-navigation a,
+    #fw-menu-toggle {
+      transition-property: background-color, color;
+      transition-duration: @transition-duration-base;
+
+      &:hover {
+        background-color: @background-color-nav-bar--hover;
+      }
+
+      &:active {
+        background-color: @background-color-nav-bar--active;
+      }
+
+      &:focus-visible {
+        outline: 1px solid transparent;
+        box-shadow: @box-shadow-nav-bar--focus;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+
     #p-logo {
       flex-shrink: 0;
       background-repeat: no-repeat;
@@ -48,6 +73,9 @@
       align-items: center;
       min-width: 0;
       padding: 0 0.5rem;
+      // @color-progressive is too light for a focus ring on a white input
+      --border-color-progressive--focus: @color-link;
+      --box-shadow-color-progressive--focus: @color-link;
 
       .fw-typeahead-search-container {
         width: 100%;
@@ -182,6 +210,10 @@
         border: 1px solid @background-color-nav-bar;
         border-radius: @border-radius-pill;
         animation: gentle-pulse 5s infinite;
+
+        @media (prefers-reduced-motion: reduce) {
+          animation: none;
+        }
 
         &.active {
           display: block;
