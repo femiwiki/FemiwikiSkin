@@ -143,6 +143,13 @@ autem quibusdam et aut officiis debitis.
 
 <div style="clear: both;"></div>
 
+[[File:Specimen.svg|frame|right|Totam rem aperiam, eaque ipsa quae ab illo inventore.]]
+
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+<div style="clear: both;"></div>
+
 Itaque earum rerum hic tenetur: [[File:Specimen.svg|frameless|60px]] a sapiente delectus, ut aut
 reiciendis voluptatibus maiores alias consequatur.
 
