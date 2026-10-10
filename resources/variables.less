@@ -585,10 +585,10 @@
 
   // <pre>
   // https://github.com/femiwiki/FemiwikiSkin/issues/350
-  & > pre:not(.CodeMirror-line),
-  :not(.mw-highlight) > pre:not(.CodeMirror-line),
+  & > pre,
+  :not(.mw-highlight) > pre,
   // <syntaxhighlight>
-  .mw-highlight:not(.mw-highlight-lines) > pre:not(.CodeMirror-line) {
+  .mw-highlight:not(.mw-highlight-lines) > pre {
     padding: 1em;
     overflow: hidden;
     border: none;
@@ -602,7 +602,7 @@
     }
   }
 
-  .mw-highlight.mw-highlight-lines > pre:not(.CodeMirror-line) {
+  .mw-highlight.mw-highlight-lines > pre {
     @media screen and (max-width: @width-breakpoint-mobile) {
       .full-width();
     }
