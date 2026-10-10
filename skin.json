@@ -233,6 +233,7 @@
             "randompage",
             "skin-femiwiki-page-menu-tooltip",
             "toc",
+            "skin-femiwiki-toc-top",
             "skin-femiwiki-toc-close"
           ],
           "scripts": [
