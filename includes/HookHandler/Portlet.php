@@ -166,7 +166,6 @@ class Portlet implements
 		$this->addNotification( $sktemplate, $links );
 		$this->addMobileOptions( $sktemplate, $links );
 		$this->tweakWatchActions( $sktemplate, $links );
-		$this->moveHistoryToActions( $links );
 
 		foreach ( [
 			'user-page',
@@ -211,18 +210,6 @@ class Portlet implements
 
 		$links['associated-pages'][$key] = $links['actions'][$key];
 		unset( $links['actions'][$key] );
-	}
-
-	/**
-	 * Moves the history tab, which the skin does not show among the views, to the top of the page
-	 * menu.
-	 */
-	private function moveHistoryToActions( array &$links ): void {
-		if ( !isset( $links['views']['history'] ) ) {
-			return;
-		}
-		$links['actions'] = [ 'history' => $links['views']['history'] ] + ( $links['actions'] ?? [] );
-		unset( $links['views']['history'] );
 	}
 
 	/**
