@@ -50,8 +50,8 @@
   color: @color-primary5;
 }
 
-// Echo sets the footer buttons' padding to 0.5em, so a wide label runs over the icon.
-// Give back the room OOUI keeps for the icon.
+// Workaround for Echo's 0.5em footer-button padding, which lets a wide label run over the icon
+// (#1061). Remove once Echo keeps the room OOUI leaves for the icon.
 .skin-femiwiki
   .mw-echo-ui-notificationBadgeController-popup
   > .oo-ui-popupWidget-popup
