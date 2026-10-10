@@ -96,6 +96,10 @@
 @box-shadow-button--active: inset @box-shadow-button;
 // DarkMode inverts the page, so white here shows as Codex's dark rgba(0, 0, 0, 0.87).
 @box-shadow-color-darkmode: rgba(255, 255, 255, 0.87);
+// Cards and site notices
+@border-color-surface: @color-primary2;
+@background-color-surface: @background-color-base;
+@box-shadow-surface: @box-shadow-medium;
 
 // Bold white at 14pt or more is large text, so 3:1 is enough: 3.42:1 here, 4.53:1 on hover, 7.76:1 pressed
 @color-edit-button: @color-toc-rule;
@@ -150,6 +154,13 @@
     padding-left: @padding;
     padding-right: @padding;
   }
+}
+
+.surface() {
+  border: 1px solid @border-color-surface;
+  border-radius: @border-radius-control;
+  background-color: @background-color-surface;
+  box-shadow: @box-shadow-surface;
 }
 
 .image() {
