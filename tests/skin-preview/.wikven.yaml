@@ -1,6 +1,9 @@
 ---
 # The specimen pages wikven ships, baked in Femiwiki by .github/workflows/skin-preview.yml.
 # That workflow adds the WikvenRepositories entry pointing at the checkout being previewed.
+extensions:
+  - SyntaxHighlight_GeSHi
+  - WikiEditor
 skins:
   - Femiwiki
 
@@ -12,11 +15,13 @@ config:
   WikvenBuildFor: skin-preview
   # The specimen page links to its category page, so export Category: too.
   ContentNamespaces: [0, 6, 14]
-  # Special pages, history and a diff, which a bake renders only when listed.
+  # Special pages, history, a diff and the edit page, which a bake renders only when listed.
   WikvenPreviewExtraPages:
     - Special:RecentChanges
     - Special:Contributions
     - Special:Search
+    - Special:Search?search=Lorem&fulltext=1
+    - Special:ListFiles
     - Special:SpecialPages
     - Special:BookSources
     - Special:UserLogin
@@ -24,4 +29,5 @@ config:
     - Special:Version
     - index?action=history
     - index?diff=prev
+    - index?action=edit
   DefaultRobotPolicy: noindex,nofollow
