@@ -9,8 +9,13 @@
   {{>Menu}}
   {{/data-sidebar}}
 </div>
-{{>Header}}
-{{>Content}}
+<input type="checkbox" id="fw-toc-checkbox" class="mw-checkbox-hack-checkbox">
+<div class="fw-page{{#data-page-toc}} fw-page-has-toc{{/data-page-toc}}">
+  {{>Header}}
+  {{#data-page-toc}}{{>TableOfContents}}{{/data-page-toc}}
+  {{>Content}}
+  <aside id="fw-page-aside" class="fw-page-aside"></aside>
+</div>
 
 {{#data-portlets.data-languages}}
 {{>Menu}}

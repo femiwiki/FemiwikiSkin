@@ -28,6 +28,10 @@ function main() {
   require('./watchingUsers.js').init();
 
   initCheckboxHack(
+    window.document.getElementById('fw-toc-checkbox'),
+    window.document.getElementById('fw-toc-toggle'),
+  );
+  initCheckboxHack(
     window.document.getElementById('fw-menu-checkbox'),
     window.document.getElementById('fw-menu-toggle'),
   );

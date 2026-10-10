@@ -5,6 +5,13 @@
   <div id="p-title-buttons">
     {{#data-portlets.data-associated-pages}}{{>Menu}}{{/data-portlets.data-associated-pages}}
     <div class="right-buttons">
+      {{#data-page-toc}}
+      <label id="fw-toc-toggle"
+        class="mw-checkbox-hack-button fw-button"
+        for="fw-toc-checkbox"
+        aria-controls="fw-toc"
+        tabindex="0">{{msg-toc}}</label>
+      {{/data-page-toc}}
       {{{html-share-button}}}
       {{>Indicator}}
       <label id="p-menu-toggle"

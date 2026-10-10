@@ -36,6 +36,7 @@
         "skins.femiwiki/interface.less",
         "skins.femiwiki/interface-gnb.less",
         "skins.femiwiki/wide-content.less",
+        "skins.femiwiki/toc.less",
         "print.less"
       ]
     },
@@ -201,6 +202,7 @@
         {
           "name": "femiwiki",
           "responsive": true,
+          "toc": false,
           "templateDirectory": "includes/templates",
           "styles": [
             "skins.femiwiki",
@@ -229,7 +231,9 @@
             "recentchanges",
             "tooltip-n-randompage",
             "randompage",
-            "skin-femiwiki-page-menu-tooltip"
+            "skin-femiwiki-page-menu-tooltip",
+            "toc",
+            "skin-femiwiki-toc-close"
           ],
           "scripts": [
             "skins.femiwiki.js"

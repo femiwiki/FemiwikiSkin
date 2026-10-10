@@ -100,6 +100,17 @@
 // Never below 14pt, also where the root is 16.5px
 @font-size-edit-button: ~'max(1rem, 14pt)';
 
+// == Table of contents ==
+// https://femiwiki.com/w/페미위키:2026년_디자인_가이드#원칙
+@toc-width: 12rem;
+@toc-column-gap: 1rem;
+// @toc-width, a @toc-column-gap on each side and @content-width at the 19px root come to about 1090px
+@width-breakpoint-toc-column: 1120px;
+@toc-drawer-width: ~'min(20rem, 85vw)';
+@font-size-toc: 0.85rem;
+@color-toc-current: @color-primary4;
+@border-width-toc-current: 2px;
+
 @button-background-color--hover: @background-color-button-quiet--hover;
 @button-background-color--active: @background-color-button-quiet--active;
 

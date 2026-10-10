@@ -1,0 +1,220 @@
+@import '../variables.less';
+
+// The table of contents sits outside the content: a drawer the "목차" button opens, and a column
+// left of the content on wide screens. https://github.com/femiwiki/FemiwikiSkin/issues/348
+
+#p-header #fw-toc-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: @padding-icon;
+  font-size: @font-size-toc;
+  line-height: 1.42857143rem;
+  color: @color-base15;
+  border-radius: @border-radius-control;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    width: 1.2em;
+    height: 1.2em;
+    background-image: /* @embed */ url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/listBullet-ltr.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: @opacity-icon;
+  }
+
+  &:hover {
+    background-color: @button-background-color--hover;
+  }
+
+  &:active {
+    background-color: @button-background-color--active;
+  }
+}
+
+#fw-toc {
+  display: none;
+  font-size: @font-size-toc;
+  line-height: 1.4;
+}
+
+#fw-toc-checkbox:checked ~ .fw-page #fw-toc {
+  display: block;
+}
+
+.fw-toc-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @z-index-overlay-backdrop;
+  background-color: @background-color-backdrop-light;
+}
+
+.fw-toc-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: @z-index-overlay;
+  box-sizing: border-box;
+  width: @toc-drawer-width;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.6rem @content-horizontal-padding 1.6rem;
+  background-color: @background-color-base;
+  border-radius: 0 @border-radius-control @border-radius-control 0;
+  box-shadow: @box-shadow-medium;
+}
+
+.fw-toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: @border-width-toc-current solid @color-toc-current;
+  margin-bottom: 0.4rem;
+}
+
+.fw-toc-heading {
+  margin: 0;
+  padding: 0.3rem 0;
+  border: 0;
+  font-size: inherit;
+  font-weight: bold;
+  color: @color-base15;
+}
+
+.fw-toc-close {
+  @size: 1.42857143rem;
+  box-sizing: content-box;
+  width: @size;
+  height: @size;
+  padding: @padding-icon;
+  cursor: pointer;
+  border-radius: @border-radius-control;
+  background-image: /* @embed */ url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/close.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  opacity: @opacity-icon;
+
+  &:hover {
+    background-color: @button-background-color--hover;
+  }
+
+  &:active {
+    background-color: @button-background-color--active;
+  }
+}
+
+.fw-toc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fw-toc-item {
+  margin: 0;
+  list-style: none;
+}
+
+.fw-toc-link {
+  display: block;
+  // At least 24px tall for a finger in the drawer
+  padding: 0.4em 0 0.4em 0.5em;
+  border-left: @border-width-toc-current solid transparent;
+  .mw-link-colors();
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  // Each level steps in, while the current-section rule stays on one line.
+  .fw-toc-level-2 > & {
+    padding-left: 1.3em;
+  }
+  .fw-toc-level-3 > & {
+    padding-left: 2.1em;
+  }
+  .fw-toc-level-4 > &,
+  .fw-toc-level-5 > &,
+  .fw-toc-level-6 > & {
+    padding-left: 2.9em;
+  }
+}
+
+// The column. Special pages, history and diffs (wide-content.less) keep the drawer, as they need
+// the width.
+@media screen and (min-width: @width-breakpoint-toc-column) {
+  body:not(.fw-wide-content) {
+    .fw-page {
+      display: grid;
+      // The outer tracks share the leftover width, so the content stays centred until the
+      // ToC needs more than its half.
+      grid-template-columns: minmax(0, 1fr) minmax(0, @content-width) minmax(
+          0,
+          1fr
+        );
+
+      // Their auto side margins would shrink them to fit their content.
+      > * {
+        grid-column: 2;
+        width: 100%;
+      }
+    }
+
+    .fw-page-has-toc {
+      grid-template-columns:
+        minmax(@toc-width + @toc-column-gap * 2, 1fr) minmax(0, @content-width)
+        minmax(0, 1fr);
+    }
+
+    #fw-toc,
+    #fw-toc-checkbox:checked ~ .fw-page #fw-toc {
+      display: block;
+      grid-column: 1;
+      grid-row: 1 / span 3;
+      justify-self: end;
+      box-sizing: border-box;
+      width: @toc-width;
+      margin-right: @toc-column-gap;
+      // Level with the title
+      padding-top: 2.3rem;
+    }
+
+    .fw-page-aside {
+      grid-column: 3;
+      grid-row: 1 / span 3;
+    }
+
+    .fw-toc-backdrop,
+    .fw-toc-close,
+    #p-header #fw-toc-toggle {
+      display: none;
+    }
+
+    .fw-toc-panel {
+      position: sticky;
+      top: 1rem;
+      z-index: auto;
+      width: auto;
+      max-height: ~'calc(100vh - 2rem)';
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .fw-toc-link {
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+    }
+  }
+}
+
+.fw-page-aside:empty {
+  display: none;
+}

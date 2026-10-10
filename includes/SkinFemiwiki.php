@@ -63,6 +63,7 @@ class SkinFemiwiki extends SkinMustache {
 			'html-lastmod' => $this->extractLastmod( $parentData ),
 			'has-footer-icons' => $config->get( Constants::CONFIG_KEY_SHOW_FOOTER_ICONS ),
 			'has-indicator' => count( $parentData['array-indicators'] ) !== 0,
+			'data-page-toc' => $this->getPageToc( $parentData ),
 
 			// links
 			'link-recentchanges' => SpecialPage::getTitleFor( 'Recentchanges' )->getLocalUrl(),
@@ -71,6 +72,17 @@ class SkinFemiwiki extends SkinMustache {
 		] );
 
 		return $commonSkinData;
+	}
+
+	/**
+	 * The table of contents, drawn outside the content. It shows where the parser would have put
+	 * one in the content: four or more headings, __TOC__ or __FORCETOC__, and no __NOTOC__.
+	 */
+	private function getPageToc( array $data ): ?array {
+		if ( !$this->getOutput()->isTOCEnabled() || empty( $data['data-toc']['array-sections'] ) ) {
+			return null;
+		}
+		return $data['data-toc'];
 	}
 
 	private function extractLastmod( array $data ): ?string {
