@@ -80,6 +80,71 @@
       .cdx-menu {
         box-shadow: @box-shadow-medium;
       }
+
+      .fw-search-close {
+        display: none;
+      }
+
+      // Full screen while the search is in use on phones
+      @media (max-width: @max-width-breakpoint-mobile) {
+        &:has(.fw-typeahead-search--active) {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: @z-index-overlay;
+          height: auto;
+          align-items: flex-start;
+          gap: 0.25rem;
+          padding: 0.375rem 0.5rem 0 0.25rem;
+          background-color: @background-color-base;
+
+          .fw-search-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            width: @min-size-interactive-touch;
+            height: @min-size-interactive-touch;
+            margin-top: -0.375rem;
+            padding: 0;
+            border: 0;
+            border-radius: @border-radius-control;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover {
+              background-color: @button-background-color--hover;
+            }
+          }
+
+          .fw-search-close-icon {
+            .cdx-mixin-css-icon( @cdx-icon-arrow-previous );
+          }
+
+          .fw-typeahead-search-container {
+            max-width: none;
+          }
+
+          // The whole width below the input, one line a result
+          .cdx-menu {
+            max-height: calc(100vh - 3.5rem);
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+          }
+
+          .cdx-menu-item__text__label,
+          .cdx-menu-item__text__description,
+          .cdx-search-result-title {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
     }
 
     // Recent changes and random pages
