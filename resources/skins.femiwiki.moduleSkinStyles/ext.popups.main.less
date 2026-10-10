@@ -1,0 +1,30 @@
+@import '../variables.less';
+
+// Popups flips a preview but never pulls it back inside a narrow screen.
+@media screen and (max-width: @width-breakpoint-mobile) {
+  .mwe-popups {
+    left: 0 !important;
+    max-width: 100vw;
+
+    &.mwe-popups-is-tall {
+      .mwe-popups-extract {
+        flex-shrink: 0;
+      }
+
+      .mwe-popups-discreet {
+        min-width: 0;
+
+        .mwe-popups-thumbnail {
+          width: 100%;
+        }
+      }
+
+      // Popups pins the footer 203px from the right, the full thumbnail width.
+      footer {
+        right: auto;
+        width: 247px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}

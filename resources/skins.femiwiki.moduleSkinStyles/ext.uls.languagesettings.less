@@ -1,0 +1,20 @@
+@import '../variables.less';
+
+// ULS places the dialog left of its trigger with a 715px minimum width.
+@media screen and (max-width: @width-breakpoint-mobile) {
+  .language-settings-dialog {
+    left: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+
+    &.uls-wide,
+    &.grid .row {
+      min-width: 0;
+    }
+
+    &.uls-menu.callout::before,
+    &.uls-menu.callout::after {
+      content: none;
+    }
+  }
+}
