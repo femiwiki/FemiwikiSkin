@@ -34,7 +34,7 @@
     h3 {
       font-size: 1rem;
       font-weight: normal;
-      color: @color-base0;
+      color: @color-emphasized;
       margin: 0 0 0.4rem;
       padding: 0.5rem 0 0.17rem;
       border-bottom: 1px solid @color-primary2;
@@ -51,7 +51,7 @@
         a {
           display: flex;
           text-decoration: none;
-          color: @color-base15;
+          color: @color-base;
           padding-left: 2em;
 
           &:hover {
@@ -72,7 +72,7 @@
             opacity: @opacity-icon;
             vertical-align: middle;
             margin-right: 0.3em;
-            color: black;
+            color: @color-base;
             font-family: 'xeicon' !important;
             speak: none;
             font-style: normal;
@@ -146,10 +146,10 @@
 
   #localNotice {
     font-size: 0.8rem;
-    color: @color-base0;
+    color: @color-emphasized;
     margin: 0 0 4rem;
     padding: 1.6rem 0.8rem;
-    border: 2px solid #aca8e0;
+    border: 2px solid @color-primary2;
     position: relative;
     text-align: center;
 
@@ -179,7 +179,7 @@
         float: left;
 
         a {
-          color: @color-base15;
+          color: @color-base;
           text-decoration: none;
         }
 
@@ -370,7 +370,7 @@
       &:before {
         font-size: @icon-size;
         line-height: 1em;
-        color: black;
+        color: @color-base;
         opacity: @opacity-icon;
         font-family: 'xeicon' !important;
         content: '\e9ad';
@@ -537,7 +537,7 @@
   padding: 0;
   line-height: 1.2em;
   border-bottom: none;
-  color: @color-base15;
+  color: @color-base;
   font-weight: bold;
   // See https://github.com/femiwiki/FemiwikiSkin/issues/168
   overflow: visible;
@@ -555,7 +555,7 @@ hr#content-end-bar {
   border: 0;
   border-width: 1px;
   border-color: @color-primary2;
-  background-color: #a2a9b1;
+  background-color: @border-color-base;
   max-width: @content-width - @padding;
   margin: 0 auto;
   height: 1px;
@@ -637,7 +637,7 @@ hr#content-end-bar {
 
     &#footer-places li::before {
       content: '|';
-      color: #d3d3d3;
+      color: @border-color-subtle;
       display: inline-block;
       width: @footer-separator-width;
       text-align: center;
