@@ -201,6 +201,7 @@
             padding: @height 0 0 0;
             overflow: hidden;
             position: relative;
+            border-radius: @border-radius-control;
 
             &:before {
               background-repeat: no-repeat;
@@ -304,6 +305,8 @@
 
     .mw-indicator a,
     #p-menu-toggle {
+      border-radius: @border-radius-control;
+
       &:hover {
         background-color: @button-background-color--hover;
       }
@@ -400,6 +403,7 @@
       padding: @padding-icon;
       font-size: 0.875rem;
       cursor: pointer;
+      border-radius: @border-radius-control;
 
       &:hover {
         background-color: @button-background-color--hover;
@@ -467,14 +471,18 @@
             font-size: 1rem;
             padding: 0.3em 0.5em;
             border: 1px solid #a0a0ff;
-            border-radius: 0.3em;
+            border-radius: @border-radius-control;
             cursor: pointer;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            box-shadow: @box-shadow-button;
             transition: background-color 0.3s;
 
             &:hover {
               border-color: #6b6bff;
               background-color: #a0a0ff;
+            }
+
+            &:active {
+              box-shadow: @box-shadow-button--active;
             }
 
             a {
