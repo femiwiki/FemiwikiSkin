@@ -88,3 +88,44 @@ body.mw-special-CreateAccount {
     }
   }
 }
+
+.mw-special-CreateAccount {
+  .mw-createacct-benefits-container {
+    .fw-login-card();
+    align-self: flex-start;
+  }
+
+  .mw-createacct-benefits-heading {
+    font-family: @font-family;
+    font-size: 1.1em;
+    margin: 0 0 0.5em;
+    padding: 0;
+  }
+
+  // Ruled rows of a count and its label, without the icons
+  .mw-number-text {
+    margin: 0;
+    padding: 0.5em 0;
+    min-height: 0;
+    background-image: none;
+    text-align: left;
+    font-size: 1em;
+
+    & + .mw-number-text {
+      border-top: 1px solid @color-primary2;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    span,
+    strong {
+      display: inline;
+      font-family: @font-family;
+      font-size: 1.4em;
+      font-weight: bold;
+      color: @color-base;
+    }
+  }
+}
