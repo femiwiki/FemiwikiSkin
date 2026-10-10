@@ -29,4 +29,14 @@
     filter: invert(1) hue-rotate(180deg);
     background-color: transparent;
   }
+
+  // Keep the badges' green as in the light theme
+  .nav-bar #fw-menu-toggle .badge,
+  .fw-wiki-portals #p-personal .mw-echo-alert {
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  .nav-bar #mw-navigation #fw-menu-toggle .badge {
+    border-color: @color-badge-border-darkmode;
+  }
 }
