@@ -351,99 +351,6 @@
   }
 }
 
-// Table of contents
-.toc() {
-  .toc {
-    display: table;
-    font-size: 0.95rem;
-    margin: 3.2rem 0;
-    padding: 0;
-    border: 0;
-    background-color: inherit;
-    line-height: 1.6;
-
-    a {
-      .mw-link-style();
-      text-decoration: none;
-    }
-
-    .toctitle {
-      text-align: left;
-
-      h2 {
-        font-size: 1rem;
-        display: inline;
-        overflow: hidden;
-        font-weight: normal;
-        border: none;
-      }
-
-      .toctoggle,
-      .toctogglespan {
-        display: none;
-      }
-    }
-
-    ul,
-    // Override mediawiki.legacy
-    ul ul {
-      margin: 0;
-      list-style-type: none;
-
-      li {
-        list-style: none;
-
-        .tocnumber {
-          color: #222;
-          display: table-cell;
-          padding-right: 0.475rem;
-
-          &:after {
-            content: '.';
-          }
-        }
-
-        .toctext {
-          display: table-cell;
-        }
-
-        &.toclevel- {
-          &1 {
-            margin-top: 1rem;
-            font-weight: bold;
-          }
-
-          &1,
-          &2,
-          &3,
-          &4,
-          &5 {
-            font-weight: normal;
-            margin-left: 1rem;
-          }
-        }
-      }
-    }
-
-    &::before,
-    &::after {
-      display: block;
-      content: ' ';
-      width: 1.2rem;
-    }
-
-    &::before {
-      border-bottom: 2px solid @color-toc-rule;
-      margin-bottom: 0.5rem;
-    }
-
-    &::after {
-      border-top: 2px solid @color-toc-rule;
-      margin-top: 0.5rem;
-    }
-  }
-}
-
 .parser-output() {
   *:lang(en) {
     // https://femiwiki.com/w/Topic:W75xcdw9h9p3h5gt
@@ -585,8 +492,6 @@
       margin-bottom: 0.1em;
     }
   }
-
-  .toc();
 
   table.wikitable {
     // IE needs inline-block to position scrolling shadows otherwise use:
