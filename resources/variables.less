@@ -55,6 +55,8 @@
 @color-primary4: #736ac9; // 18.17, white text on it is 4.53:1
 @color-primary5: #5144a3; // 8.53
 @color-primary6: #302a45; // 2.71
+// Between @color-primary3 and @color-primary4
+@color-toc-rule: #8981d3; // 25.72
 
 @color-secondary1: #dae8b2; // 75.83
 @color-secondary2: #b2d236; // 55.82
@@ -89,6 +91,14 @@
 @box-shadow-button--active: inset @box-shadow-button;
 // DarkMode inverts the page, so white here shows as Codex's dark rgba(0, 0, 0, 0.87).
 @box-shadow-color-darkmode: rgba(255, 255, 255, 0.87);
+
+// Bold white at 14pt or more is large text, so 3:1 is enough: 3.42:1 here, 4.53:1 on hover, 7.76:1 pressed
+@color-edit-button: @color-toc-rule;
+@color-edit-button--hover: @color-primary4;
+@color-edit-button--active: @color-primary5;
+@color-edit-button-border: @color-primary4;
+// Never below 14pt, also where the root is 16.5px
+@font-size-edit-button: ~'max(1rem, 14pt)';
 
 @button-background-color--hover: @background-color-button-quiet--hover;
 @button-background-color--active: @background-color-button-quiet--active;
@@ -412,12 +422,12 @@
     }
 
     &::before {
-      border-bottom: 2px solid #8981d3;
+      border-bottom: 2px solid @color-toc-rule;
       margin-bottom: 0.5rem;
     }
 
     &::after {
-      border-top: 2px solid #8981d3;
+      border-top: 2px solid @color-toc-rule;
       margin-top: 0.5rem;
     }
   }
