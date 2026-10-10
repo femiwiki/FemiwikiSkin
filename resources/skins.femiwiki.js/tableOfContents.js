@@ -1,64 +1,75 @@
 var CURRENT_CLASS = 'fw-toc-current';
+// Vector's thresholds: a heading counts as reached within 75px of the top, checked at most every 200ms
+var TOP_MARGIN = 75;
+var THROTTLE_MS = 200;
+
+/**
+ * @param {function(): void} callback
+ * @param {number} frameCount
+ * @return {void}
+ */
+function deferUntilFrame(callback, frameCount) {
+  if (frameCount === 0) {
+    callback();
+    return;
+  }
+  window.requestAnimationFrame(function () {
+    deferUntilFrame(callback, frameCount - 1);
+  });
+}
 
 /**
  * Marks the section the reader is in, and closes the drawer once a section is picked.
+ *
+ * Follows Vector's sectionObserver.js: on scroll, an IntersectionObserver reports where the
+ * headings are, so finding the current one needs no forced layout.
  *
  * @return {void}
  */
 function init() {
   var toc = document.getElementById('fw-toc');
   var checkbox = document.getElementById('fw-toc-checkbox');
-  if (!toc || !(checkbox instanceof HTMLInputElement)) {
+  var body = document.getElementById('bodyContent');
+  if (!toc || !(checkbox instanceof HTMLInputElement) || !body) {
     return;
   }
   var tocCheckbox = checkbox;
   var panel = toc.querySelector('.fw-toc-panel');
   var top = toc.querySelector('.fw-toc-top');
 
-  /** @type {{heading: HTMLElement, item: Element}[]} */
-  var sections = [];
+  /** @type {Map<Element, Element>} */
+  var items = new Map();
+  if (top) {
+    // The content's own top stands for the part above the first heading
+    items.set(body, top);
+  }
   var links = toc.querySelectorAll('.fw-toc-link[data-anchor]');
   for (var i = 0; i < links.length; i++) {
     var anchor = links[i].getAttribute('data-anchor');
     var heading = anchor && document.getElementById(anchor);
     if (heading && links[i].parentElement) {
-      sections.push({
-        heading: heading,
-        item: /** @type {Element} */ (links[i].parentElement),
-      });
+      items.set(
+        heading.closest('.mw-heading') || heading,
+        /** @type {Element} */ (links[i].parentElement),
+      );
     }
   }
-
-  toc.addEventListener('click', function (event) {
-    var target = /** @type {Element} */ (event.target);
-    if (
-      target.closest &&
-      target.closest('.fw-toc-link') &&
-      tocCheckbox.checked
-    ) {
-      tocCheckbox.checked = false;
-      tocCheckbox.dispatchEvent(new Event('input'));
-    }
-  });
 
   /** @type {Element|null} */
   var current = null;
 
   /**
-   * @param {Element|null} item
+   * @param {Element|null|undefined} item
    * @return {void}
    */
   function setCurrent(item) {
-    if (item === current) {
+    if (!item || item === current) {
       return;
     }
     if (current) {
       current.classList.remove(CURRENT_CLASS);
     }
     current = item;
-    if (!item) {
-      return;
-    }
     item.classList.add(CURRENT_CLASS);
     // Keep the mark in view in a ToC taller than the screen, without scrolling the page.
     if (panel && panel.scrollHeight > panel.clientHeight) {
@@ -72,38 +83,83 @@ function init() {
     }
   }
 
-  var scheduled = false;
-
-  /**
-   * @return {void}
-   */
-  function update() {
-    scheduled = false;
-    // A section counts as read once its heading passes the upper third of the screen.
-    var line = window.innerHeight / 3;
-    var item = top;
-    for (var j = 0; j < sections.length; j++) {
-      if (sections[j].heading.getBoundingClientRect().top > line) {
-        break;
+  // The current section is the last one whose heading has reached the top margin, or else the
+  // nearest one below it. The observer is only asked for positions, so it disconnects each time.
+  var observer = new IntersectionObserver(function (entries) {
+    /** @type {IntersectionObserverEntry|undefined} */
+    var above;
+    /** @type {IntersectionObserverEntry|undefined} */
+    var below;
+    entries.forEach(function (entry) {
+      var rect = entry.boundingClientRect;
+      // A hidden heading has no box
+      if (rect.top === 0 && rect.bottom === 0) {
+        return;
       }
-      item = sections[j].item;
+      if (rect.top - TOP_MARGIN <= 0) {
+        if (!above || rect.top > above.boundingClientRect.top) {
+          above = entry;
+        }
+      } else if (!below || rect.top < below.boundingClientRect.top) {
+        below = entry;
+      }
+    });
+    var closest = above || below;
+    if (closest) {
+      setCurrent(items.get(closest.target));
     }
-    setCurrent(item);
-  }
+    observer.disconnect();
+  });
 
   /**
    * @return {void}
    */
-  function schedule() {
-    if (!scheduled) {
-      scheduled = true;
-      window.requestAnimationFrame(update);
+  function calcIntersection() {
+    items.forEach(function (_item, element) {
+      observer.observe(element);
+    });
+  }
+
+  /** @type {number|undefined} */
+  var timeoutId;
+  var paused = false;
+
+  /**
+   * @return {void}
+   */
+  function handleScroll() {
+    if (!paused && timeoutId === undefined) {
+      timeoutId = window.setTimeout(function () {
+        timeoutId = undefined;
+        calcIntersection();
+      }, THROTTLE_MS);
     }
   }
 
-  window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', schedule);
-  update();
+  toc.addEventListener('click', function (event) {
+    var target = /** @type {Element} */ (event.target);
+    var link = target.closest && target.closest('.fw-toc-link');
+    if (!link) {
+      return;
+    }
+    // Mark the pick even where the page cannot scroll it to the top, and ignore the jump to it.
+    // Firefox can take three frames to paint the new scroll position, as Vector found.
+    setCurrent(link.parentElement);
+    paused = true;
+    window.clearTimeout(timeoutId);
+    timeoutId = undefined;
+    deferUntilFrame(function () {
+      paused = false;
+    }, 3);
+    if (tocCheckbox.checked) {
+      tocCheckbox.checked = false;
+      tocCheckbox.dispatchEvent(new Event('input'));
+    }
+  });
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('resize', handleScroll);
+  calcIntersection();
 }
 
 module.exports = Object.freeze({ init: init });
