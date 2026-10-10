@@ -170,7 +170,6 @@
   },
   "Hooks": {
     "HtmlPageLinkRendererBegin": "default",
-    "ResourceLoaderGetConfigVars": "default",
     "SkinPageReadyConfig": "default",
     "SidebarBeforeOutput": "Portlet",
     "SkinTemplateNavigation::Universal": "Portlet",
@@ -255,10 +254,6 @@
     "FemiwikiAddLinkClass": {
       "value": false,
       "description": "@var boolean Applies styles to plain links also."
-    },
-    "FemiwikiFirebaseKey": {
-      "value": "",
-      "description": "@var string A key used for the Firebase Dynamic Links. See https://firebase.google.com/docs/dynamic-links/rest."
     },
     "FemiwikiHeadItems": {
       "value": false,

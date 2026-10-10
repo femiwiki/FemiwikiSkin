@@ -8,8 +8,6 @@
     // Configuration initialization
     config = config || {};
 
-    this.firebaseKey = config.firebaseKey;
-
     // Parent constructor
     mw.fw.ShareDialog.super.call(this, config);
   };
@@ -69,9 +67,7 @@
       .next(function () {
         if (shareDialog.longUrl != data.url) {
           shareDialog.longUrl = data.url;
-          shareDialog.shortUrl = undefined;
           shareDialog.updateUrl(shareDialog.longUrl);
-          shareDialog.createShortUrl();
         }
       }, this);
   };
@@ -97,55 +93,6 @@
 
     this.twitterButton.setHref(
       'https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweet),
-    );
-  };
-
-  mw.fw.ShareDialog.prototype.createShortUrl = function (url) {
-    if (!this.firebaseKey) {
-      return;
-    }
-    var shareDialog = this;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open(
-      'POST',
-      'https://firebasedynamiclinks.googleapis.com/v1/shortLinks?key=' +
-        this.firebaseKey,
-      true,
-    );
-
-    xhr.setRequestHeader('Content-Type', 'application/json');
-
-    xhr.onreadystatechange = function () {
-      if (
-        this.readyState === XMLHttpRequest.DONE &&
-        this.status === 200 &&
-        // Ensure that the url has not changed during processing, is it working?
-        window.location.href === shareDialog.longUrl
-      ) {
-        var response = JSON.parse(this.responseText);
-        shareDialog.shortUrl = response.shortLink;
-        shareDialog.updateUrl(shareDialog.shortUrl);
-        shareDialog.urlWidget.select();
-      }
-    };
-
-    xhr.send(
-      JSON.stringify({
-        // Reference: https://firebase.google.com/docs/reference/dynamic-links/link-shortener
-        dynamicLinkInfo: {
-          dynamicLinkDomain: 'fmwk.page.link',
-          link: this.longUrl,
-          analyticsInfo: {
-            googlePlayAnalytics: {
-              utmCampaign: 'share',
-            },
-          },
-        },
-        suffix: {
-          option: 'SHORT',
-        },
-      }),
     );
   };
 
