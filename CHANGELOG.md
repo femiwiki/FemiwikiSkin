@@ -2,6 +2,22 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [5.3.1](https://github.com/femiwiki/FemiwikiSkin/compare/v5.3.0...v5.3.1) (2026-10-10)
+
+
+### Bug Fixes
+
+* add an icon for create account in the menu ([#1046](https://github.com/femiwiki/FemiwikiSkin/issues/1046)) ([f82d4c2](https://github.com/femiwiki/FemiwikiSkin/commit/f82d4c25333f3be578233fb1c4e420ab6267d891))
+* centre the links beside the edit button ([#1039](https://github.com/femiwiki/FemiwikiSkin/issues/1039)) ([4b950c8](https://github.com/femiwiki/FemiwikiSkin/commit/4b950c89189d9e3be0562d6fd81b71887d9828f4))
+* keep section edit links on the heading line ([#1042](https://github.com/femiwiki/FemiwikiSkin/issues/1042)) ([178928a](https://github.com/femiwiki/FemiwikiSkin/commit/178928a3b54876aea411f68ee7ca79e48214f04e))
+* let Echo run the notifications badge, so its count updates without a reload ([#1023](https://github.com/femiwiki/FemiwikiSkin/issues/1023)) ([aafdfa0](https://github.com/femiwiki/FemiwikiSkin/commit/aafdfa0deab6ca80b5f063dd1bf023a7aade68a0))
+* line up the icons under the page title ([#1038](https://github.com/femiwiki/FemiwikiSkin/issues/1038)) ([6c27dcc](https://github.com/femiwiki/FemiwikiSkin/commit/6c27dcca40b9936a21f05850c51521a959531d4e))
+* line up times in recent changes and watchlist ([#1044](https://github.com/femiwiki/FemiwikiSkin/issues/1044)) ([0988e3d](https://github.com/femiwiki/FemiwikiSkin/commit/0988e3dfa0b408b22a1e27f14ce312ba89fbfcd7))
+* never start a wrapped footer line with a separator ([#1045](https://github.com/femiwiki/FemiwikiSkin/issues/1045)) ([caa8409](https://github.com/femiwiki/FemiwikiSkin/commit/caa8409fa664a237fcdefe715b373d7de63c8adb))
+* size the protection lock like the other title icons ([#1040](https://github.com/femiwiki/FemiwikiSkin/issues/1040)) ([3de6b9b](https://github.com/femiwiki/FemiwikiSkin/commit/3de6b9b80597c3553ef3ab72eb2e2926d42651a0))
+* stop the search placeholder jumping on focus ([#1041](https://github.com/femiwiki/FemiwikiSkin/issues/1041)) ([988f8b0](https://github.com/femiwiki/FemiwikiSkin/commit/988f8b0b282528d4b4ea263fe6be9cd514f2ff6d))
+* style VisualEditor's category edit link ([#1043](https://github.com/femiwiki/FemiwikiSkin/issues/1043)) ([f94c3de](https://github.com/femiwiki/FemiwikiSkin/commit/f94c3ded08f80b29f5f1d17b635c1e7dab15082e))
+
 ## [5.3.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.2.0...v5.3.0) (2026-10-06)
 
 
