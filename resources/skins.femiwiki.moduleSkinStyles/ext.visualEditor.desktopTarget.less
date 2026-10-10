@@ -42,7 +42,9 @@ html.ve-deactivating {
   }
 }
 
-.ve-ui-mwSaveDialog .ve-ui-mwSaveDialog-preview .mw-content-container {
+// TemplateSandbox's preview panel lacks .ve-ui-mwSaveDialog-preview outside
+// Vector 2022 (#668)
+.ve-ui-mwSaveDialog .oo-ui-panelLayout > .mw-content-container {
   max-width: @content-width;
   .content-horizontal-padding();
   margin: auto;
