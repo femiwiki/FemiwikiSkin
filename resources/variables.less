@@ -75,6 +75,11 @@
 @color-link: @color-primary5;
 // White text on the top bar needs 4.5:1
 @background-color-nav-bar: @color-primary4;
+// Hover and pressed are darker, as a lighter tint would take white text below 4.5:1
+@background-color-nav-bar--hover: mix(@color-primary5, @color-primary4, 25%);
+@background-color-nav-bar--active: mix(@color-primary5, @color-primary4, 50%);
+// Codex's 2px focus ring, in white to show on the bar
+@box-shadow-nav-bar--focus: inset 0 0 0 2px @color-base100;
 @color-alert: @color-secondary1;
 @color-alert2: @color-secondary3;
 @color-alert-border: @color-secondary2;
@@ -83,6 +88,8 @@
 @color-badge-text: @color-accent-text;
 // A badge inverted twice under DarkMode draws this as @background-color-nav-bar inverted once, like the top bar
 @color-badge-border-darkmode: #8c83e2;
+// A framed image's one line, like the heading underlines
+@border-color-frame: @color-primary2;
 
 // == Corners and depth ==
 // https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
@@ -91,6 +98,10 @@
 @box-shadow-button--active: inset @box-shadow-button;
 // DarkMode inverts the page, so white here shows as Codex's dark rgba(0, 0, 0, 0.87).
 @box-shadow-color-darkmode: rgba(255, 255, 255, 0.87);
+// Cards and site notices
+@border-color-surface: @color-primary2;
+@background-color-surface: @background-color-base;
+@box-shadow-surface: @box-shadow-medium;
 
 // Bold white at 14pt or more is large text, so 3:1 is enough: 3.42:1 here, 4.53:1 on hover, 7.76:1 pressed
 @color-edit-button: @color-toc-rule;
@@ -147,6 +158,13 @@
   }
 }
 
+.surface() {
+  border: 1px solid @border-color-surface;
+  border-radius: @border-radius-control;
+  background-color: @background-color-surface;
+  box-shadow: @box-shadow-surface;
+}
+
 .image() {
   max-width: 100%;
   height: auto;
@@ -160,7 +178,7 @@
   }
 
   &:active {
-    color: @color-secondary2;
+    color: @color-primary6;
   }
 
   &.external {
@@ -503,13 +521,13 @@
 
   // border-bottom
   h2 {
-    border-bottom: 0.2rem double #d7c9f5;
+    border-bottom: 0.2rem double @color-primary2;
   }
   h3 {
-    border-bottom: 1px solid #d7c9f5;
+    border-bottom: 1px solid @color-primary2;
   }
   h4 {
-    border-bottom: 1px dotted #d7c9f5;
+    border-bottom: 1px dotted @color-primary2;
   }
   h5,
   h6 {
@@ -647,6 +665,25 @@
     figcaption {
       background: none;
       border: none;
+      font-size: 0.8836rem;
+      color: #888;
+    }
+  }
+
+  // Core draws the frame on the figure and its caption; keep that, in one colour
+  figure[typeof~='mw:File/Frame'],
+  figure[typeof~='mw:Image/Frame'] {
+    font-size: 0.94rem;
+    border-color: @border-color-frame;
+    background: none;
+
+    .mw-file-element:not(.mw-broken-media) {
+      border: none;
+    }
+
+    figcaption {
+      border-color: @border-color-frame;
+      background: none;
       font-size: 0.8836rem;
       color: #888;
     }

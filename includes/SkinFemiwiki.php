@@ -20,6 +20,8 @@ class SkinFemiwiki extends SkinMustache {
 	/** @var array|null The history tab, which is listed in the toolbox instead of the views */
 	private ?array $historyItem = null;
 
+	private const ACCOUNT_ACTION_IDS = [ 'pt-createaccount', 'pt-login', 'pt-login-private' ];
+
 	/**
 	 * @inheritDoc
 	 */
@@ -54,12 +56,19 @@ class SkinFemiwiki extends SkinMustache {
 		$toolbox = $this->prependHistory( $toolbox );
 
 		$portlets = $parentData['data-portlets'];
+		[ $accountActions, $userItems ] = $this->splitAccountActions( array_merge(
+			$portlets['data-user-page']['array-items'] ?? [],
+			$portlets['data-user-menu']['array-items'] ?? []
+		) );
 		$extendedUserMenu = [
-			'html-items' => $portlets['data-user-page']['html-items'] .
-				$portlets['data-user-menu']['html-items'],
+			'html-items' => $userItems,
 		] + $portlets['data-user-menu'];
+		if ( $userItems === '' ) {
+			$extendedUserMenu['class'] .= ' emptyPortlet';
+		}
 
 		$commonSkinData = array_merge_recursive( $parentData, [
+			'html-account-actions' => $accountActions,
 			'data-user-menu-extended' => $extendedUserMenu,
 			'data-sidebar' => $sidebar,
 			'html-heading-language-attributes' => $this->prepareHeadingLanguageAttributes(),
@@ -102,6 +111,20 @@ class SkinFemiwiki extends SkinMustache {
 		$item = [ 'id' => 'ca-history' ] + $this->historyItem;
 		$toolbox['html-items'] = $this->makeListItem( 'history', $item ) . $toolbox['html-items'];
 		return $toolbox;
+	}
+
+	// Returns the HTML of the sign-up and log-in items, and of the other items
+	private function splitAccountActions( array $items ): array {
+		$account = '';
+		$rest = '';
+		foreach ( $items as $item ) {
+			if ( in_array( $item['id'] ?? '', self::ACCOUNT_ACTION_IDS, true ) ) {
+				$account .= $item['html-item'];
+			} else {
+				$rest .= $item['html-item'];
+			}
+		}
+		return [ $account, $rest ];
 	}
 
 	private function extractLastmod( array $data ): ?string {
