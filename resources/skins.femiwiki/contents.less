@@ -320,6 +320,12 @@ body.ns-special #mw-content-text .wikitable {
   .responsiveTable();
 }
 
+// TablePager tables, such as Special:AllMessages. One class only, so that core's
+// mobile layout of Special:ListFiles still wins.
+.mw-datatable {
+  .responsiveTable();
+}
+
 .fw-link,
 a.text,
 a.external {
