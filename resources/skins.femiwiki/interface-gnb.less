@@ -2,7 +2,7 @@
 @import 'mediawiki.mixins.less';
 
 .nav-bar {
-  @height: 2.4rem;
+  @height: 44px;
   height: @height;
   background-color: @background-color-nav-bar;
 
@@ -59,9 +59,9 @@
         min-width: 0;
       }
 
-      // Fill the bar height as the old search input did
+      // Inset in the bar rather than filling its height
       .cdx-text-input__input {
-        height: @height;
+        height: 32px;
         max-height: none;
       }
 
@@ -86,10 +86,6 @@
         list-style-type: none;
         color: #fff;
         text-align: center;
-
-        &:last-child {
-          border-right: 1px solid #fff;
-        }
 
         a {
           font-size: 0.8rem;
