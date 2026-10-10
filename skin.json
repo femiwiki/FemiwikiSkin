@@ -112,6 +112,7 @@
       "+ext.growthExperiments.HelpPanel": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.HelpPanel.less",
       "+ext.growthExperiments.Homepage.styles": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.Homepage.styles.less",
       "+ext.growthExperiments.PostEdit": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.PostEdit.less",
+      "+ext.popups.main": "skins.femiwiki.moduleSkinStyles/ext.popups.main.less",
       "+ext.pygments": "skins.femiwiki.moduleSkinStyles/ext.pygments.css",
       "+ext.relatedArticles.cards": "skins.femiwiki.moduleSkinStyles/ext.relatedArticles.cards.less",
       "+ext.sanctions.special.sanctions.styles": "skins.femiwiki.moduleSkinStyles/ext.sanctions.special.sanctions.styles.less",
