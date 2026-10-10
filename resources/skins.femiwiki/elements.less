@@ -20,7 +20,8 @@ html {
 
 body {
   padding: 0;
-  color: @color-base15;
+  color: @color-base;
+  background-color: @background-color-base;
   line-height: @line-height-base;
 
   // Word breaks shouldn't be used for CJK text
@@ -49,14 +50,14 @@ blockquote {
   margin: 1em 0;
   overflow: hidden;
   border: none;
-  background-color: #f0f0f0;
+  background-color: @background-color-neutral;
 }
 
 th,
 td {
   background-color: transparent;
   padding: 0.2rem 0.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid @border-color-muted;
 }
 
 tt,

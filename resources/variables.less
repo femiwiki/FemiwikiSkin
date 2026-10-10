@@ -59,8 +59,6 @@
 @border-color-subtle: var(--border-color-subtle, #c8ccd1);
 @border-color-muted: var(--border-color-muted, #dadde3);
 
-@color-base0: #000000;
-@color-base15: #252525;
 @color-base100: #fff;
 
 //                        luminance(%)
@@ -319,13 +317,13 @@
   td:first-child {
     background-image: -webkit-linear-gradient(
       left,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
+      @background-color-base 50%,
+      transparent 100%
     );
     background-image: linear-gradient(
       to right,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
+      @background-color-base 50%,
+      transparent 100%
     );
     background-repeat: no-repeat;
     background-size: 20px 100%;
@@ -335,13 +333,13 @@
   td:last-child {
     background-image: -webkit-linear-gradient(
       right,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
+      @background-color-base 50%,
+      transparent 100%
     );
     background-image: linear-gradient(
       to left,
-      white 50%,
-      rgba(255, 255, 255, 0) 100%
+      @background-color-base 50%,
+      transparent 100%
     );
     background-repeat: no-repeat;
     background-position: 100% 0;
@@ -351,7 +349,7 @@
   & > * > tr > th,
   & > * > tr > td {
     background-color: transparent;
-    border: 1px solid #ddd;
+    border: 1px solid @border-color-muted;
   }
 }
 
@@ -398,7 +396,7 @@
         list-style: none;
 
         .tocnumber {
-          color: #222;
+          color: @color-base;
           display: table-cell;
           padding-right: 0.475rem;
 
@@ -467,7 +465,7 @@
   // https://femiwiki.com/w/Topic:Tvsoi1ez3qwf7l7b
   s,
   strike {
-    color: gray;
+    color: @color-subtle;
   }
 
   blockquote {
@@ -477,9 +475,9 @@
   }
 
   code {
-    color: @color-base0;
-    background-color: button;
-    border: 1px solid #eaecf0;
+    color: @color-emphasized;
+    background-color: @background-color-neutral-subtle;
+    border: 1px solid @border-color-muted;
     border-radius: 2px;
     padding: 1px 4px;
   }
@@ -495,7 +493,7 @@
     margin: 3.8rem 0 1.6rem;
     padding: 0;
     font-weight: bold;
-    color: @color-base15;
+    color: @color-base;
     overflow: hidden;
   }
 
@@ -544,7 +542,7 @@
   }
 
   hr {
-    background-color: #a2a9b1;
+    background-color: @border-color-base;
     border: 0;
     margin: 0.2em 0;
   }
@@ -606,7 +604,7 @@
 
     th {
       font-size: inherit;
-      color: @color-base0;
+      color: @color-emphasized;
       text-align: left;
     }
 
@@ -632,8 +630,8 @@
     padding: 1em;
     overflow: hidden;
     border: none;
-    background-color: #f8f8f8;
-    color: @color-base0;
+    background-color: @background-color-neutral-subtle;
+    color: @color-emphasized;
     white-space: pre-wrap;
     font-family: 'Source Code Pro', monospace, monospace;
 
@@ -663,7 +661,7 @@
       background: none;
       border: none;
       font-size: 0.8836rem;
-      color: #888;
+      color: @color-subtle;
     }
   }
 
