@@ -111,6 +111,22 @@
         &#pt-notifications-all {
           .xi('\e99c');
         }
+
+        // XEIcon has no history icon, so this one is OOUI's, drawn in the glyphs' colour.
+        &#ca-history a {
+          padding-left: 0;
+
+          &:before {
+            content: '';
+            width: 1em;
+            height: 1em;
+            background-color: currentColor;
+            -webkit-mask: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/history.svg')
+              center ~'/' contain no-repeat;
+            mask: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/history.svg')
+              center ~'/' contain no-repeat;
+          }
+        }
       }
     }
   }
@@ -513,8 +529,7 @@
             }
           }
 
-          &#ca-view.selected,
-          &#ca-history {
+          &#ca-view.selected {
             display: none;
           }
 
