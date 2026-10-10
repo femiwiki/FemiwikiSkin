@@ -1,0 +1,42 @@
+@import '../variables.less';
+
+// Rows divided by thin rules instead of boxed cards, flush with the content.
+.read-more-container-card-list {
+  margin: 0;
+  padding: 0;
+  row-gap: 0;
+  border-bottom: 1px solid @border-color-subtle;
+
+  .cdx-card {
+    padding: 12px 0;
+    border: 0;
+    border-top: 1px solid @border-color-subtle;
+    border-radius: 0;
+    background-color: transparent;
+  }
+
+  .cdx-thumbnail__image,
+  .cdx-thumbnail__placeholder {
+    border-radius: 0;
+  }
+
+  a:hover {
+    .cdx-card {
+      box-shadow: none;
+    }
+
+    .cdx-card__text__title {
+      color: @color-link;
+    }
+  }
+
+  @media (min-width: @width-breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: @content-horizontal-padding;
+
+    .cdx-card {
+      height: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
