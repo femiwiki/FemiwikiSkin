@@ -115,16 +115,16 @@
             background-color: currentColor;
             -webkit-mask-position: center;
             mask-position: center;
-            -webkit-mask-size: 1.8rem;
-            mask-size: 1.8rem;
+            -webkit-mask-size: 1.3rem;
+            mask-size: 1.3rem;
             -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
 
             @media (min-width: @width-breakpoint-tablet) {
-              -webkit-mask-size: 1.6rem 1.6rem;
-              mask-size: 1.6rem 1.6rem;
-              -webkit-mask-position: left 0.4rem top 0.4rem;
-              mask-position: left 0.4rem top 0.4rem;
+              -webkit-mask-size: 1.2rem;
+              mask-size: 1.2rem;
+              -webkit-mask-position: 0.6rem 50%;
+              mask-position: 0.6rem 50%;
             }
           }
 
@@ -141,12 +141,12 @@
         }
 
         &.changes a::before {
-          -webkit-mask-image: url(images/icon-changes-notext.png);
-          mask-image: url(images/icon-changes-notext.png);
+          -webkit-mask-image: url(images/icon-changes-notext.svg);
+          mask-image: url(images/icon-changes-notext.svg);
         }
         &.random a::before {
-          -webkit-mask-image: url(images/icon-random-notext.png);
-          mask-image: url(images/icon-random-notext.png);
+          -webkit-mask-image: url(images/icon-random-notext.svg);
+          mask-image: url(images/icon-random-notext.svg);
         }
       }
     }
@@ -167,10 +167,8 @@
         bottom: 0;
         left: 0;
         background-color: currentColor;
-        -webkit-mask: url(images/icon-bars.png) 0.3rem 0.3rem ~'/' 1.8rem 1.8rem
-          no-repeat;
-        mask: url(images/icon-bars.png) 0.3rem 0.3rem ~'/' 1.8rem 1.8rem
-          no-repeat;
+        -webkit-mask: url(images/icon-bars.svg) center ~'/' 1.2rem no-repeat;
+        mask: url(images/icon-bars.svg) center ~'/' 1.2rem no-repeat;
       }
 
       .badge {
