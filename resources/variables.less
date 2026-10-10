@@ -44,6 +44,21 @@
 @code-elements: ~'pre, pre *, code, code *, kbd, kbd *, samp, samp *, tt, tt *';
 
 // == Colors ==
+
+// Codex's custom properties, which a dark mode can redefine (#1080); fallbacks are for print
+@color-base: var(--color-base, #202122);
+@color-emphasized: var(--color-emphasized, #101418);
+@color-subtle: var(--color-subtle, #54595d);
+@background-color-base: var(--background-color-base, #fff);
+@background-color-neutral: var(--background-color-neutral, #eaecf0);
+@background-color-neutral-subtle: var(
+  --background-color-neutral-subtle,
+  #f8f9fa
+);
+@border-color-base: var(--border-color-base, #a2a9b1);
+@border-color-subtle: var(--border-color-subtle, #c8ccd1);
+@border-color-muted: var(--border-color-muted, #dadde3);
+
 @color-base0: #000000;
 @color-base15: #252525;
 @color-base100: #fff;
