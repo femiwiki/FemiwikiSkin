@@ -50,6 +50,18 @@
   color: @color-primary5;
 }
 
+// Echo sets the footer buttons' padding to 0.5em, so a wide label runs over the icon.
+// Give back the room OOUI keeps for the icon.
+.skin-femiwiki
+  .mw-echo-ui-notificationBadgeController-popup
+  > .oo-ui-popupWidget-popup
+  > .oo-ui-popupWidget-footer
+  .mw-echo-ui-notificationBadgeController-footer-buttons
+  .oo-ui-iconElement
+  > .oo-ui-buttonElement-button {
+  padding-left: 2.14285714em;
+}
+
 .mw-echo-ui-notificationItemWidget-initiallyUnseen.mw-echo-ui-notificationItemWidget-unread {
   @notification-background-unseen: @color-secondary1;
   @notification-background-read: #fff;
