@@ -118,6 +118,7 @@
       "+ext.translate.special.translate.styles": "skins.femiwiki.moduleSkinStyles/ext.translate.special.translate.styles.less",
       "+ext.translate.specialpages.styles": "skins.femiwiki.moduleSkinStyles/ext.translate.specialpages.styles.less",
       "+ext.TwoColConflict.SplitCss": "skins.femiwiki.moduleSkinStyles/ext.TwoColConflict.SplitCss.less",
+      "+ext.uls.languagesettings": "skins.femiwiki.moduleSkinStyles/ext.uls.languagesettings.less",
       "+ext.uploadWizard.page.styles": "skins.femiwiki.moduleSkinStyles/ext.uploadWizard.page.styles.less",
       "+ext.visualEditor.core": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.core.less",
       "+ext.visualEditor.desktopTarget": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.desktopTarget.less",
