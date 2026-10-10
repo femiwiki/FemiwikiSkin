@@ -15,10 +15,10 @@
   {{#data-page-toc}}{{>TableOfContents}}{{/data-page-toc}}
   {{>Content}}
   <aside id="fw-page-aside" class="fw-page-aside"></aside>
+
+  {{#data-portlets.data-languages}}
+  {{>Menu}}
+  {{/data-portlets.data-languages}}
+
+  {{>Footer}}
 </div>
-
-{{#data-portlets.data-languages}}
-{{>Menu}}
-{{/data-portlets.data-languages}}
-
-{{>Footer}}
