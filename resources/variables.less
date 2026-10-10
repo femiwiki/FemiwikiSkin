@@ -83,6 +83,8 @@
 @color-badge-text: @color-accent-text;
 // A badge inverted twice under DarkMode draws this as @background-color-nav-bar inverted once, like the top bar
 @color-badge-border-darkmode: #8c83e2;
+// A framed image's one line, like the heading underlines
+@border-color-frame: @color-primary2;
 
 // == Corners and depth ==
 // https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
@@ -647,6 +649,25 @@
     figcaption {
       background: none;
       border: none;
+      font-size: 0.8836rem;
+      color: #888;
+    }
+  }
+
+  // Core draws the frame on the figure and its caption; keep that, in one colour
+  figure[typeof~='mw:File/Frame'],
+  figure[typeof~='mw:Image/Frame'] {
+    font-size: 0.94rem;
+    border-color: @border-color-frame;
+    background: none;
+
+    .mw-file-element:not(.mw-broken-media) {
+      border: none;
+    }
+
+    figcaption {
+      border-color: @border-color-frame;
+      background: none;
       font-size: 0.8836rem;
       color: #888;
     }
