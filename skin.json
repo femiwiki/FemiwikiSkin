@@ -63,7 +63,8 @@
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
         "skins.femiwiki.js/notificationBadge.js",
-        "skins.femiwiki.js/watchingUsers.js"
+        "skins.femiwiki.js/watchingUsers.js",
+        "skins.femiwiki.js/tableOfContents.js"
       ]
     },
     "skins.femiwiki.search.codex.styles": {

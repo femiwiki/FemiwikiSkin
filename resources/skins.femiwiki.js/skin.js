@@ -26,6 +26,7 @@ function main() {
   require('./discussionStatus.js').init();
   require('./notificationBadge.js').init();
   require('./watchingUsers.js').init();
+  require('./tableOfContents.js').init();
 
   initCheckboxHack(
     window.document.getElementById('fw-toc-checkbox'),
