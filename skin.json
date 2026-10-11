@@ -59,6 +59,7 @@
         "lock",
         "logIn",
         "logOut",
+        "message",
         "move",
         "newspaper",
         "printer",
@@ -73,6 +74,8 @@
         "userContributions",
         "userRights",
         "userTalk",
+        "userTemporary",
+        "volumeOff",
         "watchlist"
       ]
     },
