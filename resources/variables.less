@@ -89,6 +89,11 @@
 @palette-accent--active: #8ca534;
 // Same OKLCH hue as @palette-accent, dark enough for 5.5:1 on it
 @palette-accent-text: #414f0a;
+// Other progressive buttons: a tonal fill a step below the green; the text is 6.60, 5.85 and 5.17:1 on it
+@background-color-button-tonal: #ecebfc;
+@background-color-button-tonal--hover: #dfddf8;
+@background-color-button-tonal--active: #d3cff4;
+@color-button-tonal: @palette-primary5;
 
 // Custom properties, so a dark theme can redefine them (#1080)
 @color-primary1: var(--color-primary1, @palette-primary1);
@@ -133,18 +138,40 @@
 // Notification counts are "new", so they take the accent, the same in both themes
 @color-badge: @palette-accent;
 @color-badge-text: @palette-accent-text;
-// A badge inverted twice under DarkMode draws this as @background-color-nav-bar inverted once, like the top bar
-@color-badge-border-darkmode: #8c83e2;
 // A framed image's one line, like the heading underlines
 @border-color-frame: @color-primary2;
+
+// == Dark theme ==
+// The purple ramp turned around, on #101418: links #b9b5d9 9.4:1, @color-primary4 #aca6e4 8.2:1
+@dark-color-primary1: @palette-primary6;
+@dark-color-primary2: @palette-primary5;
+@dark-color-primary3: @palette-primary4;
+@dark-color-primary4: @palette-primary3;
+@dark-color-primary5: @palette-primary2;
+@dark-color-primary6: @palette-primary1;
+// @palette-secondary2 at 20% on #101418, for unread notifications and alerts
+@dark-color-secondary1: #303a1e;
+// @dark-color-primary3 at 15%, 25% and 45% on #101418, as the light theme mixes with white
+@dark-background-color-progressive-subtle: #1f2133;
+@dark-background-color-progressive-subtle--hover: #292a44;
+@dark-background-color-progressive-subtle--active: #3d3b68;
+// Codex's dark content-added and content-removed at 50% on #101418
+@dark-background-color-diff-added: #1a253f;
+@dark-background-color-diff-removed: #2b2318;
+// Codex's dark red link and visited colour; the rest 5.4:1 or more on #101418
+@dark-color-link-new: #fd7865;
+@dark-color-link-new--visited: #e0857a;
+@dark-color-link-stub: #d98c94;
+@dark-color-link-interwiki: #88a3e8;
+@dark-color-link-interwiki--visited: #a799cd;
+@dark-color-link-external--active: #f0a56b;
+@dark-box-shadow-color-button: rgba(0, 0, 0, 0.87);
 
 // == Corners and depth ==
 // https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
 @border-radius-control: 0.3em;
 @box-shadow-button: 0 1px 2px var(--box-shadow-color-button, rgba(0, 0, 0, 0.5));
 @box-shadow-button--active: inset @box-shadow-button;
-// DarkMode inverts the page, so white here shows as Codex's dark rgba(0, 0, 0, 0.87).
-@box-shadow-color-darkmode: rgba(255, 255, 255, 0.87);
 // Cards and site notices
 @border-color-surface: @color-primary2;
 @background-color-surface: @background-color-base;
@@ -158,6 +185,17 @@
 @color-edit-button-border: var(--color-edit-button-border, @palette-primary4);
 // Never below 14pt, also where the root is 16.5px
 @font-size-edit-button: ~'max(1rem, 14pt)';
+
+// == Table of contents ==
+// https://femiwiki.com/w/페미위키:2026년_디자인_가이드#원칙
+@toc-width: 12rem;
+@toc-column-gap: 1rem;
+// @toc-width, a @toc-column-gap on each side and @content-width at the 19px root come to about 1090px
+@width-breakpoint-toc-column: 1120px;
+@toc-drawer-width: ~'min(20rem, 85vw)';
+@font-size-toc: 0.85rem;
+@color-toc-current: @color-primary4;
+@border-width-toc-current: 2px;
 
 @button-background-color--hover: @background-color-button-quiet--hover;
 @button-background-color--active: @background-color-button-quiet--active;
@@ -406,99 +444,6 @@
   }
 }
 
-// Table of contents
-.toc() {
-  .toc {
-    display: table;
-    font-size: 0.95rem;
-    margin: 3.2rem 0;
-    padding: 0;
-    border: 0;
-    background-color: inherit;
-    line-height: 1.6;
-
-    a {
-      .mw-link-style();
-      text-decoration: none;
-    }
-
-    .toctitle {
-      text-align: left;
-
-      h2 {
-        font-size: 1rem;
-        display: inline;
-        overflow: hidden;
-        font-weight: normal;
-        border: none;
-      }
-
-      .toctoggle,
-      .toctogglespan {
-        display: none;
-      }
-    }
-
-    ul,
-    // Override mediawiki.legacy
-    ul ul {
-      margin: 0;
-      list-style-type: none;
-
-      li {
-        list-style: none;
-
-        .tocnumber {
-          color: @color-base;
-          display: table-cell;
-          padding-right: 0.475rem;
-
-          &:after {
-            content: '.';
-          }
-        }
-
-        .toctext {
-          display: table-cell;
-        }
-
-        &.toclevel- {
-          &1 {
-            margin-top: 1rem;
-            font-weight: bold;
-          }
-
-          &1,
-          &2,
-          &3,
-          &4,
-          &5 {
-            font-weight: normal;
-            margin-left: 1rem;
-          }
-        }
-      }
-    }
-
-    &::before,
-    &::after {
-      display: block;
-      content: ' ';
-      width: 1.2rem;
-    }
-
-    &::before {
-      border-bottom: 2px solid @color-toc-rule;
-      margin-bottom: 0.5rem;
-    }
-
-    &::after {
-      border-top: 2px solid @color-toc-rule;
-      margin-top: 0.5rem;
-    }
-  }
-}
-
 .parser-output() {
   *:lang(en) {
     // https://femiwiki.com/w/Topic:W75xcdw9h9p3h5gt
@@ -640,8 +585,6 @@
       margin-bottom: 0.1em;
     }
   }
-
-  .toc();
 
   table.wikitable {
     // IE needs inline-block to position scrolling shadows otherwise use:
