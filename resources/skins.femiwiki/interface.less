@@ -469,10 +469,11 @@
       }
     }
 
+    // Icon only, like the buttons beside it; the status text stays for screen readers.
     .mw-fr-review-status-indicator {
       align-items: center;
       padding: @padding-icon;
-      font-size: 0.875rem;
+      font-size: 0;
       cursor: pointer;
       border-radius: @border-radius-control;
 
@@ -481,6 +482,10 @@
       }
 
       > span {
+        font-size: 0.875rem;
+        width: @icon-size;
+        height: @icon-size;
+        margin: 0;
         opacity: @opacity-icon;
       }
     }
