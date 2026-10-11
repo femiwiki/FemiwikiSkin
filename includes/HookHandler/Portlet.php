@@ -9,6 +9,7 @@ use MediaWiki\Extension\Notifications\SeenTime;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Femiwiki\Constants;
+use MediaWiki\Title\Title;
 use SkinTemplate;
 use SpecialPage;
 
@@ -62,6 +63,18 @@ class Portlet implements
 			'protect' => 'lock',
 			'unprotect' => 'unLock',
 		],
+	];
+
+	/**
+	 * Icons for the tabs of related special pages, by the page's canonical name and subpage.
+	 * interface.less draws each as `.fw-tab-<icon>`.
+	 */
+	private const SPECIAL_TAB_ICONS = [
+		'Watchlist' => 'watchlist',
+		'EditWatchlist' => 'edit',
+		'EditWatchlist/raw' => 'wikiText',
+		'EditWatchlist/clear' => 'trash',
+		'WatchlistLabels' => 'tag',
 	];
 
 	/**
@@ -177,6 +190,7 @@ class Portlet implements
 		$this->addNotification( $sktemplate, $links );
 		$this->addMobileOptions( $sktemplate, $links );
 		$this->tweakWatchActions( $sktemplate, $links );
+		$this->addSpecialTabIcons( $sktemplate, $links );
 
 		foreach ( [
 			'user-page',
@@ -221,6 +235,39 @@ class Portlet implements
 
 		$links['associated-pages'][$key] = $links['actions'][$key];
 		unset( $links['actions'][$key] );
+	}
+
+	/**
+	 * Marks the tabs core adds for related special pages with their icon. Core numbers them by
+	 * position, in the order of SpecialPage::getAssociatedNavigationLinks().
+	 */
+	private function addSpecialTabIcons( SkinTemplate $sktemplate, array &$links ): void {
+		$title = $sktemplate->getTitle();
+		if ( !$title || !$title->isSpecialPage() ) {
+			return;
+		}
+
+		$factory = MediaWikiServices::getInstance()->getSpecialPageFactory();
+		$special = $factory->getPage( $title->getText() );
+		if ( $special === null ) {
+			return;
+		}
+		$special->setContext( $sktemplate );
+
+		foreach ( $special->getAssociatedNavigationLinks() as $i => $relatedTitleText ) {
+			$key = 'special-specialAssociatedNavigationLinks-link-' . $i;
+			$relatedTitle = Title::newFromText( $relatedTitleText );
+			if ( !isset( $links['associated-pages'][$key] ) || !$relatedTitle ) {
+				continue;
+			}
+			[ $name, $subpage ] = $factory->resolveAlias( $relatedTitle->getDBkey() );
+			$icon = self::SPECIAL_TAB_ICONS[$subpage === null ? $name : "$name/$subpage"] ?? null;
+			if ( $icon === null ) {
+				continue;
+			}
+			$item = &$links['associated-pages'][$key];
+			$item['class'] = trim( ( $item['class'] ?? '' ) . ' fw-tab-' . $icon );
+		}
 	}
 
 	/**
