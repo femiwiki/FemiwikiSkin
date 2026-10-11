@@ -23,9 +23,9 @@
     }
 
     // States of Codex quiet buttons, on the bar's colour
+    #fw-nav-toc-toggle,
     a#p-logo,
     #site-navigation a,
-    #fw-nav-toc-toggle,
     #fw-menu-toggle {
       transition-property: background-color, color;
       transition-duration: @transition-duration-base;
@@ -469,8 +469,7 @@
   display: none;
 }
 
-// Where the ToC is a drawer, the bar comes back on a scroll up (#503). skin.js sets the classes,
-// so without scripts the bar scrolls away.
+// Where the ToC is a drawer, navBar.js brings the bar back on a scroll up (#503)
 @media screen and (max-width: calc(@width-breakpoint-toc-column - 1px)) {
   // Set before scripts run, as a URL's fragment can be scrolled to first, as Vector does (T406114)
   html.client-js {
