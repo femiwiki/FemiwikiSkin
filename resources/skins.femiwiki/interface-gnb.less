@@ -245,41 +245,101 @@
   max-width: @content-width - @content-horizontal-padding;
   .content-horizontal-padding();
 
-  // Alignment hack: Show portals like below:
-  //  ___ ___ ___ ___
-  // | x | x | x | x |
-  //  ^^^ ^^^ ^^^ ^^^
-  // or
-  //  ___ ___
-  // | x | x |
-  //  --- ---
-  // | x | x |
-  //  ^^^ ^^^
-  // than:
-  //  ___ ___ ___
-  // | x | x | x |
-  //  -----------
-  // |     x     |
-  //  ^^^^^^^^^^^
+  // One column of panels on phones, two on wider screens
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: @portal-column-gap;
+  padding-top: @portal-column-gap;
+  padding-bottom: @portal-column-gap;
+  border-bottom: 0;
+  overflow: visible;
+
+  @media (min-width: @width-breakpoint-tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .mw-portlet {
-    @three-portlets-min-width: (@portal-min-width * 3) +
-      (@portal-column-gap * 2) + (@content-horizontal-padding * 2);
-    @four-portlets-min-width: (@portal-min-width * 4) +
-      (@portal-column-gap * 3) + (@content-horizontal-padding * 2);
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    padding: 0.3rem;
+    background-color: @background-color-base;
+    border: 1px solid @color-primary2;
+    border-radius: @border-radius-control;
+    box-shadow: @box-shadow-medium;
 
-    // Convert from rem to em, which media queries read against the browser's default font size
-    @min-width: unit(
-      (@three-portlets-min-width * @font-size-root-default / 16),
-      em
-    );
-    @max-width: unit(
-      (@four-portlets-min-width * @font-size-root-default / 16),
-      em
-    );
+    h3 {
+      font-size: 0.75rem;
+      color: @color-subtle;
+      margin: 0;
+      padding: 0.3rem 0.5rem;
+      border-bottom: 0;
+    }
 
-    @media (min-width: @min-width) and (max-width: @max-width) {
-      // could be any value in range (1/3, 1/2)
-      flex-basis: 40%;
+    ul li a {
+      align-items: center;
+      min-height: @min-size-interactive-touch;
+      padding-right: 0.5rem;
+      border-radius: @border-radius-control;
+      box-sizing: border-box;
+    }
+  }
+
+  // Sign-up and log-in buttons above the panels
+  #fw-account-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: @portal-column-gap;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin: 0;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+      min-height: @min-size-interactive-touch;
+      padding: 0 1em;
+      box-sizing: border-box;
+      border: 1px solid transparent;
+      border-radius: @border-radius-control;
+      color: @color-base;
+      font-weight: bold;
+      text-decoration: none;
+
+      // XEIcon sets its font on the link, for the icon in ::before
+      span {
+        font-family: @font-family;
+      }
+
+      &:hover {
+        background-color: @button-background-color--hover;
+      }
+
+      &:active {
+        background-color: @button-background-color--active;
+      }
+    }
+
+    #pt-createaccount a {
+      background-color: @color-accent;
+      border-color: @color-accent--active;
+      color: @color-accent-text;
+      box-shadow: @box-shadow-button;
+
+      &:hover {
+        background-color: @color-accent--hover;
+      }
+
+      &:active {
+        background-color: @color-accent--active;
+        box-shadow: @box-shadow-button--active;
+      }
     }
   }
 
