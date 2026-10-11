@@ -139,6 +139,7 @@
       "+ext.flow.styles.base": "skins.femiwiki.moduleSkinStyles/ext.flow.styles.base.less",
       "+ext.flow.ui": "skins.femiwiki.moduleSkinStyles/ext.flow.ui.less",
       "+ext.growthExperiments.HelpPanel": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.HelpPanel.less",
+      "+ext.growthExperiments.HelpPanelCta.styles": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.HelpPanelCta.styles.less",
       "+ext.growthExperiments.Homepage.styles": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.Homepage.styles.less",
       "+ext.growthExperiments.PostEdit": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.PostEdit.less",
       "+ext.popups.main": "skins.femiwiki.moduleSkinStyles/ext.popups.main.less",
