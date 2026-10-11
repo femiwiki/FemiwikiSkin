@@ -203,6 +203,7 @@
         {
           "name": "femiwiki",
           "responsive": true,
+          "clientPrefEnabled": true,
           "toc": false,
           "templateDirectory": "includes/templates",
           "styles": [
