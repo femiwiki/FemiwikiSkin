@@ -423,7 +423,10 @@
       display: none;
     }
 
+    // Equal buttons side by side, each on a row of its own where the labels do not fit
     li {
+      flex: 1 1 0;
+      min-width: max-content;
       list-style-type: none;
       margin: 0;
     }
@@ -431,26 +434,31 @@
     a {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.3em;
       min-height: @min-size-interactive-pointer;
+      padding: 0 1em;
+      box-sizing: border-box;
+      border: 1px solid @border-color-interactive;
+      border-radius: @border-radius-control;
+      background-color: @background-color-interactive-subtle;
+      box-shadow: @box-shadow-button;
+      color: @color-base;
+      font-weight: bold;
+      white-space: nowrap;
+      text-decoration: none;
 
       @media (pointer: coarse) {
         min-height: @min-size-interactive-touch;
       }
-      padding: 0 1em;
-      box-sizing: border-box;
-      border: 1px solid transparent;
-      border-radius: @border-radius-control;
-      color: @color-base;
-      font-weight: bold;
-      text-decoration: none;
 
       &:hover {
-        background-color: @button-background-color--hover;
+        background-color: @background-color-interactive-subtle--hover;
       }
 
       &:active {
-        background-color: @button-background-color--active;
+        background-color: @background-color-interactive-subtle--active;
+        box-shadow: @box-shadow-button--active;
       }
     }
 
