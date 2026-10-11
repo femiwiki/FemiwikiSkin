@@ -78,8 +78,13 @@
         a {
           display: flex;
           align-items: center;
-          min-height: @min-size-interactive-touch;
+          // Codex menu item height for a mouse, the touch target size for a finger
+          min-height: @min-size-interactive-pointer;
           padding: 0 @spacing-75 0 @text-start;
+
+          @media (pointer: coarse) {
+            min-height: @min-size-interactive-touch;
+          }
           border-radius: @border-radius-control;
           box-sizing: border-box;
           text-decoration: none;

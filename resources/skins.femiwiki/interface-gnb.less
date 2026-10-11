@@ -432,7 +432,11 @@
       display: flex;
       align-items: center;
       gap: 0.3em;
-      min-height: @min-size-interactive-touch;
+      min-height: @min-size-interactive-pointer;
+
+      @media (pointer: coarse) {
+        min-height: @min-size-interactive-touch;
+      }
       padding: 0 1em;
       box-sizing: border-box;
       border: 1px solid transparent;
