@@ -4,6 +4,8 @@
 @nav-bar-content-width: @content-width - 1.3rem;
 // The menu button's right edge, at the end of the centred #mw-navigation
 @site-menu-right: ~'max(0px, (100% - @{nav-bar-content-width}) / 2)';
+@site-menu-inset: 0.3rem;
+@site-menu-popover-right: ~'calc(@{site-menu-right} - @{site-menu-inset})';
 
 .nav-bar {
   @height: @height-nav-bar;
@@ -377,11 +379,26 @@
     position: absolute;
     z-index: @z-index-dropdown;
     top: @height-nav-bar;
-    right: @site-menu-right;
-    width: 16rem;
-    margin: 0.3rem 0 0;
-    padding: 0;
-    gap: 0.3rem;
+    right: @site-menu-popover-right;
+    display: block;
+    box-sizing: border-box;
+    width: ~'calc(32.3rem + @{site-menu-inset} * 2)';
+    max-height: ~'calc(100vh - @{height-nav-bar})';
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: 0;
+    // Keeps the panels' shadows inside the scrolling box
+    padding: @site-menu-inset;
+    // Two columns filled from the right, so the account row and personal panel come first under the button
+    columns: 2;
+    column-gap: 0.3rem;
+    direction: rtl;
+
+    &#fw-menu > * {
+      direction: ltr;
+      break-inside: avoid;
+      margin: 0 0 0.3rem;
+    }
   }
 
   // Sign-up and log-in buttons above the panels
@@ -397,6 +414,7 @@
     @media (min-width: @width-breakpoint-tablet) {
       .surface();
       gap: 0.3rem;
+      margin: 0 0 0.3rem;
       padding: 0.3rem;
     }
 
@@ -544,10 +562,9 @@
       // The popover, fixed under the bar with it
       @media (min-width: @width-breakpoint-tablet) {
         left: auto;
-        right: @site-menu-right;
-        max-height: ~'calc(100vh - @{height-nav-bar} - 0.3rem)';
-        margin: 0.3rem 0 0;
-        padding: 0;
+        right: @site-menu-popover-right;
+        max-height: ~'calc(100vh - @{height-nav-bar})';
+        padding: @site-menu-inset;
         background-color: transparent;
         border-bottom: 0;
         box-shadow: none;
