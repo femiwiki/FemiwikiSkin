@@ -664,7 +664,9 @@ hr#content-end-bar {
     margin: 0;
 
     .interlanguage-link {
-      display: inline-block;
+      // Flex, so Translate's progress circle (.mw-pt-progress::after) keeps its size
+      display: inline-flex;
+      align-items: baseline;
 
       &:not(:first-child) {
         padding-left: 0.8em;
