@@ -150,6 +150,8 @@
   .content-horizontal-padding();
   max-width: @content-width;
   clear: both;
+  // For the page menu popover
+  position: relative;
 
   ul,
   li {
@@ -303,10 +305,28 @@
     }
   }
 
-  // As many panels in a row as fit, so a lone 도구 panel spans the row
+  // A popover over the content, under the menu button and aligned to its right edge.
+  // On phones it spans the screen, on wider screens each panel is a column.
   #p-actions-and-toolbox {
-    grid-template-columns: repeat(auto-fit, minmax(~'min(100%, 16rem)', 1fr));
-    margin-bottom: 0.6rem;
+    @inset: @content-horizontal-padding - @padding-icon;
+    position: absolute;
+    z-index: @z-index-dropdown;
+    right: @inset;
+    left: @inset;
+    margin: 0.3rem 0 0;
+
+    @media (max-width: @width-breakpoint-mobile-small) {
+      @inset: @content-horizontal-padding-mobile-small - @padding-icon;
+      right: @inset;
+      left: @inset;
+    }
+
+    @media (min-width: @width-breakpoint-tablet) {
+      left: auto;
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 16rem;
+    }
   }
 
   #fw-page-menu-checkbox:not(:checked) ~ #p-actions-and-toolbox {
@@ -446,6 +466,19 @@
       background-position: center center;
       background-repeat: no-repeat;
       opacity: @opacity-icon;
+    }
+  }
+
+  // Pressed while the page menu is open, as a Codex quiet toggle button
+  #fw-page-menu-checkbox:checked ~ #p-title-buttons #p-menu-toggle {
+    background-color: @background-color-progressive-subtle;
+
+    &:hover {
+      background-color: @background-color-progressive-subtle--hover;
+    }
+
+    &:active {
+      background-color: @background-color-progressive-subtle--active;
     }
   }
 
