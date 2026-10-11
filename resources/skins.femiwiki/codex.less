@@ -14,6 +14,7 @@
   .cdx-select,
   .cdx-select-vue__handle,
   .cdx-checkbox__icon,
+  .cdx-message,
   .cdx-menu,
   .cdx-dialog,
   .cdx-popover,
@@ -47,4 +48,9 @@
   .cdx-tooltip {
     box-shadow: @box-shadow-medium;
   }
+}
+
+// A rounded message is an object of its own, so it keeps Codex's gap between messages from what follows.
+.mw-body-content .cdx-message--block {
+  margin-bottom: @spacing-50;
 }
