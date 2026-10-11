@@ -19,6 +19,9 @@
   gap: @portal-column-gap;
 
   .mw-portlet {
+    // Codex menu item spacing. Rows with and without an icon share one text column.
+    @icon-width: 1.5em;
+    @text-start: ~'calc(@{spacing-75} + @{icon-width} + @{spacing-50})';
     min-width: 0;
     margin: 0;
     padding: 0.3rem;
@@ -33,7 +36,7 @@
       font-weight: normal;
       color: @color-subtle;
       margin: 0;
-      padding: 0.3rem 0.5rem;
+      padding: 0.3rem @spacing-75;
     }
 
     ul {
@@ -48,12 +51,11 @@
           display: flex;
           align-items: center;
           min-height: @min-size-interactive-touch;
-          padding-right: 0.5rem;
+          padding: 0 @spacing-75 0 @text-start;
           border-radius: @border-radius-control;
           box-sizing: border-box;
           text-decoration: none;
           color: @color-base;
-          padding-left: 2em;
 
           &:hover {
             background-color: @button-background-color--hover;
@@ -65,14 +67,17 @@
 
           &[class^='xi-'],
           &[class*=' xi-'] {
-            padding-left: 0;
+            padding-left: @spacing-75;
           }
 
           &:before {
-            font-size: 1.5em;
+            font-size: @icon-width;
+            flex-shrink: 0;
+            width: 1em;
+            text-align: center;
             opacity: @opacity-icon;
             vertical-align: middle;
-            margin-right: 0.3em;
+            margin-right: @spacing-50;
             color: @color-base;
             font-family: 'xeicon' !important;
             speak: none;
@@ -93,9 +98,15 @@
           }
         }
 
+        // A row without a link, such as 'Not logged in'
+        > span {
+          display: block;
+          padding: 0.3rem @spacing-75 0.3rem @text-start;
+        }
+
         .xi(@icon) {
           a {
-            padding-left: 0;
+            padding-left: @spacing-75;
           }
           a:before {
             content: @icon;
@@ -115,7 +126,7 @@
 
         // XEIcon has no history icon, so this one is OOUI's, drawn in the glyphs' colour.
         &#ca-history a {
-          padding-left: 0;
+          padding-left: @spacing-75;
 
           &:before {
             content: '';
@@ -150,6 +161,8 @@
   .content-horizontal-padding();
   max-width: @content-width;
   clear: both;
+  // For the page menu popover
+  position: relative;
 
   ul,
   li {
@@ -303,10 +316,26 @@
     }
   }
 
-  // As many panels in a row as fit, so a lone 도구 panel spans the row
+  // A popover under the menu button, over the content, aligned to the button's right edge
   #p-actions-and-toolbox {
-    grid-template-columns: repeat(auto-fit, minmax(~'min(100%, 16rem)', 1fr));
-    margin-bottom: 0.6rem;
+    @inset: @content-horizontal-padding - @padding-icon;
+    position: absolute;
+    z-index: @z-index-dropdown;
+    right: @inset;
+    left: @inset;
+    margin: 0.3rem 0 0;
+    gap: 0.3rem;
+
+    @media (max-width: @width-breakpoint-mobile-small) {
+      @inset: @content-horizontal-padding-mobile-small - @padding-icon;
+      right: @inset;
+      left: @inset;
+    }
+
+    @media (min-width: @width-breakpoint-tablet) {
+      left: auto;
+      width: 16rem;
+    }
   }
 
   #fw-page-menu-checkbox:not(:checked) ~ #p-actions-and-toolbox {
@@ -446,6 +475,19 @@
       background-position: center center;
       background-repeat: no-repeat;
       opacity: @opacity-icon;
+    }
+  }
+
+  // Pressed while the page menu is open, as a Codex quiet toggle button
+  #fw-page-menu-checkbox:checked ~ #p-title-buttons #p-menu-toggle {
+    background-color: @background-color-progressive-subtle;
+
+    &:hover {
+      background-color: @background-color-progressive-subtle--hover;
+    }
+
+    &:active {
+      background-color: @background-color-progressive-subtle--active;
     }
   }
 
