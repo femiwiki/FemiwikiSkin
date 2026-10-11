@@ -208,6 +208,9 @@
       z-index: auto;
       width: auto;
       max-height: ~'calc(100vh - 2rem)';
+      // A thin thumb with no track, so the column reads as part of the page
+      scrollbar-width: thin;
+      scrollbar-color: @border-color-subtle transparent;
       padding: 0;
       background-color: transparent;
       border-radius: 0;
