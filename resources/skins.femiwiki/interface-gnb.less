@@ -245,44 +245,12 @@
   max-width: @content-width - @content-horizontal-padding;
   .content-horizontal-padding();
 
-  // One column of panels on phones, two on wider screens
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: @portal-column-gap;
   padding-top: @portal-column-gap;
   padding-bottom: @portal-column-gap;
-  border-bottom: 0;
-  overflow: visible;
 
+  // One column of panels on phones, two on wider screens
   @media (min-width: @width-breakpoint-tablet) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .mw-portlet {
-    width: auto;
-    min-width: 0;
-    margin: 0;
-    padding: 0.3rem;
-    background-color: @background-color-base;
-    border: 1px solid @color-primary2;
-    border-radius: @border-radius-control;
-    box-shadow: @box-shadow-medium;
-
-    h3 {
-      font-size: 0.75rem;
-      color: @color-subtle;
-      margin: 0;
-      padding: 0.3rem 0.5rem;
-      border-bottom: 0;
-    }
-
-    ul li a {
-      align-items: center;
-      min-height: @min-size-interactive-touch;
-      padding-right: 0.5rem;
-      border-radius: @border-radius-control;
-      box-sizing: border-box;
-    }
   }
 
   // Sign-up and log-in buttons above the panels
