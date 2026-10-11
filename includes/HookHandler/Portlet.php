@@ -6,6 +6,7 @@ use ExtensionRegistry;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
 use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\SeenTime;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Skins\Femiwiki\Constants;
 use SkinTemplate;
@@ -16,40 +17,45 @@ class Portlet implements
 	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook
 	{
 
-	private const XE_ICON_MAP = [
+	/**
+	 * Codex icons for menu items, by the item's `id`, its `icon` or its key.
+	 * Every icon here must also be listed in the skins.femiwiki.icons module.
+	 */
+	private const ICON_MAP = [
 		'icon' => [
-			'die' => 'shuffle',
+			'die' => 'die',
 			'home' => 'home',
-			'recentChanges' => 'time',
-			'userAdd' => 'user-plus',
-			'userAvatar' => 'profile',
-			'userContributions' => 'list',
-			'logIn' => 'log-in',
-			'logOut' => 'log-out',
-			'settings' => 'cog',
-			'userTalk' => 'forum',
-			'watchlist' => 'star',
+			'recentChanges' => 'recentChanges',
+			'userAdd' => 'userAdd',
+			'userAvatar' => 'userAvatar',
+			'userContributions' => 'userContributions',
+			'logIn' => 'logIn',
+			'logOut' => 'logOut',
+			'settings' => 'settings',
+			'userTalk' => 'userTalk',
+			'watchlist' => 'watchlist',
 		],
 		'id' => [
-			'feed-atom' => 'rss-square',
-			'feedlinks' => 'rss-square',
-			't-blockip' => 'ban',
-			't-contributions' => 'list',
+			'ca-history' => 'history',
+			'feed-atom' => 'newspaper',
+			'feedlinks' => 'newspaper',
+			't-blockip' => 'block',
+			't-contributions' => 'userContributions',
 			't-info' => 'info',
-			't-log' => 'document',
+			't-log' => 'listBullet',
 			't-permalink' => 'link',
-			't-print' => 'print',
-			't-recentchangeslinked' => 'clock-o',
-			't-specialpages' => 'library-books',
-			't-upload' => 'file-upload',
-			't-userrights' => 'group',
-			't-whatlinkshere' => 'paper',
+			't-print' => 'printer',
+			't-recentchangeslinked' => 'clock',
+			't-specialpages' => 'specialPages',
+			't-upload' => 'upload',
+			't-userrights' => 'userRights',
+			't-whatlinkshere' => 'articles',
 		],
 		'key' => [
 			'delete' => 'trash',
-			'move' => 'long-arrow-right',
+			'move' => 'move',
 			'protect' => 'lock',
-			'unprotect' => 'unlock',
+			'unprotect' => 'unLock',
 		],
 	];
 
@@ -173,7 +179,7 @@ class Portlet implements
 			'actions',
 		] as &$portlet ) {
 			foreach ( $links[$portlet] as $key => &$item ) {
-				$this->addIconToListItem( $item, $key );
+				self::addIconToListItem( $item, $key );
 			}
 		}
 	}
@@ -231,22 +237,22 @@ class Portlet implements
 			foreach ( $portlet as $itemKey => &$item ) {
 				if ( isset( $item['links'] ) ) {
 					foreach ( $item['links'] as $linkKey => &$link ) {
-						$this->addIconToListItem( $link, $linkKey, true );
+						self::addIconToListItem( $link, $linkKey );
 					}
 				} else {
-					$this->addIconToListItem( $item, $itemKey );
+					self::addIconToListItem( $item, $itemKey );
 				}
 			}
 		}
 	}
 
 	/**
+	 * Prepends a Codex icon to the link, as Vector 2022 does.
 	 * @param array &$item
 	 * @param string $key
-	 * @param bool $class Adds icon as 'class' attribute instead of 'link-class' attribute.
 	 */
-	private function addIconToListItem( &$item, $key, bool $class = false ) {
-		$map = self::XE_ICON_MAP;
+	public static function addIconToListItem( &$item, $key ) {
+		$map = self::ICON_MAP;
 		if ( isset( $item['id'] ) && isset( $map['id'][$item['id']] ) ) {
 			$icon = $map['id'][$item['id']];
 		} elseif ( isset( $item['icon'] ) && isset( $map['icon'][$item['icon']] ) ) {
@@ -257,11 +263,9 @@ class Portlet implements
 			return;
 		}
 
-		if ( $class && isset( $item['class'] ) ) {
-			$item['class'] .= ' xi-' . $icon;
-		} else {
-			$item['link-class'] ??= [];
-			$item['link-class'][] = 'xi-' . $icon;
-		}
+		$item['link-html'] = Html::element( 'span', [
+			'class' => [ 'fw-icon', 'mw-ui-icon-wikimedia-' . $icon ],
+			'aria-hidden' => 'true',
+		] );
 	}
 }

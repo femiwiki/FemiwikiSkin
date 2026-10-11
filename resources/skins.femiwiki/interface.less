@@ -8,6 +8,28 @@
   .background-icon('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
 }
 
+.mask-ooui-icon(@icon) {
+  -webkit-mask-image: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
+  mask-image: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
+}
+
+// A Codex icon, drawn in the text colour
+.icon() {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  background-color: currentColor;
+  opacity: @opacity-icon;
+  -webkit-mask: center ~'/' contain no-repeat;
+  mask: center ~'/' contain no-repeat;
+}
+
+// skins.femiwiki.icons sets the image of each
+.fw-icon {
+  .icon();
+}
+
 // General
 // The site menu and the page menu, each portlet a raised panel
 .fw-portals {
@@ -22,6 +44,12 @@
     // Codex menu item spacing. Rows with and without an icon share one text column.
     @icon-width: 1.5em;
     @text-start: ~'calc(@{spacing-75} + @{icon-width} + @{spacing-50})';
+    // The icon sits in the padding, so rows with and without one share a text column.
+    .menu-icon() {
+      width: @icon-width;
+      height: @icon-width;
+      margin: 0 @spacing-50 0 ~'calc(-@{icon-width} - @{spacing-50})';
+    }
     min-width: 0;
     margin: 0;
     padding: 0.3rem;
@@ -65,36 +93,8 @@
             background-color: @button-background-color--active;
           }
 
-          &[class^='xi-'],
-          &[class*=' xi-'] {
-            padding-left: @spacing-75;
-          }
-
-          &:before {
-            font-size: @icon-width;
-            flex-shrink: 0;
-            width: 1em;
-            text-align: center;
-            opacity: @opacity-icon;
-            vertical-align: middle;
-            margin-right: @spacing-50;
-            color: @color-base;
-            font-family: 'xeicon' !important;
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-          }
-
-          span {
-            font-family: @font-family;
-            font-style: initial;
-            font-weight: initial;
-            line-height: @line-height-base;
+          .fw-icon {
+            .menu-icon();
           }
         }
 
@@ -104,40 +104,28 @@
           padding: 0.3rem @spacing-75 0.3rem @text-start;
         }
 
-        .xi(@icon) {
-          a {
-            padding-left: @spacing-75;
-          }
+        // Items added by extensions or replaced by scripts cannot carry an icon from the hook
+        .fw-icon-before(@icon) {
           a:before {
-            content: @icon;
+            content: '';
+            .icon();
+            .menu-icon();
+            .mask-ooui-icon(@icon);
           }
         }
 
-        // Items added by extensions cannot be touched in the hook, so we need to use styles
         &#t-wikibase {
-          .xi('\e9ff');
+          .fw-icon-before('logo-Wikidata');
         }
         &#t-cite {
-          .xi('\ea6a');
+          .fw-icon-before('quotes-ltr');
+
+          .rtl & {
+            .fw-icon-before('quotes-rtl');
+          }
         }
         &#pt-notifications-all {
-          .xi('\e99c');
-        }
-
-        // XEIcon has no history icon, so this one is OOUI's, drawn in the glyphs' colour.
-        &#ca-history a {
-          padding-left: @spacing-75;
-
-          &:before {
-            content: '';
-            width: 1em;
-            height: 1em;
-            background-color: currentColor;
-            -webkit-mask: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/history.svg')
-              center ~'/' contain no-repeat;
-            mask: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/history.svg')
-              center ~'/' contain no-repeat;
-          }
+          .fw-icon-before('bell');
         }
       }
     }
@@ -420,16 +408,20 @@
       padding-left: 0;
 
       &:before {
-        font-size: @icon-size;
-        line-height: 1em;
-        color: @color-base;
-        opacity: @opacity-icon;
-        font-family: 'xeicon' !important;
-        content: '\e9ad';
+        content: '';
+        .icon();
+        .mask-ooui-icon('help-ltr');
         display: block;
         position: absolute;
         top: @padding-icon;
         left: @padding-icon;
+        width: @icon-size;
+        height: @icon-size;
+        color: @color-base;
+
+        .rtl & {
+          .mask-ooui-icon('help-rtl');
+        }
       }
     }
 

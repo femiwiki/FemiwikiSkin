@@ -3,6 +3,7 @@
 namespace MediaWiki\Skins\Femiwiki;
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Skins\Femiwiki\HookHandler\Portlet;
 use OOUI\ButtonWidget;
 use OutputPage;
 use SkinMustache;
@@ -121,6 +122,7 @@ class SkinFemiwiki extends SkinMustache {
 		}
 		// Core sets the id after the hooks, and the id gives the access key and the icon.
 		$item = [ 'id' => 'ca-history' ] + $this->historyItem;
+		Portlet::addIconToListItem( $item, 'history' );
 		$toolbox['html-items'] = $this->makeListItem( 'history', $item ) . $toolbox['html-items'];
 		return $toolbox;
 	}
