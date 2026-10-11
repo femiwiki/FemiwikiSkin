@@ -14,52 +14,123 @@ body.mw-special-CreateAccount {
 // 290px is defined in MediaWiki
 @defaultFormWidth: 290px;
 
-.mw-special-CreateAccount .mw-ui-container {
-  display: flex;
-  flex-wrap: wrap;
+.fw-login-card() {
+  box-sizing: border-box;
+  padding: 1em;
+  background-color: @background-color-base;
+  border: 1px solid @color-primary2;
+  border-radius: @border-radius-control;
+  box-shadow: @box-shadow-medium;
+}
+
+// Aligned with the page title rather than centred
+.mw-special-Userlogin,
+.mw-special-CreateAccount {
+  .mw-ui-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 
   #userloginForm {
-    margin: auto;
+    margin: 0;
 
     form {
       width: auto;
       max-width: @defaultFormWidth;
-      margin: auto;
+      margin: 0;
     }
   }
-  .mw-createacct-benefits-container {
-    flex: 1 1;
-    margin-left: 4em;
 
-    @media screen and (max-width: @width-breakpoint-mobile) {
-      max-width: @defaultFormWidth;
-      margin: auto;
+  .cdx-field__help-text {
+    color: @color-subtle;
+    font-weight: normal;
+    text-align: left;
+  }
+
+  .mw-form-related-link-container {
+    text-align: left;
+  }
+}
+
+.mw-special-Userlogin {
+  // Sign-up is the primary action here, so log-in is a normal button
+  #wpLoginAttempt {
+    background-color: @background-color-interactive-subtle;
+    border-color: @border-color-interactive;
+    color: @color-base;
+
+    &:hover {
+      background-color: @background-color-interactive-subtle--hover;
+    }
+
+    &:active {
+      background-color: @background-color-interactive-subtle--active;
+    }
+  }
+
+  #mw-createaccount-cta {
+    .fw-login-card();
+    width: auto;
+    max-width: @defaultFormWidth;
+    margin: 1.5em 0 0;
+    background-image: none;
+  }
+
+  #mw-createaccount-join {
+    margin-top: 0.5em;
+    background-color: @color-accent;
+    border-color: @color-accent--active;
+    color: @color-accent-text;
+
+    &:hover {
+      background-color: @color-accent--hover;
+    }
+
+    &:active {
+      background-color: @color-accent--active;
     }
   }
 }
 
-.mw-special-Userlogin .mw-ui-container {
-  #userloginForm form {
-    margin: auto;
-    width: auto;
-    max-width: @defaultFormWidth;
+// body for specificity, as core's signup styles load after this module
+body.mw-special-CreateAccount {
+  .mw-createacct-benefits-container {
+    .fw-login-card();
+    align-self: flex-start;
   }
 
-  #mw-createaccount-cta {
-    width: auto;
+  .mw-createacct-benefits-heading {
+    font-family: @font-family;
+    font-size: 1.1em;
+    margin: 0 0 0.5em;
+    padding: 0;
   }
 
-  #mw-createaccount-join {
-    .mw-link-colors();
+  // Ruled rows of a count and its label, without the icons
+  .mw-number-text {
+    margin: 0;
+    padding: 0.5em 0;
+    min-height: 0;
+    background-image: none;
+    text-align: left;
+    font-size: 1em;
 
-    &:active {
-      color: @color-primary2;
-      border-color: @color-primary2;
+    & + .mw-number-text {
+      border-top: 1px solid @color-primary2;
     }
 
-    &:focus {
-      border-color: @color-primary1;
-      box-shadow: inset 0 0 0 1px @color-primary1;
+    p {
+      margin: 0;
+    }
+
+    span,
+    strong {
+      display: inline;
+      font-family: @font-family;
+      font-size: 1.4em;
+      font-weight: bold;
+      color: @color-base;
     }
   }
 }
