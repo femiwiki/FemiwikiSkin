@@ -1,6 +1,10 @@
 @import '../variables.less';
 @import 'mediawiki.mixins.less';
 
+@nav-bar-content-width: @content-width - 1.3rem;
+// The menu button's right edge, at the end of the centred #mw-navigation
+@site-menu-right: ~'max(0px, (100% - @{nav-bar-content-width}) / 2)';
+
 .nav-bar {
   @height: @height-nav-bar;
   height: @height;
@@ -8,7 +12,7 @@
 
   #mw-navigation {
     display: flex;
-    max-width: @content-width - 1.3rem;
+    max-width: @nav-bar-content-width;
     margin: 0 auto;
     height: @height;
 
@@ -367,9 +371,17 @@
   padding-top: @portal-column-gap;
   padding-bottom: @portal-column-gap;
 
-  // One column of panels on phones, two on wider screens
+  // Full width on phones. On wider screens a popover under the menu button, over the content,
+  // aligned to the button's right edge, as the page menu is.
   @media (min-width: @width-breakpoint-tablet) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: absolute;
+    z-index: @z-index-dropdown;
+    top: @height-nav-bar;
+    right: @site-menu-right;
+    width: 16rem;
+    margin: 0.3rem 0 0;
+    padding: 0;
+    gap: 0.3rem;
   }
 
   // Sign-up and log-in buttons above the panels
@@ -380,6 +392,18 @@
     gap: @portal-column-gap;
     margin: 0;
     padding: 0;
+
+    // A panel of its own in the popover, as it would otherwise sit on the article
+    @media (min-width: @width-breakpoint-tablet) {
+      .surface();
+      gap: 0.3rem;
+      padding: 0.3rem;
+    }
+
+    // Logged-in readers have no account actions
+    &:empty {
+      display: none;
+    }
 
     li {
       list-style-type: none;
@@ -516,6 +540,18 @@
       // The shadow fades into the page in the dark theme
       border-bottom: 1px solid @border-color-surface;
       box-shadow: @box-shadow-medium;
+
+      // The popover, fixed under the bar with it
+      @media (min-width: @width-breakpoint-tablet) {
+        left: auto;
+        right: @site-menu-right;
+        max-height: ~'calc(100vh - @{height-nav-bar} - 0.3rem)';
+        margin: 0.3rem 0 0;
+        padding: 0;
+        background-color: transparent;
+        border-bottom: 0;
+        box-shadow: none;
+      }
     }
   }
 
