@@ -545,7 +545,7 @@
           }
 
           :not(.ve-activated) .action-view &#ca-ve-edit,
-          :not(.ve-activated) .action-view &#ca-edit:nth-child(2) {
+          :not(.ve-activated) .action-view &#ca-edit:not(#ca-ve-edit ~ li) {
             background-color: @color-edit-button;
             font-size: @font-size-edit-button;
             padding: 0.3em 0.5em;
