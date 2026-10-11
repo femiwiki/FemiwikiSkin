@@ -3,86 +3,76 @@
 ).checkboxHack;
 
 /**
- * Close the menu on a click or focus outside it, on Escape and on picking an item, as Vector's
- * dropdowns and Codex menus do. Escape and picking an item return focus to the button.
- *
- * @param {HTMLInputElement} checkbox
- * @param {HTMLElement} button
- * @param {HTMLElement} target
- * @return {void}
- */
-function bindDismiss(checkbox, button, target) {
-  /**
-   * @param {boolean} refocus
-   * @return {void}
-   */
-  function close(refocus) {
-    if (!checkbox.checked) {
-      return;
-    }
-    checkbox.checked = false;
-    // checkboxHack updates aria-expanded on this event.
-    checkbox.dispatchEvent(new Event('input', { bubbles: true }));
-    if (refocus) {
-      button.focus();
-    }
-  }
-
-  /**
-   * @param {Event} event
-   * @return {void}
-   */
-  function closeIfOutside(event) {
-    var node = event.target;
-    if (
-      node instanceof Element &&
-      !checkbox.contains(node) &&
-      !button.contains(node) &&
-      !target.contains(node) &&
-      // The Echo flyout opens from the site menu but is drawn on the body.
-      !node.closest('.mw-echo-ui-overlay')
-    ) {
-      close(false);
-    }
-  }
-
-  window.addEventListener('click', closeIfOutside, true);
-  window.addEventListener('focusin', closeIfOutside, true);
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape' && !event.defaultPrevented) {
-      close(true);
-    }
-  });
-
-  target.addEventListener('click', function (event) {
-    var link = event.target instanceof Element && event.target.closest('a');
-    // The Echo badge opens its flyout, anchored to the badge.
-    if (link && !link.classList.contains('mw-echo-notifications-badge')) {
-      close(true);
-    }
-  });
-}
-
-/**
  * Improve the interactivity of the sidebar panel by binding optional checkbox hack enhancements
- * for focus and `aria-expanded`. Given a menu, also close it as a menu.
+ * for focus and `aria-expanded`. Also, flip the icon image on click.
  *
  * @param {HTMLElement|null} checkbox
  * @param {HTMLElement|null} button
- * @param {HTMLElement|null} [menu]
  * @return {void}
  */
-function initCheckboxHack(checkbox, button, menu) {
+function initCheckboxHack(checkbox, button) {
   if (checkbox instanceof HTMLInputElement && button) {
     checkboxHack.bindToggleOnClick(checkbox, button);
     checkboxHack.bindUpdateAriaExpandedOnInput(checkbox);
     checkboxHack.updateAriaExpanded(checkbox);
     checkboxHack.bindToggleOnEnter(checkbox);
-    if (menu) {
-      bindDismiss(checkbox, button, menu);
+  }
+}
+
+/**
+ * Close the menu on a click or focus outside it, as Vector's dropdowns do with core's
+ * checkboxHack.bind.
+ *
+ * @param {HTMLElement|null} checkbox
+ * @param {HTMLElement|null} button
+ * @param {HTMLElement|null} menu
+ * @return {void}
+ */
+function initDropdown(checkbox, button, menu) {
+  if (checkbox instanceof HTMLInputElement && button && menu) {
+    checkboxHack.bind(window, checkbox, button, menu);
+    checkboxHack.updateAriaExpanded(checkbox);
+  }
+}
+
+/**
+ * The site menu closes like initDropdown, except that Echo's flyout counts as inside it. The
+ * flyout opens from a link in the menu but is drawn on the body, so core's dismissal would close
+ * the menu, and the flyout with it, as it opens.
+ *
+ * @param {HTMLElement|null} checkbox
+ * @param {HTMLElement|null} button
+ * @param {HTMLElement|null} menu
+ * @return {void}
+ */
+function initSiteMenu(checkbox, button, menu) {
+  if (!(checkbox instanceof HTMLInputElement && button && menu)) {
+    return;
+  }
+  initCheckboxHack(checkbox, button);
+
+  /**
+   * @param {Event} event
+   * @return {void}
+   */
+  function dismissIfOutside(event) {
+    var node = event.target;
+    if (
+      checkbox instanceof HTMLInputElement &&
+      checkbox.checked &&
+      node instanceof Element &&
+      !checkbox.contains(node) &&
+      !(button && button.contains(node)) &&
+      !(menu && menu.contains(node)) &&
+      !node.closest('.mw-echo-ui-overlay')
+    ) {
+      checkbox.checked = false;
+      // checkboxHack updates aria-expanded on this event.
+      checkbox.dispatchEvent(new Event('input', { bubbles: true }));
     }
   }
+  window.addEventListener('click', dismissIfOutside, true);
+  window.addEventListener('focusin', dismissIfOutside, true);
 }
 
 /**
@@ -98,12 +88,12 @@ function main() {
     window.document.getElementById('fw-toc-checkbox'),
     window.document.getElementById('fw-toc-toggle'),
   );
-  initCheckboxHack(
+  initSiteMenu(
     window.document.getElementById('fw-menu-checkbox'),
     window.document.getElementById('fw-menu-toggle'),
     window.document.getElementById('fw-menu'),
   );
-  initCheckboxHack(
+  initDropdown(
     window.document.getElementById('fw-page-menu-checkbox'),
     window.document.getElementById('p-menu-toggle'),
     window.document.getElementById('p-actions-and-toolbox'),
