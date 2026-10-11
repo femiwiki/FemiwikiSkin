@@ -27,28 +27,6 @@ hr#content-end-bar {
   max-width: @content-width - (@content-horizontal-padding * 2);
 }
 
-.fw-wiki-portals {
-  .mw-portlet {
-    @three-portlets-min-width: (@portal-min-width * 3) +
-      (@portal-column-gap * 2) + (@content-horizontal-padding * 2);
-    @four-portlets-min-width: (@portal-min-width * 4) +
-      (@portal-column-gap * 3) + (@content-horizontal-padding * 2);
-
-    @min-width: unit(
-      (@three-portlets-min-width * @font-size-root-default / 16),
-      em
-    );
-    @max-width: unit(
-      (@four-portlets-min-width * @font-size-root-default / 16),
-      em
-    );
-
-    @media (min-width: @min-width) and (max-width: @max-width) {
-      flex-basis: 40%;
-    }
-  }
-}
-
 html.ve-active,
 html.ve-activated,
 html.ve-deactivating {
