@@ -253,13 +253,8 @@ class Portlet implements
 	 */
 	public static function addIconToListItem( &$item, $key ) {
 		$map = self::ICON_MAP;
-		if ( isset( $item['id'] ) && isset( $map['id'][$item['id']] ) ) {
-			$icon = $map['id'][$item['id']];
-		} elseif ( isset( $item['icon'] ) && isset( $map['icon'][$item['icon']] ) ) {
-			$icon = $map['icon'][$item['icon']];
-		} elseif ( $key && isset( $map['key'][$key] ) ) {
-			$icon = $map['key'][$key];
-		} else {
+		$icon = $map['id'][$item['id'] ?? ''] ?? $map['icon'][$item['icon'] ?? ''] ?? $map['key'][$key] ?? null;
+		if ( $icon === null ) {
 			return;
 		}
 
