@@ -50,6 +50,12 @@
   :root {
     .cdx-mode-light();
     .femiwiki-progressive();
+
+    // Read by Codex below and by femiwiki/OOUIFemiwikiTheme
+    --background-color-button-tonal: @background-color-button-tonal;
+    --background-color-button-tonal--hover: @background-color-button-tonal--hover;
+    --background-color-button-tonal--active: @background-color-button-tonal--active;
+    --color-button-tonal: @color-button-tonal;
   }
 
   // DarkMode puts both classes on <html>; ext.DarkMode.styles.less undoes its inversion (#1080)
@@ -69,6 +75,11 @@
     --background-color-progressive-subtle: @dark-background-color-progressive-subtle;
     --background-color-progressive-subtle--hover: @dark-background-color-progressive-subtle--hover;
     --background-color-progressive-subtle--active: @dark-background-color-progressive-subtle--active;
+    // The tonal buttons take the same fills, with link-coloured text at 8.1, 7.1 and 5.3:1
+    --background-color-button-tonal: @dark-background-color-progressive-subtle;
+    --background-color-button-tonal--hover: @dark-background-color-progressive-subtle--hover;
+    --background-color-button-tonal--active: @dark-background-color-progressive-subtle--active;
+    --color-button-tonal: @dark-color-primary5;
     --background-color-diff-added: @dark-background-color-diff-added;
     --background-color-diff-removed: @dark-background-color-diff-removed;
     --color-link-new: @dark-color-link-new;
@@ -104,10 +115,24 @@
     --color-inverted-fixed: @color-accent-text;
   }
 
-  // Other progressive buttons keep the violet but drop the border
+  // Other progressive buttons drop the border
   .cdx-button--action-progressive:not(.cdx-button--weight-primary) {
     --border-color-progressive: transparent;
     --border-color-progressive--hover: transparent;
     --border-color-progressive--active: transparent;
+  }
+
+  // and those of normal weight take the tonal fill, a step below the green
+  .cdx-button--action-progressive.cdx-button--weight-normal {
+    --background-color-progressive-subtle: var(--background-color-button-tonal);
+    --background-color-progressive-subtle--hover: var(
+      --background-color-button-tonal--hover
+    );
+    --background-color-progressive-subtle--active: var(
+      --background-color-button-tonal--active
+    );
+    --color-progressive: var(--color-button-tonal);
+    --color-progressive--hover: var(--color-button-tonal);
+    --color-progressive--active: var(--color-button-tonal);
   }
 }

@@ -1,0 +1,8 @@
+<li class="fw-toc-item fw-toc-level-{{toclevel}}">
+  <a class="fw-toc-link" href="#{{linkAnchor}}" data-anchor="{{anchor}}">{{{line}}}</a>
+  {{#is-parent-section}}
+  <ul class="fw-toc-list">
+    {{#array-sections}}{{>TableOfContents__line}}{{/array-sections}}
+  </ul>
+  {{/is-parent-section}}
+</li>
