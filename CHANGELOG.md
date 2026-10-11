@@ -2,6 +2,71 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.0.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.3.1...v6.0.0) (2026-10-11)
+
+
+### Features
+
+* bring the top bar back on a scroll up where the ToC is a drawer ([#1123](https://github.com/femiwiki/FemiwikiSkin/issues/1123)) ([d5186ad](https://github.com/femiwiki/FemiwikiSkin/commit/d5186ad03ff94da46139e00e0ff20a7593c39dcb))
+* centre the login and sign-up forms in the content column ([#1122](https://github.com/femiwiki/FemiwikiSkin/issues/1122)) ([fb1c0d4](https://github.com/femiwiki/FemiwikiSkin/commit/fb1c0d4eac0cf4ebb306ceb4d26c6a9d2113c91c))
+* draw dark mode from its own colours instead of inverting the page ([#1110](https://github.com/femiwiki/FemiwikiSkin/issues/1110)) ([80ad31b](https://github.com/femiwiki/FemiwikiSkin/commit/80ad31bc024f68654eac655ec8757b4c2d31c148))
+* draw the menu icons with Codex icons instead of XEIcon ([#1129](https://github.com/femiwiki/FemiwikiSkin/issues/1129)) ([9275814](https://github.com/femiwiki/FemiwikiSkin/commit/9275814baf477df4cd853e2359344f9df5237e26))
+* draw the table of contents beside the content, or in a drawer on phones ([#1107](https://github.com/femiwiki/FemiwikiSkin/issues/1107)) ([77a3f12](https://github.com/femiwiki/FemiwikiSkin/commit/77a3f124bcb83ac2aeff0af0b63457d8a18bb92b))
+* fill progressive buttons that are not primary with a tonal purple ([#1113](https://github.com/femiwiki/FemiwikiSkin/issues/1113)) ([3cddbf8](https://github.com/femiwiki/FemiwikiSkin/commit/3cddbf86b25660e030b1d0f912dd7fc33706d3bf))
+* give icons to the email, mute, mobile preferences and user page items ([#1130](https://github.com/femiwiki/FemiwikiSkin/issues/1130)) ([d128d31](https://github.com/femiwiki/FemiwikiSkin/commit/d128d31664bb1e23367b5f1e6bd7657283dfeaae)), closes [#564](https://github.com/femiwiki/FemiwikiSkin/issues/564) [#645](https://github.com/femiwiki/FemiwikiSkin/issues/645)
+* give tonal buttons dark fills that stand apart from the dialog ([#1124](https://github.com/femiwiki/FemiwikiSkin/issues/1124)) ([dea71f2](https://github.com/femiwiki/FemiwikiSkin/commit/dea71f2cf8f45eb80d8cf18b2adda92db4db9ca3))
+* install the OOUI theme with green primary buttons, rounded corners and raised buttons ([#1106](https://github.com/femiwiki/FemiwikiSkin/issues/1106)) ([b923bab](https://github.com/femiwiki/FemiwikiSkin/commit/b923bab70ca3191c1bf28585a2c54d4dc959e5f7))
+* install the OOUI theme with tonal destructive buttons ([#1150](https://github.com/femiwiki/FemiwikiSkin/issues/1150)) ([b313e83](https://github.com/femiwiki/FemiwikiSkin/commit/b313e83294c6f2efb11b8258b8a1bed2d1e97892)), closes [#1141](https://github.com/femiwiki/FemiwikiSkin/issues/1141)
+* lay the page menu out as raised panels ([#1116](https://github.com/femiwiki/FemiwikiSkin/issues/1116)) ([57a1cd5](https://github.com/femiwiki/FemiwikiSkin/commit/57a1cd5dd11617e558802763bc31f62e528f78bc))
+* list page history in the page menu ([#1097](https://github.com/femiwiki/FemiwikiSkin/issues/1097)) ([f1e5152](https://github.com/femiwiki/FemiwikiSkin/commit/f1e5152dbde4483a34c3a0867fc994f7777a3f56))
+* make the top bar 44px with an inset search box and SVG icons ([#1094](https://github.com/femiwiki/FemiwikiSkin/issues/1094)) ([b9a16cd](https://github.com/femiwiki/FemiwikiSkin/commit/b9a16cdc42f80f1062a322d6504c0a1affcb10bd))
+* open the page menu as a popover and close menus like Vector's dropdowns ([#1121](https://github.com/femiwiki/FemiwikiSkin/issues/1121)) ([df18482](https://github.com/femiwiki/FemiwikiSkin/commit/df18482a81f85c05ebf99d4a3bde3e6a36a961cd))
+* open the search full screen on phones ([#1104](https://github.com/femiwiki/FemiwikiSkin/issues/1104)) ([ce8a808](https://github.com/femiwiki/FemiwikiSkin/commit/ce8a808001a5b072aed0069cd297490d7a91a68a))
+* put account buttons first and lay the menu out as raised panels ([#1103](https://github.com/femiwiki/FemiwikiSkin/issues/1103)) ([1278c35](https://github.com/femiwiki/FemiwikiSkin/commit/1278c35f1f5a429764f906a29d7f685d543d922c))
+* restyle the login and sign-up pages as cards with the green sign-up action ([#1105](https://github.com/femiwiki/FemiwikiSkin/issues/1105)) ([8032e3d](https://github.com/femiwiki/FemiwikiSkin/commit/8032e3d01b1446493b974b5c1b431f99f3d74f7c))
+* round controls to 0.3em and raise buttons ([#1090](https://github.com/femiwiki/FemiwikiSkin/issues/1090)) ([08b14d5](https://github.com/femiwiki/FemiwikiSkin/commit/08b14d503acbc7a005d1f8987585f5b5b014d886))
+* take module colours from Codex tokens and compile modules against custom properties ([#1109](https://github.com/femiwiki/FemiwikiSkin/issues/1109)) ([603542b](https://github.com/femiwiki/FemiwikiSkin/commit/603542b6c9f1120394affb3baf61593ccb4c89e2))
+* take the skin's neutral colours from Codex tokens ([#1100](https://github.com/femiwiki/FemiwikiSkin/issues/1100)) ([5640de4](https://github.com/femiwiki/FemiwikiSkin/commit/5640de4b52aa331c28211d7ebe4851c7bfd2dea0))
+
+
+### Bug Fixes
+
+* darken the top bar to [#736](https://github.com/femiwiki/FemiwikiSkin/issues/736)ac9 so its white text reaches 4.5:1 ([#1089](https://github.com/femiwiki/FemiwikiSkin/issues/1089)) ([a971ac7](https://github.com/femiwiki/FemiwikiSkin/commit/a971ac799f6d61f2436670cc87f1a1a6d4afb48f))
+* draw notification badges in the accent with dark text ([#1092](https://github.com/femiwiki/FemiwikiSkin/issues/1092)) ([2307ccd](https://github.com/femiwiki/FemiwikiSkin/commit/2307ccdd6b8df5bc3c5c4bbd4e0d9224fd52ba19))
+* draw the site notice as a card and round Codex messages ([#1101](https://github.com/femiwiki/FemiwikiSkin/issues/1101)) ([acdb240](https://github.com/femiwiki/FemiwikiSkin/commit/acdb240299734c7edc13f87da0888bd8a0b7db93))
+* drop Firebase short links from the share dialog ([#1072](https://github.com/femiwiki/FemiwikiSkin/issues/1072)) ([e47726c](https://github.com/femiwiki/FemiwikiSkin/commit/e47726c7456cb7e9d70a1ff3e04221b77cf9a49d)), closes [#729](https://github.com/femiwiki/FemiwikiSkin/issues/729)
+* drop the Echo popup workaround that Echo now covers ([#1060](https://github.com/femiwiki/FemiwikiSkin/issues/1060)) ([fa7b4b7](https://github.com/femiwiki/FemiwikiSkin/commit/fa7b4b75ca6b24a5722c2ed92d224a6214ff42c0)), closes [#78](https://github.com/femiwiki/FemiwikiSkin/issues/78)
+* drop the extra top margin from the first term of a definition list ([#1087](https://github.com/femiwiki/FemiwikiSkin/issues/1087)) ([8a74eb4](https://github.com/femiwiki/FemiwikiSkin/commit/8a74eb47a7345c4667a8db53b268fdde6d3e6651)), closes [#987](https://github.com/femiwiki/FemiwikiSkin/issues/987)
+* drop the square behind the dark mode search box ([#1147](https://github.com/femiwiki/FemiwikiSkin/issues/1147)) ([82f47be](https://github.com/femiwiki/FemiwikiSkin/commit/82f47be133093f09b447aa4097ba4e4a25b8d242))
+* frame images with one thin #b9b5d9 line ([#1102](https://github.com/femiwiki/FemiwikiSkin/issues/1102)) ([ce2aa20](https://github.com/femiwiki/FemiwikiSkin/commit/ce2aa20c32aec85b8a383b4942f50b5a1c3776d7))
+* give the watchlist tabs their own icons ([#1148](https://github.com/femiwiki/FemiwikiSkin/issues/1148)) ([5bc83aa](https://github.com/femiwiki/FemiwikiSkin/commit/5bc83aacf89a767efc5e8779a40cc82bda780e83))
+* hide the page under MobileFrontend's editor overlay ([#1146](https://github.com/femiwiki/FemiwikiSkin/issues/1146)) ([23a35e2](https://github.com/femiwiki/FemiwikiSkin/commit/23a35e230b4b9efa8cd616fcc16afd957f10ef46))
+* keep a logged-out reader's dark mode on the next page ([#1126](https://github.com/femiwiki/FemiwikiSkin/issues/1126)) ([f1ab545](https://github.com/femiwiki/FemiwikiSkin/commit/f1ab5454db1f481ea309a2812eda50e526cdc9b5))
+* keep code monospace in English and Japanese text ([#1069](https://github.com/femiwiki/FemiwikiSkin/issues/1069)) ([8ef5b01](https://github.com/femiwiki/FemiwikiSkin/commit/8ef5b0173303e5215b78ac4711cb98bd4cb103bf))
+* keep the header's last edit time current after a VisualEditor save ([#1059](https://github.com/femiwiki/FemiwikiSkin/issues/1059)) ([b81ccd5](https://github.com/femiwiki/FemiwikiSkin/commit/b81ccd55fcfcbde1a7d977b2d5f2258097709952)), closes [#32](https://github.com/femiwiki/FemiwikiSkin/issues/32)
+* keep the notifications footer label off its icon ([#1067](https://github.com/femiwiki/FemiwikiSkin/issues/1067)) ([8d45ab3](https://github.com/femiwiki/FemiwikiSkin/commit/8d45ab382128cb7f1c65da6037c40ad72397d97f))
+* keep the ULS settings dialog and page previews inside narrow screens ([#1064](https://github.com/femiwiki/FemiwikiSkin/issues/1064)) ([4571f39](https://github.com/femiwiki/FemiwikiSkin/commit/4571f392faa7bdf89c7b8436a70fdadf478d6d0b))
+* list related articles flush with rules instead of boxed cards ([#1073](https://github.com/femiwiki/FemiwikiSkin/issues/1073)) ([fdcc6e0](https://github.com/femiwiki/FemiwikiSkin/commit/fdcc6e07d74c5cd9aea1fe4617fdd6b68784294d))
+* make only the visual 만들기 the big button on missing pages ([#1155](https://github.com/femiwiki/FemiwikiSkin/issues/1155)) ([8f87120](https://github.com/femiwiki/FemiwikiSkin/commit/8f87120c2744ccf3e93fdd556f9cf9ab62f0e16e)), closes [#1154](https://github.com/femiwiki/FemiwikiSkin/issues/1154)
+* map the last color-base15 to color-base so the skin compiles ([#1115](https://github.com/femiwiki/FemiwikiSkin/issues/1115)) ([cc744b1](https://github.com/femiwiki/FemiwikiSkin/commit/cc744b111d51831239035e09aa7344ada51d925c))
+* match title-button hover backgrounds to Codex quiet buttons ([#1065](https://github.com/femiwiki/FemiwikiSkin/issues/1065)) ([464993d](https://github.com/femiwiki/FemiwikiSkin/commit/464993dbe5bdb50418e0609b6ddb33c484d5a188))
+* open the site menu as a two-column popover under its button ([#1149](https://github.com/femiwiki/FemiwikiSkin/issues/1149)) ([6e95f41](https://github.com/femiwiki/FemiwikiSkin/commit/6e95f41d86084f462e381cee780a89a9d5303501))
+* paint the edit button [#8981](https://github.com/femiwiki/FemiwikiSkin/issues/8981)d3 with a bold label of at least 14pt ([#1093](https://github.com/femiwiki/FemiwikiSkin/issues/1093)) ([cb2758f](https://github.com/femiwiki/FemiwikiSkin/commit/cb2758f05caf5bc724f678e3fc1612e2759a2a55))
+* paint the page background in Firefox's dark mode ([#1127](https://github.com/femiwiki/FemiwikiSkin/issues/1127)) ([03a736d](https://github.com/femiwiki/FemiwikiSkin/commit/03a736d91d46d0b28f3bbe5b61161fd0be5397da))
+* put the Echo classes on the notifications link, so the menu badge shows the count ([#1153](https://github.com/femiwiki/FemiwikiSkin/issues/1153)) ([5760423](https://github.com/femiwiki/FemiwikiSkin/commit/57604233252ecb0f2f1625e90374ad920e91e8ee)), closes [#1152](https://github.com/femiwiki/FemiwikiSkin/issues/1152)
+* replace off-palette colours with palette variables ([#1098](https://github.com/femiwiki/FemiwikiSkin/issues/1098)) ([33679f1](https://github.com/femiwiki/FemiwikiSkin/commit/33679f179d66d0592f66d9dc3e59e7d14936e930))
+* replace the last [@color-base15](https://github.com/color-base15) with [@color-base](https://github.com/color-base) ([cc744b1](https://github.com/femiwiki/FemiwikiSkin/commit/cc744b111d51831239035e09aa7344ada51d925c))
+* scroll wide TablePager tables inside the page ([#1071](https://github.com/femiwiki/FemiwikiSkin/issues/1071)) ([5efaa6e](https://github.com/femiwiki/FemiwikiSkin/commit/5efaa6e5dd2dd589581e6ecd6af776633cf667fd)), closes [#171](https://github.com/femiwiki/FemiwikiSkin/issues/171)
+* show related articles as raised cards ([#1099](https://github.com/femiwiki/FemiwikiSkin/issues/1099)) ([ef49fae](https://github.com/femiwiki/FemiwikiSkin/commit/ef49fae650e610052e24849f38a50e4fd24cd1b1))
+* square the corners of Codex buttons, text inputs and checkboxes ([#1066](https://github.com/femiwiki/FemiwikiSkin/issues/1066)) ([8ba7779](https://github.com/femiwiki/FemiwikiSkin/commit/8ba7779ac48c79e1aef84ccc83d64ca74649654d))
+* thin the ToC column's scrollbar ([#1145](https://github.com/femiwiki/FemiwikiSkin/issues/1145)) ([0f96cf3](https://github.com/femiwiki/FemiwikiSkin/commit/0f96cf3c20ceac3c190e630e0be4de660db81fbd))
+* wrap every pre so long code lines never widen the page ([#1118](https://github.com/femiwiki/FemiwikiSkin/issues/1118)) ([9ec4f54](https://github.com/femiwiki/FemiwikiSkin/commit/9ec4f543ddffe8310564061fab2dc39702357756))
+
+
+### Miscellaneous Chores
+
+* release 6.0.0 ([#1156](https://github.com/femiwiki/FemiwikiSkin/issues/1156)) ([0ad2bdc](https://github.com/femiwiki/FemiwikiSkin/commit/0ad2bdcde4e3a86f420983a578d48d40033bf18c))
+
 ## [5.3.1](https://github.com/femiwiki/FemiwikiSkin/compare/v5.3.0...v5.3.1) (2026-10-10)
 
 
