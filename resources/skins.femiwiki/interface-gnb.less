@@ -1,6 +1,12 @@
 @import '../variables.less';
 @import 'mediawiki.mixins.less';
 
+@nav-bar-content-width: @content-width - 1.3rem;
+// The menu button's right edge, at the end of the centred #mw-navigation
+@site-menu-right: ~'max(0px, (100% - @{nav-bar-content-width}) / 2)';
+@site-menu-inset: 0.3rem;
+@site-menu-popover-right: ~'calc(@{site-menu-right} - @{site-menu-inset})';
+
 .nav-bar {
   @height: @height-nav-bar;
   height: @height;
@@ -8,7 +14,7 @@
 
   #mw-navigation {
     display: flex;
-    max-width: @content-width - 1.3rem;
+    max-width: @nav-bar-content-width;
     margin: 0 auto;
     height: @height;
 
@@ -367,9 +373,32 @@
   padding-top: @portal-column-gap;
   padding-bottom: @portal-column-gap;
 
-  // One column of panels on phones, two on wider screens
+  // Full width on phones. On wider screens a popover under the menu button, over the content,
+  // aligned to the button's right edge, as the page menu is.
   @media (min-width: @width-breakpoint-tablet) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: absolute;
+    z-index: @z-index-dropdown;
+    top: @height-nav-bar;
+    right: @site-menu-popover-right;
+    display: block;
+    box-sizing: border-box;
+    width: ~'calc(32.3rem + @{site-menu-inset} * 2)';
+    max-height: ~'calc(100vh - @{height-nav-bar})';
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    margin: 0;
+    // Keeps the panels' shadows inside the scrolling box
+    padding: @site-menu-inset;
+    // Two columns filled from the right, so the account row and personal panel come first under the button
+    columns: 2;
+    column-gap: 0.3rem;
+    direction: rtl;
+
+    &#fw-menu > * {
+      direction: ltr;
+      break-inside: avoid;
+      margin: 0 0 0.3rem;
+    }
   }
 
   // Sign-up and log-in buttons above the panels
@@ -381,7 +410,22 @@
     margin: 0;
     padding: 0;
 
+    // Stacked in the popover, each as wide as the panels below
+    @media (min-width: @width-breakpoint-tablet) {
+      flex-direction: column;
+      gap: 0.3rem;
+      margin: 0 0 0.3rem;
+    }
+
+    // Logged-in readers have no account actions
+    &:empty {
+      display: none;
+    }
+
+    // Equal buttons side by side, each on a row of its own where the labels do not fit
     li {
+      flex: 1 1 0;
+      min-width: max-content;
       list-style-type: none;
       margin: 0;
     }
@@ -389,22 +433,31 @@
     a {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.3em;
-      min-height: @min-size-interactive-touch;
+      min-height: @min-size-interactive-pointer;
       padding: 0 1em;
       box-sizing: border-box;
-      border: 1px solid transparent;
+      border: 1px solid @border-color-interactive;
       border-radius: @border-radius-control;
+      background-color: @background-color-interactive-subtle;
+      box-shadow: @box-shadow-button;
       color: @color-base;
       font-weight: bold;
+      white-space: nowrap;
       text-decoration: none;
 
+      @media (pointer: coarse) {
+        min-height: @min-size-interactive-touch;
+      }
+
       &:hover {
-        background-color: @button-background-color--hover;
+        background-color: @background-color-interactive-subtle--hover;
       }
 
       &:active {
-        background-color: @button-background-color--active;
+        background-color: @background-color-interactive-subtle--active;
+        box-shadow: @box-shadow-button--active;
       }
     }
 
@@ -516,6 +569,17 @@
       // The shadow fades into the page in the dark theme
       border-bottom: 1px solid @border-color-surface;
       box-shadow: @box-shadow-medium;
+
+      // The popover, fixed under the bar with it
+      @media (min-width: @width-breakpoint-tablet) {
+        left: auto;
+        right: @site-menu-popover-right;
+        max-height: ~'calc(100vh - @{height-nav-bar})';
+        padding: @site-menu-inset;
+        background-color: transparent;
+        border-bottom: 0;
+        box-shadow: none;
+      }
     }
   }
 
