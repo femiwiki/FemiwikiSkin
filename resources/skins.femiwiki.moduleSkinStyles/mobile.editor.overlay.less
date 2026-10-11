@@ -62,3 +62,12 @@
 .overlay-header .mw-ui-button:not(.mw-ui-icon) {
   height: 3em;
 }
+
+// The overlay is a screen tall and its content runs on, so hide the page it would show through
+.overlay-enabled {
+  .nav-bar-space,
+  #fw-menu,
+  .fw-page {
+    display: none;
+  }
+}
