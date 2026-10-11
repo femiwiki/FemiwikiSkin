@@ -108,8 +108,16 @@
 // White text on the top bar needs 4.5:1; the guide keeps it in both themes
 @background-color-nav-bar: @palette-primary4;
 // Hover and pressed are darker, as a lighter tint would take white text below 4.5:1
-@background-color-nav-bar--hover: mix(@palette-primary5, @palette-primary4, 25%);
-@background-color-nav-bar--active: mix(@palette-primary5, @palette-primary4, 50%);
+@background-color-nav-bar--hover: mix(
+  @palette-primary5,
+  @palette-primary4,
+  25%
+);
+@background-color-nav-bar--active: mix(
+  @palette-primary5,
+  @palette-primary4,
+  50%
+);
 // Codex's 2px focus ring, in white to show on the bar
 @box-shadow-nav-bar--focus: inset 0 0 0 2px @color-base100;
 @color-alert: @color-secondary1;
