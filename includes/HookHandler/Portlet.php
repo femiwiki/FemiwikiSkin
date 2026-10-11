@@ -129,7 +129,8 @@ class Portlet implements
 				'href' => $url,
 				'text' => $msgText,
 				'active' => ( $url == $title->getLocalUrl() ),
-				'class' => $linkClasses,
+				// Core puts a user-menu item's `class` on its <li>; Echo and notificationBadge.js read the <a>
+				'link-class' => $linkClasses,
 				'data' => [
 					'counter-num' => $count,
 					'counter-text' => $formattedCount,
