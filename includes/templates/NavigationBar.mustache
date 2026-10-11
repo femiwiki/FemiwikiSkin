@@ -3,12 +3,12 @@
 <nav class="nav-bar">
   <div id="mw-navigation" aria-labelledby="mw-navigation-label">
     <h2 id="mw-navigation-label">{{msg-navigation-heading}}</h2>
+    <a id="p-logo" class="mw-wiki-logo" href="{{link-mainpage}}" ></a>
     {{#data-page-toc}}
     <button type="button" id="fw-nav-toc-toggle" aria-controls="fw-toc" title="{{msg-toc}}">
       <span class="text">{{msg-toc}}</span>
     </button>
     {{/data-page-toc}}
-    <a id="p-logo" class="mw-wiki-logo" href="{{link-mainpage}}" ></a>
     {{>SearchBox}}
     <ul id="site-navigation">
       <li class="changes">
