@@ -235,7 +235,8 @@
             "skin-femiwiki-page-menu-tooltip",
             "toc",
             "skin-femiwiki-toc-top",
-            "skin-femiwiki-toc-close"
+            "skin-femiwiki-toc-close",
+            "skin-femiwiki-search-close"
           ],
           "scripts": [
             "skins.femiwiki.js"
