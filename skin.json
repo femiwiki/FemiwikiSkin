@@ -40,19 +40,41 @@
         "print.less"
       ]
     },
-    "skins.femiwiki.xeicon": {
-      "class": "MediaWiki\\ResourceLoader\\SkinModule",
-      "features": {
-        "content-body": false,
-        "toc": false
-      },
-      "localBasePath": "node_modules/xeicon",
-      "remoteSkinPath": "Femiwiki/node_modules/xeicon",
-      "styles": {
-        "xeicon.min.css": {
-          "media": "screen"
-        }
-      }
+    "skins.femiwiki.icons": {
+      "class": "MediaWiki\\ResourceLoader\\OOUIIconPackModule",
+      "selectorWithVariant": ".fw-icon.mw-ui-icon-wikimedia-{name}-{variant}",
+      "selectorWithoutVariant": ".fw-icon.mw-ui-icon-wikimedia-{name}",
+      "useDataURI": false,
+      "useMaskImage": true,
+      "icons": [
+        "articles",
+        "block",
+        "clock",
+        "die",
+        "history",
+        "home",
+        "info",
+        "link",
+        "listBullet",
+        "lock",
+        "logIn",
+        "logOut",
+        "move",
+        "newspaper",
+        "printer",
+        "recentChanges",
+        "settings",
+        "specialPages",
+        "trash",
+        "unLock",
+        "upload",
+        "userAdd",
+        "userAvatar",
+        "userContributions",
+        "userRights",
+        "userTalk",
+        "watchlist"
+      ]
     },
     "skins.femiwiki.smallElements": {
       "styles": ["skins.femiwiki.smallElements/styles.less"]
@@ -209,7 +231,7 @@
           "templateDirectory": "includes/templates",
           "styles": [
             "skins.femiwiki",
-            "skins.femiwiki.xeicon",
+            "skins.femiwiki.icons",
             "skins.femiwiki.search.codex.styles",
             "oojs-ui.styles.icons-interactions"
           ],

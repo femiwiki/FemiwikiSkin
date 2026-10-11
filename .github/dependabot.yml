@@ -19,9 +19,6 @@ updates:
     commit-message:
       prefix: 'build'
       prefix-development: 'chore'
-    # XEIcon is to be replaced rather than updated
-    ignore:
-      - dependency-name: 'xeicon'
     reviewers:
       - 'femiwiki/reviewer'
     cooldown:
