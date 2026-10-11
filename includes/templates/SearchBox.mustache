@@ -1,5 +1,7 @@
 {{#data-search-box}}
 <div id="p-search" role="search" class="fw-search-box">
+  {{! Shown only while the full-screen search is open on phones; leaving the input closes it }}
+  <button type="button" class="fw-search-close" title="{{msg-skin-femiwiki-search-close}}" aria-label="{{msg-skin-femiwiki-search-close}}"><span class="fw-search-close-icon"></span></button>
   <div class="fw-typeahead-search-container">
     <div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail">
       <form action="{{form-action}}" id="searchform" class="cdx-search-input">
