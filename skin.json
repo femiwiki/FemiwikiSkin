@@ -36,6 +36,7 @@
         "skins.femiwiki/interface.less",
         "skins.femiwiki/interface-gnb.less",
         "skins.femiwiki/wide-content.less",
+        "skins.femiwiki/toc.less",
         "print.less"
       ]
     },
@@ -62,7 +63,8 @@
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
         "skins.femiwiki.js/notificationBadge.js",
-        "skins.femiwiki.js/watchingUsers.js"
+        "skins.femiwiki.js/watchingUsers.js",
+        "skins.femiwiki.js/tableOfContents.js"
       ]
     },
     "skins.femiwiki.search.codex.styles": {
@@ -201,6 +203,7 @@
         {
           "name": "femiwiki",
           "responsive": true,
+          "toc": false,
           "templateDirectory": "includes/templates",
           "styles": [
             "skins.femiwiki",
@@ -230,6 +233,9 @@
             "tooltip-n-randompage",
             "randompage",
             "skin-femiwiki-page-menu-tooltip",
+            "toc",
+            "skin-femiwiki-toc-top",
+            "skin-femiwiki-toc-close",
             "skin-femiwiki-search-close"
           ],
           "scripts": [

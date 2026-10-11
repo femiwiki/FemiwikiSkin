@@ -1,0 +1,15 @@
+<nav id="fw-toc" class="fw-toc" aria-labelledby="fw-toc-heading">
+  <label class="fw-toc-backdrop" for="fw-toc-checkbox" aria-hidden="true"></label>
+  <div class="fw-toc-panel">
+    <div class="fw-toc-header">
+      <h2 id="fw-toc-heading" class="fw-toc-heading">{{msg-toc}}</h2>
+      <label class="fw-toc-close fw-button" for="fw-toc-checkbox" title="{{msg-skin-femiwiki-toc-close}}"></label>
+    </div>
+    <ul class="fw-toc-list">
+      <li class="fw-toc-item fw-toc-level-1 fw-toc-top">
+        <a class="fw-toc-link" href="#">{{msg-skin-femiwiki-toc-top}}</a>
+      </li>
+      {{#array-sections}}{{>TableOfContents__line}}{{/array-sections}}
+    </ul>
+  </div>
+</nav>
