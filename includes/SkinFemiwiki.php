@@ -6,6 +6,7 @@ use MediaWiki\MediaWikiServices;
 use OOUI\ButtonWidget;
 use OutputPage;
 use SkinMustache;
+use SkinTemplate;
 use SpecialPage;
 
 /**
@@ -15,6 +16,9 @@ use SpecialPage;
  * @internal
  */
 class SkinFemiwiki extends SkinMustache {
+
+	/** @var array|null The history tab, which is listed in the toolbox instead of the views */
+	private ?array $historyItem = null;
 
 	private const ACCOUNT_ACTION_IDS = [ 'pt-createaccount', 'pt-login', 'pt-login-private' ];
 
@@ -49,6 +53,7 @@ class SkinFemiwiki extends SkinMustache {
 		$config = $this->getConfig();
 		$parentData = parent::getTemplateData();
 		[ $sidebar, $toolbox ] = $this->getSidebar( $parentData['data-portlets-sidebar'] );
+		$toolbox = $this->prependHistory( $toolbox );
 
 		$portlets = $parentData['data-portlets'];
 		[ $accountActions, $userItems ] = $this->splitAccountActions( array_merge(
@@ -92,6 +97,32 @@ class SkinFemiwiki extends SkinMustache {
 			return null;
 		}
 		return $data['data-toc'];
+	}
+
+	/**
+	 * Takes the history tab out of the views, where the skin does not show it.
+	 * @inheritDoc
+	 */
+	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
+		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+		if ( isset( $content_navigation['views']['history'] ) ) {
+			$this->historyItem = $content_navigation['views']['history'];
+			unset( $content_navigation['views']['history'] );
+		}
+	}
+
+	/**
+	 * Lists the history tab first in the toolbox, a group every reader sees, so that it does not
+	 * open a column of its own.
+	 */
+	private function prependHistory( ?array $toolbox ): ?array {
+		if ( !$toolbox || !$this->historyItem ) {
+			return $toolbox;
+		}
+		// Core sets the id after the hooks, and the id gives the access key and the icon.
+		$item = [ 'id' => 'ca-history' ] + $this->historyItem;
+		$toolbox['html-items'] = $this->makeListItem( 'history', $item ) . $toolbox['html-items'];
+		return $toolbox;
 	}
 
 	// Returns the HTML of the sign-up and log-in items, and of the other items
