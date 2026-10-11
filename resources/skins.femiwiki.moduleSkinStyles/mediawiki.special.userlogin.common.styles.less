@@ -11,9 +11,6 @@ body.mw-special-CreateAccount {
   }
 }
 
-// 290px is defined in MediaWiki
-@defaultFormWidth: 290px;
-
 .fw-login-card() {
   box-sizing: border-box;
   padding: 1em;
@@ -23,21 +20,25 @@ body.mw-special-CreateAccount {
   box-shadow: @box-shadow-medium;
 }
 
-// Aligned with the page title rather than centred
+// Centred in the content column, wrapping to one column on narrow screens
 .mw-special-Userlogin,
 .mw-special-CreateAccount {
   .mw-ui-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5em;
   }
 
   #userloginForm {
+    width: 100%;
+    max-width: 26rem;
     margin: 0;
 
     form {
       width: auto;
-      max-width: @defaultFormWidth;
+      max-width: none;
       margin: 0;
     }
   }
@@ -72,7 +73,6 @@ body.mw-special-CreateAccount {
   #mw-createaccount-cta {
     .fw-login-card();
     width: auto;
-    max-width: @defaultFormWidth;
     margin: 1.5em 0 0;
     background-image: none;
   }
@@ -95,9 +95,19 @@ body.mw-special-CreateAccount {
 
 // body for specificity, as core's signup styles load after this module
 body.mw-special-CreateAccount {
+  #userloginForm {
+    .fw-login-card();
+    flex: 1 1 22rem;
+
+    form > div:first-of-type {
+      margin-top: 0;
+    }
+  }
+
   .mw-createacct-benefits-container {
     .fw-login-card();
-    align-self: flex-start;
+    flex: 1 1 14rem;
+    max-width: 26rem;
   }
 
   .mw-createacct-benefits-heading {
