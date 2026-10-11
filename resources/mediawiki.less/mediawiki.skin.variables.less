@@ -4,94 +4,23 @@
  */
 
 @import 'mediawiki.skin.defaults.less';
+// Codex tokens that read custom properties, as Vector 2022 does, so modules follow the dark theme
+@import 'mediawiki.skin.codex-design-tokens/theme-wikimedia-ui.less';
 
 @width-breakpoint-mobile: 480px;
 @width-breakpoint-tablet: 640px;
 
 @line-height-base: 1.7;
 
-@color-link: #5144a3;
-@color-link--visited: #5144a3;
+// Custom properties as in ../variables.less, so the dark theme can redefine them (#1080)
+@color-link: var(--color-primary5, #5144a3);
+@color-link--visited: var(--color-primary5, #5144a3);
 @color-link--active: #302a45;
-@color-link-new: #c0081f;
-@color-link-new--visited: #a55858;
-@color-link-external: #5144a3;
-@color-link-external--active: #b63;
+@color-link-new: var(--color-link-new, #c0081f);
+@color-link-new--visited: var(--color-link-new--visited, #a55858);
+@color-link-external: var(--color-primary5, #5144a3);
+@color-link-external--active: var(--color-link-external--active, #b63);
 
 @font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '본고딕',
   'Noto Sans CJK KR', 'KoPubDotum Medium', '나눔바른고딕', '나눔고딕',
   NanumGothic, '맑은고딕', 'Malgun Gothic', Arial, Dotum, sans-serif;
-
-// Progressive colors from skins.femiwiki/css-custom-properties.less, as
-// Vector 2022 does; otherwise modules compile with Codex's blue.
-@color-progressive: var(--color-progressive, #36c);
-@color-progressive--hover: var(--color-progressive--hover, #3056a9);
-@color-progressive--active: var(--color-progressive--active, #233566);
-@color-progressive--focus: var(--color-progressive--focus, #36c);
-@color-icon-progressive: var(--color-icon-progressive, #36c);
-@box-shadow-color-progressive--active: var(
-  --box-shadow-color-progressive--active,
-  #233566
-);
-@box-shadow-color-progressive--focus: var(
-  --box-shadow-color-progressive--focus,
-  #36c
-);
-@box-shadow-color-progressive-selected: var(
-  --box-shadow-color-progressive-selected,
-  #36c
-);
-@box-shadow-color-progressive-selected--hover: var(
-  --box-shadow-color-progressive-selected--hover,
-  #3056a9
-);
-@box-shadow-color-progressive-selected--active: var(
-  --box-shadow-color-progressive-selected--active,
-  #233566
-);
-@background-color-progressive: var(--background-color-progressive, #36c);
-@background-color-progressive--hover: var(
-  --background-color-progressive--hover,
-  #3056a9
-);
-@background-color-progressive--active: var(
-  --background-color-progressive--active,
-  #233566
-);
-@background-color-progressive--focus: var(
-  --background-color-progressive--focus,
-  #36c
-);
-@background-color-progressive-subtle: var(
-  --background-color-progressive-subtle,
-  #e8eeff
-);
-@background-color-progressive-subtle--hover: var(
-  --background-color-progressive-subtle--hover,
-  #d9e2ff
-);
-@background-color-progressive-subtle--active: var(
-  --background-color-progressive-subtle--active,
-  #b6d4fb
-);
-@border-color-progressive: var(--border-color-progressive, #36c);
-@border-color-progressive--hover: var(
-  --border-color-progressive--hover,
-  #3056a9
-);
-@border-color-progressive--active: var(
-  --border-color-progressive--active,
-  #233566
-);
-@border-color-progressive--focus: var(--border-color-progressive--focus, #36c);
-@outline-color-progressive--focus: var(
-  --outline-color-progressive--focus,
-  #36c
-);
-@accent-color-base: var(--accent-color-base, #36c);
-
-// Codex's value instead of the defaults' 0.1, and dark under DarkMode
-@box-shadow-color-alpha-base: var(
-  --box-shadow-color-alpha-base,
-  rgba(0, 0, 0, 0.06)
-);

@@ -58,52 +58,86 @@
 @border-color-base: var(--border-color-base, #a2a9b1);
 @border-color-subtle: var(--border-color-subtle, #c8ccd1);
 @border-color-muted: var(--border-color-muted, #dadde3);
+// Diff lines, lighter than Codex's content-added and content-removed
+@background-color-diff-added: var(--background-color-diff-added, #d9ecfe);
+@background-color-diff-removed: var(--background-color-diff-removed, #feedca);
+// Stub and interwiki links; red and external ones are in mediawiki.skin.variables.less
+@color-link-stub: var(--color-link-stub, #723);
+@color-link-interwiki: var(--color-link-interwiki, #36b);
+@color-link-interwiki--visited: var(--color-link-interwiki--visited, #636);
 
 @color-base100: #fff;
 
-//                        luminance(%)
-@color-primary1: #c3bffd; // 55.96
-@color-primary2: #b9b5d9; // 48.37
-@color-primary3: #aca6e4; // 41.64
-@color-primary4: #736ac9; // 18.17, white text on it is 4.53:1
-@color-primary5: #5144a3; // 8.53
-@color-primary6: #302a45; // 2.71
-// Between @color-primary3 and @color-primary4
-@color-toc-rule: #8981d3; // 25.72
+// The palette as the light theme draws it
+//                          luminance(%)
+@palette-primary1: #c3bffd; // 55.96
+@palette-primary2: #b9b5d9; // 48.37
+@palette-primary3: #aca6e4; // 41.64
+@palette-primary4: #736ac9; // 18.17, white text on it is 4.53:1
+@palette-primary5: #5144a3; // 8.53
+@palette-primary6: #302a45; // 2.71
+// Between @palette-primary3 and @palette-primary4
+@palette-toc-rule: #8981d3; // 25.72
 
-@color-secondary1: #dae8b2; // 75.83
-@color-secondary2: #b2d236; // 55.82
-@color-secondary3: #a5c831; // 49.53
+@palette-secondary1: #dae8b2; // 75.83
+@palette-secondary2: #b2d236; // 55.82
+@palette-secondary3: #a5c831; // 49.53
 
-// @color-secondary3's OKLCH hue, lighter and less saturated, as femiwiki/remote-gadgets' recommend-edit
-@color-accent: #bad75b;
-@color-accent--hover: #acc94d;
-@color-accent--active: #8ca534;
-// Same OKLCH hue as @color-accent, dark enough for 5.5:1 on it
-@color-accent-text: #414f0a;
+// @palette-secondary3's OKLCH hue, lighter and less saturated, as femiwiki/remote-gadgets' recommend-edit
+@palette-accent: #bad75b;
+@palette-accent--hover: #acc94d;
+@palette-accent--active: #8ca534;
+// Same OKLCH hue as @palette-accent, dark enough for 5.5:1 on it
+@palette-accent-text: #414f0a;
 // Other progressive buttons: a tonal fill a step below the green; the text is 6.60, 5.85 and 5.17:1 on it
 @background-color-button-tonal: #ecebfc;
 @background-color-button-tonal--hover: #dfddf8;
 @background-color-button-tonal--active: #d3cff4;
-@color-button-tonal: @color-primary5;
+@color-button-tonal: @palette-primary5;
+
+// Custom properties, so a dark theme can redefine them (#1080)
+@color-primary1: var(--color-primary1, @palette-primary1);
+@color-primary2: var(--color-primary2, @palette-primary2);
+@color-primary3: var(--color-primary3, @palette-primary3);
+@color-primary4: var(--color-primary4, @palette-primary4);
+@color-primary5: var(--color-primary5, @palette-primary5);
+@color-primary6: var(--color-primary6, @palette-primary6);
+@color-toc-rule: var(--color-toc-rule, @palette-toc-rule);
+
+@color-secondary1: var(--color-secondary1, @palette-secondary1);
+@color-secondary2: var(--color-secondary2, @palette-secondary2);
+@color-secondary3: var(--color-secondary3, @palette-secondary3);
+
+@color-accent: var(--color-accent, @palette-accent);
+@color-accent--hover: var(--color-accent--hover, @palette-accent--hover);
+@color-accent--active: var(--color-accent--active, @palette-accent--active);
+@color-accent-text: var(--color-accent-text, @palette-accent-text);
 
 @color-progressive: @color-primary3;
 
 @color-background1: @color-primary1;
 @color-link: @color-primary5;
-// White text on the top bar needs 4.5:1
-@background-color-nav-bar: @color-primary4;
+// White text on the top bar needs 4.5:1; the guide keeps it in both themes
+@background-color-nav-bar: @palette-primary4;
 // Hover and pressed are darker, as a lighter tint would take white text below 4.5:1
-@background-color-nav-bar--hover: mix(@color-primary5, @color-primary4, 25%);
-@background-color-nav-bar--active: mix(@color-primary5, @color-primary4, 50%);
+@background-color-nav-bar--hover: mix(
+  @palette-primary5,
+  @palette-primary4,
+  25%
+);
+@background-color-nav-bar--active: mix(
+  @palette-primary5,
+  @palette-primary4,
+  50%
+);
 // Codex's 2px focus ring, in white to show on the bar
 @box-shadow-nav-bar--focus: inset 0 0 0 2px @color-base100;
 @color-alert: @color-secondary1;
 @color-alert2: @color-secondary3;
 @color-alert-border: @color-secondary2;
-// Notification counts are "new", so they take the accent
-@color-badge: @color-accent;
-@color-badge-text: @color-accent-text;
+// Notification counts are "new", so they take the accent, the same in both themes
+@color-badge: @palette-accent;
+@color-badge-text: @palette-accent-text;
 // A badge inverted twice under DarkMode draws this as @background-color-nav-bar inverted once, like the top bar
 @color-badge-border-darkmode: #8c83e2;
 // A framed image's one line, like the heading underlines
@@ -122,10 +156,11 @@
 @box-shadow-surface: @box-shadow-medium;
 
 // Bold white at 14pt or more is large text, so 3:1 is enough: 3.42:1 here, 4.53:1 on hover, 7.76:1 pressed
-@color-edit-button: @color-toc-rule;
-@color-edit-button--hover: @color-primary4;
-@color-edit-button--active: @color-primary5;
-@color-edit-button-border: @color-primary4;
+// The guide keeps it in both themes, so it has custom properties of its own
+@color-edit-button: var(--color-edit-button, @palette-toc-rule);
+@color-edit-button--hover: var(--color-edit-button--hover, @palette-primary4);
+@color-edit-button--active: var(--color-edit-button--active, @palette-primary5);
+@color-edit-button-border: var(--color-edit-button-border, @palette-primary4);
 // Never below 14pt, also where the root is 16.5px
 @font-size-edit-button: ~'max(1rem, 14pt)';
 
@@ -204,15 +239,15 @@
   }
 
   &.new {
-    color: #c0081f;
+    color: @color-link-new;
 
     &:visited {
-      color: #a55858;
+      color: @color-link-new--visited;
     }
   }
 
   &.stub {
-    color: #723;
+    color: @color-link-stub;
   }
 
   // self links
@@ -229,15 +264,15 @@
   &.extiw {
     &,
     &:active {
-      color: #36b;
+      color: @color-link-interwiki;
     }
 
     &:visited {
-      color: #636;
+      color: @color-link-interwiki--visited;
     }
 
     &:active {
-      color: #b63;
+      color: @color-link-external--active;
     }
   }
 
@@ -246,7 +281,7 @@
     color: @color-primary5;
 
     &:active {
-      color: #b63;
+      color: @color-link-external--active;
     }
   }
 }

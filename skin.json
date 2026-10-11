@@ -229,7 +229,8 @@
             "recentchanges",
             "tooltip-n-randompage",
             "randompage",
-            "skin-femiwiki-page-menu-tooltip"
+            "skin-femiwiki-page-menu-tooltip",
+            "skin-femiwiki-search-close"
           ],
           "scripts": [
             "skins.femiwiki.js"
