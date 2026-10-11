@@ -43,6 +43,12 @@
     --box-shadow-color-progressive-selected--hover: @color-primary4;
     --box-shadow-color-progressive-selected--active: @color-primary6;
     --outline-color-progressive--focus: @color-progressive;
+
+    // Read by Codex below and by femiwiki/OOUIFemiwikiTheme
+    --background-color-button-tonal: @background-color-button-tonal;
+    --background-color-button-tonal--hover: @background-color-button-tonal--hover;
+    --background-color-button-tonal--active: @background-color-button-tonal--active;
+    --color-button-tonal: @color-button-tonal;
   }
 
   // Primary buttons in the green accent color, with dark green text for contrast
@@ -55,10 +61,24 @@
     --color-inverted-fixed: @color-accent-text;
   }
 
-  // Other progressive buttons keep the violet but drop the border
+  // Other progressive buttons drop the border
   .cdx-button--action-progressive:not(.cdx-button--weight-primary) {
     --border-color-progressive: transparent;
     --border-color-progressive--hover: transparent;
     --border-color-progressive--active: transparent;
+  }
+
+  // and those of normal weight take the tonal fill, a step below the green
+  .cdx-button--action-progressive.cdx-button--weight-normal {
+    --background-color-progressive-subtle: var(--background-color-button-tonal);
+    --background-color-progressive-subtle--hover: var(
+      --background-color-button-tonal--hover
+    );
+    --background-color-progressive-subtle--active: var(
+      --background-color-button-tonal--active
+    );
+    --color-progressive: var(--color-button-tonal);
+    --color-progressive--hover: var(--color-button-tonal);
+    --color-progressive--active: var(--color-button-tonal);
   }
 }
