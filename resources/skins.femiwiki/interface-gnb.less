@@ -410,12 +410,11 @@
     margin: 0;
     padding: 0;
 
-    // A panel of its own in the popover, as it would otherwise sit on the article
+    // Stacked in the popover, each as wide as the panels below
     @media (min-width: @width-breakpoint-tablet) {
-      .surface();
+      flex-direction: column;
       gap: 0.3rem;
       margin: 0 0 0.3rem;
-      padding: 0.3rem;
     }
 
     // Logged-in readers have no account actions
