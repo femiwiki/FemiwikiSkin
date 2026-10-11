@@ -66,20 +66,22 @@ function bindDismiss(checkbox, button, target) {
 
 /**
  * Improve the interactivity of the sidebar panel by binding optional checkbox hack enhancements
- * for focus and `aria-expanded`, and close it as a menu.
+ * for focus and `aria-expanded`. Given a menu, also close it as a menu.
  *
  * @param {HTMLElement|null} checkbox
  * @param {HTMLElement|null} button
- * @param {HTMLElement|null} target
+ * @param {HTMLElement|null} [menu]
  * @return {void}
  */
-function initCheckboxHack(checkbox, button, target) {
-  if (checkbox instanceof HTMLInputElement && button && target) {
+function initCheckboxHack(checkbox, button, menu) {
+  if (checkbox instanceof HTMLInputElement && button) {
     checkboxHack.bindToggleOnClick(checkbox, button);
     checkboxHack.bindUpdateAriaExpandedOnInput(checkbox);
     checkboxHack.updateAriaExpanded(checkbox);
     checkboxHack.bindToggleOnEnter(checkbox);
-    bindDismiss(checkbox, button, target);
+    if (menu) {
+      bindDismiss(checkbox, button, menu);
+    }
   }
 }
 
