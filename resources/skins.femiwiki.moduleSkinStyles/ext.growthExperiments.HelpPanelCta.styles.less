@@ -1,0 +1,14 @@
+// Pin the suggested-edit guidance dot to the edit button. Without a positioned
+// parent, the dot lands on the top-left corner of the page header.
+#p-views {
+  li#ca-edit,
+  li#ca-ve-edit {
+    position: relative;
+
+    .mw-pulsating-dot {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+    }
+  }
+}
