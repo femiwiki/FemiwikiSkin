@@ -306,7 +306,7 @@
   }
 
   // A popover over the content, under the menu button and aligned to its right edge.
-  // On phones it spans the screen, on wider screens each panel is a column.
+  // One column of panels, the width of the screen on phones.
   #p-actions-and-toolbox {
     @inset: @content-horizontal-padding - @padding-icon;
     position: absolute;
@@ -323,9 +323,7 @@
 
     @media (min-width: @width-breakpoint-tablet) {
       left: auto;
-      grid-template-columns: none;
-      grid-auto-flow: column;
-      grid-auto-columns: 16rem;
+      width: 16rem;
     }
   }
 
