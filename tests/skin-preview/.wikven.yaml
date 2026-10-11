@@ -2,6 +2,7 @@
 # The specimen pages wikven ships, baked in Femiwiki by .github/workflows/skin-preview.yml.
 # That workflow adds the WikvenRepositories entry pointing at the checkout being previewed.
 extensions:
+  - DarkMode
   - SyntaxHighlight_GeSHi
   - WikiEditor
 skins:
@@ -31,3 +32,10 @@ config:
     - index?diff=prev
     - index?action=edit
   DefaultRobotPolicy: noindex,nofollow
+  # As on femiwiki.com, the footer link switches the page to dark mode.
+  DarkModeTogglePosition: footer
+  WikvenRepositories:
+    # The commit femiwiki/docker-mediawiki installs.
+    DarkMode:
+      repository: https://gerrit.wikimedia.org/r/mediawiki/extensions/DarkMode
+      commit: 690696a3ad8953ccf050675dcb2148401e64a93d
