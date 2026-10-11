@@ -300,6 +300,28 @@
           .background-ooui-icon('unStar-progressive');
           opacity: unset;
         }
+        // Related special pages, from Portlet::SPECIAL_TAB_ICONS
+        &.fw-tab-watchlist a:before {
+          .background-ooui-icon('watchlist-ltr');
+          .rtl & {
+            .background-ooui-icon('watchlist-rtl');
+          }
+        }
+        &.fw-tab-edit a:before {
+          .background-ooui-icon('edit');
+        }
+        &.fw-tab-wikiText a:before {
+          .background-ooui-icon('wikiText');
+        }
+        &.fw-tab-trash a:before {
+          .background-ooui-icon('trash');
+        }
+        &.fw-tab-tag a:before {
+          .background-ooui-icon('tag-ltr');
+          .rtl & {
+            .background-ooui-icon('tag-rtl');
+          }
+        }
       }
     }
   }
