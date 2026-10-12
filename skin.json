@@ -87,6 +87,10 @@
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
+        {
+          "name": "skins.femiwiki.js/config.json",
+          "callback": "MediaWiki\\Skins\\Femiwiki\\DiscussionStatus::getConfig"
+        },
         "skins.femiwiki.js/notificationBadge.js",
         "skins.femiwiki.js/watchingUsers.js",
         "skins.femiwiki.js/tableOfContents.js",
@@ -305,6 +309,10 @@
     "FemiwikiLegacySmallElementsForAnonymousUser": {
       "value": false,
       "description": "@var boolean If set to true, the legacy, small elements are displayed for anonymous users. This configuration will be removed in the future."
+    },
+    "FemiwikiOpenTopicDays": {
+      "value": 30,
+      "description": "@var int The talk tab shows the open-topic icon when a topic has a comment from the last this many days."
     }
   },
   "attributes": {
