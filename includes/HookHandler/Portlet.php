@@ -70,6 +70,12 @@ class Portlet implements
 	 * interface.less draws each as `.fw-tab-<icon>`.
 	 */
 	private const SPECIAL_TAB_ICONS = [
+		'AbuseFilter' => 'funnel',
+		'AbuseFilter/history' => 'history',
+		'AbuseFilter/examine' => 'search',
+		'AbuseFilter/test' => 'labFlask',
+		'AbuseFilter/tools' => 'code',
+		'AbuseLog' => 'listBullet',
 		'Watchlist' => 'watchlist',
 		'EditWatchlist' => 'edit',
 		'EditWatchlist/raw' => 'wikiText',
