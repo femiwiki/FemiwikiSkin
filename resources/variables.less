@@ -237,8 +237,12 @@
 
 .full-width() {
   box-sizing: border-box;
-  width: ~'calc(100% + 2.6rem)';
-  margin-left: -1.3rem;
+  width: ~'calc(100% + @{content-horizontal-padding} * 2)';
+  margin-left: -@content-horizontal-padding;
+  @media (max-width: @width-breakpoint-mobile-small) {
+    width: ~'calc(100% + @{content-horizontal-padding-mobile-small} * 2)';
+    margin-left: -@content-horizontal-padding-mobile-small;
+  }
 }
 
 .content-horizontal-padding() {
