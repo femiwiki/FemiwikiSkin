@@ -1,36 +1,36 @@
-@import '../variables.less';
+@import "../variables.less";
 
 // Override variables.less
 @font-size-root-default: 16.5;
 @content-width: 50rem;
 
 html {
-  font-size: percentage((@font-size-root-default / 16));
+	font-size: percentage((@font-size-root-default / 16));
 }
 
 .nav-bar #mw-navigation {
-  max-width: @content-width - 1.3rem;
+	max-width: @content-width - 1.3rem;
 }
 
 .fw-wiki-portals {
-  max-width: @content-width - @content-horizontal-padding;
+	max-width: @content-width - @content-horizontal-padding;
 }
 
 #p-header,
 .mw-body,
 #p-lang,
 .mw-footer {
-  max-width: @content-width;
+	max-width: @content-width;
 }
 
 hr#content-end-bar {
-  max-width: @content-width - (@content-horizontal-padding * 2);
+	max-width: @content-width - (@content-horizontal-padding * 2);
 }
 
 html.ve-active,
 html.ve-activated,
 html.ve-deactivating {
-  .oo-ui-toolbar {
-    font-size: 12px !important;
-  }
+	.oo-ui-toolbar {
+		font-size: 12px !important;
+	}
 }

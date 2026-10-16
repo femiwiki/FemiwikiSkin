@@ -1,56 +1,56 @@
-@import '../variables.less';
+@import "../variables.less";
 
 .flow-board-page {
-  .flow-ui-newTopicWidget-title.oo-ui-textInputWidget input {
-    font-size: 1em;
-  }
+	.flow-ui-newTopicWidget-title.oo-ui-textInputWidget input {
+		font-size: 1em;
+	}
 
-  .flow-topic-titlebar {
-    padding: 0.5em;
-  }
+	.flow-topic-titlebar {
+		padding: 0.5em;
+	}
 }
 
 .flow-board-page {
-  .flow-board-navigation,
-  .flow-board {
-    max-width: inherit;
-  }
+	.flow-board-navigation,
+	.flow-board {
+		max-width: inherit;
+	}
 }
 
 .flow-pipelist,
 .plainlinks {
-  a {
-    .mw-link();
-  }
+	a {
+		.mw-link();
+	}
 }
 
 @media screen and (max-width: @width-breakpoint-mobile) {
-  .flow-board {
-    .flow-topic-titlebar {
-      width: 100%;
-      margin-left: -1.3rem;
-      padding: 0.5em 1.3rem;
-    }
+	.flow-board {
+		.flow-topic-titlebar {
+			width: 100%;
+			margin-left: -1.3rem;
+			padding: 0.5em 1.3rem;
+		}
 
-    div.oo-ui-popupWidget-popup {
-      min-width: 16rem;
-      min-height: 10rem;
-    }
+		div.oo-ui-popupWidget-popup {
+			min-width: 16rem;
+			min-height: 10rem;
+		}
 
-    div.oo-ui-menuLayout-menu {
-      width: 3rem;
-    }
+		div.oo-ui-menuLayout-menu {
+			width: 3rem;
+		}
 
-    div.oo-ui-menuLayout-content {
-      left: 3rem;
-    }
-  }
+		div.oo-ui-menuLayout-content {
+			left: 3rem;
+		}
+	}
 
-  // Disable the full-width mobile feature.
-  // https://github.com/femiwiki/skin/issues/83
-  .mw-body .flow-post-content {
-    // <blockquote>
-    blockquote,
+	// Disable the full-width mobile feature.
+	// https://github.com/femiwiki/skin/issues/83
+	.mw-body .flow-post-content {
+		// <blockquote>
+		blockquote,
     // <pre>
     *:not(.mw-highlight) > pre,
     // <syntaxhighlight>
@@ -58,8 +58,8 @@
     .mw-highlight:not(.mw-highlight-lines) > pre,
     .mw-highlight.mw-highlight-lines > pre,
     .mw-highlight > pre {
-      width: 100%;
-      margin-left: 0;
-    }
-  }
+			width: 100%;
+			margin-left: 0;
+		}
+	}
 }

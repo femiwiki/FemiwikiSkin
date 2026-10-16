@@ -1,3 +1,3 @@
-(function () {
-  mw.fw = mw.fw || {};
+(() => {
+	mw.fw = mw.fw || {};
 })();

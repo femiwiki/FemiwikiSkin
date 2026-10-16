@@ -1,29 +1,29 @@
 {
-  "exclude": [
-    "vendor",
-    "resources/mw.fw.js",
-    // OOUI does not have type definitions.
-    "resources/ooui",
-    "resources/skins.femiwiki.share*",
-    "tests",
-    // Local `npm run dev` checkout; not our code.
-    "mediawiki"
-  ],
-  "compilerOptions": {
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "newLine": "lf",
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "pretty": true,
-    "target": "es5",
-    "lib": ["dom"],
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true
-  }
+	"exclude": [
+		"vendor",
+		"resources/mw.fw.js",
+		// OOUI does not have type definitions.
+		"resources/ooui",
+		"resources/skins.femiwiki.share*",
+		"tests",
+		// Local `npm run dev` checkout; not our code.
+		"mediawiki"
+	],
+	"compilerOptions": {
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"newLine": "lf",
+		"forceConsistentCasingInFileNames": true,
+		"skipLibCheck": true,
+		"pretty": true,
+		"target": "es5",
+		"lib": ["dom"],
+		"allowJs": true,
+		"checkJs": true,
+		"noEmit": true
+	}
 }

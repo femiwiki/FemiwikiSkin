@@ -1,147 +1,147 @@
-@import '../variables.less';
+@import "../variables.less";
 
 // TODO move this to UnifiedExtensionForFemiwiki
 body.mw-special-CreateAccount {
-  // Prevent copy of the question from ConfirmEdit/QuestyCaptcha
-  label[for='mw-input-femiwikiOpenSesame'] {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+	// Prevent copy of the question from ConfirmEdit/QuestyCaptcha
+	label[for="mw-input-femiwikiOpenSesame"] {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
 }
 
 .fw-login-card() {
-  box-sizing: border-box;
-  padding: 1em;
-  background-color: @background-color-base;
-  border: 1px solid @color-primary2;
-  border-radius: @border-radius-control;
-  box-shadow: @box-shadow-medium;
+	box-sizing: border-box;
+	padding: 1em;
+	background-color: @background-color-base;
+	border: 1px solid @color-primary2;
+	border-radius: @border-radius-control;
+	box-shadow: @box-shadow-medium;
 }
 
 // Centred in the content column, wrapping to one column on narrow screens
 .mw-special-Userlogin,
 .mw-special-CreateAccount {
-  .mw-ui-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1.5em;
-  }
+	.mw-ui-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 1.5em;
+	}
 
-  #userloginForm {
-    width: 100%;
-    max-width: 26rem;
-    margin: 0;
+	#userloginForm {
+		width: 100%;
+		max-width: 26rem;
+		margin: 0;
 
-    form {
-      width: auto;
-      max-width: none;
-      margin: 0;
-    }
-  }
+		form {
+			width: auto;
+			max-width: none;
+			margin: 0;
+		}
+	}
 
-  .cdx-field__help-text {
-    color: @color-subtle;
-    font-weight: normal;
-    text-align: left;
-  }
+	.cdx-field__help-text {
+		color: @color-subtle;
+		font-weight: normal;
+		text-align: left;
+	}
 
-  .mw-form-related-link-container {
-    text-align: left;
-  }
+	.mw-form-related-link-container {
+		text-align: left;
+	}
 }
 
 .mw-special-Userlogin {
-  // Sign-up is the primary action here, so log-in is a normal button
-  #wpLoginAttempt {
-    background-color: @background-color-interactive-subtle;
-    border-color: @border-color-interactive;
-    color: @color-base;
+	// Sign-up is the primary action here, so log-in is a normal button
+	#wpLoginAttempt {
+		background-color: @background-color-interactive-subtle;
+		border-color: @border-color-interactive;
+		color: @color-base;
 
-    &:hover {
-      background-color: @background-color-interactive-subtle--hover;
-    }
+		&:hover {
+			background-color: @background-color-interactive-subtle--hover;
+		}
 
-    &:active {
-      background-color: @background-color-interactive-subtle--active;
-    }
-  }
+		&:active {
+			background-color: @background-color-interactive-subtle--active;
+		}
+	}
 
-  #mw-createaccount-cta {
-    .fw-login-card();
-    width: auto;
-    max-width: none;
-    margin: 1.5em 0 0;
-    background-image: none;
-  }
+	#mw-createaccount-cta {
+		.fw-login-card();
+		width: auto;
+		max-width: none;
+		margin: 1.5em 0 0;
+		background-image: none;
+	}
 
-  #mw-createaccount-join {
-    margin-top: 0.5em;
-    background-color: @color-accent;
-    border-color: @color-accent--active;
-    color: @color-accent-text;
+	#mw-createaccount-join {
+		margin-top: 0.5em;
+		background-color: @color-accent;
+		border-color: @color-accent--active;
+		color: @color-accent-text;
 
-    &:hover {
-      background-color: @color-accent--hover;
-    }
+		&:hover {
+			background-color: @color-accent--hover;
+		}
 
-    &:active {
-      background-color: @color-accent--active;
-    }
-  }
+		&:active {
+			background-color: @color-accent--active;
+		}
+	}
 }
 
 // body for specificity, as core's signup styles load after this module
 body.mw-special-CreateAccount {
-  #userloginForm {
-    .fw-login-card();
-    flex: 1 1 22rem;
+	#userloginForm {
+		.fw-login-card();
+		flex: 1 1 22rem;
 
-    form > div:first-of-type {
-      margin-top: 0;
-    }
-  }
+		form > div:first-of-type {
+			margin-top: 0;
+		}
+	}
 
-  .mw-createacct-benefits-container {
-    .fw-login-card();
-    flex: 1 1 14rem;
-    max-width: 26rem;
-  }
+	.mw-createacct-benefits-container {
+		.fw-login-card();
+		flex: 1 1 14rem;
+		max-width: 26rem;
+	}
 
-  .mw-createacct-benefits-heading {
-    font-family: @font-family;
-    font-size: 1.1em;
-    margin: 0 0 0.5em;
-    padding: 0;
-  }
+	.mw-createacct-benefits-heading {
+		font-family: @font-family;
+		font-size: 1.1em;
+		margin: 0 0 0.5em;
+		padding: 0;
+	}
 
-  // Ruled rows of a count and its label, without the icons
-  .mw-number-text {
-    margin: 0;
-    padding: 0.5em 0;
-    min-height: 0;
-    background-image: none;
-    text-align: left;
-    font-size: 1em;
+	// Ruled rows of a count and its label, without the icons
+	.mw-number-text {
+		margin: 0;
+		padding: 0.5em 0;
+		min-height: 0;
+		background-image: none;
+		text-align: left;
+		font-size: 1em;
 
-    & + .mw-number-text {
-      border-top: 1px solid @color-primary2;
-    }
+		& + .mw-number-text {
+			border-top: 1px solid @color-primary2;
+		}
 
-    p {
-      margin: 0;
-    }
+		p {
+			margin: 0;
+		}
 
-    span,
-    strong {
-      display: inline;
-      font-family: @font-family;
-      font-size: 1.4em;
-      font-weight: bold;
-      color: @color-base;
-    }
-  }
+		span,
+		strong {
+			display: inline;
+			font-family: @font-family;
+			font-size: 1.4em;
+			font-weight: bold;
+			color: @color-base;
+		}
+	}
 }

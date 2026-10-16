@@ -1,97 +1,97 @@
-@import '../variables.less';
+@import "../variables.less";
 
 // https://github.com/femiwiki/FemiwikiSkin/issues/163
 .ve-init-mw-progressBarWidget {
-  border-color: @color-primary4;
+	border-color: @color-primary4;
 }
 .ve-init-mw-progressBarWidget-bar {
-  background: @color-primary4;
+	background: @color-primary4;
 }
 
 // https://github.com/femiwiki/FemiwikiSkin/issues/295
 .ve-ui-overlay-global {
-  font-size: 15px;
+	font-size: 15px;
 }
 
 html.ve-active,
 html.ve-activated,
 html.ve-deactivating {
-  #siteNotice,
-  #mw-fr-revisiontag {
-    display: none;
-  }
+	#siteNotice,
+	#mw-fr-revisiontag {
+		display: none;
+	}
 
-  .mw-body {
-    .mw-editsection {
-      display: none;
-    }
+	.mw-body {
+		.mw-editsection {
+			display: none;
+		}
 
-    // Remove margin of generated elements
-    li > p.ve-ce-generated-wrapper {
-      margin: 0;
-    }
+		// Remove margin of generated elements
+		li > p.ve-ce-generated-wrapper {
+			margin: 0;
+		}
 
-    // Remove padding of visual editor
-    .ve-ce-documentNode {
-      padding: 0;
-    }
-  }
+		// Remove padding of visual editor
+		.ve-ce-documentNode {
+			padding: 0;
+		}
+	}
 
-  .oo-ui-toolbar {
-    font-size: 14px;
-  }
+	.oo-ui-toolbar {
+		font-size: 14px;
+	}
 }
 
 .ve-ui-mwSaveDialog .ve-ui-mwSaveDialog-preview .mw-content-container {
-  max-width: @content-width;
-  .content-horizontal-padding();
-  margin: auto;
-  .parser-output();
+	max-width: @content-width;
+	.content-horizontal-padding();
+	margin: auto;
+	.parser-output();
 
-  // https://github.com/femiwiki/FemiwikiSkin/issues/290
-  a {
-    .mw-link-colors();
-  }
+	// https://github.com/femiwiki/FemiwikiSkin/issues/290
+	a {
+		.mw-link-colors();
+	}
 }
 
 @media screen and (max-width: @width-breakpoint-mobile) {
-  // VisualEditor
-  html.ve-active,
-  html.ve-activated,
-  html.ve-deactivated {
-    .mw-body {
-      padding: 0;
-      margin-top: 0;
-      margin-bottom: 0;
-      overflow: inherit;
-    }
+	// VisualEditor
+	html.ve-active,
+	html.ve-activated,
+	html.ve-deactivated {
+		.mw-body {
+			padding: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+			overflow: inherit;
+		}
 
-    .ve-init-mw-desktopArticleTarget-originalContent {
-      .content-horizontal-padding();
-    }
+		.ve-init-mw-desktopArticleTarget-originalContent {
+			.content-horizontal-padding();
+		}
 
-    .nav-bar,
-    #footer-bottom,
-    #p-header {
-      display: none;
-    }
+		.nav-bar,
+		#footer-bottom,
+		#p-header {
+			display: none;
+		}
 
-    .oo-ui-toolbar-tools {
-      z-index: 1;
-    }
-  }
-  html.ve-active {
-    div.oo-ui-popupWidget-popup {
-      min-width: 16rem;
-      min-height: 10rem;
-    }
+		.oo-ui-toolbar-tools {
+			z-index: 1;
+		}
+	}
+	html.ve-active {
+		div.oo-ui-popupWidget-popup {
+			min-width: 16rem;
+			min-height: 10rem;
+		}
 
-    div.oo-ui-menuLayout-menu {
-      width: 3rem;
-    }
+		div.oo-ui-menuLayout-menu {
+			width: 3rem;
+		}
 
-    div.oo-ui-menuLayout-content {
-      left: 3rem;
-    }
-  }
+		div.oo-ui-menuLayout-content {
+			left: 3rem;
+		}
+	}
 }
