@@ -13,6 +13,54 @@
 	mask-image: url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg");
 }
 
+// The one action of the page, drawn as a filled button
+.action-button(@icon) {
+	background-color: @color-edit-button;
+	font-size: @font-size-edit-button;
+	padding: 0.3em 0.5em;
+	border: 1px solid @color-edit-button-border;
+	border-radius: @border-radius-control;
+	cursor: pointer;
+	box-shadow: @box-shadow-button;
+	transition: background-color 0.3s;
+
+	&:hover {
+		background-color: @color-edit-button--hover;
+	}
+
+	&:active {
+		background-color: @color-edit-button--active;
+		box-shadow: @box-shadow-button--active;
+	}
+
+	a {
+		color: #ffffff;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+
+		&:hover {
+			color: #ffffff;
+			border: none;
+		}
+
+		&:focus {
+			border: none;
+		}
+
+		&:before {
+			content: "";
+			.background-ooui-icon(@icon);
+			background-size: 1em;
+			padding-right: 0.3em;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+			height: 1em;
+			width: 1em;
+		}
+	}
+}
+
 // A Codex icon, drawn in the text colour
 .icon() {
 	display: inline-block;
@@ -578,52 +626,16 @@
 						font-weight: bold;
 					}
 
-					:not(.ve-activated) .action-view &#ca-ve-edit,
-					:not(.ve-activated) .action-view &#ca-edit:not(#ca-ve-edit ~ li) {
-						background-color: @color-edit-button;
-						font-size: @font-size-edit-button;
-						padding: 0.3em 0.5em;
-						border: 1px solid @color-edit-button-border;
-						border-radius: @border-radius-control;
-						cursor: pointer;
-						box-shadow: @box-shadow-button;
-						transition: background-color 0.3s;
+					// On talk pages, starting a new topic is the main action, not editing.
+					:not(.ve-activated) .ns-subject.action-view &#ca-ve-edit,
+					:not(.ve-activated)
+						.ns-subject.action-view
+						&#ca-edit:not(#ca-ve-edit ~ li) {
+						.action-button("edit-invert");
+					}
 
-						&:hover {
-							background-color: @color-edit-button--hover;
-						}
-
-						&:active {
-							background-color: @color-edit-button--active;
-							box-shadow: @box-shadow-button--active;
-						}
-
-						a {
-							color: #ffffff;
-							font-weight: bold;
-							display: flex;
-							align-items: center;
-
-							&:hover {
-								color: #ffffff;
-								border: none;
-							}
-
-							&:focus {
-								border: none;
-							}
-
-							&:before {
-								content: "";
-								.background-ooui-icon("edit-invert");
-								background-size: 1em;
-								padding-right: 0.3em;
-								background-repeat: no-repeat;
-								vertical-align: middle;
-								height: 1em;
-								width: 1em;
-							}
-						}
+					:not(.ve-activated) .ns-talk.action-view &#ca-addsection {
+						.action-button("add-invert");
 					}
 
 					&#ca-view.selected {
