@@ -2,6 +2,14 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.0.2](https://github.com/femiwiki/FemiwikiSkin/compare/v6.0.1...v6.0.2) (2026-10-17)
+
+
+### Bug Fixes
+
+* draw a line beside talk page replies ([#1174](https://github.com/femiwiki/FemiwikiSkin/issues/1174)) ([2817942](https://github.com/femiwiki/FemiwikiSkin/commit/2817942c8ed676b6a9663430f734956ccbfbc3c4))
+* give the filled button to "Add topic" on talk pages ([#1173](https://github.com/femiwiki/FemiwikiSkin/issues/1173)) ([eb93d40](https://github.com/femiwiki/FemiwikiSkin/commit/eb93d40f0583311d70cb01b34bf5cd12b83054df))
+
 ## [6.0.1](https://github.com/femiwiki/FemiwikiSkin/compare/v6.0.0...v6.0.1) (2026-10-17)
 
 
