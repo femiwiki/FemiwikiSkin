@@ -2,6 +2,21 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.0.1](https://github.com/femiwiki/FemiwikiSkin/compare/v6.0.0...v6.0.1) (2026-10-17)
+
+
+### Bug Fixes
+
+* count wikitext talk page topics on the talk tab ([#1166](https://github.com/femiwiki/FemiwikiSkin/issues/1166)) ([f61f5d7](https://github.com/femiwiki/FemiwikiSkin/commit/f61f5d79113332bb4e78d125c545c732fb10d0a9))
+* Fit the FlaggedRevs status dialog on phones ([#1161](https://github.com/femiwiki/FemiwikiSkin/issues/1161)) ([aa6cc7e](https://github.com/femiwiki/FemiwikiSkin/commit/aa6cc7ef03a7dac065620ef7bcf4c433cb1c0b50))
+* give the abuse filter tabs their own icons ([#1167](https://github.com/femiwiki/FemiwikiSkin/issues/1167)) ([92c40d2](https://github.com/femiwiki/FemiwikiSkin/commit/92c40d254379a8ca4b306d0969b1b7f2f6e77fa4))
+* keep recent changes rows inside narrow screens ([#1168](https://github.com/femiwiki/FemiwikiSkin/issues/1168)) ([171f6c2](https://github.com/femiwiki/FemiwikiSkin/commit/171f6c2e2f4c170c3556d08cd5cf07224229aab2))
+* keep section edit links beside a floated image ([#1162](https://github.com/femiwiki/FemiwikiSkin/issues/1162)) ([9c56b9a](https://github.com/femiwiki/FemiwikiSkin/commit/9c56b9a5f4ad85a8633adcc7ba7a940301436e33))
+* Keep the suggested-edit dot on the edit button ([#1164](https://github.com/femiwiki/FemiwikiSkin/issues/1164)) ([cae9e32](https://github.com/femiwiki/FemiwikiSkin/commit/cae9e32c55707c6f6df70436576a8ec869b873bb))
+* keep Translate's progress circles in the language list ([#1158](https://github.com/femiwiki/FemiwikiSkin/issues/1158)) ([308f365](https://github.com/femiwiki/FemiwikiSkin/commit/308f3654e86ef240fd98092f6bd71881836ff877))
+* leave room between menu icons for a mouse ([#1169](https://github.com/femiwiki/FemiwikiSkin/issues/1169)) ([7fc5ef9](https://github.com/femiwiki/FemiwikiSkin/commit/7fc5ef9b94c2eb3c041ed3b465a771874b9013ea))
+* show the notifications popup above the site menu ([#1163](https://github.com/femiwiki/FemiwikiSkin/issues/1163)) ([53823d4](https://github.com/femiwiki/FemiwikiSkin/commit/53823d4215f68b36f5617b6930e406c2c8c0b4ed))
+
 ## [6.0.0](https://github.com/femiwiki/FemiwikiSkin/compare/v5.3.1...v6.0.0) (2026-10-11)
 
 
