@@ -1,31 +1,31 @@
-@import '../variables.less';
+@import "../variables.less";
 
 // Raised cards, flush with the content.
 .read-more-container-card-list {
-  margin: 0;
-  padding: 0;
-  gap: @spacing-75;
+	margin: 0;
+	padding: 0;
+	gap: @spacing-75;
 
-  .cdx-card,
-  a:hover .cdx-card {
-    .surface();
-  }
+	.cdx-card,
+	a:hover .cdx-card {
+		.surface();
+	}
 
-  .cdx-thumbnail__image,
-  .cdx-thumbnail__placeholder {
-    border-radius: 0;
-  }
+	.cdx-thumbnail__image,
+	.cdx-thumbnail__placeholder {
+		border-radius: 0;
+	}
 
-  a:hover .cdx-card__text__title {
-    color: @color-link;
-  }
+	a:hover .cdx-card__text__title {
+		color: @color-link;
+	}
 
-  @media (min-width: @width-breakpoint-tablet) {
-    grid-template-columns: repeat(2, 1fr);
+	@media (min-width: @width-breakpoint-tablet) {
+		grid-template-columns: repeat(2, 1fr);
 
-    .cdx-card {
-      height: 100%;
-      box-sizing: border-box;
-    }
-  }
+		.cdx-card {
+			height: 100%;
+			box-sizing: border-box;
+		}
+	}
 }

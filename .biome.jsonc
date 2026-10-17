@@ -1,0 +1,25 @@
+{
+	"files": {
+		"includes": [
+			"**",
+			"!i18n",
+			"!resources/ooui",
+			"!resources/skins.femiwiki.moduleSkinStyles/ext.pygments.css",
+			"!skin.json",
+			"!.release-please-manifest.json",
+			// svgo writes these
+			"!**/*.svg"
+		]
+	},
+	"linter": {
+		"rules": {
+			// ResourceLoader runs these as ES2017 scripts, not modules
+			"complexity": {
+				"useOptionalChain": "off"
+			},
+			"suspicious": {
+				"noRedundantUseStrict": "off"
+			}
+		}
+	}
+}

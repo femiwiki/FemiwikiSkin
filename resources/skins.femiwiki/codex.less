@@ -1,56 +1,56 @@
-@import '../variables.less';
+@import "../variables.less";
 
 // Codex compiles border-radius and box-shadow as literals, and loads after
 // this module, hence :root for specificity.
 :root {
-  .cdx-button,
-  .cdx-button-group,
-  .cdx-toggle-button,
-  .cdx-toggle-button-group,
-  .cdx-text-input,
-  .cdx-search-input--has-end-button,
-  .cdx-chip-input,
-  .cdx-text-area__textarea,
-  .cdx-select,
-  .cdx-select-vue__handle,
-  .cdx-checkbox__icon,
-  .cdx-message,
-  .cdx-menu,
-  .cdx-dialog,
-  .cdx-popover,
-  .cdx-tooltip {
-    border-radius: @border-radius-control;
-  }
+	.cdx-button,
+	.cdx-button-group,
+	.cdx-toggle-button,
+	.cdx-toggle-button-group,
+	.cdx-text-input,
+	.cdx-search-input--has-end-button,
+	.cdx-chip-input,
+	.cdx-text-area__textarea,
+	.cdx-select,
+	.cdx-select-vue__handle,
+	.cdx-checkbox__icon,
+	.cdx-message,
+	.cdx-menu,
+	.cdx-dialog,
+	.cdx-popover,
+	.cdx-tooltip {
+		border-radius: @border-radius-control;
+	}
 
-  .cdx-button:not(.cdx-button--weight-quiet) {
-    &:enabled,
-    &.cdx-button--fake-button--enabled {
-      box-shadow: @box-shadow-button;
+	.cdx-button:not(.cdx-button--weight-quiet) {
+		&:enabled,
+		&.cdx-button--fake-button--enabled {
+			box-shadow: @box-shadow-button;
 
-      &:active,
-      &.cdx-button--is-active {
-        box-shadow: @box-shadow-button--active;
-      }
-    }
-  }
+			&:active,
+			&.cdx-button--is-active {
+				box-shadow: @box-shadow-button--active;
+			}
+		}
+	}
 
-  .cdx-toggle-button:not(.cdx-toggle-button--quiet):enabled {
-    box-shadow: @box-shadow-button;
+	.cdx-toggle-button:not(.cdx-toggle-button--quiet):enabled {
+		box-shadow: @box-shadow-button;
 
-    &:active,
-    &.cdx-toggle-button--is-active,
-    &.cdx-toggle-button--toggled-on {
-      box-shadow: @box-shadow-button--active;
-    }
-  }
+		&:active,
+		&.cdx-toggle-button--is-active,
+		&.cdx-toggle-button--toggled-on {
+			box-shadow: @box-shadow-button--active;
+		}
+	}
 
-  .cdx-dialog,
-  .cdx-tooltip {
-    box-shadow: @box-shadow-medium;
-  }
+	.cdx-dialog,
+	.cdx-tooltip {
+		box-shadow: @box-shadow-medium;
+	}
 }
 
 // A rounded message is an object of its own, so it keeps Codex's gap between messages from what follows.
 .mw-body-content .cdx-message--block {
-  margin-bottom: @spacing-50;
+	margin-bottom: @spacing-50;
 }

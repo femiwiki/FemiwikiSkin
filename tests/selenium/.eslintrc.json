@@ -1,4 +1,4 @@
 {
-  "root": true,
-  "extends": ["wikimedia/selenium"]
+	"root": true,
+	"extends": ["wikimedia/selenium"]
 }

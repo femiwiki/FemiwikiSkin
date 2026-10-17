@@ -1,12 +1,12 @@
-@import '../variables.less';
+@import "../variables.less";
 
 .ve-ui-targetWidget {
-  border-radius: @border-radius-control;
+	border-radius: @border-radius-control;
 }
 
 .ve-ui-targetWidget-focused {
-  border-color: @color-progressive;
-  box-shadow: inset 0 0 0 1px @color-progressive;
+	border-color: @color-progressive;
+	box-shadow: inset 0 0 0 1px @color-progressive;
 }
 
 // Editing surface https://github.com/femiwiki/FemiwikiSkin/issues/249
@@ -14,7 +14,7 @@
 // Preview of 2017 Wikitext editor
 span[typeof='mw:File'] > a,
 span[typeof='mw:Image'] > a {
-  & > img {
-    .image();
-  }
+	& > img {
+		.image();
+	}
 }

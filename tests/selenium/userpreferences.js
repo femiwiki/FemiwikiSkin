@@ -1,23 +1,25 @@
-import BlankPage from 'wdio-mediawiki/BlankPage.js';
-import { waitForModuleState } from 'wdio-mediawiki/Util.js';
+import BlankPage from "wdio-mediawiki/BlankPage.js";
+import { waitForModuleState } from "wdio-mediawiki/Util.js";
 
 class UserPreferences {
-  async setPreferences(preferences) {
-    await BlankPage.open();
-    await waitForModuleState('mediawiki.base');
+	async setPreferences(preferences) {
+		await BlankPage.open();
+		await waitForModuleState("mediawiki.base");
 
-    return browser.execute(function (prefs) {
-      return mw.loader.using('mediawiki.api').then(function () {
-        return new mw.Api().saveOptions(prefs);
-      });
-    }, preferences);
-  }
+		return browser.execute(
+			(prefs) =>
+				mw.loader
+					.using("mediawiki.api")
+					.then(() => new mw.Api().saveOptions(prefs)),
+			preferences,
+		);
+	}
 
-  async enableFemiwiki() {
-    await this.setPreferences({
-      skin: 'femiwiki',
-    });
-  }
+	async enableFemiwiki() {
+		await this.setPreferences({
+			skin: "femiwiki",
+		});
+	}
 }
 
 export default new UserPreferences();

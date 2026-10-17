@@ -1,5 +1,5 @@
 /** @type {CheckboxHack} */ var checkboxHack = require(
-  /** @type {string} */ ('mediawiki.page.ready'),
+	/** @type {string} */ ("mediawiki.page.ready"),
 ).checkboxHack;
 
 /**
@@ -11,12 +11,12 @@
  * @return {void}
  */
 function initCheckboxHack(checkbox, button) {
-  if (checkbox instanceof HTMLInputElement && button) {
-    checkboxHack.bindToggleOnClick(checkbox, button);
-    checkboxHack.bindUpdateAriaExpandedOnInput(checkbox);
-    checkboxHack.updateAriaExpanded(checkbox);
-    checkboxHack.bindToggleOnEnter(checkbox);
-  }
+	if (checkbox instanceof HTMLInputElement && button) {
+		checkboxHack.bindToggleOnClick(checkbox, button);
+		checkboxHack.bindUpdateAriaExpandedOnInput(checkbox);
+		checkboxHack.updateAriaExpanded(checkbox);
+		checkboxHack.bindToggleOnEnter(checkbox);
+	}
 }
 
 /**
@@ -29,10 +29,10 @@ function initCheckboxHack(checkbox, button) {
  * @return {void}
  */
 function initDropdown(checkbox, button, menu) {
-  if (checkbox instanceof HTMLInputElement && button && menu) {
-    checkboxHack.bind(window, checkbox, button, menu);
-    checkboxHack.updateAriaExpanded(checkbox);
-  }
+	if (checkbox instanceof HTMLInputElement && button && menu) {
+		checkboxHack.bind(window, checkbox, button, menu);
+		checkboxHack.updateAriaExpanded(checkbox);
+	}
 }
 
 /**
@@ -46,68 +46,68 @@ function initDropdown(checkbox, button, menu) {
  * @return {void}
  */
 function initSiteMenu(checkbox, button, menu) {
-  if (!(checkbox instanceof HTMLInputElement && button && menu)) {
-    return;
-  }
-  initCheckboxHack(checkbox, button);
+	if (!(checkbox instanceof HTMLInputElement && button && menu)) {
+		return;
+	}
+	initCheckboxHack(checkbox, button);
 
-  /**
-   * @param {Event} event
-   * @return {void}
-   */
-  function dismissIfOutside(event) {
-    var node = event.target;
-    if (
-      checkbox instanceof HTMLInputElement &&
-      checkbox.checked &&
-      node instanceof Element &&
-      !checkbox.contains(node) &&
-      !(button && button.contains(node)) &&
-      !(menu && menu.contains(node)) &&
-      !node.closest('.mw-echo-ui-overlay')
-    ) {
-      checkbox.checked = false;
-      // checkboxHack updates aria-expanded on this event.
-      checkbox.dispatchEvent(new Event('input', { bubbles: true }));
-    }
-  }
-  window.addEventListener('click', dismissIfOutside, true);
-  window.addEventListener('focusin', dismissIfOutside, true);
+	/**
+	 * @param {Event} event
+	 * @return {void}
+	 */
+	function dismissIfOutside(event) {
+		var node = event.target;
+		if (
+			checkbox instanceof HTMLInputElement &&
+			checkbox.checked &&
+			node instanceof Element &&
+			!checkbox.contains(node) &&
+			!(button && button.contains(node)) &&
+			!(menu && menu.contains(node)) &&
+			!node.closest(".mw-echo-ui-overlay")
+		) {
+			checkbox.checked = false;
+			// checkboxHack updates aria-expanded on this event.
+			checkbox.dispatchEvent(new Event("input", { bubbles: true }));
+		}
+	}
+	window.addEventListener("click", dismissIfOutside, true);
+	window.addEventListener("focusin", dismissIfOutside, true);
 }
 
 /**
  * @return {void}
  */
 function main() {
-  require('./discussionStatus.js').init();
-  require('./notificationBadge.js').init();
-  require('./watchingUsers.js').init();
-  require('./tableOfContents.js').init();
-  require('./navBar.js').init();
+	require("./discussionStatus.js").init();
+	require("./notificationBadge.js").init();
+	require("./watchingUsers.js").init();
+	require("./tableOfContents.js").init();
+	require("./navBar.js").init();
 
-  initCheckboxHack(
-    window.document.getElementById('fw-toc-checkbox'),
-    window.document.getElementById('fw-toc-toggle'),
-  );
-  initSiteMenu(
-    window.document.getElementById('fw-menu-checkbox'),
-    window.document.getElementById('fw-menu-toggle'),
-    window.document.getElementById('fw-menu'),
-  );
-  initDropdown(
-    window.document.getElementById('fw-page-menu-checkbox'),
-    window.document.getElementById('p-menu-toggle'),
-    window.document.getElementById('p-actions-and-toolbox'),
-  );
+	initCheckboxHack(
+		window.document.getElementById("fw-toc-checkbox"),
+		window.document.getElementById("fw-toc-toggle"),
+	);
+	initSiteMenu(
+		window.document.getElementById("fw-menu-checkbox"),
+		window.document.getElementById("fw-menu-toggle"),
+		window.document.getElementById("fw-menu"),
+	);
+	initDropdown(
+		window.document.getElementById("fw-page-menu-checkbox"),
+		window.document.getElementById("p-menu-toggle"),
+		window.document.getElementById("p-actions-and-toolbox"),
+	);
 
-  var fwMenuToggle = document.querySelector('#fw-menu-toggle');
-  var fwNotificationBadge = document.querySelector('#fw-menu-toggle .badge');
-  if (fwMenuToggle && fwNotificationBadge) {
-    fwMenuToggle.addEventListener('click', function () {
-      // @ts-ignore: fwNotificationBadge is possibly 'null'.
-      fwNotificationBadge.classList.remove('active');
-    });
-  }
+	var fwMenuToggle = document.querySelector("#fw-menu-toggle");
+	var fwNotificationBadge = document.querySelector("#fw-menu-toggle .badge");
+	if (fwMenuToggle && fwNotificationBadge) {
+		fwMenuToggle.addEventListener("click", () => {
+			// @ts-expect-error: fwNotificationBadge is possibly 'null'.
+			fwNotificationBadge.classList.remove("active");
+		});
+	}
 }
 
 main();

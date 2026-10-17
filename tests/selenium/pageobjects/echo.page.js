@@ -1,12 +1,12 @@
-import Page from 'wdio-mediawiki/Page.js';
+import Page from "wdio-mediawiki/Page.js";
 
 class EchoPage extends Page {
-  get notifications() {
-    return $('#pt-notifications-all');
-  }
-  get popup() {
-    return $('.oo-ui-labelElement-label');
-  }
+	get notifications() {
+		return $("#pt-notifications-all");
+	}
+	get popup() {
+		return $(".oo-ui-labelElement-label");
+	}
 }
 
 export default new EchoPage();

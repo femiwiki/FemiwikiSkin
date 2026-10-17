@@ -1,597 +1,597 @@
-@import '../variables.less';
-@import 'mediawiki.mixins.less';
+@import "../variables.less";
+@import "mediawiki.mixins.less";
 
 @nav-bar-content-width: @content-width - 1.3rem;
 // The menu button's right edge, at the end of the centred #mw-navigation
-@site-menu-right: ~'max(0px, (100% - @{nav-bar-content-width}) / 2)';
+@site-menu-right: ~"max(0px, (100% - @{nav-bar-content-width}) / 2)";
 @site-menu-inset: 0.3rem;
-@site-menu-popover-right: ~'calc(@{site-menu-right} - @{site-menu-inset})';
+@site-menu-popover-right: ~"calc(@{site-menu-right} - @{site-menu-inset})";
 
 .nav-bar {
-  @height: @height-nav-bar;
-  height: @height;
-  background-color: @background-color-nav-bar;
+	@height: @height-nav-bar;
+	height: @height;
+	background-color: @background-color-nav-bar;
 
-  #mw-navigation {
-    display: flex;
-    max-width: @nav-bar-content-width;
-    margin: 0 auto;
-    height: @height;
+	#mw-navigation {
+		display: flex;
+		max-width: @nav-bar-content-width;
+		margin: 0 auto;
+		height: @height;
 
-    & > * {
-      height: @height;
-      padding: 0;
-      margin: 0;
-    }
+		& > * {
+			height: @height;
+			padding: 0;
+			margin: 0;
+		}
 
-    h2 {
-      display: none;
-    }
+		h2 {
+			display: none;
+		}
 
-    // States of Codex quiet buttons, on the bar's colour
-    #fw-nav-toc-toggle,
-    a#p-logo,
-    #site-navigation a,
-    #fw-menu-toggle {
-      transition-property: background-color, color;
-      transition-duration: @transition-duration-base;
+		// States of Codex quiet buttons, on the bar's colour
+		#fw-nav-toc-toggle,
+		a#p-logo,
+		#site-navigation a,
+		#fw-menu-toggle {
+			transition-property: background-color, color;
+			transition-duration: @transition-duration-base;
 
-      &:hover {
-        background-color: @background-color-nav-bar--hover;
-      }
+			&:hover {
+				background-color: @background-color-nav-bar--hover;
+			}
 
-      &:active {
-        background-color: @background-color-nav-bar--active;
-      }
+			&:active {
+				background-color: @background-color-nav-bar--active;
+			}
 
-      &:focus-visible {
-        outline: 1px solid transparent;
-        box-shadow: @box-shadow-nav-bar--focus;
-      }
+			&:focus-visible {
+				outline: 1px solid transparent;
+				box-shadow: @box-shadow-nav-bar--focus;
+			}
 
-      @media (prefers-reduced-motion: reduce) {
-        transition: none;
-      }
-    }
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
+		}
 
-    #p-logo {
-      flex-shrink: 0;
-      background-repeat: no-repeat;
-      @width: @height;
-      width: @width;
-      background-size: @height @height;
+		#p-logo {
+			flex-shrink: 0;
+			background-repeat: no-repeat;
+			@width: @height;
+			width: @width;
+			background-size: @height @height;
 
-      & when( @logo-enabled = 1 ) {
-        @media (min-width: @width-breakpoint-tablet) {
-          @width: ~'calc(@{height} * @{logo-wordmark-width} / @{logo-wordmark-height})';
-          width: @width;
+			& when( @logo-enabled = 1 ) {
+				@media (min-width: @width-breakpoint-tablet) {
+					@width: ~"calc(@{height} * @{logo-wordmark-width} / @{logo-wordmark-height})";
+					width: @width;
 
-          /* @embed */
-          background-image: @logo-wordmark-url;
-          background-size: @width @height;
-        }
-      }
-    }
+					/* @embed */
+					background-image: @logo-wordmark-url;
+					background-size: @width @height;
+				}
+			}
+		}
 
-    // Search form: Codex TypeaheadSearch, see skins.femiwiki.search
-    #p-search {
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      min-width: 0;
-      padding: 0 0.5rem;
-      // @color-progressive is too light for a focus ring on a white input
-      --border-color-progressive--focus: @color-link;
-      --box-shadow-color-progressive--focus: @color-link;
+		// Search form: Codex TypeaheadSearch, see skins.femiwiki.search
+		#p-search {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			min-width: 0;
+			padding: 0 0.5rem;
+			// @color-progressive is too light for a focus ring on a white input
+			--border-color-progressive--focus: @color-link;
+			--box-shadow-color-progressive--focus: @color-link;
 
-      .fw-typeahead-search-container {
-        width: 100%;
-        max-width: 32rem;
-      }
+			.fw-typeahead-search-container {
+				width: 100%;
+				max-width: 32rem;
+			}
 
-      // Codex gives text inputs a 256px minimum, wider than the bar on phones
-      .cdx-text-input {
-        min-width: 0;
-      }
+			// Codex gives text inputs a 256px minimum, wider than the bar on phones
+			.cdx-text-input {
+				min-width: 0;
+			}
 
-      // Inset in the bar rather than filling its height
-      .cdx-text-input__input {
-        height: 32px;
-        max-height: none;
-      }
+			// Inset in the bar rather than filling its height
+			.cdx-text-input__input {
+				height: 32px;
+				max-height: none;
+			}
 
-      // Same padding as the TypeaheadSearch that replaces this box on focus.
-      .cdx-typeahead-search--show-thumbnail {
-        .cdx-text-input__input {
-          padding-left: 60px;
-        }
+			// Same padding as the TypeaheadSearch that replaces this box on focus.
+			.cdx-typeahead-search--show-thumbnail {
+				.cdx-text-input__input {
+					padding-left: 60px;
+				}
 
-        .cdx-text-input__start-icon {
-          left: 23px;
-        }
-      }
+				.cdx-text-input__start-icon {
+					left: 23px;
+				}
+			}
 
-      // Suggestions float with the shadow of other menus
-      .cdx-menu {
-        box-shadow: @box-shadow-medium;
-      }
+			// Suggestions float with the shadow of other menus
+			.cdx-menu {
+				box-shadow: @box-shadow-medium;
+			}
 
-      .fw-search-close {
-        display: none;
-      }
+			.fw-search-close {
+				display: none;
+			}
 
-      // Full screen while the search is in use on phones
-      @media (max-width: @max-width-breakpoint-mobile) {
-        &:has(.fw-typeahead-search--active) {
-          position: fixed;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          // Wide page content stretches the layout viewport past the screen
-          box-sizing: border-box;
-          max-width: 100vw;
-          z-index: @z-index-overlay;
-          height: auto;
-          align-items: flex-start;
-          gap: 0.25rem;
-          padding: 0.375rem 0.5rem 0 0.25rem;
-          background-color: @background-color-base;
+			// Full screen while the search is in use on phones
+			@media (max-width: @max-width-breakpoint-mobile) {
+				&:has(.fw-typeahead-search--active) {
+					position: fixed;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					// Wide page content stretches the layout viewport past the screen
+					box-sizing: border-box;
+					max-width: 100vw;
+					z-index: @z-index-overlay;
+					height: auto;
+					align-items: flex-start;
+					gap: 0.25rem;
+					padding: 0.375rem 0.5rem 0 0.25rem;
+					background-color: @background-color-base;
 
-          .fw-search-close {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            width: @min-size-interactive-touch;
-            height: @min-size-interactive-touch;
-            margin-top: -0.375rem;
-            padding: 0;
-            border: 0;
-            border-radius: @border-radius-control;
-            background-color: transparent;
-            cursor: pointer;
+					.fw-search-close {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						flex-shrink: 0;
+						width: @min-size-interactive-touch;
+						height: @min-size-interactive-touch;
+						margin-top: -0.375rem;
+						padding: 0;
+						border: 0;
+						border-radius: @border-radius-control;
+						background-color: transparent;
+						cursor: pointer;
 
-            &:hover {
-              background-color: @button-background-color--hover;
-            }
-          }
+						&:hover {
+							background-color: @button-background-color--hover;
+						}
+					}
 
-          .fw-search-close-icon {
-            .cdx-mixin-css-icon( @cdx-icon-arrow-previous );
-          }
+					.fw-search-close-icon {
+						.cdx-mixin-css-icon( @cdx-icon-arrow-previous );
+					}
 
-          .fw-typeahead-search-container {
-            max-width: none;
-          }
+					.fw-typeahead-search-container {
+						max-width: none;
+					}
 
-          // The whole width below the input, one line a result
-          .cdx-menu {
-            max-height: calc(100vh - 3.5rem);
-            border: 0;
-            border-radius: 0;
-            box-shadow: none;
-          }
+					// The whole width below the input, one line a result
+					.cdx-menu {
+						max-height: calc(100vh - 3.5rem);
+						border: 0;
+						border-radius: 0;
+						box-shadow: none;
+					}
 
-          .cdx-menu-item__text__label,
-          .cdx-menu-item__text__description,
-          .cdx-search-result-title {
-            display: block;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
-        }
-      }
-    }
+					.cdx-menu-item__text__label,
+					.cdx-menu-item__text__description,
+					.cdx-search-result-title {
+						display: block;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+					}
+				}
+			}
+		}
 
-    // Recent changes and random pages
-    #site-navigation {
-      flex-shrink: 0;
+		// Recent changes and random pages
+		#site-navigation {
+			flex-shrink: 0;
 
-      li {
-        float: left;
-        list-style-type: none;
-        color: #fff;
-        text-align: center;
+			li {
+				float: left;
+				list-style-type: none;
+				color: #fff;
+				text-align: center;
 
-        a {
-          font-size: 0.8rem;
-          position: relative;
-          display: block;
-          width: @height;
-          height: @height;
-          color: @color-base100;
-          text-decoration: none;
+				a {
+					font-size: 0.8rem;
+					position: relative;
+					display: block;
+					width: @height;
+					height: @height;
+					color: @color-base100;
+					text-decoration: none;
 
-          @media (min-width: @width-breakpoint-tablet) {
-            width: auto;
-          }
+					@media (min-width: @width-breakpoint-tablet) {
+						width: auto;
+					}
 
-          // The icon is a mask, so it is drawn in the text colour
-          &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: currentColor;
-            -webkit-mask-position: center;
-            mask-position: center;
-            -webkit-mask-size: 1.3rem;
-            mask-size: 1.3rem;
-            -webkit-mask-repeat: no-repeat;
-            mask-repeat: no-repeat;
+					// The icon is a mask, so it is drawn in the text colour
+					&::before {
+						content: "";
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						background-color: currentColor;
+						-webkit-mask-position: center;
+						mask-position: center;
+						-webkit-mask-size: 1.3rem;
+						mask-size: 1.3rem;
+						-webkit-mask-repeat: no-repeat;
+						mask-repeat: no-repeat;
 
-            @media (min-width: @width-breakpoint-tablet) {
-              -webkit-mask-size: 1.2rem;
-              mask-size: 1.2rem;
-              -webkit-mask-position: 0.6rem 50%;
-              mask-position: 0.6rem 50%;
-            }
-          }
+						@media (min-width: @width-breakpoint-tablet) {
+							-webkit-mask-size: 1.2rem;
+							mask-size: 1.2rem;
+							-webkit-mask-position: 0.6rem 50%;
+							mask-position: 0.6rem 50%;
+						}
+					}
 
-          .text {
-            display: none;
+					.text {
+						display: none;
 
-            @media (min-width: @width-breakpoint-tablet) {
-              display: inline-block;
-              padding-left: 2.2rem;
-              padding-right: 1rem;
-              line-height: @height;
-            }
-          }
-        }
+						@media (min-width: @width-breakpoint-tablet) {
+							display: inline-block;
+							padding-left: 2.2rem;
+							padding-right: 1rem;
+							line-height: @height;
+						}
+					}
+				}
 
-        &.changes a::before {
-          -webkit-mask-image: url(images/icon-changes-notext.svg);
-          mask-image: url(images/icon-changes-notext.svg);
-        }
-        &.random a::before {
-          -webkit-mask-image: url(images/icon-random-notext.svg);
-          mask-image: url(images/icon-random-notext.svg);
-        }
-      }
-    }
+				&.changes a::before {
+					-webkit-mask-image: url(images/icon-changes-notext.svg);
+					mask-image: url(images/icon-changes-notext.svg);
+				}
+				&.random a::before {
+					-webkit-mask-image: url(images/icon-random-notext.svg);
+					mask-image: url(images/icon-random-notext.svg);
+				}
+			}
+		}
 
-    // The ToC button of a pinned bar, see the end of this file
-    #fw-nav-toc-toggle {
-      display: none;
-      position: relative;
-      flex-shrink: 0;
-      min-width: @height;
-      border-width: 0;
-      background-color: inherit;
-      color: @color-base100;
-      font: inherit;
-      font-size: 0.8rem;
-      cursor: pointer;
+		// The ToC button of a pinned bar, see the end of this file
+		#fw-nav-toc-toggle {
+			display: none;
+			position: relative;
+			flex-shrink: 0;
+			min-width: @height;
+			border-width: 0;
+			background-color: inherit;
+			color: @color-base100;
+			font: inherit;
+			font-size: 0.8rem;
+			cursor: pointer;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: currentColor;
-        -webkit-mask: /* @embed */ url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/listBullet-ltr.svg')
-          center ~'/' 1.2rem no-repeat;
-        mask: /* @embed */ url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/listBullet-ltr.svg')
-          center ~'/' 1.2rem no-repeat;
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: currentColor;
+				-webkit-mask: /* @embed */ url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/listBullet-ltr.svg")
+					center ~"/" 1.2rem no-repeat;
+				mask: /* @embed */ url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/listBullet-ltr.svg")
+					center ~"/" 1.2rem no-repeat;
 
-        @media (min-width: @width-breakpoint-tablet) {
-          -webkit-mask-position: 0.6rem 50%;
-          mask-position: 0.6rem 50%;
-        }
-      }
+				@media (min-width: @width-breakpoint-tablet) {
+					-webkit-mask-position: 0.6rem 50%;
+					mask-position: 0.6rem 50%;
+				}
+			}
 
-      // The label shows where the site navigation's do
-      .text {
-        display: none;
+			// The label shows where the site navigation's do
+			.text {
+				display: none;
 
-        @media (min-width: @width-breakpoint-tablet) {
-          display: inline-block;
-          padding-left: 2.2rem;
-          padding-right: 1rem;
-          line-height: @height;
-        }
-      }
-    }
+				@media (min-width: @width-breakpoint-tablet) {
+					display: inline-block;
+					padding-left: 2.2rem;
+					padding-right: 1rem;
+					line-height: @height;
+				}
+			}
+		}
 
-    // Menu button
-    #fw-menu-toggle {
-      position: relative;
-      width: @height;
-      min-width: @height;
-      border-width: 0;
-      background-color: inherit;
-      color: @color-base100;
+		// Menu button
+		#fw-menu-toggle {
+			position: relative;
+			width: @height;
+			min-width: @height;
+			border-width: 0;
+			background-color: inherit;
+			color: @color-base100;
 
-      .icon {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: currentColor;
-        -webkit-mask: url(images/icon-bars.svg) center ~'/' 1.2rem no-repeat;
-        mask: url(images/icon-bars.svg) center ~'/' 1.2rem no-repeat;
-      }
+			.icon {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: currentColor;
+				-webkit-mask: url(images/icon-bars.svg) center ~"/" 1.2rem no-repeat;
+				mask: url(images/icon-bars.svg) center ~"/" 1.2rem no-repeat;
+			}
 
-      .badge {
-        display: none;
-        position: absolute;
-        right: 0.2rem;
-        top: 0.2rem;
-        text-align: center;
-        color: @color-badge-text;
-        background-color: @color-badge;
-        width: 1.2rem;
-        height: 1.2rem;
-        font-size: 0.7rem;
-        line-height: 1.1rem;
-        border: 1px solid @background-color-nav-bar;
-        border-radius: @border-radius-pill;
-        animation: gentle-pulse 5s infinite;
+			.badge {
+				display: none;
+				position: absolute;
+				right: 0.2rem;
+				top: 0.2rem;
+				text-align: center;
+				color: @color-badge-text;
+				background-color: @color-badge;
+				width: 1.2rem;
+				height: 1.2rem;
+				font-size: 0.7rem;
+				line-height: 1.1rem;
+				border: 1px solid @background-color-nav-bar;
+				border-radius: @border-radius-pill;
+				animation: gentle-pulse 5s infinite;
 
-        @media (prefers-reduced-motion: reduce) {
-          animation: none;
-        }
+				@media (prefers-reduced-motion: reduce) {
+					animation: none;
+				}
 
-        &.active {
-          display: block;
-        }
-      }
-    }
-  }
+				&.active {
+					display: block;
+				}
+			}
+		}
+	}
 }
 
 // Subtract 1px to avoid being applied with the min-width rule at the same time
 @media (max-width: calc(@width-breakpoint-tablet - 1px)) {
-  html[lang='ko'] #mw-navigation #site-navigation {
-    a::before {
-      -webkit-mask-size: 2.4rem;
-      mask-size: 2.4rem;
-    }
-    .changes a::before {
-      -webkit-mask-image: url(images/icon-changes.svg);
-      mask-image: url(images/icon-changes.svg);
-    }
-    .random a::before {
-      -webkit-mask-image: url(images/icon-random.svg);
-      mask-image: url(images/icon-random.svg);
-    }
-  }
+	html[lang="ko"] #mw-navigation #site-navigation {
+		a::before {
+			-webkit-mask-size: 2.4rem;
+			mask-size: 2.4rem;
+		}
+		.changes a::before {
+			-webkit-mask-image: url(images/icon-changes.svg);
+			mask-image: url(images/icon-changes.svg);
+		}
+		.random a::before {
+			-webkit-mask-image: url(images/icon-random.svg);
+			mask-image: url(images/icon-random.svg);
+		}
+	}
 }
 
 .fw-wiki-portals {
-  max-width: @content-width - @content-horizontal-padding;
-  .content-horizontal-padding();
+	max-width: @content-width - @content-horizontal-padding;
+	.content-horizontal-padding();
 
-  padding-top: @portal-column-gap;
-  padding-bottom: @portal-column-gap;
+	padding-top: @portal-column-gap;
+	padding-bottom: @portal-column-gap;
 
-  // Full width on phones. On wider screens a popover under the menu button, over the content,
-  // aligned to the button's right edge, as the page menu is.
-  @media (min-width: @width-breakpoint-tablet) {
-    position: absolute;
-    z-index: @z-index-dropdown;
-    top: @height-nav-bar;
-    right: @site-menu-popover-right;
-    display: block;
-    box-sizing: border-box;
-    width: ~'calc(32.3rem + @{site-menu-inset} * 2)';
-    max-height: ~'calc(100vh - @{height-nav-bar})';
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    margin: 0;
-    // Keeps the panels' shadows inside the scrolling box
-    padding: @site-menu-inset;
-    // Two columns filled from the right, so the account row and personal panel come first under the button
-    columns: 2;
-    column-gap: 0.3rem;
-    direction: rtl;
+	// Full width on phones. On wider screens a popover under the menu button, over the content,
+	// aligned to the button's right edge, as the page menu is.
+	@media (min-width: @width-breakpoint-tablet) {
+		position: absolute;
+		z-index: @z-index-dropdown;
+		top: @height-nav-bar;
+		right: @site-menu-popover-right;
+		display: block;
+		box-sizing: border-box;
+		width: ~"calc(32.3rem + @{site-menu-inset} * 2)";
+		max-height: ~"calc(100vh - @{height-nav-bar})";
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		margin: 0;
+		// Keeps the panels' shadows inside the scrolling box
+		padding: @site-menu-inset;
+		// Two columns filled from the right, so the account row and personal panel come first under the button
+		columns: 2;
+		column-gap: 0.3rem;
+		direction: rtl;
 
-    &#fw-menu > * {
-      direction: ltr;
-      break-inside: avoid;
-      margin: 0 0 0.3rem;
-    }
-  }
+		&#fw-menu > * {
+			direction: ltr;
+			break-inside: avoid;
+			margin: 0 0 0.3rem;
+		}
+	}
 
-  // Sign-up and log-in buttons above the panels
-  #fw-account-actions {
-    grid-column: 1 / -1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: @portal-column-gap;
-    margin: 0;
-    padding: 0;
+	// Sign-up and log-in buttons above the panels
+	#fw-account-actions {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-wrap: wrap;
+		gap: @portal-column-gap;
+		margin: 0;
+		padding: 0;
 
-    // Stacked in the popover, each as wide as the panels below
-    @media (min-width: @width-breakpoint-tablet) {
-      flex-direction: column;
-      gap: 0.3rem;
-      margin: 0 0 0.3rem;
-    }
+		// Stacked in the popover, each as wide as the panels below
+		@media (min-width: @width-breakpoint-tablet) {
+			flex-direction: column;
+			gap: 0.3rem;
+			margin: 0 0 0.3rem;
+		}
 
-    // Logged-in readers have no account actions
-    &:empty {
-      display: none;
-    }
+		// Logged-in readers have no account actions
+		&:empty {
+			display: none;
+		}
 
-    // Equal buttons side by side, each on a row of its own where the labels do not fit
-    li {
-      flex: 1 1 0;
-      min-width: max-content;
-      list-style-type: none;
-      margin: 0;
-    }
+		// Equal buttons side by side, each on a row of its own where the labels do not fit
+		li {
+			flex: 1 1 0;
+			min-width: max-content;
+			list-style-type: none;
+			margin: 0;
+		}
 
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3em;
-      min-height: @min-size-interactive-pointer;
-      padding: 0 1em;
-      box-sizing: border-box;
-      border: 1px solid @border-color-interactive;
-      border-radius: @border-radius-control;
-      background-color: @background-color-interactive-subtle;
-      box-shadow: @box-shadow-button;
-      color: @color-base;
-      font-weight: bold;
-      white-space: nowrap;
-      text-decoration: none;
+		a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.3em;
+			min-height: @min-size-interactive-pointer;
+			padding: 0 1em;
+			box-sizing: border-box;
+			border: 1px solid @border-color-interactive;
+			border-radius: @border-radius-control;
+			background-color: @background-color-interactive-subtle;
+			box-shadow: @box-shadow-button;
+			color: @color-base;
+			font-weight: bold;
+			white-space: nowrap;
+			text-decoration: none;
 
-      @media (pointer: coarse) {
-        min-height: @min-size-interactive-touch;
-      }
+			@media (pointer: coarse) {
+				min-height: @min-size-interactive-touch;
+			}
 
-      &:hover {
-        background-color: @background-color-interactive-subtle--hover;
-      }
+			&:hover {
+				background-color: @background-color-interactive-subtle--hover;
+			}
 
-      &:active {
-        background-color: @background-color-interactive-subtle--active;
-        box-shadow: @box-shadow-button--active;
-      }
-    }
+			&:active {
+				background-color: @background-color-interactive-subtle--active;
+				box-shadow: @box-shadow-button--active;
+			}
+		}
 
-    #pt-createaccount a {
-      background-color: @color-accent;
-      border-color: @color-accent--active;
-      color: @color-accent-text;
-      box-shadow: @box-shadow-button;
+		#pt-createaccount a {
+			background-color: @color-accent;
+			border-color: @color-accent--active;
+			color: @color-accent-text;
+			box-shadow: @box-shadow-button;
 
-      &:hover {
-        background-color: @color-accent--hover;
-      }
+			&:hover {
+				background-color: @color-accent--hover;
+			}
 
-      &:active {
-        background-color: @color-accent--active;
-        box-shadow: @box-shadow-button--active;
-      }
-    }
-  }
+			&:active {
+				background-color: @color-accent--active;
+				box-shadow: @box-shadow-button--active;
+			}
+		}
+	}
 
-  // Hide less-frequently used links
-  #ca-addsection {
-    display: none;
-  }
+	// Hide less-frequently used links
+	#ca-addsection {
+		display: none;
+	}
 
-  // Hide duplicated links with in nav-bar
-  #n-recentchanges,
-  #n-randompage {
-    display: none;
-  }
+	// Hide duplicated links with in nav-bar
+	#n-recentchanges,
+	#n-randompage {
+		display: none;
+	}
 
-  #p-personal {
-    .mw-echo-notifications-badge {
-      width: auto;
-      height: auto;
-      margin: auto;
-      top: auto;
-      cursor: pointer;
-      line-height: unset;
-      // Disable background icon and counter
-      background-image: none;
+	#p-personal {
+		.mw-echo-notifications-badge {
+			width: auto;
+			height: auto;
+			margin: auto;
+			top: auto;
+			cursor: pointer;
+			line-height: unset;
+			// Disable background icon and counter
+			background-image: none;
 
-      &.mw-echo-notifications-badge-all-read {
-        opacity: unset;
-      }
-    }
+			&.mw-echo-notifications-badge-all-read {
+				opacity: unset;
+			}
+		}
 
-    .mw-echo-alert {
-      background-color: @color-badge;
-      color: @color-badge-text;
-      border-radius: @border-radius-pill;
-    }
-  }
+		.mw-echo-alert {
+			background-color: @color-badge;
+			color: @color-badge-text;
+			border-radius: @border-radius-pill;
+		}
+	}
 }
 
 #fw-menu-checkbox:not(:checked) ~ #fw-menu {
-  display: none;
+	display: none;
 }
 
 // Where the ToC is a drawer, navBar.js brings the bar back on a scroll up (#503)
 @media screen and (max-width: calc(@width-breakpoint-toc-column - 1px)) {
-  // Set before scripts run, as a URL's fragment can be scrolled to first, as Vector does (T406114)
-  html.client-js {
-    scroll-padding-top: @height-nav-bar;
-  }
+	// Set before scripts run, as a URL's fragment can be scrolled to first, as Vector does (T406114)
+	html.client-js {
+		scroll-padding-top: @height-nav-bar;
+	}
 
-  .fw-nav-bar-pinned {
-    .nav-bar-space {
-      height: @height-nav-bar;
-    }
+	.fw-nav-bar-pinned {
+		.nav-bar-space {
+			height: @height-nav-bar;
+		}
 
-    .nav-bar {
-      position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: @z-index-sticky;
-      transform: translateY(-100%);
-    }
+		.nav-bar {
+			position: fixed;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: @z-index-sticky;
+			transform: translateY(-100%);
+		}
 
-    &.fw-nav-bar-shown .nav-bar {
-      transform: none;
-    }
+		&.fw-nav-bar-shown .nav-bar {
+			transform: none;
+		}
 
-    &.fw-nav-bar-animate .nav-bar {
-      transition: transform @transition-duration-medium
-        @transition-timing-function-system;
+		&.fw-nav-bar-animate .nav-bar {
+			transition: transform @transition-duration-medium
+				@transition-timing-function-system;
 
-      @media (prefers-reduced-motion: reduce) {
-        transition: none;
-      }
-    }
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
+		}
 
-    // Opens under the bar, not at the top of the page
-    #fw-menu-checkbox:checked ~ #fw-menu {
-      position: fixed;
-      top: @height-nav-bar;
-      right: 0;
-      left: 0;
-      z-index: @z-index-sticky;
-      max-width: none;
-      max-height: ~'calc(100vh - @{height-nav-bar})';
-      margin: 0;
-      padding-left: ~'max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)';
-      padding-right: ~'max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)';
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      background-color: @background-color-base;
-      // The shadow fades into the page in the dark theme
-      border-bottom: 1px solid @border-color-surface;
-      box-shadow: @box-shadow-medium;
+		// Opens under the bar, not at the top of the page
+		#fw-menu-checkbox:checked ~ #fw-menu {
+			position: fixed;
+			top: @height-nav-bar;
+			right: 0;
+			left: 0;
+			z-index: @z-index-sticky;
+			max-width: none;
+			max-height: ~"calc(100vh - @{height-nav-bar})";
+			margin: 0;
+			padding-left: ~"max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)";
+			padding-right: ~"max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)";
+			overflow-y: auto;
+			overscroll-behavior: contain;
+			background-color: @background-color-base;
+			// The shadow fades into the page in the dark theme
+			border-bottom: 1px solid @border-color-surface;
+			box-shadow: @box-shadow-medium;
 
-      // The popover, fixed under the bar with it
-      @media (min-width: @width-breakpoint-tablet) {
-        left: auto;
-        right: @site-menu-popover-right;
-        max-height: ~'calc(100vh - @{height-nav-bar})';
-        padding: @site-menu-inset;
-        background-color: transparent;
-        border-bottom: 0;
-        box-shadow: none;
-      }
-    }
-  }
+			// The popover, fixed under the bar with it
+			@media (min-width: @width-breakpoint-tablet) {
+				left: auto;
+				right: @site-menu-popover-right;
+				max-height: ~"calc(100vh - @{height-nav-bar})";
+				padding: @site-menu-inset;
+				background-color: transparent;
+				border-bottom: 0;
+				box-shadow: none;
+			}
+		}
+	}
 
-  .fw-nav-bar-toc .nav-bar #mw-navigation #fw-nav-toc-toggle {
-    display: block;
-  }
+	.fw-nav-bar-toc .nav-bar #mw-navigation #fw-nav-toc-toggle {
+		display: block;
+	}
 }
 
 // Hide notificationBadgeButtonPopupWidget's title text which is just an error message
 // ('echo-notification-all-text-only' message is used but does not exist)
 .mw-echo-ui-notificationBadgeButtonPopupWidget-popup
-  .oo-ui-popupWidget-head
-  > .oo-ui-labelElement-label {
-  display: none;
+	.oo-ui-popupWidget-head
+	> .oo-ui-labelElement-label {
+	display: none;
 }

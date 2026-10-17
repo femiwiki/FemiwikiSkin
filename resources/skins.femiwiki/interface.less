@@ -1,769 +1,769 @@
-@import '../variables.less';
+@import "../variables.less";
 
 .background-icon(@icon) {
-  background-image: /* @embed */ url('@{icon}');
+	background-image: /* @embed */ url("@{icon}");
 }
 
 .background-ooui-icon(@icon) {
-  .background-icon('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
+	.background-icon("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg");
 }
 
 .mask-ooui-icon(@icon) {
-  -webkit-mask-image: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
-  mask-image: url('../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg');
+	-webkit-mask-image: url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg");
+	mask-image: url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/@{icon}.svg");
 }
 
 // A Codex icon, drawn in the text colour
 .icon() {
-  display: inline-block;
-  flex-shrink: 0;
-  width: 1.25em;
-  height: 1.25em;
-  background-color: currentColor;
-  opacity: @opacity-icon;
-  -webkit-mask: center ~'/' contain no-repeat;
-  mask: center ~'/' contain no-repeat;
+	display: inline-block;
+	flex-shrink: 0;
+	width: 1.25em;
+	height: 1.25em;
+	background-color: currentColor;
+	opacity: @opacity-icon;
+	-webkit-mask: center ~"/" contain no-repeat;
+	mask: center ~"/" contain no-repeat;
 }
 
 // skins.femiwiki.icons sets the image of each
 .fw-icon {
-  .icon();
+	.icon();
 }
 
 // General
 // The site menu and the page menu, each portlet a raised panel
 .fw-portals {
-  margin: 0.6rem auto 0;
-  padding: 0;
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: @portal-column-gap;
+	margin: 0.6rem auto 0;
+	padding: 0;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: @portal-column-gap;
 
-  .mw-portlet {
-    // Codex menu item spacing. Rows with and without an icon share one text column.
-    @icon-width: 1.5em;
-    @text-start: ~'calc(@{spacing-75} + @{icon-width} + @{spacing-50})';
-    // The icon sits in the padding, so rows with and without one share a text column.
-    .menu-icon() {
-      width: @icon-width;
-      height: @icon-width;
-      margin: 0 @spacing-50 0 ~'calc(-@{icon-width} - @{spacing-50})';
-    }
-    min-width: 0;
-    margin: 0;
-    padding: 0.3rem;
-    .surface();
+	.mw-portlet {
+		// Codex menu item spacing. Rows with and without an icon share one text column.
+		@icon-width: 1.5em;
+		@text-start: ~"calc(@{spacing-75} + @{icon-width} + @{spacing-50})";
+		// The icon sits in the padding, so rows with and without one share a text column.
+		.menu-icon() {
+			width: @icon-width;
+			height: @icon-width;
+			margin: 0 @spacing-50 0 ~"calc(-@{icon-width} - @{spacing-50})";
+		}
+		min-width: 0;
+		margin: 0;
+		padding: 0.3rem;
+		.surface();
 
-    &.emptyPortlet {
-      display: none;
-    }
+		&.emptyPortlet {
+			display: none;
+		}
 
-    h3 {
-      font-size: 0.75rem;
-      font-weight: normal;
-      color: @color-subtle;
-      margin: 0;
-      padding: 0.3rem @spacing-75;
-    }
+		h3 {
+			font-size: 0.75rem;
+			font-weight: normal;
+			color: @color-subtle;
+			margin: 0;
+			padding: 0.3rem @spacing-75;
+		}
 
-    ul {
-      margin: 0;
-      padding: 0;
+		ul {
+			margin: 0;
+			padding: 0;
 
-      li {
-        list-style-type: none;
-        margin: 0;
+			li {
+				list-style-type: none;
+				margin: 0;
 
-        a {
-          display: flex;
-          align-items: center;
-          // Room between the icons of adjacent rows for a mouse, the touch target size for a finger
-          min-height: ~'calc(@{icon-width} + @{spacing-50})';
-          padding: 0 @spacing-75 0 @text-start;
+				a {
+					display: flex;
+					align-items: center;
+					// Room between the icons of adjacent rows for a mouse, the touch target size for a finger
+					min-height: ~"calc(@{icon-width} + @{spacing-50})";
+					padding: 0 @spacing-75 0 @text-start;
 
-          @media (pointer: coarse) {
-            min-height: @min-size-interactive-touch;
-          }
-          border-radius: @border-radius-control;
-          box-sizing: border-box;
-          text-decoration: none;
-          color: @color-base;
+					@media (pointer: coarse) {
+						min-height: @min-size-interactive-touch;
+					}
+					border-radius: @border-radius-control;
+					box-sizing: border-box;
+					text-decoration: none;
+					color: @color-base;
 
-          &:hover {
-            background-color: @button-background-color--hover;
-          }
+					&:hover {
+						background-color: @button-background-color--hover;
+					}
 
-          &:active {
-            background-color: @button-background-color--active;
-          }
+					&:active {
+						background-color: @button-background-color--active;
+					}
 
-          .fw-icon {
-            .menu-icon();
-          }
-        }
+					.fw-icon {
+						.menu-icon();
+					}
+				}
 
-        // A row without a link, such as 'Not logged in'
-        > span {
-          display: block;
-          padding: 0.3rem @spacing-75 0.3rem @text-start;
-        }
+				// A row without a link, such as 'Not logged in'
+				> span {
+					display: block;
+					padding: 0.3rem @spacing-75 0.3rem @text-start;
+				}
 
-        // Items added by extensions or replaced by scripts cannot carry an icon from the hook
-        .fw-icon-before(@icon) {
-          a:before {
-            content: '';
-            .icon();
-            .menu-icon();
-            .mask-ooui-icon(@icon);
-          }
-        }
+				// Items added by extensions or replaced by scripts cannot carry an icon from the hook
+				.fw-icon-before(@icon) {
+					a:before {
+						content: "";
+						.icon();
+						.menu-icon();
+						.mask-ooui-icon(@icon);
+					}
+				}
 
-        &#t-wikibase {
-          .fw-icon-before('logo-Wikidata');
-        }
-        &#t-cite {
-          .fw-icon-before('quotes-ltr');
+				&#t-wikibase {
+					.fw-icon-before("logo-Wikidata");
+				}
+				&#t-cite {
+					.fw-icon-before("quotes-ltr");
 
-          .rtl & {
-            .fw-icon-before('quotes-rtl');
-          }
-        }
-        &#pt-notifications-all {
-          .fw-icon-before('bell');
-        }
-      }
-    }
-  }
+					.rtl & {
+						.fw-icon-before("quotes-rtl");
+					}
+				}
+				&#pt-notifications-all {
+					.fw-icon-before("bell");
+				}
+			}
+		}
+	}
 }
 
 .mw-checkbox-hack-checkbox {
-  display: none;
+	display: none;
 }
 
 .mw-checkbox-hack-button {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 // Specific
 #p-header {
-  box-sizing: border-box;
-  margin: 2.3rem auto 0.5rem;
-  padding-top: 0;
-  padding-bottom: 0;
-  .content-horizontal-padding();
-  max-width: @content-width;
-  clear: both;
-  // For the page menu popover
-  position: relative;
-
-  ul,
-  li {
-    margin: 0;
-    display: block;
-  }
-
-  ul {
-    padding: 0;
-  }
-
-  #localNotice {
-    font-size: 0.8rem;
-    color: @color-emphasized;
-    margin: 0 0 4rem;
-    padding: 1.6rem 0.8rem;
-    .surface();
-    position: relative;
-    text-align: center;
-
-    // sitenotice includes parsed contents
-    .parser-output();
-
-    p {
-      margin: 0;
-    }
-
-    hr {
-      border-top: 1px solid #aca8e088;
-      margin: 1em;
-    }
-  }
-
-  .mw-portlet-associated-pages {
-    h3 {
-      display: none;
-    }
-
-    ul {
-      li {
-        @size-icon: 1.42857143rem;
-        @width: @size-icon + @padding-icon * 2;
-        @height: @size-icon + @padding-icon * 2;
-        float: left;
-
-        a {
-          color: @color-base;
-          text-decoration: none;
-        }
-
-        &.selected {
-          display: none;
-        }
-
-        // Only use icon
-        // Reference: TabWatchstarLink.less of Vector.
-        & {
-          display: block;
-          width: @width;
-          height: @height;
-
-          a {
-            display: block;
-            width: @width;
-            height: 0;
-            padding: @height 0 0 0;
-            overflow: hidden;
-            position: relative;
-            border-radius: @border-radius-control;
-
-            &:before {
-              background-repeat: no-repeat;
-              background-position: 50% 50%;
-              opacity: @opacity-icon;
-              content: '';
-              display: block;
-              position: absolute;
-              top: @padding-icon;
-              left: @padding-icon;
-              width: @size-icon;
-              height: @size-icon;
-            }
-
-            &:hover {
-              background-color: @button-background-color--hover;
-            }
-
-            &:active {
-              background-color: @button-background-color--active;
-            }
-          }
-
-          &.selected {
-            display: none;
-          }
-
-          &.label {
-            width: auto;
-            a {
-              width: auto;
-              height: auto;
-              padding: @padding-icon;
-              line-height: @size-icon;
-
-              &:before {
-                position: relative;
-                margin-right: @padding-icon;
-                top: 0;
-                left: 0;
-                float: left;
-              }
-            }
-          }
-        }
-
-        // fallback
-        & a:before {
-          // url(/skins/Femiwiki/resources/ooui/images/icons/article.svg)
-          .background-ooui-icon('article-ltr');
-          .rtl & {
-            .background-ooui-icon('article-rtl');
-          }
-        }
-        &#ca-talk a:before {
-          .background-ooui-icon('speechBubbles-ltr');
-          .rtl & {
-            .background-ooui-icon('speechBubbles-rtl');
-          }
-        }
-        &#ca-talk.has-open-topic a:before {
-          opacity: unset;
-          .background-icon('images/speechBubbles-ltr-new.svg');
-          .rtl & {
-            .background-icon('images/speechBubbles-rtl-new.svg');
-          }
-        }
-        &#ca-user a:before {
-          .background-ooui-icon('userAvatar');
-        }
-        &#ca-homepage a:before {
-          .background-ooui-icon('home');
-        }
-        &#ca-watch a:before {
-          .background-ooui-icon('star');
-        }
-        &#ca-unwatch a:before {
-          .background-ooui-icon('unStar-progressive');
-          opacity: unset;
-        }
-        // Related special pages, from Portlet::SPECIAL_TAB_ICONS
-        &.fw-tab-watchlist a:before {
-          .background-ooui-icon('watchlist-ltr');
-          .rtl & {
-            .background-ooui-icon('watchlist-rtl');
-          }
-        }
-        &.fw-tab-edit a:before {
-          .background-ooui-icon('edit');
-        }
-        &.fw-tab-wikiText a:before {
-          .background-ooui-icon('wikiText');
-        }
-        &.fw-tab-trash a:before {
-          .background-ooui-icon('trash');
-        }
-        &.fw-tab-tag a:before {
-          .background-ooui-icon('tag-ltr');
-          .rtl & {
-            .background-ooui-icon('tag-rtl');
-          }
-        }
-        &.fw-tab-funnel a:before {
-          .background-ooui-icon('funnel-ltr');
-          .rtl & {
-            .background-ooui-icon('funnel-rtl');
-          }
-        }
-        &.fw-tab-history a:before {
-          .background-ooui-icon('history');
-        }
-        &.fw-tab-search a:before {
-          .background-ooui-icon('search');
-        }
-        &.fw-tab-labFlask a:before {
-          .background-ooui-icon('labFlask');
-        }
-        &.fw-tab-code a:before {
-          .background-ooui-icon('code');
-        }
-        &.fw-tab-listBullet a:before {
-          .background-ooui-icon('listBullet-ltr');
-          .rtl & {
-            .background-ooui-icon('listBullet-rtl');
-          }
-        }
-      }
-    }
-  }
-
-  // A popover under the menu button, over the content, aligned to the button's right edge
-  #p-actions-and-toolbox {
-    @inset: @content-horizontal-padding - @padding-icon;
-    position: absolute;
-    z-index: @z-index-dropdown;
-    right: @inset;
-    left: @inset;
-    margin: 0.3rem 0 0;
-    gap: 0.3rem;
-
-    @media (max-width: @width-breakpoint-mobile-small) {
-      @inset: @content-horizontal-padding-mobile-small - @padding-icon;
-      right: @inset;
-      left: @inset;
-    }
-
-    @media (min-width: @width-breakpoint-tablet) {
-      left: auto;
-      width: 16rem;
-    }
-  }
-
-  #fw-page-menu-checkbox:not(:checked) ~ #p-actions-and-toolbox {
-    display: none;
-  }
-
-  #p-title-buttons {
-    @icon-size: 1.42857143em;
-    margin: 0 -@padding-icon;
-    clear: both;
-    overflow: hidden;
-
-    .right-buttons {
-      float: right;
-      // Centre indicators of different heights.
-      display: flex;
-      align-items: center;
-    }
-
-    .mw-indicator a,
-    #p-menu-toggle {
-      border-radius: @border-radius-control;
-
-      &:hover {
-        background-color: @button-background-color--hover;
-      }
-
-      &:active {
-        background-color: @button-background-color--active;
-      }
-    }
-
-    .mw-indicators {
-      display: flex;
-      align-items: center;
-    }
-
-    .mw-indicators,
-    .fw-button {
-      margin: 0;
-      float: left;
-
-      &,
-      & a,
-      &:focus,
-      & a:focus {
-        // Remove highlighting
-        border: none;
-        box-shadow: none;
-      }
-    }
-
-    #p-share {
-      .oo-ui-icon-share {
-        background-image: url(images/icon-share.png);
-      }
-
-      a .oo-ui-icon-share {
-        opacity: @opacity-icon;
-      }
-    }
-
-    #p-menu-toggle {
-      width: @icon-size;
-      height: @icon-size;
-    }
-
-    #p-menu-toggle {
-      padding: 0.37142855em;
-    }
-
-    // Hide text label
-    // Reference: TabWatchstarLink.less of Vector.
-    .mw-indicators .mw-indicator a {
-      overflow: hidden;
-      height: 0;
-      position: relative;
-      width: @icon-size + @padding-icon * 2;
-      padding-top: @icon-size + @padding-icon * 2;
-      // Reset
-      background-image: none;
-      padding-left: 0;
-
-      &:before {
-        content: '';
-        .icon();
-        .mask-ooui-icon('help-ltr');
-        display: block;
-        position: absolute;
-        top: @padding-icon;
-        left: @padding-icon;
-        width: @icon-size;
-        height: @icon-size;
-        color: @color-base;
-
-        .rtl & {
-          .mask-ooui-icon('help-rtl');
-        }
-      }
-    }
-
-    .mw-indicators .mw-indicator#mw-indicator-mw-helplink a {
-      display: block;
-    }
-
-    // Core lock icon, sized like the other title icons.
-    .mw-indicators .mw-indicator a[class^='mw-protection-indicator-icon'] {
-      box-sizing: content-box;
-      height: @icon-size;
-      width: @icon-size;
-      padding: @padding-icon;
-      opacity: @opacity-icon;
-
-      &:before {
-        content: none;
-      }
-    }
-
-    // Icon only, like the buttons beside it; the status text stays for screen readers.
-    .mw-fr-review-status-indicator {
-      align-items: center;
-      padding: @padding-icon;
-      font-size: 0;
-      cursor: pointer;
-      border-radius: @border-radius-control;
-
-      &:hover {
-        background-color: @button-background-color--hover;
-      }
-
-      > span {
-        font-size: 0.875rem;
-        width: @icon-size;
-        height: @icon-size;
-        margin: 0;
-        opacity: @opacity-icon;
-      }
-    }
-
-    #p-menu-toggle:before {
-      position: absolute;
-      width: @icon-size;
-      height: @icon-size;
-      content: '';
-      background-size: @icon-size;
-      background-position: center center;
-      background-repeat: no-repeat;
-      opacity: @opacity-icon;
-    }
-  }
-
-  // Pressed while the page menu is open, as a Codex quiet toggle button
-  #fw-page-menu-checkbox:checked ~ #p-title-buttons #p-menu-toggle {
-    background-color: @background-color-progressive-subtle;
-
-    &:hover {
-      background-color: @background-color-progressive-subtle--hover;
-    }
-
-    &:active {
-      background-color: @background-color-progressive-subtle--active;
-    }
-  }
-
-  #lastmod-and-views {
-    font-size: 0.75rem;
-    clear: both;
-    padding: 0.3em 0;
-    // Centre the links on the edit button.
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5em 1em;
-
-    #lastmod {
-      .mw-link();
-      font-size: 0.8rem;
-    }
-
-    #p-views {
-      margin-left: auto;
-
-      h3 {
-        display: none;
-      }
-
-      ul {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 0.5em 1em;
-
-        li {
-          margin: 0;
-          display: inline-block;
-
-          &.selected a {
-            font-weight: bold;
-          }
-
-          :not(.ve-activated) .action-view &#ca-ve-edit,
-          :not(.ve-activated) .action-view &#ca-edit:not(#ca-ve-edit ~ li) {
-            background-color: @color-edit-button;
-            font-size: @font-size-edit-button;
-            padding: 0.3em 0.5em;
-            border: 1px solid @color-edit-button-border;
-            border-radius: @border-radius-control;
-            cursor: pointer;
-            box-shadow: @box-shadow-button;
-            transition: background-color 0.3s;
-
-            &:hover {
-              background-color: @color-edit-button--hover;
-            }
-
-            &:active {
-              background-color: @color-edit-button--active;
-              box-shadow: @box-shadow-button--active;
-            }
-
-            a {
-              color: #ffffff;
-              font-weight: bold;
-              display: flex;
-              align-items: center;
-
-              &:hover {
-                color: #ffffff;
-                border: none;
-              }
-
-              &:focus {
-                border: none;
-              }
-
-              &:before {
-                content: '';
-                .background-ooui-icon('edit-invert');
-                background-size: 1em;
-                padding-right: 0.3em;
-                background-repeat: no-repeat;
-                vertical-align: middle;
-                height: 1em;
-                width: 1em;
-              }
-            }
-          }
-
-          &#ca-view.selected {
-            display: none;
-          }
-
-          a {
-            .mw-link();
-          }
-        }
-      }
-    }
-  }
+	box-sizing: border-box;
+	margin: 2.3rem auto 0.5rem;
+	padding-top: 0;
+	padding-bottom: 0;
+	.content-horizontal-padding();
+	max-width: @content-width;
+	clear: both;
+	// For the page menu popover
+	position: relative;
+
+	ul,
+	li {
+		margin: 0;
+		display: block;
+	}
+
+	ul {
+		padding: 0;
+	}
+
+	#localNotice {
+		font-size: 0.8rem;
+		color: @color-emphasized;
+		margin: 0 0 4rem;
+		padding: 1.6rem 0.8rem;
+		.surface();
+		position: relative;
+		text-align: center;
+
+		// sitenotice includes parsed contents
+		.parser-output();
+
+		p {
+			margin: 0;
+		}
+
+		hr {
+			border-top: 1px solid #aca8e088;
+			margin: 1em;
+		}
+	}
+
+	.mw-portlet-associated-pages {
+		h3 {
+			display: none;
+		}
+
+		ul {
+			li {
+				@size-icon: 1.42857143rem;
+				@width: @size-icon + @padding-icon * 2;
+				@height: @size-icon + @padding-icon * 2;
+				float: left;
+
+				a {
+					color: @color-base;
+					text-decoration: none;
+				}
+
+				&.selected {
+					display: none;
+				}
+
+				// Only use icon
+				// Reference: TabWatchstarLink.less of Vector.
+				& {
+					display: block;
+					width: @width;
+					height: @height;
+
+					a {
+						display: block;
+						width: @width;
+						height: 0;
+						padding: @height 0 0 0;
+						overflow: hidden;
+						position: relative;
+						border-radius: @border-radius-control;
+
+						&:before {
+							background-repeat: no-repeat;
+							background-position: 50% 50%;
+							opacity: @opacity-icon;
+							content: "";
+							display: block;
+							position: absolute;
+							top: @padding-icon;
+							left: @padding-icon;
+							width: @size-icon;
+							height: @size-icon;
+						}
+
+						&:hover {
+							background-color: @button-background-color--hover;
+						}
+
+						&:active {
+							background-color: @button-background-color--active;
+						}
+					}
+
+					&.selected {
+						display: none;
+					}
+
+					&.label {
+						width: auto;
+						a {
+							width: auto;
+							height: auto;
+							padding: @padding-icon;
+							line-height: @size-icon;
+
+							&:before {
+								position: relative;
+								margin-right: @padding-icon;
+								top: 0;
+								left: 0;
+								float: left;
+							}
+						}
+					}
+				}
+
+				// fallback
+				& a:before {
+					// url(/skins/Femiwiki/resources/ooui/images/icons/article.svg)
+					.background-ooui-icon("article-ltr");
+					.rtl & {
+						.background-ooui-icon("article-rtl");
+					}
+				}
+				&#ca-talk a:before {
+					.background-ooui-icon("speechBubbles-ltr");
+					.rtl & {
+						.background-ooui-icon("speechBubbles-rtl");
+					}
+				}
+				&#ca-talk.has-open-topic a:before {
+					opacity: unset;
+					.background-icon("images/speechBubbles-ltr-new.svg");
+					.rtl & {
+						.background-icon("images/speechBubbles-rtl-new.svg");
+					}
+				}
+				&#ca-user a:before {
+					.background-ooui-icon("userAvatar");
+				}
+				&#ca-homepage a:before {
+					.background-ooui-icon("home");
+				}
+				&#ca-watch a:before {
+					.background-ooui-icon("star");
+				}
+				&#ca-unwatch a:before {
+					.background-ooui-icon("unStar-progressive");
+					opacity: unset;
+				}
+				// Related special pages, from Portlet::SPECIAL_TAB_ICONS
+				&.fw-tab-watchlist a:before {
+					.background-ooui-icon("watchlist-ltr");
+					.rtl & {
+						.background-ooui-icon("watchlist-rtl");
+					}
+				}
+				&.fw-tab-edit a:before {
+					.background-ooui-icon("edit");
+				}
+				&.fw-tab-wikiText a:before {
+					.background-ooui-icon("wikiText");
+				}
+				&.fw-tab-trash a:before {
+					.background-ooui-icon("trash");
+				}
+				&.fw-tab-tag a:before {
+					.background-ooui-icon("tag-ltr");
+					.rtl & {
+						.background-ooui-icon("tag-rtl");
+					}
+				}
+				&.fw-tab-funnel a:before {
+					.background-ooui-icon("funnel-ltr");
+					.rtl & {
+						.background-ooui-icon("funnel-rtl");
+					}
+				}
+				&.fw-tab-history a:before {
+					.background-ooui-icon("history");
+				}
+				&.fw-tab-search a:before {
+					.background-ooui-icon("search");
+				}
+				&.fw-tab-labFlask a:before {
+					.background-ooui-icon("labFlask");
+				}
+				&.fw-tab-code a:before {
+					.background-ooui-icon("code");
+				}
+				&.fw-tab-listBullet a:before {
+					.background-ooui-icon("listBullet-ltr");
+					.rtl & {
+						.background-ooui-icon("listBullet-rtl");
+					}
+				}
+			}
+		}
+	}
+
+	// A popover under the menu button, over the content, aligned to the button's right edge
+	#p-actions-and-toolbox {
+		@inset: @content-horizontal-padding - @padding-icon;
+		position: absolute;
+		z-index: @z-index-dropdown;
+		right: @inset;
+		left: @inset;
+		margin: 0.3rem 0 0;
+		gap: 0.3rem;
+
+		@media (max-width: @width-breakpoint-mobile-small) {
+			@inset: @content-horizontal-padding-mobile-small - @padding-icon;
+			right: @inset;
+			left: @inset;
+		}
+
+		@media (min-width: @width-breakpoint-tablet) {
+			left: auto;
+			width: 16rem;
+		}
+	}
+
+	#fw-page-menu-checkbox:not(:checked) ~ #p-actions-and-toolbox {
+		display: none;
+	}
+
+	#p-title-buttons {
+		@icon-size: 1.42857143em;
+		margin: 0 -@padding-icon;
+		clear: both;
+		overflow: hidden;
+
+		.right-buttons {
+			float: right;
+			// Centre indicators of different heights.
+			display: flex;
+			align-items: center;
+		}
+
+		.mw-indicator a,
+		#p-menu-toggle {
+			border-radius: @border-radius-control;
+
+			&:hover {
+				background-color: @button-background-color--hover;
+			}
+
+			&:active {
+				background-color: @button-background-color--active;
+			}
+		}
+
+		.mw-indicators {
+			display: flex;
+			align-items: center;
+		}
+
+		.mw-indicators,
+		.fw-button {
+			margin: 0;
+			float: left;
+
+			&,
+			& a,
+			&:focus,
+			& a:focus {
+				// Remove highlighting
+				border: none;
+				box-shadow: none;
+			}
+		}
+
+		#p-share {
+			.oo-ui-icon-share {
+				background-image: url(images/icon-share.png);
+			}
+
+			a .oo-ui-icon-share {
+				opacity: @opacity-icon;
+			}
+		}
+
+		#p-menu-toggle {
+			width: @icon-size;
+			height: @icon-size;
+		}
+
+		#p-menu-toggle {
+			padding: 0.37142855em;
+		}
+
+		// Hide text label
+		// Reference: TabWatchstarLink.less of Vector.
+		.mw-indicators .mw-indicator a {
+			overflow: hidden;
+			height: 0;
+			position: relative;
+			width: @icon-size + @padding-icon * 2;
+			padding-top: @icon-size + @padding-icon * 2;
+			// Reset
+			background-image: none;
+			padding-left: 0;
+
+			&:before {
+				content: "";
+				.icon();
+				.mask-ooui-icon("help-ltr");
+				display: block;
+				position: absolute;
+				top: @padding-icon;
+				left: @padding-icon;
+				width: @icon-size;
+				height: @icon-size;
+				color: @color-base;
+
+				.rtl & {
+					.mask-ooui-icon("help-rtl");
+				}
+			}
+		}
+
+		.mw-indicators .mw-indicator#mw-indicator-mw-helplink a {
+			display: block;
+		}
+
+		// Core lock icon, sized like the other title icons.
+		.mw-indicators .mw-indicator a[class^="mw-protection-indicator-icon"] {
+			box-sizing: content-box;
+			height: @icon-size;
+			width: @icon-size;
+			padding: @padding-icon;
+			opacity: @opacity-icon;
+
+			&:before {
+				content: none;
+			}
+		}
+
+		// Icon only, like the buttons beside it; the status text stays for screen readers.
+		.mw-fr-review-status-indicator {
+			align-items: center;
+			padding: @padding-icon;
+			font-size: 0;
+			cursor: pointer;
+			border-radius: @border-radius-control;
+
+			&:hover {
+				background-color: @button-background-color--hover;
+			}
+
+			> span {
+				font-size: 0.875rem;
+				width: @icon-size;
+				height: @icon-size;
+				margin: 0;
+				opacity: @opacity-icon;
+			}
+		}
+
+		#p-menu-toggle:before {
+			position: absolute;
+			width: @icon-size;
+			height: @icon-size;
+			content: "";
+			background-size: @icon-size;
+			background-position: center center;
+			background-repeat: no-repeat;
+			opacity: @opacity-icon;
+		}
+	}
+
+	// Pressed while the page menu is open, as a Codex quiet toggle button
+	#fw-page-menu-checkbox:checked ~ #p-title-buttons #p-menu-toggle {
+		background-color: @background-color-progressive-subtle;
+
+		&:hover {
+			background-color: @background-color-progressive-subtle--hover;
+		}
+
+		&:active {
+			background-color: @background-color-progressive-subtle--active;
+		}
+	}
+
+	#lastmod-and-views {
+		font-size: 0.75rem;
+		clear: both;
+		padding: 0.3em 0;
+		// Centre the links on the edit button.
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5em 1em;
+
+		#lastmod {
+			.mw-link();
+			font-size: 0.8rem;
+		}
+
+		#p-views {
+			margin-left: auto;
+
+			h3 {
+				display: none;
+			}
+
+			ul {
+				padding: 0;
+				margin: 0;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: flex-end;
+				gap: 0.5em 1em;
+
+				li {
+					margin: 0;
+					display: inline-block;
+
+					&.selected a {
+						font-weight: bold;
+					}
+
+					:not(.ve-activated) .action-view &#ca-ve-edit,
+					:not(.ve-activated) .action-view &#ca-edit:not(#ca-ve-edit ~ li) {
+						background-color: @color-edit-button;
+						font-size: @font-size-edit-button;
+						padding: 0.3em 0.5em;
+						border: 1px solid @color-edit-button-border;
+						border-radius: @border-radius-control;
+						cursor: pointer;
+						box-shadow: @box-shadow-button;
+						transition: background-color 0.3s;
+
+						&:hover {
+							background-color: @color-edit-button--hover;
+						}
+
+						&:active {
+							background-color: @color-edit-button--active;
+							box-shadow: @box-shadow-button--active;
+						}
+
+						a {
+							color: #ffffff;
+							font-weight: bold;
+							display: flex;
+							align-items: center;
+
+							&:hover {
+								color: #ffffff;
+								border: none;
+							}
+
+							&:focus {
+								border: none;
+							}
+
+							&:before {
+								content: "";
+								.background-ooui-icon("edit-invert");
+								background-size: 1em;
+								padding-right: 0.3em;
+								background-repeat: no-repeat;
+								vertical-align: middle;
+								height: 1em;
+								width: 1em;
+							}
+						}
+					}
+
+					&#ca-view.selected {
+						display: none;
+					}
+
+					a {
+						.mw-link();
+					}
+				}
+			}
+		}
+	}
 }
 
 // firstHeading and its preview output of VisualEditor
 #p-header h1.firstHeading,
 .oo-ui-window .mw-body-content h1.firstHeading {
-  font-size: 1.714rem;
-  display: inline-block;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
-  line-height: 1.2em;
-  border-bottom: none;
-  color: @color-base;
-  font-weight: bold;
-  // See https://github.com/femiwiki/FemiwikiSkin/issues/168
-  overflow: visible;
-  // See https://github.com/femiwiki/FemiwikiSkin/issues/169
-  word-break: break-word;
+	font-size: 1.714rem;
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	line-height: 1.2em;
+	border-bottom: none;
+	color: @color-base;
+	font-weight: bold;
+	// See https://github.com/femiwiki/FemiwikiSkin/issues/168
+	overflow: visible;
+	// See https://github.com/femiwiki/FemiwikiSkin/issues/169
+	word-break: break-word;
 }
 
 .visualClear {
-  clear: both;
+	clear: both;
 }
 
 // End of content
 hr#content-end-bar {
-  @padding: @content-horizontal-padding * 2;
-  border: 0;
-  border-width: 1px;
-  border-color: @color-primary2;
-  background-color: @border-color-base;
-  max-width: @content-width - @padding;
-  margin: 0 auto;
-  height: 1px;
+	@padding: @content-horizontal-padding * 2;
+	border: 0;
+	border-width: 1px;
+	border-color: @color-primary2;
+	background-color: @border-color-base;
+	max-width: @content-width - @padding;
+	margin: 0 auto;
+	height: 1px;
 
-  @media (max-width: @width-breakpoint-mobile-small) {
-    @padding: @content-horizontal-padding-mobile-small * 2;
-    max-width: @content-width - @padding;
-  }
+	@media (max-width: @width-breakpoint-mobile-small) {
+		@padding: @content-horizontal-padding-mobile-small * 2;
+		max-width: @content-width - @padding;
+	}
 }
 
 #p-lang {
-  box-sizing: border-box;
-  max-width: @content-width;
-  margin: auto;
-  padding: 0.8rem @content-horizontal-padding 0;
+	box-sizing: border-box;
+	max-width: @content-width;
+	margin: auto;
+	padding: 0.8rem @content-horizontal-padding 0;
 
-  #p-lang-label {
-    display: none;
-  }
+	#p-lang-label {
+		display: none;
+	}
 
-  ul {
-    padding: 0;
-    margin: 0;
+	ul {
+		padding: 0;
+		margin: 0;
 
-    .interlanguage-link {
-      // Flex, so Translate's progress circle (.mw-pt-progress::after) keeps its size
-      display: inline-flex;
-      align-items: baseline;
+		.interlanguage-link {
+			// Flex, so Translate's progress circle (.mw-pt-progress::after) keeps its size
+			display: inline-flex;
+			align-items: baseline;
 
-      &:not(:first-child) {
-        padding-left: 0.8em;
-      }
+			&:not(:first-child) {
+				padding-left: 0.8em;
+			}
 
-      .interlanguage-link-target {
-        .mw-link();
-      }
-    }
-  }
+			.interlanguage-link-target {
+				.mw-link();
+			}
+		}
+	}
 
-  .wbc-editpage {
-    .mw-link();
-  }
+	.wbc-editpage {
+		.mw-link();
+	}
 }
 
 // Footer
 @footer-separator-width: 1.2em;
 .mw-footer {
-  box-sizing: border-box;
-  .content-horizontal-padding();
-  padding-top: 0.8rem;
-  padding-bottom: 1.6rem;
+	box-sizing: border-box;
+	.content-horizontal-padding();
+	padding-top: 0.8rem;
+	padding-bottom: 1.6rem;
 
-  max-width: @content-width;
-  margin: 0 auto;
+	max-width: @content-width;
+	margin: 0 auto;
 
-  ul {
-    overflow: hidden;
-    font-size: 0.714rem;
-    margin: 0;
-    padding: 0;
+	ul {
+		overflow: hidden;
+		font-size: 0.714rem;
+		margin: 0;
+		padding: 0;
 
-    li {
-      float: left;
-      list-style: none;
-      margin: 0 0 0.0714rem;
+		li {
+			float: left;
+			list-style: none;
+			margin: 0 0 0.0714rem;
 
-      a {
-        .mw-link();
-      }
-    }
+			a {
+				.mw-link();
+			}
+		}
 
-    &#footer-info li {
-      float: none;
-    }
+		&#footer-info li {
+			float: none;
+		}
 
-    // Clip the separator that opens each line.
-    &#footer-places {
-      margin-left: -@footer-separator-width;
-      clip-path: inset(0 0 0 @footer-separator-width);
-    }
+		// Clip the separator that opens each line.
+		&#footer-places {
+			margin-left: -@footer-separator-width;
+			clip-path: inset(0 0 0 @footer-separator-width);
+		}
 
-    &#footer-places li::before {
-      content: '|';
-      color: @border-color-subtle;
-      display: inline-block;
-      width: @footer-separator-width;
-      text-align: center;
-    }
-  }
+		&#footer-places li::before {
+			content: "|";
+			color: @border-color-subtle;
+			display: inline-block;
+			width: @footer-separator-width;
+			text-align: center;
+		}
+	}
 
-  #footer-icons {
-    float: right;
-  }
+	#footer-icons {
+		float: right;
+	}
 }
 
 .printfooter,
 .client-nojs #t-print {
-  display: none;
+	display: none;
 }

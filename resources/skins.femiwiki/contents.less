@@ -1,347 +1,347 @@
-@import '../variables.less';
+@import "../variables.less";
 
 .mw-body {
-  box-sizing: border-box;
-  position: relative;
-  .content-horizontal-padding();
-  padding-top: 0;
-  padding-bottom: 1.2rem;
-  max-width: @content-width;
-  margin: 0 auto;
+	box-sizing: border-box;
+	position: relative;
+	.content-horizontal-padding();
+	padding-top: 0;
+	padding-bottom: 1.2rem;
+	max-width: @content-width;
+	margin: 0 auto;
 
-  .mw-indicators {
-    float: right;
-  }
+	.mw-indicators {
+		float: right;
+	}
 
-  #contentSub,
-  #contentSub2 {
-    color: @color-subtle;
-    font-size: 0.84em;
-    line-height: 1.2em;
-    margin: 0 0 1.4em 1em;
+	#contentSub,
+	#contentSub2 {
+		color: @color-subtle;
+		font-size: 0.84em;
+		line-height: 1.2em;
+		margin: 0 0 1.4em 1em;
 
-    p {
-      margin: 0.4em 0 0.5em 0;
-    }
+		p {
+			margin: 0.4em 0 0.5em 0;
+		}
 
-    // Buttons such as the FlaggedRevs review button keep their own colours.
-    a:not(.cdx-button) {
-      .mw-link;
-    }
-  }
+		// Buttons such as the FlaggedRevs review button keep their own colours.
+		a:not(.cdx-button) {
+			.mw-link;
+		}
+	}
 
-  #mw-content-text {
-    margin-bottom: 4.8rem;
+	#mw-content-text {
+		margin-bottom: 4.8rem;
 
-    legend:not(.oo-ui-fieldsetLayout-header) {
-      padding: 0;
-      font-size: 95%;
-    }
+		legend:not(.oo-ui-fieldsetLayout-header) {
+			padding: 0;
+			font-size: 95%;
+		}
 
-    & > p:first-child {
-      margin-top: 2.8rem;
-    }
+		& > p:first-child {
+			margin-top: 2.8rem;
+		}
 
-    .mw-warning,
-    .mw-warning-with-logexcerpt {
-      margin-left: 50px;
-      margin-right: 50px;
-      text-align: center;
-      border: 1px solid @border-color-base;
-      background-color: @background-color-neutral-subtle;
-      padding: 5px;
-      font-size: 95%;
-    }
+		.mw-warning,
+		.mw-warning-with-logexcerpt {
+			margin-left: 50px;
+			margin-right: 50px;
+			text-align: center;
+			border: 1px solid @border-color-base;
+			background-color: @background-color-neutral-subtle;
+			padding: 5px;
+			font-size: 95%;
+		}
 
-    .image,
+		.image,
     // https://github.com/femiwiki/FemiwikiSkin/issues/248
     a[href][title] {
-      img[alt] {
-        .image();
-      }
-    }
+			img[alt] {
+				.image();
+			}
+		}
 
-    .magnify {
-      // Default styles when there's no .mw-content-ltr or .mw-content-rtl, overridden below
-      float: right;
-      margin-left: 3px;
+		.magnify {
+			// Default styles when there's no .mw-content-ltr or .mw-content-rtl, overridden below
+			float: right;
+			margin-left: 3px;
 
-      a {
-        display: block;
-        // Hide the text…
-        text-indent: 15px;
-        white-space: nowrap;
-        overflow: hidden;
-        // …and replace it with the image
-        width: 15px;
-        height: 11px;
-        // Default styles when there's no .mw-content-ltr or .mw-content-rtl, overridden below
+			a {
+				display: block;
+				// Hide the text…
+				text-indent: 15px;
+				white-space: nowrap;
+				overflow: hidden;
+				// …and replace it with the image
+				width: 15px;
+				height: 11px;
+				// Default styles when there's no .mw-content-ltr or .mw-content-rtl, overridden below
 
-        /* @embed */
-        background-image:
-          linear-gradient(transparent, transparent),
-          url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
-        // Don't annoy people who copy-paste everything too much
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-    }
-  }
+				/* @embed */
+				background-image:
+					linear-gradient(transparent, transparent),
+					url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
+				// Don't annoy people who copy-paste everything too much
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+		}
+	}
 
-  .catlinks {
-    clear: both;
-    // Contains the floated category edit link
-    display: flow-root;
+	.catlinks {
+		clear: both;
+		// Contains the floated category edit link
+		display: flow-root;
 
-    // Hidden when every category is hidden
-    &.catlinks-allhidden {
-      display: none;
-    }
+		// Hidden when every category is hidden
+		&.catlinks-allhidden {
+			display: none;
+		}
 
-    // Category edit link, styled like section edit links
-    .mw-editsection-like {
-      .mw-editsection-bracket {
-        display: none;
-      }
+		// Category edit link, styled like section edit links
+		.mw-editsection-like {
+			.mw-editsection-bracket {
+				display: none;
+			}
 
-      a {
-        font-size: 0.75rem;
-      }
-    }
+			a {
+				font-size: 0.75rem;
+			}
+		}
 
-    ul {
-      margin-top: 0;
-      padding: 0;
-      // @See https://github.com/femiwiki/FemiwikiSkin/issues/152
-      word-break: break-all;
+		ul {
+			margin-top: 0;
+			padding: 0;
+			// @See https://github.com/femiwiki/FemiwikiSkin/issues/152
+			word-break: break-all;
 
-      li {
-        display: inline-block;
-        border-width: 0;
-        margin: 0;
-        padding: 0 0.5em;
-        font-size: inherit;
-        line-height: 1.25em;
-        &:not(:first-child) {
-          border-left: 1px solid @color-primary1;
-        }
-      }
-    }
-  }
+			li {
+				display: inline-block;
+				border-width: 0;
+				margin: 0;
+				padding: 0 0.5em;
+				font-size: inherit;
+				line-height: 1.25em;
+				&:not(:first-child) {
+					border-left: 1px solid @color-primary1;
+				}
+			}
+		}
+	}
 
-  .patrollink {
-    font-size: inherit;
-  }
+	.patrollink {
+		font-size: inherit;
+	}
 
-  .btn,
-  .btn:hover,
-  .btn:visited {
-    padding: 0.2rem 0.5rem;
-    color: #fff;
-    background-color: @color-progressive;
-    text-decoration: none;
-    cursor: pointer;
-  }
+	.btn,
+	.btn:hover,
+	.btn:visited {
+		padding: 0.2rem 0.5rem;
+		color: #fff;
+		background-color: @color-progressive;
+		text-decoration: none;
+		cursor: pointer;
+	}
 }
 
 .mw-notification-area {
-  width: auto;
-  max-width: 16rem;
-  padding: 0;
-  line-height: inherit;
-  cursor: pointer;
+	width: auto;
+	max-width: 16rem;
+	padding: 0;
+	line-height: inherit;
+	cursor: pointer;
 
-  .mw-notification {
-    background-color: @color-alert;
-    border: solid 1px @color-alert-border;
-  }
+	.mw-notification {
+		background-color: @color-alert;
+		border: solid 1px @color-alert-border;
+	}
 }
 
 .mw-parser-output {
-  .parser-output();
+	.parser-output();
 
-  b {
-    font-weight: bold;
-  }
+	b {
+		font-weight: bold;
+	}
 
-  p {
-    margin: 1.6rem 0;
-  }
+	p {
+		margin: 1.6rem 0;
+	}
 
-  blockquote:not([class]) p:first-child {
-    margin-top: 0;
-  }
+	blockquote:not([class]) p:first-child {
+		margin-top: 0;
+	}
 
-  blockquote:not([class]) p:last-child {
-    margin-bottom: 0;
-  }
+	blockquote:not([class]) p:last-child {
+		margin-bottom: 0;
+	}
 
-  .mw-headline-number:after {
-    content: '.';
-  }
+	.mw-headline-number:after {
+		content: ".";
+	}
 
-  // Embed
-  .embedvideowrap {
-    margin: 0 auto;
-  }
+	// Embed
+	.embedvideowrap {
+		margin: 0 auto;
+	}
 
-  // Emulate Center
-  .center {
-    width: 100%;
-    text-align: center;
-  }
+	// Emulate Center
+	.center {
+		width: 100%;
+		text-align: center;
+	}
 
-  *.center * {
-    margin-left: auto;
-    margin-right: auto;
-  }
+	*.center * {
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-  // Small for tables and similar
-  .small {
-    font-size: 94%;
-  }
+	// Small for tables and similar
+	.small {
+		font-size: 94%;
+	}
 
-  table.small {
-    font-size: 100%;
-  }
+	table.small {
+		font-size: 100%;
+	}
 
-  textarea:not(.ve-init-mw-tempWikitextEditorWidget) {
-    border: 1px solid @border-color-subtle;
-    box-sizing: border-box;
-    padding: 0.1em;
-  }
+	textarea:not(.ve-init-mw-tempWikitextEditorWidget) {
+		border: 1px solid @border-color-subtle;
+		box-sizing: border-box;
+		padding: 0.1em;
+	}
 
-  & > br:first-child,
-  & > br:last-child {
-    display: none;
-  }
+	& > br:first-child,
+	& > br:last-child {
+		display: none;
+	}
 
-  // Section edit link on the heading line.
-  .mw-heading {
-    position: relative;
-    // Narrows beside floats like the heading inside it.
-    display: flow-root;
-    margin: 3.8rem 0 1.6rem;
+	// Section edit link on the heading line.
+	.mw-heading {
+		position: relative;
+		// Narrows beside floats like the heading inside it.
+		display: flow-root;
+		margin: 3.8rem 0 1.6rem;
 
-    > :is(h1, h2, h3, h4, h5, h6) {
-      margin: 0;
-    }
+		> :is(h1, h2, h3, h4, h5, h6) {
+			margin: 0;
+		}
 
-    &:has(> .mw-editsection) > :is(h1, h2, h3, h4, h5, h6) {
-      padding-right: 8rem;
-    }
+		&:has(> .mw-editsection) > :is(h1, h2, h3, h4, h5, h6) {
+			padding-right: 8rem;
+		}
 
-    > .mw-editsection {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-    }
-  }
+		> .mw-editsection {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+		}
+	}
 
-  // Edit links
-  .mw-editsection {
-    float: right;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-weight: normal;
+	// Edit links
+	.mw-editsection {
+		float: right;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		font-weight: normal;
 
-    .mw-editsection-bracket,
-    .mw-editsection-divider {
-      display: none;
-    }
+		.mw-editsection-bracket,
+		.mw-editsection-divider {
+			display: none;
+		}
 
-    a {
-      font-size: 0.75rem;
-      margin-inline-start: 1em;
-      margin-inline-end: 0;
-    }
-  }
+		a {
+			font-size: 0.75rem;
+			margin-inline-start: 1em;
+			margin-inline-end: 0;
+		}
+	}
 
-  // Break very long mathjax expression
-  .mathjax-wrapper {
-    display: inline-block;
-    vertical-align: middle;
-  }
+	// Break very long mathjax expression
+	.mathjax-wrapper {
+		display: inline-block;
+		vertical-align: middle;
+	}
 }
 
 // Hide elements that are marked as "empty" according to legacy Tidy rules,
 // except if a client script removes the mw-hide-empty-elt class from the body
 body.mw-hide-empty-elt .mw-empty-elt {
-  display: none;
+	display: none;
 }
 
 // Directionality-specific styles for thumbnails - their positioning depends on content language //
 
 /* @noflip */
 .mw-body-content {
-  .mw-content-ltr {
-    .thumbcaption {
-      text-align: left;
-    }
+	.mw-content-ltr {
+		.thumbcaption {
+			text-align: left;
+		}
 
-    .magnify {
-      float: right;
-      margin-left: 3px;
-      margin-right: 0;
-    }
+		.magnify {
+			float: right;
+			margin-left: 3px;
+			margin-right: 0;
+		}
 
-    div.magnify a {
-      /* @embed */
-      background-image:
-        linear-gradient(transparent, transparent),
-        url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
-    }
-  }
+		div.magnify a {
+			/* @embed */
+			background-image:
+				linear-gradient(transparent, transparent),
+				url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-ltr.svg);
+		}
+	}
 
-  .mw-content-rtl.mw-content-rtl {
-    .thumbcaption {
-      text-align: right;
-    }
+	.mw-content-rtl.mw-content-rtl {
+		.thumbcaption {
+			text-align: right;
+		}
 
-    .magnify {
-      float: left;
-      margin-left: 0;
-      margin-right: 3px;
-    }
+		.magnify {
+			float: left;
+			margin-left: 0;
+			margin-right: 3px;
+		}
 
-    div.magnify a {
-      /* @embed */
-      background-image:
-        linear-gradient(transparent, transparent),
-        url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg);
-    }
-  }
+		div.magnify a {
+			/* @embed */
+			background-image:
+				linear-gradient(transparent, transparent),
+				url(../../../../resources/src/mediawiki.skinning/images/magnify-clip-rtl.svg);
+		}
+	}
 }
 
 .mw-special-Booksources #mw-content-text {
-  // mw-special-Booksources fetches a parsed content
-  .parser-output();
+	// mw-special-Booksources fetches a parsed content
+	.parser-output();
 }
 
 // For special pages that do not add mediawiki.special module
 body.ns-special #mw-content-text .wikitable {
-  .responsiveTable();
+	.responsiveTable();
 }
 
 // TablePager tables, such as Special:AllMessages. One class only, so that core's
 // mobile layout of Special:ListFiles still wins.
 .mw-datatable {
-  .responsiveTable();
+	.responsiveTable();
 }
 
 .fw-link,
 a.text,
 a.external {
-  .mw-link-style();
+	.mw-link-style();
 }
 
 .mw-userlink {
-  .mw-link();
+	.mw-link();
 }
 
 // PrevNextNavigation
@@ -351,21 +351,21 @@ a.external {
 .mw-prevlink,
 .mw-nextlink,
 .mw-numlink {
-  .mw-link();
+	.mw-link();
 }
 
 // https://github.com/femiwiki/FemiwikiSkin/issues/173
 #wpTextbox1,
 // wpTextbox2 is for edit conflict
 #wpTextbox2 {
-  box-sizing: border-box;
-  width: 100%;
+	box-sizing: border-box;
+	width: 100%;
 }
 
 // Underline preference
 .mw-underline-always a {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 .mw-underline-never a {
-  text-decoration: none;
+	text-decoration: none;
 }

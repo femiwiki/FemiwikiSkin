@@ -1,71 +1,71 @@
-@import '../variables.less';
+@import "../variables.less";
 
 // TODO: Stop targeting tags. https://github.com/femiwiki/FemiwikiSkin/issues/20
 html {
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 
-  // Relative to the browser's default font size (16px unless the reader changed it)
-  font-size: percentage((@font-size-root-default / 16));
-  @media (max-width: @width-breakpoint-mobile-small) {
-    font-size: 100%;
-  }
-  @media (max-width: @width-breakpoint-mobile) {
-    font-size: percentage((16.5 / 16));
-  }
+	// Relative to the browser's default font size (16px unless the reader changed it)
+	font-size: percentage((@font-size-root-default / 16));
+	@media (max-width: @width-breakpoint-mobile-small) {
+		font-size: 100%;
+	}
+	@media (max-width: @width-breakpoint-mobile) {
+		font-size: percentage((16.5 / 16));
+	}
 
-  font-family: @font-family;
+	font-family: @font-family;
 }
 
 body {
-  padding: 0;
-  color: @color-base;
-  background-color: @background-color-base;
-  line-height: @line-height-base;
+	padding: 0;
+	color: @color-base;
+	background-color: @background-color-base;
+	line-height: @line-height-base;
 
-  // Word breaks shouldn't be used for CJK text
-  word-break: keep-all;
-  overflow-wrap: break-word;
+	// Word breaks shouldn't be used for CJK text
+	word-break: keep-all;
+	overflow-wrap: break-word;
 }
 
 :focus {
-  outline: none;
+	outline: none;
 }
 
 ::selection {
-  background-color: @color-background1;
+	background-color: @color-background1;
 }
 
 // Many components of MediaWiki core and extensions assume the below rule is true. It is not removable now.
 a {
-  text-decoration: none;
-  .mw-link-colors();
+	text-decoration: none;
+	.mw-link-colors();
 }
 
 // Wrap long lines, as core's elements.less does, so code never widens the page
 pre {
-  white-space: pre-wrap;
+	white-space: pre-wrap;
 }
 
 // Quote
 blockquote {
-  position: relative;
-  padding: 1em;
-  margin: 1em 0;
-  overflow: hidden;
-  border: none;
-  background-color: @background-color-neutral;
+	position: relative;
+	padding: 1em;
+	margin: 1em 0;
+	overflow: hidden;
+	border: none;
+	background-color: @background-color-neutral;
 }
 
 th,
 td {
-  background-color: transparent;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid @border-color-muted;
+	background-color: transparent;
+	padding: 0.2rem 0.5rem;
+	border: 1px solid @border-color-muted;
 }
 
 tt,
 .mw-code {
-  font-family: monospace, monospace;
+	font-family: monospace, monospace;
 }
