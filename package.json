@@ -31,7 +31,7 @@
 		"husky": "^9.1.7",
 		"nodejs-file-downloader": "^4.13.0",
 		"svgo": "^4.1.0",
-		"typescript": "^5.8.3",
+		"typescript": "^7.0.2",
 		"unzipper": "^0.12.3",
 		"wdio-mediawiki": "6.5.3"
 	}
