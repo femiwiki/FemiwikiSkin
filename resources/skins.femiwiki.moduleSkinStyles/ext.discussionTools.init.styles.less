@@ -1,0 +1,12 @@
+@import "../variables.less";
+
+// Tell replies apart: a thin line beside each reply, broken between comments
+.mw-parser-output dl:has(> dd > [data-mw-comment-start]) > dd {
+	margin-left: 0.8em;
+	padding-left: 0.8em;
+	border-left: 1px solid @color-primary2;
+}
+
+.mw-parser-output dd + dd:has(> [data-mw-comment-start]) {
+	margin-top: 0.8em;
+}
