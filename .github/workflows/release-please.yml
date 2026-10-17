@@ -49,7 +49,7 @@ jobs:
         env:
           NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
         run: |
-          npm install --omit=dev
+          npm install --omit=dev --ignore-scripts
           tar --exclude-vcs -C .. -zcvf "../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz" "$(basename "$(pwd)")"
           mv "../${NEEDS_RELEASE_PLEASE_OUTPUTS_TAG_NAME}.tar.gz" ./
 
