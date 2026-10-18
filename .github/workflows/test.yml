@@ -68,9 +68,6 @@ jobs:
         with:
           stage: ${{ matrix.stage }}
           mediawiki-version: ${{ matrix.mediawiki-version }}
-          # Node 26 images stop WebdriverIO's browser download midway
-          # (https://github.com/puppeteer/puppeteer/issues/14957).
-          quibble-docker-tag: ${{ case(matrix.stage == 'selenium', '1.21.0-s2', '') }}
           # v1 expanded the `Echo` dependency transitively via Wikimedia's
           # dependencies.yaml; main resolves from local sources only, so we pin
           # that closure explicitly to keep testing the same set of repos.

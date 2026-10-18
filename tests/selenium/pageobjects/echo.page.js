@@ -5,7 +5,7 @@ class EchoPage extends Page {
 		return $("#pt-notifications-all");
 	}
 	get popup() {
-		return $(".oo-ui-labelElement-label");
+		return $(".mw-echo-ui-notificationBadgeController-popup");
 	}
 }
 
