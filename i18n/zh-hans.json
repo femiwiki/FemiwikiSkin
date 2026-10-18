@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"500000000006城",
+			"GuoPC",
 			"Lakejason0",
 			"落花有意12138"
 		]
@@ -9,6 +10,9 @@
 	"skinname-femiwiki": "Femiwiki",
 	"femiwiki-desc": "Femiwiki皮肤",
 	"skin-femiwiki-page-menu-tooltip": "菜单",
+	"skin-femiwiki-toc-top": "顶部",
+	"skin-femiwiki-toc-close": "关闭目录",
+	"skin-femiwiki-search-close": "关闭搜索",
 	"skin-femiwiki-share-tooltip": "分享这篇文章",
 	"skin-femiwiki-share-dismiss": "关闭",
 	"skin-femiwiki-share-twitter": "推特",

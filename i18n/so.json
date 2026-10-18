@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Maqaarka Femiwiki",
+	"skin-femiwiki-page-menu-tooltip": "Liiska",
+	"skin-femiwiki-toc-top": "Sare",
+	"skin-femiwiki-toc-close": "Xir tusmada nuxurka",
+	"skin-femiwiki-search-close": "Xir raadinta",
+	"skin-femiwiki-share-tooltip": "La wadaag maqaalkan",
+	"skin-femiwiki-share-dismiss": "Xir",
+	"skin-femiwiki-share-twitter": "Twitter-ka",
+	"prefs-femiwiki-large-elements-label": "Isticmaal walxaha waaweyn",
+	"prefs-femiwiki-large-elements-help": "Doorashadani waxay kuu oggolaanaysaa inaad horudhac u aragto walxo waaweyn. Walxaha shaashadda ku jira waxaa lagu beddeli doonaa kuwo ka waaweyn."
+}
