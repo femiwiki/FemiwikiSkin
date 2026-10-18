@@ -4,7 +4,7 @@ var TOP_MARGIN = 75;
 var THROTTLE_MS = 200;
 
 /**
- * @param {function(): void} callback
+ * @param {() => void} callback
  * @param {number} frameCount
  * @return {void}
  */
