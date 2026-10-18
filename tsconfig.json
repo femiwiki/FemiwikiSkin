@@ -20,8 +20,9 @@
 		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true,
 		"pretty": true,
-		"target": "es5",
+		"target": "es2017",
 		"lib": ["dom"],
+		"types": ["jquery"],
 		"allowJs": true,
 		"checkJs": true,
 		"noEmit": true
