@@ -13,6 +13,22 @@
 	font-size: 15px;
 }
 
+// Workaround for https://github.com/femiwiki/FemiwikiSkin/issues/1140
+// VisualEditor keeps the link popup 10px inside this element, so the popup of
+// a link at the start of a line slides right and leaves its tail outside.
+// VisualEditor lowers that padding only for the skins it names in
+// ve.init.mw.DesktopArticleTarget#addSurface, and femiwiki is not one of them.
+// Stretch the element over the content padding without moving the text, so
+// the popup can use that space. Remove this once VisualEditor gives femiwiki
+// a smaller padding or lets a skin set it.
+.ve-init-mw-desktopArticleTarget .ve-ce-surface {
+	margin: 0 -@content-horizontal-padding;
+	.content-horizontal-padding();
+	@media (max-width: @width-breakpoint-mobile-small) {
+		margin: 0 -@content-horizontal-padding-mobile-small;
+	}
+}
+
 html.ve-active,
 html.ve-activated,
 html.ve-deactivating {
