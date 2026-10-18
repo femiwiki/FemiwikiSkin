@@ -2,7 +2,7 @@ var PINNED_CLASS = "fw-nav-bar-pinned";
 var SHOWN_CLASS = "fw-nav-bar-shown";
 var ANIMATE_CLASS = "fw-nav-bar-animate";
 var TOC_CLASS = "fw-nav-bar-toc";
-// @width-breakpoint-toc-column, from where the ToC column follows the scroll instead
+// Codex @min-width-breakpoint-desktop, from where the ToC column follows the scroll instead
 var TOC_COLUMN_QUERY = "(min-width: 1120px)";
 // Long enough for the scroll that a click on a section link starts
 var JUMP_MS = 200;
