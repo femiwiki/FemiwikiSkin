@@ -63,10 +63,8 @@
 // Diff lines, lighter than Codex's content-added and content-removed
 @background-color-diff-added: var(--background-color-diff-added, #d9ecfe);
 @background-color-diff-removed: var(--background-color-diff-removed, #feedca);
-// Stub and interwiki links; red and external ones are in mediawiki.skin.variables.less
+// Stub links; red and external ones are in mediawiki.skin.variables.less
 @color-link-stub: var(--color-link-stub, #723);
-@color-link-interwiki: var(--color-link-interwiki, #36b);
-@color-link-interwiki--visited: var(--color-link-interwiki--visited, #636);
 
 @color-base100: #fff;
 
@@ -170,8 +168,6 @@
 @dark-color-link-new: #fd7865;
 @dark-color-link-new--visited: #e0857a;
 @dark-color-link-stub: #d98c94;
-@dark-color-link-interwiki: #88a3e8;
-@dark-color-link-interwiki--visited: #a799cd;
 @dark-color-link-external--active: #f0a56b;
 @dark-box-shadow-color-button: rgba(0, 0, 0, 0.87);
 
@@ -305,24 +301,9 @@
 		}
 	}
 
-	// Interwiki Styling
+	// External and interwiki links, told apart from internal ones by the icon
+	&.external,
 	&.extiw {
-		&,
-		&:active {
-			color: @color-link-interwiki;
-		}
-
-		&:visited {
-			color: @color-link-interwiki--visited;
-		}
-
-		&:active {
-			color: @color-link-external--active;
-		}
-	}
-
-	// External links
-	&.external {
 		color: @color-primary5;
 
 		&:active {
@@ -350,8 +331,9 @@
 		}
 	}
 
-	// External links
-	&.external {
+	// External and interwiki links both leave the wiki
+	&.external,
+	&.extiw {
 		background: url("../images/icon-external-link.png") top right no-repeat;
 		background-size: 8px 8px;
 		padding-right: 0.6rem;
