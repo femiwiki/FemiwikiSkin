@@ -62,7 +62,7 @@
 			background-size: @height @height;
 
 			& when( @logo-enabled = 1 ) {
-				@media (min-width: @width-breakpoint-tablet) {
+				@media (min-width: @min-width-breakpoint-tablet) {
 					@width: ~"calc(@{height} * @{logo-wordmark-width} / @{logo-wordmark-height})";
 					width: @width;
 
@@ -204,7 +204,7 @@
 					color: @color-base100;
 					text-decoration: none;
 
-					@media (min-width: @width-breakpoint-tablet) {
+					@media (min-width: @min-width-breakpoint-tablet) {
 						width: auto;
 					}
 
@@ -224,7 +224,7 @@
 						-webkit-mask-repeat: no-repeat;
 						mask-repeat: no-repeat;
 
-						@media (min-width: @width-breakpoint-tablet) {
+						@media (min-width: @min-width-breakpoint-tablet) {
 							-webkit-mask-size: 1.2rem;
 							mask-size: 1.2rem;
 							-webkit-mask-position: 0.6rem 50%;
@@ -235,7 +235,7 @@
 					.text {
 						display: none;
 
-						@media (min-width: @width-breakpoint-tablet) {
+						@media (min-width: @min-width-breakpoint-tablet) {
 							display: inline-block;
 							padding-left: 2.2rem;
 							padding-right: 1rem;
@@ -281,7 +281,7 @@
 				mask: /* @embed */ url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/listBullet-ltr.svg")
 					center ~"/" 1.2rem no-repeat;
 
-				@media (min-width: @width-breakpoint-tablet) {
+				@media (min-width: @min-width-breakpoint-tablet) {
 					-webkit-mask-position: 0.6rem 50%;
 					mask-position: 0.6rem 50%;
 				}
@@ -291,7 +291,7 @@
 			.text {
 				display: none;
 
-				@media (min-width: @width-breakpoint-tablet) {
+				@media (min-width: @min-width-breakpoint-tablet) {
 					display: inline-block;
 					padding-left: 2.2rem;
 					padding-right: 1rem;
@@ -349,7 +349,7 @@
 }
 
 // Subtract 1px to avoid being applied with the min-width rule at the same time
-@media (max-width: calc(@width-breakpoint-tablet - 1px)) {
+@media (max-width: @max-width-breakpoint-mobile) {
 	html[lang="ko"] #mw-navigation #site-navigation {
 		a::before {
 			-webkit-mask-size: 2.4rem;
@@ -375,7 +375,7 @@
 
 	// Full width on phones. On wider screens a popover under the menu button, over the content,
 	// aligned to the button's right edge, as the page menu is.
-	@media (min-width: @width-breakpoint-tablet) {
+	@media (min-width: @min-width-breakpoint-tablet) {
 		position: absolute;
 		z-index: @z-index-dropdown;
 		top: @height-nav-bar;
@@ -411,7 +411,7 @@
 		padding: 0;
 
 		// Stacked in the popover, each as wide as the panels below
-		@media (min-width: @width-breakpoint-tablet) {
+		@media (min-width: @min-width-breakpoint-tablet) {
 			flex-direction: column;
 			gap: 0.3rem;
 			margin: 0 0 0.3rem;
@@ -518,7 +518,7 @@
 }
 
 // Where the ToC is a drawer, navBar.js brings the bar back on a scroll up (#503)
-@media screen and (max-width: calc(@width-breakpoint-toc-column - 1px)) {
+@media screen and (max-width: @max-width-breakpoint-tablet) {
 	// Set before scripts run, as a URL's fragment can be scrolled to first, as Vector does (T406114)
 	html.client-js {
 		scroll-padding-top: @height-nav-bar;
@@ -571,7 +571,7 @@
 			box-shadow: @box-shadow-medium;
 
 			// The popover, fixed under the bar with it
-			@media (min-width: @width-breakpoint-tablet) {
+			@media (min-width: @min-width-breakpoint-tablet) {
 				left: auto;
 				right: @site-menu-popover-right;
 				max-height: ~"calc(100vh - @{height-nav-bar})";
