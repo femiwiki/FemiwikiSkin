@@ -13,6 +13,16 @@
 	font-size: 15px;
 }
 
+// Workaround: VisualEditor pads its popups less only for skins it names (#1140).
+// Lets the popup use the content padding; remove once femiwiki gets that too.
+.ve-init-mw-desktopArticleTarget .ve-ce-surface {
+	margin: 0 -@content-horizontal-padding;
+	.content-horizontal-padding();
+	@media (max-width: @width-breakpoint-mobile-small) {
+		margin: 0 -@content-horizontal-padding-mobile-small;
+	}
+}
+
 html.ve-active,
 html.ve-activated,
 html.ve-deactivating {
