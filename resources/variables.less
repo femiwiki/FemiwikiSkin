@@ -2,9 +2,9 @@
 
 @font-size-root-default: 19;
 
+// Other breakpoints are the Codex tokens @min-width-breakpoint-* and @max-width-breakpoint-*.
+// Codex has nothing below its 320px mobile minimum, so the smallest phones keep a skin-only one.
 @width-breakpoint-mobile-small: 360px;
-@width-breakpoint-mobile: 480px;
-@width-breakpoint-tablet: 640px;
 
 @content-width: 43.4rem;
 // Special pages, history and diffs; see wide-content.less
@@ -198,8 +198,8 @@
 // https://femiwiki.com/w/페미위키:2026년_디자인_가이드#원칙
 @toc-width: 12rem;
 @toc-column-gap: 1rem;
-// @toc-width, a @toc-column-gap on each side and @content-width at the 19px root come to about 1090px
-@width-breakpoint-toc-column: 1120px;
+// The ToC becomes a column from @min-width-breakpoint-desktop (1120px): @toc-width, a @toc-column-gap
+// on each side and @content-width at the 19px root come to about 1090px
 @toc-drawer-width: ~"min(20rem, 85vw)";
 @font-size-toc: 0.85rem;
 @color-toc-current: @color-primary4;
@@ -479,7 +479,7 @@
 	}
 
 	blockquote {
-		@media screen and (max-width: @width-breakpoint-mobile) {
+		@media screen and (max-width: @max-width-breakpoint-mobile) {
 			.full-width();
 		}
 	}
@@ -643,13 +643,13 @@
 		white-space: pre-wrap;
 		font-family: "Source Code Pro", monospace, monospace;
 
-		@media screen and (max-width: @width-breakpoint-mobile) {
+		@media screen and (max-width: @max-width-breakpoint-mobile) {
 			.full-width();
 		}
 	}
 
 	.mw-highlight.mw-highlight-lines > pre {
-		@media screen and (max-width: @width-breakpoint-mobile) {
+		@media screen and (max-width: @max-width-breakpoint-mobile) {
 			.full-width();
 		}
 	}
@@ -702,7 +702,7 @@
 		margin: 0.5em 1.4em 1.3em 0;
 	}
 
-	@media screen and (max-width: @width-breakpoint-mobile) {
+	@media screen and (max-width: @max-width-breakpoint-mobile) {
 		div.tleft,
 		div.tright {
 			margin: 1rem auto;
