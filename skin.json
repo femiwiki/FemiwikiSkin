@@ -83,7 +83,7 @@
       "styles": ["skins.femiwiki.smallElements/styles.less"]
     },
     "skins.femiwiki.js": {
-      "dependencies": ["oojs", "oojs-ui-core", "mediawiki.page.ready"],
+      "dependencies": ["mediawiki.page.ready"],
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
@@ -110,7 +110,6 @@
       "scripts": ["mw.fw.js"]
     },
     "skins.femiwiki.share": {
-      "dependencies": ["oojs", "oojs-ui-windows"],
       "packageFiles": ["skins.femiwiki.share/init.js"]
     },
     "skins.femiwiki.share.ui": {
