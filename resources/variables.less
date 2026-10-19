@@ -301,7 +301,7 @@
 		}
 	}
 
-	// External and interwiki links, told apart from internal ones by the icon
+	// External and interwiki links, told apart from internal ones by their icons
 	&.external,
 	&.extiw {
 		color: @color-primary5;
@@ -331,9 +331,8 @@
 		}
 	}
 
-	// External and interwiki links both leave the wiki
-	&.external,
-	&.extiw {
+	// External links
+	&.external {
 		background: url("../images/icon-external-link.png") top right no-repeat;
 		background-size: 8px 8px;
 		padding-right: 0.6rem;

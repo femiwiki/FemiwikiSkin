@@ -1,4 +1,5 @@
 @import "../variables.less";
+@import "mediawiki.mixins.less";
 
 .mw-body {
 	box-sizing: border-box;
@@ -343,6 +344,35 @@ a.extiw {
 
 .mw-userlink {
 	.mw-link();
+}
+
+// Interwiki links show the logo of the wiki they lead to, or a globe (#277)
+a.extiw {
+	&::after {
+		content: "";
+		margin-left: 0.15em;
+		.cdx-mixin-css-icon(@cdx-icon-globe, currentcolor, 0.75em, false, @background-position-base, 0.4em);
+	}
+
+	.interwiki-logo(@host, @icon) {
+		&[href*="@{host}/"]::after {
+			.cdx-mixin-css-icon-background-image(@icon, currentcolor);
+		}
+	}
+	.interwiki-logo("wikipedia.org", @cdx-icon-logo-wikipedia);
+	.interwiki-logo("wiktionary.org", @cdx-icon-logo-wiktionary);
+	.interwiki-logo("wikibooks.org", @cdx-icon-logo-wikibooks);
+	.interwiki-logo("wikinews.org", @cdx-icon-logo-wikinews);
+	.interwiki-logo("wikiquote.org", @cdx-icon-logo-wikiquote);
+	.interwiki-logo("wikisource.org", @cdx-icon-logo-wikisource);
+	.interwiki-logo("wikiversity.org", @cdx-icon-logo-wikiversity);
+	.interwiki-logo("wikivoyage.org", @cdx-icon-logo-wikivoyage);
+	.interwiki-logo("wikidata.org", @cdx-icon-logo-wikidata);
+	.interwiki-logo("commons.wikimedia.org", @cdx-icon-logo-wikimedia-commons);
+	.interwiki-logo("species.wikimedia.org", @cdx-icon-logo-wikispecies);
+	.interwiki-logo("meta.wikimedia.org", @cdx-icon-logo-meta-wiki);
+	.interwiki-logo("mediawiki.org", @cdx-icon-logo-media-wiki);
+	.interwiki-logo("wikimediafoundation.org", @cdx-icon-logo-wikimedia);
 }
 
 // PrevNextNavigation
