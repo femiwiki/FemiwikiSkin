@@ -2,6 +2,22 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.1.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.0.1...v6.1.0) (2026-10-19)
+
+
+### Features
+
+* follow the Codex breakpoint tokens ([#1179](https://github.com/femiwiki/FemiwikiSkin/issues/1179)) ([6398a0c](https://github.com/femiwiki/FemiwikiSkin/commit/6398a0c98b3e80dc78f51f99a61288e2196a520e))
+
+
+### Bug Fixes
+
+* draw a line beside talk page replies ([#1174](https://github.com/femiwiki/FemiwikiSkin/issues/1174)) ([2817942](https://github.com/femiwiki/FemiwikiSkin/commit/2817942c8ed676b6a9663430f734956ccbfbc3c4))
+* give the filled button to "Add topic" on talk pages ([#1173](https://github.com/femiwiki/FemiwikiSkin/issues/1173)) ([eb93d40](https://github.com/femiwiki/FemiwikiSkin/commit/eb93d40f0583311d70cb01b34bf5cd12b83054df))
+* install the OOUI theme with the dialog and popup shadows ([#1177](https://github.com/femiwiki/FemiwikiSkin/issues/1177)) ([8a67e64](https://github.com/femiwiki/FemiwikiSkin/commit/8a67e642618435a157409d08e9dda9a4c56aaa94))
+* keep the VisualEditor link popup tail inside the popup ([#1176](https://github.com/femiwiki/FemiwikiSkin/issues/1176)) ([613a093](https://github.com/femiwiki/FemiwikiSkin/commit/613a093c50d789aa50b833a559897cc865134808))
+* Show interwiki links in the link colour with their own icons ([#1182](https://github.com/femiwiki/FemiwikiSkin/issues/1182)) ([eff97d0](https://github.com/femiwiki/FemiwikiSkin/commit/eff97d06c0151cce13400b0d43841bf124b94693))
+
 ## [6.0.1](https://github.com/femiwiki/FemiwikiSkin/compare/v6.0.0...v6.0.1) (2026-10-17)
 
 
