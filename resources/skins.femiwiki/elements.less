@@ -29,8 +29,14 @@ body {
 	overflow-wrap: break-word;
 }
 
-:focus {
+// A mouse click draws no ring; the keyboard gets a 2px purple one, 3:1 or more in both themes.
+:focus:not(:focus-visible) {
 	outline: none;
+}
+
+:focus-visible {
+	outline: 2px solid @color-link;
+	outline-offset: 1px;
 }
 
 ::selection {
