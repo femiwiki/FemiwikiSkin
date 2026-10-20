@@ -1,3 +1,4 @@
+@import "mediawiki.mixins.less";
 @import "../variables.less";
 
 // https://github.com/femiwiki/FemiwikiSkin/issues/163
@@ -81,10 +82,11 @@ html.ve-deactivating {
 		}
 
 		.nav-bar,
-		#footer-bottom,
-		#p-header {
+		#footer-bottom {
 			display: none;
 		}
+
+		.header-hidden-but-title();
 
 		.oo-ui-toolbar-tools {
 			z-index: 1;
