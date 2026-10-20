@@ -28,10 +28,14 @@
     {{#data-portlets.data-actions}}{{>Menu}}{{/data-portlets.data-actions}}
   </div>
   <div id="lastmod-and-views">
-    {{#link-history}}
     {{! VisualEditor writes the new time into #footer-info-lastmod after a save (#32). }}
+    {{#html-lastmod}}
     <a id="lastmod" href="{{link-history}}"><span id="footer-info-lastmod">{{{html-lastmod}}}</span></a>
-    {{/link-history}}
+    {{/html-lastmod}}
+    {{^html-lastmod}}
+    {{! A link with no text is a stop for keyboard users that says nothing. }}
+    <span id="footer-info-lastmod"></span>
+    {{/html-lastmod}}
     {{#data-portlets.data-views}}{{>Menu}}{{/data-portlets.data-views}}
   </div>
 </header>

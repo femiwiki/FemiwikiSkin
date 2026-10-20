@@ -260,6 +260,7 @@
           },
           "messages": [
             "navigation-heading",
+            "tooltip-p-logo",
             "tooltip-n-recentchanges",
             "recentchanges",
             "tooltip-n-randompage",
