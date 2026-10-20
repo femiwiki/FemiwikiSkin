@@ -6,7 +6,9 @@ import downloader from "nodejs-file-downloader";
 import unzipper from "unzipper";
 
 const mediaWikiVersion = "1.46.2";
-const frankenPhpVersion = "1.4.4";
+// The last FrankenPHP release that bundles PHP 8.3 (8.3.14), the PHP minor
+// production runs. Later releases bundle PHP 8.4 or newer.
+const frankenPhpVersion = "1.3.2";
 const caddyPort = "2019";
 const rootPath = path.dirname(process.argv[1]);
 const pathToMediaWiki = `${rootPath + path.sep}mediawiki`;
