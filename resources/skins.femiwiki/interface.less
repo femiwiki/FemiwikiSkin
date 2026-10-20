@@ -435,6 +435,11 @@
 		clear: both;
 		overflow: hidden;
 
+		// The row clips what sticks out, so the focus ring goes inside the buttons.
+		:focus-visible {
+			outline-offset: -2px;
+		}
+
 		.right-buttons {
 			float: right;
 			// Centre indicators of different heights.
