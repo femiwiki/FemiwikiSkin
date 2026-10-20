@@ -1,3 +1,4 @@
+@import "mediawiki.mixins.less";
 @import "../variables.less";
 
 body.action-edit {
@@ -27,7 +28,6 @@ body.action-edit {
 
 		.nav-bar,
 		.mw-indicators,
-		#p-header,
 		#p-title-and-tb,
 		#lastmod-and-views,
 		#contentSub,
@@ -35,13 +35,14 @@ body.action-edit {
 		.mw-newarticletext,
 		.mw-warning-with-logexcerpt,
 		#wikiPreview,
-		.firstHeading,
 		#footer-bottom,
 		#wpPreview,
 		.hiddencats,
 		#wpDiff {
 			display: none;
 		}
+
+		.header-hidden-but-title();
 
 		#editform {
 			font-size: 14px;

@@ -255,6 +255,24 @@
 	}
 }
 
+// Hides the page header while editing on a narrow screen, but keeps the title for screen
+// readers, so the page still has its h1.
+.header-hidden-but-title() {
+	#p-header {
+		margin: 0;
+		padding: 0;
+
+		// The id, not the class, so this outweighs rules such as `#p-header #lastmod-and-views`.
+		> :not(#firstHeading) {
+			display: none;
+		}
+
+		.firstHeading {
+			.mixin-screen-reader-text();
+		}
+	}
+}
+
 .surface() {
 	border: 1px solid @border-color-surface;
 	border-radius: @border-radius-control;
