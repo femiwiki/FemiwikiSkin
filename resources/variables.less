@@ -64,7 +64,7 @@
 @background-color-diff-added: var(--background-color-diff-added, #d9ecfe);
 @background-color-diff-removed: var(--background-color-diff-removed, #feedca);
 // Stub links; red and external ones are in mediawiki.skin.variables.less
-@color-link-stub: var(--color-link-stub, #723);
+@color-link-stub: var(--color-link-stub, #ae5461);
 
 @color-base100: #fff;
 
@@ -117,6 +117,8 @@
 
 @color-background1: @color-primary1;
 @color-link: @color-primary5;
+// Links in text: 3:1 or more against the body text and 4.5:1 against the background (femiwiki/femiwiki#148)
+@color-link-text: var(--color-link-text, @palette-primary4);
 // White text on the top bar needs 4.5:1; the guide keeps it in both themes
 @background-color-nav-bar: @palette-primary4;
 // Hover and pressed are darker, as a lighter tint would take white text below 4.5:1
@@ -142,7 +144,7 @@
 @border-color-frame: @color-primary2;
 
 // == Dark theme ==
-// The purple ramp turned around, on #101418: links #b9b5d9 9.4:1, @color-primary4 #aca6e4 8.2:1
+// The purple ramp turned around, on #101418: @color-primary4 #aca6e4 8.2:1
 @dark-color-primary1: @palette-primary6;
 @dark-color-primary2: @palette-primary5;
 @dark-color-primary3: @palette-primary4;
@@ -164,10 +166,11 @@
 // Codex's dark content-added and content-removed at 50% on #101418
 @dark-background-color-diff-added: #1a253f;
 @dark-background-color-diff-removed: #2b2318;
-// Codex's dark red link and visited colour; the rest 5.4:1 or more on #101418
-@dark-color-link-new: #fd7865;
-@dark-color-link-new--visited: #e0857a;
-@dark-color-link-stub: #d98c94;
+// Link colours 3.2:1 against #eaecf0 text and 4.8:1 on #101418
+@dark-color-link-text: #8579c2;
+@dark-color-link-new: #da5948;
+@dark-color-link-new--visited: #c26a60;
+@dark-color-link-stub: #b86e76;
 @dark-color-link-external--active: #f0a56b;
 @dark-box-shadow-color-button: rgba(0, 0, 0, 0.87);
 
@@ -268,7 +271,7 @@
 .mw-link-colors() {
 	&,
 	&:visited {
-		color: @color-primary5;
+		color: @color-link-text;
 	}
 
 	&:active {
@@ -276,7 +279,7 @@
 	}
 
 	&.external {
-		color: @color-primary5;
+		color: @color-link-text;
 	}
 
 	&.new {
@@ -304,7 +307,7 @@
 	// External and interwiki links, told apart from internal ones by their icons
 	&.external,
 	&.extiw {
-		color: @color-primary5;
+		color: @color-link-text;
 
 		&:active {
 			color: @color-link-external--active;
