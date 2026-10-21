@@ -35,9 +35,14 @@
 
 	function init() {
 		// The server-rendered ButtonWidget, handled without infusing it
-		const $button = $("#p-share .oo-ui-buttonElement-button");
-		$button.on("click", share);
-		$button.on("keydown", (e) => {
+		const button = document.querySelector(
+			"#p-share .oo-ui-buttonElement-button",
+		);
+		if (!button) {
+			return;
+		}
+		button.addEventListener("click", share);
+		button.addEventListener("keydown", (e) => {
 			if (e.key === "Enter" || e.key === " ") {
 				e.preventDefault();
 				share();
@@ -45,5 +50,9 @@
 		});
 	}
 
-	$(init);
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", init);
+	} else {
+		init();
+	}
 })();
