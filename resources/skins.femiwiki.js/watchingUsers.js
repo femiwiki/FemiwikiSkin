@@ -1,5 +1,5 @@
-/** @type JQuery<HTMLElement>?*/ var $watchLink;
-/** @type JQuery<HTMLElement>?*/ var $watchAnchor;
+/** @type {HTMLElement|null} */ var watchLink = null;
+/** @type {HTMLElement|null} */ var watchAnchor = null;
 var watched = false;
 var watchers = 0;
 
@@ -8,23 +8,19 @@ var watchers = 0;
  * @returns void
  */
 function updateWatcher(num) {
-	if (!$watchLink || !$watchAnchor || num < 0) {
+	if (!watchLink || !watchAnchor || num < 0) {
 		return;
 	}
-	$watchLink.addClass("label");
-	$watchAnchor.html(num.toString());
+	watchLink.classList.add("label");
+	watchAnchor.textContent = num.toString();
 }
 
 /**
- *
- * @param {*} _
- * @param {string} otherAction
+ * @param {boolean} newWatched
  */
-function onWatchpage(_, otherAction) {
-	// We have to check the previous watching status as finishing visual editing triggers
-	// 'watchpage.mw' event again even if the watching status is not changed. It could make a false
-	// increasement or decreasement of the watching counter.
-	var newWatched = otherAction === "watch";
+function onWatchlistChange(newWatched) {
+	// Finishing visual editing fires this again with the same status, which would
+	// miscount the watchers, so compare it with the previous one.
 	if (newWatched === watched) {
 		return;
 	}
@@ -37,12 +33,14 @@ function onWatchpage(_, otherAction) {
 }
 
 /**
- * $watchAnchor updates the label to '(un)Watching...' and '(un)Watch', and we don't want it.
- * @param {*} handler
- * @returns
+ * Core updates the label of watchAnchor to '(un)Watching...' and '(un)Watch', and we don't want it.
+ * @returns void
  */
-function onDOMSubtreeModified(handler) {
-	switch (handler.target.innerHTML) {
+function onLabelChange() {
+	if (!watchAnchor) {
+		return;
+	}
+	switch (watchAnchor.textContent) {
 		case mw.msg("watching"):
 		case mw.msg("watch"):
 		case mw.msg("unwatching"):
@@ -57,7 +55,7 @@ function onDOMSubtreeModified(handler) {
  * @returns void
  */
 function onApiDone(data) {
-	if (!$watchLink || !$watchAnchor) {
+	if (!watchLink || !watchAnchor) {
 		return;
 	}
 
@@ -69,22 +67,26 @@ function onApiDone(data) {
 
 	watchers = newWatchers;
 	updateWatcher(watchers);
-	$watchLink.addClass("label");
+	watchLink.classList.add("label");
 }
 
 /**
  * @returns void
  */
 function init() {
-	watched = $("#ca-watch").length === 0;
-	$watchLink = $(".mw-watchlink, .mw-watchlink-watch");
-	if (!$watchLink) {
+	watched = document.getElementById("ca-watch") === null;
+	watchLink = document.querySelector(".mw-watchlink, .mw-watchlink-watch");
+	watchAnchor = watchLink && watchLink.querySelector(":scope > a");
+	if (!watchLink || !watchAnchor) {
 		return;
 	}
-	$watchAnchor = $watchLink.children("a");
 
-	$watchLink.on("watchpage.mw", onWatchpage);
-	$watchLink.on("DOMSubtreeModified", onDOMSubtreeModified);
+	mw.hook("wikipage.watchlistChange").add(onWatchlistChange);
+	new MutationObserver(onLabelChange).observe(watchAnchor, {
+		childList: true,
+		characterData: true,
+		subtree: true,
+	});
 
 	new mw.Api()
 		.get({

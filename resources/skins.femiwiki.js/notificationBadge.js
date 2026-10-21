@@ -1,15 +1,16 @@
 function init() {
 	// Notification badge
+	var echoBadge = document.querySelector(
+		"#pt-notifications-all .mw-echo-notifications-badge",
+	);
 	var badge = parseInt(
-		$("#pt-notifications-all .mw-echo-notifications-badge").attr(
-			"data-counter-num",
-		) || "",
+		(echoBadge && echoBadge.getAttribute("data-counter-num")) || "",
 		10,
 	);
-	if (!Number.isNaN(badge) && badge !== 0) {
-		$("#fw-menu-toggle .badge")
-			.addClass("active")
-			.text(badge > 10 ? "+9" : badge);
+	var menuBadge = document.querySelector("#fw-menu-toggle .badge");
+	if (menuBadge && !Number.isNaN(badge) && badge !== 0) {
+		menuBadge.classList.add("active");
+		menuBadge.textContent = badge > 10 ? "+9" : String(badge);
 	}
 }
 

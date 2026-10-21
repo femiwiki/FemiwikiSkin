@@ -10,11 +10,16 @@ function showStatus(num, open) {
 	if (num === 0) {
 		return;
 	}
-	var $talk = $("#ca-talk");
-	$talk.find("a").text(num);
-	$talk.addClass("label");
+	var talk = document.getElementById("ca-talk");
+	if (!talk) {
+		return;
+	}
+	talk.querySelectorAll("a").forEach((a) => {
+		a.textContent = String(num);
+	});
+	talk.classList.add("label");
 	if (open) {
-		$talk.addClass("has-open-topic");
+		talk.classList.add("has-open-topic");
 	}
 }
 
@@ -80,11 +85,11 @@ function showWikitextStatus(talkName) {
 function init() {
 	var title = new mw.Title(mw.config.get("wgPageName"));
 	var talkPage = title.getTalkPage();
-	var $talk = $("#ca-talk");
-	if (!talkPage || $talk.length === 0 || title === talkPage) {
+	var talk = document.getElementById("ca-talk");
+	if (!talkPage || !talk || title === talkPage) {
 		return;
 	}
-	if ($talk.hasClass("new")) {
+	if (talk.classList.contains("new")) {
 		return;
 	}
 	if (!config.useDiscussionTools && !config.useFlow) {
