@@ -25,7 +25,7 @@ function init() {
 	}
 
 	var urlGenerator = typeaheadSearch.urlGenerator(mw.config.get("wgScript"));
-	Vue.createMwApp(typeaheadSearch.App, {
+	var app = Vue.createMwApp(typeaheadSearch.App, {
 		prefixClass: "fw-",
 		id: searchForm.id,
 		autocapitalizeValue: search.getAttribute("autocapitalize"),
@@ -48,6 +48,34 @@ function init() {
 		showDescription: true,
 		highlightQuery: true,
 	}).mount(searchBox.querySelector(".fw-typeahead-search-container"));
+	searchWhileComposing(app.searchForm);
+}
+
+/**
+ * Searches while a Korean (or other IME) syllable is still being composed.
+ *
+ * Vue's v-model skips input events during IME composition, and Codex reads the value on
+ * compositionupdate, which fires before the input value changes. So the search ran one
+ * keystroke behind and the menu stayed closed until the word was finished with a space.
+ *
+ * @param {any} typeahead The mounted CdxTypeaheadSearch component
+ * @return {void}
+ */
+function searchWhileComposing(typeahead) {
+	var input = /** @type {HTMLInputElement|null} */ (
+		typeahead && typeahead.$el.querySelector("input[name=search]")
+	);
+	if (!input) {
+		return;
+	}
+	input.addEventListener("input", (event) => {
+		if (!(/** @type {InputEvent} */ (event).isComposing)) {
+			return;
+		}
+		var value = /** @type {HTMLInputElement} */ (event.target).value;
+		typeahead.inputValue = value;
+		typeahead.onUpdateInputValue(value);
+	});
 }
 
 module.exports = { init: init };
