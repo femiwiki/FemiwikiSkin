@@ -14,6 +14,11 @@ jobs:
       contents: read
       id-token: write
 
+  lint:
+    uses: ./.github/workflows/lint.yml
+    permissions:
+      contents: read
+
   long-comments:
     uses: femiwiki/.github/.github/workflows/long-comments.yml@1187b89562343e91f56c809d6ce75e9df96e2d01
     permissions:
@@ -27,7 +32,7 @@ jobs:
   # The one check branch protection requires. What has to pass is the
   # workflows called above, so adding a check does not touch femiwiki/infra.
   required:
-    needs: [test, long-comments, shared-lint]
+    needs: [test, lint, long-comments, shared-lint]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 5
