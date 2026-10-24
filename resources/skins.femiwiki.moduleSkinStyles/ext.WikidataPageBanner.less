@@ -1,0 +1,83 @@
+@import "../variables.less";
+
+// The banner comes in the site notice, above the page title. It is part of the content, so it
+// stays flat like other images: no rounded corners or shadow.
+#siteNotice > .ext-wpb-pagebanner {
+	margin: 0 0 0.75rem;
+
+	// Right under the top bar when nothing comes before it
+	&:first-child {
+		@media (max-width: @max-width-breakpoint-mobile) {
+			margin-top: -2.3rem;
+		}
+	}
+}
+
+// The title and an aspect-ratio spacer share one grid cell that the image fills, so a long
+// title makes the banner taller instead of being cut off.
+#siteNotice .wpb-topbanner {
+	display: grid;
+	max-height: none;
+
+	@media (max-width: @max-width-breakpoint-mobile) {
+		.full-width();
+	}
+
+	&::before,
+	.wpb-name {
+		grid-area: 1 / 1;
+	}
+
+	&::before {
+		content: "";
+		aspect-ratio: 3 / 1;
+
+		@media (max-width: @max-width-breakpoint-mobile) {
+			aspect-ratio: 2 / 1;
+		}
+	}
+
+	.image {
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
+	}
+
+	.wpb-banner-image {
+		height: 100%;
+		max-width: none;
+		margin: 0;
+		transform: none;
+		object-fit: cover;
+	}
+
+	// With $wgWPBEnableHeadingOverride, the extension draws the title on the image.
+	.wpb-name {
+		position: relative;
+		align-self: start;
+		justify-self: start;
+		max-width: none;
+		margin: 1rem;
+		padding: 0.3em 0.5em;
+		// Dark enough for white text to stay above 4.5:1 on a white image
+		background: rgba(0, 0, 0, 0.6);
+		border-radius: 0.3em;
+		font-size: 1.714rem;
+		line-height: 1.2em;
+		white-space: normal;
+		word-break: break-word;
+
+		@media (max-width: @max-width-breakpoint-mobile) {
+			margin: 0.75rem @content-horizontal-padding;
+		}
+
+		@media (max-width: @width-breakpoint-mobile-small) {
+			margin: 0.75rem @content-horizontal-padding-mobile-small;
+		}
+	}
+}
+
+// The page title WikidataPageBanner empties when it draws the title itself
+#p-header h1.firstHeading:empty {
+	display: none;
+}
