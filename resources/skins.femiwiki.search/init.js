@@ -1,5 +1,5 @@
-var Vue = require(/** @type {string} */ ("vue"));
-var typeaheadSearch = require(
+const Vue = require(/** @type {string} */ ("vue"));
+const typeaheadSearch = require(
 	/** @type {string} */ ("mediawiki.skinning.typeaheadSearch"),
 );
 
@@ -9,23 +9,23 @@ var typeaheadSearch = require(
  * @return {void}
  */
 function init() {
-	var searchBox = document.querySelector(".fw-search-box");
+	const searchBox = document.querySelector(".fw-search-box");
 	if (!searchBox) {
 		return;
 	}
-	var searchForm = searchBox.querySelector(".cdx-search-input");
-	var titleInput = /** @type {HTMLInputElement|null} */ (
+	const searchForm = searchBox.querySelector(".cdx-search-input");
+	const titleInput = /** @type {HTMLInputElement|null} */ (
 		searchBox.querySelector("input[name=title]")
 	);
-	var search = /** @type {HTMLInputElement|null} */ (
+	const search = /** @type {HTMLInputElement|null} */ (
 		searchBox.querySelector("input[name=search]")
 	);
 	if (!searchForm || !titleInput || !search) {
 		return;
 	}
 
-	var urlGenerator = typeaheadSearch.urlGenerator(mw.config.get("wgScript"));
-	var app = Vue.createMwApp(typeaheadSearch.App, {
+	const urlGenerator = typeaheadSearch.urlGenerator(mw.config.get("wgScript"));
+	const app = Vue.createMwApp(typeaheadSearch.App, {
 		prefixClass: "fw-",
 		id: searchForm.id,
 		autocapitalizeValue: search.getAttribute("autocapitalize"),
@@ -37,7 +37,7 @@ function init() {
 			`${mw.config.get("wgScriptPath")}/rest.php`,
 			urlGenerator,
 		),
-		urlGenerator: urlGenerator,
+		urlGenerator,
 		searchTitle: search.getAttribute("title"),
 		searchPlaceholder: search.getAttribute("placeholder"),
 		searchQuery: search.value,
@@ -62,7 +62,7 @@ function init() {
  * @return {void}
  */
 function searchWhileComposing(typeahead) {
-	var input = /** @type {HTMLInputElement|null} */ (
+	const input = /** @type {HTMLInputElement|null} */ (
 		typeahead && typeahead.$el.querySelector("input[name=search]")
 	);
 	if (!input) {
@@ -72,10 +72,10 @@ function searchWhileComposing(typeahead) {
 		if (!(/** @type {InputEvent} */ (event).isComposing)) {
 			return;
 		}
-		var value = /** @type {HTMLInputElement} */ (event.target).value;
+		const value = /** @type {HTMLInputElement} */ (event.target).value;
 		typeahead.inputValue = value;
 		typeahead.onUpdateInputValue(value);
 	});
 }
 
-module.exports = { init: init };
+module.exports = { init };
