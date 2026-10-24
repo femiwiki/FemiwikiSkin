@@ -346,6 +346,12 @@ body.mw-hide-empty-elt .mw-empty-elt {
 			padding-left: 0;
 			padding-right: @bleed-right;
 		}
+
+		// A gadget, such as the bookflap one, can take the right margin with #fw-page-aside.
+		body:not(.fw-wide-content) .fw-page:has(> .fw-page-aside:not(:empty)) & {
+			margin-right: 0;
+			padding-right: 0;
+		}
 	}
 }
 
