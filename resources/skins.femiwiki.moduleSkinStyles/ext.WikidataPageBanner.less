@@ -1,0 +1,60 @@
+@import "../variables.less";
+
+// The banner comes in the site notice, above the page title. It is part of the content, so it
+// stays flat like other images: no rounded corners or shadow.
+#siteNotice > .ext-wpb-pagebanner {
+	margin: 0 0 0.75rem;
+
+	// Right under the top bar when nothing comes before it
+	&:first-child {
+		@media (max-width: @max-width-breakpoint-mobile) {
+			margin-top: -2.3rem;
+		}
+	}
+}
+
+#siteNotice .wpb-topbanner {
+	display: flex;
+	flex-direction: column;
+	max-height: none;
+	overflow: visible;
+
+	.image {
+		aspect-ratio: 3 / 1;
+		overflow: hidden;
+
+		@media (max-width: @max-width-breakpoint-mobile) {
+			aspect-ratio: 2 / 1;
+			.full-width();
+		}
+	}
+
+	.wpb-banner-image {
+		height: 100%;
+		max-width: none;
+		margin: 0;
+		transform: none;
+		object-fit: cover;
+	}
+
+	// With $wgWPBEnableHeadingOverride, the title goes under the image as the page title would.
+	.wpb-name {
+		position: static;
+		order: 1;
+		max-width: none;
+		margin: 0.75rem 0 0;
+		padding: 0;
+		background: none;
+		border-radius: 0;
+		color: @color-base;
+		font-size: 1.714rem;
+		line-height: 1.2em;
+		white-space: normal;
+		word-break: break-word;
+	}
+}
+
+// The page title WikidataPageBanner empties when it draws the title itself
+#p-header h1.firstHeading:empty {
+	display: none;
+}
