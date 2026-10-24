@@ -63,7 +63,7 @@ jobs:
       - run: npm install
         if: contains(fromJSON('["phpunit", "phpunit-parallel", "selenium"]'), matrix.stage)
 
-      - uses: femiwiki/quibble-action@2b5f2466dec6f421394630fd653445da1f86b11c # v3.0.0
+      - uses: femiwiki/quibble-action@e2f130548c1322e8414c77e4f46d11f6dfcfa432 # v3.0.3
         id: quibble
         with:
           stage: ${{ matrix.stage }}
