@@ -1,4 +1,4 @@
-/** @type {CheckboxHack} */ var checkboxHack = require(
+/** @type {CheckboxHack} */ const checkboxHack = require(
 	/** @type {string} */ ("mediawiki.page.ready"),
 ).checkboxHack;
 
@@ -56,7 +56,7 @@ function initSiteMenu(checkbox, button, menu) {
 	 * @return {void}
 	 */
 	function dismissIfOutside(event) {
-		var node = event.target;
+		const node = event.target;
 		if (
 			checkbox instanceof HTMLInputElement &&
 			checkbox.checked &&
@@ -104,11 +104,10 @@ function main() {
 		window.document.getElementById("p-actions-and-toolbox"),
 	);
 
-	var fwMenuToggle = document.querySelector("#fw-menu-toggle");
-	var fwNotificationBadge = document.querySelector("#fw-menu-toggle .badge");
+	const fwMenuToggle = document.querySelector("#fw-menu-toggle");
+	const fwNotificationBadge = document.querySelector("#fw-menu-toggle .badge");
 	if (fwMenuToggle && fwNotificationBadge) {
 		fwMenuToggle.addEventListener("click", () => {
-			// @ts-expect-error: fwNotificationBadge is possibly 'null'.
 			fwNotificationBadge.classList.remove("active");
 		});
 	}

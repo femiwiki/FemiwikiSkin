@@ -1,7 +1,7 @@
-var CURRENT_CLASS = "fw-toc-current";
+const CURRENT_CLASS = "fw-toc-current";
 // Vector's thresholds: a heading counts as reached within 75px of the top, checked at most every 200ms
-var TOP_MARGIN = 75;
-var THROTTLE_MS = 200;
+const TOP_MARGIN = 75;
+const THROTTLE_MS = 200;
 
 /**
  * @param {() => void} callback
@@ -27,36 +27,32 @@ function deferUntilFrame(callback, frameCount) {
  * @return {void}
  */
 function init() {
-	var toc = document.getElementById("fw-toc");
-	var checkbox = document.getElementById("fw-toc-checkbox");
-	var body = document.getElementById("bodyContent");
-	if (!toc || !(checkbox instanceof HTMLInputElement) || !body) {
+	const toc = document.getElementById("fw-toc");
+	const tocCheckbox = document.getElementById("fw-toc-checkbox");
+	const body = document.getElementById("bodyContent");
+	if (!toc || !(tocCheckbox instanceof HTMLInputElement) || !body) {
 		return;
 	}
-	var tocCheckbox = checkbox;
-	var panel = toc.querySelector(".fw-toc-panel");
-	var top = toc.querySelector(".fw-toc-top");
+	const panel = toc.querySelector(".fw-toc-panel");
+	const top = toc.querySelector(".fw-toc-top");
 
 	/** @type {Map<Element, Element>} */
-	var items = new Map();
+	const items = new Map();
 	if (top) {
 		// The content's own top stands for the part above the first heading
 		items.set(body, top);
 	}
-	var links = toc.querySelectorAll(".fw-toc-link[data-anchor]");
-	for (let i = 0; i < links.length; i++) {
-		const anchor = links[i].getAttribute("data-anchor");
+	const links = toc.querySelectorAll(".fw-toc-link[data-anchor]");
+	links.forEach((link) => {
+		const anchor = link.getAttribute("data-anchor");
 		const heading = anchor && document.getElementById(anchor);
-		if (heading && links[i].parentElement) {
-			items.set(
-				heading.closest(".mw-heading") || heading,
-				/** @type {Element} */ (links[i].parentElement),
-			);
+		if (heading && link.parentElement) {
+			items.set(heading.closest(".mw-heading") || heading, link.parentElement);
 		}
-	}
+	});
 
 	/** @type {Element|null} */
-	var current = null;
+	let current = null;
 
 	/**
 	 * @param {Element|null|undefined} item
@@ -85,13 +81,13 @@ function init() {
 
 	// The current section is the last one whose heading has reached the top margin, or else the
 	// nearest one below it. The observer is only asked for positions, so it disconnects each time.
-	var observer = new IntersectionObserver((entries) => {
+	const observer = new IntersectionObserver((entries) => {
 		/** @type {IntersectionObserverEntry|undefined} */
-		var above;
+		let above;
 		/** @type {IntersectionObserverEntry|undefined} */
-		var below;
+		let below;
 		entries.forEach((entry) => {
-			var rect = entry.boundingClientRect;
+			const rect = entry.boundingClientRect;
 			// A hidden heading has no box
 			if (rect.top === 0 && rect.bottom === 0) {
 				return;
@@ -104,7 +100,7 @@ function init() {
 				below = entry;
 			}
 		});
-		var closest = above || below;
+		const closest = above || below;
 		if (closest) {
 			setCurrent(items.get(closest.target));
 		}
@@ -121,8 +117,8 @@ function init() {
 	}
 
 	/** @type {number|undefined} */
-	var timeoutId;
-	var paused = false;
+	let timeoutId;
+	let paused = false;
 
 	/**
 	 * @return {void}
@@ -137,8 +133,8 @@ function init() {
 	}
 
 	toc.addEventListener("click", (event) => {
-		var target = /** @type {Element} */ (event.target);
-		var link = target.closest && target.closest(".fw-toc-link");
+		const target = /** @type {Element} */ (event.target);
+		const link = target.closest && target.closest(".fw-toc-link");
 		if (!link) {
 			return;
 		}
@@ -162,4 +158,4 @@ function init() {
 	calcIntersection();
 }
 
-module.exports = Object.freeze({ init: init });
+module.exports = Object.freeze({ init });
