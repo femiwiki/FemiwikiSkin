@@ -13,9 +13,8 @@
 	}
 }
 
-// The title and a spacer share one grid cell, and the image fills it. The spacer keeps the cell
-// at least as tall as the aspect ratio, and a title too long for that makes the cell taller
-// instead of being cut off.
+// The title and an aspect-ratio spacer share one grid cell that the image fills, so a long
+// title makes the banner taller instead of being cut off.
 #siteNotice .wpb-topbanner {
 	display: grid;
 	max-height: none;
