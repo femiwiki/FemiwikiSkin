@@ -83,6 +83,7 @@ function main() {
 	require("./notificationBadge.js").init();
 	require("./watchingUsers.js").init();
 	require("./tableOfContents.js").init();
+	require("./pinning.js").init();
 	require("./navBar.js").init();
 
 	initCheckboxHack(

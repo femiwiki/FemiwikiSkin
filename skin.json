@@ -92,7 +92,7 @@
       "styles": ["skins.femiwiki.smallElements/styles.less"]
     },
     "skins.femiwiki.js": {
-      "dependencies": ["mediawiki.page.ready"],
+      "dependencies": ["mediawiki.page.ready", "mediawiki.user"],
       "packageFiles": [
         "skins.femiwiki.js/skin.js",
         "skins.femiwiki.js/discussionStatus.js",
@@ -103,6 +103,7 @@
         "skins.femiwiki.js/notificationBadge.js",
         "skins.femiwiki.js/watchingUsers.js",
         "skins.femiwiki.js/tableOfContents.js",
+        "skins.femiwiki.js/pinning.js",
         "skins.femiwiki.js/navBar.js"
       ]
     },
@@ -198,7 +199,9 @@
     "femiwiki": "MediaWiki\\Config\\GlobalVarConfig::newInstance"
   },
   "DefaultUserOptions": {
-    "FemiwikiUseLargerElements": 1
+    "FemiwikiUseLargerElements": 1,
+    "FemiwikiTocPinned": 1,
+    "FemiwikiAsidePinned": 1
   },
   "MessagesDirs": {
     "Femiwiki": [
@@ -216,7 +219,7 @@
     "SkinPageReadyConfig": "default",
     "SidebarBeforeOutput": "Portlet",
     "SkinTemplateNavigation::Universal": "Portlet",
-    "GetPreferences": "SmallElements",
+    "GetPreferences": ["SmallElements", "Pinning"],
     "OutputPageBodyAttributes": ["SmallElements", "Width"]
   },
   "HookHandlers": {
@@ -234,6 +237,9 @@
     },
     "Width": {
       "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Width"
+    },
+    "Pinning": {
+      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Pinning"
     }
   },
   "ValidSkinNames": {
@@ -279,6 +285,8 @@
             "toc",
             "skin-femiwiki-toc-top",
             "skin-femiwiki-toc-close",
+            "skin-femiwiki-pin-hide",
+            "skin-femiwiki-pin-show",
             "skin-femiwiki-special-nav-label",
             "skin-femiwiki-special-nav-close",
             "skin-femiwiki-search-close"
