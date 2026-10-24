@@ -458,10 +458,8 @@
 	}
 }
 
-// A table that is wider than the text runs on into the page margin, as far as the edge of the
-// screen, and scrolls sideways over the whole width while it starts and ends in line with the text
-// (https://github.com/femiwiki/FemiwikiSkin/issues/692). The padding takes the table back to the
-// text, so @bleed-left and @bleed-right are how far the page margin reaches on each side.
+// A wide table runs on into the page margins and scrolls over them, starting and ending in line
+// with the text (https://github.com/femiwiki/FemiwikiSkin/issues/692).
 .bleedingTable( @bleed-left; @bleed-right ) {
 	display: block;
 	box-sizing: content-box;
