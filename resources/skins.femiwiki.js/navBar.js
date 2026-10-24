@@ -1,13 +1,13 @@
-var PINNED_CLASS = "fw-nav-bar-pinned";
-var SHOWN_CLASS = "fw-nav-bar-shown";
-var ANIMATE_CLASS = "fw-nav-bar-animate";
-var TOC_CLASS = "fw-nav-bar-toc";
+const PINNED_CLASS = "fw-nav-bar-pinned";
+const SHOWN_CLASS = "fw-nav-bar-shown";
+const ANIMATE_CLASS = "fw-nav-bar-animate";
+const TOC_CLASS = "fw-nav-bar-toc";
 // Codex @min-width-breakpoint-desktop, from where the ToC column follows the scroll instead,
 // unless the reader folded it into the drawer
-var TOC_COLUMN_QUERY = "(min-width: 1120px)";
-var pinning = require("./pinning.js");
+const TOC_COLUMN_QUERY = "(min-width: 1120px)";
+const pinning = require("./pinning.js");
 // Long enough for the scroll that a click on a section link starts
-var JUMP_MS = 200;
+const JUMP_MS = 200;
 
 /**
  * Brings the top bar back when the reader scrolls up, where the ToC is a drawer (#503).
@@ -19,8 +19,8 @@ var JUMP_MS = 200;
  * @return {void}
  */
 function init() {
-	var bar = document.querySelector(".nav-bar");
-	var action = mw.config.get("wgAction");
+	const bar = document.querySelector(".nav-bar");
+	const action = mw.config.get("wgAction");
 	if (
 		!(bar instanceof HTMLElement) ||
 		action === "edit" ||
@@ -28,20 +28,20 @@ function init() {
 	) {
 		return;
 	}
-	var navBar = bar;
-	var classList = document.body.classList;
-	var toColumn = window.matchMedia(TOC_COLUMN_QUERY);
-	var search = document.getElementById("p-search");
-	var menuCheckbox = document.getElementById("fw-menu-checkbox");
-	var tocCheckbox = document.getElementById("fw-toc-checkbox");
-	var tocToggle = document.getElementById("fw-nav-toc-toggle");
-	var titleButtons = document.getElementById("p-title-buttons");
-	var height = navBar.offsetHeight;
-	var lastY = window.scrollY;
-	var upDistance = 0;
-	var jumped = false;
-	var paused = false;
-	var frame = 0;
+	const navBar = bar;
+	const classList = document.body.classList;
+	const toColumn = window.matchMedia(TOC_COLUMN_QUERY);
+	const search = document.getElementById("p-search");
+	const menuCheckbox = document.getElementById("fw-menu-checkbox");
+	const tocCheckbox = document.getElementById("fw-toc-checkbox");
+	const tocToggle = document.getElementById("fw-nav-toc-toggle");
+	const titleButtons = document.getElementById("p-title-buttons");
+	const height = navBar.offsetHeight;
+	let lastY = window.scrollY;
+	let upDistance = 0;
+	let jumped = false;
+	let paused = false;
+	let frame = 0;
 
 	/**
 	 * @return {boolean} The ToC is a column, which follows the scroll itself
@@ -93,14 +93,14 @@ function init() {
 	 */
 	function update() {
 		frame = 0;
-		var y = window.scrollY;
-		var delta = y - lastY;
+		const y = window.scrollY;
+		const delta = y - lastY;
 		lastY = y;
 		if (paused || hasTocColumn() || isBusy()) {
 			upDistance = 0;
 			return;
 		}
-		var shown = classList.contains(SHOWN_CLASS);
+		const shown = classList.contains(SHOWN_CLASS);
 		if (jumped || delta > 0) {
 			jumped = false;
 			upDistance = 0;
@@ -134,7 +134,7 @@ function init() {
 	mw.hook("skins.femiwiki.pinned").add(unpin);
 
 	document.addEventListener("click", (event) => {
-		var target = event.target;
+		const target = event.target;
 		if (
 			!event.defaultPrevented &&
 			target instanceof Element &&
@@ -159,10 +159,9 @@ function init() {
 	});
 
 	if (tocToggle && tocCheckbox instanceof HTMLInputElement) {
-		const checkbox = tocCheckbox;
 		tocToggle.addEventListener("click", () => {
-			checkbox.checked = !checkbox.checked;
-			checkbox.dispatchEvent(new Event("input"));
+			tocCheckbox.checked = !tocCheckbox.checked;
+			tocCheckbox.dispatchEvent(new Event("input"));
 		});
 	}
 
@@ -177,4 +176,4 @@ function init() {
 	});
 }
 
-module.exports = Object.freeze({ init: init });
+module.exports = Object.freeze({ init });

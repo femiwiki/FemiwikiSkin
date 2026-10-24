@@ -28,7 +28,7 @@
 		this.$element.addClass("mw-fw-ui-shareDialog");
 
 		// Make SNS Buttons
-		var items = [];
+		const items = [];
 		this.twitterButton = new OO.ui.ButtonWidget({
 			framed: false,
 			icon: "newWindow",
@@ -37,7 +37,7 @@
 		items.push(this.twitterButton);
 		this.twitterButton.$element.addClass("mw-fw-ui-twitterButton");
 		this.mediaButtonGroup = new OO.ui.ButtonGroupWidget({
-			items: items,
+			items,
 		});
 
 		// Create a TextForm to copy
@@ -47,9 +47,8 @@
 		});
 
 		// Connect onClick function
-		var urlWidget = this.urlWidget;
 		this.urlWidget.$element.on("click", () => {
-			urlWidget.select();
+			this.urlWidget.select();
 		});
 
 		// Append elements
@@ -68,27 +67,23 @@
 					this.longUrl = data.url;
 					this.updateUrl(this.longUrl);
 				}
-			}, this);
+			});
 	};
 
 	mw.fw.ShareDialog.prototype.getReadyProcess = function (data) {
 		data = data || {};
 		return mw.fw.ShareDialog.super.prototype.getReadyProcess
 			.call(this, data)
-			.next(function () {
+			.next(() => {
 				this.urlWidget.select();
-			}, this);
+			});
 	};
 
 	mw.fw.ShareDialog.prototype.updateUrl = function (url) {
 		this.urlWidget.setValue(url);
 
-		var tweet =
-			mw.config.get("wgPageName").replace(/_/g, " ") +
-			" " +
-			url +
-			" #" +
-			mw.config.get("wgSiteName");
+		const pageName = mw.config.get("wgPageName").replace(/_/g, " ");
+		const tweet = `${pageName} ${url} #${mw.config.get("wgSiteName")}`;
 
 		this.twitterButton.setHref(
 			`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`,

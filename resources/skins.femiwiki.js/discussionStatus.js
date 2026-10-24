@@ -1,6 +1,6 @@
 /** @type {{useDiscussionTools: boolean, useFlow: boolean, openTopicDays: number}} */
 // @ts-expect-error Virtual file from skin.json
-var config = require("./config.json");
+const config = require("./config.json");
 
 /**
  * @param {number|string} num
@@ -10,7 +10,7 @@ function showStatus(num, open) {
 	if (num === 0) {
 		return;
 	}
-	var talk = document.getElementById("ca-talk");
+	const talk = document.getElementById("ca-talk");
 	if (!talk) {
 		return;
 	}
@@ -35,16 +35,16 @@ function showFlowStatus(talkName) {
 			vtllimit: 10,
 		})
 		.done((data) => {
-			var topiclist = data.flow["view-topiclist"].result.topiclist;
-			var revisions = topiclist.revisions;
+			const topiclist = data.flow["view-topiclist"].result.topiclist;
+			const revisions = topiclist.revisions;
 
-			var locked = 0;
-			for (var key in revisions) {
+			let locked = 0;
+			for (const key in revisions) {
 				if (revisions[key].changeType === "lock-topic") locked++;
 			}
 
 			// Only the latest 10 topics are fetched
-			var num = topiclist.roots.length;
+			const num = topiclist.roots.length;
 			showStatus(num > 9 ? "9+" : num, num - locked > 0);
 		});
 }
@@ -62,16 +62,14 @@ function showWikitextStatus(talkName) {
 			formatversion: 2,
 		})
 		.done((data) => {
-			var topics = data.discussiontoolspageinfo.threaditemshtml.filter(
+			const topics = data.discussiontoolspageinfo.threaditemshtml.filter(
 				/** @param {{headingLevel: number|null}} item */
-				(item) => {
-					// The placeholder for content above the first heading has no level
-					return item.headingLevel !== null;
-				},
+				// The placeholder for content above the first heading has no level
+				(item) => item.headingLevel !== null,
 			);
 
-			var openSince = Date.now() - config.openTopicDays * 24 * 60 * 60 * 1000;
-			var open = topics.some(
+			const openSince = Date.now() - config.openTopicDays * 24 * 60 * 60 * 1000;
+			const open = topics.some(
 				/** @param {{latestReplyTimestamp: string|null}} topic */
 				(topic) =>
 					topic.latestReplyTimestamp &&
@@ -83,9 +81,9 @@ function showWikitextStatus(talkName) {
 }
 
 function init() {
-	var title = new mw.Title(mw.config.get("wgPageName"));
-	var talkPage = title.getTalkPage();
-	var talk = document.getElementById("ca-talk");
+	const title = new mw.Title(mw.config.get("wgPageName"));
+	const talkPage = title.getTalkPage();
+	const talk = document.getElementById("ca-talk");
 	if (!talkPage || !talk || title === talkPage) {
 		return;
 	}
@@ -95,7 +93,7 @@ function init() {
 	if (!config.useDiscussionTools && !config.useFlow) {
 		return;
 	}
-	var talkName = talkPage.getPrefixedText();
+	const talkName = talkPage.getPrefixedText();
 	new mw.Api()
 		.get({
 			action: "query",
@@ -104,7 +102,7 @@ function init() {
 			formatversion: 2,
 		})
 		.done((data) => {
-			var contentModel = data.query.pages[0].contentmodel;
+			const contentModel = data.query.pages[0].contentmodel;
 			if (config.useFlow && contentModel === "flow-board") {
 				showFlowStatus(talkName);
 			} else if (config.useDiscussionTools && contentModel === "wikitext") {
@@ -113,4 +111,4 @@ function init() {
 		});
 }
 
-module.exports = Object.freeze({ init: init });
+module.exports = Object.freeze({ init });

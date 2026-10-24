@@ -1,7 +1,7 @@
-/** @type {HTMLElement|null} */ var watchLink = null;
-/** @type {HTMLElement|null} */ var watchAnchor = null;
-var watched = false;
-var watchers = 0;
+/** @type {HTMLElement|null} */ let watchLink = null;
+/** @type {HTMLElement|null} */ let watchAnchor = null;
+let watched = false;
+let watchers = 0;
 
 /**
  * @param {number} num
@@ -60,7 +60,7 @@ function onApiDone(data) {
 	}
 
 	/**@type {number}*/
-	var newWatchers = Object.values(data.query.pages)[0].watchers;
+	const newWatchers = Object.values(data.query.pages)[0].watchers;
 	if (!newWatchers || newWatchers === watchers) {
 		return;
 	}
@@ -99,4 +99,4 @@ function init() {
 		.done(onApiDone);
 }
 
-module.exports = Object.freeze({ init: init });
+module.exports = Object.freeze({ init });

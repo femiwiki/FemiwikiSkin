@@ -1,5 +1,5 @@
 // The user options that keep each choice, keyed by the name in data-fw-pin
-var OPTIONS = {
+const OPTIONS = {
 	toc: "FemiwikiTocPinned",
 	aside: "FemiwikiAsidePinned",
 };
@@ -24,11 +24,11 @@ function isPinned(name) {
  * @return {void}
  */
 function setPinned(name, pinned) {
-	var option = OPTIONS[/** @type {"toc"|"aside"} */ (name)];
+	const option = OPTIONS[/** @type {"toc"|"aside"} */ (name)];
 	if (!option || isPinned(name) === pinned) {
 		return;
 	}
-	var value = pinned ? "1" : "0";
+	const value = pinned ? "1" : "0";
 	if (mw.user.isNamed()) {
 		const classList = document.documentElement.classList;
 		classList.remove(`fw-${name}-pinned-clientpref-${pinned ? "0" : "1"}`);
@@ -49,17 +49,17 @@ function setPinned(name, pinned) {
  * @return {void}
  */
 function init() {
-	var tocCheckbox = document.getElementById("fw-toc-checkbox");
-	var tocToggle = document.getElementById("fw-toc-toggle");
+	const tocCheckbox = document.getElementById("fw-toc-checkbox");
+	const tocToggle = document.getElementById("fw-toc-toggle");
 
 	document.addEventListener("click", (event) => {
-		var target = event.target;
-		var button = target instanceof Element && target.closest("[data-fw-pin]");
+		const target = event.target;
+		const button = target instanceof Element && target.closest("[data-fw-pin]");
 		if (!(button instanceof HTMLElement)) {
 			return;
 		}
-		var name = button.dataset.fwPin || "";
-		var pinned = button.dataset.fwPinValue === "1";
+		const name = button.dataset.fwPin || "";
+		const pinned = button.dataset.fwPinValue === "1";
 		setPinned(name, pinned);
 		if (name !== "toc") {
 			return;
