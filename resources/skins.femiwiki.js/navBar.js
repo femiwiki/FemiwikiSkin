@@ -2,8 +2,10 @@ var PINNED_CLASS = "fw-nav-bar-pinned";
 var SHOWN_CLASS = "fw-nav-bar-shown";
 var ANIMATE_CLASS = "fw-nav-bar-animate";
 var TOC_CLASS = "fw-nav-bar-toc";
-// Codex @min-width-breakpoint-desktop, from where the ToC column follows the scroll instead
+// Codex @min-width-breakpoint-desktop, from where the ToC column follows the scroll instead,
+// unless the reader folded it into the drawer
 var TOC_COLUMN_QUERY = "(min-width: 1120px)";
+var pinning = require("./pinning.js");
 // Long enough for the scroll that a click on a section link starts
 var JUMP_MS = 200;
 
@@ -40,6 +42,13 @@ function init() {
 	var jumped = false;
 	var paused = false;
 	var frame = 0;
+
+	/**
+	 * @return {boolean} The ToC is a column, which follows the scroll itself
+	 */
+	function hasTocColumn() {
+		return toColumn.matches && pinning.isPinned("toc");
+	}
 
 	/**
 	 * @return {void}
@@ -87,7 +96,7 @@ function init() {
 		var y = window.scrollY;
 		var delta = y - lastY;
 		lastY = y;
-		if (paused || toColumn.matches || isBusy()) {
+		if (paused || hasTocColumn() || isBusy()) {
 			upDistance = 0;
 			return;
 		}
@@ -122,6 +131,7 @@ function init() {
 		{ passive: true },
 	);
 	toColumn.addEventListener("change", unpin);
+	mw.hook("skins.femiwiki.pinned").add(unpin);
 
 	document.addEventListener("click", (event) => {
 		var target = event.target;
@@ -141,7 +151,7 @@ function init() {
 	navBar.addEventListener("focusin", () => {
 		if (
 			window.scrollY >= height &&
-			!toColumn.matches &&
+			!hasTocColumn() &&
 			!classList.contains(SHOWN_CLASS)
 		) {
 			show();

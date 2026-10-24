@@ -517,75 +517,82 @@
 	display: none;
 }
 
-// Where the ToC is a drawer, navBar.js brings the bar back on a scroll up (#503)
+// Where the ToC is a drawer, navBar.js brings the bar back on a scroll up (#503). Set before scripts
+// run, as a URL's fragment can be scrolled to first, as Vector does (T406114).
 @media screen and (max-width: @max-width-breakpoint-tablet) {
-	// Set before scripts run, as a URL's fragment can be scrolled to first, as Vector does (T406114)
 	html.client-js {
 		scroll-padding-top: @height-nav-bar;
 	}
+}
 
-	.fw-nav-bar-pinned {
-		.nav-bar-space {
-			height: @height-nav-bar;
+@media screen and (min-width: @min-width-breakpoint-desktop) {
+	html.client-js.fw-toc-pinned-clientpref-0 {
+		scroll-padding-top: @height-nav-bar;
+	}
+}
+
+// navBar.js sets these only where the ToC is a drawer
+.fw-nav-bar-pinned {
+	.nav-bar-space {
+		height: @height-nav-bar;
+	}
+
+	.nav-bar {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: @z-index-sticky;
+		transform: translateY(-100%);
+	}
+
+	&.fw-nav-bar-shown .nav-bar {
+		transform: none;
+	}
+
+	&.fw-nav-bar-animate .nav-bar {
+		transition: transform @transition-duration-medium
+			@transition-timing-function-system;
+
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
 		}
+	}
 
-		.nav-bar {
-			position: fixed;
-			top: 0;
-			right: 0;
-			left: 0;
-			z-index: @z-index-sticky;
-			transform: translateY(-100%);
-		}
+	// Opens under the bar, not at the top of the page
+	#fw-menu-checkbox:checked ~ #fw-menu {
+		position: fixed;
+		top: @height-nav-bar;
+		right: 0;
+		left: 0;
+		z-index: @z-index-sticky;
+		max-width: none;
+		max-height: ~"calc(100vh - @{height-nav-bar})";
+		margin: 0;
+		padding-left: ~"max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)";
+		padding-right: ~"max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)";
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		background-color: @background-color-base;
+		// The shadow fades into the page in the dark theme
+		border-bottom: 1px solid @border-color-surface;
+		box-shadow: @box-shadow-medium;
 
-		&.fw-nav-bar-shown .nav-bar {
-			transform: none;
-		}
-
-		&.fw-nav-bar-animate .nav-bar {
-			transition: transform @transition-duration-medium
-				@transition-timing-function-system;
-
-			@media (prefers-reduced-motion: reduce) {
-				transition: none;
-			}
-		}
-
-		// Opens under the bar, not at the top of the page
-		#fw-menu-checkbox:checked ~ #fw-menu {
-			position: fixed;
-			top: @height-nav-bar;
-			right: 0;
-			left: 0;
-			z-index: @z-index-sticky;
-			max-width: none;
+		// The popover, fixed under the bar with it
+		@media (min-width: @min-width-breakpoint-tablet) {
+			left: auto;
+			right: @site-menu-popover-right;
 			max-height: ~"calc(100vh - @{height-nav-bar})";
-			margin: 0;
-			padding-left: ~"max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)";
-			padding-right: ~"max(@{content-horizontal-padding}, (100% - @{content-width}) / 2)";
-			overflow-y: auto;
-			overscroll-behavior: contain;
-			background-color: @background-color-base;
-			// The shadow fades into the page in the dark theme
-			border-bottom: 1px solid @border-color-surface;
-			box-shadow: @box-shadow-medium;
-
-			// The popover, fixed under the bar with it
-			@media (min-width: @min-width-breakpoint-tablet) {
-				left: auto;
-				right: @site-menu-popover-right;
-				max-height: ~"calc(100vh - @{height-nav-bar})";
-				padding: @site-menu-inset;
-				background-color: transparent;
-				border-bottom: 0;
-				box-shadow: none;
-			}
+			padding: @site-menu-inset;
+			background-color: transparent;
+			border-bottom: 0;
+			box-shadow: none;
 		}
 	}
+}
 
-	.fw-nav-bar-toc .nav-bar #mw-navigation #fw-nav-toc-toggle {
-		display: block;
-	}
+.fw-nav-bar-toc .nav-bar #mw-navigation #fw-nav-toc-toggle {
+	display: block;
 }
 
 // Hide notificationBadgeButtonPopupWidget's title text which is just an error message

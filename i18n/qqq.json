@@ -12,6 +12,8 @@
 	"skin-femiwiki-page-menu-tooltip": "Tooltip for button used to expand/collapse menu of a page",
 	"skin-femiwiki-toc-top": "Label of the first entry of the table of contents, which goes back to the top of the page.",
 	"skin-femiwiki-toc-close": "Tooltip for the button that closes the table of contents drawer on narrow screens.",
+	"skin-femiwiki-pin-hide": "Tooltip and label of the icon button that folds the table of contents, or a gadget's column on the right, into the drawer.",
+	"skin-femiwiki-pin-show": "Tooltip and label of the icon button in the drawer that puts the table of contents, or a gadget's column, back beside the content.",
 	"skin-femiwiki-search-close": "Label and tooltip of the back button in the full-screen search on phones.",
 	"skin-femiwiki-share-tooltip": "Tooltip for button to share a article",
 	"skin-femiwiki-share-dismiss": "Label for share dialog dismiss button",

@@ -335,10 +335,11 @@ body.mw-hide-empty-elt .mw-empty-elt {
 	@bleed: ~"calc(50vw - 50%)";
 	.bleedingTable(@bleed; @bleed);
 
-	// The ToC or the special page links take the left margin. The column is centred until the
-	// left track needs more than its half (toc.less), then the right margin is all that is left.
+	// The ToC or the special page links take the left margin, unless the reader folded the ToC away.
+	// The column is centred until the left track needs more than its half (toc.less), then the right
+	// margin is all that is left.
 	@media screen and (min-width: @min-width-breakpoint-desktop) {
-		body:not(.fw-wide-content) .fw-page-has-toc &,
+		.fw-toc-pinned-clientpref-1 body:not(.fw-wide-content) .fw-page-has-toc &,
 		.fw-page-has-special-nav & {
 			@bleed-right: ~"min(@{bleed}, 100vw - 100% - @{content-horizontal-padding} - @{toc-width} - @{toc-column-gap} * 2)";
 			margin-left: 0;
@@ -348,7 +349,10 @@ body.mw-hide-empty-elt .mw-empty-elt {
 		}
 
 		// A gadget, such as the bookflap one, can take the right margin with #fw-page-aside.
-		body:not(.fw-wide-content) .fw-page:has(> .fw-page-aside:not(:empty)) & {
+		.fw-aside-pinned-clientpref-1
+			body:not(.fw-wide-content)
+			.fw-page:has(> .fw-page-aside:not(:empty))
+			& {
 			margin-right: 0;
 			padding-right: 0;
 		}

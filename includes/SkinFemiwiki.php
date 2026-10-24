@@ -246,6 +246,20 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
+	 * Says on <html> whether the reader keeps the ToC and the right column beside the content.
+	 * Logged-out readers keep it in a cookie, which core applies to the cached page before it is
+	 * drawn; named users keep it in their options.
+	 */
+	private function addPinnedClasses( OutputPage $out ): void {
+		$user = $this->getUser();
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		foreach ( Constants::PINNED_CLIENTPREFS as $option => $clientPref ) {
+			$pinned = !$user->isNamed() || $userOptionsLookup->getBoolOption( $user, $option );
+			$out->addHtmlClasses( $clientPref . '-clientpref-' . ( $pinned ? '1' : '0' ) );
+		}
+	}
+
+	/**
 	 * Extends Skin::initPage.
 	 *
 	 * @inheritDoc
@@ -258,6 +272,8 @@ class SkinFemiwiki extends SkinMustache {
 		if ( $headItems ) {
 			$out->addHeadItems( $headItems );
 		}
+
+		$this->addPinnedClasses( $out );
 
 		# Always enable OOUI because OOUI icons are used in FemiwikiTemplate class
 		$out->enableOOUI();

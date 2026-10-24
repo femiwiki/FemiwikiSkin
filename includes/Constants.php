@@ -15,6 +15,19 @@ final class Constants {
 
 	/** @var string */
 	public const PREF_KEY_LARGER_ELEMENTS = 'FemiwikiUseLargerElements';
+	/** @var string */
+	public const PREF_KEY_TOC_PINNED = 'FemiwikiTocPinned';
+	/** @var string */
+	public const PREF_KEY_ASIDE_PINNED = 'FemiwikiAsidePinned';
+
+	/**
+	 * @var string[] The client preferences, the classes on <html> that say whether the ToC and a
+	 *  gadget's right column stay beside the content, keyed by the user option that keeps them
+	 */
+	public const PINNED_CLIENTPREFS = [
+		self::PREF_KEY_TOC_PINNED => 'fw-toc-pinned',
+		self::PREF_KEY_ASIDE_PINNED => 'fw-aside-pinned',
+	];
 
 	/** @var string */
 	public const CONFIG_ADD_LINK_CLASS = 'FemiwikiAddLinkClass';

@@ -1,4 +1,5 @@
 @import "../variables.less";
+@import "mediawiki.mixins.less";
 
 // The table of contents sits outside the content: a drawer the "목차" button opens, and a column
 // left of the content on wide screens. https://github.com/femiwiki/FemiwikiSkin/issues/348
@@ -153,8 +154,56 @@
 	}
 }
 
+// The buttons that fold the ToC and a gadget's right column (#fw-page-aside) into the drawer, and
+// bring them back, as Vector 2022's pinnable elements do. They work only where there is a column.
+.fw-pin-button {
+	display: none;
+	flex: none;
+	box-sizing: content-box;
+	width: 1.42857143rem;
+	height: 1.42857143rem;
+	margin-left: auto;
+	padding: @padding-icon;
+	border: 0;
+	border-radius: @border-radius-control;
+	background-color: transparent;
+	color: @color-base;
+	cursor: pointer;
+
+	&::before {
+		content: "";
+		display: block;
+		margin: auto;
+		opacity: @opacity-icon;
+	}
+
+	&:hover {
+		background-color: @button-background-color--hover;
+	}
+
+	&:active {
+		background-color: @button-background-color--active;
+	}
+
+	+ .fw-toc-close {
+		margin-left: 0;
+	}
+}
+
+.fw-pin-hide-start::before {
+	.cdx-mixin-css-icon(@cdx-icon-double-chevron-start, currentcolor, 0.9rem);
+}
+
+.fw-pin-hide-end::before {
+	.cdx-mixin-css-icon(@cdx-icon-double-chevron-end, currentcolor, 0.9rem);
+}
+
+.fw-pin-show::before {
+	.cdx-mixin-css-icon(@cdx-icon-push-pin, currentcolor, 0.9rem);
+}
+
 // The column. Special pages, history and diffs (wide-content.less) keep the drawer, as they need
-// the width.
+// the width, and so does a ToC the reader folded away.
 @media screen and (min-width: @min-width-breakpoint-desktop) {
 	body:not(.fw-wide-content) {
 		.fw-page {
@@ -173,6 +222,25 @@
 			}
 		}
 
+		.fw-page-aside {
+			grid-column: 3;
+			grid-row: 1 / span 3;
+		}
+
+		.fw-pin-show {
+			display: flex;
+		}
+	}
+
+	.fw-aside-pinned-clientpref-0 body:not(.fw-wide-content) .fw-page-aside {
+		display: none;
+	}
+
+	.fw-aside-pinned-clientpref-1 body:not(.fw-wide-content) .fw-pin-hide-end {
+		display: flex;
+	}
+
+	.fw-toc-pinned-clientpref-1 body:not(.fw-wide-content) {
 		.fw-page-has-toc {
 			grid-template-columns:
 				minmax(@toc-width + @toc-column-gap * 2, 1fr) minmax(0, @content-width)
@@ -192,18 +260,18 @@
 			padding-top: 2.3rem;
 		}
 
-		.fw-page-aside {
-			grid-column: 3;
-			grid-row: 1 / span 3;
-		}
-
-		.fw-toc-backdrop,
-		.fw-toc-close,
+		#fw-toc .fw-toc-backdrop,
+		#fw-toc .fw-toc-close,
+		#fw-toc .fw-pin-show,
 		#p-header #fw-toc-toggle {
 			display: none;
 		}
 
-		.fw-toc-panel {
+		#fw-toc .fw-pin-hide-start {
+			display: flex;
+		}
+
+		#fw-toc .fw-toc-panel {
 			position: sticky;
 			top: 1rem;
 			z-index: auto;
@@ -218,11 +286,16 @@
 			box-shadow: none;
 		}
 
-		.fw-toc-link {
+		#fw-toc .fw-toc-link {
 			padding-top: 0.2em;
 			padding-bottom: 0.2em;
 		}
 	}
+}
+
+// The buttons need the script
+.client-nojs .fw-pin-button {
+	display: none !important;
 }
 
 .fw-page-aside:empty {
