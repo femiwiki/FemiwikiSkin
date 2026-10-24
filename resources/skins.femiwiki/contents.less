@@ -335,9 +335,8 @@ body.mw-hide-empty-elt .mw-empty-elt {
 	@bleed: ~"calc(50vw - 50%)";
 	.bleedingTable(@bleed; @bleed);
 
-	// The ToC or the special page links take the left margin, unless the reader folded the ToC away.
-	// The column is centred until the left track needs more than its half (toc.less), then the right
-	// margin is all that is left.
+	// A ToC column or the special page links take the left margin. The column is centred until the
+	// left track needs more than its half (toc.less), then the right margin is all that is left.
 	@media screen and (min-width: @min-width-breakpoint-desktop) {
 		.fw-toc-pinned-clientpref-1 body:not(.fw-wide-content) .fw-page-has-toc &,
 		.fw-page-has-special-nav & {
