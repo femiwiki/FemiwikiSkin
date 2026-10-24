@@ -13,20 +13,35 @@
 	}
 }
 
+// The title and a spacer share one grid cell, and the image fills it. The spacer keeps the cell
+// at least as tall as the aspect ratio, and a title too long for that makes the cell taller
+// instead of being cut off.
 #siteNotice .wpb-topbanner {
-	display: flex;
-	flex-direction: column;
+	display: grid;
 	max-height: none;
-	overflow: visible;
 
-	.image {
+	@media (max-width: @max-width-breakpoint-mobile) {
+		.full-width();
+	}
+
+	&::before,
+	.wpb-name {
+		grid-area: 1 / 1;
+	}
+
+	&::before {
+		content: "";
 		aspect-ratio: 3 / 1;
-		overflow: hidden;
 
 		@media (max-width: @max-width-breakpoint-mobile) {
 			aspect-ratio: 2 / 1;
-			.full-width();
 		}
+	}
+
+	.image {
+		position: absolute;
+		inset: 0;
+		overflow: hidden;
 	}
 
 	.wpb-banner-image {
@@ -37,34 +52,28 @@
 		object-fit: cover;
 	}
 
-	// With $wgWPBEnableHeadingOverride, the title sits on the image on wider screens and under
-	// it on phones, where the image is too short to carry it.
+	// With $wgWPBEnableHeadingOverride, the extension draws the title on the image.
 	.wpb-name {
+		position: relative;
+		align-self: start;
+		justify-self: start;
 		max-width: none;
-		margin: 0.75rem 0 0;
-		padding: 0;
+		margin: 1rem;
+		padding: 0.3em 0.5em;
+		// Dark enough for white text to stay above 4.5:1 on a white image
+		background: rgba(0, 0, 0, 0.6);
+		border-radius: 0.3em;
 		font-size: 1.714rem;
 		line-height: 1.2em;
 		white-space: normal;
 		word-break: break-word;
 
 		@media (max-width: @max-width-breakpoint-mobile) {
-			position: static;
-			order: 1;
-			background: none;
-			border-radius: 0;
-			color: @color-base;
+			margin: 0.75rem @content-horizontal-padding;
 		}
 
-		@media (min-width: @min-width-breakpoint-tablet) {
-			top: 0;
-			left: 0;
-			max-width: ~"calc(100% - 2rem)";
-			margin: 1rem;
-			padding: 0.3em 0.5em;
-			// Dark enough for white text to stay above 4.5:1 on a white image
-			background: rgba(0, 0, 0, 0.6);
-			border-radius: 0.3em;
+		@media (max-width: @width-breakpoint-mobile-small) {
+			margin: 0.75rem @content-horizontal-padding-mobile-small;
 		}
 	}
 }
