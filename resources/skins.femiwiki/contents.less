@@ -324,6 +324,43 @@ body.mw-hide-empty-elt .mw-empty-elt {
 	.parser-output();
 }
 
+// Tables of the article and of its preview, but not of the editing surface. A table that places
+// itself with a margin, a float or align is left where its author put it.
+.mw-body
+	.mw-parser-output
+	> table.wikitable:not(.ve-ce-branchNode):not([style*="margin"]):not(
+		[style*="float"]
+	):not([align]) {
+	// The text column is centred, so the page margin is half of what is left of the screen.
+	@bleed: ~"calc(50vw - 50%)";
+	.bleedingTable(@bleed; @bleed);
+
+	// The ToC or the special page links take the left margin. The column is centred until the
+	// left track needs more than its half (toc.less), then the right margin is all that is left.
+	@media screen and (min-width: @min-width-breakpoint-desktop) {
+		body:not(.fw-wide-content) .fw-page-has-toc &,
+		.fw-page-has-special-nav & {
+			@bleed-right: ~"min(@{bleed}, 100vw - 100% - @{content-horizontal-padding} - @{toc-width} - @{toc-column-gap} * 2)";
+			margin-left: 0;
+			margin-right: ~"calc(-1 * @{bleed-right})";
+			padding-left: 0;
+			padding-right: @bleed-right;
+		}
+
+		// A gadget, such as the bookflap one, can take the right margin with #fw-page-aside.
+		body:not(.fw-wide-content) .fw-page:has(> .fw-page-aside:not(:empty)) & {
+			margin-right: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+// 100vw counts a classic scrollbar, which would let those tables reach under it and scroll the page
+// sideways
+.fw-page {
+	overflow-x: clip;
+}
+
 // For special pages that do not add mediawiki.special module
 body.ns-special #mw-content-text .wikitable {
 	.responsiveTable();
