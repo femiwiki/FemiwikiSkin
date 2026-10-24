@@ -15,5 +15,7 @@
 	"skin-femiwiki-share-dismiss": "숨기기",
 	"skin-femiwiki-share-twitter": "트위터",
 	"prefs-femiwiki-large-elements-label": "더 큰 요소 사용",
-	"prefs-femiwiki-large-elements-help": "이 옵션은 더 큰 요소들을 미리 표시하게 합니다. 화면의 요소들이 더 큰 요소들로 교체될 것입니다."
+	"prefs-femiwiki-large-elements-help": "이 옵션은 더 큰 요소들을 미리 표시하게 합니다. 화면의 요소들이 더 큰 요소들로 교체될 것입니다.",
+	"skin-femiwiki-special-nav-label": "관련 문서",
+	"skin-femiwiki-special-nav-close": "관련 문서 닫기"
 }

@@ -66,8 +66,8 @@ class Portlet implements
 	];
 
 	/**
-	 * Icons for the tabs of related special pages, by the page's canonical name and subpage.
-	 * interface.less draws each as `.fw-tab-<icon>`.
+	 * Icons for the links to related special pages, by the page's canonical name and subpage.
+	 * Every icon here must also be listed in the skins.femiwiki.icons module.
 	 */
 	private const SPECIAL_TAB_ICONS = [
 		'AbuseFilter' => 'funnel',
@@ -245,7 +245,7 @@ class Portlet implements
 	}
 
 	/**
-	 * Marks the tabs core adds for related special pages with their icon. Core numbers them by
+	 * Prepends an icon to the links core adds for related special pages. Core numbers them by
 	 * position, in the order of SpecialPage::getAssociatedNavigationLinks().
 	 */
 	private function addSpecialTabIcons( SkinTemplate $sktemplate, array &$links ): void {
@@ -272,8 +272,7 @@ class Portlet implements
 			if ( $icon === null ) {
 				continue;
 			}
-			$item = &$links['associated-pages'][$key];
-			$item['class'] = trim( ( $item['class'] ?? '' ) . ' fw-tab-' . $icon );
+			$links['associated-pages'][$key]['link-html'] = self::makeIcon( $icon );
 		}
 	}
 
@@ -317,7 +316,11 @@ class Portlet implements
 			return;
 		}
 
-		$item['link-html'] = Html::element( 'span', [
+		$item['link-html'] = self::makeIcon( $icon );
+	}
+
+	private static function makeIcon( string $icon ): string {
+		return Html::element( 'span', [
 			'class' => [ 'fw-icon', 'mw-ui-icon-wikimedia-' . $icon ],
 			'aria-hidden' => 'true',
 		] );

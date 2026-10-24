@@ -89,6 +89,10 @@ function main() {
 		window.document.getElementById("fw-toc-checkbox"),
 		window.document.getElementById("fw-toc-toggle"),
 	);
+	initCheckboxHack(
+		window.document.getElementById("fw-special-nav-checkbox"),
+		window.document.getElementById("fw-special-nav-toggle"),
+	);
 	initSiteMenu(
 		window.document.getElementById("fw-menu-checkbox"),
 		window.document.getElementById("fw-menu-toggle"),

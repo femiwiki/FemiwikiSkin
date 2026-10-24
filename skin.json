@@ -37,6 +37,7 @@
         "skins.femiwiki/interface-gnb.less",
         "skins.femiwiki/wide-content.less",
         "skins.femiwiki/toc.less",
+        "skins.femiwiki/special-nav.less",
         "print.less"
       ]
     },
@@ -50,10 +51,14 @@
         "articles",
         "block",
         "clock",
+        "code",
         "die",
+        "edit",
+        "funnel",
         "history",
         "home",
         "info",
+        "labFlask",
         "link",
         "listBullet",
         "lock",
@@ -64,8 +69,10 @@
         "newspaper",
         "printer",
         "recentChanges",
+        "search",
         "settings",
         "specialPages",
+        "tag",
         "trash",
         "unLock",
         "upload",
@@ -76,7 +83,8 @@
         "userTalk",
         "userTemporary",
         "volumeOff",
-        "watchlist"
+        "watchlist",
+        "wikiText"
       ]
     },
     "skins.femiwiki.smallElements": {
@@ -269,6 +277,8 @@
             "toc",
             "skin-femiwiki-toc-top",
             "skin-femiwiki-toc-close",
+            "skin-femiwiki-special-nav-label",
+            "skin-femiwiki-special-nav-close",
             "skin-femiwiki-search-close"
           ],
           "scripts": [
