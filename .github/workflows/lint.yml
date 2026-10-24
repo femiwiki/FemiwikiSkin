@@ -1,0 +1,30 @@
+name: Lint
+
+on:
+  workflow_call:
+
+permissions: {}
+
+jobs:
+  minify-svg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '26'
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+
+      # Fails when a committed SVG is not what the current svgo and
+      # .svgo.config.cjs produce; run `npm run minify-svg` and commit.
+      - run: npm run minify-svg
+
+      - run: git diff --exit-code -- resources/
