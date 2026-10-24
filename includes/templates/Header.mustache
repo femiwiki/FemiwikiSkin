@@ -4,7 +4,10 @@
   <h1 id="firstHeading" class="firstHeading" {{{html-heading-language-attributes}}}>{{{html-title}}}</h1>
   <input type="checkbox" id="fw-page-menu-checkbox" class="mw-checkbox-hack-checkbox">
   <div id="p-title-buttons">
+    {{! On special pages skin.mustache draws these as a list beside the content. }}
+    {{^data-special-nav}}
     {{#data-portlets.data-associated-pages}}{{>Menu}}{{/data-portlets.data-associated-pages}}
+    {{/data-special-nav}}
     <div class="right-buttons">
       {{#data-page-toc}}
       <label id="fw-toc-toggle"
@@ -13,6 +16,13 @@
         aria-controls="fw-toc"
         tabindex="0">{{msg-toc}}</label>
       {{/data-page-toc}}
+      {{#data-special-nav}}
+      <label id="fw-special-nav-toggle"
+        class="mw-checkbox-hack-button fw-button"
+        for="fw-special-nav-checkbox"
+        aria-controls="p-associated-pages"
+        tabindex="0">{{msg-skin-femiwiki-special-nav-label}}</label>
+      {{/data-special-nav}}
       {{{html-share-button}}}
       {{>Indicator}}
       <label id="p-menu-toggle"

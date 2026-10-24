@@ -19,5 +19,7 @@
 	"femiwiki.css": "{{Optional}}\n{{related/css}}",
 	"femiwiki.js": "{{Optional}}\n{{related/js}}",
 	"prefs-femiwiki-large-elements-label": "Label for the checkbox to enable larger elements via Special:Preferences.",
-	"prefs-femiwiki-large-elements-help": "Detail explaining the operation of the prefs-femiwiki-large-elements-label checkbox."
+	"prefs-femiwiki-large-elements-help": "Detail explaining the operation of the prefs-femiwiki-large-elements-label checkbox.",
+	"skin-femiwiki-special-nav-label": "Heading of the list of links between related special pages, such as the watchlist and the page to edit it, and label of the button that opens it on narrow screens.",
+	"skin-femiwiki-special-nav-close": "Tooltip for the button that closes the drawer of links between related special pages on narrow screens."
 }

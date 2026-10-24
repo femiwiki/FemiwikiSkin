@@ -1,0 +1,109 @@
+@import "../variables.less";
+
+// Links between related special pages (SkinFemiwiki::getSpecialNav()): a drawer, and a column
+// left of the content on wide screens, as the table of contents (toc.less).
+
+// Masked in the text colour, so that it also shows in dark mode
+#p-header #fw-special-nav-toggle::before {
+	background: currentColor;
+	-webkit-mask: url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/specialPages-ltr.svg")
+		center ~"/" contain no-repeat;
+	mask: url("../../node_modules/@femiwiki/ooui-femiwiki-theme/dist/resources/images/icons/specialPages-ltr.svg")
+		center ~"/" contain no-repeat;
+}
+
+.fw-special-nav {
+	display: none;
+	font-size: @font-size-toc;
+	line-height: 1.4;
+}
+
+#fw-special-nav-checkbox:checked ~ .fw-page .fw-special-nav {
+	display: block;
+}
+
+.fw-special-nav-list {
+	margin: 0;
+	padding: 0;
+
+	li {
+		margin: 0;
+		list-style: none;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		// At least 24px tall for a finger in the drawer
+		padding: 0.4em 0 0.4em 0.5em;
+		border-left: @border-width-toc-current solid transparent;
+		.mw-link-colors();
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		.fw-icon {
+			width: 1.25em;
+			height: 1.25em;
+		}
+	}
+
+	.selected a {
+		border-left-color: @color-toc-current;
+		color: @color-base;
+		font-weight: bold;
+	}
+}
+
+@media screen and (min-width: @min-width-breakpoint-desktop) {
+	.fw-page-has-special-nav {
+		display: grid;
+		grid-template-columns:
+			minmax(@toc-width + @toc-column-gap * 2, 1fr) minmax(
+				0,
+				@content-width-wide
+			)
+			minmax(0, 1fr);
+
+		// Their auto side margins would shrink them to fit their content.
+		> * {
+			grid-column: 2;
+			width: 100%;
+		}
+
+		.fw-special-nav,
+		#fw-special-nav-checkbox:checked ~ & .fw-special-nav {
+			display: block;
+			grid-column: 1;
+			grid-row: 1 / span 3;
+			justify-self: end;
+			box-sizing: border-box;
+			width: @toc-width;
+			margin-right: @toc-column-gap;
+			// Level with the title
+			padding-top: 2.3rem;
+		}
+
+		.fw-toc-backdrop,
+		.fw-toc-close,
+		#p-header #fw-special-nav-toggle {
+			display: none;
+		}
+
+		.fw-special-nav .fw-toc-panel {
+			position: static;
+			width: auto;
+			padding: 0;
+			background-color: transparent;
+			border-radius: 0;
+			box-shadow: none;
+		}
+
+		.fw-special-nav-list a {
+			padding-top: 0.2em;
+			padding-bottom: 0.2em;
+		}
+	}
+}

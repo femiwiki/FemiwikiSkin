@@ -14,8 +14,12 @@
   {{/data-sidebar}}
 </div>
 <input type="checkbox" id="fw-toc-checkbox" class="mw-checkbox-hack-checkbox">
-<div class="fw-page{{#data-page-toc}} fw-page-has-toc{{/data-page-toc}}">
+{{#data-special-nav}}
+<input type="checkbox" id="fw-special-nav-checkbox" class="mw-checkbox-hack-checkbox">
+{{/data-special-nav}}
+<div class="fw-page{{#data-page-toc}} fw-page-has-toc{{/data-page-toc}}{{#data-special-nav}} fw-page-has-special-nav{{/data-special-nav}}">
   {{>Header}}
+  {{#data-special-nav}}{{>SpecialNav}}{{/data-special-nav}}
   {{#data-page-toc}}{{>TableOfContents}}{{/data-page-toc}}
   {{>Content}}
   <aside id="fw-page-aside" class="fw-page-aside"></aside>

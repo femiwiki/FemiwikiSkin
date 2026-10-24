@@ -79,6 +79,7 @@ class SkinFemiwiki extends SkinMustache {
 			'has-footer-icons' => $config->get( Constants::CONFIG_KEY_SHOW_FOOTER_ICONS ),
 			'has-indicator' => count( $parentData['array-indicators'] ) !== 0,
 			'data-page-toc' => $this->getPageToc( $parentData ),
+			'data-special-nav' => $this->getSpecialNav( $portlets['data-associated-pages'] ?? null ),
 
 			// links
 			'link-recentchanges' => SpecialPage::getTitleFor( 'Recentchanges' )->getLocalUrl(),
@@ -98,6 +99,18 @@ class SkinFemiwiki extends SkinMustache {
 			return null;
 		}
 		return $data['data-toc'];
+	}
+
+	/**
+	 * The links between related special pages, such as the watchlist and its editor, drawn as a
+	 * list beside the content, or in a drawer, instead of as icons under the title.
+	 */
+	private function getSpecialNav( ?array $associatedPages ): ?array {
+		$title = $this->getTitle();
+		if ( !$associatedPages || !$title || !$title->isSpecialPage() || $associatedPages['html-items'] === '' ) {
+			return null;
+		}
+		return $associatedPages;
 	}
 
 	/**
