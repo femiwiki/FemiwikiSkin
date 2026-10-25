@@ -2,6 +2,33 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.2.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.1.0...v6.2.0) (2026-10-25)
+
+
+### Features
+
+* **i18n:** Localisation updates from https://translatewiki.net. ([#1184](https://github.com/femiwiki/FemiwikiSkin/issues/1184)) ([b9832d6](https://github.com/femiwiki/FemiwikiSkin/commit/b9832d6f1e620e0a0d5028e41cacbc6c3d88b7f5))
+* let readers fold the ToC and the right column away on wide screens ([#1202](https://github.com/femiwiki/FemiwikiSkin/issues/1202)) ([8e92d8a](https://github.com/femiwiki/FemiwikiSkin/commit/8e92d8aecda27a39e42ec00c5992949b40e528f8))
+* let wide tables run on into the page margin ([#1198](https://github.com/femiwiki/FemiwikiSkin/issues/1198)) ([cadb9ce](https://github.com/femiwiki/FemiwikiSkin/commit/cadb9cec751511ea15524961cfa66b169d03988e))
+* list related special pages beside the content, with their names ([#1195](https://github.com/femiwiki/FemiwikiSkin/issues/1195)) ([409322e](https://github.com/femiwiki/FemiwikiSkin/commit/409322e32ebaef874b85c880f6e3ef4d72ec8345))
+* show WikidataPageBanner banners above the page title ([#1197](https://github.com/femiwiki/FemiwikiSkin/issues/1197)) ([4d5e7a6](https://github.com/femiwiki/FemiwikiSkin/commit/4d5e7a6e0d619ae5eceb85d795c10b47404c32d7))
+
+
+### Bug Fixes
+
+* **dev.js:** pin FrankenPHP 1.3.2 to run PHP 8.3 like production ([#1187](https://github.com/femiwiki/FemiwikiSkin/issues/1187)) ([71be25a](https://github.com/femiwiki/FemiwikiSkin/commit/71be25a0df51d611d8121bc514be1c3f151d160b)), closes [#847](https://github.com/femiwiki/FemiwikiSkin/issues/847)
+* drop jQuery from skin scripts and keep the watcher count ([#1193](https://github.com/femiwiki/FemiwikiSkin/issues/1193)) ([87cf417](https://github.com/femiwiki/FemiwikiSkin/commit/87cf417e26b2782dffab8b002cbd172b927694e0)), closes [#261](https://github.com/femiwiki/FemiwikiSkin/issues/261)
+* give links in text enough contrast against the body text ([#1190](https://github.com/femiwiki/FemiwikiSkin/issues/1190)) ([6508618](https://github.com/femiwiki/FemiwikiSkin/commit/65086181b693515b581c27db48178e20a4172fc6))
+* give the logo and last-edit links an accessible name ([#1188](https://github.com/femiwiki/FemiwikiSkin/issues/1188)) ([77f00f5](https://github.com/femiwiki/FemiwikiSkin/commit/77f00f50e356aa5c30101499836f67b356dc9d1f))
+* keep the page title for screen readers while editing on a phone ([#1189](https://github.com/femiwiki/FemiwikiSkin/issues/1189)) ([d64dcde](https://github.com/femiwiki/FemiwikiSkin/commit/d64dcde332be4cf14adc75b1cac2125b97453ab1))
+* show search suggestions while a Korean syllable is being composed ([#1194](https://github.com/femiwiki/FemiwikiSkin/issues/1194)) ([8b36b5f](https://github.com/femiwiki/FemiwikiSkin/commit/8b36b5f5fbed901a33fd18c4de8b293a0aa9f55b))
+* show where keyboard focus is ([#1191](https://github.com/femiwiki/FemiwikiSkin/issues/1191)) ([4a5ee6e](https://github.com/femiwiki/FemiwikiSkin/commit/4a5ee6e7ccffd17cb9e0e5a0edf92df615d8ae14))
+
+
+### Performance Improvements
+
+* stop loading OOUI for every reader ([#1186](https://github.com/femiwiki/FemiwikiSkin/issues/1186)) ([e659b79](https://github.com/femiwiki/FemiwikiSkin/commit/e659b7982bd1a43390ef30e10aa589a2e7eabc6e))
+
 ## [6.1.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.0.1...v6.1.0) (2026-10-19)
 
 
