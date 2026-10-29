@@ -12,6 +12,8 @@
 	"skin-femiwiki-page-menu-tooltip": "菜单",
 	"skin-femiwiki-toc-top": "顶部",
 	"skin-femiwiki-toc-close": "关闭目录",
+	"skin-femiwiki-pin-hide": "隐藏",
+	"skin-femiwiki-pin-show": "移到一旁",
 	"skin-femiwiki-search-close": "关闭搜索",
 	"skin-femiwiki-share-tooltip": "分享这篇文章",
 	"skin-femiwiki-share-dismiss": "关闭",
@@ -19,5 +21,7 @@
 	"femiwiki.css": "/* 这里放置的CSS将影响使用Femiwiki皮肤的用户 */",
 	"femiwiki.js": "/* 这里的任何JavaScript将为使用Femiwiki皮肤的用户加载 */",
 	"prefs-femiwiki-large-elements-label": "使用更大的元素",
-	"prefs-femiwiki-large-elements-help": "这个参数允许您徐兰更大的元素。屏幕上的元素将会被替换成更大的。"
+	"prefs-femiwiki-large-elements-help": "这个参数允许您徐兰更大的元素。屏幕上的元素将会被替换成更大的。",
+	"skin-femiwiki-special-nav-label": "相关页面",
+	"skin-femiwiki-special-nav-close": "关闭相关页面"
 }

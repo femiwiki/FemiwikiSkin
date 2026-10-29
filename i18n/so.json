@@ -9,10 +9,16 @@
 	"skin-femiwiki-page-menu-tooltip": "Liiska",
 	"skin-femiwiki-toc-top": "Sare",
 	"skin-femiwiki-toc-close": "Xir tusmada nuxurka",
+	"skin-femiwiki-pin-hide": "Qari",
+	"skin-femiwiki-pin-show": "U wareeji dhinaca",
 	"skin-femiwiki-search-close": "Xir raadinta",
 	"skin-femiwiki-share-tooltip": "La wadaag maqaalkan",
 	"skin-femiwiki-share-dismiss": "Xir",
 	"skin-femiwiki-share-twitter": "Twitter-ka",
+	"femiwiki.css": "/* CSS halkan la dhigo wuxuu saamayn doonaa isticmaalayaasha maqaarka Femiwiki */",
+	"femiwiki.js": "/* JavaScript kasta oo halkan yaal waxaa loo soo dejin doonaa isticmaalayaasha adeegsanaya maqaarka Femiwiki */",
 	"prefs-femiwiki-large-elements-label": "Isticmaal walxaha waaweyn",
-	"prefs-femiwiki-large-elements-help": "Doorashadani waxay kuu oggolaanaysaa inaad horudhac u aragto walxo waaweyn. Walxaha shaashadda ku jira waxaa lagu beddeli doonaa kuwo ka waaweyn."
+	"prefs-femiwiki-large-elements-help": "Doorashadani waxay kuu oggolaanaysaa inaad horudhac u aragto walxo waaweyn. Walxaha shaashadda ku jira waxaa lagu beddeli doonaa kuwo ka waaweyn.",
+	"skin-femiwiki-special-nav-label": "Bogagga la xiriira",
+	"skin-femiwiki-special-nav-close": "Xir bogagga la xiriira"
 }

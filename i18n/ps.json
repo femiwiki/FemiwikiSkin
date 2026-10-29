@@ -1,15 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
+			"باران",
 			"شاه زمان پټان"
 		]
 	},
 	"skinname-femiwiki": "فېمي‌ويکي",
 	"femiwiki-desc": "فېمي‌ويکي پوښۍ",
 	"skin-femiwiki-page-menu-tooltip": "غوره‌نۍ",
+	"skin-femiwiki-toc-top": "پورته",
+	"skin-femiwiki-toc-close": "نيوليک تړل",
+	"skin-femiwiki-pin-hide": "پټول",
+	"skin-femiwiki-pin-show": "اړخ ته خوځېدل",
+	"skin-femiwiki-search-close": "پلټل تړل",
 	"skin-femiwiki-share-tooltip": "دا ليکنه وېشل",
 	"skin-femiwiki-share-dismiss": "تړل",
 	"skin-femiwiki-share-twitter": "ټویټر",
 	"prefs-femiwiki-large-elements-label": "لوی عناصر وکاروئ",
-	"prefs-femiwiki-large-elements-help": "دا اختیار تاسو ته اجازه درکوي چې د لويو عناصرو مخکتنه وکړئ. د سکرين پرمخ به عناصر په لويه کچه وښودل شي."
+	"prefs-femiwiki-large-elements-help": "دا اختیار تاسو ته اجازه درکوي چې د لويو عناصرو مخکتنه وکړئ. د سکرين پرمخ به عناصر په لويه کچه وښودل شي.",
+	"skin-femiwiki-special-nav-label": "اړوند مخونه",
+	"skin-femiwiki-special-nav-close": "اړوند مخونه وتړئ"
 }

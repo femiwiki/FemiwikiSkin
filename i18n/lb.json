@@ -7,7 +7,10 @@
 	},
 	"skin-femiwiki-page-menu-tooltip": "Menü",
 	"skin-femiwiki-toc-close": "D'Inhaltsverzeechnes zoumaachen",
+	"skin-femiwiki-pin-hide": "Verstoppen",
 	"skin-femiwiki-share-tooltip": "Dësen Artikel deelen",
 	"skin-femiwiki-share-twitter": "Twitter",
-	"prefs-femiwiki-large-elements-label": "Méi grouss Elementer benotzen"
+	"prefs-femiwiki-large-elements-label": "Méi grouss Elementer benotzen",
+	"skin-femiwiki-special-nav-label": "Änlech Säiten",
+	"skin-femiwiki-special-nav-close": "Änlech Säiten zoumaachen"
 }
