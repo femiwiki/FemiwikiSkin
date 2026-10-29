@@ -3,17 +3,25 @@
 		"authors": [
 			"Mainframe98",
 			"McDutchie",
-			"Romaine"
+			"Romaine",
+			"Siebrand"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
 	"femiwiki-desc": "Femiwiki-skin",
 	"skin-femiwiki-page-menu-tooltip": "Menu",
-	"skin-femiwiki-share-tooltip": "Deel dit artikel",
+	"skin-femiwiki-toc-top": "Bovenaan",
+	"skin-femiwiki-toc-close": "De inhoudsopgave sluiten",
+	"skin-femiwiki-pin-hide": "Verbergen",
+	"skin-femiwiki-pin-show": "Naar de zijkant verplaatsen",
+	"skin-femiwiki-search-close": "Zoeken sluiten",
+	"skin-femiwiki-share-tooltip": "Deel deze pagina",
 	"skin-femiwiki-share-dismiss": "Sluiten",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* CSS die hier wordt geplaatst heeft alleen invloed op het uiterlijk Femiwiki */",
 	"femiwiki.js": "/* JavaScript die hier wordt geplaatst heeft alleen invloed op gebruikers die het uiterlijk Femiwiki gebruiken */",
 	"prefs-femiwiki-large-elements-label": "Grotere elementen gebruiken",
-	"prefs-femiwiki-large-elements-help": "Met deze optie kunt u voorvertoningen van grotere elementen bekijken. De elementen op het scherm worden vervangen door grotere."
+	"prefs-femiwiki-large-elements-help": "Met deze optie kunt u voorvertoningen van grotere elementen bekijken. De elementen op het scherm worden vervangen door grotere.",
+	"skin-femiwiki-special-nav-label": "Gerelateerde pagina's",
+	"skin-femiwiki-special-nav-close": "De gerelateerde pagina's sluiten"
 }

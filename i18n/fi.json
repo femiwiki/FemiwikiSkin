@@ -2,13 +2,18 @@
 	"@metadata": {
 		"authors": [
 			"01miki10",
-			"Rönttönen"
+			"Rönttönen",
+			"Wikipeedikko"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
 	"femiwiki-desc": "Femiwikin ulkoasu",
 	"skin-femiwiki-page-menu-tooltip": "Valikko",
+	"skin-femiwiki-pin-hide": "Piilota",
+	"skin-femiwiki-pin-show": "Siirrä sivuun",
 	"skin-femiwiki-share-tooltip": "Jaa tämä artikkeli",
 	"skin-femiwiki-share-dismiss": "Hylkää",
-	"skin-femiwiki-share-twitter": "Twitter"
+	"skin-femiwiki-share-twitter": "Twitter",
+	"skin-femiwiki-special-nav-label": "Samankaltaisia sivuja",
+	"skin-femiwiki-special-nav-close": "Sulje aiheeseen liittyvät sivut"
 }
