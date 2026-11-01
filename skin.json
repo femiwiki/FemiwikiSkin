@@ -155,6 +155,7 @@
       "+ext.growthExperiments.HelpPanelCta.styles": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.HelpPanelCta.styles.less",
       "+ext.growthExperiments.Homepage.styles": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.Homepage.styles.less",
       "+ext.growthExperiments.PostEdit": "skins.femiwiki.moduleSkinStyles/ext.growthExperiments.PostEdit.less",
+      "+ext.kartographer.style": "skins.femiwiki.moduleSkinStyles/ext.kartographer.style.less",
       "+ext.popups.main": "skins.femiwiki.moduleSkinStyles/ext.popups.main.less",
       "+ext.pygments": "skins.femiwiki.moduleSkinStyles/ext.pygments.css",
       "+ext.relatedArticles.readMore": "skins.femiwiki.moduleSkinStyles/ext.relatedArticles.readMore.less",

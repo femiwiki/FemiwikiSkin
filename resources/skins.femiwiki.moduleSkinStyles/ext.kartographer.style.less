@@ -1,0 +1,27 @@
+/* Map pin before <maplink> text */
+
+// Kartographer's pin outgrows its padding with our text size; draw it in em as a
+// link-coloured mask. icon-mapPin.svg is OOUI's mapPin (MIT).
+a.mw-kartographer-link:not(.mw-kartographer-autostyled):not(
+		.mw-kartographer-map
+	):not(.no-icon),
+.mw-kartographer-maplink:not(.mw-kartographer-autostyled):not(
+		.mw-kartographer-map
+	):not(.no-icon) {
+	background-image: none;
+	padding-left: 0;
+
+	&::before {
+		content: "";
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		margin-right: 0.25em;
+		vertical-align: -0.15em;
+		background-color: currentColor;
+		-webkit-mask: url(../skins.femiwiki/images/icon-mapPin.svg) center / contain
+			no-repeat;
+		mask: url(../skins.femiwiki/images/icon-mapPin.svg) center / contain
+			no-repeat;
+	}
+}
