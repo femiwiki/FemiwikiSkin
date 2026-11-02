@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"StanProg"
+		]
+	},
+	"skinname-femiwiki": "Фемиуики",
+	"femiwiki-desc": "Облик „Фемуики“",
+	"skin-femiwiki-page-menu-tooltip": "Меню",
+	"skin-femiwiki-toc-top": "Най-горе",
+	"skin-femiwiki-toc-close": "Затваряне на съдържанието",
+	"skin-femiwiki-search-close": "Затваряне на търсенето",
+	"skin-femiwiki-share-tooltip": "Сподели тази статия",
+	"skin-femiwiki-share-dismiss": "Затваряне",
+	"skin-femiwiki-share-twitter": "Туитър",
+	"prefs-femiwiki-large-elements-label": "Употреба на по-големи елементи",
+	"prefs-femiwiki-large-elements-help": "Тази опция ви позволява да преглеждате по-големи елементи. Елементите на екрана ще бъдат заменени с по-големи."
+}

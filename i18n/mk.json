@@ -9,6 +9,8 @@
 	"skin-femiwiki-page-menu-tooltip": "Мени",
 	"skin-femiwiki-toc-top": "Најгоре",
 	"skin-femiwiki-toc-close": "Прикажи ја содржината",
+	"skin-femiwiki-pin-hide": "Скриј",
+	"skin-femiwiki-pin-show": "Премести настрана",
 	"skin-femiwiki-search-close": "Затвори пребарување",
 	"skin-femiwiki-share-tooltip": "Сподели ја статијава",
 	"skin-femiwiki-share-dismiss": "Тргни",
@@ -16,5 +18,7 @@
 	"femiwiki.css": "/* Тука поставениот CSS ќе се применува врз корисниците на рувото „Фемвики“ */",
 	"femiwiki.js": "/* Тука поставениот JavaScript ќе се применува врз корисниците на рувото „Фемвики“ */",
 	"prefs-femiwiki-large-elements-label": "Користи поголеми елементи",
-	"prefs-femiwiki-large-elements-help": "Оваа можност ви дава преглед на поголеми елементи. Елементите на екранот ќе се заменат со поголеми."
+	"prefs-femiwiki-large-elements-help": "Оваа можност ви дава преглед на поголеми елементи. Елементите на екранот ќе се заменат со поголеми.",
+	"skin-femiwiki-special-nav-label": "Поврзани страници",
+	"skin-femiwiki-special-nav-close": "Затвори ги поврзаните страници"
 }
