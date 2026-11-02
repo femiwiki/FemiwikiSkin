@@ -8,11 +8,18 @@
 	"skinname-femiwiki": "فيميويكي",
 	"femiwiki-desc": "مظهر فيميويكي",
 	"skin-femiwiki-page-menu-tooltip": "القائمة",
+	"skin-femiwiki-toc-top": "أعلى",
+	"skin-femiwiki-toc-close": "أغلق جدول المحتويات",
+	"skin-femiwiki-pin-hide": "إخفاء",
+	"skin-femiwiki-pin-show": "تحرك إلى الجانب",
+	"skin-femiwiki-search-close": "إغلاق البحث",
 	"skin-femiwiki-share-tooltip": "شارك هذه المادة",
 	"skin-femiwiki-share-dismiss": "رفض",
 	"skin-femiwiki-share-twitter": "تويتر",
 	"femiwiki.css": "/* الأنماط المتراصة CSS المعروضة هنا ستؤثر على مستخدمي واجهة ماتيريال */",
 	"femiwiki.js": "/ * سيتم تحميل أي JavaScript هنا للمستخدمين الذين يستخدمون مظهر Femiwiki * /",
 	"prefs-femiwiki-large-elements-label": "استخدم عناصر أكبر",
-	"prefs-femiwiki-large-elements-help": "يتيح لك هذا الخيار معاينة العناصر الأكبر حجمًا. سيتم استبدال العناصر الموجودة على الشاشة بأخرى أكبر."
+	"prefs-femiwiki-large-elements-help": "يتيح لك هذا الخيار معاينة العناصر الأكبر حجمًا. سيتم استبدال العناصر الموجودة على الشاشة بأخرى أكبر.",
+	"skin-femiwiki-special-nav-label": "صفحات ذات صلة",
+	"skin-femiwiki-special-nav-close": "أغلق الصفحات ذات الصلة"
 }

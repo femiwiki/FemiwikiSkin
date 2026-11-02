@@ -9,6 +9,8 @@
 	"skin-femiwiki-page-menu-tooltip": "Menú",
 	"skin-femiwiki-toc-top": "Arriba",
 	"skin-femiwiki-toc-close": "Pechar a táboa de contidos",
+	"skin-femiwiki-pin-hide": "Agochar",
+	"skin-femiwiki-pin-show": "Mover ao lado",
 	"skin-femiwiki-search-close": "Pechar a busca",
 	"skin-femiwiki-share-tooltip": "Compartir este artigo",
 	"skin-femiwiki-share-dismiss": "Descartar",
@@ -16,5 +18,7 @@
 	"femiwiki.css": "/* O CSS colocado aquí afectará aos usuarios da aparencia Femiwiki */",
 	"femiwiki.js": "/* O código JavaScript colocado aquí cargarase para os usuarios que utilicen a aparencia Femiwiki */",
 	"prefs-femiwiki-large-elements-label": "Usar elementos máis grandes",
-	"prefs-femiwiki-large-elements-help": "Esta opción permíteche ver elementos máis grandes. Os elementos da pantalla serán substituídos por outros máis grandes."
+	"prefs-femiwiki-large-elements-help": "Esta opción permíteche ver elementos máis grandes. Os elementos da pantalla serán substituídos por outros máis grandes.",
+	"skin-femiwiki-special-nav-label": "Páxinas relacionadas",
+	"skin-femiwiki-special-nav-close": "Pechar as páxinas relacionadas"
 }
