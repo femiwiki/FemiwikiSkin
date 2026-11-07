@@ -186,6 +186,7 @@
       "+mediawiki.ui.checkbox": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.checkbox.less",
       "+mediawiki.ui.icon": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.icon.less",
       "+mediawiki.ui.input": "skins.femiwiki.moduleSkinStyles/mediawiki.ui.input.less",
+      "+mediawiki.watchstar.widgets": "skins.femiwiki.moduleSkinStyles/mediawiki.watchstar.widgets.less",
       "+mediawiki.widgets.DateInputWidget": "skins.femiwiki.moduleSkinStyles/mediawiki.widgets.DateInputWidget.less",
       "+mobile.editor.overlay": "skins.femiwiki.moduleSkinStyles/mobile.editor.overlay.less",
       "+mobile.init": "skins.femiwiki.moduleSkinStyles/mobile.init.less",
