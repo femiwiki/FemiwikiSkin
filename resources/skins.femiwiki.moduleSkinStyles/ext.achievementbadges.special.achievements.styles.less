@@ -1,0 +1,64 @@
+@import "../variables.less";
+
+// Special:Achievements as the design guide draws site elements:
+// https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
+.achievement-list {
+	display: grid;
+	gap: @spacing-75;
+	margin: 0 0 @spacing-150;
+
+	@media (min-width: @min-width-breakpoint-tablet) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.achievement {
+		gap: @spacing-75;
+		margin: 0;
+		padding: @spacing-75;
+		// Earned badges are raised cards
+		.surface();
+
+		.achievement-icon {
+			flex-shrink: 0;
+			width: 4.5em;
+			height: auto;
+			margin: 0;
+		}
+
+		.achievement-text {
+			min-width: 0;
+			padding: 0;
+
+			.achievement-name {
+				margin: 0;
+				border: 0;
+				padding: 0;
+				font-size: 1em;
+				font-weight: bold;
+				line-height: inherit;
+			}
+
+			.achievement-timestamp {
+				margin-top: @spacing-25;
+				color: @color-subtle;
+				font-size: 0.85em;
+			}
+		}
+	}
+
+	// Badges still to earn lie flat, and only the icon fades so the hint keeps its contrast
+	.achievement.not-earning {
+		opacity: 1;
+		border-color: @border-color-muted;
+		background-color: transparent;
+		box-shadow: none;
+
+		.achievement-icon {
+			opacity: 0.4;
+		}
+
+		.achievement-hint {
+			color: @color-subtle;
+		}
+	}
+}
