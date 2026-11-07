@@ -183,6 +183,12 @@
 		content: ".";
 	}
 
+	// Shrink files embedded without a size, like [[File:Large.jpg]], to the content column.
+	.mw-file-element {
+		max-width: 100%;
+		height: auto;
+	}
+
 	// Embed
 	.embedvideowrap {
 		margin: 0 auto;
