@@ -1,9 +1,7 @@
 @import "../variables.less";
 
-// The Codex popover bundled with MediaWiki 1.46 centres the watchlist popup
-// under the watch star and never shifts it back inside the screen, while core
-// gives it a 320px minimum width. On a phone the star sits near the left edge,
-// so the popup ran off the screen. Show it as a sheet at the bottom instead.
+// MW 1.46 Codex never shifts the 320px popup back on screen, so on a phone
+// it ran off the left edge. Show it as a sheet at the bottom instead.
 @media screen and (max-width: @max-width-breakpoint-mobile) {
 	.mw-watchstar-WatchlistPopup.cdx-popover {
 		position: fixed !important;
