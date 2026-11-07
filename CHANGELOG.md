@@ -2,6 +2,19 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.3.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.2.0...v6.3.0) (2026-11-07)
+
+
+### Features
+
+* **i18n:** Localisation updates from https://translatewiki.net. ([#1214](https://github.com/femiwiki/FemiwikiSkin/issues/1214)) ([278288f](https://github.com/femiwiki/FemiwikiSkin/commit/278288f7f1ff689e658129ad2f2f0a76eab351d7))
+* Show Special:Achievements as a showcase of medal cards ([#1218](https://github.com/femiwiki/FemiwikiSkin/issues/1218)) ([5b635e4](https://github.com/femiwiki/FemiwikiSkin/commit/5b635e4ae7ebef3b69d559d80dde5783b0646279))
+
+
+### Bug Fixes
+
+* Import MobileFrontend's fakeToolbar.less from its new path too ([#1219](https://github.com/femiwiki/FemiwikiSkin/issues/1219)) ([1968270](https://github.com/femiwiki/FemiwikiSkin/commit/196827090e42c92f091321fef73f647d93e6ca84))
+
 ## [6.2.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.1.0...v6.2.0) (2026-11-02)
 
 
