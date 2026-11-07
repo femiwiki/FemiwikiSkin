@@ -1,8 +1,7 @@
 ---
 name: Skin preview
 
-# Bakes tests/skin-preview at the PR's base and head commits, or at the pushed
-# commit of main, into the previews branch, served at <commit SHA>/ and kept.
+# Outside the required gate: bakes tests/skin-preview at the PR's base and head, or at main, into the previews branch
 on:
   pull_request:
     paths: &paths
