@@ -114,7 +114,8 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
-	 * Takes the history tab out of the views, where the skin does not show it.
+	 * Takes the history tab out of the views, where the skin does not show it, and turns the read
+	 * tab into a link back to the current page on old revisions and diffs.
 	 * @inheritDoc
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
@@ -123,6 +124,22 @@ class SkinFemiwiki extends SkinMustache {
 			$this->historyItem = $content_navigation['views']['history'];
 			unset( $content_navigation['views']['history'] );
 		}
+		$this->unselectReadTab( $content_navigation );
+	}
+
+	/**
+	 * The stylesheet hides the selected read tab, which would only link to the page being read.
+	 * An old revision or a diff is not the current page, so the tab is shown there as a link.
+	 */
+	private function unselectReadTab( array &$content_navigation ): void {
+		$request = $this->getRequest();
+		if (
+			!isset( $content_navigation['views']['view'] )
+			|| ( !$request->getCheck( 'oldid' ) && !$request->getCheck( 'diff' ) )
+		) {
+			return;
+		}
+		$content_navigation['views']['view']['class'] = false;
 	}
 
 	/**
