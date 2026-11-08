@@ -98,7 +98,45 @@ class SkinFemiwiki extends SkinMustache {
 		if ( !$this->getOutput()->isTOCEnabled() || empty( $data['data-toc']['array-sections'] ) ) {
 			return null;
 		}
-		return $data['data-toc'];
+		$toc = $data['data-toc'];
+		$limit = self::findTocLimit( $data['html-body-content'] ?? '' );
+		if ( $limit !== null ) {
+			$toc['array-sections'] = self::limitTocSections( $toc['array-sections'], $limit );
+		}
+		return $toc;
+	}
+
+	/**
+	 * Pages limit the depth of their ToC by wrapping __TOC__ in <div class="toclimit-N">, as
+	 * Template:TOC limit does. Its styles only reach a ToC inside the content, so the skin reads
+	 * the class itself.
+	 *
+	 * @param string $html
+	 * @return int|null The first heading level to leave out, or null for no limit
+	 */
+	public static function findTocLimit( string $html ): ?int {
+		if ( preg_match( '/\bclass="(?:[^"]*\s)?toclimit-([2-7])(?:\s[^"]*)?"/', $html, $m ) ) {
+			return (int)$m[1];
+		}
+		return null;
+	}
+
+	/**
+	 * @param array[] $sections Sections as in data-toc
+	 * @param int $limit The first ToC level to leave out
+	 * @return array[]
+	 */
+	public static function limitTocSections( array $sections, int $limit ): array {
+		$kept = [];
+		foreach ( $sections as $section ) {
+			if ( ( $section['toclevel'] ?? 1 ) >= $limit ) {
+				continue;
+			}
+			$section['array-sections'] = self::limitTocSections( $section['array-sections'] ?? [], $limit );
+			$section['is-parent-section'] = $section['array-sections'] !== [];
+			$kept[] = $section;
+		}
+		return $kept;
 	}
 
 	/**
