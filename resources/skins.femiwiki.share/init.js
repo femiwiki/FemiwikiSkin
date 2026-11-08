@@ -3,10 +3,39 @@
 
 	let windowManager, shareDialog;
 
+	// mediawiki.page.ready exports share() from MediaWiki 1.47 on. It opens the
+	// browser's share sheet and copies the link with a notification.
+	const coreShare = require("mediawiki.page.ready").share;
+
+	const config = require("./config.json");
+
+	/**
+	 * @return {string} The URL to share
+	 */
+	function getShareUrl() {
+		const pageId = mw.config.get("wgArticleId");
+		if (!config.FemiwikiShareByPageId || !pageId) {
+			return window.location.href;
+		}
+		const url = new URL(mw.config.get("wgScript"), window.location.href);
+		url.searchParams.set("curid", String(pageId));
+		return url.toString();
+	}
+
 	function share() {
+		const url = getShareUrl();
+		if (coreShare) {
+			coreShare({
+				url,
+				title: mw.config.get("wgPageName").replace(/_/g, " "),
+			});
+			return;
+		}
+
+		// TODO: Remove the code below once MediaWiki 1.47 is required
 		if (navigator.share) {
 			navigator.share({
-				url: window.location.href,
+				url,
 				title: mw.config.get("wgPageName").replace(/_/g, " "),
 			});
 			return;
@@ -21,7 +50,7 @@
 			}
 
 			windowManager.openWindow(shareDialog, {
-				url: window.location.href,
+				url,
 				actions: [
 					{
 						action: "accept",

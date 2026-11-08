@@ -120,7 +120,14 @@
       "scripts": ["mw.fw.js"]
     },
     "skins.femiwiki.share": {
-      "packageFiles": ["skins.femiwiki.share/init.js"]
+      "dependencies": ["mediawiki.page.ready"],
+      "packageFiles": [
+        "skins.femiwiki.share/init.js",
+        {
+          "name": "skins.femiwiki.share/config.json",
+          "config": ["FemiwikiShareByPageId"]
+        }
+      ]
     },
     "skins.femiwiki.share.ui": {
       "scripts": [
@@ -336,6 +343,10 @@
     "FemiwikiOpenTopicDays": {
       "value": 30,
       "description": "@var int The talk tab shows the open-topic icon when a topic has a comment from the last this many days."
+    },
+    "FemiwikiShareByPageId": {
+      "value": false,
+      "description": "@var boolean If set to true, the share button shares index.php?curid=<page ID> instead of the page URL. The link has no percent-encoded title and still works after the page is moved."
     }
   },
   "attributes": {
