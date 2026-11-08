@@ -7,6 +7,22 @@
 @site-menu-inset: 0.3rem;
 @site-menu-popover-right: ~"calc(@{site-menu-right} - @{site-menu-inset})";
 
+// Shown over the top bar only while it has the focus, as in Vector
+.mw-jump-link {
+	position: absolute;
+	top: 0.3rem;
+	left: 0.3rem;
+	z-index: @z-index-sticky + 1;
+	padding: 0.5rem 1rem;
+	background-color: @background-color-base;
+	border-radius: @border-radius-control;
+	box-shadow: @box-shadow-medium;
+
+	&:not(:focus) {
+		.mixin-screen-reader-text();
+	}
+}
+
 .nav-bar {
 	@height: @height-nav-bar;
 	height: @height;
