@@ -140,6 +140,7 @@
   "ResourceModuleSkinStyles": {
     "femiwiki": {
       "+ext.achievementbadges.special.achievements.styles": "skins.femiwiki.moduleSkinStyles/ext.achievementbadges.special.achievements.styles.less",
+      "+ext.achievementbadges.special.shareachievement.styles": "skins.femiwiki.moduleSkinStyles/ext.achievementbadges.special.shareachievement.styles.less",
       "+ext.CodeMirror.mode.mediawiki": "skins.femiwiki.moduleSkinStyles/ext.CodeMirror.mode.mediawiki.less",
       "+ext.CollaborationKit.hub.styles": "skins.femiwiki.moduleSkinStyles/ext.CollaborationKit.hub.less",
       "+ext.DarkMode.styles": "skins.femiwiki.moduleSkinStyles/ext.DarkMode.styles.less",

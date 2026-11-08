@@ -1,0 +1,118 @@
+@import "../variables.less";
+
+// Special:ShareAchievement as one medal card, like the cards on Special:Achievements:
+// https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
+.mw-special-ShareAchievement #mw-content-text {
+	display: flex;
+	flex-direction: column;
+	max-width: 26rem;
+	margin: @spacing-150 auto 0;
+	padding: @spacing-200 @spacing-150 @spacing-150;
+	text-align: center;
+	.surface();
+
+	.message {
+		order: 0;
+		margin: 0 0 @spacing-125;
+		color: @color-subtle;
+		font-size: 0.95em;
+	}
+
+	.achievement-icon {
+		order: 1;
+		width: 9em;
+		margin: 0 auto;
+		border-radius: 50%;
+		// A halo around the round medal
+		box-shadow:
+			0 0 0 0.6em fade(@palette-primary1, 35%),
+			0 0 0 1.2em fade(@palette-primary1, 15%);
+	}
+
+	.achievement-name {
+		order: 2;
+		margin: @spacing-200 0 @spacing-50;
+		font-size: 1.7em;
+	}
+
+	.achievement-description {
+		order: 3;
+		font-size: 0.95em;
+	}
+
+	// The share links are the only thing under it, so the heading says nothing more
+	.share-achievement {
+		display: none;
+	}
+
+	.share-media {
+		order: 4;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: @spacing-50;
+		margin: @spacing-150 0 0;
+
+		li {
+			margin: 0;
+		}
+
+		a {
+			display: inline-flex;
+			align-items: center;
+			gap: @spacing-35;
+			min-height: 2.5em;
+			padding: 0 @spacing-125;
+			border-radius: 999px;
+			background-color: var(--background-color-button-tonal);
+			color: var(--color-button-tonal);
+			font-weight: bold;
+			text-decoration: none;
+
+			&:hover {
+				background-color: var(--background-color-button-tonal--hover);
+			}
+
+			&:active {
+				background-color: var(--background-color-button-tonal--active);
+			}
+		}
+
+		// The core share() button, MediaWiki 1.47 and later
+		#share-achievement-share {
+			background-color: @palette-primary4;
+			color: @color-base100;
+
+			&:hover,
+			&:active {
+				background-color: @palette-primary5;
+			}
+
+			&::before {
+				content: "";
+				width: 1.1em;
+				height: 1.1em;
+				background-color: currentcolor;
+				mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M12 6V2l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11'/%3E%3C/svg%3E")
+					center / contain no-repeat;
+			}
+		}
+	}
+
+	.achievement-suggestion {
+		order: 5;
+		margin-top: @spacing-150;
+		border-top: 1px solid @border-color-muted;
+		padding-top: @spacing-125;
+		color: @color-subtle;
+		font-size: 0.9em;
+
+		p {
+			margin: @spacing-25 0;
+		}
+	}
+
+	.printfooter {
+		order: 6;
+	}
+}
