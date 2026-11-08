@@ -3,7 +3,20 @@
 
 	let windowManager, shareDialog;
 
+	// mediawiki.page.ready exports share() from MediaWiki 1.47 on. It opens the
+	// browser's share sheet and copies the link with a notification.
+	const coreShare = require("mediawiki.page.ready").share;
+
 	function share() {
+		if (coreShare) {
+			coreShare({
+				url: window.location.href,
+				title: mw.config.get("wgPageName").replace(/_/g, " "),
+			});
+			return;
+		}
+
+		// TODO: Remove the code below once MediaWiki 1.47 is required
 		if (navigator.share) {
 			navigator.share({
 				url: window.location.href,

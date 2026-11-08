@@ -120,6 +120,7 @@
       "scripts": ["mw.fw.js"]
     },
     "skins.femiwiki.share": {
+      "dependencies": ["mediawiki.page.ready"],
       "packageFiles": ["skins.femiwiki.share/init.js"]
     },
     "skins.femiwiki.share.ui": {
