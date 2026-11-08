@@ -11,6 +11,7 @@
     <div class="right-buttons">
       {{#data-page-toc}}
       <label id="fw-toc-toggle"
+        role="button"
         class="mw-checkbox-hack-button fw-button"
         for="fw-toc-checkbox"
         aria-controls="fw-toc"
@@ -18,6 +19,7 @@
       {{/data-page-toc}}
       {{#data-special-nav}}
       <label id="fw-special-nav-toggle"
+        role="button"
         class="mw-checkbox-hack-button fw-button"
         for="fw-special-nav-checkbox"
         aria-controls="p-associated-pages"
@@ -26,6 +28,7 @@
       {{{html-share-button}}}
       {{>Indicator}}
       <label id="p-menu-toggle"
+        role="button"
         class="mw-ui-icon-ellipsis mw-checkbox-hack-button fw-button"
         title="{{msg-skin-femiwiki-page-menu-tooltip}}"
         for="fw-page-menu-checkbox"
