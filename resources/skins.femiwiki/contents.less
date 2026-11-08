@@ -418,6 +418,19 @@ a.extiw {
 	.interwiki-logo("wikibooks.org", @cdx-icon-logo-wikibooks);
 	.interwiki-logo("wikinews.org", @cdx-icon-logo-wikinews);
 	.interwiki-logo("wikiquote.org", @cdx-icon-logo-wikiquote);
+
+	// Wikibase marks every link to its repository as interwiki, even when this wiki is the
+	// repository, as on Special:RecentChanges. A link back to this wiki doesn't leave it.
+	.same-wiki-link(@host) when not (@host = "") {
+		&[href^="//@{host}/"],
+		&[href^="https://@{host}/"],
+		&[href^="http://@{host}/"] {
+			&::after {
+				content: none;
+			}
+		}
+	}
+	.same-wiki-link(@fw-server-host);
 	.interwiki-logo("wikisource.org", @cdx-icon-logo-wikisource);
 	.interwiki-logo("wikiversity.org", @cdx-icon-logo-wikiversity);
 	.interwiki-logo("wikivoyage.org", @cdx-icon-logo-wikivoyage);
