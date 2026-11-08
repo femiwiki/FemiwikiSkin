@@ -147,16 +147,29 @@
 	}
 }
 
-.mw-notification-area {
+// Notifications float over the page like popups: https://femiwiki.com/w/페미위키:2026년_디자인_가이드#모서리와_깊이
+// Below the top bar, with room for the shadow. body outweighs core's rules, which load later.
+body .mw-notification-area {
+	top: @height-nav-bar;
 	width: auto;
 	max-width: 16rem;
-	padding: 0;
+	padding: 0.5rem;
 	line-height: inherit;
 	cursor: pointer;
 
 	.mw-notification {
-		background-color: @color-alert;
-		border: solid 1px @color-alert-border;
+		padding: 0.75em 1em;
+		// Core breaks anywhere; Korean breaks between words like the rest of the skin
+		word-break: keep-all;
+		overflow-wrap: anywhere;
+		border-radius: @border-radius-control;
+		box-shadow: @box-shadow-surface;
+	}
+
+	// Typed ones (warn, error, success, notice) keep core's Codex message colours
+	.mw-notification:not([class*="mw-notification-type-"]) {
+		border-color: @border-color-surface;
+		background-color: @background-color-surface;
 	}
 }
 
