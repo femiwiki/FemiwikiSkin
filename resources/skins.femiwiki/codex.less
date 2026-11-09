@@ -55,15 +55,11 @@
 	margin-bottom: @spacing-50;
 }
 
-// On a tinted message face the body link colour drops under 4.5:1 (#736ac9 on warning #fdf2d5 is 4.07:1),
-// so links there use 보라 5 and, too close to the text colour for G183, the skin's hover underline.
-.cdx-message--notice,
-.cdx-message--warning,
-.cdx-message--error,
-.cdx-message--success {
-	--color-link-text: @color-primary5;
-
-	a:not(.cdx-button) {
-		border-bottom: 1px solid;
-	}
+// The old-revision box is almost all links, and no link colour clears both 4.5:1 on a tinted face and
+// 3:1 against the text, so it drops the face and keeps the warning as a left line, like 틀:알림 상자.
+:root .mw-revision.cdx-message {
+	padding: 0.1em 0 0.1em 0.9em;
+	border-width: 0 0 0 3px;
+	border-radius: 0;
+	background-color: transparent;
 }
