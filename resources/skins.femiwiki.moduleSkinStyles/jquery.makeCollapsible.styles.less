@@ -1,0 +1,33 @@
+@import "../variables.less";
+
+// Core's pre-script placeholder, drawn as the same button so nothing reflows when the script runs.
+// @msg-collapsible-* come from this module's lessMessages.
+@exclude: ~".mw-made-collapsible";
+
+.client-js {
+	.mw-collapsible:not(@{exclude}) .mw-collapsible-toggle-placeholder::before,
+	ol.mw-collapsible:not(@{exclude})::before,
+	ul.mw-collapsible:not(@{exclude})::before,
+	table.mw-collapsible:not(@{exclude})
+		:first-child
+		tr:first-child
+		th:last-child::before,
+	table.mw-collapsible:not(@{exclude}) > caption:first-child::after,
+	div.mw-collapsible:not(@{exclude})::before {
+		.collapsible-toggle();
+		// Room for the chevron the button draws before its text
+		padding-left: calc(0.8em + 0.75em + 0.3em);
+		content: "@{msg-collapsible-collapse}";
+	}
+
+	.mw-collapsed:not(@{exclude}) .mw-collapsible-toggle-placeholder::before,
+	td.mw-collapsed:not(@{exclude})::before,
+	table.mw-collapsed:not(@{exclude})
+		:first-child
+		tr:first-child
+		th:last-child::before,
+	table.mw-collapsed:not(@{exclude}) > caption:first-child::after,
+	div.mw-collapsed:not(@{exclude})::before {
+		content: "@{msg-collapsible-expand}";
+	}
+}
