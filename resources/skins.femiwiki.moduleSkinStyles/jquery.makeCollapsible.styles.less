@@ -1,4 +1,6 @@
-// Core's pre-script placeholder, without the brackets the toggle no longer has, so nothing reflows.
+@import "../variables.less";
+
+// Core's pre-script placeholder, drawn as the same button so nothing reflows when the script runs.
 // @msg-collapsible-* come from this module's lessMessages.
 @exclude: ~".mw-made-collapsible";
 
@@ -12,8 +14,8 @@
 		th:last-child::before,
 	table.mw-collapsible:not(@{exclude}) > caption:first-child::after,
 	div.mw-collapsible:not(@{exclude})::before {
+		.collapsible-toggle();
 		content: "@{msg-collapsible-collapse}";
-		padding: 0 0 0 0.5em;
 	}
 
 	.mw-collapsed:not(@{exclude}) .mw-collapsible-toggle-placeholder::before,
