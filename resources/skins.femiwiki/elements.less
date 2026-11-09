@@ -54,25 +54,13 @@ pre {
 	white-space: pre-wrap;
 }
 
-// A quote is body text, so no coloured box (design guide, 옅은 색 면); a large quote mark sets it off.
+// A quote is body text, so no coloured box (design guide, 옅은 색 면); a grey line sets it off.
 blockquote {
-	position: relative;
-	padding: 0 1rem 0 2.4rem;
+	padding: 0 1rem 0 1em;
 	margin: 1em 0;
 	overflow: hidden;
 	border: none;
-
-	&::before {
-		content: "\201C";
-		position: absolute;
-		top: 0;
-		left: 0.2rem;
-		font-family: Georgia, serif;
-		font-size: 2.6rem;
-		font-weight: bold;
-		line-height: 1;
-		color: @color-subtle;
-	}
+	border-left: 3px solid @border-color-subtle;
 }
 
 th,
