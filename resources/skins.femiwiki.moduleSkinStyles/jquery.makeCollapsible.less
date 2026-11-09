@@ -3,9 +3,22 @@
 // The toggle acts in place, so it is a neutral button (design guide, 모서리와 깊이), not a bracketed link.
 .mw-collapsible-toggle-default {
 	.collapsible-toggle();
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
 	cursor: pointer;
 
-	&::before,
+	// The chevron shows that something is folded away, and which way the button goes
+	&::before {
+		content: "";
+		.cdx-mixin-css-icon(@cdx-icon-expand, currentcolor, 0.75em);
+		opacity: 0.65;
+	}
+
+	&[aria-expanded="true"]::before {
+		.cdx-mixin-css-icon-background-image(@cdx-icon-collapse, currentcolor);
+	}
+
 	&::after {
 		content: none;
 	}
