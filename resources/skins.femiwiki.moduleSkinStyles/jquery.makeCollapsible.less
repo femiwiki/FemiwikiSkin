@@ -1,0 +1,10 @@
+// The expand and collapse toggles drop core's square brackets: the link colour already says the
+// word can be pressed. A little side padding makes the target wider than the bare word.
+.mw-collapsible-toggle-default {
+	padding: 0 0.25em;
+
+	&::before,
+	&::after {
+		content: none;
+	}
+}

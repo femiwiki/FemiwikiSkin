@@ -176,6 +176,8 @@
       "+ext.visualEditor.core": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.core.less",
       "+ext.visualEditor.desktopTarget": "skins.femiwiki.moduleSkinStyles/ext.visualEditor.desktopTarget.less",
       "+ext.WikidataPageBanner": "skins.femiwiki.moduleSkinStyles/ext.WikidataPageBanner.less",
+      "+jquery.makeCollapsible": "skins.femiwiki.moduleSkinStyles/jquery.makeCollapsible.less",
+      "+jquery.makeCollapsible.styles": "skins.femiwiki.moduleSkinStyles/jquery.makeCollapsible.styles.less",
       "+mediawiki.action.edit.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.edit.styles.less",
       "+mediawiki.action.view.categoryPage.styles": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.categoryPage.styles.less",
       "+mediawiki.action.view.filepage": "skins.femiwiki.moduleSkinStyles/mediawiki.action.view.filepage.less",
