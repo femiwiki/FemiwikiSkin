@@ -54,3 +54,12 @@
 .mw-body-content .cdx-message--block {
 	margin-bottom: @spacing-50;
 }
+
+// The old-revision box is almost all links, and no link colour clears both 4.5:1 on a tinted face and
+// 3:1 against the text, so it drops the face and keeps the warning as a left line, like 틀:알림 상자.
+:root .mw-revision.cdx-message {
+	padding: 0.1em 0 0.1em 0.9em;
+	border-width: 0 0 0 3px;
+	border-radius: 0;
+	background-color: transparent;
+}
