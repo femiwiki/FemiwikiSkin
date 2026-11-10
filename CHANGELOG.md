@@ -2,6 +2,30 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.3.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.2.0...v6.3.0) (2026-11-09)
+
+
+### Features
+
+* add a "Jump to content" link for keyboard users ([#1236](https://github.com/femiwiki/FemiwikiSkin/issues/1236)) ([06f986e](https://github.com/femiwiki/FemiwikiSkin/commit/06f986e1196c1a883309fff136235c24fa136ddd))
+* **i18n:** Localisation updates from https://translatewiki.net. ([#1214](https://github.com/femiwiki/FemiwikiSkin/issues/1214)) ([278288f](https://github.com/femiwiki/FemiwikiSkin/commit/278288f7f1ff689e658129ad2f2f0a76eab351d7))
+* link back to the current page on old revisions and diffs ([#1231](https://github.com/femiwiki/FemiwikiSkin/issues/1231)) ([40ed58a](https://github.com/femiwiki/FemiwikiSkin/commit/40ed58a518cf929a4f8d7c62e73ea9ddbed9e1c0))
+* Show Special:Achievements as a showcase of medal cards ([#1218](https://github.com/femiwiki/FemiwikiSkin/issues/1218)) ([5b635e4](https://github.com/femiwiki/FemiwikiSkin/commit/5b635e4ae7ebef3b69d559d80dde5783b0646279))
+* use core share() on MediaWiki 1.47 ([#1228](https://github.com/femiwiki/FemiwikiSkin/issues/1228)) ([eee0bdf](https://github.com/femiwiki/FemiwikiSkin/commit/eee0bdf0e486c1ee26106524c3f375da0a76a8f1))
+
+
+### Bug Fixes
+
+* draw expand and collapse toggles as neutral buttons ([#1239](https://github.com/femiwiki/FemiwikiSkin/issues/1239)) ([70c4965](https://github.com/femiwiki/FemiwikiSkin/commit/70c4965b8ba8be2359aa7eb26c1a8cb111812b19))
+* draw the old-revision box without a tinted face ([#1240](https://github.com/femiwiki/FemiwikiSkin/issues/1240)) ([2db7346](https://github.com/femiwiki/FemiwikiSkin/commit/2db7346f9b5e4649cc01f1158148a979d3f0b302))
+* drop the globe on Wikibase links back to this wiki ([#1233](https://github.com/femiwiki/FemiwikiSkin/issues/1233)) ([1d01492](https://github.com/femiwiki/FemiwikiSkin/commit/1d01492b911914523a7cddbbe9dbfe3c7aa6facc))
+* even out the spacing around the site notice ([#1242](https://github.com/femiwiki/FemiwikiSkin/issues/1242)) ([57d4a04](https://github.com/femiwiki/FemiwikiSkin/commit/57d4a0496fc7b21c7b2a1fc625421d63b744491a))
+* fit full-size images to the content column ([#1224](https://github.com/femiwiki/FemiwikiSkin/issues/1224)) ([ec363a8](https://github.com/femiwiki/FemiwikiSkin/commit/ec363a8041b753de744022557ce42cbe8fd7f3b7))
+* Import MobileFrontend's fakeToolbar.less from its new path too ([#1219](https://github.com/femiwiki/FemiwikiSkin/issues/1219)) ([1968270](https://github.com/femiwiki/FemiwikiSkin/commit/196827090e42c92f091321fef73f647d93e6ca84))
+* keep the watchlist popup inside the screen on mobile ([#1223](https://github.com/femiwiki/FemiwikiSkin/issues/1223)) ([9642cca](https://github.com/femiwiki/FemiwikiSkin/commit/9642ccab7a5609237379dfb324a36a7a767d1c9b))
+* name the main menu button ([#1235](https://github.com/femiwiki/FemiwikiSkin/issues/1235)) ([1cf6794](https://github.com/femiwiki/FemiwikiSkin/commit/1cf6794619b5aefccd2a6cf9fb279bd2b689c428))
+* open the menus and the contents from the keyboard ([#1234](https://github.com/femiwiki/FemiwikiSkin/issues/1234)) ([2696a1a](https://github.com/femiwiki/FemiwikiSkin/commit/2696a1a69c772ac267f5623146691eb63d8de722))
+
 ## [6.2.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.1.0...v6.2.0) (2026-11-02)
 
 
