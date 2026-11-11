@@ -18,7 +18,6 @@ class DiscussionStatus {
 		$registry = ExtensionRegistry::getInstance();
 		return [
 			'useDiscussionTools' => $registry->isLoaded( 'DiscussionTools' ),
-			'useFlow' => $registry->isLoaded( 'Flow' ),
 			'openTopicDays' => $config->get( 'FemiwikiOpenTopicDays' ),
 		];
 	}

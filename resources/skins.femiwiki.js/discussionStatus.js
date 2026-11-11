@@ -1,4 +1,4 @@
-/** @type {{useDiscussionTools: boolean, useFlow: boolean, openTopicDays: number}} */
+/** @type {{useDiscussionTools: boolean, openTopicDays: number}} */
 // @ts-expect-error Virtual file from skin.json
 const config = require("./config.json");
 
@@ -21,32 +21,6 @@ function showStatus(num, open) {
 	if (open) {
 		talk.classList.add("has-open-topic");
 	}
-}
-
-/**
- * @param {string} talkName
- */
-function showFlowStatus(talkName) {
-	new mw.Api()
-		.get({
-			action: "flow",
-			page: talkName,
-			submodule: "view-topiclist",
-			vtllimit: 10,
-		})
-		.done((data) => {
-			const topiclist = data.flow["view-topiclist"].result.topiclist;
-			const revisions = topiclist.revisions;
-
-			let locked = 0;
-			for (const key in revisions) {
-				if (revisions[key].changeType === "lock-topic") locked++;
-			}
-
-			// Only the latest 10 topics are fetched
-			const num = topiclist.roots.length;
-			showStatus(num > 9 ? "9+" : num, num - locked > 0);
-		});
 }
 
 /**
@@ -90,7 +64,7 @@ function init() {
 	if (talk.classList.contains("new")) {
 		return;
 	}
-	if (!config.useDiscussionTools && !config.useFlow) {
+	if (!config.useDiscussionTools) {
 		return;
 	}
 	const talkName = talkPage.getPrefixedText();
@@ -103,9 +77,7 @@ function init() {
 		})
 		.done((data) => {
 			const contentModel = data.query.pages[0].contentmodel;
-			if (config.useFlow && contentModel === "flow-board") {
-				showFlowStatus(talkName);
-			} else if (config.useDiscussionTools && contentModel === "wikitext") {
+			if (contentModel === "wikitext") {
 				showWikitextStatus(talkName);
 			}
 		});
