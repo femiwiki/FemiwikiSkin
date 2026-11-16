@@ -2,8 +2,9 @@
 @import "mediawiki.mixins.less";
 
 @nav-bar-content-width: @content-width - 1.3rem;
-// The menu button's right edge, at the end of the centred #mw-navigation
-@site-menu-right: ~"max(0px, (100% - @{nav-bar-content-width}) / 2)";
+// The menu button's right edge, at the end of the centred #mw-navigation. Wide pages widen the bar
+// through --fw-nav-bar-content-width (wide-content.less).
+@site-menu-right: ~"max(0px, (100% - var(--fw-nav-bar-content-width, @{nav-bar-content-width})) / 2)";
 @site-menu-inset: 0.3rem;
 @site-menu-popover-right: ~"calc(@{site-menu-right} - @{site-menu-inset})";
 
