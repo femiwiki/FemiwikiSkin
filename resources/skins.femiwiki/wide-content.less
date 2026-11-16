@@ -1,9 +1,14 @@
 @import "../variables.less";
 
+@nav-bar-content-width-wide: @content-width-wide - 1.3rem;
+
 // Pages that HookHandler/Width.php marks, such as special pages and diffs
 .fw-wide-content {
+	// Also read by the site menu popover to line up with the menu button (interface-gnb.less)
+	--fw-nav-bar-content-width: @nav-bar-content-width-wide;
+
 	.nav-bar #mw-navigation {
-		max-width: @content-width-wide - 1.3rem;
+		max-width: var(--fw-nav-bar-content-width);
 
 		// Fill the wider bar, as the search form does on other pages
 		#p-search .fw-typeahead-search-container {
