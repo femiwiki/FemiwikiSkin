@@ -1,0 +1,62 @@
+@import "../variables.less";
+
+// "더 둘러보기" of UnifiedExtensionForFemiwiki, in the same look as the
+// RelatedArticles cards (ext.relatedArticles.readMore.less)
+.fw-explore {
+	border-top-color: @border-color-subtle;
+}
+
+.fw-explore-list {
+	.fw-explore-item:hover .cdx-card__text__title {
+		color: @color-link;
+	}
+
+	// Phones: a plain list split by lines, flush with the text, like a list
+	// of links rather than a stack of boxes.
+	@media (max-width: @max-width-breakpoint-mobile) {
+		gap: 0;
+
+		li + li {
+			border-top: 1px solid @border-color-subtle;
+		}
+
+		.cdx-card,
+		.cdx-card:hover {
+			align-items: center;
+			padding: @spacing-75 0;
+			border: 0;
+			border-radius: 0;
+			background-color: transparent;
+			box-shadow: none;
+		}
+
+		.cdx-thumbnail__image,
+		.cdx-thumbnail__placeholder {
+			border-radius: @border-radius-control;
+		}
+	}
+
+	// Wider screens: raised cards in two columns.
+	@media (min-width: @min-width-breakpoint-tablet) {
+		grid-template-columns: repeat(2, 1fr);
+
+		.cdx-card,
+		.cdx-card:hover {
+			.surface();
+		}
+
+		.cdx-thumbnail__image,
+		.cdx-thumbnail__placeholder {
+			border-radius: 0;
+		}
+	}
+}
+
+// The line between items goes between batches too
+@media (max-width: @max-width-breakpoint-mobile) {
+	.fw-explore-batches > ul + ul,
+	.fw-explore-batches:not(:empty) + .fw-explore-pending {
+		margin-top: 0;
+		border-top: 1px solid @border-color-subtle;
+	}
+}
