@@ -1,31 +1,58 @@
 @import "../variables.less";
 
-// Raised cards, flush with the content.
 .read-more-container-card-list {
 	margin: 0;
 	padding: 0;
-	gap: @spacing-75;
 
-	.cdx-card,
-	a:hover .cdx-card {
-		.surface();
-	}
-
-	.cdx-thumbnail__image,
-	.cdx-thumbnail__placeholder {
-		border-radius: 0;
+	// Korean breaks between words like the rest of the skin
+	.cdx-card__text {
+		word-break: keep-all;
 	}
 
 	a:hover .cdx-card__text__title {
 		color: @color-link;
 	}
 
+	// Phones: a plain list split by lines, flush with the text, like a list
+	// of links rather than a stack of boxes.
+	@media (max-width: @max-width-breakpoint-mobile) {
+		gap: 0;
+
+		li + li {
+			border-top: 1px solid @border-color-subtle;
+		}
+
+		.cdx-card,
+		a:hover .cdx-card {
+			align-items: center;
+			padding: @spacing-75 0;
+			border: 0;
+			border-radius: 0;
+			background-color: transparent;
+			box-shadow: none;
+		}
+
+		.cdx-thumbnail__image,
+		.cdx-thumbnail__placeholder {
+			border-radius: @border-radius-control;
+		}
+	}
+
+	// Wider screens: raised cards in two columns.
 	@media (min-width: @min-width-breakpoint-tablet) {
 		grid-template-columns: repeat(2, 1fr);
+		gap: @spacing-75;
 
-		.cdx-card {
+		.cdx-card,
+		a:hover .cdx-card {
+			.surface();
 			height: 100%;
 			box-sizing: border-box;
+		}
+
+		.cdx-thumbnail__image,
+		.cdx-thumbnail__placeholder {
+			border-radius: 0;
 		}
 	}
 }
