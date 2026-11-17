@@ -1,13 +1,13 @@
 @import "../variables.less";
 
-// "더 둘러보기" of UnifiedExtensionForFemiwiki, in the same look as the
-// RelatedArticles cards (ext.relatedArticles.readMore.less)
-.fw-explore {
+// "더 둘러보기" of MoreToExplore (for now part of UnifiedExtensionForFemiwiki),
+// in the same look as the RelatedArticles cards (ext.relatedArticles.readMore.less)
+.moretoexplore {
 	border-top-color: @border-color-subtle;
 }
 
-.fw-explore-list {
-	.fw-explore-item:hover .cdx-card__text__title {
+.moretoexplore-list {
+	.moretoexplore-item:hover .cdx-card__text__title {
 		color: @color-link;
 	}
 
@@ -54,8 +54,8 @@
 
 // The line between items goes between batches too
 @media (max-width: @max-width-breakpoint-mobile) {
-	.fw-explore-batches > ul + ul,
-	.fw-explore-batches:not(:empty) + .fw-explore-pending {
+	.moretoexplore-batches > ul + ul,
+	.moretoexplore-batches:not(:empty) + .moretoexplore-pending {
 		margin-top: 0;
 		border-top: 1px solid @border-color-subtle;
 	}
