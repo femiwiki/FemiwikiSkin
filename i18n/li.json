@@ -1,0 +1,21 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ooswesthoesbes"
+		]
+	},
+	"skinname-femiwiki": "Femiwiki",
+	"femiwiki-desc": "Femiwiki-vormgaeving",
+	"skin-femiwiki-page-menu-tooltip": "Menu",
+	"skin-femiwiki-main-menu-tooltip": "Houfmenu",
+	"skin-femiwiki-jump-to-content": "Spring nao inhaad",
+	"skin-femiwiki-toc-top": "Baovenaan",
+	"skin-femiwiki-toc-close": "Sloet de inhaadsopgaaf",
+	"skin-femiwiki-pin-hide": "Versjtaek",
+	"skin-femiwiki-pin-show": "Versjuuf nao de ziejkantj",
+	"skin-femiwiki-search-close": "Sloet zeuke aaf",
+	"skin-femiwiki-share-tooltip": "Deil dit artikel",
+	"skin-femiwiki-share-dismiss": "Duuj weg",
+	"skin-femiwiki-share-twitter": "Twitter",
+	"prefs-femiwiki-large-elements-label": "Broek grótter óngerdeil"
+}
