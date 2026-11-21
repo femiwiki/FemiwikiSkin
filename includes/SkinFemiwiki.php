@@ -3,7 +3,6 @@
 namespace MediaWiki\Skins\Femiwiki;
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Skins\Femiwiki\HookHandler\Portlet;
 use OOUI\ButtonWidget;
 use OutputPage;
 use SkinMustache;
@@ -20,6 +19,9 @@ class SkinFemiwiki extends SkinMustache {
 
 	/** @var array|null The history tab, which is listed in the toolbox instead of the views */
 	private ?array $historyItem = null;
+
+	/** @var array|null The sidebar, once the skin has changed it */
+	private ?array $processedSidebar = null;
 
 	private const ACCOUNT_ACTION_IDS = [ 'pt-createaccount', 'pt-login', 'pt-login-private' ];
 
@@ -114,17 +116,32 @@ class SkinFemiwiki extends SkinMustache {
 	}
 
 	/**
-	 * Takes the history tab out of the views, where the skin does not show it, and turns the read
-	 * tab into a link back to the current page on old revisions and diffs.
+	 * Adds the skin's items and icons once every hook has run, takes the history tab out of the
+	 * views, where the skin does not show it, and turns the read tab into a link back to the
+	 * current page on old revisions and diffs.
 	 * @inheritDoc
 	 */
 	protected function runOnSkinTemplateNavigationHooks( SkinTemplate $skin, &$content_navigation ) {
 		parent::runOnSkinTemplateNavigationHooks( $skin, $content_navigation );
+		( new Portlet() )->processNavigation( $skin, $content_navigation );
 		if ( isset( $content_navigation['views']['history'] ) ) {
 			$this->historyItem = $content_navigation['views']['history'];
 			unset( $content_navigation['views']['history'] );
 		}
 		$this->unselectReadTab( $content_navigation );
+	}
+
+	/**
+	 * Removes site-scope tools and adds icons once every SidebarBeforeOutput handler has run.
+	 * @inheritDoc
+	 */
+	public function buildSidebar() {
+		if ( $this->processedSidebar === null ) {
+			$sidebar = parent::buildSidebar();
+			( new Portlet() )->processSidebar( $sidebar );
+			$this->processedSidebar = $sidebar;
+		}
+		return $this->processedSidebar;
 	}
 
 	/**

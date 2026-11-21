@@ -1,6 +1,6 @@
 <?php
 
-namespace MediaWiki\Skins\Femiwiki\HookHandler;
+namespace MediaWiki\Skins\Femiwiki;
 
 use ExtensionRegistry;
 use MediaWiki\Extension\Notifications\Controller\NotificationController;
@@ -8,15 +8,15 @@ use MediaWiki\Extension\Notifications\NotifUser;
 use MediaWiki\Extension\Notifications\SeenTime;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Skins\Femiwiki\Constants;
 use MediaWiki\Title\Title;
 use SkinTemplate;
 use SpecialPage;
 
-class Portlet implements
-	\MediaWiki\Hook\SidebarBeforeOutputHook,
-	\MediaWiki\Hook\SkinTemplateNavigation__UniversalHook
-	{
+/**
+ * Adds the skin's own items and icons to the menus. SkinFemiwiki calls it once every hook has
+ * changed the menus, so that the items extensions add are treated alike whatever their load order.
+ */
+class Portlet {
 
 	/**
 	 * Codex icons for menu items, by the item's `id`, its `icon` or its key.
@@ -184,16 +184,9 @@ class Portlet implements
 	}
 
 	/**
-	 * Note that this hook is called by all pages, including special pages.
-	 * @inheritDoc
-	 * @phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+	 * Changes the content navigation, after SkinTemplateNavigation::Universal.
 	 */
-	public function onSkinTemplateNavigation__Universal( $sktemplate, &$links ): void {
-		// phpcs:enable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
-		if ( $sktemplate->getSkinName() !== Constants::SKIN_NAME ) {
-			return;
-		}
-
+	public function processNavigation( SkinTemplate $sktemplate, array &$links ): void {
 		$this->addNotification( $sktemplate, $links );
 		$this->addMobileOptions( $sktemplate, $links );
 		$this->tweakWatchActions( $sktemplate, $links );
@@ -213,7 +206,7 @@ class Portlet implements
 	/**
 	 * Modifies the watch actions.
 	 */
-	public function tweakWatchActions( SkinTemplate $sktemplate, array &$links ): void {
+	private function tweakWatchActions( SkinTemplate $sktemplate, array &$links ): void {
 		$title = $sktemplate->getRelevantTitle();
 		if ( !$title || !$title->canExist() ) {
 			return;
@@ -277,13 +270,9 @@ class Portlet implements
 	}
 
 	/**
-	 * @inheritDoc
+	 * Changes the sidebar, after SidebarBeforeOutput.
 	 */
-	public function onSidebarBeforeOutput( $skin, &$sidebar ): void {
-		if ( $skin->getSkinName() !== Constants::SKIN_NAME ) {
-			return;
-		}
-
+	public function processSidebar( array &$sidebar ): void {
 		// Removes site-scope tools so that only page-scope tools are shown.
 		foreach ( [ 'specialpages', 'upload' ] as $key ) {
 			if ( isset( $sidebar['TOOLBOX'][$key] ) ) {

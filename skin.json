@@ -229,8 +229,6 @@
   "Hooks": {
     "HtmlPageLinkRendererBegin": "default",
     "SkinPageReadyConfig": "default",
-    "SidebarBeforeOutput": "Portlet",
-    "SkinTemplateNavigation::Universal": "Portlet",
     "GetPreferences": ["SmallElements", "Pinning"],
     "OutputPageBodyAttributes": ["SmallElements", "Width"]
   },
@@ -240,9 +238,6 @@
       "services": [
         "ConfigFactory"
       ]
-    },
-    "Portlet": {
-      "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\Portlet"
     },
     "SmallElements": {
       "class": "MediaWiki\\Skins\\Femiwiki\\HookHandler\\SmallElements"
