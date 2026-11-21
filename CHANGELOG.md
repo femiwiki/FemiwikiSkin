@@ -2,6 +2,19 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.4.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.3.0...v6.4.0) (2026-11-21)
+
+
+### Features
+
+* show related and random articles as a plain list on phones ([#1248](https://github.com/femiwiki/FemiwikiSkin/issues/1248)) ([2c3d905](https://github.com/femiwiki/FemiwikiSkin/commit/2c3d905bd688323660ed915c95af30c388eefa25))
+* style the explore feed of UnifiedExtensionForFemiwiki like RelatedArticles ([#1249](https://github.com/femiwiki/FemiwikiSkin/issues/1249)) ([789d4d9](https://github.com/femiwiki/FemiwikiSkin/commit/789d4d94c2477f1da60a9a50a820caf17602fb23))
+
+
+### Bug Fixes
+
+* line up the site menu with its button on wide pages ([#1246](https://github.com/femiwiki/FemiwikiSkin/issues/1246)) ([8c49260](https://github.com/femiwiki/FemiwikiSkin/commit/8c4926007ae2ac97e8656294e19130aef7e11bc3))
+
 ## [6.3.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.2.0...v6.3.0) (2026-11-09)
 
 
