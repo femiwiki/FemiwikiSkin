@@ -2,6 +2,13 @@
 
 Versions and bullets are arranged chronologically from latest to oldest.
 
+## [6.4.1](https://github.com/femiwiki/FemiwikiSkin/compare/v6.4.0...v6.4.1) (2026-11-26)
+
+
+### Bug Fixes
+
+* let long English words and inline code wrap on narrow screens ([#1256](https://github.com/femiwiki/FemiwikiSkin/issues/1256)) ([e88faad](https://github.com/femiwiki/FemiwikiSkin/commit/e88faadf604fd4bb5c7b9f555b53ddeee73665a3))
+
 ## [6.4.0](https://github.com/femiwiki/FemiwikiSkin/compare/v6.3.0...v6.4.0) (2026-11-21)
 
 
