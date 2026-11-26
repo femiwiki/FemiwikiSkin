@@ -227,13 +227,6 @@
 	}
 }
 
-.hyphens( ... ) {
-	-webkit-hyphens: @arguments;
-	-ms-hyphens: @arguments;
-	-moz-hyphens: @arguments;
-	hyphens: @arguments;
-}
-
 .full-width() {
 	box-sizing: border-box;
 	width: ~"calc(100% + @{content-horizontal-padding} * 2)";
@@ -485,7 +478,10 @@
 	*:lang(en) {
 		// https://femiwiki.com/w/Topic:W75xcdw9h9p3h5gt
 		word-break: normal;
-		.hyphens(none);
+		// Not core's .hyphens(none) mixin: it also sets overflow-wrap to normal,
+		// so long words and inline code would run off narrow screens.
+		-webkit-hyphens: none;
+		hyphens: none;
 	}
 
 	// Code keeps its monospace font; :where() adds no specificity.
