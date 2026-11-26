@@ -4,17 +4,27 @@
 			"DDPAT",
 			"Ice bulldog",
 			"Piramidion",
+			"Repakr",
 			"Ата"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
 	"femiwiki-desc": "Тема оформлення Femiwiki",
 	"skin-femiwiki-page-menu-tooltip": "Меню",
+	"skin-femiwiki-main-menu-tooltip": "Головне меню",
+	"skin-femiwiki-jump-to-content": "Перейти до вмісту",
+	"skin-femiwiki-toc-top": "Зверху",
+	"skin-femiwiki-toc-close": "Закрити зміст",
+	"skin-femiwiki-pin-hide": "Приховати",
+	"skin-femiwiki-pin-show": "Прикріпити збоку",
+	"skin-femiwiki-search-close": "Закрити пошук",
 	"skin-femiwiki-share-tooltip": "Поширити цю статтю",
 	"skin-femiwiki-share-dismiss": "Скасувати",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* Розміщений тут CSS-код буде використаний в темі оформлення Femiwiki */",
 	"femiwiki.js": "/* Розміщений тут код JavaScript буде завантажений для всіх користувачів, що використовують тему оформлення Femiwiki */",
 	"prefs-femiwiki-large-elements-label": "Використовуйте великі елементи",
-	"prefs-femiwiki-large-elements-help": "Ця опція дозволяє попередньо переглянути більші елементи. Елементи на екрані будуть замінені більшими."
+	"prefs-femiwiki-large-elements-help": "Ця опція дозволяє попередньо переглянути більші елементи. Елементи на екрані будуть замінені більшими.",
+	"skin-femiwiki-special-nav-label": "Пов'язані сторінки",
+	"skin-femiwiki-special-nav-close": "Закрити пов'язані сторінки"
 }

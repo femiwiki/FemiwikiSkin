@@ -2,20 +2,27 @@
 	"@metadata": {
 		"authors": [
 			"Eduardo Addad de Oliveira",
-			"Eduardoaddad"
+			"Eduardoaddad",
+			"Felipe L. Ewald"
 		]
 	},
 	"skinname-femiwiki": "Femiwiki",
 	"femiwiki-desc": "Femiwiki skin",
 	"skin-femiwiki-page-menu-tooltip": "Menu",
+	"skin-femiwiki-main-menu-tooltip": "Menu principal",
+	"skin-femiwiki-jump-to-content": "Ir para o conteúdo",
 	"skin-femiwiki-toc-top": "Topo",
+	"skin-femiwiki-toc-close": "Ocultar o índice",
 	"skin-femiwiki-pin-hide": "Ocultar",
+	"skin-femiwiki-pin-show": "Mover para o lado",
 	"skin-femiwiki-search-close": "Fechar busca",
-	"skin-femiwiki-share-tooltip": "Falha ao escrever uma sanção.",
+	"skin-femiwiki-share-tooltip": "Compartilhe este artigo",
 	"skin-femiwiki-share-dismiss": "Ignorar",
 	"skin-femiwiki-share-twitter": "Twitter",
 	"femiwiki.css": "/* CSS colocado aqui afetará os usuários do tema Femiwiki */",
 	"femiwiki.js": "/* Qualquer JavaScript aqui será carregado para usuários que usam o tema Femiwiki */",
 	"prefs-femiwiki-large-elements-label": "Usar elementos maiores",
-	"prefs-femiwiki-large-elements-help": "Esta opção permite pré-visualizar elementos maiores. Os elementos na tela serão substituídos por maiores."
+	"prefs-femiwiki-large-elements-help": "Esta opção permite pré-visualizar elementos maiores. Os elementos na tela serão substituídos por maiores.",
+	"skin-femiwiki-special-nav-label": "Páginas relacionadas",
+	"skin-femiwiki-special-nav-close": "Fechar as páginas relacionadas"
 }
